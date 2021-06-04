@@ -117,7 +117,7 @@
 								<p v-else>天禄电子竞技俱乐部</p>
 							</div>
 						</div>
-						<a href="#">{{"E-SPORT" | languageswitch("电子竞技",long)}}</a>
+						<a @click="toBaZhuayu">{{"E-SPORT" | languageswitch("电子竞技",long)}}</a>
 					</div>
 					<div class="commodity">
 						<div class="commodity-top commodity-middle">
@@ -142,7 +142,7 @@
 								<p>{{"DING WU" | languageswitch("丁武",long)}}</p>
 							</div>
 						</div>
-						<a href="#">{{"MUSIC" | languageswitch("音乐",long)}}</a>
+						<a @click="toBaZhuayu">{{"MUSIC" | languageswitch("音乐",long)}}</a>
 					</div>
 					<div class="commodity">
 						<div class="commodity-top commodity-right">
@@ -167,13 +167,13 @@
 								<p>{{"DONGDONG XU" | languageswitch("徐冬冬",long)}}</p>
 							</div>
 						</div>
-						<a href="#">{{"CELEBRITIES" | languageswitch("明星艺人",long)}}</a>
+						<a @click="toBaZhuayu">{{"CELEBRITIES" | languageswitch("明星艺人",long)}}</a>
 					</div>
 				</div>
 				<div class="nft">
 					<img src="../../images/homePage/Group426.png" alt="">
 					<p>{{"Find more exclusive NFT at BAZHUAYU!" | languageswitch("在八爪娱平台探索更多精彩NFT内容！",long)}} </p>
-					<a href="#">{{"Discover More NFT" | languageswitch("即刻开始探索",long)}}</a>
+					<a>{{"Discover More NFT" | languageswitch("即刻开始探索",long)}}</a>
 				</div>
 			</div>
 			<div class="home-page-six" id="Service">
