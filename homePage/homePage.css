@@ -137,7 +137,7 @@
 .home-page .home-page-four {
   width: 100%;
   height: auto;
-  padding: 160px 10%;
+  padding: 160px 0;
   align-items: center;
   justify-content: space-between;
 }
