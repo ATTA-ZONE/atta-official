@@ -26,6 +26,9 @@
   div.home-page > div .home-page-four .image-left {
     height: auto;
   }
+  div.home-page > div .home-page-four .txt-middle {
+    font-size: 14px;
+  }
   div.home-page > div .home-page-four .txt-right {
     width: 90%;
     flex: none;
@@ -114,21 +117,27 @@
     height: auto !important;
   }
   .footer .footer-left p {
-    font-size: 18px !important;
-    line-height: 34px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+  .footer .footer-left img {
+    width: 100px !important;
   }
   .footer .footer-right {
-    margin-top: 70px !important;
+    margin-left: 20px;
   }
-  .footer .footer-right p {
-    font-size: 24px !important;
+  .footer .footer-right span {
+    font-size: 20px !important;
+    font-weight: bold;
+    display: block;
+    color: #fff;
   }
   .footer .footer-right div {
-    margin-top: 0 !important;
+    margin-top: 30px !important;
   }
   .footer .footer-right div img {
-    margin-top: 15px;
-    width: 45px !important;
-    height: 45px !important;
+    margin-top: 10px;
+    width: 30px !important;
+    height: 30px !important;
   }
 }
