@@ -31,7 +31,7 @@
 						<img @click="showMask=false" src="../../images/homePage/close.png" alt="">
 				</div>
 				<div class="header flex">
-					<img src="../../images/homePage/logo.png" alt="">
+					<img class="brandLogo" src="../../images/homePage/logo.png" alt="">
 					<img class="head-menu" @click="showMask=true" v-if="isMobile" src="../../images/homePage/menu.png" />
 					<div class="header-links" v-if="!isMobile">
 						<a href="#Introduction">{{"Introduction" | languageswitch("厂牌简介",long)}}</a>
