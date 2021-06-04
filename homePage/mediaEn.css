@@ -12,7 +12,8 @@
   }
   div.home-page > div > div {
     width: 100%;
-    padding: 0 22px !important;
+    margin-top: 12%;
+    padding: 0 22px 6% !important;
   }
   div.home-page > div .home-page-three img {
     width: auto !important;
