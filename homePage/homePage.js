@@ -64,6 +64,23 @@ var app = new Vue({
 		},
 		toBaZhuayu(){
 			window.open('https://www.bazhuayu.io/')
+		},
+		toPage(type){
+			if(type == 2){
+				window.open('https://weibo.com/attaofficial/')
+			}
+			if(type == 3){
+				window.open('https://twitter.com/atta_fun')
+			}
+			if(type == 4){
+				window.open('https://t.me/attaofficialeng1')
+			}
+			if(type == 5){
+				window.open('https://attaofficial.medium.com/')
+			}
+			if(type == 6){
+				window.open('https://www.instagram.com/atta.fun.official/')
+			}
 		}
 	},
 	filters: {

@@ -66,7 +66,8 @@
 			<div class="home-page-three flex" id="Upcoming">
 				<img src="../../images/homePage/logo01.png" />
 				<img src="../../images/homePage/logo02.png" />
-				<img src="../../images/homePage/logo03.jpg" />
+				<img src="../../images/homePage/logo03.png" />
+				<img src="../../images/homePage/logo04.png" />
 			</div>
 			<div class="home-page-four flex" id="">
 				<div class="image-left">
@@ -174,7 +175,7 @@
 				<div class="nft">
 					<img src="../../images/homePage/Group426.png" alt="">
 					<p>{{"Find more exclusive NFT at BAZHUAYU!" | languageswitch("在八爪娱平台探索更多精彩NFT内容！",long)}} </p>
-					<a>{{"Discover More NFT" | languageswitch("即刻开始探索",long)}}</a>
+					<a @click="toBaZhuayu">{{"Discover More NFT" | languageswitch("即刻开始探索",long)}}</a>
 				</div>
 			</div>
 			<div class="home-page-six" id="Service">
@@ -200,21 +201,21 @@
 					<img src="../../images/homePage/ch10.png" alt="">
 				</div>
 			</div>
-			<div class="footer flex">
+			<div class="footer flex" id="Service">
 				<div class="footer-left">
 					<img src="../images/homePage/logo.png" alt="">
-					<p v-if="long == 'en'">ATTA is a blockchain-based content<br/>> creator for premium copyright assets. </p>
+					<p v-if="long == 'en'">ATTA is a blockchain-based content<br/> creator for premium copyright assets. </p>
 					<p v-else>ATTA是基于区块链NFT技术构建的数字潮流品牌。 </p>
 				</div>
 				<div class="footer-right">
 					<p>{{"Focus on us" | languageswitch("关注我们",long)}}</p>
 					<div>
-						<img src="../images/homePage/footer01.png" alt="">
-						<img src="../images/homePage/footer02.png" alt="">
-						<img src="../images/homePage/footer03.png" alt="">
-						<img src="../images/homePage/footer04.png" alt="">
-						<img src="../images/homePage/footer05.png" alt="">
-						<img src="../images/homePage/footer06.png" alt="">
+						<img @click="toPage(1)" src="../images/homePage/footer01.png" alt="">
+						<img @click="toPage(2)" src="../images/homePage/footer02.png" alt="">
+						<img @click="toPage(3)" src="../images/homePage/footer03.png" alt="">
+						<img @click="toPage(4)" src="../images/homePage/footer04.png" alt="">
+						<img @click="toPage(5)" src="../images/homePage/footer05.png" alt="">
+						<img @click="toPage(6)" src="../images/homePage/footer06.png" alt="">
 					</div>
 				</div>
 			</div>
