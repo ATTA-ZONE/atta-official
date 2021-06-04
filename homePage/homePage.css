@@ -9,7 +9,8 @@
   left: 0;
   z-index: 999;
   padding: 10%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background: rgba(20, 20, 20, 0.48);
+  backdrop-filter: blur(30px);
 }
 .mask-container a {
   font-size: 14px;
@@ -124,6 +125,9 @@
   background-size: cover;
   position: relative;
   justify-content: center;
+}
+.home-page .home-page-two .page-two .page-two-en {
+  font-family: 'Hanson-Bold';
 }
 .home-page .home-page-two .page-two p {
   color: #fff;

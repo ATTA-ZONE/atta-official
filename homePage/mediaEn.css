@@ -15,12 +15,28 @@
     margin-top: 12%;
     padding: 0 22px 6% !important;
   }
+  div.home-page > div .home-page-one {
+    padding: 0 !important;
+  }
+  div.home-page > div .home-page-one .header-txt {
+    top: 80px;
+  }
+  div.home-page > div .home-page-two {
+    margin-top: 0;
+  }
+  div.home-page > div .home-page-two .page-two-en {
+    line-height: 22px;
+  }
   div.home-page > div .home-page-three {
     margin-top: 0 !important;
   }
   div.home-page > div .home-page-three img {
     width: auto !important;
     height: 16px !important;
+  }
+  div.home-page > div .home-page-three img:nth-child(3) {
+    width: 28px !important;
+    height: 28px !important;
   }
   div.home-page > div .home-page-four {
     flex-wrap: wrap;
