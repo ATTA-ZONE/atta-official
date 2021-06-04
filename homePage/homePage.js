@@ -12,7 +12,10 @@ var app = new Vue({
 		}
 	},
 	created(){
-		window.onresize = this.resizeWindow()
+		let self=this
+		window.onresize = function (){
+			self.resizeWindow()
+		}
 	},
 	mounted() {
 		this.long = this.getCookie("long") ? this.getCookie("long") : "en";
