@@ -19,27 +19,28 @@
 }
 .home-page > div {
   z-index: 10;
-  width: 1437px;
-  min-width: 1437px;
+  width: 100%;
 }
 .home-page .home-page-one {
   width: 100%;
-  height: 808px;
   background: url(../../images/homePage/homePage01.png) no-repeat center center;
   background-size: cover;
 }
 .home-page .home-page-one .header-txt {
+  width: 100%;
   text-align: center;
-  padding-top: 180px;
+  padding: 40px 20px;
+}
+.home-page .home-page-one .header-txt img {
+  width: 100%;
 }
 .home-page .home-page-one .header {
-  padding: 70px 20px 0;
+  padding: 70px 20px;
   width: 100%;
 }
 .home-page .home-page-one .header img {
   width: 147px;
   height: 38px;
-  margin-left: 127px;
 }
 .home-page .home-page-one .header p.switchlanguagebox {
   margin-right: 40px;
@@ -106,9 +107,12 @@
 .home-page .home-page-three {
   background: rgba(5, 5, 5, 0.48);
   width: 100%;
-  height: 269px;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+}
+.home-page .home-page-three img {
+  margin: 20px 0;
 }
 .home-page .home-page-three img:nth-child(1) {
   width: 313px;
@@ -124,9 +128,8 @@
 }
 .home-page .home-page-four {
   width: 100%;
-  padding-top: 167px;
   height: auto;
-  padding-left: 150px;
+  padding: 160px 10%;
 }
 .home-page .home-page-four .image-left {
   position: relative;
@@ -188,8 +191,7 @@
   color: #A8DEEE;
 }
 .home-page .home-page-five {
-  padding: 0 150px;
-  margin-top: 156px;
+  padding: 0 160px;
   position: relative;
 }
 .home-page .home-page-five > .img-search {
@@ -348,7 +350,7 @@
   justify-content: space-between;
 }
 .home-page .home-page-six .ntf-services img {
-  width: 360px;
-  height: 365px;
+  width: 310px;
+  height: 310px;
   margin-top: 34px;
 }

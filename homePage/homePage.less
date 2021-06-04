@@ -18,25 +18,26 @@
   }
   >div{ 
     z-index: 10;
-    width: 1437px;   
-    min-width: 1437px;
+    width: 100%;  
   }  
   .home-page-one{   
     width: 100%; 
-    height: 808px;
     background: url(../../images/homePage/homePage01.png) no-repeat center center;
     background-size:cover;
     .header-txt{
+      width: 100%;
       text-align: center;
-      padding-top: 180px;
+      padding: 40px 20px;
+      img {
+        width: 100%;
+      }
     }
     .header{
-      padding: 70px 20px 0;
+      padding: 70px 20px;
       width: 100%;
       img{
         width: 147px;
         height: 38px;
-        margin-left: 127px;
       }
       p.switchlanguagebox{
         margin-right: 40px;
@@ -112,9 +113,12 @@
   .home-page-three{
     background: rgba(5, 5, 5, 0.48);
     width: 100%;
-    height: 269px;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
+    img {
+      margin: 20px 0;
+    }
     img:nth-child(1){
       width: 313px;
       height: 23px;
@@ -130,9 +134,8 @@
   }
   .home-page-four{
     width: 100%;
-    padding-top: 167px;
     height: auto;
-    padding-left: 150px;
+    padding: 160px 10%;
     .image-left{
       position: relative;
       height: 673px;
@@ -197,8 +200,7 @@
     }
   }
   .home-page-five{
-    padding:0 150px;
-    margin-top: 156px;
+    padding:0 160px;
     position: relative;
     >.img-search{
       position: absolute;
@@ -357,8 +359,8 @@
       flex-wrap: wrap;
       justify-content: space-between;
       img{
-        width: 360px;
-        height: 365px;
+        width: 310px;
+        height: 310px;
         margin-top: 34px;
       }
     }
