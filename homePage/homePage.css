@@ -168,8 +168,8 @@
   height: 42px;
 }
 .home-page .home-page-three img:nth-child(3) {
-  width: 117px;
-  height: 28px;
+  width: 48px;
+  height: 48px;
 }
 .home-page .home-page-three img:nth-child(4) {
   width: 151px;
@@ -405,7 +405,6 @@
 }
 .home-page .home-page-six .ntf-services img {
   width: 30%;
-  min-width: 310px;
   height: auto;
   margin-top: 34px;
 }
