@@ -13,6 +13,7 @@ var app = new Vue({
 	},
 	created(){
 		let self=this
+		self.resizeWindow()
 		window.onresize = function (){
 			self.resizeWindow()
 		}
@@ -26,6 +27,8 @@ var app = new Vue({
 			let width = document.getElementsByTagName('body')[0].offsetWidth
 			if(width < 992){
 				this.isMobile = true
+			} else {
+				this.isMobile = false
 			}
 		},
 		imageHover(idx) {
