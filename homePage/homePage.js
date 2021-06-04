@@ -7,14 +7,24 @@ var app = new Vue({
 			tabs: ['我的藏品', '我的NFT', 'NFT操作記錄'],
 			imageIndex: 1,
 			long: "",
-			showHeadMenu: false
+			isMobile: false,
+			showMask: false
 		}
+	},
+	created(){
+		window.onresize = this.resizeWindow()
 	},
 	mounted() {
 		this.long = this.getCookie("long") ? this.getCookie("long") : "en";
 		document.cookie = "long=" + this.long;
 	},
 	methods: {
+		resizeWindow(){
+			let width = document.getElementsByTagName('body')[0].offsetWidth
+			if(width < 992){
+				this.isMobile = true
+			}
+		},
 		imageHover(idx) {
 			console.log(idx);
 		},

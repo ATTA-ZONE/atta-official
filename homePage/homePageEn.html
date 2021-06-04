@@ -18,10 +18,22 @@
 		<div>
 			<div class="home-page-one" id="Introduction">
 				<video autoplay="autoplay" style="width:100%;" loop="loop" src="../images/homePage/nftInfo.mp4" muted="muted"></video>
+				<div class="mask-container" v-if="showMask">
+						<a href="#Upcoming">{{"Upcoming" | languageswitch("新品预告",long)}}</a>
+						<a href="#Contents">{{"NFT Contents" | languageswitch("NFT内容",long)}}</a>
+						<a href="#Service">{{"Service" | languageswitch("相关服务",long)}}</a>
+						<a href="#Contact">{{"Contact" | languageswitch("联系方式",long)}}</a>
+						<p class="switchlanguagebox">
+							<span href="#" @click="switchyy('en')">EN</span>
+							<span style="margin: 0 16px;">|</span>
+							<span href="#" @click="switchyy('ch')">简</span>
+						</p>
+						<img @click="showMask=false" src="../../images/homePage/close.png" alt="">
+				</div>
 				<div class="header flex">
 					<img src="../../images/homePage/logo.png" alt="">
-					<img class="head-menu" v-if="showHeadMenu" src="../../images/homePage/menu.png" />
-					<div class="header-links">
+					<img class="head-menu" @click="showMask=true" v-if="isMobile" src="../../images/homePage/menu.png" />
+					<div class="header-links" v-if="!isMobile">
 						<a href="#Introduction">{{"Introduction" | languageswitch("厂牌简介",long)}}</a>
 						<a href="#Upcoming">{{"Upcoming" | languageswitch("新品预告",long)}}</a>
 						<a href="#Contents">{{"NFT Contents" | languageswitch("NFT内容",long)}}</a>
