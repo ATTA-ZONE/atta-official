@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
 	<link rel="stylesheet" type="text/css" href="./homePage.css" />
 	<link rel="stylesheet" type="text/css" href="./mediaEn.css" />
+	<script src="../js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	<div class="home-page flex" id="homePage">
@@ -19,15 +20,15 @@
 			<div class="home-page-one" id="Introduction">
 				<div class="header flex">
 					<img src="../../images/homePage/logo.png" alt="">
-					<a href="#Introduction">Introduction</a>
-					<a href="#Upcoming">Upcoming</a>
-					<a href="#Contents">NFT Contents</a>
-					<a href="#Service">Service</a>
-					<a href="#Contact">Contact</a>
+					<a href="#Introduction">{{"Introduction" | languageswitch("厂牌简介",long)}}</a>
+					<a href="#Upcoming">{{"Upcoming" | languageswitch("新品预告",long)}}</a>
+					<a href="#Contents">{{"NFT Contents" | languageswitch("NFT内容",long)}}</a>
+					<a href="#Service">{{"Service" | languageswitch("相关服务",long)}}</a>
+					<a href="#Contact">{{"Contact" | languageswitch("联系方式",long)}}</a>
 					<p class="switchlanguagebox">
-						<a href="/mobile/en/index.html" @click="switchyy('en')">EN</a>
+						<a href="#" @click="switchyy('en')">EN</a>
 						<span style="margin: 0 16px;">|</span>
-						<a href="/mobile/tc/index.html" @click="switchyy('ch')">简</a>
+						<a href="#" @click="switchyy('ch')">简</a>
 					</p>
 				</div>
 				<div class="header-txt">
@@ -39,8 +40,11 @@
 					<img src="../../images/homePage/pageTwoLeft.png" alt="">
 					<img src="../../images/homePage/pageTworightTop.png" alt="">
 					<img src="../../images/homePage/pageTwoRightBtm.png" alt="">
-					<p>
+					<p v-if="long == 'en'">
 						ATTA is a blockchain-based content<br/> creator for premium copyright assets. By<br/> focusing on music, movie, esports, charity<br/> and celebrity IPs, ATTA aims to secure,<br/> produce and distribute best-in-class digital<br/> and physical assets to collectors<br/> worldwide. ATTA products are available on<br/> leading platforms and marketplaces<br/> including BAZHUAYU, Poison App and<br/> Treasureland etc. ATTA is exclusively<br/> sponsored by BAZHUAYU, a<br/> blockchain-based platform aiming to realize<br/> the full potential of the fan economy.
+					</p>
+					<p v-else>
+						ATTA是基于区块链NFT技术构建的数字潮流品牌。 ATTA旨在通过将现实世界的娱乐和文化创意内容NFT化，为全世界Z时代的明星粉丝，潮流玩家，及NFT收藏者打造最优质的NFT内容。我们希望ATTA能够和各类社区一起完成让NFT内容逐渐为主流社会接受这一使命。ATTA厂牌的NFT内容产品涉及数字音乐，电影，短视频，电子竞技，潮流玩物，明星，虚拟偶像等泛娱乐的领域。ATTA的NFT产品在包括八爪娱，得物，币安NFT等各大传统世界的平台及数字货币NFT市场有售。
 					</p>
 				</div>
 			</div>
@@ -66,8 +70,10 @@
 				</div>
 				<div class="txt-right"> 
 						<div class="txt-middle">
-							<img src="../../images/homePage/MusicNFT.png" alt="">
-							<p>High price sold on Nartz, sign up as an artist and<br /> start post your art so you can earn some money!<br /> High price sold on Nartz, sign up as an artist and<br /> start post your art so you can earn some money!<br /> Nartz, sign up as an artist and start post your art so<br /> you can earn some money!</p>
+							<img v-if="long == 'en'" src="../../images/homePage/MusicNFT.png" alt="">
+							<img v-else src="../../images/homePage/ch1.png" alt="">
+							<p v-if="long == 'en'">High price sold on Nartz, sign up as an artist and<br /> start post your art so you can earn some money!<br /> High price sold on Nartz, sign up as an artist and<br /> start post your art so you can earn some money!<br /> Nartz, sign up as an artist and start post your art so<br /> you can earn some money!</p>
+							<p v-else>ATTA专精的NFT内容领域包括但不限于：ATTA专精的NFT内容领域包括但不限于：ATTA专精的NFT内容领域包括但不限于：ATTA专精的NFT内容领域包括但不限于：ATTA专精的NFT内容领域包括但不限于：ATTA专精的NFT内容领域包括但不限于：ATTA专精的NFT内容领域包括但不限于：</p>
 							<a href="#">6.24 on Binance</a>
 						</div>
 				</div>
@@ -75,16 +81,21 @@
 			<div class="home-page-five" id="Contents">
 				<img class="img-search" src="../../images/homePage/SearchLeft.png" alt="">
 				<img class="img-blur" src="../../images/homePage/blur.png" alt="">
-				<div class="header flex">
+				<div class="header flex" v-if="long == 'en'">
 					<img src="../../images/homePage/DiscoverATTANFTContents.png" alt="">
 					<img src="../../images/homePage/TVshows.png" alt="">
+				</div>
+				<div class="header flex" v-else>
+					<img src="../../images/homePage/ch2.png" alt="">
+					<img src="../../images/homePage/ch3.png" alt="">
 				</div>
 				<div class="commodity-list flex">
 					<div class="commodity">
 						<div class="commodity-top commodity-left">
 							<img src="../../images/homePage/front.png" alt="">
 						</div>
-						<p>TYLOO CSGO - ESPORTS NFT </p>
+						<p v-if="long == 'en'">TYLOO CSGO - ESPORTS NFT </p>
+						<p v-else>天禄CSGO战队明星NFT  </p>
 						<div class="price-total flex">
 							<div>
 								<p>Price</p>
@@ -99,16 +110,18 @@
 							<img src="../../images/homePage/Ellipse.png" alt="">
 							<div>
 								<p>E-sports</p>
-								<p>TYLOO CSGO TEAM</p>
+								<p v-if="long == 'en'">TYLOO CSGO TEAM</p>
+								<p v-else>天禄电子竞技俱乐部</p>
 							</div>
 						</div>
-						<a href="#">E-SPORT</a>
+						<a href="#">{{"E-SPORT" | languageswitch("电子竞技",long)}}</a>
 					</div>
 					<div class="commodity">
 						<div class="commodity-top commodity-middle">
 							<img src="../../images/homePage/front02.png" alt="">
 						</div>
-						<p>April - Experimental Music NFT</p>
+						<p v-if="long == 'en'">April - Experimental Music NFT</p>
+						<p v-else>四月-丁武实验音画系列NFT  </p>
 						<div class="price-total flex">
 							<div>
 								<p>Price</p>
@@ -123,16 +136,17 @@
 							<img src="../../images/homePage/Ellipse02.png" alt="">
 							<div>
 								<p>Musician& Artist</p>
-								<p>DING WU</p>
+								<p>{{"DING WU" | languageswitch("丁武",long)}}</p>
 							</div>
 						</div>
-						<a href="#">MUSIC</a>
+						<a href="#">{{"MUSIC" | languageswitch("音乐",long)}}</a>
 					</div>
 					<div class="commodity">
 						<div class="commodity-top commodity-right">
 							<img src="../../images/homePage/front03.png" alt="">
 						</div>
-						<p>NIU N.X - Designer Toy NFT</p>
+						<p v-if="long == 'en'">NIU N.X - Designer Toy NFT</p>
+						<p v-else>牛N.X-设计师潮玩NFT  </p>
 						<div class="price-total flex">
 							<div>
 								<p>Price</p>
@@ -147,29 +161,39 @@
 							<img src="../../images/homePage/Ellipse03.png" alt="">
 							<div>
 								<p>Celebrities</p>
-								<p>DONGDONG XU</p>
+								<p>{{"DONGDONG XU" | languageswitch("徐冬冬",long)}}</p>
 							</div>
 						</div>
-						<a href="#">CELEBRITIES</a>
+						<a href="#"></a>
 					</div>
 				</div>
 				<div class="nft">
 					<img src="../../images/homePage/Group426.png" alt="">
-					<p>Find more exclusive NFT at BAZHUAYU!</p>
-					<a href="#">Discover More NFT</a>
+					<p>{{"Find more exclusive NFT at BAZHUAYU!" | languageswitch("在八爪娱平台探索更多精彩NFT内容！",long)}} </p>
+					<a href="#">{{"Discover More NFT" | languageswitch("即刻开始探索",long)}}</a>
 				</div>
 			</div>
 			<div class="home-page-six" id="Service">
-				<img src="../../images/homePage/NFTrelatedServices.png" alt="">
+				<img v-if="long == 'en'" src="../../images/homePage/NFTrelatedServices.png" alt="">
+				<img v-else src="../../images/homePage/ch4.png" alt="">
 				<img class="mouse" src="../../images/homePage/MouseLeft.png" alt="">
-				<p>If you are a content creator, celebrity, artist, or real-world trend label interested in<br/> NFT, ATTA can provide you with a range of the most professional NFT services,<br/> which include:</p>
-				<div class="ntf-services flex">
+				<p v-if="long == 'en'">If you are a content creator, celebrity, artist, or real-world trend label interested in<br/> NFT, ATTA can provide you with a range of the most professional NFT services,<br/> which include:</p>
+				<p v-else>如果您是对于NFT有兴趣的内容创作者，明星艺人，或是现实世界的潮流厂牌，ATTA有兴趣为您提供一系列最专业的NFT服务。 包括：</p>
+				<div class="ntf-services flex" v-if="long == 'en'">
 					<img src="../../images/homePage/glossy01.png" alt="">
 					<img src="../../images/homePage/glossy02.png" alt="">
 					<img src="../../images/homePage/glossy03.png" alt="">
 					<img src="../../images/homePage/glossy04.png" alt="">
 					<img src="../../images/homePage/glossy05.png" alt="">
 					<img src="../../images/homePage/glossy06.png" alt="">
+				</div>
+				<div class="ntf-services flex" v-else>
+					<img src="../../images/homePage/ch5.png" alt="">
+					<img src="../../images/homePage/ch6.png" alt="">
+					<img src="../../images/homePage/ch7.png" alt="">
+					<img src="../../images/homePage/ch8.png" alt="">
+					<img src="../../images/homePage/ch9.png" alt="">
+					<img src="../../images/homePage/ch10.png" alt="">
 				</div>
 			</div>
 		</div>
