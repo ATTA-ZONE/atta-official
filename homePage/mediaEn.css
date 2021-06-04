@@ -17,6 +17,10 @@
   }
   div.home-page > div .home-page-one {
     padding: 0 !important;
+    height: 245px;
+  }
+  div.home-page > div .home-page-one video {
+    height: 245px;
   }
   div.home-page > div .home-page-one .header-txt {
     top: 80px;
