@@ -9,6 +9,22 @@
     width: 100%;
     padding: 0 22px !important;
   }
+  div.home-page > div .home-page-four {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  div.home-page > div .home-page-four .txt-right {
+    width: 90%;
+    flex: none;
+    margin-top: 60px;
+  }
+  div.home-page > div .home-page-four .txt-right img {
+    width: 100%;
+  }
+  div.home-page > div .page-two p {
+    font-size: 12px !important;
+    width: 90% !important;
+  }
   div.home-page > div .home-page-five {
     width: 100%;
     overflow: hidden;
