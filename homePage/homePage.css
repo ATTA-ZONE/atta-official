@@ -180,6 +180,9 @@
   width: 600px;
   height: 673px;
 }
+.home-page .home-page-four .image-left img {
+  width: 100%;
+}
 .home-page .home-page-four .image-left > div {
   position: absolute;
   transition: all 0.5s ease;
