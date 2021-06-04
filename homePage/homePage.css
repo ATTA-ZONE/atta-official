@@ -412,6 +412,7 @@
   margin-top: 127px;
   margin-bottom: 53px;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .home-page .footer .footer-left img {
   width: 147px;
