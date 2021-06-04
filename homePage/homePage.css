@@ -1,0 +1,354 @@
+* {
+  box-sizing: border-box;
+}
+.home-page {
+  font-size: 0;
+  background-color: #000;
+  justify-content: center;
+}
+.home-page > i {
+  position: absolute;
+  width: 671.8px;
+  height: 387.87px;
+  left: 183.4px;
+  top: 1337px;
+  background: rgba(169, 222, 238, 0.35);
+  filter: blur(210px);
+  transform: rotate(7.02deg);
+  z-index: 1;
+}
+.home-page > div {
+  z-index: 10;
+  width: 1437px;
+  min-width: 1437px;
+}
+.home-page .home-page-one {
+  width: 100%;
+  height: 808px;
+  background: url(../../images/homePage/homePage01.png) no-repeat center center;
+  background-size: cover;
+}
+.home-page .home-page-one .header-txt {
+  text-align: center;
+  padding-top: 180px;
+}
+.home-page .home-page-one .header {
+  padding: 70px 20px 0;
+  width: 100%;
+}
+.home-page .home-page-one .header img {
+  width: 147px;
+  height: 38px;
+  margin-left: 127px;
+}
+.home-page .home-page-one .header p.switchlanguagebox {
+  margin-right: 40px;
+  font-size: 16px;
+  color: #fff;
+}
+.home-page .home-page-one .header a {
+  line-height: 38px;
+  height: 38px;
+  color: rgba(250, 250, 250, 0.6);
+  font-size: 18px;
+  cursor: pointer;
+}
+.home-page .home-page-one > p {
+  font-family: Hanson;
+  font-size: 174px;
+  line-height: 181px;
+  text-align: center;
+  font-weight: bolder;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0px 2px 2px rgba(0, 0, 0, 0);
+  opacity: 0.6;
+}
+.home-page .home-page-two {
+  width: 100%;
+  height: 551px;
+  background: url(../../images/homePage/pageTwoBgi.png) no-repeat center center;
+  background-size: cover;
+  justify-content: center;
+}
+.home-page .home-page-two .page-two {
+  width: 1085px;
+  height: 551px;
+  background: url(../../images/homePage/pageTwoBgiBgi.png) no-repeat center center;
+  background-size: cover;
+  position: relative;
+  justify-content: center;
+}
+.home-page .home-page-two .page-two p {
+  color: #fff;
+  width: 507px;
+  padding-top: 58px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 200%;
+  font-family: Hanson;
+  text-align: center;
+}
+.home-page .home-page-two .page-two img:nth-child(1) {
+  position: absolute;
+  top: 281px;
+  left: -124px;
+}
+.home-page .home-page-two .page-two img:nth-child(2) {
+  position: absolute;
+  bottom: 388px;
+  right: -124px;
+}
+.home-page .home-page-two .page-two img:nth-child(3) {
+  position: absolute;
+  bottom: -116px;
+  right: -125px;
+}
+.home-page .home-page-three {
+  background: rgba(5, 5, 5, 0.48);
+  width: 100%;
+  height: 269px;
+  justify-content: space-around;
+  align-items: center;
+}
+.home-page .home-page-three img:nth-child(1) {
+  width: 313px;
+  height: 23px;
+}
+.home-page .home-page-three img:nth-child(2) {
+  width: 166px;
+  height: 28px;
+}
+.home-page .home-page-three img:nth-child(3) {
+  width: 192px;
+  height: 42px;
+}
+.home-page .home-page-four {
+  width: 100%;
+  padding-top: 167px;
+  height: auto;
+  padding-left: 150px;
+}
+.home-page .home-page-four .image-left {
+  position: relative;
+  height: 673px;
+}
+.home-page .home-page-four .image-left > div {
+  position: absolute;
+  transition: all 0.5s ease;
+  width: 509px;
+  height: 509px;
+  justify-content: center;
+  align-items: center;
+  background: rgba(250, 250, 250, 0.15);
+  backdrop-filter: blur(90px);
+}
+.home-page .home-page-four .image-left > div img {
+  width: 442px;
+  height: 442px;
+}
+.home-page .home-page-four .image-left .image-bottom {
+  z-index: 10;
+  top: 164px;
+  left: 34px;
+}
+.home-page .home-page-four .image-left .image-middle {
+  z-index: 20;
+  top: 45px;
+  left: 88px;
+}
+.home-page .home-page-four .image-left .image-top {
+  z-index: 30;
+  top: 0;
+  left: 0;
+}
+.home-page .home-page-four .txt-right {
+  margin-left: 673px;
+  padding-top: 120px;
+}
+.home-page .home-page-four .txt-right .txt-middle p {
+  margin-top: 30px;
+  text-align: left;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 190%;
+  color: rgba(250, 250, 250, 0.8);
+}
+.home-page .home-page-four .txt-right .txt-middle a {
+  margin-top: 60px;
+  display: block;
+  border: 1px solid #A8DEEE;
+  width: 196px;
+  height: 69px;
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 69px;
+  text-align: center;
+  color: #A8DEEE;
+}
+.home-page .home-page-five {
+  padding: 0 150px;
+  margin-top: 156px;
+  position: relative;
+}
+.home-page .home-page-five > .img-search {
+  position: absolute;
+  right: 0;
+  top: -190px;
+}
+.home-page .home-page-five > .img-blur {
+  position: absolute;
+  right: 0;
+  top: -190px;
+}
+.home-page .home-page-five .header img:nth-child(2) {
+  margin-right: 40px;
+}
+.home-page .home-page-five .commodity-list {
+  margin-top: 80px;
+  justify-content: space-between;
+}
+.home-page .home-page-five .commodity-list .commodity {
+  width: 360px;
+  height: 774px;
+  background: rgba(169, 222, 238, 0.1);
+}
+.home-page .home-page-five .commodity-list .commodity .commodity-left {
+  background: url(../../images/homePage/glass.png) no-repeat;
+}
+.home-page .home-page-five .commodity-list .commodity .commodity-middle {
+  background: url(../../images/homePage/glass02.png) no-repeat;
+}
+.home-page .home-page-five .commodity-list .commodity .commodity-right {
+  background: url(../../images/homePage/glass03.png) no-repeat;
+}
+.home-page .home-page-five .commodity-list .commodity .commodity-top {
+  background-size: 100% 100%;
+  width: 360px;
+  height: 360px;
+}
+.home-page .home-page-five .commodity-list .commodity .commodity-top img {
+  width: 360px;
+  height: 360px;
+}
+.home-page .home-page-five .commodity-list .commodity > p {
+  margin-top: 30px;
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 32px;
+  color: #FFFFFF;
+}
+.home-page .home-page-five .commodity-list .commodity .price-total {
+  padding: 34px 25px 0;
+  justify-content: space-between;
+}
+.home-page .home-page-five .commodity-list .commodity .price-total > div {
+  padding: 20px;
+  width: 145px;
+  height: 98px;
+  background: rgba(169, 222, 238, 0.1);
+}
+.home-page .home-page-five .commodity-list .commodity .price-total > div p:nth-child(1) {
+  font-size: 13px;
+  line-height: 18px;
+  color: rgba(250, 250, 250, 0.6);
+}
+.home-page .home-page-five .commodity-list .commodity .price-total > div p:nth-child(2) {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+.home-page .home-page-five .commodity-list .commodity .commodity-info {
+  margin-left: 25px;
+  margin-top: 35px;
+}
+.home-page .home-page-five .commodity-list .commodity .commodity-info img {
+  width: 53px;
+  height: 53px;
+}
+.home-page .home-page-five .commodity-list .commodity .commodity-info div {
+  margin-left: 15px;
+}
+.home-page .home-page-five .commodity-list .commodity .commodity-info div p:nth-child(1) {
+  font-size: 13px;
+  line-height: 18px;
+  color: rgba(250, 250, 250, 0.6);
+}
+.home-page .home-page-five .commodity-list .commodity .commodity-info div p:nth-child(2) {
+  margin-top: 6px;
+  font-size: 18px;
+  line-height: 31px;
+  color: #fafafa;
+}
+.home-page .home-page-five .commodity-list .commodity a {
+  margin-top: 35px;
+  display: block;
+  width: 310px;
+  height: 70px;
+  border: 1px solid #A8DEEE;
+  box-sizing: border-box;
+  margin-left: 25px;
+  font-size: 18px;
+  color: #A8DEEE;
+  text-align: center;
+  line-height: 68px;
+}
+.home-page .home-page-five .nft {
+  margin-top: 44px;
+  text-align: center;
+}
+.home-page .home-page-five .nft img {
+  width: 60px;
+  height: 48px;
+}
+.home-page .home-page-five .nft p {
+  font-size: 18px;
+  line-height: 34px;
+  text-align: center;
+  color: rgba(250, 250, 250, 0.8);
+  margin-top: 10px;
+  margin-bottom: 36px;
+}
+.home-page .home-page-five .nft a {
+  display: inline-block;
+  width: 223px;
+  height: 69px;
+  background: #A8DEEE;
+  font-size: 18px;
+  color: #fff;
+  line-height: 69px;
+  text-align: center;
+}
+.home-page .home-page-six {
+  padding: 0 150px;
+  text-align: center;
+  margin-top: 154px;
+  position: relative;
+}
+.home-page .home-page-six .mouse {
+  position: absolute;
+  left: 73px;
+  top: -200px;
+}
+.home-page .home-page-six > p {
+  margin-top: 37px;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+  color: rgba(250, 250, 250, 0.8);
+}
+.home-page .home-page-six .ntf-services {
+  margin-top: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.home-page .home-page-six .ntf-services img {
+  width: 360px;
+  height: 365px;
+  margin-top: 34px;
+}

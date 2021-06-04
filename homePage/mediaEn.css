@@ -1,0 +1,53 @@
+@media only screen and (max-width: 992px) {
+  div.home-page {
+    width: 100%;
+  }
+  div.home-page > div {
+    min-width: 100% !important;
+  }
+  div.home-page > div > div {
+    width: 100%;
+    padding: 0 22px !important;
+  }
+  div.home-page > div .home-page-five {
+    width: 100%;
+    overflow: hidden;
+  }
+  div.home-page > div .home-page-five .commodity-list {
+    width: 100%;
+    overflow-x: auto;
+  }
+  div.home-page > div .home-page-five .commodity-list .commodity {
+    width: 208px;
+    height: 630px;
+  }
+  div.home-page > div .home-page-five .commodity-list .commodity .commodity-top {
+    width: 208px;
+    height: 208px;
+  }
+  div.home-page > div .home-page-five .commodity-list .commodity .commodity-top img {
+    width: 208px;
+    height: 208px;
+  }
+  div.home-page > div .home-page-six {
+    margin-top: 60px;
+  }
+  div.home-page > div .home-page-six img {
+    width: 100%;
+    height: auto !important;
+  }
+  div.home-page > div .home-page-six .mouse {
+    width: 127px;
+    top: -110px;
+    left: -34px;
+  }
+  div.home-page > div .home-page-six > p {
+    font-size: 14px;
+    line-height: 27px;
+  }
+  div.home-page > div .home-page-six .ntf-services img {
+    margin-top: 18px;
+    width: 100%;
+    height: auto !important;
+  }
+}
