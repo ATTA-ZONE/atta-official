@@ -143,6 +143,7 @@
   right: -125px;
 }
 .home-page .home-page-three {
+  padding: 100px 0;
   background: rgba(5, 5, 5, 0.48);
   width: 100%;
   justify-content: space-around;
