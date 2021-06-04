@@ -10,6 +10,10 @@
     width: 100%;
     padding: 0 22px !important;
   }
+  div.home-page > div .home-page-three img {
+    width: auto !important;
+    height: 16px !important;
+  }
   div.home-page > div .home-page-four {
     flex-wrap: wrap;
     justify-content: center;
