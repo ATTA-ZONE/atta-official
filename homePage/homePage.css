@@ -92,6 +92,7 @@
 }
 .home-page .home-page-two .page-two p {
   color: #fff;
+  opacity: 0.8;
   width: 507px;
   padding-top: 58px;
   font-style: normal;
@@ -181,7 +182,7 @@
 }
 .home-page .home-page-four .txt-right {
   flex: 1;
-  padding-left: 40px;
+  padding-left: 80px;
 }
 .home-page .home-page-four .txt-right .txt-middle p {
   margin-top: 30px;
@@ -219,7 +220,7 @@
   top: -190px;
 }
 .home-page .home-page-five .header img:nth-child(2) {
-  margin-right: 40px;
+  margin-right: 190px;
 }
 .home-page .home-page-five .commodity-list {
   margin-top: 80px;
@@ -365,7 +366,7 @@
 .home-page .home-page-six .ntf-services img {
   width: 30%;
   min-width: 310px;
-  height: 310px;
+  height: auto;
   margin-top: 34px;
 }
 .home-page .footer {
