@@ -430,7 +430,7 @@
   color: rgba(250, 250, 250, 0.8);
   margin-top: 30px;
 }
-.home-page .footer .footer-right p {
+.home-page .footer .footer-right span {
   font-size: 28px;
   line-height: 42px;
   color: #FAFAFA;
