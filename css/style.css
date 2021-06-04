@@ -1,7 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
-	/* font-family: "Hanson-Bold" !important; */
+	/* font-family: "Fang-Zheng" !important; */
 }
 
 ul {
@@ -41,6 +41,10 @@ ul {
 	src: url("../fonts/Hanson-Bold.ttf");
 }
 
+@font-face {
+	font-family: Fang-Zheng;
+	src: url("../fonts/fangzheng.ttf");
+}
 body,
 html {
 	scroll-behavior: smooth;

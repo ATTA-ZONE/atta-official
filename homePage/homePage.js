@@ -59,6 +59,9 @@ var app = new Vue({
 		clearCookie: function () {
 			this.setCookie("username", "", -1);
 		},
+		toBaZhuayu(){
+			window.open('https://www.bazhuayu.io/')
+		}
 	},
 	filters: {
 		languageswitch: function (value,chval,long) {
