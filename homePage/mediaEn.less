@@ -41,6 +41,9 @@
       .home-page-five{
         width: 100%;
         margin-top: 8%;
+        .img-blur{
+          display: none;
+        }
         .img-search {
           width: 16%;
           top: -4%;
@@ -54,13 +57,37 @@
           }
         }
         
+       
         .commodity-list{
           width: 100%;
-          margin-top: 10% !important;
           overflow-x: auto;
+          .commodity:nth-child(2){
+            margin: 0 15px;
+          }
           .commodity{
             width: 208px;
-            height: 630px;
+            // height: 630px;
+            .price-total{
+              flex-wrap: wrap;
+              >div{
+                width: 100%;
+                margin-top: 15px;
+              }
+            }
+            >p{
+              font-size: 12px;
+            }
+            a{
+              width: 178px !important;
+              margin-left: 15px;
+            }
+            .commodity-info{
+              div{
+                p:nth-child(2){
+                  font-size: 12px;
+                }
+              }
+            }
             .commodity-top{
               width: 208px;
               height: 208px;
@@ -93,6 +120,28 @@
             width: 100%;
             height: auto !important;
           }
+        }
+      }
+    }
+  }
+  .footer{
+    .footer-left{
+      p{
+        font-size: 18px !important;
+        line-height: 34px !important;
+      }
+    }
+    .footer-right{
+      margin-top: 70px !important;
+      p{
+        font-size: 24px !important;
+      }
+      div{
+        margin-top: 0 !important;
+        img{
+          margin-top: 15px;
+          width: 45px !important;
+          height: 45px !important;
         }
       }
     }

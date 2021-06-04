@@ -53,6 +53,13 @@
 .home-page .home-page-one {
   width: 100%;
 }
+.home-page .home-page-one .header-links {
+  width: 100%;
+  padding-left: 98px;
+}
+.home-page .home-page-one .header-links > p {
+  float: right;
+}
 .home-page .home-page-one .header-txt {
   width: 100%;
   text-align: center;
@@ -412,7 +419,6 @@
   margin-top: 127px;
   margin-bottom: 53px;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
 .home-page .footer .footer-left img {
   width: 147px;

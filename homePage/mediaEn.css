@@ -41,6 +41,9 @@
     width: 100%;
     margin-top: 8%;
   }
+  div.home-page > div .home-page-five .img-blur {
+    display: none;
+  }
   div.home-page > div .home-page-five .img-search {
     width: 16%;
     top: -4%;
@@ -55,12 +58,30 @@
   }
   div.home-page > div .home-page-five .commodity-list {
     width: 100%;
-    margin-top: 10% !important;
     overflow-x: auto;
+  }
+  div.home-page > div .home-page-five .commodity-list .commodity:nth-child(2) {
+    margin: 0 15px;
   }
   div.home-page > div .home-page-five .commodity-list .commodity {
     width: 208px;
-    height: 630px;
+  }
+  div.home-page > div .home-page-five .commodity-list .commodity .price-total {
+    flex-wrap: wrap;
+  }
+  div.home-page > div .home-page-five .commodity-list .commodity .price-total > div {
+    width: 100%;
+    margin-top: 15px;
+  }
+  div.home-page > div .home-page-five .commodity-list .commodity > p {
+    font-size: 12px;
+  }
+  div.home-page > div .home-page-five .commodity-list .commodity a {
+    width: 178px !important;
+    margin-left: 15px;
+  }
+  div.home-page > div .home-page-five .commodity-list .commodity .commodity-info div p:nth-child(2) {
+    font-size: 12px;
   }
   div.home-page > div .home-page-five .commodity-list .commodity .commodity-top {
     width: 208px;
@@ -90,5 +111,23 @@
     margin-top: 18px;
     width: 100%;
     height: auto !important;
+  }
+  .footer .footer-left p {
+    font-size: 18px !important;
+    line-height: 34px !important;
+  }
+  .footer .footer-right {
+    margin-top: 70px !important;
+  }
+  .footer .footer-right p {
+    font-size: 24px !important;
+  }
+  .footer .footer-right div {
+    margin-top: 0 !important;
+  }
+  .footer .footer-right div img {
+    margin-top: 15px;
+    width: 45px !important;
+    height: 45px !important;
   }
 }
