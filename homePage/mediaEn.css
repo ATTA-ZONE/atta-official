@@ -1,6 +1,7 @@
 @media only screen and (max-width: 992px) {
   div.home-page {
     width: 100%;
+    padding: 0 5%;
   }
   div.home-page > div {
     min-width: 100% !important;
@@ -13,10 +14,13 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+  div.home-page > div .home-page-four .image-left {
+    height: auto;
+  }
   div.home-page > div .home-page-four .txt-right {
     width: 90%;
     flex: none;
-    margin-top: 60px;
+    padding-left: 0;
   }
   div.home-page > div .home-page-four .txt-right img {
     width: 100%;
