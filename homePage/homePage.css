@@ -80,7 +80,7 @@
   left: 0;
 }
 .home-page .home-page-one .header-txt img {
-  width: 80%;
+  width: 75%;
 }
 .home-page .home-page-one .head-menu {
   width: 50px !important;
@@ -234,6 +234,7 @@
   background: rgba(5, 5, 5, 0.48);
   position: relative;
   margin: 0 auto;
+  margin-bottom: 150px;
 }
 .home-page .home-page-four .blur-guang{
   position: absolute;
@@ -260,21 +261,28 @@
   background: rgba(250, 250, 250, 0.15);
   backdrop-filter: blur(90px);
 }
-.home-page .home-page-four .image-left > div img {
-  width: 442px;
-  height: 442px;
+.home-page .home-page-four .image-left img {
+  transition: all 0.5s ease;
+  width: 527px;
+  height: 603px;
+  position:absolute;
+  top: 45px;
+  left: 88px;
 }
-.home-page .home-page-four .image-left .image-bottom {
+.home-page .home-page-four .image-left:hover .image-bottom {
+  transition: all 0.5s ease;
   z-index: 10;
   top: 164px;
   left: 34px;
 }
-.home-page .home-page-four .image-left .image-middle {
+.home-page .home-page-four .image-left:hover .image-middle {
+  transition: all 0.5s ease;
   z-index: 20;
   top: 45px;
   left: 88px;
 }
-.home-page .home-page-four .image-left .image-top {
+.home-page .home-page-four .image-left:hover .image-top {
+  transition: all 0.5s ease;
   z-index: 30;
   top: 0;
   left: 0;
@@ -289,7 +297,6 @@
   font-size: 48px;
   line-height: 67px;
   font-weight: bold;
-  font-family: 'Hanson-Bold';
   color: #fff;
 }
 .home-page .home-page-four .txt-right .txt-middle p {
@@ -346,8 +353,7 @@
   justify-content: space-between;
 }
 .home-page .home-page-five .commodity-list .commodity {
-  width: 360px;
-  margin: 0 10px;
+  width: 28%;
   background: rgba(169, 222, 238, 0.1);
 }
 .home-page .home-page-five .commodity-list .commodity:hover {
@@ -364,12 +370,12 @@
 }
 .home-page .home-page-five .commodity-list .commodity .commodity-top {
   background-size: 100% 100%;
-  width: 360px;
-  height: 360px;
+  width: 100%;
+  height: auto;
 }
 .home-page .home-page-five .commodity-list .commodity .commodity-top img {
-  width: 360px;
-  height: 360px;
+  width: 100%;
+  height: 100%;
 }
 .home-page .home-page-five .commodity-list .commodity > p {
   margin-top: 30px;
@@ -386,7 +392,7 @@
 }
 .home-page .home-page-five .commodity-list .commodity .price-total > div {
   padding: 20px;
-  width: 145px;
+  width: 46.77%;
   height: 98px;
   background: rgba(169, 222, 238, 0.1);
 }
@@ -425,11 +431,12 @@
   color: #fafafa;
 }
 .home-page .home-page-five .commodity-list .commodity a {
+  margin: 0 auto;
+  height: 70px;
   margin-top: 35px;
   margin-bottom: 25px;
   display: block;
-  width: 310px;
-  height: 70px;
+  width: calc(100% - 50px);
   font-weight: bold;
   border: 1px solid #A8DEEE;
   box-sizing: border-box;
@@ -469,6 +476,11 @@
   text-align: center;
   margin-top: 110px;
   position: relative;
+}
+.home-page .home-page-six span{
+  font-size: 53px;
+  line-height: 140%;
+  color: #fff;
 }
 .home-page .home-page-six .mouse {
   width: 180px;

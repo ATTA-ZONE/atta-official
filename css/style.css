@@ -40,6 +40,9 @@ ul {
 	font-family: Hanson-Bold;
 	src: url("../fonts/Hanson-Bold.ttf");
 }
+.han-son{
+	font-family: "Hanson-Bold" !important;
+}
 /* 方正兰亭大黑 */
 .fz-fm-dh{
 	font-family: "Fzlt-Dh" !important;
