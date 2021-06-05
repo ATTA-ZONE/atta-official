@@ -347,7 +347,11 @@
 }
 .home-page .home-page-five .commodity-list .commodity {
   width: 360px;
+  margin: 0 10px;
   background: rgba(169, 222, 238, 0.1);
+}
+.home-page .home-page-five .commodity-list .commodity:hover {
+  margin-top: -10px;
 }
 .home-page .home-page-five .commodity-list .commodity .commodity-left {
   background: url(../../images/homePage/glass.png) no-repeat;
