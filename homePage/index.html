@@ -95,11 +95,13 @@
 			<div class="home-page-four flex" id="">
 				<img class="blur-guang" src="../../images/homePage/blur.png" />
 				<div class="image-left">
-					<img src="../../images/homePage/binance.png" />
+					<img class="image-bottom" src="../../images/homePage/swiper03.png" />
+					<img class="image-middle" src="../../images/homePage/swiper02.png" />
+					<img class="image-top" src="../../images/homePage/swiper01.png" />
 				</div>
 				<div class="txt-right"> 
 						<div class="txt-middle">
-							<span v-if="long == 'en'"><font style="color:  #A8DEEE;
+							<span class="han-son" v-if="long == 'en'"><font style="color:  #A8DEEE;
 								;">Upcoming -</font><br/>
 								O2 Music NFT</span>
 							<span v-else><font style="color:  #A8DEEE;
@@ -210,9 +212,9 @@
 				</div>
 			</div>
 			<div class="home-page-six" id="Service">
-				<img v-if="long == 'en'" src="../../images/homePage/NFTrelatedServices.png" />
-				<img v-else src="../../images/homePage/ch4.png" />
-				<img class="mouse" src="../../images/homePage/MouseLeft.png" />
+				<span class="han-son" v-if="long == 'en'">NFT-related <br/><font style="color: rgb(168, 222, 238);">Services.</font></span>
+				<span class="fz-fm-ch" v-else>NFT-<font style="color: rgb(168, 222, 238);">相关服务.</font></span>
+				<img class="mouse" src="../../images/homePage/MouseLeft.png" alt="">
 				<p v-if="long == 'en'">If you are a content creator, celebrity, artist, or real-world trend label interested in<br/> NFT, ATTA can provide you with a range of the most professional NFT services,<br/> which include:</p>
 				<p v-else>如果您是对于NFT有兴趣的内容创作者，明星艺人，或是现实世界的潮流厂牌，ATTA有兴趣为您提供一系列最专业的NFT服务。 包括：</p>
 				<div class="ntf-services flex" v-if="long == 'en'">

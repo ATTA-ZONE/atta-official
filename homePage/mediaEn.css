@@ -89,6 +89,7 @@
     flex-wrap: wrap;
     margin-top: 0 !important;
     justify-content: center;
+    margin-bottom: 0;
   }
   .home-page .home-page-four .blur-guang{
     top: -250px;
@@ -96,6 +97,10 @@
   }
   div.home-page > div .home-page-four .image-left {
     height: auto;
+  }
+  div.home-page > div .home-page-four .txt-middle span{
+    font-size: 30px !important;
+    line-height: 140% !important;
   }
   div.home-page > div .home-page-four .txt-middle p {
     font-size: 14px !important;
@@ -125,8 +130,23 @@
     top: -4%;
   }
   div.home-page > div .home-page-five .header {
+    width: 82%;
+    margin-left: 9%;
     height: auto;
     flex-wrap: wrap;
+  }
+  div.home-page > div .home-page-five .header span{
+    width: 100% !important;
+    text-align: center;
+    font-size: 30px;
+line-height: 140%;
+  }
+  div.home-page > div .home-page-five .header p{
+    width: 100% !important;
+    text-align: center;
+    margin-top: 32px;
+    font-size: 14px;
+line-height: 27px;
   }
   div.home-page > div .home-page-five .header img {
     width: 90%;
@@ -145,7 +165,6 @@
   }
   div.home-page > div .home-page-five .commodity-list .commodity .price-total {
     flex-wrap: wrap;
-    padding: 0px 15px 0;
   }
   div.home-page > div .home-page-five .commodity-list .commodity .price-total > div {
     width: 100%;
@@ -169,15 +188,15 @@
     width: 208px;
     height: 208px;
   }
-  div.home-page > div .home-page-five .commodity-list .commodity-info{
-    margin-left: 15px !important;
+  div.home-page > div .home-page-six span{
+    font-size: 32px;
+    line-height: 140%;
   }
   div.home-page > div .home-page-six {
     margin-top: 60px;
   }
   div.home-page > div .home-page-six img {
-    width: 100%;
-    height: auto !important;
+    height: 32px !important;
   }
   div.home-page > div .home-page-six .mouse {
     width: 127px;
@@ -185,6 +204,9 @@
     left: -34px;
   }
   div.home-page > div .home-page-six > p {
+    margin-bottom: 77px;
+    width: 82%;
+    margin-left: 9%;
     font-size: 14px;
     line-height: 27px;
   }
