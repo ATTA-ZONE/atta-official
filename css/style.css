@@ -75,6 +75,15 @@ ul {
 .fz-fm-zhzh{
 	font-family: "Fzlt-Zh-Zh" !important;
 }
+/* 方正兰亭准黑_GBK */
+.fz-fm-thb{
+	font-family: "Fzlt-Zh-Thb" !important;
+}
+/* 方正兰亭特黑边 */
+@font-face {
+	font-family: Fzlt-Thb;
+	src: url("../fonts/fzltthb.ttf");
+}
 /* 方正兰亭大黑 */
 @font-face {
 	font-family: Fzlt-Dh;
