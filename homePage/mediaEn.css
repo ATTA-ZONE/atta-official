@@ -9,6 +9,13 @@
   }
 }
 @media only screen and (max-width: 992px) {
+  .home-page .home-page-one .header-txt img {
+    width: 75%;
+    padding: 10% 20px !important;
+  }
+  .home-page .home-page-one .header-txt {
+    padding: 0% 20px !important;
+  }
   .brandLogo {
     width: 30% !important;
     height: auto !important;
@@ -53,8 +60,8 @@
   .home-page .home-page-two .page-two img:nth-child(3),.home-page .home-page-three .start{
     width: 77.2px;
     right: 0;
-    bottom: -30px;
-    display: none;
+    top: -30%;
+    /* display: none; */
   }
   div.home-page > div .home-page-two .page-two-en {
     line-height: 22px;

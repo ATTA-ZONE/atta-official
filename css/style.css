@@ -67,6 +67,10 @@ ul {
 .fz-fm-ch{
 	font-family: "Fzlt-Ch" !important;
 }
+/* 方正兰亭中粗黑_GBK */
+.fz-fm-bh{
+	font-family: "Fzlt-Bh" !important;
+}
 /* 方正兰亭准黑_GBK */
 .fz-fm-zhzh{
 	font-family: "Fzlt-Zh-Zh" !important;
@@ -110,6 +114,11 @@ ul {
 @font-face {
 	font-family: Fzlt-Zh-Zh;
 	src: url("../fonts/fzltzhzh.ttf");
+}
+/* 方正兰亭准黑_GBK */
+@font-face {
+	font-family: Fzlt-Bh;
+	src: url("../fonts/fzltbh.ttf");
 }
 body,
 html {
