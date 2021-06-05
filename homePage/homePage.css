@@ -266,27 +266,27 @@
   display: none;
 }
 .home-page .home-page-four .image-left div img {
-  transition: all 0.5s ease;
+  transition: all 0.8s ease;
   width: 527px;
   height: 603px;
   position:absolute;
   top: 45px;
   left: 88px;
 }
-.home-page .home-page-four .image-left:hover div .image-bottom {
-  transition: all 0.5s ease;
+.home-page .home-page-four .image-left div .image-bottom {
+  transition: all 0.8s ease;
   z-index: 10;
   top: 164px;
   left: 34px;
 }
-.home-page .home-page-four .image-left:hover div .image-middle {
-  transition: all 0.5s ease;
+.home-page .home-page-four .image-left div .image-middle {
+  transition: all 0.8s ease;
   z-index: 20;
   top: 45px;
   left: 88px;
 }
-.home-page .home-page-four .image-left:hover div .image-top {
-  transition: all 0.5s ease;
+.home-page .home-page-four .image-left div .image-top {
+  transition: all 0.8s ease;
   z-index: 30;
   top: 0;
   left: 0;

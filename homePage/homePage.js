@@ -9,7 +9,8 @@ var app = new Vue({
 			long: "",
 			isMobile: false,
 			showMask: false,
-			showWechat: false
+			showWechat: false,
+			transitionImage:false
 		}
 	},
 	created(){
@@ -22,8 +23,17 @@ var app = new Vue({
 	mounted() {
 		this.long = this.getCookie("long") ? this.getCookie("long") : "en";
 		document.cookie = "long=" + this.long;
+		window.addEventListener('scroll', this.handleScroll)
 	},
 	methods: {
+		handleScroll(){
+			let scrollY = document.documentElement.scrollTop;
+			if(scrollY >= 1300){
+				this.transitionImage = true;
+			}else{
+				this.transitionImage = false;
+			}
+		},
 		resizeWindow(){
 			let width = document.getElementsByTagName('body')[0].offsetWidth
 			if(width < 992){
