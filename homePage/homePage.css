@@ -47,6 +47,9 @@
   transform: rotate(7.02deg);
   z-index: 1;
 }
+.home-page .home-page-two,.home-page .home-page-three,.home-page .home-page-four,.home-page .home-page-five,.home-page .home-page-six,.home-page .footer{
+  padding: 0 150px;
+}
 .home-page > div {
   z-index: 10;
   width: 100%;
@@ -110,7 +113,7 @@
   font-family: Nunito Sans !important;
 }
 .home-page .home-page-one > p {
-  font-family: Hanson;
+  font-family: 'Hanson-Bold';
   font-size: 174px;
   line-height: 181px;
   text-align: center;
@@ -147,7 +150,7 @@
   font-weight: bold;
   font-size: 16px;
   line-height: 32px;
-  font-family: Hanson;
+  font-family: 'Hanson-Bold';
   text-align: center;
 }
 .home-page .home-page-two p.page-two-ch{
@@ -262,6 +265,15 @@
   flex: 1;
   padding-left: 80px;
 }
+.home-page .home-page-four .txt-right .txt-middle span{
+  display: inline-block;
+  width: 457px;
+  font-size: 48px;
+  line-height: 67px;
+  font-weight: bold;
+  font-family: 'Hanson-Bold';
+  color: #fff;
+}
 .home-page .home-page-four .txt-right .txt-middle p {
   margin-top: 30px;
   text-align: left;
@@ -297,8 +309,19 @@
   right: 0;
   top: -190px;
 }
-.home-page .home-page-five .header img:nth-child(2) {
-  margin-right: 190px;
+.home-page .home-page-five .header span{
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 67px;
+  color: #fff;
+}
+.home-page .home-page-five .header p{
+  padding-right: 40px;
+  width: 434px;
+  text-align: left;
+  font-size: 18px;
+  line-height: 34px;
+  color: rgba(250, 250, 250, 0.8);;
 }
 .home-page .home-page-five .commodity-list {
   margin-top: 80px;

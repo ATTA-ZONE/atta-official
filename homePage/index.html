@@ -75,8 +75,12 @@
 				</div>
 				<div class="txt-right"> 
 						<div class="txt-middle">
-							<img v-if="long == 'en'" src="../../images/homePage/MusicNFT.png" alt="">
-							<img v-else src="../../images/homePage/ch2.png" alt="">
+							<span v-if="long == 'en'"><font style="color:  #A8DEEE;
+								;">Upcoming -</font><br/>
+								O2 Music NFT</span>
+							<span v-else><font style="color:  #A8DEEE;
+								;">新品预告 -</font><br/>
+								O2实验音乐NFT</span>
 							<p v-if="long == 'en'">O2 is established by Ou Yang and Deng Ouge, two renowned rock musicians in mainland China. The two artists were the founders of The Face, and performed at the "Rock and Roll Chinese Music Forces" concert in Hong Kong in 1994. Together with a group of outstanding musicians, they built a significant milestone in history and witnessed the Golden Age of the Chinese rock music. In 2021, encouraged by NFT as a new form of art, Ou Yang and Deng Ouge reunited in O2 and focused on NFT music creation by integrating rock and experimental electronic music. Inspired by the virtual world, sculptures of impossibility and irrational dialogues between 0 and 1, O2 creates and presents three new NFT music pieces at this time.</p>
 							<p v-else>o2组合，由两位中国大陆著名的摇滚音乐人欧洋和邓讴歌组成。1989年欧洋与发小邓讴歌一同组建了中国著名摇滚乐队-面孔乐队，作为摇滚乐坛领军人物，欧洋与讴歌参与著名的94香港红磡“中国摇滚乐势力”演唱会，这是中国摇滚乐的一个里程碑。作为其中一员，参演并见证了中国摇滚乐最为辉煌的时刻。2021年，NFT作为一种新的艺术表达形式，将二人以新组合的方式重聚在了一起，将摇滚与实验电音融合，专注NFT音乐的创作，此次o2从虚拟空间，不可能的雕塑，0和1的非理性对话等思考出发，创作了三首全新的NFT音乐藏品。</p>
 							<a v-if="long == 'en'">Coming soon</a>
@@ -88,12 +92,14 @@
 				<img class="img-search" src="../../images/homePage/SearchLeft.png" alt="">
 				<!-- <img class="img-blur" src="../../images/homePage/blur.png" alt=""> -->
 				<div class="header flex" v-if="long == 'en'">
-					<img class="discover" src="../../images/homePage/DiscoverATTANFTContents.png" alt="">
-					<img src="../../images/homePage/TVshows.png" alt="">
+					<span v-if="long == 'en'">Discover ATTA<br/><font style="color:  #A8DEEE;
+						;">NFT Contents.</font></span>
+					<p>ATTA specializes in NFT contents including but not limited to: <font style="color: #fff;">Music, Movies/TV shows, e-sports, Celebrities& Charity.</font></p>
 				</div>
 				<div class="header flex" v-else>
-					<img src="../../images/homePage/ch1.png" alt="">
-					<img src="../../images/homePage/ch3.png" alt="">
+					<span v-if="long == 'en'">探索精彩ATTA<br/><font style="color:  #A8DEEE;
+						;">NFT内容</font></span>
+					<p>ATTA专精的NFT内容领域包括但不限于：<font style="color: #fff;">音乐，影视，电子竞技，明星艺人以及一切与慈善相关的业务。</font></p>
 				</div>
 				<div class="commodity-list flex">
 					<div class="commodity">
