@@ -27,10 +27,10 @@
 							<span style="margin: 0 16px;">|</span>
 							<span href="#" @click="switchyy('ch')">简</span>
 						</p>
-						<img @click="showMask=false" src="../../images/homePage/close.png" alt="">
+						<img @click="showMask=false" src="../../images/homePage/close.png" />
 				</div>
 				<div class="header flex">
-					<img class="brandLogo" src="../../images/homePage/logo.png" alt="">
+					<img class="brandLogo" src="../../images/homePage/logo.png" />
 					<img class="head-menu" @click="showMask=true" v-if="isMobile" src="../../images/homePage/menu.png" />
 					<div class="header-links" v-if="!isMobile">
 						<a href="#Introduction">{{"Introduction" | languageswitch("厂牌简介",long)}}</a>
@@ -51,9 +51,9 @@
 			</div>
 			<div class="home-page-two flex" id="">
 				<div class="page-two flex">
-					<img src="../../images/homePage/pageTwoLeft.png" alt="">
-					<img src="../../images/homePage/pageTworightTop.png" alt="">
-					<!-- <img src="../../images/homePage/pageTwoRightBtm.png" alt=""> -->
+					<img src="../../images/homePage/pageTwoLeft.png" />
+					<img src="../../images/homePage/pageTworightTop.png" />
+					<!-- <img src="../../images/homePage/pageTwoRightBtm.png" /> -->
 					<p v-if="long == 'en'" class="page-two-en">
 						ATTA is a blockchain-based content creator for premium copyright assets. By focusing on music, movie, esports, charity and celebrity IPs, ATTA aims to secure, produce and distribute best-in-class digital and physical assets to collectors worldwide. ATTA products are available on leading platforms and marketplaces including BAZHUAYU, Poison App and Treasureland etc. ATTA is exclusively sponsored by BAZHUAYU, a blockchain-based platform aiming to realize the full potential of the fan economy.
 					</p>
@@ -93,7 +93,7 @@
 				</div>
 			</div>
 			<div class="home-page-four flex" id="">
-				<img class="blur-guang" src="../../images/homePage/blur.png" alt="">
+				<img class="blur-guang" src="../../images/homePage/blur.png" />
 				<div class="image-left">
 					<img src="../../images/homePage/binance.png" />
 				</div>
@@ -113,8 +113,8 @@
 				</div>
 			</div>
 			<div class="home-page-five" id="Contents">
-				<img class="img-search" src="../../images/homePage/SearchLeft.png" alt="">
-				<!-- <img class="img-blur" src="../../images/homePage/blur.png" alt=""> -->
+				<img class="img-search" src="../../images/homePage/SearchLeft.png" />
+				<!-- <img class="img-blur" src="../../images/homePage/blur.png" /> -->
 				<div class="header flex" v-if="long == 'en'">
 					<span v-if="long == 'en'">Discover ATTA<br/><font style="color:  #A8DEEE;
 						;">NFT Contents.</font></span>
@@ -204,49 +204,52 @@
 					</div>
 				</div>
 				<div class="nft">
-					<img src="../../images/homePage/Group426.png" alt="">
+					<img src="../../images/homePage/Group426.png" />
 					<p>{{"Find more exclusive NFT at BAZHUAYU!" | languageswitch("在八爪娱平台探索更多精彩NFT内容！",long)}} </p>
 					<a @click="toBaZhuayu">{{"Discover More NFT" | languageswitch("即刻开始探索",long)}}</a>
 				</div>
 			</div>
 			<div class="home-page-six" id="Service">
-				<img v-if="long == 'en'" src="../../images/homePage/NFTrelatedServices.png" alt="">
-				<img v-else src="../../images/homePage/ch4.png" alt="">
-				<img class="mouse" src="../../images/homePage/MouseLeft.png" alt="">
+				<img v-if="long == 'en'" src="../../images/homePage/NFTrelatedServices.png" />
+				<img v-else src="../../images/homePage/ch4.png" />
+				<img class="mouse" src="../../images/homePage/MouseLeft.png" />
 				<p v-if="long == 'en'">If you are a content creator, celebrity, artist, or real-world trend label interested in<br/> NFT, ATTA can provide you with a range of the most professional NFT services,<br/> which include:</p>
 				<p v-else>如果您是对于NFT有兴趣的内容创作者，明星艺人，或是现实世界的潮流厂牌，ATTA有兴趣为您提供一系列最专业的NFT服务。 包括：</p>
 				<div class="ntf-services flex" v-if="long == 'en'">
-					<img src="../../images/homePage/glossy01.png" alt="">
-					<img src="../../images/homePage/glossy02.png" alt="">
-					<img src="../../images/homePage/glossy03.png" alt="">
-					<img src="../../images/homePage/glossy04.png" alt="">
-					<img src="../../images/homePage/glossy05.png" alt="">
-					<img src="../../images/homePage/glossy06.png" alt="">
+					<img src="../../images/homePage/glossy01.png" />
+					<img src="../../images/homePage/glossy02.png" />
+					<img src="../../images/homePage/glossy03.png" />
+					<img src="../../images/homePage/glossy04.png" />
+					<img src="../../images/homePage/glossy05.png" />
+					<img src="../../images/homePage/glossy06.png" />
 				</div>
 				<div class="ntf-services flex" v-else>
-					<img src="../../images/homePage/ch5.png" alt="">
-					<img src="../../images/homePage/ch6.png" alt="">
-					<img src="../../images/homePage/ch7.png" alt="">
-					<img src="../../images/homePage/ch8.png" alt="">
-					<img src="../../images/homePage/ch9.png" alt="">
-					<img src="../../images/homePage/ch10.png" alt="">
+					<img src="../../images/homePage/ch5.png" />
+					<img src="../../images/homePage/ch6.png" />
+					<img src="../../images/homePage/ch7.png" />
+					<img src="../../images/homePage/ch8.png" />
+					<img src="../../images/homePage/ch9.png" />
+					<img src="../../images/homePage/ch10.png" />
 				</div>
 			</div>
 			<div class="footer flex" id="Contact">
 				<div class="footer-left">
-					<img src="../images/homePage/logo.png" alt="">
+					<img src="../images/homePage/logo.png" />
 					<p v-if="long == 'en'">ATTA is a blockchain-based content<br/> creator for premium copyright assets. </p>
 					<p v-else>ATTA是基于区块链NFT技术构建的数字潮流品牌。 </p>
 				</div>
 				<div class="footer-right">
 					<span>{{"Focus on us" | languageswitch("关注我们",long)}}</span>
-					<div>
-						<img @click="toPage(1)" src="../images/homePage/footer01.png" alt="">
-						<img @click="toPage(2)" src="../images/homePage/footer02.png" alt="">
-						<img @click="toPage(3)" src="../images/homePage/footer03.png" alt="">
-						<img @click="toPage(4)" src="../images/homePage/footer04.png" alt="">
-						<img @click="toPage(5)" src="../images/homePage/footer05.png" alt="">
-						<img @click="toPage(6)" src="../images/homePage/footer06.png" alt="">
+					<div class="foot-imgs">
+						<div class="foot-wechat-wrap">
+							<img class="foot-wechat" v-if="showWechat" src="../images/homePage/wechat.jpeg" />
+							<img class="foot-wechat-icon" @click="toPage(1)" src="../images/homePage/footer01.png" />
+						</div>
+						<img @click="toPage(2)" src="../images/homePage/footer02.png" />
+						<img @click="toPage(3)" src="../images/homePage/footer03.png" />
+						<img @click="toPage(4)" src="../images/homePage/footer04.png" />
+						<img @click="toPage(5)" src="../images/homePage/footer05.png" />
+						<img @click="toPage(6)" src="../images/homePage/footer06.png" />
 					</div>
 				</div>
 			</div>

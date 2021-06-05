@@ -8,7 +8,8 @@ var app = new Vue({
 			imageIndex: 1,
 			long: "",
 			isMobile: false,
-			showMask: false
+			showMask: false,
+			showWechat: false
 		}
 	},
 	created(){
@@ -69,6 +70,9 @@ var app = new Vue({
 			window.open('https://www.bazhuayu.io/')
 		},
 		toPage(type){
+			if(type == 1){
+				this.showWechat = !this.showWechat
+			}
 			if(type == 2){
 				window.open('https://weibo.com/attaofficial/')
 			}
