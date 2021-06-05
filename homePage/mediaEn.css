@@ -5,7 +5,7 @@
   }
   div.home-page {
     width: 100%;
-    padding: 0 5%;
+    /* padding: 0 5%; */
   }
   div.home-page > div {
     min-width: 100% !important;
