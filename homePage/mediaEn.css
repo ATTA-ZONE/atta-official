@@ -200,6 +200,7 @@ line-height: 27px;
   }
   div.home-page > div .home-page-six .mouse {
     width: 127px;
+    height: 127px !important;
     top: -110px;
     left: -34px;
   }
