@@ -124,6 +124,8 @@
   background: url(../../images/homePage/pageTwoBgi.png) no-repeat center center;
   background-size: cover;
   justify-content: center;
+  position: relative;
+  z-index: 10;
 }
 .home-page .home-page-two .page-two {
   width: 1085px;
@@ -176,6 +178,8 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
 }
 .home-page .home-page-three img {
   margin: 20px 0;
@@ -207,6 +211,14 @@
   align-items: center;
   justify-content: space-between;
   background: rgba(5, 5, 5, 0.48);
+  position: relative;
+}
+.home-page .home-page-four .blur-guang{
+  position: absolute;
+  top: -400px;
+  left: 0;
+  transform: rotate(90deg);
+  z-index: 0;
 }
 .home-page .home-page-four .image-left {
   position: relative;
