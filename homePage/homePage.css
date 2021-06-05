@@ -72,7 +72,8 @@
   text-align: center;
   padding: 10% 20px;
   position: absolute;
-  top: 100px;
+  /* top: 100px; */
+  top: 0;
   left: 0;
 }
 .home-page .home-page-one .header-txt img {
@@ -139,13 +140,19 @@
   color: #fff;
   opacity: 0.8;
   width: 507px;
-  padding-top: 58px;
+  padding-top: 68px;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
-  line-height: 200%;
+  line-height: 32px;
   font-family: Hanson;
   text-align: center;
+}
+.home-page .home-page-two p.page-two-ch{
+  width: 468px;
+  line-height: 40px;
+  padding-top: 69px;
+  /* font-size: 20px; */
 }
 .home-page .home-page-two .page-two img:nth-child(1) {
   position: absolute;
@@ -163,8 +170,8 @@
   right: -125px;
 }
 .home-page .home-page-three {
-  padding: 100px 0;
-  background: rgba(5, 5, 5, 0.48);
+  padding: 91.5px 10%;
+  background: rgba(5, 5, 5, 0.62);
   width: 100%;
   justify-content: space-around;
   align-items: center;
