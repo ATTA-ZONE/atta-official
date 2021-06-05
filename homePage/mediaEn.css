@@ -145,6 +145,7 @@
   }
   div.home-page > div .home-page-five .commodity-list .commodity .price-total {
     flex-wrap: wrap;
+    padding: 0px 15px 0;
   }
   div.home-page > div .home-page-five .commodity-list .commodity .price-total > div {
     width: 100%;
@@ -167,6 +168,9 @@
   div.home-page > div .home-page-five .commodity-list .commodity .commodity-top img {
     width: 208px;
     height: 208px;
+  }
+  div.home-page > div .home-page-five .commodity-list .commodity-info{
+    margin-left: 15px !important;
   }
   div.home-page > div .home-page-six {
     margin-top: 60px;
