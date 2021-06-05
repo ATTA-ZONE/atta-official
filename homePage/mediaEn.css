@@ -9,6 +9,11 @@
   }
 }
 @media only screen and (max-width: 992px) {
+  .home-page .home-page-one p.switchlanguagebox {
+    padding-top: 6%;
+    width: 100%;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+  }
   .home-page .home-page-one .header-txt img {
     width: 75%;
     padding: 10% 20px !important;
