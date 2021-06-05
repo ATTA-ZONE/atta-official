@@ -494,8 +494,23 @@
   color: #FAFAFA;
   opacity: 0.85;
 }
-.home-page .footer .footer-right div {
+.home-page .footer .footer-right .foot-imgs {
   margin-top: 34px;
+  display: flex;
+  justify-content: space-between;
+}
+.home-page .footer .footer-right .foot-wechat {
+    position: absolute;
+    left: 0;
+    bottom: 36px;
+    width: 100px !important;
+    height: 100px !important;
+}
+.foot-wechat-wrap {
+  position: relative;
+}
+.home-page .footer .footer-right .foot-wechat-icon {
+  position: relative;
 }
 .home-page .footer .footer-right div img {
   width: 28px;
