@@ -362,6 +362,7 @@
 }
 .home-page .home-page-five .commodity-list .commodity:hover {
   margin-top: -10px;
+  transition: all 100ms linear;
 }
 .home-page .home-page-five .commodity-list .commodity .commodity-left {
   background: url(../../images/homePage/glass.png) no-repeat;
