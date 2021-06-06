@@ -248,6 +248,8 @@ line-height: 27px;
     margin-top: 18px;
     width: 80%;
     height: auto !important;
+    margin-left: 0;
+    margin-right: 0 !important;
   }
   .footer {
     flex-wrap: wrap;

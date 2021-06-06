@@ -93,7 +93,7 @@ var app = new Vue({
 				window.open('https://t.me/attaofficialeng1')
 			}
 			if(type == 5){
-				window.open('https://attaofficial.medium.com/')
+				window.open('https://medium.com/atta-official')
 			}
 			if(type == 6){
 				window.open('https://www.instagram.com/atta.fun.official/')

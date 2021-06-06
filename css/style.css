@@ -41,43 +41,52 @@ ul {
 	src: url("../fonts/Hanson-Bold.ttf");
 }
 .han-son{
-	font-family: "Hanson-Bold" !important;
+	/* font-family: "Hanson-Bold" !important; */
 }
 /* 方正兰亭大黑 */
 .fz-fm-dh{
-	font-family: "Fzlt-Dh" !important;
+	/* font-family: "Fzlt-Dh" !important; */
 }
 /* 方正兰亭刊黑_GBK */
 .fz-fm-kh{
-	font-family: "Fzlt-Kh" !important;
+	/* font-family: "Fzlt-Kh" !important; */
 }
 /* 方正兰亭刊宋_GBK */
 .fz-fm-ks{
-	font-family: "Fzlt-Ks" !important;
+	/* font-family: "Fzlt-Ks" !important; */
 }
 /* 方正兰亭细黑_GBK_0 */
 .fz-fm-xh{
-	font-family: "Fzlt-Xh" !important;
+	/* font-family: "Fzlt-Xh" !important; */
 }
 /* 方正兰亭纤黑_GBK */
 .fz-fm-qh{
-	font-family: "Fzlt-Qh" !important;
+	/* font-family: "Fzlt-Qh" !important; */
 }
 /* 方正兰亭中粗黑_GBK */
 .fz-fm-ch{
-	font-family: "Fzlt-Ch" !important;
+	/* font-family: "Fzlt-Ch" !important; */
 }
 /* 方正兰亭中扁黑_GBK */
 .fz-fm-bh{
-	font-family: "Fzlt-Bh" !important;
+	/* font-family: "Fzlt-Bh" !important; */
 }
 /* 方正兰亭准黑_GBK */
 .fz-fm-zhzh{
-	font-family: "Fzlt-Zh-Zh" !important;
+	/* font-family: "Fzlt-Zh-Zh" !important; */
 }
 /* 方正兰亭准黑_GBK */
 .fz-fm-thb{
-	font-family: "Fzlt-Thb" !important;
+	/* font-family: "Fzlt-Thb" !important; */
+}
+/* 平方-繁体 */
+.fz-fm-pf{
+	font-family: "PingFang" !important;
+}
+/* 平方 */
+@font-face {
+	font-family: PingFang;
+	src: url("../fonts/PingFang.ttf");
 }
 /* 方正兰亭特黑边 */
 @font-face {

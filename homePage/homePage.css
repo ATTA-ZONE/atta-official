@@ -92,7 +92,7 @@
 }
 .home-page .home-page-one .header img {
   width: 147px;
-  height: 38px;
+  height: auto;
 }
 .home-page .home-page-one p.switchlanguagebox {
   margin-right: 40px;
@@ -503,7 +503,7 @@
 .home-page .home-page-six .ntf-services {
   margin-top: 10px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .home-page .home-page-six .ntf-services img {
   width: 30%;
