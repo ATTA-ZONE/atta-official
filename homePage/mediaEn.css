@@ -248,7 +248,7 @@ line-height: 27px;
     margin-top: 18px;
     width: 80%;
     height: auto !important;
-    margin-left: 0;
+    margin-left: 0 !important;
     margin-right: 0 !important;
   }
   .footer {
