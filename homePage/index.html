@@ -18,16 +18,18 @@
 			<div class="home-page-one" id="Introduction">
 				<video autoplay="autoplay" style="width:100%;" loop="loop" src="../images/homePage/nftInfo.mp4" muted="muted"></video>
 				<div class="mask-container" v-if="showMask">
-						<a href="#Upcoming" @click="showMask=false">{{"Upcoming" | languageswitch("新品預告",long)}}</a>
-						<a href="#Contents" @click="showMask=false">{{"NFT Contents" | languageswitch("NFT内容",long)}}</a>
-						<a href="#Service" @click="showMask=false">{{"Services" | languageswitch("相關服務",long)}}</a>
-						<a href="#Contact" @click="showMask=false">{{"Contact" | languageswitch("聯系方式",long)}}</a>
-						<p class="switchlanguagebox">
-							<span href="#" @click="switchyy('en');showMask=false">EN</span>
-							<span style="margin: 0 16px;">|</span>
-							<span href="#" @click="switchyy('ch');showMask=false">简</span>
-						</p>
-						<img @click="showMask=false" src="../../images/homePage/close.png" />
+						<div>
+							<a href="#Upcoming" style="margin-top:0;" @click="showMask=false">{{"Upcoming" | languageswitch("新品預告",long)}}</a>
+							<a href="#Contents" @click="showMask=false">{{"NFT Contents" | languageswitch("NFT内容",long)}}</a>
+							<a href="#Service" @click="showMask=false">{{"Services" | languageswitch("相關服務",long)}}</a>
+							<a href="#Contact" @click="showMask=false">{{"Contact" | languageswitch("聯系方式",long)}}</a>
+							<p class="switchlanguagebox">
+								<span href="#" @click="switchyy('en');showMask=false">EN</span>
+								<span style="margin: 0 16px;">|</span>
+								<span href="#" @click="switchyy('ch');showMask=false">繁</span>
+							</p>
+							<img @click="showMask=false" src="../../images/homePage/close.png" />
+						</div>
 				</div>
 				<div class="header flex">
 					<img class="brandLogo" src="../../images/homePage/logo.png" />
@@ -36,7 +38,7 @@
 						<a href="#Introduction">{{"Introduction" | languageswitch("廠牌簡介",long)}}</a>
 						<a href="#Upcoming">{{"Upcoming" | languageswitch("新品預告",long)}}</a>
 						<a href="#Contents">{{"NFT Contents" | languageswitch("NFT内容",long)}}</a>
-						<a href="#Service">{{"Service" | languageswitch("相關服務",long)}}</a>
+						<a href="#Service">{{"Services" | languageswitch("相關服務",long)}}</a>
 						<a href="#Contact">{{"Contact" | languageswitch("聯系方式",long)}}</a>
 						<p class="switchlanguagebox">
 							<a href="#" @click="switchyy('en')">EN</a>
@@ -121,7 +123,7 @@
 				<div class="header flex" v-if="long == 'en'">
 					<span v-if="long == 'en'" class="han-son">Discover ATTA<br/><font style="color:  #A8DEEE;
 						;">NFT Contents</font></span>
-					<p>ATTA specializes in NFT contents including but not limited to: <font style="color: #fff;">Music, Movies/TV shows, e-sports, Celebrities & Charity.</font></p>
+					<p>ATTA specializes in NFT contents including but not limited to: <font style="color: #fff;">Music, Movies/TV shows, E-sports, Celebrities & Charity.</font></p>
 				</div>
 				<div class="header flex" v-else>
 					<span class="fz-fm-pf">探索精彩ATTA<br/><font style="color:  #A8DEEE;
