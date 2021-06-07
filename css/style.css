@@ -41,7 +41,7 @@ ul {
 	src: url("../fonts/Hanson-Bold.ttf");
 }
 .han-son{
-	/* font-family: "Hanson-Bold" !important; */
+	font-family: "Hanson-Bold" !important;
 }
 /* 方正兰亭大黑 */
 .fz-fm-dh{
