@@ -515,8 +515,6 @@
 }
 .home-page .home-page-six .ntf-services {
   margin-top: 10px;
-  flex-wrap: wrap;
-  /* justify-content: space-between; */
 }
 .home-page .home-page-six .ntf-services img {
   width: 23vw;
