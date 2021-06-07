@@ -245,7 +245,7 @@ line-height: 27px;
     margin-top: 0;
     justify-content: center;
     align-items: center;
-    display: flex !important;
+    display: block !important;
     text-align: center;
   }
   div.home-page > div .home-page-six .ntf-services img {
