@@ -170,7 +170,7 @@
 .home-page .home-page-two p.page-two-ch{
   width: 468px;
   line-height: 40px;
-  padding-top: 69px;
+  /* padding-top: 69px; */
   /* font-size: 20px; */
 }
 .home-page .home-page-two .page-two img:nth-child(1) {
