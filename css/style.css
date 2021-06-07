@@ -81,12 +81,12 @@ ul {
 }
 /* 平方-繁体 */
 .fz-fm-pf{
-	font-family: "PingFang" !important;
+	/* font-family: "PingFang" !important; */
 }
 /* 平方 */
 @font-face {
-	font-family: PingFang;
-	src: url("../fonts/PingFang.ttf");
+	/* font-family: PingFang;
+	src: url("../fonts/PingFang.ttf"); */
 }
 /* 方正兰亭特黑边 */
 @font-face {

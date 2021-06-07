@@ -242,8 +242,11 @@ line-height: 27px;
     line-height: 27px;
   }
   div.home-page > div .home-page-six .ntf-services{
+    margin-top: 0;
     justify-content: center;
     align-items: center;
+    display: flex !important;
+    text-align: center;
   }
   div.home-page > div .home-page-six .ntf-services img {
     margin-top: 18px;
