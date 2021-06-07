@@ -248,7 +248,8 @@ line-height: 27px;
     display: block !important;
     text-align: center;
   }
-  div.home-page > div .home-page-six .ntf-services img {
+  div.home-page > div .home-page-six .ntf-services div {
+    display: inline-block;
     margin-top: 18px;
     width: 330px;
     height: 335px !important;

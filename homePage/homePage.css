@@ -515,11 +515,45 @@
 }
 .home-page .home-page-six .ntf-services {
   margin-top: 10px;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
 }
-.home-page .home-page-six .ntf-services img {
+.home-page .home-page-six .ntf-services div {
   width: 23vw;
   height: 23vw;
   margin-top: 34px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.home-page .home-page-six .ntf-services .glossy-01{
+  background-image: url(../images/homePage/glossy01.png);
+}
+.home-page .home-page-six .ntf-services .glossy-02{
+  background-image: url(../images/homePage/glossy02.png);
+}
+.home-page .home-page-six .ntf-services .glossy-03{
+  background-image: url(../images/homePage/glossy03.png);
+}
+.home-page .home-page-six .ntf-services .glossy-04{
+  background-image: url(../images/homePage/glossy04.png);
+}
+.home-page .home-page-six .ntf-services .glossy-05{
+  background-image: url(../images/homePage/glossy05.png);
+}
+.home-page .home-page-six .ntf-services .glossych-01{
+  background-image: url(../images/homePage/ch85.png);
+}
+.home-page .home-page-six .ntf-services .glossych-02{
+  background-image: url(../images/homePage/ch6.png);
+}
+.home-page .home-page-six .ntf-services .glossych-03{
+  background-image: url(../images/homePage/ch7.png);
+}
+.home-page .home-page-six .ntf-services .glossych-04{
+  background-image: url(../images/homePage/ch8.png);
+}
+.home-page .home-page-six .ntf-services .glossych-05{
+  background-image: url(../images/homePage/ch9.png);
 }
 .home-page .footer {
   margin-top: 127px;
