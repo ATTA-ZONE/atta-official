@@ -248,6 +248,7 @@ line-height: 27px;
     margin-top: 18px;
     width: 330px;
     height: 335px !important;
+    max-height: 335px !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
