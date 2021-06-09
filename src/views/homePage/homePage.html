@@ -1,7 +1,7 @@
 <div class="home-page flex" id="homePage">
   <div>
     <div class="home-page-one" id="Introduction">
-      <video autoplay="autoplay" style="width:100%;" loop="loop" src="../../../static/images/homePage/nftInfo.mp4" muted="muted"></video>
+      <video autoplay="autoplay" style="width:100%;" loop="loop" :src="videoUrl" muted="muted"></video>
       <div class="mask-container" v-if="showMask">
           <div>
             <a @click="goAnchor('Upcoming')" style="margin-top:0;">{{"Upcoming" | languageswitch("新品預告",long)}}</a>

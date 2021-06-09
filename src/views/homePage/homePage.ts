@@ -8,7 +8,7 @@ import './homePage.less';
 export default class homePage extends Vue {
 
     msg:any = '请输入内容';
-
+		videoUrl:any = require('../../../static/images/homePage/nftInfo.mp4');
     tabs:any = ['我的藏品', '我的NFT', 'NFT操作記錄'];
     imageIndex:any = 1;
     long:any = "";
@@ -18,7 +18,6 @@ export default class homePage extends Vue {
     transitionImage:any =false;
 
     created() {
-      
       let self=this
       self.resizeWindow()
       window.onresize = function (){
