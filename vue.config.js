@@ -1,6 +1,7 @@
 // vue.config.js
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const fs = require('fs')
 
 // 路径引入的方法
@@ -16,10 +17,26 @@ module.exports = {
   // 传递第三方插件选项
   pluginOptions: {
 
+  },configureWebpack:{
+    optimization: {
+        minimizer: [
+          new UglifyJsPlugin({
+            uglifyOptions: {
+              // 删除注释
+              output:{
+                comments:false
+              },
+              // 删除console debugger 删除警告
+              compress: {
+                drop_console: true,//console
+                drop_debugger: false,
+                pure_funcs: ['console.log']//移除console
+              }
+            }
+          })
+        ]
+      } 
   },
-  configureWebpack: config => {
-    config.entry.app = ["babel-polyfill", "./src/main.ts"];
- },
   devServer: {
     open: true, // 启动服务后是否打开浏览器
     host: '0.0.0.0',
