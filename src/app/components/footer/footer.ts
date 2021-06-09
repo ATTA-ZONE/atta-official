@@ -5,12 +5,31 @@ import './footer.less';
 @Component({
     template: require('./footer.html')
 })
-export default class footer extends Vue {
+export default class vfooter extends Vue {
 
     showWechat:any = false;
+    long:any = "";
     created() {
     }
     mounted() {
+        
+        this.long = this.getCookie("long") ? this.getCookie("long") : "en";
+        document.cookie = "long=" + this.long;
+    }
+    //获取cookie
+    getCookie(cname:any) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        console.log("获取cookie,现在循环")
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            console.log(c)
+            while (c.charAt(0) == ' ') c = c.substring(1);
+            if (c.indexOf(name) != -1) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
     }
     toPage(type:any){
         if(type == 1){

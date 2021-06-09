@@ -1,9 +1,9 @@
 import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
-import footer from "./components/footer/footer"
+import vFooter from "../app/components/footer/footer"
 import './app.less';
 @Component({
     template: require('./app.html'),
-    components:{footer}
+    components:{vFooter}
 })
 export default class app extends Vue {
     created(){

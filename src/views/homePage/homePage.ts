@@ -30,6 +30,10 @@ export default class homePage extends Vue {
       document.cookie = "long=" + this.long;
       window.addEventListener('scroll', this.handleScroll)
     }
+		goAnchor(id:string){
+			let homePage:any|null = document.querySelector("#"+id);
+			if(homePage) homePage.scrollIntoView(true);
+		}
     handleScroll(){
 			let scrollY = document.documentElement.scrollTop;
 			if(scrollY >= 1300){

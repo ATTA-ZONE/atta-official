@@ -4,23 +4,22 @@ import Router from 'vue-router';
 const App: AsyncComponent = (): any => import("../app/app");
 Vue.use(Router);
 
-import homePage from '../views/homePage/homePage'  //产品管理
+const HomePage: AsyncComponent = (): any => import("../views/homePage/homePage");
 
 export default new Router({
     routes: [
         {
             path: "*",
-            redirect:'/home/homePage'
+            redirect:'/homePage'
         },
         {
-            path: "/home",
+            path: "/homePage",
             component: App,
-            alias: "/home",
+            alias: "/homePage",
             children: [
                 {
-                    path: "/homePage",
-                    component: homePage,
-                    alias: "/homePage",
+                    path: "",
+                    component: HomePage,
                 }
             ]
         }
