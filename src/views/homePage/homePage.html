@@ -1,0 +1,253 @@
+<div class="home-page flex" id="homePage">
+  <div>
+    <div class="home-page-one" id="Introduction">
+      <video autoplay="autoplay" style="width:100%;" loop="loop" src="../images/homePage/nftInfo.mp4" muted="muted"></video>
+      <div class="mask-container" v-if="showMask">
+          <div>
+            <a href="#Upcoming" style="margin-top:0;" @click="showMask=false">{{"Upcoming" | languageswitch("新品預告",long)}}</a>
+            <a href="#Contents" @click="showMask=false">{{"NFT Contents" | languageswitch("NFT内容",long)}}</a>
+            <a href="#Service" @click="showMask=false">{{"Services" | languageswitch("相關服務",long)}}</a>
+            <a href="#Contact" @click="showMask=false">{{"Contact" | languageswitch("聯系方式",long)}}</a>
+            <p class="switchlanguagebox">
+              <span href="#" @click="switchyy('en');showMask=false">EN</span>
+              <span style="margin: 0 16px;">|</span>
+              <span href="#" @click="switchyy('ch');showMask=false">繁</span>
+            </p>
+            <img @click="showMask=false" src="../../../static/images/homePage/close.png" />
+          </div>
+      </div>
+      <div class="header flex">
+        <img class="brandLogo" src="../../../static/images/homePage/logo.png" />
+        <img class="head-menu" @click="showMask=true" v-if="isMobile" src="../../../static/images/homePage/menu.png" />
+        <div class="header-links" v-if="!isMobile">
+          <a href="#Introduction">{{"Introduction" | languageswitch("廠牌簡介",long)}}</a>
+          <a href="#Upcoming">{{"Upcoming" | languageswitch("新品預告",long)}}</a>
+          <a href="#Contents">{{"NFT Contents" | languageswitch("NFT内容",long)}}</a>
+          <a href="#Service">{{"Services" | languageswitch("相關服務",long)}}</a>
+          <a href="#Contact">{{"Contact" | languageswitch("聯系方式",long)}}</a>
+          <p class="switchlanguagebox">
+            <a href="#" @click="switchyy('en')">EN</a>
+            <span style="margin: 0 16px;">|</span>
+            <a href="#" @click="switchyy('ch')">繁</a>
+          </p>
+        </div>
+      </div>
+      <div class="header-txt">
+        <img src="../../../static/images/homePage/Text.png" />
+      </div>
+    </div>
+    <div class="home-page-two flex" id="">
+      <div class="page-two flex">
+        <img src="../../../static/images/homePage/pageTwoLeft.png" />
+        <img src="../../../static/images/homePage/pageTworightTop.png" />
+        <!-- <img src="../../../static/images/homePage/pageTwoRightBtm.png" /> -->
+        <p v-if="long == 'en'" class="page-two-en">ATTA is a blockchain-based content creator for premium copyright assets. By focusing on music, movie, esports, charity and celebrity IPs, ATTA aims to secure, produce and distribute best-in-class digital and physical assets to collectors worldwide. ATTA products are available on leading platforms and marketplaces including BAZHUAYU, Poison App, Treasureland, and etc. ATTA is exclusively sponsored by BAZHUAYU, a blockchain-based platform aiming to realize the full potential of the fan economy.</p>
+        <p v-else class="page-two-ch fz-fm-pf">
+          ATTA是基於區塊鏈NFT技術構建的數字潮流品牌。ATTA旨在通過將現實世界的娛樂和文化創意內容NFT化，為全世界Z時代的明星粉絲，潮流玩家，及NFT收藏者打造最優質的NFT內容。我們希望ATTA能夠和各類社區一起完成讓NFT內容逐漸為主流社會接受這一使命。ATTA廠牌的NFT內容產品涉及數字音樂，電影，短視頻，電子競技，潮流玩物，明星，虛擬偶像等泛娛樂的領域。ATTA的NFT產品在包括八爪娛，得物，幣安NFT等各大傳統世界的平臺及數字貨幣NFT市場有售。
+        </p>
+      </div>
+    </div>
+    <div class="home-page-three" id="Upcoming">
+      <div class="onehanglogo">
+        <img class="logo1" src="../../../static/images/homePage/logo01.png" />
+        <img class="logo2" src="../../../static/images/homePage/logo02.png" />
+        <!-- <img src="../../../static/images/homePage/logo03.png" />
+        <img src="../../../static/images/homePage/logo04.png" /> -->
+        <img class="logo6" src="../../../static/images/homePage/logo06.png" />
+      </div>
+      <div class="twohanglogo">
+        <img class="logo7" src="../../../static/images/homePage/logo07.png" />
+        <img class="logo5" src="../../../static/images/homePage/logo05.png" />
+        <img src="../../../static/images/homePage/pageTwoRightBtm.png" class="start" alt="">
+      </div>
+    </div>
+    <div class="home-page-three threeweb" id="Upcoming">
+      <div class="onehanglogo">
+        <img class="logo2" src="../../../static/images/homePage/logo02.png" />
+        <!-- <img src="../../../static/images/homePage/logo03.png" />
+        <img src="../../../static/images/homePage/logo04.png" /> -->
+        <img class="logo6" src="../../../static/images/homePage/logo06.png" />
+      </div>
+      <div class="twohanglogo threehanglogo">
+        <img class="logo1" src="../../../static/images/homePage/logo01.png" />
+      </div>
+      <div class="twohanglogo">
+        <img class="logo7" src="../../../static/images/homePage/logo07.png" />
+        <img class="logo5" src="../../../static/images/homePage/logo05.png" />
+        <img src="../../../static/images/homePage/pageTwoRightBtm.png" class="start" alt="">
+      </div>
+    </div>
+    <div class="home-page-four flex" id="">
+      <img class="blur-guang" src="../../../static/images/homePage/blur.png" />
+      <div class="image-left">
+        <div>
+          <img :class="transitionImage?'image-bottom':''" src="../../../static/images/homePage/swiper03.png" />
+          <img :class="transitionImage?'image-middle':''" src="../../../static/images/homePage/swiper02.png" />
+          <img :class="transitionImage?'image-top':''" src="../../../static/images/homePage/swiper01.png" />
+        </div>
+        <img src="../../../static/images/homePage/binance.png" alt="">
+      </div>
+      <div class="txt-right"> 
+          <div class="txt-middle">
+            <span class="han-son" v-if="long == 'en'"><font style="color:  #A8DEEE;
+              ;">Upcoming -</font><br/>
+              O2 Music NFT</span>
+            <span class="fz-fm-pf" v-else><font style="color:  #A8DEEE;
+              ;">新品预告 -</font><br/>
+              O2實驗音樂NFT</span>
+            <p v-if="long == 'en'">O2 is established by Ou Yang and Deng Ouge, two renowned rock musicians in mainland China. The two artists were the founders of The Face, and performed at the "Rock and Roll Chinese Music Forces" concert in Hong Kong in 1994. Together with a group of outstanding musicians, they built a significant milestone in history and witnessed the Golden Age of the Chinese rock music. In 2021, encouraged by NFT as a new form of art, Ou Yang and Deng Ouge reunited in O2 and focused on NFT music creation by integrating rock and experimental electronic music. Inspired by the virtual world, sculptures of impossibility and irrational dialogues between 0 and 1, O2 creates and presents three new NFT music pieces at this time.</p>
+            <p class="fz-fm-pf" v-else>O2組合，由兩位中國大陸著名的搖滾音樂人歐洋和鄧謳歌組成。1989年歐洋與發小鄧謳歌一同組建了中國著名搖滾樂隊-面孔樂隊，作為搖滾樂壇領軍人物，歐洋與謳歌參與著名的94香港紅磡“中國搖滾樂勢力”演唱會，這是中國搖滾樂的一個裏程碑。作為其中一員，參演並見證了中國搖滾樂最為輝煌的時刻。2021年，NFT作為一種新的藝術表達形式，將二人以新組合的方式重聚在了一起，將搖滾與實驗電音融合，專註NFT音樂的創作，此次o2從虛擬空間，不可能的雕塑，0和1的非理性對話等思考出發，創作了三首全新的NFT音樂藏品。</p>
+            <a v-if="long == 'en'">Coming soon</a>
+            <a v-else>敬請期待</a>
+          </div>
+      </div>
+    </div>
+    <div class="home-page-five" id="Contents">
+      <img class="img-search" src="../../../static/images/homePage/SearchLeft.png" />
+      <!-- <img class="img-blur" src="../../../static/images/homePage/blur.png" /> -->
+      <div class="header flex" v-if="long == 'en'">
+        <span v-if="long == 'en'" class="han-son">Discover ATTA<br/><font style="color:  #A8DEEE;
+          ;">NFT Contents</font></span>
+        <p>ATTA specializes in NFT contents including but not limited to: <font style="color: #fff;">Music, Movies/TV shows, E-sports, Celebrities & Charity.</font></p>
+      </div>
+      <div class="header flex" v-else>
+        <span class="fz-fm-pf">探索精彩ATTA<br/><font style="color:  #A8DEEE;
+          ;">NFT内容</font></span>
+        <p>ATTA專精的NFT內容領域包括但不限於：<font style="color: #fff;">音樂，影視，電子競技，明星藝人以及一切與慈善相關的業務。</font></p>
+      </div>
+      <div class="commodity-list flex">
+        <div class="commodity">
+          <div class="commodity-top commodity-left">
+            <img src="../../../static/images/homePage/front.png" />
+          </div>
+          <p v-if="long == 'en'">TYLOO CSGO - ESPORTS NFT </p>
+          <p v-else>天祿CSGO戰隊明星NFT</p>
+          <div class="price-total flex">
+            <div>
+              <p>Price</p>
+              <p>?? BUSD</p>
+            </div>
+            <div>
+              <p>Total Edition</p>
+              <p>???</p>
+            </div>
+          </div>
+          <div class="commodity-info flex">
+            <img src="../../../static/images/homePage/Ellipse.png" />
+            <div>
+              <p>E-sports</p>
+              <p v-if="long == 'en'">TYLOO CSGO TEAM</p>
+              <p v-else>天祿電子競技俱樂部</p>
+            </div>
+          </div>
+          <a @click="toBaZhuayu">{{"E-SPORT" | languageswitch("電子競技",long)}}</a>
+        </div>
+        <div class="commodity">
+          <div class="commodity-top commodity-middle">
+            <img src="../../../static/images/homePage/front02.png" />
+          </div>
+          <p v-if="long == 'en'">April - Experimental Music NFT</p>
+          <p v-else>四月-丁武實驗音畫系列NFT</p>
+          <div class="price-total flex">
+            <div>
+              <p>Price</p>
+              <p>350 BUSD</p>
+            </div>
+            <div>
+              <p>Total Edition</p>
+              <p>150</p>
+            </div>
+          </div>
+          <div class="commodity-info flex">
+            <img src="../../../static/images/homePage/Ellipse02.png" />
+            <div>
+              <p>Musician& Artist</p>
+              <p>{{"DING WU" | languageswitch("丁武",long)}}</p>
+            </div>
+          </div>
+          <a @click="toBaZhuayu">{{"MUSIC" | languageswitch("音樂",long)}}</a>
+        </div>
+        <div class="commodity">
+          <div class="commodity-top commodity-right">
+            <img src="../../../static/images/homePage/front03.png" />
+          </div>
+          <p v-if="long == 'en'">NIU N.X - Designer Toy NFT</p>
+          <p v-else>牛N.X-設計師潮玩NFT</p>
+          <div class="price-total flex">
+            <div>
+              <p>Price</p>
+              <p>2039 HKD</p>
+            </div>
+            <div>
+              <p>Total Edition</p>
+              <p>200</p>
+            </div>
+          </div>
+          <div class="commodity-info flex">
+            <img src="../../../static/images/homePage/Ellipse03.png" />
+            <div>
+              <p>Celebrities</p>
+              <p>{{"Raquel Xu" | languageswitch("徐冬冬",long)}}</p>
+            </div>
+          </div>
+          <a @click="toBaZhuayu">{{"CELEBRITIES" | languageswitch("明星藝人",long)}}</a>
+        </div>
+      </div>
+      <div class="nft">
+        <img src="../../../static/images/homePage/Group426.png" />
+        <p>{{"Find more exclusive NFTs at BAZHUAYU!" | languageswitch("在八爪娛平臺探索更多精彩NFT內容！",long)}} </p>
+        <a @click="toBaZhuayu">{{"Discover More NFTs" | languageswitch("即刻開始探索",long)}}</a>
+      </div>
+    </div>
+    <div class="home-page-six" id="Service">
+      <span class="han-son" v-if="long == 'en'">NFT-related <br/><font style="color: rgb(168, 222, 238);">Services</font></span>
+      <span class="fz-fm-pf" style="font-weight: bold;" v-else>NFT<font style="color: rgb(168, 222, 238);">相關服務</font></span>
+      <img class="mouse" src="../../../static/images/homePage/MouseLeft.png" alt="">
+      <p v-if="long == 'en'">If you are a content creator, celebrity, artist, or real-world trend label interested in<br/> NFT, ATTA can provide you with a range of the most professional NFT services,<br/> which include:</p>
+      <p v-else>如果您是對於NFT有興趣的內容創作者，明星藝人，或是潮流<br/>廠牌，希望為您提供一系列最專業的定製化NFT服務。 包括：</p>
+      <div class="ntf-services" v-if="long == 'en'">
+        <img src="../../../static/images/homePage/glossy01.png" />
+        <img style="margin: 34px 5% 0;" src="../../../static/images/homePage/glossy02.png" />
+        <img src="../../../static/images/homePage/glossy03.png" />
+        <!-- <img src="../../../static/images/homePage/glossy06.png" /> -->
+      </div>
+      <div class="ntf-services" v-if="long == 'en'">
+        <img style="margin-right: 5%;" src="../../../static/images/homePage/glossy04.png" />
+        <img src="../../../static/images/homePage/glossy05.png" />
+        <!-- <img src="../../../static/images/homePage/glossy06.png" /> -->
+      </div>
+      <div class="ntf-services" v-if="long == 'ch'">
+        <img src="../../../static/images/homePage/ch5.png" />
+        <img style="margin: 34px 5% 0;" src="../../../static/images/homePage/ch6.png" />
+        <img src="../../../static/images/homePage/ch7.png" />
+        <!-- <img src="../../../static/images/homePage/ch10.png" /> -->
+      </div>
+      <div class="ntf-services" v-if="long == 'ch'">
+        <img style="margin-right: 5%;" src="../../../static/images/homePage/ch8.png" />
+        <img src="../../../static/images/homePage/ch9.png" />
+        <!-- <img src="../../../static/images/homePage/ch10.png" /> -->
+      </div>
+    </div>
+    <div class="footer flex" id="Contact">
+      <div class="footer-left">
+        <img src="../../../static/images/homePage/logo.png" />
+        <p v-if="long == 'en'">ATTA is a blockchain-based content<br/> creator for premium copyright assets. </p>
+        <p v-else>ATTA是基於區塊鏈NFT技術構建的數字潮流品牌</p>
+      </div>
+      <div class="footer-right">
+        <span>{{"Follow Us" | languageswitch("關註我們",long)}}</span>
+        <div class="foot-imgs">
+          <div class="foot-wechat-wrap">
+            <img class="foot-wechat" v-if="showWechat" src="../../../static/images/homePage/wechat.jpeg" />
+            <img class="foot-wechat-icon" @click="toPage(1)" src="../../../static/images/homePage/footer01.png" />
+          </div>
+          <img @click="toPage(2)" src="../../../static/images/homePage/footer02.png" />
+          <img @click="toPage(3)" src="../../../static/images/homePage/footer03.png" />
+          <img @click="toPage(4)" src="../../../static/images/homePage/footer04.png" />
+          <img @click="toPage(5)" src="../../../static/images/homePage/footer05.png" />
+          <img @click="toPage(6)" src="../../../static/images/homePage/footer06.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

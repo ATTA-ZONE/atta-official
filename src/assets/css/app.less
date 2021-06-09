@@ -1,0 +1,92 @@
+
+
+
+@import "./style.less";
+@import "./common.less";
+html {
+    font-size: 20px;
+}
+
+body {
+    color: #333;
+    font-family: "微软雅黑", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+}
+
+i {
+    font-style: normal;
+}
+
+input[type="text"] {
+    -webkit-appearance: none;
+}
+
+input[type="password"] {
+    -webkit-appearance: none;
+}
+
+textarea { 
+    -webkit-appearance: none;
+}
+
+input::-webkit-input-placeholder {
+    color: #999;
+}
+
+input {
+    outline: none;
+
+    -webkit-appearance: none;
+    /*去除系统默认的样式*/
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /* 点击高亮的颜色*/
+}
+
+input {
+
+    appearance: button;
+
+    -moz-appearance: button;
+    /* Firefox */
+
+    -webkit-appearance: button;
+    /* Safari 和 Chrome */
+
+}
+
+/* 滚动条样式 */
+
+html,body,.roll {
+    /*三角箭头的颜色*/
+    scrollbar-arrow-color: #fff;
+    /*滚动条滑块按钮的颜色*/
+    scrollbar-face-color: #e8e8eb;
+    /*滚动条整体颜色*/
+    scrollbar-highlight-color: #fff;
+    /*滚动条阴影*/
+    scrollbar-shadow-color: #fff;
+    /*滚动条轨道颜色*/
+    scrollbar-track-color: #fff;
+    /*滚动条整体部分,必须要设置*/
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+        border-radius: 6px;
+        background-color: #fff;
+    }
+    /*滚动条的轨道*/
+    ::-webkit-scrollbar-track {
+        background-color: #fff;
+        border-radius:3px;
+    }
+    /*滚动条的滑块按钮*/
+    ::-webkit-scrollbar-thumb {
+        border-radius:6px;
+        background-color: #e8e8eb;
+    }
+    /*滚动条的上下两端的按钮*/
+    ::-webkit-scrollbar-button {
+        height: 6px;
+        width: 6px;
+    }
+}
