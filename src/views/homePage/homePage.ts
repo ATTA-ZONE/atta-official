@@ -1,7 +1,6 @@
 import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
 import './homePage.less';
-import './media.less';
 
 @Component({
     template: require('./homePage.html')

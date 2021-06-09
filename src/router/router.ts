@@ -10,16 +10,19 @@ export default new Router({
     routes: [
         {
             path: "*",
-            redirect:'/homePage'
+            redirect:'/home/homePage'
         },
         {
-            path: "/homePage",
-            component: homePage,
-            alias: "/homePage",
-            // children: [
-            //     productManage,
-            //     typeManage
-            // ]
+            path: "/home",
+            component: App,
+            alias: "/home",
+            children: [
+                {
+                    path: "/homePage",
+                    component: homePage,
+                    alias: "/homePage",
+                }
+            ]
         }
     ],
 });

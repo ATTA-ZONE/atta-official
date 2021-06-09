@@ -1,0 +1,21 @@
+<div class="footer flex" id="Contact">
+  <div class="footer-left">
+    <img src="../../../../static/images/homePage/logo.png" />
+    <p v-if="long == 'en'">ATTA is a blockchain-based content<br/> creator for premium copyright assets. </p>
+    <p v-else>ATTA是基於區塊鏈NFT技術構建的數字潮流品牌</p>
+  </div>
+  <div class="footer-right">
+    <span>{{"Follow Us" | languageswitch("關註我們",long)}}</span>
+    <div class="foot-imgs">
+      <div class="foot-wechat-wrap">
+        <img class="foot-wechat" v-if="showWechat" src="../../../../static/images/homePage/wechat.jpeg" />
+        <img class="foot-wechat-icon" @click="toPage(1)" src="../../../../static/images/homePage/footer01.png" />
+      </div>
+      <img @click="toPage(2)" src="../../../../static/images/homePage/footer02.png" />
+      <img @click="toPage(3)" src="../../../../static/images/homePage/footer03.png" />
+      <img @click="toPage(4)" src="../../../../static/images/homePage/footer04.png" />
+      <img @click="toPage(5)" src="../../../../static/images/homePage/footer05.png" />
+      <img @click="toPage(6)" src="../../../../static/images/homePage/footer06.png" />
+    </div>
+  </div>
+</div>
