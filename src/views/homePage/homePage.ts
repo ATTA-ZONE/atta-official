@@ -94,7 +94,7 @@ export default class homePage extends Vue {
 				window.open('https://weibo.com/attaofficial/')
 			}
 			if(type == 3){
-				window.open('https://twitter.com/atta_fun')
+				window.open('https://twitter.com/_ATTA_zone')
 			}
 			if(type == 4){
 				window.open('https://t.me/attaofficialeng1')
@@ -103,7 +103,7 @@ export default class homePage extends Vue {
 				window.open('https://medium.com/atta-official')
 			}
 			if(type == 6){
-				window.open('https://www.instagram.com/atta.fun.official/')
+				window.open('https://www.instagram.com/atta.zone.official/')
 			}
 		}
 }
