@@ -87,7 +87,7 @@ var app = new Vue({
 				window.open('https://weibo.com/attaofficial/')
 			}
 			if(type == 3){
-				window.open('https://twitter.com/_ATTA_zone')
+				window.open('https://twitter.com/ATTA_NFT')
 			}
 			if(type == 4){
 				window.open('https://t.me/attaofficialeng1')
