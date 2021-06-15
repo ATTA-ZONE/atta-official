@@ -1,9 +1,6 @@
-
-
-
-@import "./style.less";
-@import "./common.less";
-@import "./media.less";
+@import "./style.scss";
+@import "./common.scss";
+@import "./media.scss";
 html {
     font-size: 20px;
 }

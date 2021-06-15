@@ -1,3 +1,6 @@
+@import "../assets/css/media.scss";
+@import "../assets/css/normoalize.scss";
+
 * {
   box-sizing: border-box;
 }
@@ -134,7 +137,7 @@
 .home-page .home-page-two {
   width: 100%;
   /* height: 551px; */
-  background: url(../../../static/images/homePage/pageTwoBgi.png) no-repeat center center;
+  background: url(../assets/imgs/pageTwoBgi.png) no-repeat center center;
   background-size: cover;
   justify-content: center;
   position: relative;
@@ -143,7 +146,7 @@
 .home-page .home-page-two .page-two {
   width: 1085px;
   height: 551px;
-  background: url(../../../static/images/homePage/pageTwoBgiBgi.png) no-repeat center center;
+  background: url(../assets/imgs/pageTwoBgiBgi.png) no-repeat center center;
   background-size: cover;
   position: relative;
   justify-content: center;
@@ -378,13 +381,13 @@
   transition: all 100ms linear;
 }
 .home-page .home-page-five .commodity-list .commodity .commodity-left {
-  background: url(../../../static/images/homePage/glass.png) no-repeat;
+  background: url(../assets/imgs/glass.png) no-repeat;
 }
 .home-page .home-page-five .commodity-list .commodity .commodity-middle {
-  background: url(../../../static/images/homePage/glass02.png) no-repeat;
+  background: url(../assets/imgs/glass02.png) no-repeat;
 }
 .home-page .home-page-five .commodity-list .commodity .commodity-right {
-  background: url(../../../static/images/homePage/glass03.png) no-repeat;
+  background: url(../assets/imgs/glass03.png) no-repeat;
 }
 .home-page .home-page-five .commodity-list .commodity .commodity-top {
   background-size: 100% 100%;

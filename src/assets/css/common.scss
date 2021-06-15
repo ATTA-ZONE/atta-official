@@ -1,6 +1,6 @@
 
 *{
-    -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
 }
 // 外边距
 .ml-5{margin-left: 5px;}
@@ -80,17 +80,17 @@
 .pb-45{padding-bottom:45px;}
 
 .flex {
-	display: flex;
+display: flex;
 }
 
 .header {
-	height: 80px;
-	align-items: center;
-	justify-content: space-between;
-	margin-bottom: 20px;
+height: 80px;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 20px;
 }
 input,div{
-	-moz-user-select:none;
-	-webkit-user-select:none;
-	user-select:none;  
+-moz-user-select:none;
+-webkit-user-select:none;
+user-select:none;  
 }
