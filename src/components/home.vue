@@ -286,7 +286,7 @@
         />
         <p>
           {{t("If you are a content creator, celebrity, artist, or real-world trend label interested in")}}
-          <br />{{t("NFT, ATTA can provide you with a range of the most professional NFT services, which include:")}}
+          <br />{{t("NFT, ATTA can provide you with a range of the most professional NFT services,which include:")}}
         </p>
         <div class="ntf-services" v-if="long == 'en'">
           <img src="../assets/imgs/glossy01.png" />
@@ -429,7 +429,7 @@ export default defineComponent({
     };
     const switchyy = (yy) => {
       long.value = yy;
-      showMask = false;
+      showMask.value = false;
       document.cookie = "long=" + yy;
     };
     const setCookie = (cname, cvalue, exdays) => {
@@ -444,10 +444,8 @@ export default defineComponent({
     const getCookie = (cname) => {
       var name = cname + "=";
       var ca = document.cookie.split(";");
-      console.log("获取cookie,现在循环");
       for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
-        console.log(c);
         while (c.charAt(0) == " ") c = c.substring(1);
         if (c.indexOf(name) != -1) {
           return c.substring(name.length, c.length);
