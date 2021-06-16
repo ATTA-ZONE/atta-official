@@ -35,7 +35,7 @@ export default defineComponent({
   components: { contentCell },
   setup(_, context) {
     const showDesc = ref('')
-    const pageText = ref<any>([
+    const pageText = ref([
       {
         title: "ATTA NFT Exclusive Benefits",
         desc: "nftInfo",

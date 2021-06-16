@@ -3,11 +3,11 @@
     <div>
       <div class="home-page-one" id="Introduction">
         <video
-          autoplay="autoplay"
+          autoplay
           style="width: 100%"
-          loop="loop"
+          loop
           src="@/assets/imgs/nftInfo.mp4"
-          muted="muted"
+          muted
         ></video>
         <div class="mask-container" v-if="showMask">
           <div>
@@ -84,7 +84,7 @@
           <img src="@/assets/imgs/Text.png" />
         </div>
       </div>
-      <div class="home-page-two flex" id>
+      <div class="home-page-two flex">
         <div class="page-two flex">
           <img src="@/assets/imgs/pageTwoLeft.png" />
           <img src="@/assets/imgs/pageTworightTop.png" />
