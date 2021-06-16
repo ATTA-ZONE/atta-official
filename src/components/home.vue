@@ -314,12 +314,12 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref, onMounted, onUnmounted } from "vue";
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
-  setup() {
+  setup: () => {
     const { locale } = useI18n()
     const isMobile = ref(false);
     const showMask = ref(false);
