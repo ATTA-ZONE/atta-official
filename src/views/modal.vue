@@ -2,23 +2,23 @@
   <div class="modal-container">
     <div class="modal-wrap">
       <img @click="closeModal" class="close" src="@/assets/imgs/Close.png" />
-      <div class="modal-title">{{$t('modalTitle')}}</div>
+      <div class="modal-title">{{t('modalTitle')}}</div>
       <div class="content-wrap">
         <img class="banner" src="@/assets/imgs/modal-banner.png" />
         <div class="content-desc">
-          <div class="content-desc-title">{{$t('infoTitle')}}</div>
+          <div class="content-desc-title">{{t('infoTitle')}}</div>
           <div class="content-desc-info">
-            {{$t('infoDesc')}}
+            {{t('infoDesc')}}
           </div>
           <div class="content-desc-cells">
             <content-cell
               v-for="(item, idx) in pageText"
               :key="idx"
               @toggleShow="toggleShow"
-              :title="$t(item.title)"
-              :desc="$t(item.desc)"
+              :title="t(item.title)"
+              :desc="t(item.desc)"
               :showDesc="showDesc"
-              :btn="showDesc == $t(item.title)? '-':'+'"
+              :btn="showDesc == t(item.title)? '-':'+'"
             />
           </div>
           <div class="btc-time">領取截止日期:   2021-6-31  20:00</div>
@@ -31,9 +31,11 @@
 <script lang='ts'>
 import { defineComponent, ref } from "vue";
 import contentCell from "./content-cell.vue";
+import { useI18n } from "vue-i18n";
 export default defineComponent({
   components: { contentCell },
   setup(_, context) {
+    const { t } = useI18n();
     const showDesc = ref('')
     const pageText = ref([
       {
@@ -56,7 +58,7 @@ export default defineComponent({
       context.emit('closemodal')
     }
     
-    return { pageText, showDesc, toggleShow, closeModal };
+    return { pageText, showDesc, toggleShow, closeModal, t };
   },
 });
 </script>

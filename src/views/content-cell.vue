@@ -2,7 +2,7 @@
   <div class="content-cell">
     <div class="content-cell-head">
       <span>{{props.title}}</span>
-      <span @click="toggleDesc(props.title)">{{$t('moreInfo')}} {{props.btn}}</span>
+      <span @click="toggleDesc(props.title)">{{t('moreInfo')}} {{props.btn}}</span>
     </div>
     <div class="content-cell-desc" v-if="props.showDesc == props.title">
       {{props.desc}}
@@ -11,6 +11,7 @@
 </template>
 <script lang='ts'>
 import { defineComponent } from "vue";
+import { useI18n } from "vue-i18n";
 export default defineComponent({
   props: {
     title: {
@@ -22,13 +23,14 @@ export default defineComponent({
     showDesc: String
   },
   setup(props,context){
+    const { t } = useI18n();
     const toggleDesc = (str:string) => {
       if (str === props.showDesc) {
         str = ''
       }
       context.emit('toggleShow',str)
     }
-    return {props, toggleDesc}
+    return {props, toggleDesc, t}
   }
 });
 </script>
