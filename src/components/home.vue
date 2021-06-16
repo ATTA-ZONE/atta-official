@@ -12,16 +12,16 @@
         <div class="mask-container" v-if="showMask">
           <div>
             <a @click="goAnchor('Upcoming')" style="margin-top: 0">{{
-              t('Upcoming')
+              $t('Upcoming')
             }}</a>
             <a @click="goAnchor('Contents')">{{
-              t('NFT Contents')
+              $t('NFT Contents')
             }}</a>
             <a @click="goAnchor('Service')">{{
-              t('Services')
+              $t('Services')
             }}</a>
             <a @click="goAnchor('Contact')">{{
-              t("Contact")
+              $t("Contact")
             }}</a>
             <p class="switchlanguagebox">
               <span
@@ -53,19 +53,19 @@
           />
           <div class="header-links" v-if="!isMobile">
             <a @click="goAnchor('Introduction')">{{
-              t("Introduction")
+              $t("Introduction")
             }}</a>
             <a @click="goAnchor('Upcoming')">{{
-              t("Upcoming")
+              $t("Upcoming")
             }}</a>
             <a @click="goAnchor('Contents')">{{
-              t("NFT Contents")
+              $t("NFT Contents")
             }}</a>
             <a @click="goAnchor('Service')">{{
-              t("Services")
+              $t("Services")
             }}</a>
             <a @click="goAnchor('Contact')">{{
-              t("Contact")
+              $t("Contact")
             }}</a>
             <p class="switchlanguagebox">
               <a @click="switchyy('en')">EN</a>
@@ -83,11 +83,11 @@
           <img src="@/assets/imgs/pageTwoLeft.png" />
           <img src="@/assets/imgs/pageTworightTop.png" />
           <!-- <img src="@/assets/imgs/pageTwoRightBtm.png" /> -->
-          <p v-if="long == 'en'" class="page-two-en">
-            {{t("attaInfo")}}
+          <p v-if="locale == 'en'" class="page-two-en">
+            {{$t("attaInfo")}}
           </p>
           <p v-else class="page-two-ch fz-fm-pf">
-            {{t("attaInfo")}}
+            {{$t("attaInfo")}}
           </p>
         </div>
       </div>
@@ -152,13 +152,13 @@
         <div class="txt-right">
           <div class="txt-middle">
             <span class="han-son">
-              <font style="color: #a8deee ;">{{t("Upcoming")}} -</font>
-              <br />{{t("O2 Music NFT")}}
+              <font style="color: #a8deee ;">{{$t("Upcoming")}} -</font>
+              <br />{{$t("O2 Music NFT")}}
             </span>
             <p class="fz-fm-pf">
-              {{t('musicInfo')}}
+              {{$t('musicInfo')}}
             </p>
-            <a>{{t("Coming soon")}}</a>
+            <a>{{$t("Coming soon")}}</a>
           </div>
         </div>
       </div>
@@ -170,14 +170,14 @@
         <!-- <img class="img-blur" src="@/assets/imgs/blur.png" /> -->
         <div class="header flex">
           <span class="han-son">
-            {{t("Discover ATTA")}}
+            {{$t("Discover ATTA")}}
             <br />
-            <font style="color: #a8deee ;">{{t("NFT Contents")}}</font>
+            <font style="color: #a8deee ;">{{$t("NFT Contents")}}</font>
           </span>
           <p>
-           {{ t("ATTA specializes in NFT contents including but not limited to:")}}
+           {{ $t("ATTA specializes in NFT contents including but not limited to:")}}
             <font style="color: #fff"
-              >{{t("Music, Movies/TV shows, E-sports, Celebrities & Charity.")}}</font
+              >{{$t("Music, Movies/TV shows, E-sports, Celebrities & Charity.")}}</font
             >
           </p>
         </div>
@@ -186,7 +186,7 @@
             <div class="commodity-top commodity-left">
               <img src="@/assets/imgs/front.png" />
             </div>
-            <p>{{t("TYLOO CSGO - ESPORTS NFT")}}</p>
+            <p>{{$t("TYLOO CSGO - ESPORTS NFT")}}</p>
             <div class="price-total flex">
               <div>
                 <p>Price</p>
@@ -201,18 +201,18 @@
               <img src="@/assets/imgs/Ellipse.png" />
               <div>
                 <p>E-sports</p>
-                <p>{{t("TYLOO CSGO TEAM")}}</p>
+                <p>{{$t("TYLOO CSGO TEAM")}}</p>
               </div>
             </div>
             <a @click="toBaZhuayu">{{
-              t("E-SPORT")
+              $t("E-SPORT")
             }}</a>
           </div>
           <div class="commodity">
             <div class="commodity-top commodity-middle">
               <img src="@/assets/imgs/front02.png" />
             </div>
-            <p>{{t("April - Experimental Music NFT")}}</p>
+            <p>{{$t("April - Experimental Music NFT")}}</p>
             <div class="price-total flex">
               <div>
                 <p>Price</p>
@@ -227,18 +227,18 @@
               <img src="@/assets/imgs/Ellipse02.png" />
               <div>
                 <p>Musician& Artist</p>
-                <p>{{ t("DING WU") }}</p>
+                <p>{{ $t("DING WU") }}</p>
               </div>
             </div>
             <a @click="toBaZhuayu">{{
-              t("MUSIC")
+              $t("MUSIC")
             }}</a>
           </div>
           <div class="commodity">
             <div class="commodity-top commodity-right">
               <img src="@/assets/imgs/front03.png" />
             </div>
-            <p>{{t("NIU N.X - Designer Toy NFT")}}</p>
+            <p>{{$t("NIU N.X - Designer Toy NFT")}}</p>
             <div class="price-total flex">
               <div>
                 <p>Price</p>
@@ -253,11 +253,11 @@
               <img src="@/assets/imgs/Ellipse03.png" />
               <div>
                 <p>Celebrities</p>
-                <p>{{ t('Raquel Xu') }}</p>
+                <p>{{ $t('Raquel Xu') }}</p>
               </div>
             </div>
             <a @click="toBaZhuayu">{{
-              t('CELEBRITIES')
+              $t('CELEBRITIES')
             }}</a>
           </div>
         </div>
@@ -265,11 +265,11 @@
           <img src="@/assets/imgs/Group426.png" />
           <p>
             {{
-              t("Find more exclusive NFTs at BAZHUAYU!")
+              $t("Find more exclusive NFTs at BAZHUAYU!")
             }}
           </p>
           <a @click="toBaZhuayu">{{
-            t("Discover More NFTs")
+            $t("Discover More NFTs")
           }}</a>
         </div>
       </div>
@@ -277,7 +277,7 @@
         <span class="han-son">
           NFT-related
           <br />
-          <font style="color: rgb(168, 222, 238)">{{t("Services")}}</font>
+          <font style="color: rgb(168, 222, 238)">{{$t("Services")}}</font>
         </span>
         <img
           class="mouse"
@@ -285,10 +285,10 @@
           alt
         />
         <p>
-          {{t("If you are a content creator, celebrity, artist, or real-world trend label interested in")}}
-          <br />{{t("NFT, ATTA can provide you with a range of the most professional NFT services,which include:")}}
+          {{$t("If you are a content creator, celebrity, artist, or real-world trend label interested in")}}
+          <br />{{$t("NFT, ATTA can provide you with a range of the most professional NFT services,which include:")}}
         </p>
-        <div class="ntf-services" v-if="long == 'en'">
+        <div class="ntf-services" v-if="locale == 'en'">
           <img src="@/assets/imgs/glossy01.png" />
           <img
             style="margin: 34px 5% 0"
@@ -297,7 +297,7 @@
           <img src="@/assets/imgs/glossy03.png" />
           <!-- <img src="@/assets/imgs/glossy06.png" /> -->
         </div>
-        <div class="ntf-services" v-if="long == 'en'">
+        <div class="ntf-services" v-if="locale == 'en'">
           <img
             style="margin-right: 5%"
             src="@/assets/imgs/glossy04.png"
@@ -305,7 +305,7 @@
           <img src="@/assets/imgs/glossy05.png" />
           <!-- <img src="@/assets/imgs/glossy06.png" /> -->
         </div>
-        <div class="ntf-services" v-if="long == 'ch'">
+        <div class="ntf-services" v-if="locale == 'ch'">
           <img src="@/assets/imgs/ch5.png" />
           <img
             style="margin: 34px 5% 0"
@@ -314,7 +314,7 @@
           <img src="@/assets/imgs/ch7.png" />
           <!-- <img src="@/assets/imgs/ch10.png" /> -->
         </div>
-        <div class="ntf-services" v-if="long == 'ch'">
+        <div class="ntf-services" v-if="locale == 'ch'">
           <img
             style="margin-right: 5%"
             src="@/assets/imgs/ch8.png"
@@ -326,14 +326,14 @@
       <div class="footer flex" id="Contact">
         <div class="footer-left">
           <img src="@/assets/imgs/logo.png" />
-          <p v-if="long == 'en'">
+          <p v-if="locale == 'en'">
             ATTA is a blockchain-based content
             <br />creator for premium copyright assets.
           </p>
           <p v-else>ATTA是基於區塊鏈NFT技術構建的數字潮流品牌</p>
         </div>
         <div class="footer-right">
-          <span>{{ t("Follow Us") }}</span>
+          <span>{{ $t("Follow Us") }}</span>
           <div class="foot-imgs">
             <div class="foot-wechat-wrap">
               <img
@@ -380,11 +380,10 @@ import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   setup() {
-    const { t } = useI18n()
+    const { locale } = useI18n()
     const msg = ref("请输入内容");
     const tabs = ["我的藏品", "我的NFT", "NFT操作記錄"];
     const imageIndex = ref(1);
-    const long = ref('en');
     const isMobile = ref(false);
     const showMask = ref(false);
     const showWechat = ref(false);
@@ -400,12 +399,10 @@ export default defineComponent({
     };
 
     onUnmounted(() => {
-      window.removeEventListener('resize', onResize)
+      window.removeEventListener('resize', resizeWindow)
     })
 
     onMounted(() => {
-      long.value = getCookie("long") ? getCookie("long") : "en";
-      document.cookie = "long=" + long.value;
       window.addEventListener("scroll", handleScroll);
       window.addEventListener('resize', resizeWindow)
       resizeWindow()
@@ -428,9 +425,8 @@ export default defineComponent({
       console.log(idx);
     };
     const switchyy = (yy) => {
-      long.value = yy;
+      locale.value = yy;
       showMask.value = false;
-      document.cookie = "long=" + yy;
     };
     const setCookie = (cname, cvalue, exdays) => {
       var d = new Date();
@@ -494,12 +490,11 @@ export default defineComponent({
       msg,
       tabs,
       imageIndex,
-      long,
       isMobile,
       showMask,
       showWechat,
       transitionImage,
-      t
+      locale
     };
   }
 });
