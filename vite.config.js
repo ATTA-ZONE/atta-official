@@ -19,7 +19,6 @@ export default defineConfig({
   build: {
 		assetsDir: 'assets',
 		outDir: 'dist',
-		assetsInlineLimit: 4096,
 		cssCodeSplit: true,
 		sourcemap: false,
     manifest: false
