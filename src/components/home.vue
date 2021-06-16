@@ -6,7 +6,7 @@
           autoplay="autoplay"
           style="width: 100%"
           loop="loop"
-          src="../assets/imgs/nftInfo.mp4"
+          src="@/assets/imgs/nftInfo.mp4"
           muted="muted"
         ></video>
         <div class="mask-container" v-if="showMask">
@@ -36,20 +36,20 @@
             </p>
             <img
               @click="showMask = false"
-              src="../assets/imgs/close.png"
+              src="@/assets/imgs/close.png"
             />
           </div>
         </div>
         <div class="header flex">
           <img
             class="brandLogo"
-            src="../assets/imgs/logo.png"
+            src="@/assets/imgs/logo.png"
           />
           <img
             class="head-menu"
             @click="showMask = true"
             v-if="isMobile"
-            src="../assets/imgs/menu.png"
+            src="@/assets/imgs/menu.png"
           />
           <div class="header-links" v-if="!isMobile">
             <a @click="goAnchor('Introduction')">{{
@@ -75,14 +75,14 @@
           </div>
         </div>
         <div class="header-txt">
-          <img src="../assets/imgs/Text.png" />
+          <img src="@/assets/imgs/Text.png" />
         </div>
       </div>
       <div class="home-page-two flex" id>
         <div class="page-two flex">
-          <img src="../assets/imgs/pageTwoLeft.png" />
-          <img src="../assets/imgs/pageTworightTop.png" />
-          <!-- <img src="../assets/imgs/pageTwoRightBtm.png" /> -->
+          <img src="@/assets/imgs/pageTwoLeft.png" />
+          <img src="@/assets/imgs/pageTworightTop.png" />
+          <!-- <img src="@/assets/imgs/pageTwoRightBtm.png" /> -->
           <p v-if="long == 'en'" class="page-two-en">
             {{t("attaInfo")}}
           </p>
@@ -93,17 +93,17 @@
       </div>
       <div class="home-page-three" id="Upcoming">
         <div class="onehanglogo">
-          <img class="logo1" src="../assets/imgs/logo01.png" />
-          <img class="logo2" src="../assets/imgs/logo02.png" />
-          <!-- <img src="../assets/imgs/logo03.png" />
-          <img src="../assets/imgs/logo04.png" />-->
-          <img class="logo6" src="../assets/imgs/logo06.png" />
+          <img class="logo1" src="@/assets/imgs/logo01.png" />
+          <img class="logo2" src="@/assets/imgs/logo02.png" />
+          <!-- <img src="@/assets/imgs/logo03.png" />
+          <img src="@/assets/imgs/logo04.png" />-->
+          <img class="logo6" src="@/assets/imgs/logo06.png" />
         </div>
         <div class="twohanglogo">
-          <img class="logo7" src="../assets/imgs/logo07.png" />
-          <img class="logo5" src="../assets/imgs/logo05.png" />
+          <img class="logo7" src="@/assets/imgs/logo07.png" />
+          <img class="logo5" src="@/assets/imgs/logo05.png" />
           <img
-            src="../assets/imgs/pageTwoRightBtm.png"
+            src="@/assets/imgs/pageTwoRightBtm.png"
             class="start"
             alt
           />
@@ -111,17 +111,17 @@
       </div>
       <div class="home-page-three threeweb" id="Upcoming">
         <div class="onehanglogo">
-          <img class="logo2" src="../assets/imgs/logo02.png" />
-          <img class="logo6" src="../assets/imgs/logo06.png" />
+          <img class="logo2" src="@/assets/imgs/logo02.png" />
+          <img class="logo6" src="@/assets/imgs/logo06.png" />
         </div>
         <div class="twohanglogo threehanglogo">
-          <img class="logo1" src="../assets/imgs/logo01.png" />
+          <img class="logo1" src="@/assets/imgs/logo01.png" />
         </div>
         <div class="twohanglogo">
-          <img class="logo7" src="../assets/imgs/logo07.png" />
-          <img class="logo5" src="../assets/imgs/logo05.png" />
+          <img class="logo7" src="@/assets/imgs/logo07.png" />
+          <img class="logo5" src="@/assets/imgs/logo05.png" />
           <img
-            src="../assets/imgs/pageTwoRightBtm.png"
+            src="@/assets/imgs/pageTwoRightBtm.png"
             class="start"
             alt
           />
@@ -130,24 +130,24 @@
       <div class="home-page-four flex" id>
         <img
           class="blur-guang"
-          src="../assets/imgs/blur.png"
+          src="@/assets/imgs/blur.png"
         />
         <div class="image-left">
           <div>
             <img
               :class="transitionImage ? 'image-bottom' : ''"
-              src="../assets/imgs/swiper03.png"
+              src="@/assets/imgs/swiper03.png"
             />
             <img
               :class="transitionImage ? 'image-middle' : ''"
-              src="../assets/imgs/swiper02.png"
+              src="@/assets/imgs/swiper02.png"
             />
             <img
               :class="transitionImage ? 'image-top' : ''"
-              src="../assets/imgs/swiper01.png"
+              src="@/assets/imgs/swiper01.png"
             />
           </div>
-          <img src="../assets/imgs/binance.png" alt />
+          <img src="@/assets/imgs/binance.png" alt />
         </div>
         <div class="txt-right">
           <div class="txt-middle">
@@ -165,9 +165,9 @@
       <div class="home-page-five" id="Contents">
         <img
           class="img-search"
-          src="../assets/imgs/SearchLeft.png"
+          src="@/assets/imgs/SearchLeft.png"
         />
-        <!-- <img class="img-blur" src="../assets/imgs/blur.png" /> -->
+        <!-- <img class="img-blur" src="@/assets/imgs/blur.png" /> -->
         <div class="header flex">
           <span class="han-son">
             {{t("Discover ATTA")}}
@@ -184,7 +184,7 @@
         <div class="commodity-list flex">
           <div class="commodity">
             <div class="commodity-top commodity-left">
-              <img src="../assets/imgs/front.png" />
+              <img src="@/assets/imgs/front.png" />
             </div>
             <p>{{t("TYLOO CSGO - ESPORTS NFT")}}</p>
             <div class="price-total flex">
@@ -198,7 +198,7 @@
               </div>
             </div>
             <div class="commodity-info flex">
-              <img src="../assets/imgs/Ellipse.png" />
+              <img src="@/assets/imgs/Ellipse.png" />
               <div>
                 <p>E-sports</p>
                 <p>{{t("TYLOO CSGO TEAM")}}</p>
@@ -210,7 +210,7 @@
           </div>
           <div class="commodity">
             <div class="commodity-top commodity-middle">
-              <img src="../assets/imgs/front02.png" />
+              <img src="@/assets/imgs/front02.png" />
             </div>
             <p>{{t("April - Experimental Music NFT")}}</p>
             <div class="price-total flex">
@@ -224,7 +224,7 @@
               </div>
             </div>
             <div class="commodity-info flex">
-              <img src="../assets/imgs/Ellipse02.png" />
+              <img src="@/assets/imgs/Ellipse02.png" />
               <div>
                 <p>Musician& Artist</p>
                 <p>{{ t("DING WU") }}</p>
@@ -236,7 +236,7 @@
           </div>
           <div class="commodity">
             <div class="commodity-top commodity-right">
-              <img src="../assets/imgs/front03.png" />
+              <img src="@/assets/imgs/front03.png" />
             </div>
             <p>{{t("NIU N.X - Designer Toy NFT")}}</p>
             <div class="price-total flex">
@@ -250,7 +250,7 @@
               </div>
             </div>
             <div class="commodity-info flex">
-              <img src="../assets/imgs/Ellipse03.png" />
+              <img src="@/assets/imgs/Ellipse03.png" />
               <div>
                 <p>Celebrities</p>
                 <p>{{ t('Raquel Xu') }}</p>
@@ -262,7 +262,7 @@
           </div>
         </div>
         <div class="nft">
-          <img src="../assets/imgs/Group426.png" />
+          <img src="@/assets/imgs/Group426.png" />
           <p>
             {{
               t("Find more exclusive NFTs at BAZHUAYU!")
@@ -281,7 +281,7 @@
         </span>
         <img
           class="mouse"
-          src="../assets/imgs/MouseLeft.png"
+          src="@/assets/imgs/MouseLeft.png"
           alt
         />
         <p>
@@ -289,43 +289,43 @@
           <br />{{t("NFT, ATTA can provide you with a range of the most professional NFT services,which include:")}}
         </p>
         <div class="ntf-services" v-if="long == 'en'">
-          <img src="../assets/imgs/glossy01.png" />
+          <img src="@/assets/imgs/glossy01.png" />
           <img
             style="margin: 34px 5% 0"
-            src="../assets/imgs/glossy02.png"
+            src="@/assets/imgs/glossy02.png"
           />
-          <img src="../assets/imgs/glossy03.png" />
-          <!-- <img src="../assets/imgs/glossy06.png" /> -->
+          <img src="@/assets/imgs/glossy03.png" />
+          <!-- <img src="@/assets/imgs/glossy06.png" /> -->
         </div>
         <div class="ntf-services" v-if="long == 'en'">
           <img
             style="margin-right: 5%"
-            src="../assets/imgs/glossy04.png"
+            src="@/assets/imgs/glossy04.png"
           />
-          <img src="../assets/imgs/glossy05.png" />
-          <!-- <img src="../assets/imgs/glossy06.png" /> -->
+          <img src="@/assets/imgs/glossy05.png" />
+          <!-- <img src="@/assets/imgs/glossy06.png" /> -->
         </div>
         <div class="ntf-services" v-if="long == 'ch'">
-          <img src="../assets/imgs/ch5.png" />
+          <img src="@/assets/imgs/ch5.png" />
           <img
             style="margin: 34px 5% 0"
-            src="../assets/imgs/ch6.png"
+            src="@/assets/imgs/ch6.png"
           />
-          <img src="../assets/imgs/ch7.png" />
-          <!-- <img src="../assets/imgs/ch10.png" /> -->
+          <img src="@/assets/imgs/ch7.png" />
+          <!-- <img src="@/assets/imgs/ch10.png" /> -->
         </div>
         <div class="ntf-services" v-if="long == 'ch'">
           <img
             style="margin-right: 5%"
-            src="../assets/imgs/ch8.png"
+            src="@/assets/imgs/ch8.png"
           />
-          <img src="../assets/imgs/ch9.png" />
-          <!-- <img src="../assets/imgs/ch10.png" /> -->
+          <img src="@/assets/imgs/ch9.png" />
+          <!-- <img src="@/assets/imgs/ch10.png" /> -->
         </div>
       </div>
       <div class="footer flex" id="Contact">
         <div class="footer-left">
-          <img src="../assets/imgs/logo.png" />
+          <img src="@/assets/imgs/logo.png" />
           <p v-if="long == 'en'">
             ATTA is a blockchain-based content
             <br />creator for premium copyright assets.
@@ -339,33 +339,33 @@
               <img
                 class="foot-wechat"
                 v-if="showWechat"
-                src="../assets/imgs/wechat.jpeg"
+                src="@/assets/imgs/wechat.jpeg"
               />
               <img
                 class="foot-wechat-icon"
                 @click="toPage(1)"
-                src="../assets/imgs/footer01.png"
+                src="@/assets/imgs/footer01.png"
               />
             </div>
             <img
               @click="toPage(2)"
-              src="../assets/imgs/footer02.png"
+              src="@/assets/imgs/footer02.png"
             />
             <img
               @click="toPage(3)"
-              src="../assets/imgs/footer03.png"
+              src="@/assets/imgs/footer03.png"
             />
             <img
               @click="toPage(4)"
-              src="../assets/imgs/footer04.png"
+              src="@/assets/imgs/footer04.png"
             />
             <img
               @click="toPage(5)"
-              src="../assets/imgs/footer05.png"
+              src="@/assets/imgs/footer05.png"
             />
             <img
               @click="toPage(6)"
-              src="../assets/imgs/footer06.png"
+              src="@/assets/imgs/footer06.png"
             />
           </div>
         </div>
