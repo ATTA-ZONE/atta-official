@@ -11,40 +11,36 @@
         ></video>
         <div class="mask-container" v-if="showMask">
           <div>
-            <a @click="goAnchor('Upcoming')" style="margin-top: 0">{{
-              $t('Upcoming')
-            }}</a>
-            <a @click="goAnchor('Contents')">{{
-              $t('NFT Contents')
-            }}</a>
-            <a @click="goAnchor('Service')">{{
-              $t('Services')
-            }}</a>
-            <a @click="goAnchor('Contact')">{{
-              $t("Contact")
-            }}</a>
+            <a @click="goAnchor('Upcoming')" style="margin-top: 0">
+              {{
+                $t('Upcoming')
+              }}
+            </a>
+            <a @click="goAnchor('Contents')">
+              {{
+                $t('NFT Contents')
+              }}
+            </a>
+            <a @click="goAnchor('Service')">
+              {{
+                $t('Services')
+              }}
+            </a>
+            <a @click="goAnchor('Contact')">
+              {{
+                $t("Contact")
+              }}
+            </a>
             <p class="switchlanguagebox">
-              <span
-                @click="switchyy('en');"
-                >EN</span
-              >
+              <span @click="switchyy('en');">EN</span>
               <span style="margin: 0 16px">|</span>
-              <span
-                @click="switchyy('ch');"
-                >繁</span
-              >
+              <span @click="switchyy('ch');">繁</span>
             </p>
-            <img
-              @click="showMask = false"
-              src="@/assets/imgs/close.png"
-            />
+            <img @click="showMask = false" src="@/assets/imgs/close.png" />
           </div>
         </div>
         <div class="header flex">
-          <img
-            class="brandLogo"
-            src="@/assets/imgs/logo.png"
-          />
+          <img class="brandLogo" src="@/assets/imgs/logo.png" />
           <img
             class="head-menu"
             @click="showMask = true"
@@ -52,21 +48,31 @@
             src="@/assets/imgs/menu.png"
           />
           <div class="header-links" v-if="!isMobile">
-            <a @click="goAnchor('Introduction')">{{
-              $t("Introduction")
-            }}</a>
-            <a @click="goAnchor('Upcoming')">{{
-              $t("Upcoming")
-            }}</a>
-            <a @click="goAnchor('Contents')">{{
-              $t("NFT Contents")
-            }}</a>
-            <a @click="goAnchor('Service')">{{
-              $t("Services")
-            }}</a>
-            <a @click="goAnchor('Contact')">{{
-              $t("Contact")
-            }}</a>
+            <a @click="goAnchor('Introduction')">
+              {{
+                $t("Introduce")
+              }}
+            </a>
+            <a @click="goAnchor('Upcoming')">
+              {{
+                $t("Upcoming")
+              }}
+            </a>
+            <a @click="goAnchor('Contents')">
+              {{
+                $t("NFT Contents")
+              }}
+            </a>
+            <a @click="goAnchor('Service')">
+              {{
+                $t("Services")
+              }}
+            </a>
+            <a @click="goAnchor('Contact')">
+              {{
+                $t("Contact")
+              }}
+            </a>
             <p class="switchlanguagebox">
               <a @click="switchyy('en')">EN</a>
               <span style="margin: 0 16px">|</span>
@@ -82,34 +88,23 @@
         <div class="page-two flex">
           <img src="@/assets/imgs/pageTwoLeft.png" />
           <img src="@/assets/imgs/pageTworightTop.png" />
-          <!-- <img src="@/assets/imgs/pageTwoRightBtm.png" /> -->
-          <p v-if="locale == 'en'" class="page-two-en">
-            {{$t("attaInfo")}}
-          </p>
-          <p v-else class="page-two-ch fz-fm-pf">
-            {{$t("attaInfo")}}
-          </p>
+          <p v-if="locale == 'en'" class="page-two-en">{{ $t("attaInfo") }}</p>
+          <p v-else class="page-two-ch fz-fm-pf">{{ $t("attaInfo") }}</p>
         </div>
       </div>
       <div class="home-page-three" id="Upcoming">
         <div class="onehanglogo">
           <img class="logo1" src="@/assets/imgs/logo01.png" />
           <img class="logo2" src="@/assets/imgs/logo02.png" />
-          <!-- <img src="@/assets/imgs/logo03.png" />
-          <img src="@/assets/imgs/logo04.png" />-->
           <img class="logo6" src="@/assets/imgs/logo06.png" />
         </div>
         <div class="twohanglogo">
           <img class="logo7" src="@/assets/imgs/logo07.png" />
           <img class="logo5" src="@/assets/imgs/logo05.png" />
-          <img
-            src="@/assets/imgs/pageTwoRightBtm.png"
-            class="start"
-            alt
-          />
+          <img src="@/assets/imgs/pageTwoRightBtm.png" class="start" />
         </div>
       </div>
-      <div class="home-page-three threeweb" id="Upcoming">
+      <div class="home-page-three threeweb">
         <div class="onehanglogo">
           <img class="logo2" src="@/assets/imgs/logo02.png" />
           <img class="logo6" src="@/assets/imgs/logo06.png" />
@@ -120,65 +115,44 @@
         <div class="twohanglogo">
           <img class="logo7" src="@/assets/imgs/logo07.png" />
           <img class="logo5" src="@/assets/imgs/logo05.png" />
-          <img
-            src="@/assets/imgs/pageTwoRightBtm.png"
-            class="start"
-            alt
-          />
+          <img src="@/assets/imgs/pageTwoRightBtm.png" class="start" />
         </div>
       </div>
-      <div class="home-page-four flex" id>
-        <img
-          class="blur-guang"
-          src="@/assets/imgs/blur.png"
-        />
+      <div class="home-page-four flex">
+        <img class="blur-guang" src="@/assets/imgs/blur.png" />
         <div class="image-left">
           <div>
-            <img
-              :class="transitionImage ? 'image-bottom' : ''"
-              src="@/assets/imgs/swiper03.png"
-            />
-            <img
-              :class="transitionImage ? 'image-middle' : ''"
-              src="@/assets/imgs/swiper02.png"
-            />
-            <img
-              :class="transitionImage ? 'image-top' : ''"
-              src="@/assets/imgs/swiper01.png"
-            />
+            <img :class="{ 'image-bottom': transitionImage }" src="@/assets/imgs/swiper03.png" />
+            <img :class="{ 'image-middle': transitionImage }" src="@/assets/imgs/swiper02.png" />
+            <img :class="{ 'image-top': transitionImage }" src="@/assets/imgs/swiper01.png" />
           </div>
-          <img src="@/assets/imgs/binance.png" alt />
+          <img src="@/assets/imgs/binance.png" />
         </div>
         <div class="txt-right">
           <div class="txt-middle">
             <span class="han-son">
-              <font style="color: #a8deee ;">{{$t("Upcoming")}} -</font>
-              <br />{{$t("O2 Music NFT")}}
+              <font style="color: #a8deee;">{{ $t("Upcoming") }} -</font>
+              <br />
+              {{ $t("O2 Music NFT") }}
             </span>
-            <p class="fz-fm-pf">
-              {{$t('musicInfo')}}
-            </p>
-            <a>{{$t("Coming soon")}}</a>
+            <p class="fz-fm-pf">{{ $t('musicInfo') }}</p>
+            <a>{{ $t("Coming soon") }}</a>
           </div>
         </div>
       </div>
       <div class="home-page-five" id="Contents">
-        <img
-          class="img-search"
-          src="@/assets/imgs/SearchLeft.png"
-        />
-        <!-- <img class="img-blur" src="@/assets/imgs/blur.png" /> -->
+        <img class="img-search" src="@/assets/imgs/SearchLeft.png" />
         <div class="header flex">
           <span class="han-son">
-            {{$t("Discover ATTA")}}
+            {{ $t("Discover ATTA") }}
             <br />
-            <font style="color: #a8deee ;">{{$t("NFT Contents")}}</font>
+            <font style="color: #a8deee;">{{ $t("NFT Contents") }}</font>
           </span>
           <p>
-           {{ $t("ATTA specializes in NFT contents including but not limited to:")}}
-            <font style="color: #fff"
-              >{{$t("Music, Movies/TV shows, E-sports, Celebrities & Charity.")}}</font
-            >
+            {{ $t("ATTA specializes in NFT contents including but not limited to:") }}
+            <font
+              style="color: #fff"
+            >{{ $t("Music, Movies/TV shows, E-sports, Celebrities & Charity.") }}</font>
           </p>
         </div>
         <div class="commodity-list flex">
@@ -186,7 +160,7 @@
             <div class="commodity-top commodity-left">
               <img src="@/assets/imgs/front.png" />
             </div>
-            <p>{{$t("TYLOO CSGO - ESPORTS NFT")}}</p>
+            <p>{{ $t("TYLOO CSGO - ESPORTS NFT") }}</p>
             <div class="price-total flex">
               <div>
                 <p>Price</p>
@@ -201,18 +175,20 @@
               <img src="@/assets/imgs/Ellipse.png" />
               <div>
                 <p>E-sports</p>
-                <p>{{$t("TYLOO CSGO TEAM")}}</p>
+                <p>{{ $t("TYLOO CSGO TEAM") }}</p>
               </div>
             </div>
-            <a @click="toBaZhuayu">{{
-              $t("E-SPORT")
-            }}</a>
+            <a @click="toBaZhuayu">
+              {{
+                $t("E-SPORT")
+              }}
+            </a>
           </div>
           <div class="commodity">
             <div class="commodity-top commodity-middle">
               <img src="@/assets/imgs/front02.png" />
             </div>
-            <p>{{$t("April - Experimental Music NFT")}}</p>
+            <p>{{ $t("April - Experimental Music NFT") }}</p>
             <div class="price-total flex">
               <div>
                 <p>Price</p>
@@ -230,15 +206,17 @@
                 <p>{{ $t("DING WU") }}</p>
               </div>
             </div>
-            <a @click="toBaZhuayu">{{
-              $t("MUSIC")
-            }}</a>
+            <a @click="toBaZhuayu">
+              {{
+                $t("MUSIC")
+              }}
+            </a>
           </div>
           <div class="commodity">
             <div class="commodity-top commodity-right">
               <img src="@/assets/imgs/front03.png" />
             </div>
-            <p>{{$t("NIU N.X - Designer Toy NFT")}}</p>
+            <p>{{ $t("NIU N.X - Designer Toy NFT") }}</p>
             <div class="price-total flex">
               <div>
                 <p>Price</p>
@@ -256,9 +234,11 @@
                 <p>{{ $t('Raquel Xu') }}</p>
               </div>
             </div>
-            <a @click="toBaZhuayu">{{
-              $t('CELEBRITIES')
-            }}</a>
+            <a @click="toBaZhuayu">
+              {{
+                $t('CELEBRITIES')
+              }}
+            </a>
           </div>
         </div>
         <div class="nft">
@@ -268,59 +248,42 @@
               $t("Find more exclusive NFTs at BAZHUAYU!")
             }}
           </p>
-          <a @click="toBaZhuayu">{{
-            $t("Discover More NFTs")
-          }}</a>
+          <a @click="toBaZhuayu">
+            {{
+              $t("Discover More NFTs")
+            }}
+          </a>
         </div>
       </div>
       <div class="home-page-six" id="Service">
         <span class="han-son">
           NFT-related
           <br />
-          <font style="color: rgb(168, 222, 238)">{{$t("Services")}}</font>
+          <font style="color: rgb(168, 222, 238);">{{ $t("Services") }}</font>
         </span>
-        <img
-          class="mouse"
-          src="@/assets/imgs/MouseLeft.png"
-          alt
-        />
+        <img class="mouse" src="@/assets/imgs/MouseLeft.png" />
         <p>
-          {{$t("If you are a content creator, celebrity, artist, or real-world trend label interested in")}}
-          <br />{{$t("NFT, ATTA can provide you with a range of the most professional NFT services,which include:")}}
+          {{ $t("If you are a content creator, celebrity, artist, or real-world trend label interested in") }}
+          <br />
+          {{ $t("NFT, ATTA can provide you with a range of the most professional NFT services,which include:") }}
         </p>
         <div class="ntf-services" v-if="locale == 'en'">
           <img src="@/assets/imgs/glossy01.png" />
-          <img
-            style="margin: 34px 5% 0"
-            src="@/assets/imgs/glossy02.png"
-          />
+          <img style="margin: 34px 5% 0" src="@/assets/imgs/glossy02.png" />
           <img src="@/assets/imgs/glossy03.png" />
-          <!-- <img src="@/assets/imgs/glossy06.png" /> -->
         </div>
         <div class="ntf-services" v-if="locale == 'en'">
-          <img
-            style="margin-right: 5%"
-            src="@/assets/imgs/glossy04.png"
-          />
+          <img style="margin-right: 5%" src="@/assets/imgs/glossy04.png" />
           <img src="@/assets/imgs/glossy05.png" />
-          <!-- <img src="@/assets/imgs/glossy06.png" /> -->
         </div>
         <div class="ntf-services" v-if="locale == 'ch'">
           <img src="@/assets/imgs/ch5.png" />
-          <img
-            style="margin: 34px 5% 0"
-            src="@/assets/imgs/ch6.png"
-          />
+          <img style="margin: 34px 5% 0" src="@/assets/imgs/ch6.png" />
           <img src="@/assets/imgs/ch7.png" />
-          <!-- <img src="@/assets/imgs/ch10.png" /> -->
         </div>
         <div class="ntf-services" v-if="locale == 'ch'">
-          <img
-            style="margin-right: 5%"
-            src="@/assets/imgs/ch8.png"
-          />
+          <img style="margin-right: 5%" src="@/assets/imgs/ch8.png" />
           <img src="@/assets/imgs/ch9.png" />
-          <!-- <img src="@/assets/imgs/ch10.png" /> -->
         </div>
       </div>
       <div class="footer flex" id="Contact">
@@ -336,37 +299,14 @@
           <span>{{ $t("Follow Us") }}</span>
           <div class="foot-imgs">
             <div class="foot-wechat-wrap">
-              <img
-                class="foot-wechat"
-                v-if="showWechat"
-                src="@/assets/imgs/wechat.jpeg"
-              />
-              <img
-                class="foot-wechat-icon"
-                @click="toPage(1)"
-                src="@/assets/imgs/footer01.png"
-              />
+              <img class="foot-wechat" v-if="showWechat" src="@/assets/imgs/wechat.jpeg" />
+              <img class="foot-wechat-icon" @click="toPage(1)" src="@/assets/imgs/footer01.png" />
             </div>
-            <img
-              @click="toPage(2)"
-              src="@/assets/imgs/footer02.png"
-            />
-            <img
-              @click="toPage(3)"
-              src="@/assets/imgs/footer03.png"
-            />
-            <img
-              @click="toPage(4)"
-              src="@/assets/imgs/footer04.png"
-            />
-            <img
-              @click="toPage(5)"
-              src="@/assets/imgs/footer05.png"
-            />
-            <img
-              @click="toPage(6)"
-              src="@/assets/imgs/footer06.png"
-            />
+            <img @click="toPage(2)" src="@/assets/imgs/footer02.png" />
+            <img @click="toPage(3)" src="@/assets/imgs/footer03.png" />
+            <img @click="toPage(4)" src="@/assets/imgs/footer04.png" />
+            <img @click="toPage(5)" src="@/assets/imgs/footer05.png" />
+            <img @click="toPage(6)" src="@/assets/imgs/footer06.png" />
           </div>
         </div>
       </div>
@@ -375,15 +315,12 @@
 </template>
 
 <script>
-import { defineComponent, ref, onMounted,onUnmounted } from "vue";
+import { defineComponent, ref, onMounted, onUnmounted } from "vue";
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   setup() {
     const { locale } = useI18n()
-    const msg = ref("请输入内容");
-    const tabs = ["我的藏品", "我的NFT", "NFT操作記錄"];
-    const imageIndex = ref(1);
     const isMobile = ref(false);
     const showMask = ref(false);
     const showWechat = ref(false);
@@ -395,6 +332,14 @@ export default defineComponent({
         isMobile.value = true;
       } else {
         isMobile.value = false;
+      }
+    };
+    const handleScroll = () => {
+      let scrollY = document.documentElement.scrollTop;
+      if (scrollY >= 1300) {
+        transitionImage.value = true;
+      } else {
+        transitionImage.value = false;
       }
     };
 
@@ -409,87 +354,48 @@ export default defineComponent({
     });
 
     const goAnchor = (id) => {
-      let homePage = document.querySelector("#" + id);
-      if (homePage) homePage.scrollIntoView(true);
-    };
-    const handleScroll = () => {
-      let scrollY = document.documentElement.scrollTop;
-      if (scrollY >= 1300) {
-        transitionImage.value = true;
-      } else {
-        transitionImage.value = false;
+      if (id) {
+        let homePage = document.querySelector("#" + id);
+        console.log(homePage);
+        if (homePage) { homePage.scrollIntoView(true) }
       }
     };
-    
-    const imageHover = (idx) => {
-      console.log(idx);
-    };
+
     const switchyy = (yy) => {
       locale.value = yy;
       showMask.value = false;
     };
-    const setCookie = (cname, cvalue, exdays) => {
-      var d = new Date();
-      d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
-      var expires = "expires=" + d.toUTCString();
-      console.info(cname + "=" + cvalue + "; " + expires);
-      document.cookie = cname + "=" + cvalue + "; " + expires;
-      console.info(document.cookie);
-    };
-    //获取cookie
-    const getCookie = (cname) => {
-      var name = cname + "=";
-      var ca = document.cookie.split(";");
-      for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == " ") c = c.substring(1);
-        if (c.indexOf(name) != -1) {
-          return c.substring(name.length, c.length);
-        }
-      }
-      return "";
-    };
-    //清除cookie
-    const clearCookie = () => {
-      setCookie("username", "", -1);
-    };
+
     const toBaZhuayu = () => {
       window.open("https://www.bazhuayu.io/");
     };
     const toPage = (type) => {
-      if (type == 1) {
-        showWechat.value = !showWechat.value;
-      }
-      if (type == 2) {
-        window.open("https://weibo.com/attaofficial/");
-      }
-      if (type == 3) {
-        window.open("https://twitter.com/_ATTA_zone");
-      }
-      if (type == 4) {
-        window.open("https://t.me/attaofficialeng1");
-      }
-      if (type == 5) {
-        window.open("https://medium.com/atta-official");
-      }
-      if (type == 6) {
-        window.open("https://www.instagram.com/atta.zone.official/");
+      switch (type) {
+        case 1:
+          showWechat.value = !showWechat.value;
+          break;
+        case 2:
+          window.open("https://weibo.com/attaofficial/");
+          break;
+        case 3:
+          window.open("https://twitter.com/_ATTA_zone");
+          break;
+        case 4:
+          window.open("https://t.me/attaofficialeng1")
+          break;
+        case 5:
+          window.open("https://medium.com/atta-official");
+          break;
+        case 6:
+          window.open("https://www.instagram.com/atta.zone.official/");
+          break;
       }
     };
     return {
       goAnchor,
-      handleScroll,
-      resizeWindow,
-      imageHover,
       switchyy,
-      setCookie,
-      getCookie,
-      clearCookie,
       toBaZhuayu,
       toPage,
-      msg,
-      tabs,
-      imageIndex,
       isMobile,
       showMask,
       showWechat,
