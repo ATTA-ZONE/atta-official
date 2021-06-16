@@ -312,21 +312,22 @@
       </div>
     </div>
   </div>
+  <modal />
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, onMounted, onUnmounted } from "vue";
 import { useI18n } from 'vue-i18n'
+import modal from './modal.vue'
 
 export default defineComponent({
+  components: {modal},
   setup: () => {
     const { locale } = useI18n()
     const isMobile = ref(false);
     const showMask = ref(false);
     const showWechat = ref(false);
     const transitionImage = ref(false);
-
-    console.log(web3);
     
     const resizeWindow = () => {
       let width = document.getElementsByTagName("body")[0].offsetWidth;
