@@ -106,6 +106,10 @@ export default defineComponent({
           padding: 20px 0;
           margin: 20px 0;
         }
+        &-info {
+          text-align: justify;
+          word-break: break-all;
+        }
       }
       .btc-time {
         font-size: 16px;
