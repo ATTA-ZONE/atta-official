@@ -1,21 +1,22 @@
-import { resolve } from "path";
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-
-const pathResolve = (dir) => {
-  return resolve(__dirname, ".", dir);
-};
-
-const alias = {
-  "/@": pathResolve("src"),
-  //解决开发环境下的警告 You are running the esm-bundler build of vue-i18n. It is recommended to configure your bundler to explicitly replace feature flag globals with boolean literals to get proper tree-shaking in the final bundle.
-  "vue-i18n": "vue-i18n/dist/vue-i18n.cjs.js",
-};
-
-// https://vitejs.dev/config/
+import path from 'path'
+import {vueI18n} from "@intlify/vite-plugin-vue-i18n";
 export default defineConfig({
+  plugins: [vue(),
+    vueI18n({
+    // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
+    // compositionOnly: false,
+
+    // you need to set i18n resource including paths !
+    include: path.resolve(__dirname, './src/locales/**')
+  })],
   resolve: {
-    alias,
+    alias: {
+      '@': path.resolve(__dirname, '/src'),
+    },
   },
-  plugins: [vue()]
+  server: {
+    open: true,
+  },
 })
