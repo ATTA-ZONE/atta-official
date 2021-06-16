@@ -23,6 +23,8 @@
               :btn="showDesc == item.title? '-':'+'"
             />
           </div>
+          <div class="btc-time">領取截止日期:   2021-6-31  20:00</div>
+          <span class="submit-btn">連接錢包</span>
         </div>
       </div>
     </div>
@@ -104,6 +106,17 @@ export default defineComponent({
           padding: 20px 0;
           margin: 20px 0;
         }
+      }
+      .btc-time {
+        font-size: 16px;
+      }
+      .submit-btn {
+        display: inline-block;
+        padding: 14px 70px;
+        margin-top: 20px;
+        cursor: pointer;
+        color: rgba(168, 222, 238, 1);
+        border: 1px solid rgba(168, 222, 238, 1);
       }
     }
   }
