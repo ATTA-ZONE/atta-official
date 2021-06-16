@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page flex" id="homePage">
+  <div class="home-page flex">
     <div>
       <div class="home-page-one" id="Introduction">
         <video
