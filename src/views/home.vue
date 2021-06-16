@@ -365,7 +365,7 @@ export default defineComponent({
       }
     };
 
-    const switchyy = (yy) => {
+    const switchyy = (yy:string) => {
       locale.value = yy;
       showMask.value = false;
     };
@@ -376,7 +376,7 @@ export default defineComponent({
     const toBaZhuayu = () => {
       window.open("https://www.bazhuayu.io/");
     };
-    const toPage = (type) => {
+    const toPage = (type:number) => {
       switch (type) {
         case 1:
           showWechat.value = !showWechat.value;
