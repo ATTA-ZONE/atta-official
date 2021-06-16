@@ -326,6 +326,8 @@ export default defineComponent({
     const showWechat = ref(false);
     const transitionImage = ref(false);
 
+    console.log(web3);
+    
     const resizeWindow = () => {
       let width = document.getElementsByTagName("body")[0].offsetWidth;
       if (width < 992) {
