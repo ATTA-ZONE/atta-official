@@ -16,9 +16,11 @@
             <content-cell
               v-for="(item, idx) in pageText"
               :key="idx"
+              @toggleShow="toggleShow"
               :title="item.title"
               :desc="item.desc"
-              :btn="item.btn"
+              :showDesc="showDesc"
+              :btn="showDesc == item.title? '-':'+'"
             />
           </div>
         </div>
@@ -32,6 +34,7 @@ import contentCell from "./content-cell.vue";
 export default defineComponent({
   components: { contentCell },
   setup() {
+    const showDesc = ref('')
     const pageText = ref<any>([
       {
         title: "ATTA NFT专属权益：",
@@ -46,7 +49,11 @@ export default defineComponent({
         desc: "ATTA通證若ATTA未來發行屬於自己的通證，通過ATTA空投獲得的NFT持有者都將獲得一定通證獎勵。部分特定ATTA NFT的持有者，則有機會獲得通證的優先認購資格。超稀有NFT購買資格ATTA將不定期推出頂級IP的超稀有NFT 產品，永久限量發售，僅對ATTA NFT持有人開放購買資格。這些NFT將代表著這些現實世界對應IP的超珍貴權益ATTA的 NFT可以在八爪娛，或者幣安的NFT主板市場，和其他的主要NFT 交易市場中購買到。",
       },
     ]);
-    return { pageText };
+    const toggleShow = (str: string)=>{
+      showDesc.value = str
+    }
+    
+    return { pageText, showDesc, toggleShow };
   },
 });
 </script>
@@ -61,7 +68,8 @@ export default defineComponent({
   background: rgba($color: #000000, $alpha: 0.9);
   .modal-wrap {
     width: 1300px;
-    height: 1000px;
+    max-height: 90%;
+    overflow-y: scroll;
     position: absolute;
     left: 50%;
     top: 2%;

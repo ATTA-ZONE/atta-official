@@ -2,9 +2,9 @@
   <div class="content-cell">
     <div class="content-cell-head">
       <span>{{props.title}}</span>
-      <span>更多信息 {{props.btn}}</span>
+      <span @click="toggleDesc(props.title)">更多信息 {{props.btn}}</span>
     </div>
-    <div class="content-cell-desc">
+    <div class="content-cell-desc" v-if="props.showDesc == props.title">
       {{props.desc}}
     </div>
   </div>
@@ -13,12 +13,22 @@
 import { defineComponent } from "vue";
 export default defineComponent({
   props: {
-    title: String,
+    title: {
+      type: String,
+      required: true
+    },
     desc: String,
-    btn: String
+    btn: String,
+    showDesc: String
   },
-  setup(props){
-    return {props}
+  setup(props,context){
+    const toggleDesc = (str:string) => {
+      if (str === props.showDesc) {
+        str = ''
+      }
+      context.emit('toggleShow',str)
+    }
+    return {props, toggleDesc}
   }
 });
 </script>
