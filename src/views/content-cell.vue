@@ -2,7 +2,7 @@
   <div class="content-cell">
     <div class="content-cell-head">
       <span>{{props.title}}</span>
-      <span @click="toggleDesc(props.title)">更多信息 {{props.btn}}</span>
+      <span @click="toggleDesc(props.title)">{{$t('moreInfo')}} {{props.btn}}</span>
     </div>
     <div class="content-cell-desc" v-if="props.showDesc == props.title">
       {{props.desc}}

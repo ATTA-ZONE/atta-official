@@ -312,7 +312,7 @@
       </div>
     </div>
   </div>
-  <modal />
+  <modal v-if="showModal" @closeModal="closeModal" />
 </template>
 
 <script lang="ts">
@@ -328,6 +328,7 @@ export default defineComponent({
     const showMask = ref(false);
     const showWechat = ref(false);
     const transitionImage = ref(false);
+    const showModal = ref(false);
     
     const resizeWindow = () => {
       let width = document.getElementsByTagName("body")[0].offsetWidth;
@@ -356,7 +357,7 @@ export default defineComponent({
       resizeWindow()
     });
 
-    const goAnchor = (id) => {
+    const goAnchor = (id:number|string) => {
       if (id) {
         let homePage = document.querySelector("#" + id);
         console.log(homePage);
@@ -367,6 +368,9 @@ export default defineComponent({
     const switchyy = (yy) => {
       locale.value = yy;
       showMask.value = false;
+    };
+    const closeModal = () => {
+      showModal.value = false
     };
 
     const toBaZhuayu = () => {
@@ -403,7 +407,9 @@ export default defineComponent({
       showMask,
       showWechat,
       transitionImage,
-      locale
+      locale,
+      closeModal,
+      showModal
     };
   }
 });
