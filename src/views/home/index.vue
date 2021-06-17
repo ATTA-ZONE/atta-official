@@ -7,7 +7,7 @@
           <img src="@/assets/imgs/pageTwoLeft.png" />
           <img src="@/assets/imgs/pageTworightTop.png" />
           <p :class="[isEn ? 'page-two-en' : 'page-two-ch fz-fm-pf']">
-            {{ t("attaInfo") }}
+            {{ $t("attaInfo") }}
           </p>
         </div>
       </div>
@@ -61,55 +61,17 @@
         <div class="txt-right">
           <div class="txt-middle">
             <span class="han-son">
-              <font style="color: #a8deee">{{ t("Upcoming") }} -</font>
+              <font style="color: #a8deee">{{ $t("Upcoming") }} -</font>
               <br />
-              {{ t("O2 Music NFT") }}
+              {{ $t("O2 Music NFT") }}
             </span>
-            <p class="fz-fm-pf">{{ t("musicInfo") }}</p>
-            <a>{{ t("Coming soon") }}</a>
+            <p class="fz-fm-pf">{{ $t("musicInfo") }}</p>
+            <a>{{ $t("Coming soon") }}</a>
           </div>
         </div>
       </div>
       <home-five />
-      <div class="home-page-six" id="Service">
-        <span class="han-son">
-          NFT-related
-          <br />
-          <font style="color: rgb(168, 222, 238)">{{ t("Services") }}</font>
-        </span>
-        <img class="mouse" src="@/assets/imgs/MouseLeft.png" />
-        <p>
-          {{
-            t(
-              "If you are a content creator, celebrity, artist, or real-world trend label interested in"
-            )
-          }}
-          <br />
-          {{
-            t(
-              "NFT, ATTA can provide you with a range of the most professional NFT services,which include:"
-            )
-          }}
-        </p>
-        <div class="ntf-services" v-if="isEn">
-          <img src="@/assets/imgs/glossy01.png" />
-          <img style="margin: 34px 5% 0" src="@/assets/imgs/glossy02.png" />
-          <img src="@/assets/imgs/glossy03.png" />
-        </div>
-        <div class="ntf-services" v-if="isEn">
-          <img style="margin-right: 5%" src="@/assets/imgs/glossy04.png" />
-          <img src="@/assets/imgs/glossy05.png" />
-        </div>
-        <div class="ntf-services" v-if="!isEn">
-          <img src="@/assets/imgs/ch5.png" />
-          <img style="margin: 34px 5% 0" src="@/assets/imgs/ch6.png" />
-          <img src="@/assets/imgs/ch7.png" />
-        </div>
-        <div class="ntf-services" v-if="!isEn">
-          <img style="margin-right: 5%" src="@/assets/imgs/ch8.png" />
-          <img src="@/assets/imgs/ch9.png" />
-        </div>
-      </div>
+      <home-six />
       <footer-cell />
     </div>
   </div>
@@ -120,46 +82,19 @@ import { defineComponent, ref, computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import headerCell from "./header.vue";
 import homeFive from "./homeFive.vue";
+import homeSix from "./homeSix.vue";
 import footerCell from "./footerCell.vue";
 
 export default defineComponent({
-  components: { headerCell, homeFive, footerCell },
+  components: { headerCell, homeFive, homeSix, footerCell },
   setup: () => {
-    const { locale, t } = useI18n();
-    
+    const { locale } = useI18n();
+
     const transitionImage = ref(false);
 
     const isEn = computed(() => {
       return locale.value.trim() == "en";
     });
-
-    const initWeb3 = () => {
-      //判断用户是否安装MetaMask钱包插件
-      if (typeof window.ethereum === "undefined") {
-        //没安装MetaMask钱包进行弹框提示
-        alert("请安装MetaMask");
-      } else {
-        //如果用户安装了MetaMask，你可以要求他们授权应用登录并获取其账号
-        window.ethereum
-          .enable()
-          .catch(function (reason:any) {
-            //如果用户拒绝了登录请求
-            if (reason === "User rejected provider access") {
-              // 用户拒绝登录后执行语句；
-            } else {
-              // 本不该执行到这里，但是真到这里了，说明发生了意外
-              alert("There was a problem signing you in");
-            }
-          })
-          .then(function (accounts) {
-            // 判断是否连接以太
-            console.log(accounts);
-            return accounts[0];
-          });
-      }
-    };
-
-    initWeb3()
 
     const handleScroll = () => {
       let scrollY = document.documentElement.scrollTop;
@@ -176,8 +111,7 @@ export default defineComponent({
 
     return {
       transitionImage,
-      isEn,
-      t,
+      isEn
     };
   },
 });

@@ -33,10 +33,17 @@
   </div>
 </template>
 <script lang='ts'>
-import { defineComponent, ref } from "vue";
+import { computed, defineComponent, ref } from "vue";
+import { useI18n } from "vue-i18n";
+
 export default defineComponent({
   setup() {
     const showWechat = ref(false);
+    const { locale } = useI18n();
+
+    const isEn = computed(() => {
+      return locale.value.trim() == "en";
+    });
 
     const toPage = (type: number) => {
       switch (type) {
@@ -63,6 +70,7 @@ export default defineComponent({
 
     return {
       showWechat,
+      isEn,
       toPage
     }
   }
