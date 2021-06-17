@@ -212,7 +212,6 @@
   align-items: center;
 }
 .twohanglogo{
-  width: 47%;
   margin: 0 auto;
   margin-top: 60px;
 }
@@ -226,6 +225,9 @@
 .home-page .home-page-three .logo2 {
   width: 166px;
   height: 28px;
+}
+.home-page .home-page-three .logo3 {
+  width: 270px;
 }
 .home-page .home-page-three .logo6 {
   width: 163px;
