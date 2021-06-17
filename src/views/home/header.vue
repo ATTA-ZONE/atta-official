@@ -54,7 +54,7 @@
           {{ $t("Contact") }}
         </a>
         <span @click="showModal = true" class="top-btn">{{$t('Claim Your NFT')}}</span>
-        <div class="wallet-container">
+        <div class="wallet-container" @click="getAddress">
           <img class="connect-status-img" :src="[accountAddress? greenDot:redDot]" />
           <div class="wallet-status">
             <div class="wallet-status-title">{{accountAddress? $t('Wellet connected'):$t('Connect Wallet')}}</div>
@@ -80,6 +80,7 @@ import { useI18n } from "vue-i18n";
 import modal from "./modal.vue";
 import greenDot from '@/assets/imgs/greenDot.png'
 import redDot from '@/assets/imgs/redDot.png'
+import initWeb3 from '@/assets/js/accounts'
 
 export default defineComponent({
   components: { modal },
@@ -88,7 +89,7 @@ export default defineComponent({
     const showMask = ref(false);
     const isMobile = ref(false);
     const showModal = ref(false);
-    const accountAddress = ref('');
+    const accountAddress = ref();
 
     const switchLang = (yy: string) => {
       locale.value = yy;
@@ -98,6 +99,14 @@ export default defineComponent({
     const closemodal = () => {
       showModal.value = false;
     };
+
+    const getAddress = ()=>{
+      initWeb3().then((res:[])=>{
+        if (res.length > 0) {
+          accountAddress.value = res[0]
+        }
+      })
+    }
 
     const goAnchor = (id: number | string) => {
       if (id) {
@@ -127,32 +136,6 @@ export default defineComponent({
       resizeWindow();
     });
 
-    const initWeb3 = () => {
-      //判断用户是否安装MetaMask钱包插件
-      if (typeof window.ethereum === "undefined") {
-        //没安装MetaMask钱包进行弹框提示
-        alert("请安装MetaMask");
-      } else {
-        //如果用户安装了MetaMask，要求他们授权应用登录并获取其账号
-        window.ethereum
-          .enable()
-          .catch(function (reason: any) {
-            //如果用户拒绝了登录请求
-            if (reason === "User rejected provider access") {
-              // 用户拒绝登录后执行语句；
-            } else {
-              // 本不该执行到这里，但是真到这里了，说明发生了意外
-              alert("There was a problem signing you in");
-            }
-          })
-          .then(function (accounts: any) {
-            if (accounts[0]) {
-              accountAddress.value = accounts[0]
-            }
-          });
-      }
-    };
-
     return {
       showMask,
       switchLang,
@@ -162,7 +145,8 @@ export default defineComponent({
       isMobile,
       accountAddress,
       greenDot,
-      redDot
+      redDot,
+      getAddress
     };
   },
 });
@@ -170,8 +154,25 @@ export default defineComponent({
 <style lang='scss'>
 .connect-status-img {
   width: 6px;
+  height: 6px;
+  margin-right: 13px;
 }
 .wallet-container {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+}
+.wallet-status {
+  color: #fff;
+  &-title {
+    font-size: 14px;
+  }
+  &-address {
+    font-size: 12px;
+    opacity: 0.6;
+    width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 </style>
