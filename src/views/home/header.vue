@@ -8,7 +8,7 @@
       muted
     ></video>
     <div class="mask-container" v-if="showMask">
-      <div>
+      <div class="mask-wrap">
         <a @click="goAnchor('Upcoming')" style="margin-top: 0">
           {{ $t("Upcoming") }}
         </a>
@@ -21,12 +21,21 @@
         <a @click="goAnchor('Contact')">
           {{ $t("Contact") }}
         </a>
+        
+        <div class="wallet-container" @click="getAddress">
+          <div class="wallet-status">
+            <div>{{accountAddress? $t('Wellet connected'):$t('Connect Wallet')}}</div>
+            <div class="wallet-status-address">{{accountAddress}}</div>
+          </div>
+          <img class="connect-status-img" :src="[accountAddress? greenDot:redDot]" />
+        </div>
+        <div @click="showModal = true" class="top-btn">{{$t('Claim Your NFT')}}</div>
         <p class="switchlanguagebox">
           <span @click="switchLang('en')">EN</span>
           <span style="margin: 0 16px">|</span>
           <span @click="switchLang('ch')">繁</span>
         </p>
-        <img @click="showMask = false" src="@/assets/imgs/close.png" />
+        <img class="close-img" @click="showMask = false" src="@/assets/imgs/close.png" />
       </div>
     </div>
     <div class="header flex">

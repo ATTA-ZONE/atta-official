@@ -11,37 +11,48 @@
   top: 0;
   left: 0;
   z-index: 999;
-  padding: 5%;
+  padding: 10%;
+  font-size: 20px;
   background: rgba(20, 20, 20, 0.48);
   backdrop-filter: blur(30px);
-}
-.mask-container >div{
+  .mask-wrap {
     width: 100%;
     display: block;
     background: #141414;
     box-shadow: 0px 4px 150px rgba(0, 0, 0, 0.3);
     padding: 30px 0;
+    a {
+      display: block;
+      margin: 6% 0;
+      color: #fff !important;
+      z-index: 100;
+    }
+    span {
+      padding-left: 5%;
+      font-size: 16px;
+      color: #fff !important;
+      z-index: 100;
+    }
+    .close-img {
+      position: absolute;
+      top: 7%;
+      right: 10%;
+      z-index: 100;
+    }
+    .wallet-status-address {
+      width: 150px;
+    }
+    .connect-status-img {
+      width: 10px;
+      height: 10px;
+      margin: 0 0 0 13px;
+    }
+    .top-btn {
+      margin: 6% 0;
+    }
+  }
 }
-.mask-container a {
-  padding-left: 5%;
-  font-size: 14px;
-  display: block;
-  margin: 6% 0;
-  color: #fff !important;
-  z-index: 100;
-}
-.mask-container span {
-  padding-left: 5%;
-  font-size: 16px;
-  color: #fff !important;
-  z-index: 100;
-}
-.mask-container img {
-  position: absolute;
-  top: 7%;
-  right: 10%;
-  z-index: 100;
-}
+
 .home-page {
   width: 100%;
   font-size: 0;
