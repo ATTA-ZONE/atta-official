@@ -81,10 +81,9 @@
 .home-page .home-page-one .header-links {
   width: 100%;
   padding-left: 98px;
+  white-space: nowrap;
 }
-.home-page .home-page-one .header-links > p {
-  float: right;
-}
+
 .home-page .home-page-one .header-txt {
   width: 100%;
   text-align: center;
@@ -110,7 +109,6 @@
   height: auto;
 }
 .home-page .home-page-one p.switchlanguagebox {
-  margin-right: 40px;
   font-size: 16px;
   color: #fff;
   display: inline-block;
@@ -566,4 +564,13 @@
   width: 28px;
   height: 28px;
   margin-right: 20px;
+}
+.top-btn {
+  display: inline-block;
+  padding: 10px 50px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 20px 0 60px;
+  color: rgba(168, 222, 238, 1);
+  border: 1px solid rgba(168, 222, 238, 1);
 }
