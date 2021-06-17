@@ -73,8 +73,8 @@ export default defineComponent({
   background: rgba($color: #000000, $alpha: 0.9);
   .modal-wrap {
     width: 1300px;
-    max-height: 90%;
-    overflow-y: scroll;
+    height: 90%;
+    overflow-y: auto;
     position: absolute;
     left: 50%;
     top: 2%;

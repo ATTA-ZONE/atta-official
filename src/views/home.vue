@@ -315,7 +315,7 @@
       </div>
     </div>
   </div>
-  <modal v-if="showModal" @closeModal="closeModal" />
+  <modal v-if="showModal" @closemodal="closemodal" />
 </template>
 
 <script lang="ts">
@@ -379,7 +379,7 @@ export default defineComponent({
       locale.value = yy;
       showMask.value = false;
     };
-    const closeModal = () => {
+    const closemodal = () => {
       showModal.value = false;
     };
 
@@ -418,7 +418,7 @@ export default defineComponent({
       showWechat,
       transitionImage,
       isEn,
-      closeModal,
+      closemodal,
       showModal,
       t
     };
