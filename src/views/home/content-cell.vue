@@ -34,7 +34,7 @@ export default defineComponent({
   }
 });
 </script>
-<style scoped lang='scss'>
+<style lang='scss'>
   .content-cell {
     margin-bottom: 20px;
     &-head {

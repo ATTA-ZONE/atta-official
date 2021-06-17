@@ -427,5 +427,5 @@ export default defineComponent({
 
 
 <style lang="scss">
-@import "./home.scss";
+@import "./index.scss";
 </style>

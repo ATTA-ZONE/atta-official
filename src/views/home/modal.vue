@@ -62,7 +62,7 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped lang='scss'>
+<style lang='scss'>
 .modal-container {
   width: 100%;
   height: 100vh;
