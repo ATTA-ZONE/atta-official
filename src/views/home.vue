@@ -55,7 +55,7 @@
             <a @click="goAnchor('Contact')">
               {{ t("Contact") }}
             </a>
-            <span class="top-btn">領取空投NFT</span>
+            <span @click="showModal=true" class="top-btn">領取空投NFT</span>
             <p class="switchlanguagebox">
               <a @click="switchyy('en')">EN</a>
               <span style="margin: 0 16px">|</span>
