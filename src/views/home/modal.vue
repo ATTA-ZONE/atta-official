@@ -1,7 +1,10 @@
 <template>
   <div class="modal-container">
     <div class="modal-wrap">
-      <img @click="closeModal" class="close" src="@/assets/imgs/close.png" />
+      <div class="modal-wrap-name">
+        <div class="modal-wrap-name-text">{{$t('Claim Your NFT')}}</div>
+        <img @click="closeModal" class="close" src="@/assets/imgs/close.png" />
+      </div>
       <div class="modal-title">{{t('modalTitle')}}</div>
       <div class="content-wrap">
         <img class="banner" src="@/assets/imgs/modal-banner.png" />
@@ -82,8 +85,13 @@ export default defineComponent({
     transform: translateX(-50%);
     padding: 40px;
     color: #fff;
-    .close {
-      float: right;
+    &-name {
+      display: flex;
+      font-size: 16px;
+      justify-content: space-between;
+      &-text {
+        opacity: 0;
+      }
     }
     .modal-title {
       margin: 10px 0;
