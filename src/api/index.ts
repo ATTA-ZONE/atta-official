@@ -1,6 +1,6 @@
 import Axios, { AxiosInstance } from 'axios'
 
-const baseURL = 'http://47.118.74.48:8081/v2/user/wallet/info'
+let baseURL = ''
 
 const axios: AxiosInstance = Axios.create({
   baseURL,

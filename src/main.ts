@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import i18n from './locals'
-import axios from 'axios'
+import axios from './api'
 import VueAxios from 'vue-axios'
 
 let app = createApp(App);

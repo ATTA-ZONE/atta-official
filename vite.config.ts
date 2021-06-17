@@ -10,7 +10,6 @@ export default defineConfig({
     vueI18n({
     include: path.resolve(__dirname, './src/locals/**')
   })],
-  
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '/src'),
