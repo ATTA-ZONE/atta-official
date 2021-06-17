@@ -10,16 +10,16 @@
     <div class="mask-container" v-if="showMask">
       <div>
         <a @click="goAnchor('Upcoming')" style="margin-top: 0">
-          {{ t("Upcoming") }}
+          {{ $t("Upcoming") }}
         </a>
         <a @click="goAnchor('Contents')">
-          {{ t("NFT Contents") }}
+          {{ $t("NFT Contents") }}
         </a>
         <a @click="goAnchor('Service')">
-          {{ t("Services") }}
+          {{ $t("Services") }}
         </a>
         <a @click="goAnchor('Contact')">
-          {{ t("Contact") }}
+          {{ $t("Contact") }}
         </a>
         <p class="switchlanguagebox">
           <span @click="switchLang('en')">EN</span>
@@ -39,21 +39,28 @@
       />
       <div class="header-links" v-if="!isMobile">
         <a @click="goAnchor('Introduction')">
-          {{ t("Introduce") }}
+          {{ $t("Introduce") }}
         </a>
         <a @click="goAnchor('Upcoming')">
-          {{ t("Upcoming") }}
+          {{ $t("Upcoming") }}
         </a>
         <a @click="goAnchor('Contents')">
-          {{ t("NFT Contents") }}
+          {{ $t("NFT Contents") }}
         </a>
         <a @click="goAnchor('Service')">
-          {{ t("Services") }}
+          {{ $t("Services") }}
         </a>
         <a @click="goAnchor('Contact')">
-          {{ t("Contact") }}
+          {{ $t("Contact") }}
         </a>
-        <span @click="showModal = true" class="top-btn">{{t('Claim Your NFT')}}</span>
+        <span @click="showModal = true" class="top-btn">{{$t('Claim Your NFT')}}</span>
+        <div class="wallet-container">
+          <img class="connect-status-img" :src="[accountAddress? greenDot:redDot]" />
+          <div class="wallet-status">
+            <div class="wallet-status-title">{{accountAddress? $t('Wellet connected'):$t('Connect Wallet')}}</div>
+            <div class="wallet-status-address">{{accountAddress}}</div>
+          </div>
+        </div>
         <p class="switchlanguagebox">
           <a @click="switchLang('en')">EN</a>
           <span style="margin: 0 16px">|</span>
@@ -71,14 +78,17 @@
 import { defineComponent, onMounted, onUnmounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import modal from "./modal.vue";
+import greenDot from '@/assets/imgs/greenDot.png'
+import redDot from '@/assets/imgs/redDot.png'
 
 export default defineComponent({
   components: { modal },
   setup() {
-    const { locale, t } = useI18n();
+    const { locale } = useI18n();
     const showMask = ref(false);
     const isMobile = ref(false);
     const showModal = ref(false);
+    const accountAddress = ref('');
 
     const switchLang = (yy: string) => {
       locale.value = yy;
@@ -135,15 +145,13 @@ export default defineComponent({
               alert("There was a problem signing you in");
             }
           })
-          .then(function (accounts) {
-            // 判断是否连接以太
-            console.log(accounts);
-            return accounts[0];
+          .then(function (accounts: any) {
+            if (accounts[0]) {
+              accountAddress.value = accounts[0]
+            }
           });
       }
     };
-
-    initWeb3();
 
     return {
       showMask,
@@ -152,10 +160,18 @@ export default defineComponent({
       closemodal,
       showModal,
       isMobile,
-      t,
+      accountAddress,
+      greenDot,
+      redDot
     };
   },
 });
 </script>
-<style scoped lang='scss'>
+<style lang='scss'>
+.connect-status-img {
+  width: 6px;
+}
+.wallet-container {
+  display: inline-block;
+}
 </style>
