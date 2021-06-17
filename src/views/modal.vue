@@ -1,7 +1,7 @@
 <template>
   <div class="modal-container">
     <div class="modal-wrap">
-      <img @click="closeModal" class="close" src="@/assets/imgs/Close.png" />
+      <img @click="closeModal" class="close" src="@/assets/imgs/close.png" />
       <div class="modal-title">{{t('modalTitle')}}</div>
       <div class="content-wrap">
         <img class="banner" src="@/assets/imgs/modal-banner.png" />
