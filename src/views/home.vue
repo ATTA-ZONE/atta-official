@@ -326,8 +326,7 @@ import modal from "./modal.vue";
 export default defineComponent({
   components: { modal },
   setup: () => {
-    const { locale } = useI18n();
-    const { t } = useI18n();
+    const { locale, t } = useI18n();
     const isMobile = ref(false);
     const showMask = ref(false);
     const showWechat = ref(false);
