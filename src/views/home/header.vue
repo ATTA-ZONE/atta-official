@@ -26,7 +26,7 @@
           <div class="wallet-status">
             <div>
               {{
-                accountAddress ? $t("Wellet connected") : $t("Connect Wallet")
+                accountAddress ? $t("Wallet connected") : $t("Connect Wallet")
               }}
             </div>
             <div class="wallet-status-address">{{ accountAddress }}</div>
@@ -86,7 +86,7 @@
           <div class="wallet-status">
             <div class="wallet-status-title">
               {{
-                accountAddress ? $t("Wellet connected") : $t("Connect Wallet")
+                accountAddress ? $t("Wallet connected") : $t("Connect Wallet")
               }}
             </div>
             <div class="wallet-status-address">{{ accountAddress }}</div>
@@ -103,7 +103,7 @@
       <img src="@/assets/imgs/Text.png" />
     </div>
   </div>
-  <modal :accountAddress="accountAddress" v-if="showModal" @closemodal="closemodal" />
+  <modal :accountAddress="accountAddress" v-if="showModal" @address="emitAddress" @closemodal="closemodal" />
 </template>
 <script lang='ts'>
 import { computed, defineComponent, onMounted, onUnmounted, ref } from "vue";
@@ -171,6 +171,10 @@ export default defineComponent({
       resizeWindow();
     });
 
+    const emitAddress = (str:string) => {
+      accountAddress.value = str
+    }
+
     return {
       switchLang,
       goAnchor,
@@ -182,7 +186,8 @@ export default defineComponent({
       accountAddress,
       greenDot,
       redDot,
-      walletStatus
+      walletStatus,
+      emitAddress
     };
   },
 });

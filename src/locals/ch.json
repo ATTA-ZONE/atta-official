@@ -45,5 +45,6 @@
   "Your receving address is": "您申領的錢包地址是",
   "You can claim this NFT airdrop": "恭喜，您可申領這個NFT",
   "We have received your claim": "我們已經收到您的申請，您很快將收到空投的NFT。感謝參與！",
-  "claimed the NFT airdrop already": "抱歉，您當前連接的錢包已經申領過該NFT。"
+  "claimed the NFT airdrop already": "抱歉，您當前連接的錢包已經申領過該NFT。",
+  "not qualified to receive the NFT airdrop.": "抱歉，您當前連接的錢包沒有權限申領該NFT。"
 }

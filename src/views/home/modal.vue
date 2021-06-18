@@ -40,11 +40,12 @@
   </div>
 </template>
 <script lang='ts'>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, watch } from "vue";
 import contentCell from "./content-cell.vue";
 import merkle from "@/assets/js/Merkle.json";
 import { getCookie } from "../../utils";
 import { chainSetting } from "../../assets/js/chainSetting";
+import {initWeb3} from "../../assets/js/initweb3";
 
 export default defineComponent({
   components: { contentCell },
@@ -76,9 +77,19 @@ export default defineComponent({
       showDesc.value = str;
     };
 
-    if (props.accountAddress) {
-      submitBtn.value = "Claim now";
-    }
+    watch(props, (newVal, oldVal) => {
+      if (newVal.accountAddress || oldVal.accountAddress) {
+        submitBtn.value = "Claim now";
+      }
+    })
+
+    const getAddress = () => {
+      initWeb3().then((res: any) => {
+        if (res.length > 0) {
+          context.emit('address',res[0])
+        }
+      });
+    };
 
     const getClaim = (fnc1: any, fnc2: any, address: any) => {
       //---发起 claim
@@ -98,7 +109,7 @@ export default defineComponent({
 
     const getNftBsc = async () => {
       if (submitBtn.value === "Connect now") {
-        closeModal();
+        getAddress();
         return false;
       }
       const accounts = await window.CHAIN.WALLET.accounts();
@@ -111,11 +122,16 @@ export default defineComponent({
         } else if (window.ethereum) {
           var web3 = new window.Web3(window.ethereum);
         }
+        let userAddress = web3.utils.toChecksumAddress(accounts[0])
+        let userClaimInput = merkle[chainId][userAddress];
+        if (!userClaimInput) {
+          claimBtn.value = "not qualified to receive the NFT airdrop."
+          submitBtn.value = "Got it";
+          return false
+        }
 
-        const setting_proof: any =
-          chainSetting["contractSetting"]["atta_ERC1155_Airdrop_MerkleProof"];
+        const setting_proof: any = chainSetting["contractSetting"]["atta_ERC1155_Airdrop_MerkleProof"];
 
-        let userAddress = web3.utils.toChecksumAddress(accounts[0]);
         var MerkleDistributionAddress = setting_proof[chainId].address;
         // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
         var MerkleDistributionABI = setting_proof["abi"];
@@ -125,7 +141,6 @@ export default defineComponent({
           MerkleDistributionAddress
         );
 
-        var userClaimInput = merkle[chainId][userAddress];
         // 查询是否 claim过
         MerkleDistributionInstance.methods
           .isClaimed(userClaimInput["index"])
@@ -156,6 +171,7 @@ export default defineComponent({
       toggleShow,
       closeModal,
       getNftBsc,
+      getAddress
     };
   },
 });
