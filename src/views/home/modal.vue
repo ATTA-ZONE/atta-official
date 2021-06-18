@@ -21,11 +21,11 @@
               :title="t(item.title)"
               :desc="t(item.desc)"
               :showDesc="showDesc"
-              :btn="showDesc == t(item.title)? '-':'+'"
+              :btn="showDesc == $t(item.title)? '-':'+'"
             />
           </div>
           <div class="btc-time">領取截止日期:   2021-6-31  20:00</div>
-          <span class="submit-btn">連接錢包</span>
+          <span class="submit-btn" @click="getNftBsc">現在領取</span>
         </div>
       </div>
     </div>
@@ -34,11 +34,9 @@
 <script lang='ts'>
 import { defineComponent, ref } from "vue";
 import contentCell from "./content-cell.vue";
-import { useI18n } from "vue-i18n";
 export default defineComponent({
   components: { contentCell },
   setup(_, context) {
-    const { t } = useI18n();
     const showDesc = ref('')
     const pageText = ref([
       {
@@ -57,11 +55,14 @@ export default defineComponent({
     const toggleShow = (str: string)=>{
       showDesc.value = str
     }
+    const getNftBsc = ()=>{
+      
+    }
     const closeModal = ()=>{
       context.emit('closemodal')
     }
     
-    return { pageText, showDesc, toggleShow, closeModal, t };
+    return { pageText, showDesc, toggleShow, closeModal, getNftBsc };
   },
 });
 </script>
