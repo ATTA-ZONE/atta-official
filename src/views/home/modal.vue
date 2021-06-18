@@ -73,7 +73,7 @@ export default defineComponent({
     }
     const getNftBsc = async ()=>{
       const accounts = await window.CHAIN.WALLET.accounts()
-      let chainId = await window.CHAIN.WALLET.chainId()
+      let chainId: number|string = await window.CHAIN.WALLET.chainId()
 
       if (accounts.length > 0) {
         var walletType = getCookie(window.CHAIN.WALLET.__wallet__);
@@ -83,7 +83,7 @@ export default defineComponent({
           var web3 = new window.Web3(window.ethereum);
         }
 
-        const setting_proof = chainSetting['contractSetting']['atta_ERC1155_Airdrop_MerkleProof']
+        const setting_proof:any = chainSetting['contractSetting']['atta_ERC1155_Airdrop_MerkleProof']
 
         let userAddress = web3.utils.toChecksumAddress(accounts[0])
         var MerkleDistributionAddress = setting_proof[chainId].address;
@@ -102,7 +102,6 @@ export default defineComponent({
           } else {
             submitBtn.value = 'beenClaimed'
           }
-          console.log(res);
         });   //  返回的是布朗
       }
     }

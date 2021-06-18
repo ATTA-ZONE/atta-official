@@ -33,7 +33,7 @@
           </div>
           <img
             class="connect-status-img"
-            :src:any="[accountAddress ? greenDot : redDot]"
+            :src="walletStatus"
           />
         </div>
         <div @click="showModal = true" class="top-btn">
@@ -81,7 +81,7 @@
         <div class="wallet-container" @click="getAddress">
           <img
             class="connect-status-img"
-            :src:any="[accountAddress ? greenDot : redDot]"
+            :src="walletStatus"
           />
           <div class="wallet-status">
             <div class="wallet-status-title">
@@ -106,7 +106,7 @@
   <modal v-if="showModal" @closemodal="closemodal" />
 </template>
 <script lang='ts'>
-import { defineComponent, onMounted, onUnmounted, ref } from "vue";
+import { computed, defineComponent, onMounted, onUnmounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import modal from "./modal.vue";
 import greenDot from "@/assets/imgs/greenDot.png";
@@ -130,6 +130,11 @@ export default defineComponent({
     const closemodal = () => {
       showModal.value = false;
     };
+
+    const walletStatus = computed(()=>{
+      console.log(accountAddress);
+      return accountAddress.value ? greenDot : redDot
+    })
 
     const getAddress = () => {
       initWeb3().then((res: any) => {
@@ -168,16 +173,17 @@ export default defineComponent({
     });
 
     return {
-      showMask,
       switchLang,
       goAnchor,
       closemodal,
+      getAddress,
+      showMask,
       showModal,
       isMobile,
       accountAddress,
       greenDot,
       redDot,
-      getAddress,
+      walletStatus
     };
   },
 });
