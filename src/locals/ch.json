@@ -40,5 +40,10 @@
   "brandInfo": "ATTA通證 若ATTA未來發行屬於自己的通證，通過ATTA空投獲得的NFT持有者都將獲得一定通證獎勵。部分特定ATTA NFT的持有者，則有機會獲得通證的優先認購資格。超稀有NFT購買資格ATTA將不定期推出頂級IP的超稀有NFT產品，永久限量發售，僅對ATTA NFT持有人開放購買資格。這些NFT將代表著這些現實世界對應IP的超珍貴權益 ATTA的 NFT可以在八爪娛，或者幣安的NFT主板市場，和其他的主要NFT 交易市場中購買到。",
   "Claim now":"現在領取",
   "Got it": "知道了",
-  "Connect now": "連接錢包"
+  "Connect now": "連接錢包",
+  "Claim deadline": "您申領的錢包地址是",
+  "Your receving address is": "您申領的錢包地址是",
+  "You can claim this NFT airdrop": "恭喜，您可申領這個NFT",
+  "We have received your claim": "我們已經收到您的申請，您很快將收到空投的NFT。感謝參與！",
+  "claimed the NFT airdrop already": "抱歉，您當前連接的錢包已經申領過該NFT。"
 }

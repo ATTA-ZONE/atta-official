@@ -24,10 +24,14 @@
               :btn="showDesc == $t(item.title) ? '-' : '+'"
             />
           </div>
-          <div class="btc-time">領取截止日期: 2021-6-31 20:00</div>
-          <div class="claim-info">恭喜，您可申領這個NFT.</div>
-          <div class="claim-desc">
-            您申領的錢包地址是： XXXXXXXXXXXXXXXXXXXXXX
+          <div class="claim-title">
+            {{ $t("Claim deadline") }}: 2021-6-31 20:00
+          </div>
+          <div class="claim-title" v-if="props.accountAddress">
+            {{ $t(claimBtn) }}.
+          </div>
+          <div class="claim-desc" v-if="props.accountAddress">
+            {{ $t("Your receving address is") }}： {{ props.accountAddress }}
           </div>
           <span class="submit-btn" @click="getNftBsc">{{ $t(submitBtn) }}</span>
         </div>
@@ -67,9 +71,15 @@ export default defineComponent({
       },
     ]);
     const submitBtn = ref("Connect now");
+    const claimBtn = ref("You can claim this NFT airdrop");
     const toggleShow = (str: string) => {
       showDesc.value = str;
     };
+
+    if (props.accountAddress) {
+      submitBtn.value = "Claim now";
+    }
+
     const getClaim = (fnc1: any, fnc2: any, address: any) => {
       //---发起 claim
       fnc1.methods
@@ -83,11 +93,14 @@ export default defineComponent({
         .send({
           from: address,
         });
+      claimBtn.value = 'We have received your claim'
     };
-    if (props.accountAddress) {
-      submitBtn.value = "Claim now";
-    }
+
     const getNftBsc = async () => {
+      if (submitBtn.value === "Connect now") {
+        closeModal();
+        return false;
+      }
       const accounts = await window.CHAIN.WALLET.accounts();
       const chainId: number | string = await window.CHAIN.WALLET.chainId();
 
@@ -118,11 +131,14 @@ export default defineComponent({
           .isClaimed(userClaimInput["index"])
           .call()
           .then(function (res: any) {
+            //true->已经领取
+            console.log(res);
             if (!res) {
               getClaim(MerkleDistributionInstance, userClaimInput, userAddress);
             } else {
-              submitBtn.value = "Got it";
+              claimBtn.value = 'claimed the NFT airdrop already'
             }
+            submitBtn.value = "Got it";
           }); //  返回的是布朗
       }
     };
@@ -131,7 +147,16 @@ export default defineComponent({
       context.emit("closemodal");
     };
 
-    return { pageText, showDesc, submitBtn, toggleShow, closeModal, getNftBsc };
+    return {
+      pageText,
+      showDesc,
+      submitBtn,
+      props,
+      claimBtn,
+      toggleShow,
+      closeModal,
+      getNftBsc,
+    };
   },
 });
 </script>
@@ -192,8 +217,14 @@ export default defineComponent({
           word-break: break-all;
         }
       }
-      .btc-time {
+      .claim-title {
         font-size: 16px;
+        max-width: 80%;
+        margin-bottom: 10px;
+      }
+      .claim-desc {
+        font-size: 12px;
+        opacity: 0.6;
       }
       .submit-btn {
         display: inline-block;
