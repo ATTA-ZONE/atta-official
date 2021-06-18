@@ -12,6 +12,20 @@ if (window.location.href.indexOf('bazhuayu.io') == -1) {
     scansite_base_url = 'https://api.bscscan.com'
 }
 
+function getCookie(cookieName) {
+	const strCookie = document.cookie
+	const cookieList = strCookie.split('; ')
+	var cookieValue = false;
+	for (let i = 0; i < cookieList.length; i++) {
+		const arr = cookieList[i].split('=')
+		if (cookieName === arr[0]) {
+			cookieValue = arr[1];
+		}
+	}
+
+	return cookieValue;
+}
+
 
 
 !function(W){
