@@ -56,7 +56,43 @@ export default defineComponent({
       showDesc.value = str
     }
     const getNftBsc = ()=>{
-      
+      window.CHAIN.WALLET.accounts()
+        .then(function(accounts){
+          window.CHAIN.WALLET.chainId()
+            .then(function(chainId){
+              if (len(accounts) > 0) {
+                var walletType = getCookie(CHAIN.WALLET.__wallet__);
+	              if (walletType) {
+    	            var web3 = new Web3(CHAIN.WALLET.provider());
+	              } else if (window.ethereum) {
+		              var web3 = new Web3(window.ethereum);
+	              }
+
+                var MerkleDistributionAddress = contractSetting['atta_ERC1155_Airdrop_MerkleProof'][chainId].address;
+                // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
+        	      var MerkleDistributionABI = contractSetting['atta_ERC1155_Airdrop_MerkleProof']['abi'];
+        
+        	      var MerkleDistributionInstance = new web3.eth.Contract(MerkleDistributionABI, MerkleDistributionAddress);
+
+                var userClaimInput = atta_airdrop_2021_06_18[chainId][accounts[0]];
+                //---发起 claim
+                MerkleDistributionInstance.methods.claim(
+                  userClaimInput['index'], 
+                  userClaimInput['address'], 
+                  userClaimInput['tokenIds'],
+                  userClaimInput['amounts'],
+                  userClaimInput['merkleProof']).send({
+							      from: accounts[0]
+						    });
+
+                // 查询是否 claim过
+                MerkleDistributionInstance.methods.isClaimed(
+                  userClaimInput['index']
+                ).call().then(function (res){});   //  返回的是布朗
+              }
+            })
+          }
+        })
     }
     const closeModal = ()=>{
       context.emit('closemodal')
