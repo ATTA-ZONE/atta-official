@@ -21,21 +21,34 @@
         <a @click="goAnchor('Contact')">
           {{ $t("Contact") }}
         </a>
-        
+
         <div class="wallet-container" @click="getAddress">
           <div class="wallet-status">
-            <div>{{accountAddress? $t('Wellet connected'):$t('Connect Wallet')}}</div>
-            <div class="wallet-status-address">{{accountAddress}}</div>
+            <div>
+              {{
+                accountAddress ? $t("Wellet connected") : $t("Connect Wallet")
+              }}
+            </div>
+            <div class="wallet-status-address">{{ accountAddress }}</div>
           </div>
-          <img class="connect-status-img" :src="[accountAddress? greenDot:redDot]" />
+          <img
+            class="connect-status-img"
+            :src:any="[accountAddress ? greenDot : redDot]"
+          />
         </div>
-        <div @click="showModal = true" class="top-btn">{{$t('Claim Your NFT')}}</div>
+        <div @click="showModal = true" class="top-btn">
+          {{ $t("Claim Your NFT") }}
+        </div>
         <p class="switchlanguagebox">
           <span @click="switchLang('en')">EN</span>
           <span style="margin: 0 16px">|</span>
           <span @click="switchLang('ch')">繁</span>
         </p>
-        <img class="close-img" @click="showMask = false" src="@/assets/imgs/close.png" />
+        <img
+          class="close-img"
+          @click="showMask = false"
+          src="@/assets/imgs/close.png"
+        />
       </div>
     </div>
     <div class="header flex">
@@ -62,12 +75,21 @@
         <a @click="goAnchor('Contact')">
           {{ $t("Contact") }}
         </a>
-        <span @click="showModal = true" class="top-btn">{{$t('Claim Your NFT')}}</span>
+        <span @click="showModal = true" class="top-btn">{{
+          $t("Claim Your NFT")
+        }}</span>
         <div class="wallet-container" @click="getAddress">
-          <img class="connect-status-img" :src="[accountAddress? greenDot:redDot]" />
+          <img
+            class="connect-status-img"
+            :src:any="[accountAddress ? greenDot : redDot]"
+          />
           <div class="wallet-status">
-            <div class="wallet-status-title">{{accountAddress? $t('Wellet connected'):$t('Connect Wallet')}}</div>
-            <div class="wallet-status-address">{{accountAddress}}</div>
+            <div class="wallet-status-title">
+              {{
+                accountAddress ? $t("Wellet connected") : $t("Connect Wallet")
+              }}
+            </div>
+            <div class="wallet-status-address">{{ accountAddress }}</div>
           </div>
         </div>
         <p class="switchlanguagebox">
@@ -87,9 +109,9 @@
 import { defineComponent, onMounted, onUnmounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import modal from "./modal.vue";
-import greenDot from '@/assets/imgs/greenDot.png'
-import redDot from '@/assets/imgs/redDot.png'
-import initWeb3 from '@/assets/js/accounts'
+import greenDot from "@/assets/imgs/greenDot.png";
+import redDot from "@/assets/imgs/redDot.png";
+import {initWeb3} from "../../assets/js/initweb3";
 
 export default defineComponent({
   components: { modal },
@@ -98,7 +120,7 @@ export default defineComponent({
     const showMask = ref(false);
     const isMobile = ref(false);
     const showModal = ref(false);
-    const accountAddress = ref();
+    const accountAddress = ref(undefined);
 
     const switchLang = (yy: string) => {
       locale.value = yy;
@@ -109,13 +131,13 @@ export default defineComponent({
       showModal.value = false;
     };
 
-    const getAddress = ()=>{
-      initWeb3().then((res:[])=>{
+    const getAddress = () => {
+      initWeb3().then((res: any) => {
         if (res.length > 0) {
-          accountAddress.value = res[0]
+          accountAddress.value = res[0];
         }
-      })
-    }
+      });
+    };
 
     const goAnchor = (id: number | string) => {
       if (id) {
@@ -155,7 +177,7 @@ export default defineComponent({
       accountAddress,
       greenDot,
       redDot,
-      getAddress
+      getAddress,
     };
   },
 });

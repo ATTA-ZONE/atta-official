@@ -35,6 +35,9 @@
 import { defineComponent, ref } from "vue";
 import contentCell from "./content-cell.vue";
 import merkle from '@/assets/js/Merkle.json'
+import {getCookie} from '../../utils'
+import {chainSetting} from '../../assets/js/chainSetting'
+
 export default defineComponent({
   components: { contentCell },
   setup(_, context) {
@@ -68,42 +71,40 @@ export default defineComponent({
           from: address
       });
     }
-    const getNftBsc = ()=>{
-      window.CHAIN.WALLET.accounts()
-        .then(function(accounts){
-          window.CHAIN.WALLET.chainId()
-            .then(function(chainId){
-              if (accounts.length > 0) {
-                var walletType = getCookie(CHAIN.WALLET.__wallet__);
-	              if (walletType) {
-                  var web3 = new Web3(CHAIN.WALLET.provider());
-	              } else if (window.ethereum) {
-                  var web3 = new Web3(window.ethereum);
-	              }
+    const getNftBsc = async ()=>{
+      const accounts = await window.CHAIN.WALLET.accounts()
+      let chainId = await window.CHAIN.WALLET.chainId()
 
-                let userAddress = web3.utils.toChecksumAddress(accounts[0])
-                var MerkleDistributionAddress = contractSetting['atta_ERC1155_Airdrop_MerkleProof'][chainId].address;
-                // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
-        	      var MerkleDistributionABI = contractSetting['atta_ERC1155_Airdrop_MerkleProof']['abi'];
+      if (accounts.length > 0) {
+        var walletType = getCookie(window.CHAIN.WALLET.__wallet__);
+        if (walletType) {
+          var web3 = new window.Web3(window.CHAIN.WALLET.provider());
+        } else if (window.ethereum) {
+          var web3 = new window.Web3(window.ethereum);
+        }
+
+        const setting_proof = chainSetting['contractSetting']['atta_ERC1155_Airdrop_MerkleProof']
+
+        let userAddress = web3.utils.toChecksumAddress(accounts[0])
+        var MerkleDistributionAddress = setting_proof[chainId].address;
+        // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
+        var MerkleDistributionABI = setting_proof['abi'];
+
+        var MerkleDistributionInstance = new web3.eth.Contract(MerkleDistributionABI, MerkleDistributionAddress);
         
-        	      var MerkleDistributionInstance = new web3.eth.Contract(MerkleDistributionABI, MerkleDistributionAddress);
-                
-                var userClaimInput = merkle[chainId][userAddress];
-                // 查询是否 claim过
-                MerkleDistributionInstance.methods.isClaimed(
-                  userClaimInput['index']
-                ).call().then(function (res:any){
-                  if (!res) {
-                    getClaim( MerkleDistributionInstance, userClaimInput, userAddress )
-                  } else {
-                    submitBtn.value = 'beenClaimed'
-                  }
-                  console.log(res);
-                });   //  返回的是布朗
-              }
-            })
-          
-        })
+        var userClaimInput = merkle[chainId][userAddress];
+        // 查询是否 claim过
+        MerkleDistributionInstance.methods.isClaimed(
+          userClaimInput['index']
+        ).call().then(function (res:any){
+          if (!res) {
+            getClaim( MerkleDistributionInstance, userClaimInput, userAddress )
+          } else {
+            submitBtn.value = 'beenClaimed'
+          }
+          console.log(res);
+        });   //  返回的是布朗
+      }
     }
 
     const closeModal = ()=>{

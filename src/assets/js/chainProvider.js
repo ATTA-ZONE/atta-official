@@ -15,7 +15,7 @@ if (window.location.href.indexOf('bazhuayu.io') == -1) {
 function getCookie(cookieName) {
 	const strCookie = document.cookie
 	const cookieList = strCookie.split('; ')
-	var cookieValue = false;
+	var cookieValue = 'false';
 	for (let i = 0; i < cookieList.length; i++) {
 		const arr = cookieList[i].split('=')
 		if (cookieName === arr[0]) {
@@ -26,6 +26,12 @@ function getCookie(cookieName) {
 	return cookieValue;
 }
 
+function setCookie(name, value) {
+	var Days = 30;
+	var exp = new Date();
+	exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+	document.cookie = name + "=" + escape(value) + ";expires=" + exp.toUTCString() + ';path=/;';
+}
 
 
 !function(W){
