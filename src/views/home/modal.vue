@@ -25,7 +25,7 @@
             />
           </div>
           <div class="btc-time">領取截止日期:   2021-6-31  20:00</div>
-          <span class="submit-btn" @click="getNftBsc">現在領取</span>
+          <span class="submit-btn" @click="getNftBsc">{{$t(submitBtn)}}</span>
         </div>
       </div>
     </div>
@@ -34,6 +34,7 @@
 <script lang='ts'>
 import { defineComponent, ref } from "vue";
 import contentCell from "./content-cell.vue";
+import merkle from '@/assets/js/Merkle.json'
 export default defineComponent({
   components: { contentCell },
   setup(_, context) {
@@ -52,53 +53,64 @@ export default defineComponent({
         desc: "brandInfo",
       },
     ]);
+    const submitBtn = ref('Claim now')
     const toggleShow = (str: string)=>{
       showDesc.value = str
+    }
+    const getClaim = (fnc1:any, fnc2:any, address:any)=>{
+      //---发起 claim
+      fnc1.methods.claim(
+        fnc2['index'], 
+        fnc2['address'], 
+        fnc2['tokenIds'],
+        fnc2['amounts'],
+        fnc2['merkleProof']).send({
+          from: address
+      });
     }
     const getNftBsc = ()=>{
       window.CHAIN.WALLET.accounts()
         .then(function(accounts){
           window.CHAIN.WALLET.chainId()
             .then(function(chainId){
-              if (len(accounts) > 0) {
+              if (accounts.length > 0) {
                 var walletType = getCookie(CHAIN.WALLET.__wallet__);
 	              if (walletType) {
-    	            var web3 = new Web3(CHAIN.WALLET.provider());
+                  var web3 = new Web3(CHAIN.WALLET.provider());
 	              } else if (window.ethereum) {
-		              var web3 = new Web3(window.ethereum);
+                  var web3 = new Web3(window.ethereum);
 	              }
 
+                let userAddress = web3.utils.toChecksumAddress(accounts[0])
                 var MerkleDistributionAddress = contractSetting['atta_ERC1155_Airdrop_MerkleProof'][chainId].address;
                 // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
         	      var MerkleDistributionABI = contractSetting['atta_ERC1155_Airdrop_MerkleProof']['abi'];
         
         	      var MerkleDistributionInstance = new web3.eth.Contract(MerkleDistributionABI, MerkleDistributionAddress);
-
-                var userClaimInput = atta_airdrop_2021_06_18[chainId][accounts[0]];
-                //---发起 claim
-                MerkleDistributionInstance.methods.claim(
-                  userClaimInput['index'], 
-                  userClaimInput['address'], 
-                  userClaimInput['tokenIds'],
-                  userClaimInput['amounts'],
-                  userClaimInput['merkleProof']).send({
-							      from: accounts[0]
-						    });
-
+                
+                var userClaimInput = merkle[chainId][userAddress];
                 // 查询是否 claim过
                 MerkleDistributionInstance.methods.isClaimed(
                   userClaimInput['index']
-                ).call().then(function (res){});   //  返回的是布朗
+                ).call().then(function (res:any){
+                  if (!res) {
+                    getClaim( MerkleDistributionInstance, userClaimInput, userAddress )
+                  } else {
+                    submitBtn.value = 'beenClaimed'
+                  }
+                  console.log(res);
+                });   //  返回的是布朗
               }
             })
           
         })
     }
+
     const closeModal = ()=>{
       context.emit('closemodal')
     }
     
-    return { pageText, showDesc, toggleShow, closeModal, getNftBsc };
+    return { pageText, showDesc, submitBtn, toggleShow, closeModal, getNftBsc };
   },
 });
 </script>
