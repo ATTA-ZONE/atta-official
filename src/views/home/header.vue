@@ -103,7 +103,7 @@
       <img src="@/assets/imgs/Text.png" />
     </div>
   </div>
-  <modal v-if="showModal" @closemodal="closemodal" />
+  <modal :accountAddress="accountAddress" v-if="showModal" @closemodal="closemodal" />
 </template>
 <script lang='ts'>
 import { computed, defineComponent, onMounted, onUnmounted, ref } from "vue";
@@ -132,7 +132,6 @@ export default defineComponent({
     };
 
     const walletStatus = computed(()=>{
-      console.log(accountAddress);
       return accountAddress.value ? greenDot : redDot
     })
 

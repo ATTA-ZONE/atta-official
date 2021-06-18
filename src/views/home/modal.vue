@@ -2,16 +2,16 @@
   <div class="modal-container">
     <div class="modal-wrap">
       <div class="modal-wrap-name">
-        <div class="modal-wrap-name-text">{{$t('Claim Your NFT')}}</div>
+        <div class="modal-wrap-name-text">{{ $t("Claim Your NFT") }}</div>
         <img @click="closeModal" class="close" src="@/assets/imgs/close.png" />
       </div>
-      <div class="modal-title">{{$t('modalTitle')}}</div>
+      <div class="modal-title">{{ $t("modalTitle") }}</div>
       <div class="content-wrap">
         <img class="banner" src="@/assets/imgs/modal-banner.png" />
         <div class="content-desc">
-          <div class="content-desc-title">{{$t('infoTitle')}}</div>
+          <div class="content-desc-title">{{ $t("infoTitle") }}</div>
           <div class="content-desc-info">
-            {{$t('infoDesc')}}
+            {{ $t("infoDesc") }}
           </div>
           <div class="content-desc-cells">
             <content-cell
@@ -21,11 +21,15 @@
               :title="$t(item.title)"
               :desc="$t(item.desc)"
               :showDesc="showDesc"
-              :btn="showDesc == $t(item.title)? '-':'+'"
+              :btn="showDesc == $t(item.title) ? '-' : '+'"
             />
           </div>
-          <div class="btc-time">領取截止日期:   2021-6-31  20:00</div>
-          <span class="submit-btn" @click="getNftBsc">{{$t(submitBtn)}}</span>
+          <div class="btc-time">領取截止日期: 2021-6-31 20:00</div>
+          <div class="claim-info">恭喜，您可申領這個NFT.</div>
+          <div class="claim-desc">
+            您申領的錢包地址是： XXXXXXXXXXXXXXXXXXXXXX
+          </div>
+          <span class="submit-btn" @click="getNftBsc">{{ $t(submitBtn) }}</span>
         </div>
       </div>
     </div>
@@ -34,14 +38,20 @@
 <script lang='ts'>
 import { defineComponent, ref } from "vue";
 import contentCell from "./content-cell.vue";
-import merkle from '@/assets/js/Merkle.json'
-import {getCookie} from '../../utils'
-import {chainSetting} from '../../assets/js/chainSetting'
+import merkle from "@/assets/js/Merkle.json";
+import { getCookie } from "../../utils";
+import { chainSetting } from "../../assets/js/chainSetting";
 
 export default defineComponent({
   components: { contentCell },
-  setup(_, context) {
-    const showDesc = ref('')
+  props: {
+    accountAddress: {
+      type: String,
+      required: true,
+    },
+  },
+  setup(props, context) {
+    const showDesc = ref("");
     const pageText = ref([
       {
         title: "ATTA NFT Exclusive Benefits",
@@ -56,24 +66,30 @@ export default defineComponent({
         desc: "brandInfo",
       },
     ]);
-    const submitBtn = ref('Claim now')
-    const toggleShow = (str: string)=>{
-      showDesc.value = str
-    }
-    const getClaim = (fnc1:any, fnc2:any, address:any)=>{
+    const submitBtn = ref("Connect now");
+    const toggleShow = (str: string) => {
+      showDesc.value = str;
+    };
+    const getClaim = (fnc1: any, fnc2: any, address: any) => {
       //---发起 claim
-      fnc1.methods.claim(
-        fnc2['index'], 
-        fnc2['address'], 
-        fnc2['tokenIds'],
-        fnc2['amounts'],
-        fnc2['merkleProof']).send({
-          from: address
-      });
+      fnc1.methods
+        .claim(
+          fnc2["index"],
+          fnc2["address"],
+          fnc2["tokenIds"],
+          fnc2["amounts"],
+          fnc2["merkleProof"]
+        )
+        .send({
+          from: address,
+        });
+    };
+    if (props.accountAddress) {
+      submitBtn.value = "Claim now";
     }
-    const getNftBsc = async ()=>{
-      const accounts = await window.CHAIN.WALLET.accounts()
-      let chainId: number|string = await window.CHAIN.WALLET.chainId()
+    const getNftBsc = async () => {
+      const accounts = await window.CHAIN.WALLET.accounts();
+      const chainId: number | string = await window.CHAIN.WALLET.chainId();
 
       if (accounts.length > 0) {
         var walletType = getCookie(window.CHAIN.WALLET.__wallet__);
@@ -83,33 +99,38 @@ export default defineComponent({
           var web3 = new window.Web3(window.ethereum);
         }
 
-        const setting_proof:any = chainSetting['contractSetting']['atta_ERC1155_Airdrop_MerkleProof']
+        const setting_proof: any =
+          chainSetting["contractSetting"]["atta_ERC1155_Airdrop_MerkleProof"];
 
-        let userAddress = web3.utils.toChecksumAddress(accounts[0])
+        let userAddress = web3.utils.toChecksumAddress(accounts[0]);
         var MerkleDistributionAddress = setting_proof[chainId].address;
         // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
-        var MerkleDistributionABI = setting_proof['abi'];
+        var MerkleDistributionABI = setting_proof["abi"];
 
-        var MerkleDistributionInstance = new web3.eth.Contract(MerkleDistributionABI, MerkleDistributionAddress);
-        
+        var MerkleDistributionInstance = new web3.eth.Contract(
+          MerkleDistributionABI,
+          MerkleDistributionAddress
+        );
+
         var userClaimInput = merkle[chainId][userAddress];
         // 查询是否 claim过
-        MerkleDistributionInstance.methods.isClaimed(
-          userClaimInput['index']
-        ).call().then(function (res:any){
-          if (!res) {
-            getClaim( MerkleDistributionInstance, userClaimInput, userAddress )
-          } else {
-            submitBtn.value = 'beenClaimed'
-          }
-        });   //  返回的是布朗
+        MerkleDistributionInstance.methods
+          .isClaimed(userClaimInput["index"])
+          .call()
+          .then(function (res: any) {
+            if (!res) {
+              getClaim(MerkleDistributionInstance, userClaimInput, userAddress);
+            } else {
+              submitBtn.value = "Got it";
+            }
+          }); //  返回的是布朗
       }
-    }
+    };
 
-    const closeModal = ()=>{
-      context.emit('closemodal')
-    }
-    
+    const closeModal = () => {
+      context.emit("closemodal");
+    };
+
     return { pageText, showDesc, submitBtn, toggleShow, closeModal, getNftBsc };
   },
 });
