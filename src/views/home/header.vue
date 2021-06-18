@@ -120,7 +120,7 @@ export default defineComponent({
     const showMask = ref(false);
     const isMobile = ref(false);
     const showModal = ref(false);
-    const accountAddress = ref(undefined);
+    const accountAddress = ref('');
 
     const switchLang = (yy: string) => {
       locale.value = yy;
