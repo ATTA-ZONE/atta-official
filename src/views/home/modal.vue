@@ -5,21 +5,21 @@
         <div class="modal-wrap-name-text">{{$t('Claim Your NFT')}}</div>
         <img @click="closeModal" class="close" src="@/assets/imgs/close.png" />
       </div>
-      <div class="modal-title">{{t('modalTitle')}}</div>
+      <div class="modal-title">{{$t('modalTitle')}}</div>
       <div class="content-wrap">
         <img class="banner" src="@/assets/imgs/modal-banner.png" />
         <div class="content-desc">
-          <div class="content-desc-title">{{t('infoTitle')}}</div>
+          <div class="content-desc-title">{{$t('infoTitle')}}</div>
           <div class="content-desc-info">
-            {{t('infoDesc')}}
+            {{$t('infoDesc')}}
           </div>
           <div class="content-desc-cells">
             <content-cell
               v-for="(item, idx) in pageText"
               :key="idx"
               @toggleShow="toggleShow"
-              :title="t(item.title)"
-              :desc="t(item.desc)"
+              :title="$t(item.title)"
+              :desc="$t(item.desc)"
               :showDesc="showDesc"
               :btn="showDesc == $t(item.title)? '-':'+'"
             />
@@ -91,7 +91,7 @@ export default defineComponent({
                 ).call().then(function (res){});   //  返回的是布朗
               }
             })
-          }
+          
         })
     }
     const closeModal = ()=>{
