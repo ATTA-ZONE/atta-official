@@ -71,11 +71,16 @@ export default defineComponent({
         desc: "brandInfo",
       },
     ]);
-    const submitBtn = ref("Connect now");
+    const submitBtn = ref("");
     const claimBtn = ref("You can claim this NFT airdrop");
     const toggleShow = (str: string) => {
       showDesc.value = str;
     };
+    if (props.accountAddress) {
+      submitBtn.value = 'Claim now'
+    } else {
+      submitBtn.value = 'Connect now'
+    }
 
     watch(props, (newVal, oldVal) => {
       console.log(newVal);
