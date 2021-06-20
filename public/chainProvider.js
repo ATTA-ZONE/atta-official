@@ -12,39 +12,36 @@ if (window.location.href.indexOf('bazhuayu.io') == -1) {
     scansite_base_url = 'https://api.bscscan.com'
 }
 
-function getCookie(cookieName) {
-	const strCookie = document.cookie
-	const cookieList = strCookie.split('; ')
-	var cookieValue = 'false';
-	for (let i = 0; i < cookieList.length; i++) {
-		const arr = cookieList[i].split('=')
-		if (cookieName === arr[0]) {
-			cookieValue = arr[1];
-		}
-	}
-
-	return cookieValue;
-}
-
-function setCookie(name, value) {
-	var Days = 30;
-	var exp = new Date();
-	exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
-	document.cookie = name + "=" + escape(value) + ";expires=" + exp.toUTCString() + ';path=/;';
-}
-
-
 !function(W){
-	if (!getCookie('_wallet_')) {
-		setCookie('_wallet_','MetaMask')
-	};
+	W.getCookie= function (cookieName) {
+		const strCookie = document.cookie
+		const cookieList = strCookie.split('; ')
+		var cookieValue = 'false';
+		for (let i = 0; i < cookieList.length; i++) {
+			const arr = cookieList[i].split('=')
+			if (cookieName === arr[0]) {
+				cookieValue = arr[1];
+			}
+		}
+	
+		return cookieValue;
+	}
+	
+	W.setCookie = function (name, value) {
+		var Days = 30;
+		var exp = new Date();
+		exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+		document.cookie = name + "=" + escape(value) + ";expires=" + exp.toUTCString() + ';path=/;';
+	}
+	W.setCookie('_wallet_','MetaMask')
+	
 	W.CHAIN={
 		VERSION:'20210406',
 		WALLET:{
 			__wallet__:"_wallet_", // 写活 cookie名称
 			provider: function() {
 				var th=W.CHAIN.WALLET;
-				var t=getCookie(th.__wallet__)
+				var t=W.getCookie(th.__wallet__)
 				var wallet=th[t];
 				if (wallet){
 					return wallet.provider();
@@ -58,7 +55,7 @@ function setCookie(name, value) {
 			// 监听账户变更事件
 			accountsChangedAssign: function(fnc) {
 				var th=W.CHAIN.WALLET;
-				var t=getCookie(th.__wallet__),wallet=th[t];
+				var t=W.getCookie(th.__wallet__),wallet=th[t];
 
 				wallet.__accountsChangedAssign(function(accounts){
 					fnc(accounts);
@@ -67,7 +64,7 @@ function setCookie(name, value) {
 
 			networkChangedAssign: function(fnc) {
 				var th=W.CHAIN.WALLET;
-				var t=getCookie(th.__wallet__),wallet=th[t];
+				var t=W.getCookie(th.__wallet__),wallet=th[t];
 
 				wallet.__networkChangedAssign(function(accounts){
 					fnc(accounts);
@@ -88,7 +85,7 @@ function setCookie(name, value) {
 				var th=W.CHAIN.WALLET;
 				var ads = arguments[0];
 
-				var t=getCookie(th.__wallet__);
+				var t=W.getCookie(th.__wallet__);
 				if (th.isConnected(t)) {
 					var res =  await th.provider().request({ method: 'eth_accounts'});		
 				} else {
@@ -105,7 +102,7 @@ function setCookie(name, value) {
 			//accounts: CHAIN.WALLET._errorHandleWrapper(CHAIN.WALLET.__accounts),
 			__accounts: async function() {
 				var th=W.CHAIN.WALLET;
-				var t=getCookie(th.__wallet__);
+				var t=W.getCookie(th.__wallet__);
 				if (th.isConnected(t)) {
 					var res =  await th.provider().request({ method: 'eth_accounts'});
 					return res;
@@ -120,7 +117,7 @@ function setCookie(name, value) {
 			//chainId: CHAIN.WALLET._errorHandleWrapper(CHAIN.WALLET.__chainId),
 			__chainId: async function() {
 				var th=W.CHAIN.WALLET;
-				var t=getCookie(th.__wallet__);
+				var t=W.getCookie(th.__wallet__);
 				if (th.isConnected(t)) {
 					var res =  await th.provider().request({ method: 'eth_chainId'});
 					if (typeof(res)=='string') {res=Web3.utils.hexToNumber(res);}
@@ -143,7 +140,7 @@ function setCookie(name, value) {
 				window.debug&&console.log('connect', t, wallet);
 				if (wallet) {
 					var res = await wallet.__connectInit();
-					setCookie(th.__wallet__, wallet.name);
+					W.setCookie(th.__wallet__, wallet.name);
 					return res;
 				} else {
 					console.log(t + ' is not supported.')
@@ -155,17 +152,17 @@ function setCookie(name, value) {
 				var t=arguments[0];
 				var th=W.CHAIN.WALLET;
 				if (t==null) {
-					t = getCookie(th.__wallet__);
+					t = W.getCookie(th.__wallet__);
 				}
 				var wallet=th[t];
 				window.debug&&console.log('connect', t, wallet);
 				if (wallet) {
-					if (getCookie(th.__wallet__)&&(getCookie(th.__wallet__)!=t)){
-						var oldWallet = th[getCookie(th.__wallet__)];
+					if (W.getCookie(th.__wallet__)&&(W.getCookie(th.__wallet__)!=t)){
+						var oldWallet = th[W.getCookie(th.__wallet__)];
 						await oldWallet.__disconnect();
 					}
 					
-					//setCookie(th.__wallet__, wallet.name);
+					//W.setCookie(th.__wallet__, wallet.name);
 
 					var res = await wallet.__enableInit();
 					return res;
@@ -179,7 +176,7 @@ function setCookie(name, value) {
 				var th=W.CHAIN.WALLET;
 				var curId=await th.__chainId();
 				if (chId!=curId) {
-					var t=getCookie(th.__wallet__);
+					var t=W.getCookie(th.__wallet__);
 					var wallet=th[t];
 					var res = await wallet.__switchRPCSettings(chId);
 					return res;
@@ -190,7 +187,7 @@ function setCookie(name, value) {
 				var assetRefer = arguments[0];
 				var th=W.CHAIN.WALLET;
 				var chId= await th.__chainId();
-				var t=getCookie(th.__wallet__);
+				var t=W.getCookie(th.__wallet__);
 				var wallet=th[t];
 				var res = await wallet.__walletWatchAsset(assetRefer, chId);
 				return res;
@@ -198,7 +195,7 @@ function setCookie(name, value) {
 
 			__disconnect: async function() {
 				var th=W.CHAIN.WALLET;
-				var t=getCookie(th.__wallet__);
+				var t=W.getCookie(th.__wallet__);
 				var wallet=th[t];
 				var res = await wallet.__disconnect();
 				return res;
@@ -232,7 +229,7 @@ function setCookie(name, value) {
 					th1.provider().removeAllListeners('accountsChanged');
 					th1.provider().removeAllListeners('chainChanged');
 					th1.provider().on("disconnect", (code, reason) => {
-						setCookie(th.__wallet__, '');
+						W.setCookie(th.__wallet__, '');
 					});
 
 					th1.__accountsChangedAssign(function(accounts) { console.log(accounts)});
@@ -278,8 +275,8 @@ function setCookie(name, value) {
 
 					var res = await th.__accounts();
 
-					if (getCookie(th.__wallet__)&&(getCookie(th.__wallet__)!=th1.name)){
-						var oldWallet = th[getCookie(th.__wallet__)];
+					if (W.getCookie(th.__wallet__)&&(W.getCookie(th.__wallet__)!=th1.name)){
+						var oldWallet = th[W.getCookie(th.__wallet__)];
 						await oldWallet.__disconnect();
 					}
 
@@ -346,7 +343,7 @@ function setCookie(name, value) {
 
 				__disconnect: async function() {
 					var th=W.CHAIN.WALLET;
-					setCookie(th.__wallet__, '');
+					W.setCookie(th.__wallet__, '');
 					//console.log('__disconnect', 'MetaMask');
 				}
 
@@ -383,7 +380,7 @@ function setCookie(name, value) {
 					th1.provider().on("disconnect", (code, reason) => {
 						console.log('disconnect', code, reason);
 						//th1.__provider=null;
-						setCookie(th.__wallet__, '');
+						W.setCookie(th.__wallet__, '');
 					});
 					th1.__accountsChangedAssign(function(accounts) { console.log(accounts)});
 					th1.__networkChangedAssign(function(netVer) { console.log(netVer)});
@@ -441,9 +438,9 @@ function setCookie(name, value) {
 					// 	await th1.__disconnect();
 					// }
 
-					if (getCookie(th.__wallet__)){
+					if (W.getCookie(th.__wallet__)){
 						console.log('__connectInit2', th1.__provider);
-						var oldWallet = th[getCookie(th.__wallet__)];
+						var oldWallet = th[W.getCookie(th.__wallet__)];
 						await oldWallet.__disconnect();
 					}
 
@@ -519,7 +516,7 @@ function setCookie(name, value) {
 				__disconnect: async function() {
 					//var th=W.CHAIN.WALLET;
 					var th1=W.CHAIN.WALLET.WalletConnect;
-					// setCookie(th.__wallet__, '');
+					// W.setCookie(th.__wallet__, '');
 					await th1.provider().disconnect();
 					// await th1.provider().disconnect();
 					th1.__provider = null;
@@ -539,10 +536,10 @@ function setCookie(name, value) {
 	W.CHAIN.WALLET.disconnect = W.CHAIN.WALLET._errorHandleWrapper(W.CHAIN.WALLET.__disconnect);
 
 	var th=W.CHAIN.WALLET;
-	var t=getCookie(th.__wallet__);
+	var t=W.getCookie(th.__wallet__);
 	if (t=='WalletConnect' && (th.provider().connector.connected==false)) {
 		console.log('Lost WalletConnect');
-		setCookie(th.__wallet__, 'MetaMask');
+		W.setCookie(th.__wallet__, 'MetaMask');
 	} else {
 	}
 }(window);
