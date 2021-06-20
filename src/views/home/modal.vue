@@ -78,6 +78,7 @@ export default defineComponent({
     };
 
     watch(props, (newVal, oldVal) => {
+      console.log(newVal);
       if (newVal.accountAddress || oldVal.accountAddress) {
         submitBtn.value = "Claim now";
       }
