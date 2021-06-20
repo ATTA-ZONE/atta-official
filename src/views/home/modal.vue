@@ -127,8 +127,7 @@ export default defineComponent({
       }
       const accounts = await window.CHAIN.WALLET.accounts();
       const chainId: number | string = await window.CHAIN.WALLET.chainId();
-      console.log(accounts, chainId);
-      
+
       if (accounts && accounts.length > 0) {
         var walletType = getCookie(window.CHAIN.WALLET.__wallet__);
         if (walletType) {
@@ -137,6 +136,11 @@ export default defineComponent({
           var web3 = new window.Web3(window.ethereum);
         }
         let userAddress = web3.utils.toChecksumAddress(accounts[0])
+        
+        if (!merkle[chainId] || chainId != window.targetChainId) {
+          window.CHAIN.WALLET.switchRPCSettings(window.targetChainId);
+          return false
+        }
         let userClaimInput = merkle[chainId][userAddress];
         if (!userClaimInput) {
           claimBtn.value = "not qualified to receive the NFT airdrop."
