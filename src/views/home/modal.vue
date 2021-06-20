@@ -92,7 +92,6 @@ export default defineComponent({
     };
 
     const getClaim = (fnc1: any, fnc2: any, address: any) => {
-      //---发起 claim
       fnc1.methods
         .claim(
           fnc2["index"],
@@ -107,9 +106,17 @@ export default defineComponent({
       claimBtn.value = 'We have received your claim'
     };
 
+    const closeModal = () => {
+      context.emit("closemodal");
+    };
+
     const getNftBsc = async () => {
       if (submitBtn.value === "Connect now") {
         getAddress();
+        return false;
+      }
+      if (submitBtn.value === "Got it") {
+        closeModal();
         return false;
       }
       const accounts = await window.CHAIN.WALLET.accounts();
@@ -154,12 +161,8 @@ export default defineComponent({
               claimBtn.value = 'claimed the NFT airdrop already'
             }
             submitBtn.value = "Got it";
-          }); //  返回的是布朗
+          });
       }
-    };
-
-    const closeModal = () => {
-      context.emit("closemodal");
     };
 
     return {
