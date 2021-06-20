@@ -127,8 +127,9 @@ export default defineComponent({
       }
       const accounts = await window.CHAIN.WALLET.accounts();
       const chainId: number | string = await window.CHAIN.WALLET.chainId();
-
-      if (accounts.length > 0) {
+      console.log(accounts, chainId);
+      
+      if (accounts && accounts.length > 0) {
         var walletType = getCookie(window.CHAIN.WALLET.__wallet__);
         if (walletType) {
           var web3 = new window.Web3(window.CHAIN.WALLET.provider());
