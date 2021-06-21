@@ -35,8 +35,11 @@
           <div class="claim-title" v-if="props.accountAddress">
             {{ $t(claimBtn) }}
           </div>
-          <div class="claim-desc" v-if="props.accountAddress">
-            {{ $t("Your receving address is") }}： {{ props.accountAddress }}
+          <div class="claim-desc" v-if="showUserAddress">
+            {{ $t("Your receving address is") }}: {{ props.accountAddress }}
+          </div>
+          <div class="claimed-text" v-if="showClaimStatus">
+            {{ $t("claimedText")}}
           </div>
           <span class="submit-btn" @click="getNftBsc">{{ $t(submitBtn) }}</span>
         </div>
@@ -62,6 +65,8 @@ export default defineComponent({
   },
   setup(props, context) {
     const showDesc = ref("");
+    const showUserAddress = ref(false);
+    const showClaimStatus = ref(false);
     const pageText = ref([
       {
         title: "ATTA NFT Exclusive Benefits",
@@ -105,6 +110,7 @@ export default defineComponent({
           from: address,
         });
       claimBtn.value = 'We have received your claim'
+      showClaimStatus.value = true
     };
 
     const closeModal = () => {
@@ -204,11 +210,11 @@ export default defineComponent({
           .call()
           .then(function (res: any) {
             //true->已经领取
-            console.log(res);
             if (!res) {
               getClaim(MerkleDistributionInstance, userClaimInput, userAddress);
             } else {
               claimBtn.value = 'claimed the NFT airdrop already'
+              showClaimStatus.value = true
             }
             submitBtn.value = "Got it";
           });
@@ -221,6 +227,8 @@ export default defineComponent({
       submitBtn,
       props,
       claimBtn,
+      showUserAddress,
+      showClaimStatus,
       toggleShow,
       closeModal,
       getNftBsc,
@@ -301,6 +309,10 @@ export default defineComponent({
       .claim-desc {
         font-size: 12px;
         opacity: 0.6;
+      }
+      .claimed-text {
+        font-size: 16px;
+        color: #A8DEEE;
       }
       .submit-btn {
         display: inline-block;

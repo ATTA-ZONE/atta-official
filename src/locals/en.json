@@ -70,5 +70,6 @@
   "You can claim this NFT airdrop": "You can claim this NFT airdrop",
   "We have received your claim": "We have received your claim. Your NFT will be sent to your wallet shortly.Thanks for participiting this event!",
   "claimed the NFT airdrop already": "Sorry, the wallet you connected has claimed the NFT airdrop already",
-  "not qualified to receive the NFT airdrop.": "Sorry, the wallet you connected is not qualified to receive the NFT airdrop."
+  "not qualified to receive the NFT airdrop.": "Sorry, the wallet you connected is not qualified to receive the NFT airdrop.",
+  "claimedText": "The NFT airdrop had sent to your wallet. Currently, you can only view the received NFT in your wallet. In the future, ATTA will launch an asset management center to facilitate you to view, manage, transfer your NFT assets and exchange related rights and interests. Please look forward to it."
 }
