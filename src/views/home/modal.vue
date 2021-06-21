@@ -7,7 +7,7 @@
       </div>
       <div class="modal-title">{{ $t("modalTitle") }}</div>
       <div class="content-wrap">
-        <img class="banner" src="@/assets/imgs/modal-banner.png" />
+        <video class="banner" src="/ATTAdrop.mp4" autoplay muted loop />
         <div class="content-desc">
           <div class="content-desc-title">{{ $t("infoTitle") }}</div>
           <div class="content-desc-info">
