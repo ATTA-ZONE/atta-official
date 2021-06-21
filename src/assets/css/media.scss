@@ -8,6 +8,14 @@
     display: none;
   }
 }
+@media only screen and (max-width: 1300px) {
+  .home-page .home-page-one .header-links {
+    padding-left: 2%;
+  }
+  .home-page .home-page-one .header a {
+    margin: 0 1%;
+  }
+}
 @media only screen and (max-width: 992px) {
   .modal-container {
     .modal-wrap {

@@ -40,7 +40,7 @@
   </div>
 </template>
 <script lang='ts'>
-import { defineComponent, ref, watch } from "vue";
+import { defineComponent, onMounted, ref, watch } from "vue";
 import contentCell from "./content-cell.vue";
 import merkle from "@/assets/js/Merkle.json";
 import { getCookie } from "../../utils";
@@ -116,6 +116,38 @@ export default defineComponent({
       context.emit("closemodal");
     };
 
+    const compareAddress = async() => {
+      const accounts = await window.CHAIN.WALLET.accounts();
+      const chainId: number | string = await window.CHAIN.WALLET.chainId();
+
+      if (accounts && accounts.length > 0) {
+        var walletType = getCookie(window.CHAIN.WALLET.__wallet__);
+        if (walletType) {
+          var web3 = new window.Web3(window.CHAIN.WALLET.provider());
+        } else if (window.ethereum) {
+          var web3 = new window.Web3(window.ethereum);
+        }
+
+
+        let userAddress = web3.utils.toChecksumAddress(accounts[0])
+
+        if (!merkle[chainId] || chainId != window.targetChainId) {
+          window.CHAIN.WALLET.switchRPCSettings(window.targetChainId);
+          return false
+        }
+        let userClaimInput = merkle[chainId][userAddress];
+        if (!userClaimInput) {
+          claimBtn.value = "not qualified to receive the NFT airdrop."
+          submitBtn.value = "Got it";
+          return false
+        }
+      }
+    }
+
+    onMounted(()=>{
+      compareAddress()
+    })
+
     const getNftBsc = async () => {
       if (submitBtn.value === "Connect now") {
         getAddress();
@@ -136,7 +168,7 @@ export default defineComponent({
           var web3 = new window.Web3(window.ethereum);
         }
         let userAddress = web3.utils.toChecksumAddress(accounts[0])
-        
+
         if (!merkle[chainId] || chainId != window.targetChainId) {
           window.CHAIN.WALLET.switchRPCSettings(window.targetChainId);
           return false
