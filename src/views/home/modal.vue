@@ -11,17 +11,22 @@
         <div class="content-desc">
           <div class="content-desc-title">{{ $t("infoTitle") }}</div>
           <div class="content-desc-info">
-            {{ $t("infoDesc") }}
+            {{ $t("infoDesc1") }}
+          </div>
+          <div class="content-desc-info">
+            {{ $t("infoDesc2") }}
+          </div>
+          <div class="content-desc-info">
+            {{ $t("infoDesc3") }}
           </div>
           <div class="content-desc-cells">
             <content-cell
               v-for="(item, idx) in pageText"
               :key="idx"
               @toggleShow="toggleShow"
-              :title="$t(item.title)"
-              :desc="$t(item.desc)"
+              :title="item.title"
               :showDesc="showDesc"
-              :btn="showDesc == $t(item.title) ? '-' : '+'"
+              :btn="showDesc == item.title ? '-' : '+'"
             />
           </div>
           <div class="claim-title">
@@ -63,13 +68,9 @@ export default defineComponent({
         desc: "nftInfo",
       },
       {
-        title: "Content-related Benefits",
-        desc: "fansInfo",
-      },
-      {
-        title: "ATTA Brand Benefits",
+        title: "ATTA NFT Utility",
         desc: "brandInfo",
-      },
+      }
     ]);
     const submitBtn = ref("");
     const claimBtn = ref("");
@@ -78,7 +79,6 @@ export default defineComponent({
     };
 
     watch(props, (newVal, oldVal) => {
-      console.log(newVal);
       if (newVal.accountAddress || oldVal.accountAddress) {
         submitBtn.value = "Claim now";
       }
@@ -275,6 +275,7 @@ export default defineComponent({
         font-size: 12px;
         margin-left: 50px;
         line-height: 1.8;
+        opacity: 0.8;
         &-title {
           font-size: 16px;
           margin-bottom: 10px;
@@ -286,8 +287,10 @@ export default defineComponent({
           margin: 20px 0;
         }
         &-info {
+          opacity: 0.6;
           text-align: justify;
           word-break: break-all;
+          margin-bottom: 10px;
         }
       }
       .claim-title {

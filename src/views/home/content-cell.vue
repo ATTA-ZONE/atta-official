@@ -1,17 +1,32 @@
 <template>
   <div class="content-cell">
     <div class="content-cell-head">
-      <span>{{props.title}}</span>
-      <span @click="toggleDesc(props.title)">{{t('moreInfo')}} {{props.btn}}</span>
+      <span>{{$t(props.title)}}:</span>
+      <span @click="toggleDesc(props.title)">{{$t('moreInfo')}} {{props.btn}}</span>
     </div>
-    <div class="content-cell-desc" v-if="props.showDesc == props.title">
-      {{props.desc}}
+    <div class="content-cell-desc" v-if="props.showDesc == props.title && props.title === 'ATTA NFT Exclusive Benefits'">
+      <div class="atta-nft-desc">{{$t('nftInfo1')}}</div>
+      <div class="atta-nft-desc">{{$t('nftInfo2')}}</div>
+      <div class="atta-nft-desc">{{$t('nftInfo3')}}</div>
+      <div class="atta-nft-desc">{{$t('nftInfo4')}}</div>
+    </div>
+    <div class="content-cell-desc" v-if="props.showDesc == props.title && props.title === 'ATTA NFT Utility'">
+      <div class="atta-nft-desc">{{$t('brandInfo1')}}</div>
+      <div class="atta-nft-desc">{{$t('brandInfo2')}}</div>
+      <div class="atta-nft-desc">{{$t('brandInfo3')}}</div>
+      <div class="atta-nft-desc">{{$t('brandInfo4')}}</div>
+      <div class="atta-nft-desc">{{$t('brandInfo5')}}</div>
+      <div class="atta-nft-desc">{{$t('brandInfo6')}}</div>
+      <div class="atta-nft-desc">{{$t('brandInfo7')}}</div>
+      <div class="atta-nft-desc">{{$t('brandInfo8')}}</div>
+      <div class="atta-nft-desc">{{$t('brandInfo9')}}</div>
+      <div class="atta-nft-desc">{{$t('brandInfo10')}}</div>
     </div>
   </div>
 </template>
 <script lang='ts'>
 import { defineComponent } from "vue";
-import { useI18n } from "vue-i18n";
+
 export default defineComponent({
   props: {
     title: {
@@ -23,14 +38,13 @@ export default defineComponent({
     showDesc: String
   },
   setup(props,context){
-    const { t } = useI18n();
     const toggleDesc = (str:string) => {
       if (str === props.showDesc) {
         str = ''
       }
       context.emit('toggleShow',str)
     }
-    return {props, toggleDesc, t}
+    return {props, toggleDesc}
   }
 });
 </script>
@@ -48,6 +62,9 @@ export default defineComponent({
       font-size: 14px;
       text-align: justify;
       word-break: break-all;
+    }
+    .atta-nft-desc {
+      margin-bottom: 10px; 
     }
   }
 </style>
