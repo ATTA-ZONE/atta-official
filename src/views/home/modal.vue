@@ -86,6 +86,7 @@ export default defineComponent({
     watch(props, (newVal, oldVal) => {
       if (newVal.accountAddress || oldVal.accountAddress) {
         submitBtn.value = "Claim now";
+        showUserAddress.value = true
       }
     })
 
@@ -132,10 +133,12 @@ export default defineComponent({
       if (!userClaimInput) {
         claimBtn.value = "not qualified to receive the NFT airdrop."
         submitBtn.value = "Got it";
+        showUserAddress.value = false
         return false
       } else {
         claimBtn.value = "You can claim this NFT airdrop"
         submitBtn.value = "Claim now";
+        showUserAddress.value = true
       }
     }
 
@@ -158,6 +161,7 @@ export default defineComponent({
       submitBtn.value = 'Connect now'
     } else {
       submitBtn.value = "Claim now";
+      showUserAddress.value = true
       compareAddress()
     }
 
@@ -167,6 +171,7 @@ export default defineComponent({
         return false;
       }
       if (submitBtn.value === "Got it") {
+        showUserAddress.value = false
         closeModal();
         return false;
       }
@@ -190,6 +195,7 @@ export default defineComponent({
         if (!userClaimInput) {
           claimBtn.value = "not qualified to receive the NFT airdrop."
           submitBtn.value = "Got it";
+          showUserAddress.value = true
           return false
         }
 
@@ -217,6 +223,7 @@ export default defineComponent({
               showClaimStatus.value = true
             }
             submitBtn.value = "Got it";
+            showUserAddress.value = true
           });
       }
     };
