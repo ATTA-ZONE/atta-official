@@ -3,7 +3,7 @@
     <div class="modal-wrap">
       <div class="modal-wrap-name">
         <div class="modal-wrap-name-text">{{ $t("Claim Your NFT") }}</div>
-        <img @click="closeModal" class="close" src="@/assets/imgs/close.png" />
+        <img @click="closeModal" class="modal-close" src="@/assets/imgs/close.png" />
       </div>
       <div class="modal-title">{{ $t("modalTitle") }}</div>
       <div class="content-wrap">
@@ -40,7 +40,7 @@
   </div>
 </template>
 <script lang='ts'>
-import { defineComponent, onMounted, ref, watch } from "vue";
+import { defineComponent, ref, watch } from "vue";
 import contentCell from "./content-cell.vue";
 import merkle from "@/assets/js/Merkle.json";
 import { getCookie } from "../../utils";
@@ -72,15 +72,10 @@ export default defineComponent({
       },
     ]);
     const submitBtn = ref("");
-    const claimBtn = ref("You can claim this NFT airdrop");
+    const claimBtn = ref("");
     const toggleShow = (str: string) => {
       showDesc.value = str;
     };
-    if (props.accountAddress) {
-      submitBtn.value = 'Claim now'
-    } else {
-      submitBtn.value = 'Connect now'
-    }
 
     watch(props, (newVal, oldVal) => {
       console.log(newVal);
@@ -116,37 +111,48 @@ export default defineComponent({
       context.emit("closemodal");
     };
 
+    const btnText = async() => {
+      const accounts = await window.CHAIN.WALLET.accounts();
+      const chainId: number | string = await window.CHAIN.WALLET.chainId();
+
+      var walletType = getCookie(window.CHAIN.WALLET.__wallet__);
+      if (walletType) {
+        var web3 = new window.Web3(window.CHAIN.WALLET.provider());
+      } else if (window.ethereum) {
+        var web3 = new window.Web3(window.ethereum);
+      }
+      let userAddress = web3.utils.toChecksumAddress(accounts[0])
+      let userClaimInput = merkle[chainId][userAddress];
+      if (!userClaimInput) {
+        claimBtn.value = "not qualified to receive the NFT airdrop."
+        submitBtn.value = "Got it";
+        return false
+      } else {
+        claimBtn.value = "You can claim this NFT airdrop"
+        submitBtn.value = "Claim now";
+      }
+    }
+
     const compareAddress = async() => {
       const accounts = await window.CHAIN.WALLET.accounts();
       const chainId: number | string = await window.CHAIN.WALLET.chainId();
 
       if (accounts && accounts.length > 0) {
-        var walletType = getCookie(window.CHAIN.WALLET.__wallet__);
-        if (walletType) {
-          var web3 = new window.Web3(window.CHAIN.WALLET.provider());
-        } else if (window.ethereum) {
-          var web3 = new window.Web3(window.ethereum);
-        }
-
-
-        let userAddress = web3.utils.toChecksumAddress(accounts[0])
-
         if (!merkle[chainId] || chainId != window.targetChainId) {
-          window.CHAIN.WALLET.switchRPCSettings(window.targetChainId);
-          return false
-        }
-        let userClaimInput = merkle[chainId][userAddress];
-        if (!userClaimInput) {
-          claimBtn.value = "not qualified to receive the NFT airdrop."
-          submitBtn.value = "Got it";
-          return false
+          window.CHAIN.WALLET.switchRPCSettings(window.targetChainId).then(()=>{
+            btnText()
+          })
+        } else {
+          btnText()
         }
       }
     }
 
-    onMounted(()=>{
+    if (!props.accountAddress) {
+      submitBtn.value = 'Connect now'
+    } else {
       compareAddress()
-    })
+    }
 
     const getNftBsc = async () => {
       if (submitBtn.value === "Connect now") {
@@ -249,6 +255,10 @@ export default defineComponent({
       &-text {
         opacity: 0;
       }
+    }
+    .modal-close {
+      width: 37px;
+      height: 37px;
     }
     .modal-title {
       margin: 10px 0;
