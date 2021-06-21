@@ -195,7 +195,7 @@ export default defineComponent({
         if (!userClaimInput) {
           claimBtn.value = "not qualified to receive the NFT airdrop."
           submitBtn.value = "Got it";
-          showUserAddress.value = true
+          showUserAddress.value = false
           return false
         }
 
@@ -223,7 +223,7 @@ export default defineComponent({
               showClaimStatus.value = true
             }
             submitBtn.value = "Got it";
-            showUserAddress.value = true
+            showUserAddress.value = false
           });
       }
     };
