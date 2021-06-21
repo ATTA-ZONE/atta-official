@@ -136,11 +136,15 @@ export default defineComponent({
     })
 
     const getAddress = () => {
-      initWeb3().then((res: any) => {
-        if (res.length > 0) {
-          accountAddress.value = res[0];
-        }
-      });
+      if (!accountAddress.value) {
+        initWeb3().then((res: any) => {
+          if (res.length > 0) {
+            accountAddress.value = res[0];
+          }
+        })
+      } else {
+        window.CHAIN.WALLET.connect('MetaMask')
+      }
     };
 
     const goAnchor = (id: number | string) => {
