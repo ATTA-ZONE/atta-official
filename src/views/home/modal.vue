@@ -287,7 +287,7 @@ export default defineComponent({
         width: 530px;
       }
       .content-desc {
-        font-size: 12px;
+        font-size: 14px;
         margin-left: 50px;
         line-height: 1.8;
         opacity: 0.8;
