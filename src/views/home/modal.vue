@@ -28,7 +28,7 @@
             {{ $t("Claim deadline") }}: 2021-6-31 20:00
           </div>
           <div class="claim-title" v-if="props.accountAddress">
-            {{ $t(claimBtn) }}.
+            {{ $t(claimBtn) }}
           </div>
           <div class="claim-desc" v-if="props.accountAddress">
             {{ $t("Your receving address is") }}： {{ props.accountAddress }}
@@ -151,6 +151,7 @@ export default defineComponent({
     if (!props.accountAddress) {
       submitBtn.value = 'Connect now'
     } else {
+      submitBtn.value = "Claim now";
       compareAddress()
     }
 
