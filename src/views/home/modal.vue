@@ -304,7 +304,6 @@ export default defineComponent({
         &-info {
           opacity: 0.6;
           text-align: justify;
-          word-break: break-all;
           margin-bottom: 10px;
         }
       }

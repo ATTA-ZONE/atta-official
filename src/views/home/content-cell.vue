@@ -61,7 +61,6 @@ export default defineComponent({
       opacity: 0.6;
       font-size: 14px;
       text-align: justify;
-      word-break: break-all;
     }
     .atta-nft-desc {
       margin-bottom: 10px; 
