@@ -253,6 +253,7 @@ export default defineComponent({
   left: 0;
   z-index: 999;
   background: rgba($color: #000000, $alpha: 0.9);
+  .modal-wrap::-webkit-scrollbar { width: 1px !important;background: #fff; }
   .modal-wrap {
     width: 1300px;
     height: 90%;
