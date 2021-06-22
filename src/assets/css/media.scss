@@ -16,6 +16,9 @@
 }
 
 @media only screen and (max-width: 992px) {
+  .wallet-container {
+    display: flex;
+  }
   .modal-container {
     .modal-wrap {
       width: 100%;
