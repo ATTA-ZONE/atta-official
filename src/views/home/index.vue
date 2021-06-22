@@ -19,8 +19,12 @@
         </div>
         <div class="twohanglogo">
           <img class="logo3" src="@/assets/imgs/bsc.png" />
-          <img class="logo7" src="@/assets/imgs/logo07.png" />
-          <img class="logo5" src="@/assets/imgs/logo05.png" />
+          <div class="img-center">
+            <img class="logo7" src="@/assets/imgs/logo07.png" />
+          </div>
+          <div class="img-center">
+            <img class="logo5" src="@/assets/imgs/logo05.png" />
+          </div>
           <img src="@/assets/imgs/pageTwoRightBtm.png" class="start" />
         </div>
       </div>
