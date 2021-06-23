@@ -7,7 +7,7 @@
           <img src="@/assets/imgs/pageTwoLeft.png" />
           <img src="@/assets/imgs/pageTworightTop.png" />
           <p :class="[isEn ? 'page-two-en' : 'page-two-ch fz-fm-pf']">
-            {{ $t("attaInfo") }}<br/>{{ $t("attaInfo1") }}
+            {{ $t("attaInfo") }}<br/>{{ $t("attaInfo1") }} 
           </p>
         </div>
       </div>
