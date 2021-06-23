@@ -21,6 +21,7 @@
         <a @click="goAnchor('Contact')">
           {{ $t("Contact") }}
         </a>
+        <router-link to="/Assets">{{$t('Asset Management')}}</router-link>
 
         <div class="wallet-container" @click="getAddress">
           <div class="wallet-status">
@@ -75,6 +76,7 @@
         <a @click="goAnchor('Contact')">
           {{ $t("Contact") }}
         </a>
+        <router-link to="/Assets">{{$t('Asset Management')}}</router-link>
         <span @click="showModal = true" class="top-btn">{{
           $t("Claim Your NFT")
         }}</span>
