@@ -6,7 +6,7 @@
         <img
           @click="closeModal"
           class="modal-close"
-          src="@/assets/imgs/close.png"
+          src="/imgs/close.png"
         />
       </div>
       <div class="modal-title">{{ $t("modalTitle") }}</div>
@@ -57,7 +57,7 @@
 <script lang='ts'>
 import { defineComponent, onMounted, ref, watch } from "vue";
 import contentCell from "./content-cell.vue";
-import merkle from "@/assets/js/Merkle.json";
+import merkle from "/public/js/Merkle.json";
 import { getCookie } from "../../utils";
 import { chainSetting } from "../../assets/js/chainSetting";
 import { initWeb3 } from "../../assets/js/initweb3";

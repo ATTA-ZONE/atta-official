@@ -5,7 +5,7 @@
       <br />
       <font style="color: rgb(168, 222, 238)">{{ $t("Services") }}</font>
     </span>
-    <img class="mouse" src="@/assets/imgs/MouseLeft.png" />
+    <img class="mouse" src="/imgs/MouseLeft.png" />
     <p>
       {{
         $t(
@@ -20,22 +20,22 @@
       }}
     </p>
     <div class="ntf-services" v-if="isEn">
-      <img src="@/assets/imgs/glossy01.png" />
-      <img style="margin: 34px 5% 0" src="@/assets/imgs/glossy02.png" />
-      <img src="@/assets/imgs/glossy03.png" />
+      <img src="/imgs/glossy01.png" />
+      <img style="margin: 34px 5% 0" src="/imgs/glossy02.png" />
+      <img src="/imgs/glossy03.png" />
     </div>
     <div class="ntf-services" v-if="isEn">
-      <img style="margin-right: 5%" src="@/assets/imgs/glossy04.png" />
-      <img src="@/assets/imgs/glossy05.png" />
+      <img style="margin-right: 5%" src="/imgs/glossy04.png" />
+      <img src="/imgs/glossy05.png" />
     </div>
     <div class="ntf-services" v-if="!isEn">
-      <img src="@/assets/imgs/ch5.png" />
-      <img style="margin: 34px 5% 0" src="@/assets/imgs/ch6.png" />
-      <img src="@/assets/imgs/ch7.png" />
+      <img src="/imgs/ch5.png" />
+      <img style="margin: 34px 5% 0" src="/imgs/ch6.png" />
+      <img src="/imgs/ch7.png" />
     </div>
     <div class="ntf-services" v-if="!isEn">
-      <img style="margin-right: 5%" src="@/assets/imgs/ch8.png" />
-      <img src="@/assets/imgs/ch9.png" />
+      <img style="margin-right: 5%" src="/imgs/ch8.png" />
+      <img src="/imgs/ch9.png" />
     </div>
   </div>
 </template>

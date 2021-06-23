@@ -147,7 +147,7 @@
 .home-page .home-page-two {
   width: 100%;
   /* height: 551px; */
-  background: url(@/assets/imgs/pageTwoBgi.png) no-repeat center center;
+  background: url(/imgs/pageTwoBgi.png) no-repeat center center;
   background-size: cover;
   justify-content: center;
   position: relative;
@@ -156,7 +156,7 @@
 .home-page .home-page-two .page-two {
   width: 1085px;
   height: 551px;
-  background: url(@/assets/imgs/pageTwoBgiBgi.png) no-repeat center center;
+  background: url(/imgs/pageTwoBgiBgi.png) no-repeat center center;
   background-size: cover;
   position: relative;
   justify-content: center;
@@ -402,13 +402,13 @@
   transition: all 100ms linear;
 }
 .home-page .home-page-five .commodity-list .commodity .commodity-left {
-  background: url(@/assets/imgs/glass.png) no-repeat;
+  background: url(/imgs/glass.png) no-repeat;
 }
 .home-page .home-page-five .commodity-list .commodity .commodity-middle {
-  background: url(@/assets/imgs/glass02.png) no-repeat;
+  background: url(/imgs/glass02.png) no-repeat;
 }
 .home-page .home-page-five .commodity-list .commodity .commodity-right {
-  background: url(@/assets/imgs/glass03.png) no-repeat;
+  background: url(/imgs/glass03.png) no-repeat;
 }
 .home-page .home-page-five .commodity-list .commodity .commodity-top {
   background-size: 100% 100%;

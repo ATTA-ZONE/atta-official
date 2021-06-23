@@ -1,6 +1,6 @@
 <template>
   <div class="home-page-five" id="Contents">
-        <img class="img-search" src="@/assets/imgs/SearchLeft.png" />
+        <img class="img-search" src="/imgs/SearchLeft.png" />
         <div class="header flex">
           <span class="han-son">
             {{ $t("Discover ATTA") }}
@@ -21,7 +21,7 @@
         <div class="commodity-list flex">
           <div class="commodity">
             <div class="commodity-top commodity-left">
-              <img src="@/assets/imgs/front.png" />
+              <img src="/imgs/front.png" />
             </div>
             <p>{{ $t("TYLOO CSGO - ESPORTS NFT") }}</p>
             <div class="price-total flex">
@@ -35,7 +35,7 @@
               </div>
             </div>
             <div class="commodity-info flex">
-              <img src="@/assets/imgs/Ellipse.png" />
+              <img src="/imgs/Ellipse.png" />
               <div>
                 <p>E-sports</p>
                 <p>{{ $t("TYLOO CSGO TEAM") }}</p>
@@ -47,7 +47,7 @@
           </div>
           <div class="commodity">
             <div class="commodity-top commodity-middle">
-              <img src="@/assets/imgs/front02.png" />
+              <img src="/imgs/front02.png" />
             </div>
             <p>{{ $t("April - Experimental Music NFT") }}</p>
             <div class="price-total flex">
@@ -61,7 +61,7 @@
               </div>
             </div>
             <div class="commodity-info flex">
-              <img src="@/assets/imgs/Ellipse02.png" />
+              <img src="/imgs/Ellipse02.png" />
               <div>
                 <p>Musician& Artist</p>
                 <p>{{ $t("DING WU") }}</p>
@@ -73,7 +73,7 @@
           </div>
           <div class="commodity">
             <div class="commodity-top commodity-right">
-              <img src="@/assets/imgs/front03.png" />
+              <img src="/imgs/front03.png" />
             </div>
             <p>{{ $t("NIU N.X - Designer Toy NFT") }}</p>
             <div class="price-total flex">
@@ -87,7 +87,7 @@
               </div>
             </div>
             <div class="commodity-info flex">
-              <img src="@/assets/imgs/Ellipse03.png" />
+              <img src="/imgs/Ellipse03.png" />
               <div>
                 <p>Celebrities</p>
                 <p>{{ $t("Raquel Xu") }}</p>
@@ -99,7 +99,7 @@
           </div>
         </div>
         <div class="nft">
-          <img src="@/assets/imgs/Group426.png" />
+          <img src="/imgs/Group426.png" />
           <p>
             {{ $t("Find more exclusive NFTs at BAZHUAYU!") }}
           </p>

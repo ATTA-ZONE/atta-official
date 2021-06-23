@@ -1,7 +1,7 @@
 <template>
   <div class="footer flex" id="Contact">
     <div class="footer-left">
-      <img src="@/assets/imgs/logo.png" />
+      <img src="/imgs/logo.png" />
       <p v-if="isEn">
         ATTA is a blockchain-based content
         <br />creator for premium copyright assets.
@@ -15,19 +15,19 @@
           <img
             class="foot-wechat"
             v-if="showWechat"
-            src="@/assets/imgs/wechat.jpeg"
+            src="/imgs/wechat.jpeg"
           />
           <img
             class="foot-wechat-icon"
             @click="toPage(1)"
-            src="@/assets/imgs/footer01.png"
+            src="/imgs/footer01.png"
           />
         </div>
-        <img @click="toPage(2)" src="@/assets/imgs/footer02.png" />
-        <img @click="toPage(3)" src="@/assets/imgs/footer03.png" />
-        <img @click="toPage(4)" src="@/assets/imgs/footer04.png" />
-        <img @click="toPage(5)" src="@/assets/imgs/footer05.png" />
-        <img @click="toPage(6)" src="@/assets/imgs/footer06.png" />
+        <img @click="toPage(2)" src="/imgs/footer02.png" />
+        <img @click="toPage(3)" src="/imgs/footer03.png" />
+        <img @click="toPage(4)" src="/imgs/footer04.png" />
+        <img @click="toPage(5)" src="/imgs/footer05.png" />
+        <img @click="toPage(6)" src="/imgs/footer06.png" />
       </div>
     </div>
   </div>

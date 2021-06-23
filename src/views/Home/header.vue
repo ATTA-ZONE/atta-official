@@ -47,17 +47,17 @@
         <img
           class="close-img"
           @click="showMask = false"
-          src="@/assets/imgs/close.png"
+          src="/imgs/close.png"
         />
       </div>
     </div>
     <div class="header flex">
-      <img class="brandLogo" src="@/assets/imgs/logo.png" />
+      <img class="brandLogo" src="/imgs/logo.png" />
       <img
         class="head-menu"
         @click="showMask = true"
         v-if="isMobile"
-        src="@/assets/imgs/menu.png"
+        src="/imgs/menu.png"
       />
       <div class="header-links" v-if="!isMobile">
         <a @click="goAnchor('Introduction')">
@@ -100,7 +100,7 @@
       </div>
     </div>
     <div class="header-txt">
-      <img src="@/assets/imgs/Text.png" />
+      <img src="/imgs/Text.png" />
     </div>
   </div>
   <modal :accountAddress="accountAddress" v-if="showModal" @address="emitAddress" @closemodal="closemodal" />
@@ -109,8 +109,8 @@
 import { computed, defineComponent, onMounted, onUnmounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import modal from "./modal.vue";
-import greenDot from "@/assets/imgs/greenDot.png";
-import redDot from "@/assets/imgs/redDot.png";
+import greenDot from "/imgs/greenDot.png";
+import redDot from "/imgs/redDot.png";
 import {initWeb3} from "../../assets/js/initweb3";
 
 export default defineComponent({

@@ -4,8 +4,8 @@
       <header-cell />
       <div class="home-page-two flex">
         <div class="page-two flex">
-          <img src="@/assets/imgs/pageTwoLeft.png" />
-          <img src="@/assets/imgs/pageTworightTop.png" />
+          <img src="/imgs/pageTwoLeft.png" />
+          <img src="/imgs/pageTworightTop.png" />
           <p :class="[isEn ? 'page-two-en' : 'page-two-ch fz-fm-pf']">
             {{ $t("attaInfo") }}<br/>{{ $t("attaInfo1") }} 
           </p>
@@ -13,54 +13,54 @@
       </div>
       <div class="home-page-three" id="Upcoming">
         <div class="onehanglogo">
-          <img class="logo1" src="@/assets/imgs/logo01.png" />
-          <img class="logo2" src="@/assets/imgs/logo02.png" />
-          <img class="logo6" src="@/assets/imgs/logo06.png" />
+          <img class="logo1" src="/imgs/logo01.png" />
+          <img class="logo2" src="/imgs/logo02.png" />
+          <img class="logo6" src="/imgs/logo06.png" />
         </div>
         <div class="twohanglogo">
-          <img class="logo3" src="@/assets/imgs/bsc.png" />
+          <img class="logo3" src="/imgs/bsc.png" />
           <div class="img-center">
-            <img class="logo7" src="@/assets/imgs/logo07.png" />
+            <img class="logo7" src="/imgs/logo07.png" />
           </div>
           <div class="img-center">
-            <img class="logo5" src="@/assets/imgs/logo05.png" />
+            <img class="logo5" src="/imgs/logo05.png" />
           </div>
-          <img src="@/assets/imgs/pageTwoRightBtm.png" class="start" />
+          <img src="/imgs/pageTwoRightBtm.png" class="start" />
         </div>
       </div>
       <div class="home-page-three threeweb">
         <div class="onehanglogo">
-          <img class="logo2" src="@/assets/imgs/logo02.png" />
-          <img class="logo3" src="@/assets/imgs/bsc.png" />
+          <img class="logo2" src="/imgs/logo02.png" />
+          <img class="logo3" src="/imgs/bsc.png" />
         </div>
         <div class="twohanglogo threehanglogo">
-          <img class="logo1" src="@/assets/imgs/logo01.png" />
+          <img class="logo1" src="/imgs/logo01.png" />
         </div>
         <div class="twohanglogo">
-          <img class="logo5" src="@/assets/imgs/logo05.png" />
-          <img class="logo6" src="@/assets/imgs/logo06.png" />
-          <img class="logo7" src="@/assets/imgs/logo07.png" />
-          <img src="@/assets/imgs/pageTwoRightBtm.png" class="start" />
+          <img class="logo5" src="/imgs/logo05.png" />
+          <img class="logo6" src="/imgs/logo06.png" />
+          <img class="logo7" src="/imgs/logo07.png" />
+          <img src="/imgs/pageTwoRightBtm.png" class="start" />
         </div>
       </div>
       <div class="home-page-four flex">
-        <img class="blur-guang" src="@/assets/imgs/blur.png" />
+        <img class="blur-guang" src="/imgs/blur.png" />
         <div class="image-left">
           <div>
             <img
               :class="{ 'image-bottom': transitionImage }"
-              src="@/assets/imgs/swiper03.png"
+              src="/imgs/swiper03.png"
             />
             <img
               :class="{ 'image-middle': transitionImage }"
-              src="@/assets/imgs/swiper02.png"
+              src="/imgs/swiper02.png"
             />
             <img
               :class="{ 'image-top': transitionImage }"
-              src="@/assets/imgs/swiper01.png"
+              src="/imgs/swiper01.png"
             />
           </div>
-          <img src="@/assets/imgs/binance.png" />
+          <img src="/imgs/binance.png" />
         </div>
         <div class="txt-right">
           <div class="txt-middle">
