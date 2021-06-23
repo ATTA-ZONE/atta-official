@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
  
 // 引入文件，动态路由
-const Home = () => import("@/views/Home/index.vue");
-const Assets = () => import("@/views/Assets/index.vue");
+const Home = () => import("../views/Home/index.vue");
+const Assets = () => import("../views/Assets/index.vue");
  
 const routes = [
   {
