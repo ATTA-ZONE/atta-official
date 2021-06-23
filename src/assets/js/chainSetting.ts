@@ -161,8 +161,8 @@ export const chainSetting = {
             "abi": c_atta_ERC1155_Airdrop_abi,
             "56":
             {
-                "owner_id": "",
-                "address": ""
+                "owner_id": 22,
+                "address": "0x777A1530ce62B144e083d4a7595F47c99A290A48"
             },
             "97":
             {
@@ -176,8 +176,8 @@ export const chainSetting = {
             "abi": c_atta_ERC1155_Airdrop_MerkleProof_abi,
             "56":
             {
-                "owner_id": "",
-                "address": ""
+                "owner_id": 22,
+                "address": "0x659fa585E00D53a2D07eFE311B193B3474406d2F"
             },
             "97":
             {
