@@ -4,7 +4,7 @@
       autoplay
       style="width: 100%"
       loop
-      src="@/assets/imgs/nftInfo.mp4"
+      src="/nftInfo.mp4"
       muted
     ></video>
     <div class="mask-container" v-if="showMask">

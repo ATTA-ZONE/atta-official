@@ -3,7 +3,11 @@
     <div class="modal-wrap">
       <div class="modal-wrap-name">
         <div class="modal-wrap-name-text">{{ $t("Claim Your NFT") }}</div>
-        <img @click="closeModal" class="modal-close" src="@/assets/imgs/close.png" />
+        <img
+          @click="closeModal"
+          class="modal-close"
+          src="@/assets/imgs/close.png"
+        />
       </div>
       <div class="modal-title">{{ $t("modalTitle") }}</div>
       <div class="content-wrap">
@@ -36,13 +40,13 @@
             {{ $t(claimBtn) }}
           </div>
           <div class="claim-title" v-if="showWalletBalance">
-            {{ $t('Current wallet') }}
+            {{ $t("Current wallet") }}{{ walletBalance }}
           </div>
           <div class="claim-desc" v-if="showUserAddress">
             {{ $t("Your receving address is") }}: {{ props.accountAddress }}
           </div>
           <div class="claimed-text" v-if="showClaimStatus">
-            {{ $t("claimedText")}}
+            {{ $t("claimedText") }}
           </div>
           <span class="submit-btn" @click="getNftBsc">{{ $t(submitBtn) }}</span>
         </div>
@@ -51,12 +55,12 @@
   </div>
 </template>
 <script lang='ts'>
-import { defineComponent, ref, watch } from "vue";
+import { defineComponent, onMounted, ref, watch } from "vue";
 import contentCell from "./content-cell.vue";
 import merkle from "@/assets/js/Merkle.json";
 import { getCookie } from "../../utils";
 import { chainSetting } from "../../assets/js/chainSetting";
-import {initWeb3} from "../../assets/js/initweb3";
+import { initWeb3 } from "../../assets/js/initweb3";
 
 export default defineComponent({
   components: { contentCell },
@@ -71,6 +75,7 @@ export default defineComponent({
     const showUserAddress = ref(false);
     const showClaimStatus = ref(false);
     const showWalletBalance = ref(false);
+    const walletBalance = ref(0);
     const pageText = ref([
       {
         title: "ATTA NFT Exclusive Benefits",
@@ -79,10 +84,14 @@ export default defineComponent({
       {
         title: "ATTA NFT Utility",
         desc: "brandInfo",
-      }
+      },
     ]);
     const submitBtn = ref("");
     const claimBtn = ref("");
+    const accounts = ref<any>([]);
+    const chainId = ref("");
+    const web3 = ref();
+
     const toggleShow = (str: string) => {
       showDesc.value = str;
     };
@@ -90,17 +99,67 @@ export default defineComponent({
     watch(props, (newVal, oldVal) => {
       if (newVal.accountAddress || oldVal.accountAddress) {
         submitBtn.value = "Claim now";
-        showUserAddress.value = true
+        showUserAddress.value = true;
       }
-    })
+    });
 
     const getAddress = () => {
       initWeb3().then((res: any) => {
         if (res.length > 0) {
-          context.emit('address',res[0])
+          context.emit("address", res[0]);
         }
       });
     };
+
+    onMounted(async () => {
+      accounts.value = await window.CHAIN.WALLET.accounts();
+      chainId.value = await window.CHAIN.WALLET.chainId();
+      const walletType = getCookie(window.CHAIN.WALLET.__wallet__);
+
+      if (walletType) {
+        web3.value = new window.Web3(window.CHAIN.WALLET.provider());
+      } else if (window.ethereum) {
+        web3.value = new window.Web3(window.ethereum);
+      }
+    });
+
+    const btnText = async () => {
+      const userAddress = web3.value.utils.toChecksumAddress(accounts.value[0]);
+      const userClaimInput = merkle[chainId.value][userAddress];
+
+      if (!userClaimInput) {
+        claimBtn.value = "not qualified to receive the NFT airdrop.";
+        submitBtn.value = "Got it";
+        showUserAddress.value = false;
+        return false;
+      } else {
+        claimBtn.value = "You can claim this NFT airdrop";
+        submitBtn.value = "Claim now";
+        showUserAddress.value = true;
+      }
+    };
+
+    const compareAddress = async () => {
+      if (accounts && accounts.length > 0) {
+        if (!merkle[chainId.value] || chainId != window.targetChainId) {
+          window.CHAIN.WALLET.switchRPCSettings(window.targetChainId).then(
+            () => {
+              btnText();
+            }
+          );
+        } else {
+          btnText();
+        }
+      }
+    };
+
+    if (!props.accountAddress) {
+      submitBtn.value = "Connect now";
+    } else {
+      submitBtn.value = "Claim now";
+      showUserAddress.value = true;
+      compareAddress();
+    }
 
     const getClaim = (fnc1: any, fnc2: any, address: any) => {
       fnc1.methods
@@ -114,60 +173,13 @@ export default defineComponent({
         .send({
           from: address,
         });
-      claimBtn.value = 'We have received your claim'
-      showClaimStatus.value = true
+      claimBtn.value = "We have received your claim";
+      showClaimStatus.value = true;
     };
 
     const closeModal = () => {
       context.emit("closemodal");
     };
-
-    const btnText = async() => {
-      const accounts = await window.CHAIN.WALLET.accounts();
-      const chainId: number | string = await window.CHAIN.WALLET.chainId();
-
-      var walletType = getCookie(window.CHAIN.WALLET.__wallet__);
-      if (walletType) {
-        var web3 = new window.Web3(window.CHAIN.WALLET.provider());
-      } else if (window.ethereum) {
-        var web3 = new window.Web3(window.ethereum);
-      }
-      let userAddress = web3.utils.toChecksumAddress(accounts[0])
-      let userClaimInput = merkle[chainId][userAddress];
-      if (!userClaimInput) {
-        claimBtn.value = "not qualified to receive the NFT airdrop."
-        submitBtn.value = "Got it";
-        showUserAddress.value = false
-        return false
-      } else {
-        claimBtn.value = "You can claim this NFT airdrop"
-        submitBtn.value = "Claim now";
-        showUserAddress.value = true
-      }
-    }
-
-    const compareAddress = async() => {
-      const accounts = await window.CHAIN.WALLET.accounts();
-      const chainId: number | string = await window.CHAIN.WALLET.chainId();
-
-      if (accounts && accounts.length > 0) {
-        if (!merkle[chainId] || chainId != window.targetChainId) {
-          window.CHAIN.WALLET.switchRPCSettings(window.targetChainId).then(()=>{
-            btnText()
-          })
-        } else {
-          btnText()
-        }
-      }
-    }
-
-    if (!props.accountAddress) {
-      submitBtn.value = 'Connect now'
-    } else {
-      submitBtn.value = "Claim now";
-      showUserAddress.value = true
-      compareAddress()
-    }
 
     const getNftBsc = async () => {
       if (submitBtn.value === "Connect now") {
@@ -175,41 +187,36 @@ export default defineComponent({
         return false;
       }
       if (submitBtn.value === "Got it") {
-        showUserAddress.value = false
+        showUserAddress.value = false;
         closeModal();
         return false;
       }
-      const accounts = await window.CHAIN.WALLET.accounts();
-      const chainId: number | string = await window.CHAIN.WALLET.chainId();
 
-      if (accounts && accounts.length > 0) {
-        var walletType = getCookie(window.CHAIN.WALLET.__wallet__);
-        if (walletType) {
-          var web3 = new window.Web3(window.CHAIN.WALLET.provider());
-        } else if (window.ethereum) {
-          var web3 = new window.Web3(window.ethereum);
-        }
-        let userAddress = web3.utils.toChecksumAddress(accounts[0])
+      if (accounts.value.length > 0) {
+        const userAddress = web3.value.utils.toChecksumAddress(
+          accounts.value[0]
+        );
 
-        if (!merkle[chainId] || chainId != window.targetChainId) {
+        if (!merkle[chainId.value] || chainId.value != window.targetChainId) {
           window.CHAIN.WALLET.switchRPCSettings(window.targetChainId);
-          return false
+          return false;
         }
-        let userClaimInput = merkle[chainId][userAddress];
+        const userClaimInput = merkle[chainId.value][userAddress];
         if (!userClaimInput) {
-          claimBtn.value = "not qualified to receive the NFT airdrop."
+          claimBtn.value = "not qualified to receive the NFT airdrop.";
           submitBtn.value = "Got it";
-          showUserAddress.value = false
-          return false
+          showUserAddress.value = false;
+          return false;
         }
 
-        const setting_proof: any = chainSetting["contractSetting"]["atta_ERC1155_Airdrop_MerkleProof"];
+        const setting_proof: any =
+          chainSetting["contractSetting"]["atta_ERC1155_Airdrop_MerkleProof"];
 
-        var MerkleDistributionAddress = setting_proof[chainId].address;
+        const MerkleDistributionAddress = setting_proof[chainId.value].address;
         // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
-        var MerkleDistributionABI = setting_proof["abi"];
+        const MerkleDistributionABI = setting_proof["abi"];
 
-        var MerkleDistributionInstance = new web3.eth.Contract(
+        const MerkleDistributionInstance = new web3.value.eth.Contract(
           MerkleDistributionABI,
           MerkleDistributionAddress
         );
@@ -223,12 +230,28 @@ export default defineComponent({
             if (!res) {
               getClaim(MerkleDistributionInstance, userClaimInput, userAddress);
             } else {
-              claimBtn.value = 'claimed the NFT airdrop already'
-              showClaimStatus.value = true
-              showWalletBalance.value = true
+              const busdAddress: any =
+                chainSetting["contractSetting"]["atta_ERC1155_Airdrop"][chainId.value].address;
+
+              const busdABI =
+                chainSetting["contractSetting"]["atta_ERC1155_Airdrop"]["abi"];
+              const busdContractInstance = new web3.value.eth.Contract(
+                busdABI,
+                busdAddress
+              );
+              busdContractInstance.methods
+                .balanceOf(userAddress, 1)
+                .call()
+                .then((price: any) => {
+                  walletBalance.value = price;
+                });
+
+              claimBtn.value = "claimed the NFT airdrop already";
+              showClaimStatus.value = true;
+              showWalletBalance.value = true;
             }
             submitBtn.value = "Got it";
-            showUserAddress.value = false
+            showUserAddress.value = false;
           });
       }
     };
@@ -242,10 +265,11 @@ export default defineComponent({
       showUserAddress,
       showClaimStatus,
       showWalletBalance,
+      walletBalance,
       toggleShow,
       closeModal,
       getNftBsc,
-      getAddress
+      getAddress,
     };
   },
 });
@@ -259,7 +283,10 @@ export default defineComponent({
   left: 0;
   z-index: 999;
   background: rgba($color: #000000, $alpha: 0.9);
-  .modal-wrap::-webkit-scrollbar { width: 1px !important;background: rgba($color: #fff, $alpha: 0.5); }
+  .modal-wrap::-webkit-scrollbar {
+    width: 1px !important;
+    background: rgba($color: #fff, $alpha: 0.5);
+  }
   .modal-wrap {
     width: 1300px;
     height: 90%;
@@ -329,7 +356,7 @@ export default defineComponent({
       }
       .claimed-text {
         font-size: 16px;
-        color: #A8DEEE;
+        color: #a8deee;
       }
       .submit-btn {
         display: inline-block;
