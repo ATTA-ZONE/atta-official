@@ -265,10 +265,12 @@ export default defineComponent({
     transform: translateX(-50%);
     padding: 40px;
     color: #fff;
+    background: #1d1d1d;
     &-name {
       display: flex;
       font-size: 16px;
       justify-content: space-between;
+      align-items: center;
       &-text {
         opacity: 0;
       }
@@ -278,7 +280,9 @@ export default defineComponent({
       height: 37px;
     }
     .modal-title {
+      font-size: 24px;
       margin: 10px 0;
+      color: #fff;
     }
     .content-wrap {
       display: flex;
