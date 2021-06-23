@@ -1,0 +1,53 @@
+@import "./style.scss";
+@import "./common.scss";
+@import "./media.scss";
+html {
+    font-size: 20px;
+}
+
+body {
+    color: #333;
+    font-family: "微软雅黑", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+}
+
+i {
+    font-style: normal;
+}
+
+input[type="text"] {
+    -webkit-appearance: none;
+}
+
+input[type="password"] {
+    -webkit-appearance: none;
+}
+
+textarea { 
+    -webkit-appearance: none;
+}
+
+input::-webkit-input-placeholder {
+    color: #999;
+}
+
+input {
+    outline: none;
+
+    -webkit-appearance: none;
+    /*去除系统默认的样式*/
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /* 点击高亮的颜色*/
+}
+
+input {
+
+    appearance: button;
+
+    -moz-appearance: button;
+    /* Firefox */
+
+    -webkit-appearance: button;
+    /* Safari 和 Chrome */
+
+}
