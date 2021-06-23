@@ -35,6 +35,9 @@
           <div class="claim-title" v-if="props.accountAddress">
             {{ $t(claimBtn) }}
           </div>
+          <div class="claim-title" v-if="showWalletBalance">
+            {{ $t('Current wallet') }}
+          </div>
           <div class="claim-desc" v-if="showUserAddress">
             {{ $t("Your receving address is") }}: {{ props.accountAddress }}
           </div>
@@ -67,6 +70,7 @@ export default defineComponent({
     const showDesc = ref("");
     const showUserAddress = ref(false);
     const showClaimStatus = ref(false);
+    const showWalletBalance = ref(false);
     const pageText = ref([
       {
         title: "ATTA NFT Exclusive Benefits",
@@ -221,6 +225,7 @@ export default defineComponent({
             } else {
               claimBtn.value = 'claimed the NFT airdrop already'
               showClaimStatus.value = true
+              showWalletBalance.value = true
             }
             submitBtn.value = "Got it";
             showUserAddress.value = false
@@ -236,6 +241,7 @@ export default defineComponent({
       claimBtn,
       showUserAddress,
       showClaimStatus,
+      showWalletBalance,
       toggleShow,
       closeModal,
       getNftBsc,
