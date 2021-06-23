@@ -276,7 +276,7 @@ var c_ERC20_abi = [
     }
 ];
 
-export const c_ERC721_abi = [
+var c_ERC721_abi = [
 {
     "anonymous": false,
     "inputs": [
@@ -954,7 +954,7 @@ export const c_ERC721_abi = [
 },
 ];
 
-export const c_ERC1155_abi = [
+var c_ERC1155_abi = [
 {
     "anonymous":false,
     "inputs":[
@@ -1472,7 +1472,7 @@ export const c_ERC1155_abi = [
 
 ];
 
-export const c_auction_abi = [
+var c_auction_abi = [
 {
     "anonymous": false,
     "inputs": [
@@ -2222,7 +2222,7 @@ export const c_auction_abi = [
 }
 ];
 
-export const c_vendingMachine_abi = [
+var c_vendingMachine_abi = [
 {
     "inputs": [
         {
@@ -2707,7 +2707,7 @@ export const c_vendingMachine_abi = [
 ]
 
 
-export const c_atta_ERC1155_Airdrop_abi = [
+var c_atta_ERC1155_Airdrop_abi = [
 {
     "inputs": [
         {
@@ -3358,7 +3358,7 @@ export const c_atta_ERC1155_Airdrop_abi = [
     "type": "function"
 }
 ]
-export const c_atta_ERC1155_Airdrop_MerkleProof_abi = [
+var c_atta_ERC1155_Airdrop_MerkleProof_abi = [
 {
     "anonymous": false,
     "inputs": [
