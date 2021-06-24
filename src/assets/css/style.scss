@@ -151,3 +151,21 @@ div {
   -webkit-user-select: none;
   user-select: none;
 }
+.none {
+	display: none;
+}
+.hsycms-model {
+  position: fixed;
+  z-index: 3333;
+  display: none;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 80%;
+  max-height: 80%;
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
