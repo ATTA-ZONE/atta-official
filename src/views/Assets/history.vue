@@ -9,7 +9,7 @@
         >
           <div class="history-title">
             <div class="title-info">
-              <span class="title-info-name">{{ item.name }}</span>
+              <span class="title-info-name">{{ $t(item.name) }}</span>
             </div>
             <div
               class="title-time"
@@ -47,19 +47,14 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
+  name: 'history',
   data() {
     return {
-      dataList: [],
-      base_url: 'http://47.118.74.48:8081'
+      dataList: []
     };
   },
   created() {
-    let self = this;
-    self.getNftHistory();
-    self.resizeWindow();
-    window.onresize = function () {
-      self.resizeWindow();
-    };
+    this.getNftHistory();
   },
   computed: {
     computedData() {
@@ -70,13 +65,6 @@ export default defineComponent({
   },
 
   methods: {
-    resizeWindow() {
-      if (document.body.clientWidth < 992) {
-        this.showFilters = true;
-      } else {
-        this.showFilters = false;
-      }
-    },
     timeFormat(str) {
       var date = new Date(str);
       Y = date.getFullYear() + "-";
@@ -90,10 +78,10 @@ export default defineComponent({
       s = date.getSeconds();
       return Y + M + D + h + m + s;
     },
-    getNftHistory() {
+    async getNftHistory() {
       let self = this;
-      length targetChainId = "";
-      length scansite_base_url = "";
+      let targetChainId = "";
+      let scansite_base_url = "";
 
       if (window.location.href.indexOf("atta.zone") == -1) {
         targetChainId = 97;
@@ -103,16 +91,13 @@ export default defineComponent({
         scansite_base_url = "https://api.bscscan.com";
       }
       let auctionAddress = contractSetting["atta_ERC721"][targetChainId].address;
-      self.axios.get(
-          "/api/api?module=account&action=tokennfttx&contractaddress=" +
-          auctionAddress +
-          "&address=" +
-          window.walletId +
-          "&sort=desc").then(res=> {
+      let accounts = await window.CHAIN.WALLET.enable()
+      let bscAd = "/api/api?module=account&action=tokennfttx&contractaddress=" +auctionAddress +"&address=" +accounts[0] +"&sort=desc"
+      self.axios.get(bscAd).then(res=> {
           if (res.status == "1") {
             for (let i = 0; i < res.result.length; i++) {
               res.result[i].timeStamp *= 1000;
-              self.axios.post(self.base_url + "/v2/commodity/edition_basic_id", { tokenTypeId: res.result[i].tokenID }).then(itm => {
+              self.axios.post("/bsc/v2/commodity/edition_basic_id", { tokenTypeId: res.result[i].tokenID }).then(itm => {
                 self.$set(res.result[i], "name", itm.data.name);
                 self.$set(res.result[i], "edition", itm.data.edition);
               })

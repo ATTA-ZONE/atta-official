@@ -24,7 +24,12 @@ export default defineConfig({
         target: 'https://api-testnet.bscscan.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
-      }
+      },
+      '/bsc': {
+        target: 'http://47.118.74.48:8081',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      },
     }
   },
   build: {
