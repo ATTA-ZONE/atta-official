@@ -110,7 +110,7 @@
 <script lang='ts'>
 import { computed, defineComponent, onMounted, onUnmounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
-import modal from "./modal.vue";
+import modal from "../../views/Home/modal.vue";
 import greenDot from "/imgs/greenDot.png";
 import redDot from "/imgs/redDot.png";
 import {initWeb3} from "../../assets/js/initweb3";
@@ -155,6 +155,7 @@ export default defineComponent({
         console.log(homePage);
         if (homePage) {
           homePage.scrollIntoView(true);
+          showMask.value = false
         }
       }
     };
@@ -199,27 +200,5 @@ export default defineComponent({
 });
 </script>
 <style lang='scss'>
-.connect-status-img {
-  width: 6px;
-  height: 6px;
-  margin-right: 13px;
-}
-.wallet-container {
-  display: inline-flex;
-  align-items: center;
-}
-.wallet-status {
-  color: #fff;
-  &-title {
-    font-size: 14px;
-  }
-  &-address {
-    font-size: 12px;
-    opacity: 0.6;
-    width: 110px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-}
+@import './index.scss'
 </style>

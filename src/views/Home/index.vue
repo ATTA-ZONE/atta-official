@@ -1,7 +1,7 @@
 <template>
   <div class="home-page flex">
     <div>
-      <header-cell />
+      
       <div class="home-page-two flex">
         <div class="page-two flex">
           <img src="/imgs/pageTwoLeft.png" />
@@ -76,7 +76,7 @@
       </div>
       <home-five />
       <home-six />
-      <footer-cell />
+      
     </div>
   </div>
 </template>
@@ -84,13 +84,11 @@
 <script lang="ts">
 import { defineComponent, ref, computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
-import headerCell from "./header.vue";
 import homeFive from "./homeFive.vue";
 import homeSix from "./homeSix.vue";
-import footerCell from "./footerCell.vue";
 
 export default defineComponent({
-  components: { headerCell, homeFive, homeSix, footerCell },
+  components: {  homeFive, homeSix },
   setup: () => {
     const { locale } = useI18n();
 
