@@ -16,6 +16,17 @@ export default defineConfig({
       'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js'
     },
   },
+  server: {
+    cors: true,
+    open:true,
+    proxy:{
+      '/api': {
+        target: 'https://api-testnet.bscscan.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  },
   build: {
 		assetsDir: 'src/assets',
 		outDir: 'dist',
