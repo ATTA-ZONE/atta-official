@@ -111,7 +111,7 @@ export default defineComponent({
       });
     };
 
-    onMounted(async () => {
+    const initAccount = async()=>{
       accounts.value = await window.CHAIN.WALLET.accounts();
       chainId.value = await window.CHAIN.WALLET.chainId();
       const walletType = getCookie(window.CHAIN.WALLET.__wallet__);
@@ -121,6 +121,10 @@ export default defineComponent({
       } else if (window.ethereum) {
         web3.value = new window.Web3(window.ethereum);
       }
+    }
+
+    onMounted(() => {
+      initAccount()
     });
 
     const btnText = async () => {
@@ -198,7 +202,9 @@ export default defineComponent({
         );
 
         if (!merkle[chainId.value] || chainId.value != window.targetChainId) {
-          window.CHAIN.WALLET.switchRPCSettings(window.targetChainId);
+          window.CHAIN.WALLET.switchRPCSettings(window.targetChainId).then((res)=>{
+            initAccount()
+          })
           return false;
         }
         const userClaimInput = merkle[chainId.value][userAddress];
