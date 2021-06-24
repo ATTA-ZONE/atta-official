@@ -84,11 +84,13 @@
   "connectnow": "立即連接",
   "banhao": "版號",
   "jsaddress": "接收地址: ",
+  "jsaddress1" : "接收地址由：",
   "editaddress": "(默認為當前連接的錢包地址，點擊修改)",
   "banhao2": "版號",
   "jsaddress2": "暫無接收地址",
   "editaddress2": "(默認為當前連接的錢包地址，點擊修改)",
   "startmint": "開始鑄造",
+  "startmint1": "開始鑄造",
   "dqwmintbanhao": "當前無可鑄造版號",
   "tipsjs1": "不可以為空~",
   "tipsjs2": "请输入合法地址",
@@ -101,5 +103,20 @@
   "edit": "修改",
   "clickedit": "點擊修改地址",
   "transfer": "轉移",
-  "cancel": "取消"
+  "cancel": "取消",
+  "title": "全部",
+  "nomint": "[撤回鑄造申請]",
+  "tips5": "鑄造完畢，請在“我的NFT”頁面查看",
+  "change": "更改為：",
+  "oldaddress": "原地址：",
+  "changeaddress": "已轉移至地址：",
+  "filTags": [
+    "鑄造記錄",
+    "地址修改記錄",
+    "轉移記錄"
+  ],
+  "nosuc": "撤回成功",
+  "tips6": "你確定要[撤回鑄造申請]嗎？",
+  "tips3": "確認",
+  "tips4": "取消"
 }
