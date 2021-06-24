@@ -1,6 +1,6 @@
 <template>
   <div class="tabs-wrap">
-    <router-link class="assets-tab" v-for="(item, idx) in tabs" :key="idx" @click="toggleTab(idx)" :to="item.link">
+    <router-link class="assets-tab" v-for="(item, idx) in tabs" :key="idx" @click="toggleTab(idx)" :to="{path: item.link}">
       <span :class="{'active-text':selectedTab == idx}">{{item.name}}</span>
       <div v-if="selectedTab == idx" class="active-tab"></div>
     </router-link>
@@ -11,16 +11,16 @@
 import { defineComponent, ref } from "vue";
 export default defineComponent({
   setup(){
-    const tabs = ref([
+    const tabs = [
       {
         name: '我的NFT',
-        link:''
+        link:'/assets/mynft'
       },
       {
         name: 'NFT操作記錄',
-        link:'history'
+        link:'/assets/history'
       }
-    ])
+    ]
     const selectedTab = ref(0)
     const toggleTab = (idx) => {
 			selectedTab.value = idx

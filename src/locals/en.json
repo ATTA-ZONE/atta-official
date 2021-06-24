@@ -101,5 +101,22 @@
   "edit": "Edit",
   "clickedit": "Click to edit",
   "transfer": "Transfer",
-  "cancel": "cancel"
+  "cancel": "cancel",
+  "title": "All",
+  "startmint1": "Start casting",
+  "nomint": "[Withdrawal of casting application]",
+  "tips5": "After casting, please check on the 'My NFT' page",
+  "jsaddress1": "The receiving address is from：",
+  "change": "change to：",
+  "oldaddress": "Original address：",
+  "changeaddress": "Transferred to address：",
+  "filTags": [
+    "Casting record",
+    "Address modification record",
+    "Transfer record"
+  ],
+  "nosuc": "Withdraw successfully",
+  "tips6": "Are you sure you want to [Withdrawal of casting application]？",
+  "tips3": "Confirm",
+  "tips4": "Cancel"
 }

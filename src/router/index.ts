@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const Home = () => import("../views/Home/index.vue");
 const Assets = () => import("../views/Assets/index.vue");
 const mynft = () => import("../views/Assets/mynft.vue");
+const history = () => import("../views/Assets/history.vue");
  
 const routes = [
   {
@@ -19,11 +20,13 @@ const routes = [
     children: [
       {
         path: 'mynft',
+        name:'mynft',
         component: mynft
       },
       {
         path: 'history',
-        component: ()=>{import('../views/Assets/history.vue')}
+        name: 'history',
+        component: history
       }
     ]
   }
