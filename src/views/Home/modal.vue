@@ -357,6 +357,7 @@ export default defineComponent({
       .claimed-text {
         font-size: 16px;
         color: #a8deee;
+        text-align: justify;
       }
       .submit-btn {
         display: inline-block;
