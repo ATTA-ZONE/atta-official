@@ -17,26 +17,12 @@
     width: 100%;
     border-top: 2px solid rgba(255, 255, 255, 0.2);
   }
-  .home-page-one .header-txt img {
-    width: 75%;
-    padding: 10% 20px !important;
-  }
-  .home-page-one .header-txt {
-    padding: 0% 20px !important;
-  }
   .brandLogo {
     width: 30% !important;
     height: auto !important;
   }
   .home-page-one {
     padding: 0 !important;
-    height: 245px !important;
-  }
-  .home-page-one video {
-    height: 245px !important;
-  }
-  .home-page-one .header-txt {
-    top: 80px !important;
   }
 }
 
@@ -44,12 +30,8 @@
 
 .home-page-one {
   width: 100%;
-  height: 808px;
-}
-.home-page-one video {
-  width: 100%;
-  height: 808px;
-  object-fit: fill;
+  position: relative;
+  z-index: 100;
 }
 .home-page-one .header-links {
   width: 100%;
@@ -95,25 +77,12 @@
   border: 1px solid rgba(168, 222, 238, 1);
 }
 
-.home-page-one .header-txt {
-  width: 100%;
-  text-align: center;
-  padding: 311px 20px 0;
-  position: absolute;
-  /* top: 100px; */
-  top: 0;
-  left: 0;
-}
 .home-page-one .head-menu {
   width: 30px !important;
 }
 .home-page-one .header {
   padding: 70px 10%;
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 99;
   font-family: Nunito Sans !important;
 }
 

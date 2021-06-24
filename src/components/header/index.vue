@@ -1,12 +1,5 @@
 <template>
   <div class="home-page-one" id="Introduction">
-    <video
-      autoplay
-      style="width: 100%"
-      loop
-      src="/nftInfo.mp4"
-      muted
-    ></video>
     <div class="mask-container" v-if="showMask">
       <div class="mask-wrap">
         <a @click="goAnchor('Upcoming')" style="margin-top: 0">
@@ -53,7 +46,7 @@
       </div>
     </div>
     <div class="header flex">
-      <img class="brandLogo" src="/imgs/logo.png" />
+      <router-link to="/"><img class="brandLogo" src="/imgs/logo.png" /></router-link>
       <img
         class="head-menu"
         @click="showMask = true"
@@ -101,9 +94,7 @@
         </p>
       </div>
     </div>
-    <div class="header-txt">
-      <img src="/imgs/Text.png" />
-    </div>
+    
   </div>
   <modal :accountAddress="accountAddress" v-if="showModal" @address="emitAddress" @closemodal="closemodal" />
 </template>

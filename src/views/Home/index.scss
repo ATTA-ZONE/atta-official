@@ -5,6 +5,13 @@
   box-sizing: border-box;
 }
 
+.video-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
 .home-page {
   width: 100%;
   font-size: 0;
@@ -12,6 +19,7 @@
   justify-content: center;
   overflow: hidden;
   position: relative;
+  margin-top: 670px;
 }
 .home-page > i {
   position: absolute;
@@ -30,6 +38,26 @@
 .home-page > div {
   z-index: 10;
   width: 100%;
+}
+video {
+  width: 100%;
+  height: 808px;
+  object-fit: fill;
+}
+.header-txt {
+  width: 100%;
+  text-align: center;
+  padding: 311px 20px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+ .header-txt img {
+  width: 75%;
+  padding: 10% 20px !important;
+}
+ .header-txt {
+  padding: 0% 20px !important;
 }
 
 .home-page .home-page-two {
