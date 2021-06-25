@@ -1,6 +1,6 @@
 <template>
   <div class="mynftbox">
-    <ul v-if="assetsList.records && assetsList.records.length > 0">
+    <ul v-if="assetsList?.records && assetsList.records.length > 0">
       <li
         v-for="(item, idx) in assetsList.records"
         :key="idx"
@@ -18,7 +18,7 @@
               class="mohu"
               autoplay
               loop
-              :src="item.primaryPic"
+              :src="item?.primaryPic"
               muted
             ></video>
           </div>
@@ -160,15 +160,13 @@
               type="button"
               @click="editzyclick($event)"
             ></button>
-            <button class="cancel" type="button" onclick="cancel()">
-              {{ cancel }}
-            </button>
+            
             <button
               class="cancel cancel-mobile none"
               type="button"
               @click="cancelMobile()"
             >
-              {{ cancel }}
+              {{ $t('cancel') }}
             </button>
           </div>
           <div class="modify-close" @click="cancelMobile()">
@@ -195,12 +193,17 @@ import { chainSetting } from "../../assets/js/chainSetting";
 import { useI18n } from "vue-i18n";
 import axios from '@/api'
 
+interface assetsList {
+  records: Array
+  total: Number | String
+}
+
 export default defineComponent({
   name: "mynft",
 
   setup() {
     const { locale, t } = useI18n();
-		const assetsList = ref({})
+		const assetsList = ref<assetsList>({})
 		const current = ref(1)
     const pageSize = ref(9)
 		const showMoreInfo = ref(-1)
@@ -333,7 +336,7 @@ export default defineComponent({
     }
 
 		const zyajax = (newaddress, obj) => {
-      var web3 = new Web3(window.CHAIN.WALLET.provider());
+      var web3 = new window.Web3(window.CHAIN.WALLET.provider());
       var chainId = "";
       window.CHAIN.WALLET.chainId().then(function (res) {
         chainId = web3.utils.hexToNumber(res);
@@ -399,7 +402,6 @@ export default defineComponent({
       let dom2 = document.querySelector(".modify-ipt");
       let dom3 = document.querySelector(".modify-tips");
       let dom4 = document.querySelector(".modify-btn-active");
-      let dom5 = document.querySelector(".cancel");
       let dom6 = document.querySelector(".modify");
       dom1.textContent =
         t("transfer1") +
@@ -427,7 +429,6 @@ export default defineComponent({
       dom4.classList.add("add");
       dom4.textContent = t("confirmCurrent");
       dom4.setAttribute("data-type", e.target.dataset.json);
-      dom5.style.display = "none";
       dom6.style.display = "block";
     }
 
