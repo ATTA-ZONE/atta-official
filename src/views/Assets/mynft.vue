@@ -170,7 +170,7 @@
             </button>
           </div>
           <div class="modify-close" @click="cancelMobile()">
-            <img src="/imgs/Close.png" />
+            <img src="/imgs/close.png" />
           </div>
         </div>
       </div>
@@ -249,13 +249,13 @@ export default defineComponent({
       axios.get(requestUrl).then((res:any) => {
         let nftData = res.result;
         let obj = {}
-        let arr = []
+        let arr:any = []
         for (let i = 0; i < nftData.length; i++) {
           const token: any = nftData[i].tokenID
           const nft: any = nftData[i]
           if (!obj[token]) {
             obj[token] = true;
-            const jsonData = {
+            let jsonData = {
               tokenID: token,
               listdata: [nft],
               tojia: 0,
@@ -374,9 +374,7 @@ export default defineComponent({
     }
 
 		const editzyclick = (e) => {
-      const dom1: HTMLElement = <HTMLElement>document.querySelector(".newaddress2 input");
-      
-      const newaddress2: any = dom1.value;
+      const newaddress2 = (document.querySelector(".newaddress2 input") as HTMLInputElement).value;
       
       const web3 = new window.Web3(window.CHAIN.WALLET.provider());
       const obj = JSON.parse(e.target.dataset.type);
