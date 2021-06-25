@@ -22,7 +22,10 @@
               >
             </div>
             <div class="desc-address">
-              <div>{{ $t("oldaddress") }} <span class="desc-oldaddress">{{item.from}}</span> </div>
+              <div>
+                {{ $t("oldaddress") }}
+                <span class="desc-oldaddress">{{ item.from }}</span>
+              </div>
               <div>
                 {{ $t("changeaddress") }}
                 <span class="desc-info-address">{{ item.to }}</span>
@@ -37,15 +40,15 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref, onMounted } from "vue";
-import axios from '../../api'
+import axios from "../../api";
 import { chainSetting } from "../../assets/js/chainSetting";
 
 export default defineComponent({
   name: "history",
   setup() {
     let dataList: any = ref([]);
-    const base_url = ref('')
-  	const scansite_base_url = ref('')
+    const base_url = ref("");
+    const scansite_base_url = ref("");
 
     const timeFormat = (str) => {
       const date = new Date(str);
@@ -65,25 +68,29 @@ export default defineComponent({
       let targetChainId: any = "";
 
       if (window.location.href.indexOf("atta.zone") == -1) {
-        targetChainId = '97';
+        targetChainId = "97";
       } else {
-        targetChainId = '56';
+        targetChainId = "56";
       }
       let auctionAddress =
         chainSetting["contractSetting"]["atta_ERC721"][targetChainId].address;
       let accounts = await window.CHAIN.WALLET.enable();
-      let bscAd = scansite_base_url.value + "/api?module=account&action=tokennfttx&contractaddress=" +
+      let bscAd =
+        scansite_base_url.value +
+        "/api?module=account&action=tokennfttx&contractaddress=" +
         auctionAddress +
         "&address=" +
         accounts[0] +
         "&sort=desc";
-      axios.get(bscAd).then((res:any) => {
+      axios.get(bscAd).then((res: any) => {
         if (res.status == 1 && res.result.length > 0) {
           let formData = res.result;
           for (let i = 0; i < formData.length; i++) {
             formData[i].timeStamp *= 1000;
             axios
-              .get(base_url.value + "/v2/commodity/edition_basic_id?tokenTypeId=" +
+              .get(
+                base_url.value +
+                  "/v2/commodity/edition_basic_id?tokenTypeId=" +
                   formData[i].tokenID
               )
               .then((itm) => {
@@ -104,21 +111,21 @@ export default defineComponent({
     };
 
     onMounted(() => {
-			if (window.location.href.indexOf("atta.zone") == -1) {
-				base_url.value = "http://47.118.74.48:8081";
-        scansite_base_url.value = '/apiTest'
-			} else {
-				base_url.value = "https://www.bazhuayu.io";
-        scansite_base_url.value = '/api'
-			}
+      if (window.location.href.indexOf("atta.zone") == -1) {
+        base_url.value = "http://47.118.74.48:8081";
+        scansite_base_url.value = "/atest";
+      } else {
+        base_url.value = "https://www.bazhuayu.io";
+        scansite_base_url.value = "/api";
+      }
       getNftHistory();
-		})
+    });
 
     return {
       dataList,
       timeFormat,
-    }
-  }
+    };
+  },
 });
 </script>
 <style lang='scss'>

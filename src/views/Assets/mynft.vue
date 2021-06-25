@@ -434,14 +434,14 @@ export default defineComponent({
     }
 
 		onMounted(() => {
-			getAccount();
-			if (window.location.href.indexOf("atta.zone") == -1) {
-				base_url.value = "http://47.118.74.48:8081";
-        scansite_base_url.value = '/apiTest'
+      if (window.location.href.indexOf("atta.zone") == -1) {
+        base_url.value = "http://47.118.74.48:8081";
+        scansite_base_url.value = '/atest'
 			} else {
-				base_url.value = "https://www.bazhuayu.io";
+        base_url.value = "https://www.bazhuayu.io";
         scansite_base_url.value = '/api'
 			}
+      getAccount();
 		})
 
     return {
