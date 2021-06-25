@@ -248,16 +248,16 @@ export default defineComponent({
 
       axios.get(requestUrl).then((res:any) => {
         let nftData = res.result;
-        let obj = {},
-          arr = [],
-          tokenarr = [];
+        let obj = {}
+        let arr = []
         for (let i = 0; i < nftData.length; i++) {
           const token: any = nftData[i].tokenID
+          const nft: any = nftData[i]
           if (!obj[token]) {
             obj[token] = true;
             const jsonData = {
               tokenID: token,
-              listdata: [].push(nftData[i]),
+              listdata: [nft],
               tojia: 0,
               fromjian: 0
             } as any
@@ -281,7 +281,7 @@ export default defineComponent({
           });
           item.jsnum = item.tojia + item.fromjian;
           if (item.jsnum == 1) {
-            tokenarr.push(item.tokenID);
+            tokenarr.value.push(item.tokenID);
           }
         });
         
@@ -374,17 +374,19 @@ export default defineComponent({
     }
 
 		const editzyclick = (e) => {
-      let dom1: HTMLElement = <HTMLElement>document.querySelector(".newaddress2 input");
-      let newaddress2 = dom1.value;
-      let web3 = new window.Web3(window.CHAIN.WALLET.provider());
-      let obj = JSON.parse(e.target.dataset.type);
+      const dom1: HTMLElement = <HTMLElement>document.querySelector(".newaddress2 input");
+      
+      const newaddress2: any = dom1.value;
+      
+      const web3 = new window.Web3(window.CHAIN.WALLET.provider());
+      const obj = JSON.parse(e.target.dataset.type);
       if (!newaddress2 && obj.status == 2) {
         alert(t("tipsjs1"));
-        return;
+        return false;
       }
       if (!web3.utils.isAddress(newaddress2) && obj.status == 2) {
         alert(t("tipsjs2"));
-        return;
+        return false;
       }
       if (obj.status == 2) {
         // 确认转移
@@ -393,13 +395,13 @@ export default defineComponent({
     }
 
 		const zhuanyiaddress = (e) => {
-      let obj = JSON.parse(e.target.dataset.json);
-      let endedition = JSON.parse(e.target.dataset.endedition);
-      let dom1: HTMLElement = <HTMLElement>document.querySelector(".modify-tit span");
-      let dom2: HTMLElement = <HTMLElement>document.querySelector(".modify-ipt");
-      let dom3: HTMLElement = <HTMLElement>document.querySelector(".modify-tips");
-      let dom4: HTMLElement = <HTMLElement>document.querySelector(".modify-btn-active");
-      let dom6: HTMLElement = <HTMLElement>document.querySelector(".modify");
+      const obj = JSON.parse(e.target.dataset.json);
+      const endedition = JSON.parse(e.target.dataset.endedition);
+      const dom1: HTMLElement = <HTMLElement>document.querySelector(".modify-tit span");
+      const dom2: HTMLElement = <HTMLElement>document.querySelector(".modify-ipt");
+      const dom3: HTMLElement = <HTMLElement>document.querySelector(".modify-tips");
+      const dom4: HTMLElement = <HTMLElement>document.querySelector(".modify-btn-active");
+      const dom6: HTMLElement = <HTMLElement>document.querySelector(".modify");
       dom1.textContent =
         t("transfer1") +
         obj.edition +
