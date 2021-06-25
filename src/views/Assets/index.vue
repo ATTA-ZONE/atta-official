@@ -5,7 +5,9 @@
       <div v-if="selectedTab == idx" class="active-tab"></div>
     </router-link>
   </div>
-  <router-view></router-view>
+  <div class="router-view">
+    <router-view></router-view>
+  </div>
 </template>
 <script lang='ts'>
 import { defineComponent, ref } from "vue";
@@ -52,5 +54,8 @@ export default defineComponent({
     height: 1px;
     margin: auto;
     background: #A8DEEE;
+  }
+  .router-view {
+    padding: 0 150px;
   }
 </style>
