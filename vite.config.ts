@@ -16,6 +16,9 @@ export default defineConfig({
       'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js'
     },
   },
+  // optimizeDeps: {
+  //   include: ['vuex/dist/logger']
+  // },
   server: {
     cors: true,
     open:true,

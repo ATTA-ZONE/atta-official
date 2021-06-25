@@ -41,7 +41,6 @@
 <script lanf="ts">
 import { defineComponent, ref, watchEffect } from "vue";
 import axios from '@/api'
-import Vue from 'vue'
 
 export default defineComponent({
   name: 'history',
@@ -82,15 +81,15 @@ export default defineComponent({
             for (let i = 0; i < formData.length; i++) {
               formData[i].timeStamp *= 1000;
               axios.get("http://47.118.74.48:8081/v2/commodity/edition_basic_id?tokenTypeId="+ formData[i].tokenID).then(itm => {
-                Vue.set(formData[i], "name", itm.data.name);
-                Vue.set(formData[i], "edition", itm.data.edition);
-
+                Object.assign(formData[i], {"name": itm.data.name, "edition": itm.data.edition});
               })
             }
-            dataList.value.push(...formData);
-            dataList.value.sort( (a, b)=> {
+            formData.sort( (a, b)=> {
               return b.timeStamp - a.timeStamp;
             });
+            setTimeout(()=>{
+              dataList.value.push(...formData);
+            },100)
           }
         })
     }
