@@ -117,7 +117,7 @@ export default defineComponent({
   }
 });
 </script>
-<style>
+<style lang='scss'>
 @media only screen and (max-width: 992px) {
   .history-items {
     font-size: 12px !important;

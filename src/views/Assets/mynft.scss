@@ -1,0 +1,213 @@
+@import "@/assets/css/media.scss";
+
+.everymynftbox{
+	justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 100px;
+}
+.between {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.everymynftbox .my-assets-left {
+  width: 50%;
+  position: relative;
+}
+.everymynftbox .my-assets-left video {
+  width: 100%;
+  position: relative;
+  z-index: 3;
+}
+.everymynftbox .my-assets-left .mohu {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.7;
+  filter: blur(70px);
+  z-index: 2;
+}
+.everymynftbox .my-assets-right {
+  width: 40%;
+}
+.titlebox {
+  font-weight: bold;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 15px;
+}
+.titlebox img {
+  cursor: pointer;
+}
+.listbox {
+  padding: 26px 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: none;
+  border-right: none;
+}
+.everydatabox {
+  margin-bottom: 30px;
+  font-weight: normal;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.inputbox {
+  margin-top: 10px;
+  height: 59px;
+}
+.srkbox {
+  width: 80%;
+  position: relative;
+  height: 100%;
+}
+.srkbox input {
+  width: 100%;
+  height: 100%;
+  background: #222222;
+  border-radius: 4px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding-left: 14px;
+}
+.srkbox button {
+  position: absolute;
+  right: 23px;
+  top: 10px;
+  width: 73px;
+  height: 40px;
+  font-size: 16px;
+  background: #4e4e4e;
+  border-radius: 4px;
+  border: none;
+}
+.srkbox .clickedit {
+  color: #9567ff;
+  position: absolute;
+  right: 0;
+  top: 43px;
+  display: none;
+  cursor: pointer;
+}
+.ntfbtn{
+	width: 17.6%;
+	height: 100%;
+	border-radius: 2px;
+	font-weight: 600;
+	font-size: 14px;
+	color: #FFFFFF;
+	background: #A8DEEE;
+	border: none;
+	cursor: pointer;
+}
+.kxbor {
+  border: 1px solid #606060;
+  background: transparent;
+}
+.modify-tips {
+  text-align: center;
+}
+.modify-tips-content {
+  color: rgba(255, 255, 255, 0.7);
+}
+.dqaddress {
+  font-size: 16px;
+}
+.dqaddress span {
+  font-size: 14px;
+}
+.newaddress {
+  font-size: 18px;
+}
+.newaddress input {
+  width: 75%;
+  text-indent: 12px;
+}
+.newaddress2 input {
+  width: 83%;
+  text-indent: 12px;
+}
+.horizontalline {
+  width: 122px;
+  height: 0px;
+  text-align: center;
+  opacity: 0.15;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: 1px solid #ffffff;
+  display: none;
+}
+.ishide {
+  transform: rotate(180deg);
+}
+@media only screen and (max-width: 992px){
+	.mobilflex{
+		flex-direction: column;
+		margin-bottom: 50px;
+	}
+	.everymynftbox .my-assets-left,.everymynftbox .my-assets-right{
+		width: 100%;
+	}
+	.my-assets-right-tit{
+		font-size: 32px;
+	}
+	.modify-form {
+		width: 100%;
+		height: 100%;
+		padding: 0 5%;
+	}
+	.modify-tit {
+		margin-top: 20px;
+		font-size: 28px;
+		padding-bottom: 24px;
+		margin-right: 20px;
+	}
+	.modify-ipt input {
+		width: 100%!important;
+		text-align: left!important;
+	}
+	.titlebox{
+		font-size: 16px;
+	}
+	.titlebox img{
+		width: 18px;
+		height: 18px;
+	}
+	.everydatabox{
+		font-size: 10px;
+		position: relative;
+	}
+	.inputbox{
+		height: auto;
+		flex-wrap: wrap;
+	}
+	.srkbox{
+		width: 100%;
+		height: 40px;
+		font-size: 10px;
+	}
+	.srkbox input{
+		font-size: 10px;
+		padding-left: 0;
+		text-align: center;
+	}
+	.srkbox button{
+		display: none;
+	}
+	.srkbox .clickedit,.horizontalline{
+		display: inline-block;
+	}
+	.ntfbtn{
+		width: 100%;
+		height: 40px;
+		margin-top: 12px;
+	}
+	.kxbor{
+		margin-top: 28px;
+	}
+	.newaddress input,.newaddress2 input{
+		text-indent: 12px !important;
+	}
+}
