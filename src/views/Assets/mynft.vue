@@ -3,7 +3,7 @@
     <ul v-if="assetsList?.records && assetsList.records.length > 0">
       <li
         v-for="(item, idx) in assetsList.records"
-        :key="idx"
+        :key="item.name"
         class="everymynftbox"
       >
         <div class="flex between mobilflex">
@@ -77,7 +77,7 @@
             <div
               class="everydatabox"
               v-for="(json, index) in item.mintList"
-              :key="index"
+              :key="json.edition"
             >
               <p class="tit">
                 <span
