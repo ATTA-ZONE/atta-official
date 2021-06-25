@@ -54,7 +54,7 @@ export default defineComponent({
           window.open("https://weibo.com/attaofficial/");
           break;
         case 3:
-          window.open("https://twitter.com/_ATTA_zone");
+          window.open("https://twitter.com/ATTA_NFT");
           break;
         case 4:
           window.open("https://t.me/attaofficialeng1");
