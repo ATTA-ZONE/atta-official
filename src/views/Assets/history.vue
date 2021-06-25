@@ -4,25 +4,23 @@
       <div>
         <div
           class="history-item"
-          v-for="(item, index) in computedData"
+          v-for="(item, index) in dataList"
           :key="index"
         >
           <div class="history-title">
             <div class="title-info">
-              <span class="title-info-name">{{ $t(item.name) }}</span>
+              <span class="title-info-name">{{ item.name }}</span>
             </div>
             <div
               class="title-time"
-              v-if="showFilter.indexOf('3') > -1 && item.blockHash"
             >
               {{ timeFormat(item.timeStamp) }}
             </div>
           </div>
           <div class="history-desc">
             <div class="desc-info">
-              <span>{{ item.claimType }}</span>
               <span class="desc-info-edtion"
-                >{{ item.edition || item.editions }}{{ $t(ban) }}</span
+                >{{ item.edition || item.editions }}{{ $t('ban') }}</span
               >
             </div>
             <div class="desc-address">
@@ -31,10 +29,7 @@
                 {{ $t('changeaddress') }}
                 <span class="desc-info-address">{{ item.to }}</span>
               </div>
-              <div>
-                Transaction hash：
-                <span class="desc-info-address">{{ item.hash }}</span>
-              </div>
+              
             </div>
           </div>
           <div class="history-line"></div>
@@ -44,42 +39,30 @@
   </div>
 </template>
 <script lanf="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref, watchEffect } from "vue";
+import axios from '@/api'
+import Vue from 'vue'
 
 export default defineComponent({
   name: 'history',
-  data() {
-    return {
-      dataList: []
-    };
-  },
-  created() {
-    this.getNftHistory();
-  },
-  computed: {
-    computedData() {
-      return this.dataList.filter((item) => {
-        return item.blockHash;
-      });
-    }
-  },
+  setup(){
+    const dataList = ref([])
 
-  methods: {
-    timeFormat(str) {
-      var date = new Date(str);
-      Y = date.getFullYear() + "-";
-      M =
+    const timeFormat = (str) => {
+      const date = new Date(str);
+      const Y = date.getFullYear() + "-";
+      const M =
         (date.getMonth() + 1 < 10
           ? "0" + (date.getMonth() + 1)
           : date.getMonth() + 1) + "-";
-      D = date.getDate() + " ";
-      h = date.getHours() + ":";
-      m = date.getMinutes() + ":";
-      s = date.getSeconds();
+      const D = date.getDate() + " ";
+      const h = date.getHours() + ":";
+      const m = date.getMinutes() + ":";
+      const s = date.getSeconds();
       return Y + M + D + h + m + s;
-    },
-    async getNftHistory() {
-      let self = this;
+    }
+
+    const getNftHistory = async() => {
       let targetChainId = "";
       let scansite_base_url = "";
 
@@ -93,22 +76,33 @@ export default defineComponent({
       let auctionAddress = contractSetting["atta_ERC721"][targetChainId].address;
       let accounts = await window.CHAIN.WALLET.enable()
       let bscAd = "/api/api?module=account&action=tokennfttx&contractaddress=" +auctionAddress +"&address=" +accounts[0] +"&sort=desc"
-      self.axios.get(bscAd).then(res=> {
-          if (res.status == "1") {
-            for (let i = 0; i < res.result.length; i++) {
-              res.result[i].timeStamp *= 1000;
-              self.axios.post("/bsc/v2/commodity/edition_basic_id", { tokenTypeId: res.result[i].tokenID }).then(itm => {
-                self.$set(res.result[i], "name", itm.data.name);
-                self.$set(res.result[i], "edition", itm.data.edition);
+      axios.get(bscAd).then(res=> {
+          if (res.result && res.result.length > 0) {
+            let formData = res.result
+            for (let i = 0; i < formData.length; i++) {
+              formData[i].timeStamp *= 1000;
+              axios.get("http://47.118.74.48:8081/v2/commodity/edition_basic_id?tokenTypeId="+ formData[i].tokenID).then(itm => {
+                Vue.set(formData[i], "name", itm.data.name);
+                Vue.set(formData[i], "edition", itm.data.edition);
+
               })
-              
             }
-            self.dataList.push(...res.result);
-            self.dataList.sort(function (a, b) {
+            dataList.value.push(...formData);
+            dataList.value.sort( (a, b)=> {
               return b.timeStamp - a.timeStamp;
             });
           }
         })
+    }
+
+    watchEffect(()=>{
+      getNftHistory()
+    })
+
+
+    return {
+      dataList,
+      timeFormat
     }
   }
 });
@@ -179,6 +173,7 @@ export default defineComponent({
 }
 
 .history-items {
+  color: #fff;
   font-size: 16px;
 }
 .desc-address {
