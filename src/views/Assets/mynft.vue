@@ -376,8 +376,8 @@ export default defineComponent({
 	}
 })
 </script>
-
 <style>
+@import "@/assets/css/media.scss";
 .everymynftbox{
 	justify-content: space-between;
     align-items: flex-start;
@@ -533,6 +533,27 @@ export default defineComponent({
 	.mobilflex{
 		flex-direction: column;
 		margin-bottom: 50px;
+	}
+	.everymynftbox .my-assets-left,.everymynftbox .my-assets-right{
+		width: 100%;
+	}
+	.my-assets-right-tit{
+		font-size: 32px;
+	}
+	.modify-form {
+		width: 100%;
+		height: 100%;
+		padding: 0 5%;
+	}
+	.modify-tit {
+		margin-top: 20px;
+		font-size: 28px;
+		padding-bottom: 24px;
+		margin-right: 20px;
+	}
+	.modify-ipt input {
+		width: 100%!important;
+		text-align: left!important;
 	}
 	.titlebox{
 		font-size: 16px;
