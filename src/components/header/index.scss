@@ -10,7 +10,7 @@
 
 @media screen and (max-width: 992px) {
   .wallet-container {
-    display: flex;
+    display: flex !important;
   }
   .home-page-one p.switchlanguagebox {
     padding-top: 6%;
@@ -118,7 +118,7 @@
   top: 0;
   left: 0;
   z-index: 999;
-  padding: 10%;
+  padding: 4%;
   font-size: 20px;
   background: rgba(20, 20, 20, 0.48);
   backdrop-filter: blur(30px);

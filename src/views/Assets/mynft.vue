@@ -252,10 +252,11 @@ export default defineComponent({
           arr = [],
           tokenarr = [];
         for (let i = 0; i < nftData.length; i++) {
-          if (!obj[nftData[i].tokenID]) {
-            obj[nftData[i].tokenID] = true;
+          const token: any = nftData[i].tokenID
+          if (!obj[token]) {
+            obj[token] = true;
             const jsonData = {
-              tokenID: nftData[i].tokenID,
+              tokenID: token,
               listdata: [nftData[i]],
               tojia: 0,
               fromjian: 0
