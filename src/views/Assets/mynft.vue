@@ -189,7 +189,7 @@
 
 <script lang="ts">
 import { defineComponent, computed, onMounted, ref } from "vue";
-import axios from '@/api'
+import axios from '../../api'
 import { chainSetting } from "../../assets/js/chainSetting";
 import { useI18n } from "vue-i18n";
 

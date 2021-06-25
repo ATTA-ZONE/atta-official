@@ -4,32 +4,29 @@
       <div>
         <div
           class="history-item"
-          v-for="(item, index) in dataList"
-          :key="index"
+          v-for="item in dataList"
+          :key="item.timeStamp"
         >
           <div class="history-title">
             <div class="title-info">
               <span class="title-info-name">{{ item.name }}</span>
             </div>
-            <div
-              class="title-time"
-            >
+            <div class="title-time">
               {{ timeFormat(item.timeStamp) }}
             </div>
           </div>
           <div class="history-desc">
             <div class="desc-info">
               <span class="desc-info-edtion"
-                >{{ item.edition || item.editions }}{{ $t('ban') }}</span
+                >{{ item.edition || item.editions }}{{ $t("ban") }}</span
               >
             </div>
             <div class="desc-address">
-              <div>{{ $t('oldaddress') + item.from }}</div>
+              <div>{{ $t("oldaddress") + item.from }}</div>
               <div>
-                {{ $t('changeaddress') }}
+                {{ $t("changeaddress") }}
                 <span class="desc-info-address">{{ item.to }}</span>
               </div>
-              
             </div>
           </div>
           <div class="history-line"></div>
@@ -38,14 +35,24 @@
     </div>
   </div>
 </template>
-<script lanf="ts">
+<script lang="ts">
 import { defineComponent, ref, watchEffect } from "vue";
-import axios from '@/api'
+import axios from '../../api'
+import { chainSetting } from "../../assets/js/chainSetting";
+
+interface List {
+  name: String
+  timeStamp: String | Number
+  edition: String
+  editions: String
+  from: String
+  to: String
+}
 
 export default defineComponent({
-  name: 'history',
-  setup(){
-    const dataList = ref([])
+  name: "history",
+  setup() {
+    const dataList = ref<List>([]);
 
     const timeFormat = (str) => {
       const date = new Date(str);
@@ -59,49 +66,62 @@ export default defineComponent({
       const m = date.getMinutes() + ":";
       const s = date.getSeconds();
       return Y + M + D + h + m + s;
-    }
+    };
 
-    const getNftHistory = async() => {
-      let targetChainId = "";
+    const getNftHistory = async () => {
+      let targetChainId: String = "";
       let scansite_base_url = "";
 
       if (window.location.href.indexOf("atta.zone") == -1) {
-        targetChainId = 97;
+        targetChainId = '97';
         scansite_base_url = "https://api-testnet.bscscan.com";
       } else {
-        targetChainId = 56;
+        targetChainId = '56';
         scansite_base_url = "https://api.bscscan.com";
       }
-      let auctionAddress = contractSetting["atta_ERC721"][targetChainId].address;
-      let accounts = await window.CHAIN.WALLET.enable()
-      let bscAd = "/api/api?module=account&action=tokennfttx&contractaddress=" +auctionAddress +"&address=" +accounts[0] +"&sort=desc"
-      axios.get(bscAd).then(res=> {
-          if (res.result && res.result.length > 0) {
-            let formData = res.result
-            for (let i = 0; i < formData.length; i++) {
-              formData[i].timeStamp *= 1000;
-              axios.get("http://47.118.74.48:8081/v2/commodity/edition_basic_id?tokenTypeId="+ formData[i].tokenID).then(itm => {
-                Object.assign(formData[i], {"name": itm.data.name, "edition": itm.data.edition});
-              })
-            }
-            formData.sort( (a, b)=> {
-              return b.timeStamp - a.timeStamp;
-            });
-            setTimeout(()=>{
-              dataList.value.push(...formData);
-            },100)
+      let auctionAddress =
+        chainSetting["contractSetting"]["atta_ERC721"][targetChainId].address;
+      let accounts = await window.CHAIN.WALLET.enable();
+      let bscAd =
+        "/api/api?module=account&action=tokennfttx&contractaddress=" +
+        auctionAddress +
+        "&address=" +
+        accounts[0] +
+        "&sort=desc";
+      axios.get(bscAd).then((res) => {
+        if (res.result && res.result.length > 0) {
+          let formData = res.result;
+          for (let i = 0; i < formData.length; i++) {
+            formData[i].timeStamp *= 1000;
+            axios
+              .get(
+                "http://47.118.74.48:8081/v2/commodity/edition_basic_id?tokenTypeId=" +
+                  formData[i].tokenID
+              )
+              .then((itm) => {
+                Object.assign(formData[i], {
+                  name: itm.data.name,
+                  edition: itm.data.edition,
+                });
+              });
           }
-        })
-    }
+          formData.sort((a, b) => {
+            return b.timeStamp - a.timeStamp;
+          });
+          setTimeout(() => {
+            dataList.value.push(...formData);
+          }, 100);
+        }
+      });
+    };
 
-    watchEffect(()=>{
-      getNftHistory()
-    })
-
+    watchEffect(() => {
+      getNftHistory();
+    });
 
     return {
       dataList,
-      timeFormat
+      timeFormat,
     }
   }
 });
