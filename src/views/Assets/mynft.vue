@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="mynftbox">
     <ul v-if="assetsList.records && assetsList.records.length > 0">
-			<li v-for="(item,idx) in assetsList.records" :key="idx">
+			<li v-for="(item,idx) in assetsList.records" :key="idx" class="everymynftbox">
 				<div class="flex between mobilflex">
 					<div class="my-assets-left" v-if="getFormat(item) == 'mp4'">
 						<video style="width:100%;" autoplay="autoplay" loop="loop" :src=" item.primaryPic" muted="muted"></video>
@@ -17,42 +17,42 @@
 						<div class="my-assets-right-creator flex">
 							<div class="details-right-creator-img"><img src="/imgs/t8.png"></div>
 							<span>@ATTA</span>
-							<div class="my-assets-right-creator-edition">{{common + item.endEdition + ban}}</div>
+							<div class="my-assets-right-creator-edition">{{$t("common") + item.endEdition + $t("ban")}}</div>
 						</div>
-						<div class="details-right-des-tit">{{productdescription}}</div>
-						<div class="details-right-des" v-html="getIntroduce(item,'desc',nointroduction)">
+						<div class="details-right-des-tit">{{$t("productdescription")}}</div>
+						<div class="details-right-des" v-html="getIntroduce(item,'desc','nointroduction')">
 						</div>
 						<div class="details-right-additional">
 							<p class="details-right-additional-more order-content" v-if="showMoreInfo==idx"
-								v-html="getIntroduce(item,'detail',noinformation)">
+								v-html="getIntroduce(item,'detail','noinformation')">
 							</p>
 						</div>
 						<div class="my-assets-right-price">
 							<div class="flex my-assets-right-download"><a class="flex download" :download="item.attachment"
-									:href="item.attachment">{{down}}</a></div>
+									:href="item.attachment">{{$t("down")}}</a></div>
 						</div>
 						
 					</div>
 				</div>
 				<div class="tablistbox" v-if="item.mintList && item.mintList.length">
 					<p class="titlebox flex between">
-						<span>{{currentlyholds}}({{item.mintList.length}}):</span>
+						<span>{{$t("currentlyholds")}}({{item.mintList.length}}):</span>
 						<img src="/imgs/arrow.png" alt="" :class="item.ishide ? 'ishide' : ''" @click="changeishide(item.ishide,idx)">
 					</p>
 					<div class="listbox" v-if="!item.ishide">
 						<div class="everydatabox" v-for="(json,index) in item.mintList" :key="index">
 							<p class="tit">
 								<span>Token ID :  {{json.edition}}  of {{item.endEdition}}</span>
-								<span style="margin-left: 50px;">{{blockchain}}</span>
+								<span style="margin-left: 50px;">{{$t("blockchain")}}</span>
 							</p>
 							<div class="inputbox flex between">
 								<div class="srkbox">
-									<input type="text" readonly :value="json.status == 1 ? jsaddress+ (json.receiver ? json.receiver : jsaddress2) : inwallet +walletId">
-									<button v-if="json.status == 1" :data-json="JSON.stringify(json)" onclick="editnftaddress(event)">{{edit}}</button>
-									<span v-if="json.status == 1" :data-json="JSON.stringify(json)" class="clickedit" onclick="editnftaddress(event)">{{clickedit}}</span>
+									<input type="text" readonly :value="json.status == 1 ? $t('jsaddress') + (json.receiver ? json.receiver : $t('jsaddress2')) : $t('inwallet') +walletId">
+									<button v-if="json.status == 1" :data-json="JSON.stringify(json)" onclick="editnftaddress(event)">{{$t("edit")}}</button>
+									<span v-if="json.status == 1" :data-json="JSON.stringify(json)" class="clickedit" onclick="editnftaddress(event)">{{$t("clickedit")}}</span>
 								</div>
-								<button class="ntfbtn kxbor" v-if="json.status == 1">{{mint}}</button>
-								<button class="ntfbtn" v-if="json.status == 2" :data-endedition="item.endEdition" :data-json="JSON.stringify(json)" onclick="zhuanyiaddress(event)">{{transfer}}</button>
+								<button class="ntfbtn kxbor" v-if="json.status == 1">{{$t('mint')}}</button>
+								<button class="ntfbtn" v-if="json.status == 2" :data-endedition="item.endEdition" :data-json="JSON.stringify(json)" @click="zhuanyiaddress($event)">{{$t("transfer")}}</button>
 							</div>
 							<div class="horizontalline"></div>
 						</div>
@@ -62,12 +62,12 @@
 		</ul>
 		<ul v-else style="padding-top: 100px;">
 			<li class="flex nothing">
-				<div>{{norecord}}</div>
+				<div style="margin: 0 auto;">{{$t("norecord")}}</div>
 			</li>
 		</ul>
 		<div class="bzy-e-more" v-if="assetsList.total > 9">
 			<div class="flex assets-list-load" @click="getMoreList">
-				<span class="language-tc">{{more}}</span>
+				<span class="language-tc">{{$t("more")}}</span>
 				<img src="/imgs/next.png">
 				<img src="/imgs/xiala2.png">
 			</div>
@@ -103,8 +103,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent ,computed} from "vue";
 import { chainSetting } from "../../assets/js/chainSetting";
+import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   name: 'mynft',
@@ -121,6 +122,19 @@ export default defineComponent({
 			lang:''
 		}
 	},
+	setup() {
+		// const showWechat = ref(false);
+		const { locale ,t} = useI18n();
+
+		const isEn = computed(() => {
+			return locale.value.trim() == "en";
+		});
+
+		return {
+			isEn,
+			t
+		}
+	},
 	mounted() {
 		this.getAccount()
 	},
@@ -128,6 +142,7 @@ export default defineComponent({
 	methods: {
 		getAccount(){
 			let self = this;
+			debugger
 			window.CHAIN.WALLET.enable()
 			.then(res=>{
 				if (res && res.length) {
@@ -143,7 +158,7 @@ export default defineComponent({
 			let targetChainId = '';
 			let scansite_base_url = '';
 			
-			if (window.location.href.indexOf('bazhuayu.io') == -1) {
+			if (window.location.href.indexOf('atta.zone') == -1) {
 				targetChainId = '97';
 				scansite_base_url = 'https://api-testnet.bscscan.com'
 			} else {
@@ -198,10 +213,11 @@ export default defineComponent({
 			return arr
 		},
 		getIntroduce(item,content, str) {
+			var s =  this.t(str);
 			if (content === 'desc') {
-				return item.introduce == '' ? str : item.introduce.replace(/;\|;/g, '<br/>')
+				return item.introduce == '' ? s : item.introduce.replace(/;\|;/g, '<br/>')
 			} else {
-				return item.content == '' ? str : item.content.replace(/;\|;/g, '<br/>')
+				return item.content == '' ? s : item.content.replace(/;\|;/g, '<br/>')
 			}
 		},
 		toggleMoreInfo(idx) {
@@ -233,10 +249,11 @@ export default defineComponent({
 			return item.primaryPic.substr(item.primaryPic.lastIndexOf('.') + 1)
 		},
 		getAssetsList(arr) {
-			var self = this
-			self.axios.post('http://47.118.74.48:8081/v2/user/nft/list', {current: self.current,
+			var self = this;
+			var bool = self.isEn ? 'en' : 'tc';
+			self.axios.post('http://47.118.74.48:8081/v2/commodity/attaNftInfo', {current: self.current,
 					pageSize: self.pageSize,
-					tokenIds : arr}).then(res=>{
+					tokenIds : arr,lang : bool}).then(res=>{
 						if (res.code == 0) {
 							self.assetsList = res.data.pageResult
 						}
@@ -319,18 +336,74 @@ export default defineComponent({
 					}, 1000);
 				});    
 
+		},
+		zhuanyiaddress(e){
+			let obj = JSON.parse(e.target.dataset.json);
+			let endedition = JSON.parse(e.target.dataset.endedition);
+			debugger
+			let dom1 = document.querySelector('.modify-tit span');
+			let dom2 = document.querySelector('.modify-ipt');
+			let dom3 = document.querySelector('.modify-tips');
+			let dom4 = document.querySelector('.modify-btn-active');
+			let dom5 = document.querySelector('.cancel');
+			let dom6 = document.querySelector('.modify');
+			dom1.textContent = this.t('transfer1')+obj.edition+` of `+endedition+this.t('newWallt');
+			// $('.modify-tit span').text(this.t('transfer1')+obj.edition+` of `+endedition+this.t('newWallt'));
+			var html = ``;
+			html += `<div class="modify-ipt-add">
+						<div class="modify-ipt-tit dqaddress">${this.t('walltAdress')}<span>`+this.walletId+`</span></div>
+						<div class="modify-ipt-tit newaddress2">${this.t('transferTo')}<input type="text" value=`+this.walletId+`></div>
+					</div>`;
+					
+			dom2.innerHTML = html;
+			dom3.innerHTML = `<span class="modify-tips-content">${this.t('tips02')}</span>`;
+			// $('.modify-btn-active').addClass('add');
+			// $('.modify-btn-active').removeClass('delete');
+			dom4.classList.add('add');
+			dom4.textContent = this.t('confirmCurrent');
+			dom4.setAttribute('data-type',e.target.dataset.json);
+			// $('.modify-btn-active').text(this.t('confirmCurrent'));
+			// $('.modify-btn-active').attr('data-type',e.target.dataset.json);
+			dom5.style.display = "none";
+			dom6.style.display = "block";
+			// $('.modify').fadeIn();
 		}
 	}
 })
 </script>
 
 <style>
-.hello {
-  background-color: #ffe;
+.mynftbox{
+	padding: 0 7.9%;
 }
-.between{
+.everymynftbox{
+	justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 100px;
+}
+ .between{
 	justify-content: space-between;
 	align-items: flex-start;
+}
+.everymynftbox .my-assets-left{
+	width: 50%;
+    position: relative;
+}
+.everymynftbox .my-assets-left video {
+    width: 100%;
+    position: relative;
+    z-index: 3;
+}
+.everymynftbox .my-assets-left .mohu {
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0.7;
+	filter: blur(70px);
+	z-index: 2;
+}
+.everymynftbox .my-assets-right{
+	width: 40%;
 }
 .titlebox{
 	font-weight: bold;
@@ -404,9 +477,6 @@ export default defineComponent({
 .kxbor{
 	border: 1px solid #606060;
 	background: transparent;
-}
-.modify-form{
-	width: 700px;
 }
 .modify-tips{
 	text-align: center;
