@@ -36,7 +36,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref, watchEffect } from "vue";
+import { defineComponent, ref, onMounted } from "vue";
 import axios from '../../api'
 import { chainSetting } from "../../assets/js/chainSetting";
 
