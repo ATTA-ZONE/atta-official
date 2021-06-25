@@ -39,6 +39,7 @@ export default defineComponent({
   .tabs-wrap {
     display: flex;
     padding: 0 150px;
+    margin-bottom: 30px;
   }
   .assets-tab {
     color: #fff;

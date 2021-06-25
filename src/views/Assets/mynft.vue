@@ -142,7 +142,6 @@ export default defineComponent({
 	methods: {
 		getAccount(){
 			let self = this;
-			debugger
 			window.CHAIN.WALLET.enable()
 			.then(res=>{
 				if (res && res.length) {
