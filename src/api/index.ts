@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Message } from "element3";
 
 // 创建axios实例
 const service = axios.create({
@@ -37,11 +36,6 @@ service.interceptors.response.use(
   },
   (error) => {
     console.log("err" + error); // for debug
-    Message({
-      message: error.message,
-      type: "error",
-      duration: 5 * 1000,
-    });
     return Promise.reject(error);
   }
 );

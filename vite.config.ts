@@ -2,14 +2,17 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import {vueI18n} from "@intlify/vite-plugin-vue-i18n";
+
 export default defineConfig({
   base: '/',
 	// 静态资源路径
 	publicDir: 'public',
-  plugins: [vue(),
+  plugins: [
+    vue(),
     vueI18n({
-    include: path.resolve(__dirname, './src/locals/**')
-  })],
+      include: path.resolve(__dirname, './src/locals/**')
+    })
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '/src'),
