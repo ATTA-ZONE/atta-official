@@ -22,7 +22,7 @@
               >
             </div>
             <div class="desc-address">
-              <div>{{ $t("oldaddress") + item.from }}</div>
+              <div>{{ $t("oldaddress") }} <span class="desc-oldaddress">{{item.from}}</span> </div>
               <div>
                 {{ $t("changeaddress") }}
                 <span class="desc-info-address">{{ item.to }}</span>
@@ -160,7 +160,15 @@ export default defineComponent({
     margin-top: 6px;
   }
   .desc-info-edtion {
+    margin-left: 0 !important;
     max-width: 36% !important;
+  }
+  .desc-info-address {
+    display: block !important;
+  }
+  .desc-oldaddress {
+    display: block;
+    margin-bottom: 6px;
   }
 }
 

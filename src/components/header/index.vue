@@ -14,7 +14,7 @@
         <a @click="goAnchor('Contact')">
           {{ $t("Contact") }}
         </a>
-        <router-link to="/assets">{{$t('Asset Management')}}</router-link>
+        <a @click="goAssets">{{ $t("Asset Management") }}</a>
 
         <div class="wallet-container" @click="getAddress">
           <div class="wallet-status">
@@ -25,10 +25,7 @@
             </div>
             <div class="wallet-status-address">{{ accountAddress }}</div>
           </div>
-          <img
-            class="connect-status-img"
-            :src="walletStatus"
-          />
+          <img class="connect-status-img" :src="walletStatus" />
         </div>
         <div @click="showModal = true" class="top-btn">
           {{ $t("Claim Your NFT") }}
@@ -46,7 +43,9 @@
       </div>
     </div>
     <div class="header flex">
-      <router-link to="/"><img class="brandLogo" src="/imgs/logo.png" /></router-link>
+      <router-link to="/"
+        ><img class="brandLogo" src="/imgs/logo.png"
+      /></router-link>
       <img
         class="head-menu"
         @click="showMask = true"
@@ -69,15 +68,12 @@
         <a @click="goAnchor('Contact')">
           {{ $t("Contact") }}
         </a>
-        <router-link to="/assets">{{$t('Asset Management')}}</router-link>
+        <router-link to="/assets">{{ $t("Asset Management") }}</router-link>
         <span @click="showModal = true" class="top-btn">{{
           $t("Claim Your NFT")
         }}</span>
         <div class="wallet-container" @click="getAddress">
-          <img
-            class="connect-status-img"
-            :src="walletStatus"
-          />
+          <img class="connect-status-img" :src="walletStatus" />
           <div class="wallet-status">
             <div class="wallet-status-title">
               {{
@@ -94,9 +90,13 @@
         </p>
       </div>
     </div>
-    
   </div>
-  <modal :accountAddress="accountAddress" v-if="showModal" @address="emitAddress" @closemodal="closemodal" />
+  <modal
+    :accountAddress="accountAddress"
+    v-if="showModal"
+    @address="emitAddress"
+    @closemodal="closemodal"
+  />
 </template>
 <script lang='ts'>
 import { computed, defineComponent, onMounted, onUnmounted, ref } from "vue";
@@ -104,16 +104,18 @@ import { useI18n } from "vue-i18n";
 import modal from "../../views/Home/modal.vue";
 import greenDot from "/imgs/greenDot.png";
 import redDot from "/imgs/redDot.png";
-import {initWeb3} from "../../assets/js/initweb3";
+import { initWeb3 } from "../../assets/js/initweb3";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   components: { modal },
   setup() {
+    const router = useRouter();
     const { locale } = useI18n();
     const showMask = ref(false);
     const isMobile = ref(false);
     const showModal = ref(false);
-    const accountAddress = ref('');
+    const accountAddress = ref("");
 
     const switchLang = (yy: string) => {
       locale.value = yy;
@@ -124,9 +126,9 @@ export default defineComponent({
       showModal.value = false;
     };
 
-    const walletStatus = computed(()=>{
-      return accountAddress.value ? greenDot : redDot
-    })
+    const walletStatus = computed(() => {
+      return accountAddress.value ? greenDot : redDot;
+    });
 
     const getAddress = () => {
       if (!accountAddress.value) {
@@ -134,21 +136,25 @@ export default defineComponent({
           if (res.length > 0) {
             accountAddress.value = res[0];
           }
-        })
+        });
       } else {
-        window.CHAIN.WALLET.connect('MetaMask')
+        window.CHAIN.WALLET.connect("MetaMask");
       }
     };
 
     const goAnchor = (id: number | string) => {
-      if (id) {
-        let homePage = document.querySelector("#" + id);
-        console.log(homePage);
-        if (homePage) {
-          homePage.scrollIntoView(true);
-          showMask.value = false
-        }
+      let homePage = document.querySelector("#" + id);
+      if (homePage) {
+        homePage.scrollIntoView(true);
+      } else {
+        router.push("/");
       }
+      showMask.value = false;
+    };
+
+    const goAssets = () => {
+      router.push("/assets");
+      showMask.value = false;
     };
 
     const resizeWindow = () => {
@@ -169,9 +175,9 @@ export default defineComponent({
       resizeWindow();
     });
 
-    const emitAddress = (str:string) => {
-      accountAddress.value = str
-    }
+    const emitAddress = (str: string) => {
+      accountAddress.value = str;
+    };
 
     return {
       switchLang,
@@ -185,11 +191,12 @@ export default defineComponent({
       greenDot,
       redDot,
       walletStatus,
-      emitAddress
+      emitAddress,
+      goAssets,
     };
   },
 });
 </script>
 <style lang='scss'>
-@import './index.scss'
+@import "./index.scss";
 </style>

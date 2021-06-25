@@ -36,6 +36,12 @@ export default defineComponent({
 });
 </script>
 <style lang='scss'>
+@media only screen and (max-width: 992px) {
+  .tabs-wrap {
+    font-size: 14px;
+    
+  }
+}
   .tabs-wrap {
     display: flex;
     padding: 0 7.9%;
