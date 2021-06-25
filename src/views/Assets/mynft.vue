@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mynftbox">
     <ul v-if="assetsList.records && assetsList.records.length > 0">
 			<li v-for="(item,idx) in assetsList.records" :key="idx" class="everymynftbox">
 				<div class="flex between mobilflex">
@@ -52,7 +52,7 @@
 									<span v-if="json.status == 1" :data-json="JSON.stringify(json)" class="clickedit" onclick="editnftaddress(event)">{{$t("clickedit")}}</span>
 								</div>
 								<button class="ntfbtn kxbor" v-if="json.status == 1">{{$t('mint')}}</button>
-								<button class="ntfbtn" v-if="json.status == 2" :data-endedition="item.endEdition" :data-json="JSON.stringify(json)" onclick="zhuanyiaddress(event)">{{$t("transfer")}}</button>
+								<button class="ntfbtn" v-if="json.status == 2" :data-endedition="item.endEdition" :data-json="JSON.stringify(json)" @click="zhuanyiaddress($event)">{{$t("transfer")}}</button>
 							</div>
 							<div class="horizontalline"></div>
 						</div>
@@ -62,12 +62,12 @@
 		</ul>
 		<ul v-else style="padding-top: 100px;">
 			<li class="flex nothing">
-				<div>{{$t("norecord")}}</div>
+				<div style="margin: 0 auto;">{{$t("norecord")}}</div>
 			</li>
 		</ul>
 		<div class="bzy-e-more" v-if="assetsList.total > 9">
 			<div class="flex assets-list-load" @click="getMoreList">
-				<span class="language-tc">{{more}}</span>
+				<span class="language-tc">{{$t("more")}}</span>
 				<img src="/imgs/next.png">
 				<img src="/imgs/xiala2.png">
 			</div>
@@ -336,19 +336,52 @@ export default defineComponent({
 					}, 1000);
 				});    
 
+		},
+		zhuanyiaddress(e){
+			let obj = JSON.parse(e.target.dataset.json);
+			let endedition = JSON.parse(e.target.dataset.endedition);
+			debugger
+			let dom1 = document.querySelector('.modify-tit span');
+			let dom2 = document.querySelector('.modify-ipt');
+			let dom3 = document.querySelector('.modify-tips');
+			let dom4 = document.querySelector('.modify-btn-active');
+			let dom5 = document.querySelector('.cancel');
+			let dom6 = document.querySelector('.modify');
+			dom1.textContent = this.t('transfer1')+obj.edition+` of `+endedition+this.t('newWallt');
+			// $('.modify-tit span').text(this.t('transfer1')+obj.edition+` of `+endedition+this.t('newWallt'));
+			var html = ``;
+			html += `<div class="modify-ipt-add">
+						<div class="modify-ipt-tit dqaddress">${this.t('walltAdress')}<span>`+this.walletId+`</span></div>
+						<div class="modify-ipt-tit newaddress2">${this.t('transferTo')}<input type="text" value=`+this.walletId+`></div>
+					</div>`;
+					
+			dom2.innerHTML = html;
+			dom3.innerHTML = `<span class="modify-tips-content">${this.t('tips02')}</span>`;
+			// $('.modify-btn-active').addClass('add');
+			// $('.modify-btn-active').removeClass('delete');
+			dom4.classList.add('add');
+			dom4.textContent = this.t('confirmCurrent');
+			dom4.setAttribute('data-type',e.target.dataset.json);
+			// $('.modify-btn-active').text(this.t('confirmCurrent'));
+			// $('.modify-btn-active').attr('data-type',e.target.dataset.json);
+			dom5.style.display = "none";
+			dom6.style.display = "block";
+			// $('.modify').fadeIn();
 		}
 	}
 })
 </script>
 
 <style>
+.mynftbox{
+	padding: 0 7.9%;
+}
 .everymynftbox{
 	justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 100px;
-	padding: 0 7.9%;
 }
-/* .between{
+ .between{
 	justify-content: space-between;
 	align-items: flex-start;
 }
@@ -361,54 +394,17 @@ export default defineComponent({
     position: relative;
     z-index: 3;
 }
-.everymynftbox .my-assets-right {
-    width: 40%;
+.everymynftbox .my-assets-left .mohu {
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0.7;
+	filter: blur(70px);
+	z-index: 2;
 }
-.everymynftbox .my-assets-right .my-assets-right-tit {
-    font-family: Aeonik TRIAL;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 110%;
-    color: #fff;
-    margin-bottom: 36px;
+.everymynftbox .my-assets-right{
+	width: 40%;
 }
-.everymynftbox .my-assets-right .my-assets-right-creator {
-    margin-bottom: 17px;
-}
-.everymynftbox .my-assets-right .details-right-des-tit {
-    font-style: normal;
-    font-weight: 300;
-    font-size: 16px;
-    color: #FFFFFF;
-    line-height: 17px;
-    opacity: 1;
-    margin-bottom: 24px;
-}
-.everymynftbox .my-assets-right .details-right-des {
-    font-style: normal;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 150%;
-    color: #fff;
-    opacity: 0.4;
-}
-.everymynftbox .my-assets-right .details-right-additional {
-    padding: 30px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 150%;
-    color: #fff;
-    opacity: 0.7;
-}
-.everymynftbox .my-assets-right .my-assets-right-price {
-	margin-top: 36px;
-    padding-bottom: 36px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    margin-bottom: 35px;
-} */
 .titlebox{
 	font-weight: bold;
 	font-size: 24px;
@@ -481,9 +477,6 @@ export default defineComponent({
 .kxbor{
 	border: 1px solid #606060;
 	background: transparent;
-}
-.modify-form{
-	width: 700px;
 }
 .modify-tips{
 	text-align: center;
