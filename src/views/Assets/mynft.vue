@@ -119,24 +119,28 @@ export default defineComponent({
 			selectedNft: null,
 			walletId: '',
 			tokenarr : [],
-			lang:''
+			lang:'',
+			base_url  : '',
 		}
 	},
 	setup() {
-		// const showWechat = ref(false);
 		const { locale ,t} = useI18n();
 
 		const isEn = computed(() => {
 			return locale.value.trim() == "en";
 		});
-
 		return {
 			isEn,
 			t
 		}
 	},
 	mounted() {
-		this.getAccount()
+		this.getAccount();
+		if (window.location.href.indexOf('atta.zone') == -1) {
+			this.base_url = 'http://47.118.74.48:8081';
+		}else{
+			this.base_url = 'https://www.bazhuayu.io';
+		}
 	},
 	
 	methods: {
@@ -250,7 +254,7 @@ export default defineComponent({
 		getAssetsList(arr) {
 			var self = this;
 			var bool = self.isEn ? 'en' : 'tc';
-			self.axios.post('http://47.118.74.48:8081/v2/commodity/attaNftInfo', {current: self.current,
+			self.axios.post(this.base_url +'/v2/commodity/attaNftInfo', {current: self.current,
 					pageSize: self.pageSize,
 					tokenIds : arr,lang : bool}).then(res=>{
 						if (res.code == 0) {
@@ -269,28 +273,25 @@ export default defineComponent({
 		editzyclick(e){
 			let dom1 = document.querySelector('.newaddress2 input');
 			let newaddress2 = dom1.value;
-			let web3 = new Web3(CHAIN.WALLET.provider());
+			let web3 = new Web3(window.CHAIN.WALLET.provider());
 			let obj = JSON.parse(e.target.dataset.type);
-			if (!newaddress && obj.status == 1 || !newaddress2 && obj.status == 2) {
-				alert(tipsjs1);
+			if (!newaddress2 && obj.status == 2) {
+				alert(this.t('tipsjs1'));
 				return;
 			}
-			if (!web3.utils.isAddress(newaddress) && obj.status == 1 || !web3.utils.isAddress(newaddress2) && obj.status == 2) {
-				alert(tipsjs2);
+			if (!web3.utils.isAddress(newaddress2) && obj.status == 2) {
+				alert(this.t('tipsjs2'));
 				return;
-			}
-			if (obj.status == 1) {
-				// 确认修改
-				this.editajax(newaddress,obj);
 			}
 			if (obj.status == 2) {
 				// 确认转移
 				this.zyajax(newaddress2,obj);
 			}
 		},
+		// 修改-暂弃
 		editajax(newaddress,obj){
 			var self = this
-			self.axios.post('http://47.118.74.48:8081/v2/mint/mint/updateAddress',{instanceId:obj.instanceId,
+			self.axios.post(this.base_url+'/v2/mint/mint/updateAddress',{instanceId:obj.instanceId,
 					currentAddress: obj.receiver,
 					newAddress : newaddress}).then(res=>{
 						if (res.code == 0) {
@@ -305,32 +306,36 @@ export default defineComponent({
 		},
 		zyajax(newaddress,obj){
 			var self = this
-			var web3 = new Web3(CHAIN.WALLET.provider());
+			var web3 = new Web3(window.CHAIN.WALLET.provider());
 			var chainId = '';
 			window.CHAIN.WALLET.chainId()
 				.then(function (res) {
-					chainId = web3.utils.hexToNumber(res);  
+					chainId = web3.utils.hexToNumber(res); 
+					let targetChainId = '';
+					if (window.location.href.indexOf('atta.zone') == -1) {
+						targetChainId = '97';
+					} else {
+						targetChainId = '56';
+					} 
 					if (chainId != targetChainId) {
-						CHAIN.WALLET.switchRPCSettings(targetChainId);
+						window.CHAIN.WALLET.switchRPCSettings(targetChainId);
 					}
-					// var netVer = netVers[0];
-					ERC721Address = contractSetting['atta_ERC721'][chainId].address; // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
-					var ERC721ABI = contractSetting['atta_ERC721']['abi'];
-					
-					ERC721ContractInstance = new web3.eth.Contract(ERC721ABI, ERC721Address);        
+					const ERC721Address: any = chainSetting["contractSetting"]["atta_ERC721"][chainId].address;// 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
+					var ERC721ABI = chainSetting["contractSetting"]['atta_ERC721']['abi'];
+					var ERC721ContractInstance = new web3.eth.Contract(ERC721ABI, ERC721Address);        
 					// busdAddress 供外界使用
 					
-					ERC721ContractInstance.methods.safeTransferFrom(this.walletId,newaddress,obj.tokenId).send({ 
-						from: this.walletId
+					ERC721ContractInstance.methods.safeTransferFrom(self.walletId,newaddress,obj.tokenId).send({ 
+						from: self.walletId
 					})
 					.then(function (res) {
-						alert(tipsjs4);
+						alert(self.t('tipsjs4'));
 						self.geteveryqkl();
 					});
 					setTimeout(() => {
-						alert(tipsjs5);
+						alert(self.t('tipsjs5'));
 						setTimeout(function(){
-							cancelMobile();
+							self.cancelMobile();
 						},1800);
 					}, 1000);
 				});    
