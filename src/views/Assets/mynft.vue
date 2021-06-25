@@ -150,7 +150,7 @@
         <div class="modify-form">
           <div class="modify-tit flex" data-type="name">
             <span>title</span
-            ><img class="none" @click="cancelMobile()" src="/imgs/Close.png" />
+            ><img class="none" @click="cancelMobile()" src="/imgs/close.png" />
           </div>
           <div class="modify-ipt"></div>
           <div class="modify-tips"></div>
