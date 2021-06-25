@@ -77,15 +77,15 @@
 		<div class="modify none">
 			<div class="modify-container flex">
 				<div class="modify-form">
-					<div class="modify-tit flex" data-type="name"><span>title</span><img class="none" onclick="cancelMobile()" src="/imgs/Close.png" ></div>
+					<div class="modify-tit flex" data-type="name"><span>title</span><img class="none" @click="cancelMobile()" src="/imgs/Close.png" ></div>
 					<div class="modify-ipt"></div>
 					<div class="modify-tips"></div>
 					<div class="modify-btn flex">
 						<button class="add modify-btn-active" type="button" @click="editzyclick($event)"></button>
 						<button class="cancel" type="button" onclick="cancel()">{{cancel}}</button>
-						<button class="cancel cancel-mobile none" type="button" onclick="cancelMobile()">{{cancel}}</button>
+						<button class="cancel cancel-mobile none" type="button" @click="cancelMobile()">{{cancel}}</button>
 					</div>
-					<div class="modify-close" onclick="cancel()"><img src="/imgs/Close.png" ></div>
+					<div class="modify-close" @click="cancelMobile()"><img src="/imgs/Close.png" ></div>
 				</div>
 			</div>
 		</div>
@@ -268,8 +268,8 @@ export default defineComponent({
 			window.location.href = 'connectWallet.html';
 		},
 		editzyclick(e){
-			let newaddress = $('.newaddress input').val();
-			let newaddress2 = $('.newaddress2 input').val();
+			let dom1 = document.querySelector('.newaddress2 input');
+			let newaddress2 = dom1.value;
 			let web3 = new Web3(CHAIN.WALLET.provider());
 			let obj = JSON.parse(e.target.dataset.type);
 			if (!newaddress && obj.status == 1 || !newaddress2 && obj.status == 2) {
@@ -340,7 +340,6 @@ export default defineComponent({
 		zhuanyiaddress(e){
 			let obj = JSON.parse(e.target.dataset.json);
 			let endedition = JSON.parse(e.target.dataset.endedition);
-			debugger
 			let dom1 = document.querySelector('.modify-tit span');
 			let dom2 = document.querySelector('.modify-ipt');
 			let dom3 = document.querySelector('.modify-tips');
@@ -367,15 +366,20 @@ export default defineComponent({
 			dom5.style.display = "none";
 			dom6.style.display = "block";
 			// $('.modify').fadeIn();
+		},
+		cancelMobile(){
+			let dom1 = document.querySelector('.modify');
+			dom1.classList.remove('modify-tc-active');
+			dom1.style.display = "none";
+			// $.each($('.modify input'),function(i,v){
+			// 	$(v).val('');
+			// })
 		}
 	}
 })
 </script>
 
 <style>
-.mynftbox{
-	padding: 0 7.9%;
-}
 .everymynftbox{
 	justify-content: space-between;
     align-items: flex-start;
