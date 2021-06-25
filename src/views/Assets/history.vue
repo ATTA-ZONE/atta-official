@@ -40,19 +40,10 @@ import { defineComponent, ref, watchEffect } from "vue";
 import axios from '../../api'
 import { chainSetting } from "../../assets/js/chainSetting";
 
-interface List {
-  name: String
-  timeStamp: String | Number
-  edition: String
-  editions: String
-  from: String
-  to: String
-}
-
 export default defineComponent({
   name: "history",
   setup() {
-    const dataList = ref<List>([]);
+    let dataList: any = ref([]);
 
     const timeFormat = (str) => {
       const date = new Date(str);
@@ -69,7 +60,7 @@ export default defineComponent({
     };
 
     const getNftHistory = async () => {
-      let targetChainId: String = "";
+      let targetChainId: any = "";
       let scansite_base_url = "";
 
       if (window.location.href.indexOf("atta.zone") == -1) {
@@ -88,8 +79,8 @@ export default defineComponent({
         "&address=" +
         accounts[0] +
         "&sort=desc";
-      axios.get(bscAd).then((res) => {
-        if (res.result && res.result.length > 0) {
+      axios.get(bscAd).then((res:any) => {
+        if (res.status == 1 && res.result.length > 0) {
           let formData = res.result;
           for (let i = 0; i < formData.length; i++) {
             formData[i].timeStamp *= 1000;

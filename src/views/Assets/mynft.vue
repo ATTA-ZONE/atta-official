@@ -193,24 +193,19 @@ import axios from '../../api';
 import { chainSetting } from "../../assets/js/chainSetting";
 import { useI18n } from "vue-i18n";
 
-interface assetsList {
-  records: any
-  total: Number | String
-}
-
 export default defineComponent({
   name: "mynft",
 
   setup() {
     const { locale, t } = useI18n();
-		const assetsList = ref<assetsList>({})
+		const assetsList: any = ref({})
 		const current = ref(1)
     const pageSize = ref(9)
 		const showMoreInfo = ref(-1)
     const selectedNftName = ref('')
     const selectedNft = ref()
     const walletId = ref('')
-    const tokenarr = ref([])
+    const tokenarr:any = ref([])
     const lang = ref('')
   	const base_url = ref('')
 
@@ -227,7 +222,7 @@ export default defineComponent({
           tokenIds: arr,
           lang: bool,
         })
-        .then((res) => {
+        .then((res:any) => {
           if (res.code == 0) {
             assetsList.value = res.data.pageResult;
           }
@@ -251,7 +246,7 @@ export default defineComponent({
         walletId.value +
         "&sort=desc";
 
-      axios.get(requestUrl).then((res) => {
+      axios.get(requestUrl).then((res:any) => {
         let nftData = res.result;
         let obj = {},
           arr = [],
@@ -259,21 +254,22 @@ export default defineComponent({
         for (let i = 0; i < nftData.length; i++) {
           if (!obj[nftData[i].tokenID]) {
             obj[nftData[i].tokenID] = true;
-            arr.push({
+            const jsonData = {
               tokenID: nftData[i].tokenID,
               listdata: [nftData[i]],
               tojia: 0,
-              fromjian: 0,
-            });
+              fromjian: 0
+            } as any
+            arr.push(jsonData);
           } else {
-            arr.forEach((item) => {
+            arr.forEach((item:any) => {
               if (item.tokenID == nftData[i].tokenID) {
                 item.listdata.push(nftData[i]);
               }
             });
           }
         }
-        arr.forEach((item) => {
+        arr.forEach((item:any) => {
           item.listdata.forEach((json) => {
             if (json.to.toUpperCase() == walletId.value.toUpperCase()) {
               item.tojia += 1;
@@ -287,13 +283,13 @@ export default defineComponent({
             tokenarr.push(item.tokenID);
           }
         });
-        tokenarr.value = tokenarr;
+        
         getAssetsList(tokenarr.value);
       });
     }
 
 		const getAccount = () => {
-      window.CHAIN.WALLET.enable().then((res) => {
+      window.CHAIN.WALLET.enable().then((res:any) => {
         if (res && res.length) {
           walletId.value = res[0];
           geteveryqkl();
@@ -338,7 +334,7 @@ export default defineComponent({
 		const zyajax = (newaddress, obj) => {
       var web3 = new window.Web3(window.CHAIN.WALLET.provider());
       var chainId = "";
-      window.CHAIN.WALLET.chainId().then(function (res) {
+      window.CHAIN.WALLET.chainId().then(function (res:any) {
         chainId = web3.utils.hexToNumber(res);
         let targetChainId = "";
         if (window.location.href.indexOf("atta.zone") == -1) {
@@ -363,7 +359,7 @@ export default defineComponent({
           .send({
             from: walletId.value,
           })
-          .then(function (res) {
+          .then(function (res:any) {
             alert(t("tipsjs4"));
             geteveryqkl();
           });
