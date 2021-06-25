@@ -469,6 +469,9 @@ export default defineComponent({
 	display: none;
 	cursor: pointer;
 }
+.my-assets-right-download a{
+	color: #A8DEEE;
+}
 .ntfbtn{
 	width: 17.6%;
 	height: 100%;
@@ -476,8 +479,12 @@ export default defineComponent({
 	font-weight: 600;
 	font-size: 14px;
 	color: #FFFFFF;
-	background: #9567FF;
+	background: #A8DEEE;
 	border: none;
+	cursor: pointer;
+}
+.modify-btn .add{
+	background: #A8DEEE !important;
 }
 .kxbor{
 	border: 1px solid #606060;
