@@ -45,7 +45,7 @@ import axios from '@/api'
 export default defineComponent({
   name: 'history',
   setup(){
-    const dataList = ref<any>([])
+    const dataList = ref([])
 
     const timeFormat = (str) => {
       const date = new Date(str);
