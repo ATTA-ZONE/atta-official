@@ -346,7 +346,6 @@ export default defineComponent({
 			let dom5 = document.querySelector('.cancel');
 			let dom6 = document.querySelector('.modify');
 			dom1.textContent = this.t('transfer1')+obj.edition+` of `+endedition+this.t('newWallt');
-			// $('.modify-tit span').text(this.t('transfer1')+obj.edition+` of `+endedition+this.t('newWallt'));
 			var html = ``;
 			html += `<div class="modify-ipt-add">
 						<div class="modify-ipt-tit dqaddress">${this.t('walltAdress')}<span>`+this.walletId+`</span></div>
@@ -355,16 +354,11 @@ export default defineComponent({
 					
 			dom2.innerHTML = html;
 			dom3.innerHTML = `<span class="modify-tips-content">${this.t('tips02')}</span>`;
-			// $('.modify-btn-active').addClass('add');
-			// $('.modify-btn-active').removeClass('delete');
 			dom4.classList.add('add');
 			dom4.textContent = this.t('confirmCurrent');
 			dom4.setAttribute('data-type',e.target.dataset.json);
-			// $('.modify-btn-active').text(this.t('confirmCurrent'));
-			// $('.modify-btn-active').attr('data-type',e.target.dataset.json);
 			dom5.style.display = "none";
 			dom6.style.display = "block";
-			// $('.modify').fadeIn();
 		},
 		cancelMobile(){
 			let dom1 = document.querySelector('.modify');
@@ -407,6 +401,9 @@ export default defineComponent({
 }
 .everymynftbox .my-assets-right{
 	width: 40%;
+}
+.modify-form{
+	width: 750px;
 }
 .titlebox{
 	font-weight: bold;
