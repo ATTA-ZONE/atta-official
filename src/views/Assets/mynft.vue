@@ -257,7 +257,7 @@ export default defineComponent({
             obj[token] = true;
             const jsonData = {
               tokenID: token,
-              listdata: [nftData[i]],
+              listdata: [].push(nftData[i]),
               tojia: 0,
               fromjian: 0
             } as any
@@ -327,7 +327,7 @@ export default defineComponent({
     }
 
 		const cancelMobile = () => {
-      let dom1 = document.querySelector(".modify");
+      const dom1: HTMLElement = <HTMLElement>document.querySelector(".modify");
       dom1.classList.remove("modify-tc-active");
       dom1.style.display = "none";
     }
@@ -374,7 +374,7 @@ export default defineComponent({
     }
 
 		const editzyclick = (e) => {
-      let dom1 = document.querySelector(".newaddress2 input");
+      let dom1: HTMLElement = <HTMLElement>document.querySelector(".newaddress2 input");
       let newaddress2 = dom1.value;
       let web3 = new window.Web3(window.CHAIN.WALLET.provider());
       let obj = JSON.parse(e.target.dataset.type);
@@ -395,11 +395,11 @@ export default defineComponent({
 		const zhuanyiaddress = (e) => {
       let obj = JSON.parse(e.target.dataset.json);
       let endedition = JSON.parse(e.target.dataset.endedition);
-      let dom1 = document.querySelector(".modify-tit span");
-      let dom2 = document.querySelector(".modify-ipt");
-      let dom3 = document.querySelector(".modify-tips");
-      let dom4 = document.querySelector(".modify-btn-active");
-      let dom6 = document.querySelector(".modify");
+      let dom1: HTMLElement = <HTMLElement>document.querySelector(".modify-tit span");
+      let dom2: HTMLElement = <HTMLElement>document.querySelector(".modify-ipt");
+      let dom3: HTMLElement = <HTMLElement>document.querySelector(".modify-tips");
+      let dom4: HTMLElement = <HTMLElement>document.querySelector(".modify-btn-active");
+      let dom6: HTMLElement = <HTMLElement>document.querySelector(".modify");
       dom1.textContent =
         t("transfer1") +
         obj.edition +
