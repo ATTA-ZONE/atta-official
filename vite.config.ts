@@ -26,16 +26,16 @@ export default defineConfig({
     cors: true,
     open:true,
     proxy:{
-      '/api': {
+      '/apiTest': {
         target: 'https://api-testnet.bscscan.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       },
-      '/bsc': {
-        target: 'http://47.118.74.48:8081',
+      '/api': {
+        target: 'https://api.bscscan.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
-      },
+      }
     }
   },
   build: {

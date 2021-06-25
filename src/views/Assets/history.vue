@@ -44,6 +44,8 @@ export default defineComponent({
   name: "history",
   setup() {
     let dataList: any = ref([]);
+    const base_url = ref('')
+  	const scansite_base_url = ref('')
 
     const timeFormat = (str) => {
       const date = new Date(str);
@@ -61,20 +63,16 @@ export default defineComponent({
 
     const getNftHistory = async () => {
       let targetChainId: any = "";
-      let scansite_base_url = "";
 
       if (window.location.href.indexOf("atta.zone") == -1) {
         targetChainId = '97';
-        scansite_base_url = "https://api-testnet.bscscan.com";
       } else {
         targetChainId = '56';
-        scansite_base_url = "https://api.bscscan.com";
       }
       let auctionAddress =
         chainSetting["contractSetting"]["atta_ERC721"][targetChainId].address;
       let accounts = await window.CHAIN.WALLET.enable();
-      let bscAd =
-        "/api/api?module=account&action=tokennfttx&contractaddress=" +
+      let bscAd = scansite_base_url.value + "/api?module=account&action=tokennfttx&contractaddress=" +
         auctionAddress +
         "&address=" +
         accounts[0] +
@@ -85,8 +83,7 @@ export default defineComponent({
           for (let i = 0; i < formData.length; i++) {
             formData[i].timeStamp *= 1000;
             axios
-              .get(
-                "http://47.118.74.48:8081/v2/commodity/edition_basic_id?tokenTypeId=" +
+              .get(base_url.value + "/v2/commodity/edition_basic_id?tokenTypeId=" +
                   formData[i].tokenID
               )
               .then((itm) => {
@@ -106,9 +103,16 @@ export default defineComponent({
       });
     };
 
-    watchEffect(() => {
+    onMounted(() => {
+			if (window.location.href.indexOf("atta.zone") == -1) {
+				base_url.value = "http://47.118.74.48:8081";
+        scansite_base_url.value = '/apiTest'
+			} else {
+				base_url.value = "https://www.bazhuayu.io";
+        scansite_base_url.value = '/api'
+			}
       getNftHistory();
-    });
+		})
 
     return {
       dataList,

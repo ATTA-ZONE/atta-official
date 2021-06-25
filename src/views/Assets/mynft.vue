@@ -208,6 +208,7 @@ export default defineComponent({
     const tokenarr:any = ref([])
     const lang = ref('')
   	const base_url = ref('')
+  	const scansite_base_url = ref('')
 
 		const isEn = computed(() => {
       return locale.value.trim() == "en";
@@ -239,8 +240,8 @@ export default defineComponent({
       }
       let auctionAddress =
         chainSetting["contractSetting"]["atta_ERC721"][targetChainId].address;
-      let requestUrl =
-        "/api/api?module=account&action=tokennfttx&contractaddress=" +
+      let requestUrl = scansite_base_url.value + 
+        "/api?module=account&action=tokennfttx&contractaddress=" +
         auctionAddress +
         "&address=" +
         walletId.value +
@@ -248,6 +249,9 @@ export default defineComponent({
 
       axios.get(requestUrl).then((res:any) => {
         let nftData = res.result;
+        if (!nftData || nftData.length < 1) {
+          return false
+        }
         let obj = {}
         let arr:any = []
         for (let i = 0; i < nftData.length; i++) {
@@ -433,8 +437,10 @@ export default defineComponent({
 			getAccount();
 			if (window.location.href.indexOf("atta.zone") == -1) {
 				base_url.value = "http://47.118.74.48:8081";
+        scansite_base_url.value = '/apiTest'
 			} else {
 				base_url.value = "https://www.bazhuayu.io";
+        scansite_base_url.value = '/api'
 			}
 		})
 
