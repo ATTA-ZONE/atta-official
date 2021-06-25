@@ -283,11 +283,11 @@ div {
 }
 
 .my-assets-right-download a {
-	color: #9567FF;
+	color: #A8DEEE;
 }
 
 .my-assets-right-download a:hover {
-	color: #9567FF;
+	color: #A8DEEE;
 }
 
 .my-assets-right-btn {
@@ -311,10 +311,11 @@ div {
   justify-content: center;
 }
 .modify-form {
-  width: 660px;
+  width: 750px;
   background: #323232;
   border-radius: 4px;
   padding: 72px 111px;
+  box-sizing: border-box;
   position: relative;
 }
 .modify-tit {
@@ -410,7 +411,7 @@ div {
 }
 
 .modify-btn .add {
-	background: #9567FF !important;
+	background: #A8DEEE !important;
 	color: #fff !important;
 }
 
