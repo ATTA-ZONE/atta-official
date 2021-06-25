@@ -142,7 +142,6 @@ export default defineComponent({
 	methods: {
 		getAccount(){
 			let self = this;
-			debugger
 			window.CHAIN.WALLET.enable()
 			.then(res=>{
 				if (res && res.length) {
@@ -340,7 +339,6 @@ export default defineComponent({
 		zhuanyiaddress(e){
 			let obj = JSON.parse(e.target.dataset.json);
 			let endedition = JSON.parse(e.target.dataset.endedition);
-			debugger
 			let dom1 = document.querySelector('.modify-tit span');
 			let dom2 = document.querySelector('.modify-ipt');
 			let dom3 = document.querySelector('.modify-tips');

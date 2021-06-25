@@ -2,12 +2,14 @@
 @import "./common.scss";
 @import "./media.scss";
 html {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
     font-size: 20px;
 }
 
 body {
-    color: #333;
-    font-family: "微软雅黑", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    color: #fff;
 }
 
 i {
