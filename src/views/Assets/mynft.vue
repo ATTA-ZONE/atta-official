@@ -458,7 +458,8 @@ export default defineComponent({
 			getIntroduce,
 			changeishide,
 			zhuanyiaddress,
-			editzyclick
+			editzyclick,
+      cancelMobile
     };
   }
 });
