@@ -189,12 +189,12 @@
 
 <script lang="ts">
 import { defineComponent, computed, onMounted, ref } from "vue";
-import { chainSetting } from "../../assets/js/chainSetting";
-import { useI18n } from "vue-i18n";
 import axios from '@/api'
+import { chainSetting } from "@/assets/js/chainSetting";
+import { useI18n } from "vue-i18n";
 
 interface assetsList {
-  records: Array
+  records: any
   total: Number | String
 }
 
@@ -379,7 +379,7 @@ export default defineComponent({
 		const editzyclick = (e) => {
       let dom1 = document.querySelector(".newaddress2 input");
       let newaddress2 = dom1.value;
-      let web3 = new Web3(window.CHAIN.WALLET.provider());
+      let web3 = new window.Web3(window.CHAIN.WALLET.provider());
       let obj = JSON.parse(e.target.dataset.type);
       if (!newaddress2 && obj.status == 2) {
         alert(t("tipsjs1"));
