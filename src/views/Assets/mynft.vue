@@ -463,12 +463,12 @@ export default defineComponent({
   }
 });
 </script>
-
 <style>
-.everymynftbox {
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 100px;
+@import "@/assets/css/media.scss";
+.everymynftbox{
+	justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 100px;
 }
 .between {
   justify-content: space-between;
@@ -556,15 +556,22 @@ export default defineComponent({
   display: none;
   cursor: pointer;
 }
-.ntfbtn {
-  width: 17.6%;
-  height: 100%;
-  border-radius: 2px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #ffffff;
-  background: #9567ff;
-  border: none;
+.my-assets-right-download a{
+	color: #A8DEEE;
+}
+.ntfbtn{
+	width: 17.6%;
+	height: 100%;
+	border-radius: 2px;
+	font-weight: 600;
+	font-size: 14px;
+	color: #FFFFFF;
+	background: #A8DEEE;
+	border: none;
+	cursor: pointer;
+}
+.modify-btn .add{
+	background: #A8DEEE !important;
 }
 .kxbor {
   border: 1px solid #606060;
@@ -609,54 +616,73 @@ export default defineComponent({
 .ishide {
   transform: rotate(180deg);
 }
-@media only screen and (max-width: 992px) {
-  .mobilflex {
-    flex-direction: column;
-    margin-bottom: 50px;
-  }
-  .titlebox {
-    font-size: 16px;
-  }
-  .titlebox img {
-    width: 18px;
-    height: 18px;
-  }
-  .everydatabox {
-    font-size: 10px;
-    position: relative;
-  }
-  .inputbox {
-    height: auto;
-    flex-wrap: wrap;
-  }
-  .srkbox {
-    width: 100%;
-    height: 40px;
-    font-size: 10px;
-  }
-  .srkbox input {
-    font-size: 10px;
-    padding-left: 0;
-    text-align: center;
-  }
-  .srkbox button {
-    display: none;
-  }
-  .srkbox .clickedit,
-  .horizontalline {
-    display: inline-block;
-  }
-  .ntfbtn {
-    width: 100%;
-    height: 40px;
-    margin-top: 12px;
-  }
-  .kxbor {
-    margin-top: 28px;
-  }
-  .newaddress input,
-  .newaddress2 input {
-    text-indent: 12px !important;
-  }
+@media only screen and (max-width: 992px){
+	.mobilflex{
+		flex-direction: column;
+		margin-bottom: 50px;
+	}
+	.everymynftbox .my-assets-left,.everymynftbox .my-assets-right{
+		width: 100%;
+	}
+	.my-assets-right-tit{
+		font-size: 32px;
+	}
+	.modify-form {
+		width: 100%;
+		height: 100%;
+		padding: 0 5%;
+	}
+	.modify-tit {
+		margin-top: 20px;
+		font-size: 28px;
+		padding-bottom: 24px;
+		margin-right: 20px;
+	}
+	.modify-ipt input {
+		width: 100%!important;
+		text-align: left!important;
+	}
+	.titlebox{
+		font-size: 16px;
+	}
+	.titlebox img{
+		width: 18px;
+		height: 18px;
+	}
+	.everydatabox{
+		font-size: 10px;
+		position: relative;
+	}
+	.inputbox{
+		height: auto;
+		flex-wrap: wrap;
+	}
+	.srkbox{
+		width: 100%;
+		height: 40px;
+		font-size: 10px;
+	}
+	.srkbox input{
+		font-size: 10px;
+		padding-left: 0;
+		text-align: center;
+	}
+	.srkbox button{
+		display: none;
+	}
+	.srkbox .clickedit,.horizontalline{
+		display: inline-block;
+	}
+	.ntfbtn{
+		width: 100%;
+		height: 40px;
+		margin-top: 12px;
+	}
+	.kxbor{
+		margin-top: 28px;
+	}
+	.newaddress input,.newaddress2 input{
+		text-indent: 12px !important;
+	}
 }
 </style>
