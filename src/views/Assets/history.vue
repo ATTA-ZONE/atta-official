@@ -44,23 +44,14 @@
   </ul>
 </template>
 <script lang="ts">
-import {
-  defineComponent,
-  ref,
-  onMounted,
-  watchEffect,
-  computed,
-  createApp,
-} from "vue";
+import { defineComponent, ref, onMounted } from "vue";
 import axios from "../../api";
 import { chainSetting } from "../../assets/js/chainSetting";
 
 export default defineComponent({
   name: "history",
   setup() {
-    const dataList:any = ref([]);
-    const base_url = ref("");
-    const scansite_base_url = ref("");
+    const dataList: any = ref([]);
 
     const timeFormat = (str) => {
       const date = new Date(str);
@@ -78,7 +69,7 @@ export default defineComponent({
 
     const getNftHistory = async () => {
       let targetChainId: any = "";
-
+      console.log(window.base_url);
       if (window.location.href.indexOf("atta.zone") == -1) {
         targetChainId = "97";
       } else {
@@ -88,7 +79,7 @@ export default defineComponent({
         chainSetting["contractSetting"]["atta_ERC721"][targetChainId].address;
       let accounts = await window.CHAIN.WALLET.enable();
       let bscAd =
-        scansite_base_url.value +
+        window.scansite_base_url +
         "/api?module=account&action=tokennfttx&contractaddress=" +
         auctionAddress +
         "&address=" +
@@ -101,7 +92,7 @@ export default defineComponent({
             dataList.value[i].timeStamp *= 1000;
             axios
               .get(
-                base_url.value +
+                window.base_url +
                   "/v2/commodity/edition_basic_id?tokenTypeId=" +
                   dataList.value[i].tokenID
               )
@@ -116,23 +107,13 @@ export default defineComponent({
       });
     };
 
-    watchEffect(() => {
-      getNftHistory();
-    });
-
     onMounted(() => {
-      if (window.location.href.indexOf("atta.zone") > -1) {
-        base_url.value = "https://www.bazhuayu.io";
-        scansite_base_url.value = "https://api.bscscan.com";
-      } else {
-        base_url.value = "http://47.118.74.48:8081";
-        scansite_base_url.value = "https://api-testnet.bscscan.com";
-      }
-    });
+      getNftHistory();
+    })
 
     return {
       dataList,
-      timeFormat,
+      timeFormat
     };
   },
 });

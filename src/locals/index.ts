@@ -1,6 +1,7 @@
 import { createI18n } from 'vue-i18n'
 import ch from './ch.json'
 import en from './en.json'
+import {getCookie} from '../utils'
 
 const messages = {
   ch,
@@ -8,7 +9,7 @@ const messages = {
 }
 
 const i18n = createI18n({
-  locale: 'ch', // set locale
+  locale: getCookie('lang')? getCookie('lang'): 'ch', // set locale
   globalInjection: true,
   fallbackLocale: 'ch', // set fallback locale
   messages // set locale messages

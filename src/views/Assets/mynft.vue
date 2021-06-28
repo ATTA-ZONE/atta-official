@@ -206,10 +206,6 @@ export default defineComponent({
     const selectedNft = ref()
     const walletId = ref('')
     const tokenarr:any = ref([])
-    const lang = ref('')
-  	const base_url = ref('')
-  	const scansite_base_url = ref('')
-    const locationUrl = ref('')
 
 		const isEn = computed(() => {
       return locale.value.trim() == "en";
@@ -218,7 +214,7 @@ export default defineComponent({
 		const getAssetsList = (arr) => {
       const bool = isEn.value ? "en" : "tc";
       axios
-        .post(base_url.value + "/v2/commodity/attaNftInfo", {
+        .post(window.base_url + "/v2/commodity/attaNftInfo", {
           current: current.value,
           pageSize: pageSize.value,
           tokenIds: arr,
@@ -241,7 +237,7 @@ export default defineComponent({
       }
       let auctionAddress =
         chainSetting["contractSetting"]["atta_ERC721"][targetChainId].address;
-      let requestUrl = scansite_base_url.value + "/api?module=account&action=tokennfttx&contractaddress=" +
+      let requestUrl = window.scansite_base_url + "/api?module=account&action=tokennfttx&contractaddress=" +
         auctionAddress +
         "&address=" +
         walletId.value +
@@ -311,7 +307,7 @@ export default defineComponent({
     }
 
     const formatVideoUrl = (item) => {
-      return locationUrl.value + item
+      return window.locationUrl + item
     }
 
 		const getFormat = (item) => {
@@ -439,16 +435,6 @@ export default defineComponent({
     }
 
 		onMounted(() => {
-      if (window.location.href.indexOf("atta.zone") > -1) {
-        base_url.value = "https://www.bazhuayu.io";
-        scansite_base_url.value = 'https://api.bscscan.com'
-        locationUrl.value = window.location.origin
-			} else {
-        base_url.value = "http://47.118.74.48:8081";
-        scansite_base_url.value = 'https://api-testnet.bscscan.com'
-        locationUrl.value = 'http://47.118.74.48:8081'
-      }
-
       getAccount();
 		})
 
@@ -463,7 +449,6 @@ export default defineComponent({
 			selectedNft,
 			walletId,
 			tokenarr,
-			lang,
 			getMoreList,
 			getFormat,
 			getIntroduce,
