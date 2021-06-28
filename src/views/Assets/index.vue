@@ -44,7 +44,7 @@ export default defineComponent({
 }
   .tabs-wrap {
     display: flex;
-    padding: 0 7.9%;
+    padding: 0 10%;
     margin-bottom: 30px;
   }
   .assets-tab {
@@ -63,6 +63,6 @@ export default defineComponent({
     background: #A8DEEE;
   }
   .router-view {
-    padding: 0 7.9%;
+    padding: 0 10%;
   }
 </style>

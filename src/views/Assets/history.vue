@@ -213,10 +213,10 @@ export default defineComponent({
   width: 550px;
 }
 .desc-info-address {
-  color: #9567ff;
+  color: #a8deee;
 }
 .selected-tag {
-  color: #9567ff !important;
+  color: #a8deee !important;
 }
 .history-title {
   display: flex;
