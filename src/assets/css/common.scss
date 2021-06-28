@@ -86,8 +86,14 @@ display: flex;
 .header {
 height: 80px;
 align-items: center;
-justify-content: space-between;
+justify-content: center;
 margin-bottom: 20px;
+}
+@media screen and (max-width: 992px){
+  
+  .header {
+    justify-content: space-between;
+  }
 }
 input,div{
 -moz-user-select:none;
