@@ -470,7 +470,8 @@ export default defineComponent({
 			changeishide,
 			zhuanyiaddress,
 			editzyclick,
-      cancelMobile
+      cancelMobile,
+      formatVideoUrl
     };
   }
 });
