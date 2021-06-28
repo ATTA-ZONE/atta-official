@@ -112,11 +112,9 @@ export default defineComponent({
       if (window.location.href.indexOf("atta.zone") > -1) {
         base_url.value = "https://www.bazhuayu.io";
         scansite_base_url.value = 'https://api.bscscan.com'
-        locationUrl.value = window.location.origin
 			} else {
         base_url.value = "http://47.118.74.48:8081";
         scansite_base_url.value = 'https://api-testnet.bscscan.com'
-        locationUrl.value = 'http://47.118.74.48:8081'
       }
       getNftHistory();
     });
