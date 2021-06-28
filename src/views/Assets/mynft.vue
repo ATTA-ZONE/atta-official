@@ -131,7 +131,7 @@
         </div>
       </li>
     </ul>
-    <ul v-else style="padding-top: 100px">
+    <ul v-else style="padding: 150px 0">
       <li class="flex nothing">
         <div style="margin: 0 auto">{{ $t("norecord") }}</div>
       </li>

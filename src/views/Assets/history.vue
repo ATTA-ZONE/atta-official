@@ -37,16 +37,28 @@
       </div>
     </div>
   </div>
+  <ul style="padding: 150px 0" v-if="dataList.length < 1">
+    <li class="flex nothing">
+      <div style="margin: 0 auto">{{ $t("norecord") }}</div>
+    </li>
+  </ul>
 </template>
 <script lang="ts">
-import { defineComponent, ref, onMounted } from "vue";
+import {
+  defineComponent,
+  ref,
+  onMounted,
+  watchEffect,
+  computed,
+  createApp,
+} from "vue";
 import axios from "../../api";
 import { chainSetting } from "../../assets/js/chainSetting";
 
 export default defineComponent({
   name: "history",
   setup() {
-    let dataList: any = ref([]);
+    const dataList:any = ref([]);
     const base_url = ref("");
     const scansite_base_url = ref("");
 
@@ -75,48 +87,47 @@ export default defineComponent({
       let auctionAddress =
         chainSetting["contractSetting"]["atta_ERC721"][targetChainId].address;
       let accounts = await window.CHAIN.WALLET.enable();
-      let bscAd = scansite_base_url.value + "/api?module=account&action=tokennfttx&contractaddress=" +
+      let bscAd =
+        scansite_base_url.value +
+        "/api?module=account&action=tokennfttx&contractaddress=" +
         auctionAddress +
         "&address=" +
         accounts[0] +
         "&sort=desc";
       axios.get(bscAd).then((res: any) => {
         if (res.status == 1 && res.result.length > 0) {
-          let formData = res.result;
-          for (let i = 0; i < formData.length; i++) {
-            formData[i].timeStamp *= 1000;
+          dataList.value = res.result;
+          for (let i = 0; i < dataList.value.length; i++) {
+            dataList.value[i].timeStamp *= 1000;
             axios
               .get(
                 base_url.value +
                   "/v2/commodity/edition_basic_id?tokenTypeId=" +
-                  formData[i].tokenID
+                  dataList.value[i].tokenID
               )
               .then((itm) => {
-                Object.assign(formData[i], {
+                dataList.value[i] = Object.assign(dataList.value[i], 0, {
                   name: itm.data.name,
                   edition: itm.data.edition,
                 });
               });
           }
-          formData.sort((a, b) => {
-            return b.timeStamp - a.timeStamp;
-          });
-          setTimeout(() => {
-            dataList.value.push(...formData);
-          }, 100);
         }
       });
     };
 
+    watchEffect(() => {
+      getNftHistory();
+    });
+
     onMounted(() => {
       if (window.location.href.indexOf("atta.zone") > -1) {
         base_url.value = "https://www.bazhuayu.io";
-        scansite_base_url.value = 'https://api.bscscan.com'
-			} else {
+        scansite_base_url.value = "https://api.bscscan.com";
+      } else {
         base_url.value = "http://47.118.74.48:8081";
-        scansite_base_url.value = 'https://api-testnet.bscscan.com'
+        scansite_base_url.value = "https://api-testnet.bscscan.com";
       }
-      getNftHistory();
     });
 
     return {
