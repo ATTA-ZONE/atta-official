@@ -27,7 +27,7 @@ export default defineConfig({
     open:true,
     proxy:{
       '/atest': {
-        target: 'https://api-testnet.bscscan.com',
+        target: 'http://api-testnet.bscscan.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/atest/, '')
       }
