@@ -106,8 +106,8 @@ import greenDot from "/imgs/greenDot.png";
 import redDot from "/imgs/redDot.png";
 import { initWeb3 } from "../../assets/js/initweb3";
 import { useRouter } from "vue-router";
-import {getCookie, setCookie} from '../../utils'
-import axios from '../../api';
+import { getCookie, setCookie } from "../../utils";
+import axios from "../../api";
 
 export default defineComponent({
   components: { modal },
@@ -117,21 +117,21 @@ export default defineComponent({
     const showMask = ref(false);
     const isMobile = ref(false);
     const showModal = ref(false);
-    const accountAddress = ref('');
-    
+    const accountAddress = ref("");
+
     const switchLanauge = () => {
-      var lang = getCookie("lang")? 'EN':'TC';
-      const json = {'lang':lang}
+      var lang = getCookie("lang") ? "EN" : "TC";
+      const json = { lang: lang };
       const formData = new FormData();
-      formData.append('lang', lang)
-      axios.post(window.base_url+'/v2/user/lang/select',formData);
-    }
+      formData.append("lang", lang);
+      axios.post(window.base_url + "/v2/user/lang/select", formData);
+    };
 
     const switchLang = (str: string) => {
       locale.value = str;
-      setCookie('lang', str)
+      setCookie("lang", str);
       showMask.value = false;
-      switchLanauge()
+      switchLanauge();
     };
 
     const closemodal = () => {
@@ -147,16 +147,17 @@ export default defineComponent({
         initWeb3().then((res: any) => {
           if (res.length > 0) {
             accountAddress.value = res[0];
+            setCookie("currentAddress", res[0]);
           }
         });
       } else {
-        window.CHAIN.WALLET.connect("MetaMask");
+        window.CHAIN.WALLET.connect("MetaMask")
       }
     };
 
     const goAnchor = (id: number | string) => {
       let homePage = document.querySelector("#" + id);
-      if (window.location.pathname !== '/') {
+      if (window.location.pathname !== "/") {
         router.push("/");
       } else if (homePage) {
         homePage.scrollIntoView(true);
@@ -182,19 +183,24 @@ export default defineComponent({
       window.removeEventListener("resize", resizeWindow);
     });
 
-    onMounted(() => {
+    onMounted(async () => {
       if (window.location.href.indexOf("atta.zone") > -1) {
         window.base_url = "https://www.bazhuayu.io";
-        window.scansite_base_url = 'https://api.bscscan.com'
-        window.locationUrl = window.location.origin
+        window.scansite_base_url = "https://api.bscscan.com";
+        window.locationUrl = window.location.origin;
       } else {
         window.base_url = "http://47.118.74.48:8081";
-        window.scansite_base_url = 'https://api-testnet.bscscan.com'
-        window.locationUrl = 'http://47.118.74.48:8081'
+        window.scansite_base_url = "https://api-testnet.bscscan.com";
+        window.locationUrl = "http://47.118.74.48:8081";
       }
+      accountAddress.value =
+        getCookie("currentAddress") == "false"
+          ? ""
+          : getCookie("currentAddress");
+      console.log(accountAddress.value);
       window.addEventListener("resize", resizeWindow);
       resizeWindow();
-      switchLanauge()
+      switchLanauge();
     });
 
     const emitAddress = (str: string) => {
