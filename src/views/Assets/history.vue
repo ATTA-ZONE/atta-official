@@ -47,6 +47,7 @@
 import { defineComponent, ref, onMounted } from "vue";
 import axios from "../../api";
 import { chainSetting } from "../../assets/js/chainSetting";
+import {getCookie} from '../../utils'
 
 export default defineComponent({
   name: "history",
