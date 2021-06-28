@@ -156,10 +156,10 @@ export default defineComponent({
 
     const goAnchor = (id: number | string) => {
       let homePage = document.querySelector("#" + id);
-      if (homePage) {
-        homePage.scrollIntoView(true);
-      } else {
+      if (window.location.pathname !== '/') {
         router.push("/");
+      } else if (homePage) {
+        homePage.scrollIntoView(true);
       }
       showMask.value = false;
     };
