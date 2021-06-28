@@ -295,6 +295,7 @@ export default defineComponent({
 
 		const getAccount = () => {
       window.CHAIN.WALLET.enable().then((res:any) => {
+        console.log(res, '---');
         if (res && res.length) {
           walletId.value = res[0];
           geteveryqkl();
@@ -434,13 +435,16 @@ export default defineComponent({
     }
 
 		onMounted(() => {
-      if (window.location.href.indexOf("atta.zone") == -1) {
+      if (window.location.href.indexOf("47.118.74.48") > -1) {
         base_url.value = "http://47.118.74.48:8081";
-        scansite_base_url.value = '/atest'
-			} else {
+        scansite_base_url.value = 'https://api-testnet.bscscan.com'
+			} else if (window.location.href.indexOf("atta.zone") > -1) {
         base_url.value = "https://www.bazhuayu.io";
-        scansite_base_url.value = '/api'
-			}
+        scansite_base_url.value = 'https://api.bscscan.com'
+			} else {
+        base_url.value = "http://47.118.74.48:8081";
+        scansite_base_url.value = '/atest';
+      }
       getAccount();
 		})
 
@@ -456,7 +460,6 @@ export default defineComponent({
 			walletId,
 			tokenarr,
 			lang,
-			base_url,
 			getMoreList,
 			getFormat,
 			getIntroduce,

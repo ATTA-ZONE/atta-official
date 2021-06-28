@@ -30,11 +30,6 @@ export default defineConfig({
         target: 'https://api-testnet.bscscan.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/atest/, '')
-      },
-      '/api': {
-        target: 'https://api.bscscan.com',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
       }
     }
   },
