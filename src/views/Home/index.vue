@@ -1,13 +1,18 @@
 <template>
+  <div class="video-wrap">
+    <video autoplay loop src="/nftInfo.mp4" muted></video>
+    <div class="header-txt">
+      <img src="/imgs/Text.png" />
+    </div>
+  </div>
   <div class="home-page flex">
     <div>
-      <header-cell />
       <div class="home-page-two flex">
         <div class="page-two flex">
           <img src="/imgs/pageTwoLeft.png" />
           <img src="/imgs/pageTworightTop.png" />
           <p :class="[isEn ? 'page-two-en' : 'page-two-ch fz-fm-pf']">
-            {{ $t("attaInfo") }}<br/>{{ $t("attaInfo1") }} 
+            {{ $t("attaInfo") }}<br />{{ $t("attaInfo1") }}
           </p>
         </div>
       </div>
@@ -76,7 +81,6 @@
       </div>
       <home-five />
       <home-six />
-      <footer-cell />
     </div>
   </div>
 </template>
@@ -84,13 +88,11 @@
 <script lang="ts">
 import { defineComponent, ref, computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
-import headerCell from "./header.vue";
 import homeFive from "./homeFive.vue";
 import homeSix from "./homeSix.vue";
-import footerCell from "./footerCell.vue";
 
 export default defineComponent({
-  components: { headerCell, homeFive, homeSix, footerCell },
+  components: { homeFive, homeSix },
   setup: () => {
     const { locale } = useI18n();
 
@@ -115,7 +117,7 @@ export default defineComponent({
 
     return {
       transitionImage,
-      isEn
+      isEn,
     };
   },
 });

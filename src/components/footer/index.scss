@@ -1,0 +1,75 @@
+.footer {
+  justify-content: space-between;
+  padding: 100px 150px;
+  background-color: #000;
+}
+
+.footer .footer-left img {
+  width: 147px;
+}
+.footer .footer-left p {
+  font-size: 20px;
+  line-height: 38px;
+  color: rgba(250, 250, 250, 0.8);
+  margin-top: 30px;
+}
+.footer .footer-right span {
+  font-size: 28px;
+  line-height: 42px;
+  color: #FAFAFA;
+  opacity: 0.85;
+}
+.footer .footer-right .foot-imgs {
+  margin-top: 34px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer .footer-right .foot-wechat {
+    position: absolute;
+    left: 0;
+    bottom: 36px;
+    width: 100px !important;
+    height: 100px !important;
+}
+.foot-wechat-wrap {
+  position: relative;
+}
+.footer .footer-right .foot-wechat-icon {
+  position: relative;
+}
+.footer .footer-right div img {
+  width: 28px;
+  height: 28px;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .footer {
+    flex-wrap: wrap;
+    padding: 50px 7% !important;
+  }
+  .footer .footer-left p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+  .footer .footer-left img {
+    width: 100px !important;
+  }
+  .footer .footer-right {
+    margin-top: 20px;
+  }
+  .footer .footer-right span {
+    font-size: 20px !important;
+    font-weight: bold;
+    display: block;
+    color: #fff;
+  }
+  .footer .footer-right div {
+    margin-top: 0 !important;
+  }
+  .footer .footer-right div img {
+    margin-top: 10px;
+    width: 30px !important;
+    height: 30px !important;
+  }
+}

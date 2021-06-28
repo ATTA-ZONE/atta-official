@@ -1,46 +1,40 @@
-import Axios, { AxiosInstance } from 'axios'
+import axios from "axios";
 
-let baseURL = ''
+// 创建axios实例
+const service = axios.create({
+  // 在请求地址前面加上baseURL
+  baseURL: '',
+  // 当发送跨域请求时携带cookie
+  // withCredentials: true,
+  timeout: 20000,
+});
 
-const axios: AxiosInstance = Axios.create({
-  baseURL,
-  timeout: 20000 // 请求超时 20s
-})
-
-// 前置拦截器（发起请求之前的拦截）
-axios.interceptors.request.use(
+// 请求拦截
+service.interceptors.request.use(
   (config) => {
-    /**
-     * 根据你的项目实际情况来对 config 做处理
-     * 这里对 config 不做任何处理，直接返回
-     */
-    return config
+    // 模拟指定请求令牌
+    return config;
   },
   (error) => {
-    return Promise.reject(error)
+    // 请求错误的统一处理
+    console.log(error); // for debug
+    return Promise.reject(error);
   }
-)
+);
 
-// 后置拦截器（获取到响应时的拦截）
-axios.interceptors.response.use(
+// 响应拦截器
+service.interceptors.response.use(
+
   (response) => {
-    /**
-     * 根据你的项目实际情况来对 response 和 error 做处理
-     * 这里对 response 和 error 不做任何处理，直接返回
-     */
-    return response
+    const res = response.data;
+
+    return res
   },
   (error) => {
-    if (error.response && error.response.data) {
-      const code = error.response.status
-      const msg = error.response.data.message
-      console.log(`Code: ${code}, Message: ${msg}`)
-      console.error(`[Axios Error]`, error.response)
-    } else {
-      console.log(`${error}`)
-    }
-    return Promise.reject(error)
+    console.log("err" + error); // for debug
+    return Promise.reject(error);
   }
-)
+);
 
-export default axios
+export default service;
+

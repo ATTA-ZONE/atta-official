@@ -7,18 +7,23 @@
   div.home-page > div .home-page-four .image-left >div{
     display: none;
   }
-  .home-page .home-page-one .header-links {
-    padding-left: 2% !important;
-  }
-  .home-page .home-page-one .header a {
-    margin: 0 1% !important;
-  }
 }
 
 @media only screen and (max-width: 992px) {
-  .wallet-container {
-    display: flex;
+  .video-wrap .header-txt img {
+    width: 75%;
+    padding: 10% 20px !important;
   }
+  .video-wrap .header-txt {
+    padding: 0% 20px !important;
+  }
+  .video-wrap video {
+    height: 245px !important;
+  }
+  .video-wrap .header-txt {
+    top: 80px !important;
+  }
+  
   .modal-container {
     .modal-wrap {
       width: 100%;
@@ -41,25 +46,9 @@
       }
     }
   }
-  .home-page .home-page-one p.switchlanguagebox {
-    padding-top: 6%;
-    width: 100%;
-    border-top: 2px solid rgba(255, 255, 255, 0.2);
-  }
-  .home-page .home-page-one .header-txt img {
-    width: 75%;
-    padding: 10% 20px !important;
-  }
-  .home-page .home-page-one .header-txt {
-    padding: 0% 20px !important;
-  }
-  .brandLogo {
-    width: 30% !important;
-    height: auto !important;
-  }
+  
   div.home-page {
-    width: 100%;
-    /* padding: 0 5%; */
+    margin-top: 165px;
   }
   .home-page .home-page-two,.home-page .home-page-three,.home-page .home-page-four,.home-page .home-page-five,.home-page .home-page-six,.home-page .footer{
     padding: 0 0 !important;
@@ -72,16 +61,7 @@
     /* margin-top: 12%; */
     /* padding: 0 22px 6% !important; */
   }
-  div.home-page > div .home-page-one {
-    padding: 0 !important;
-    height: 245px;
-  }
-  div.home-page > div .home-page-one video {
-    height: 245px;
-  }
-  div.home-page > div .home-page-one .header-txt {
-    top: 80px;
-  }
+  
   div.home-page > div .home-page-two {
     margin-top: 0;
   }
@@ -294,32 +274,5 @@ line-height: 27px;
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
-  .home-page div.footer {
-    flex-wrap: wrap;
-    padding-left: 10% !important;
-  }
-  .footer .footer-left p {
-    font-size: 14px !important;
-    line-height: 1.5 !important;
-  }
-  .footer .footer-left img {
-    width: 100px !important;
-  }
-  .footer .footer-right {
-    margin-top: 20px;
-  }
-  .footer .footer-right span {
-    font-size: 20px !important;
-    font-weight: bold;
-    display: block;
-    color: #fff;
-  }
-  .footer .footer-right div {
-    margin-top: 0 !important;
-  }
-  .footer .footer-right div img {
-    margin-top: 10px;
-    width: 30px !important;
-    height: 30px !important;
-  }
+  
 }

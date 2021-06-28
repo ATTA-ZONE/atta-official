@@ -4,55 +4,12 @@
 * {
   box-sizing: border-box;
 }
-.mask-container {
-  width: 100%;
-  height: 100vh;
-  position: fixed;
+
+.video-wrap {
+  position: absolute;
   top: 0;
   left: 0;
-  z-index: 999;
-  padding: 10%;
-  font-size: 20px;
-  background: rgba(20, 20, 20, 0.48);
-  backdrop-filter: blur(30px);
-  .mask-wrap {
-    width: 100%;
-    display: block;
-    background: #141414;
-    box-shadow: 0px 4px 150px rgba(0, 0, 0, 0.3);
-    padding: 30px 0;
-    // padding: 30px 9%;
-    a {
-      display: block;
-      margin: 6% 0;
-      color: #fff !important;
-      z-index: 100;
-    }
-    span {
-      padding-left: 5%;
-      font-size: 16px;
-      color: #fff !important;
-      z-index: 100;
-    }
-    .close-img {
-      position: absolute;
-      top: 7%;
-      right: 10%;
-      z-index: 100;
-      width: 37px;
-    }
-    .wallet-status-address {
-      width: 150px;
-    }
-    .connect-status-img {
-      width: 10px;
-      height: 10px;
-      margin: 0 0 0 13px;
-    }
-    .top-btn {
-      margin: 6% 0;
-    }
-  }
+  z-index: 99;
 }
 
 .home-page {
@@ -62,6 +19,7 @@
   justify-content: center;
   overflow: hidden;
   position: relative;
+  margin-top: 668px;
 }
 .home-page > i {
   position: absolute;
@@ -81,69 +39,24 @@
   z-index: 10;
   width: 100%;
 }
-.home-page .home-page-one {
-  width: 100%;
-  height: 808px;
-}
-.home-page .home-page-one video {
+video {
   width: 100%;
   height: 808px;
   object-fit: fill;
 }
-.home-page .home-page-one .header-links {
+.header-txt {
   width: 100%;
-  padding-left: 98px;
-  white-space: nowrap;
+  text-align: center;
+  padding: 90px 20px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+ .header-txt img {
+  width: 75%;
+  padding: 10% 20px !important;
 }
 
-.home-page .home-page-one .header-txt {
-  width: 100%;
-  text-align: center;
-  padding: 311px 20px 0;
-  position: absolute;
-  /* top: 100px; */
-  top: 0;
-  left: 0;
-}
-.home-page .home-page-one .head-menu {
-  width: 30px !important;
-}
-.home-page .home-page-one .header {
-  padding: 70px 10%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 99;
-  font-family: Nunito Sans !important;
-}
-.brandLogo {
-  width: 147px;
-  height: auto;
-}
-.home-page .home-page-one p.switchlanguagebox {
-  font-size: 16px;
-  color: #fff;
-  display: inline-block;
-  z-index: 100;
-}
-.home-page .home-page-one .header a {
-  line-height: 38px;
-  height: 38px;
-  color: rgba(250, 250, 250, 0.6);
-  font-size: 18px;
-  cursor: pointer;
-  margin: 0 20px;
-}
-.home-page .home-page-one > p {
-  font-family: 'Hanson-Bold';
-  font-size: 174px;
-  line-height: 181px;
-  text-align: center;
-  font-weight: bolder;
-  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0px 2px 2px rgba(0, 0, 0, 0);
-  opacity: 0.6;
-}
 .home-page .home-page-two {
   width: 100%;
   /* height: 551px; */
@@ -256,12 +169,11 @@
 .home-page .home-page-three .logo7 {
   width: 88px;
   height: 80px;
-  margin-right: 84px;
+  margin-right: 36px;
 }
 .home-page .home-page-three .logo5 {
   width: 85px;
   height: 85px;
-  margin-right: 40px;
 }
 .home-page .home-page-four {
   width: 80%;
@@ -544,56 +456,4 @@
   width: 23vw;
   height: 23vw;
   margin-top: 34px;
-}
-.home-page .footer {
-  margin-top: 127px;
-  margin-bottom: 70px;
-  justify-content: space-between;
-}
-.home-page .footer .footer-left img {
-  width: 147px;
-}
-.home-page .footer .footer-left p {
-  font-size: 20px;
-  line-height: 38px;
-  color: rgba(250, 250, 250, 0.8);
-  margin-top: 30px;
-}
-.home-page .footer .footer-right span {
-  font-size: 28px;
-  line-height: 42px;
-  color: #FAFAFA;
-  opacity: 0.85;
-}
-.home-page .footer .footer-right .foot-imgs {
-  margin-top: 34px;
-  display: flex;
-  justify-content: space-between;
-}
-.home-page .footer .footer-right .foot-wechat {
-    position: absolute;
-    left: 0;
-    bottom: 36px;
-    width: 100px !important;
-    height: 100px !important;
-}
-.foot-wechat-wrap {
-  position: relative;
-}
-.home-page .footer .footer-right .foot-wechat-icon {
-  position: relative;
-}
-.home-page .footer .footer-right div img {
-  width: 28px;
-  height: 28px;
-  margin-right: 20px;
-}
-.top-btn {
-  display: inline-block;
-  padding: 10px 50px;
-  cursor: pointer;
-  font-size: 16px;
-  margin: 0 20px 0 60px;
-  color: rgba(168, 222, 238, 1);
-  border: 1px solid rgba(168, 222, 238, 1);
 }
