@@ -1,8 +1,7 @@
 .footer {
-  margin-top: 127px;
-  margin-bottom: 70px;
   justify-content: space-between;
-  padding: 0 150px;
+  padding: 100px 150px;
+  background-color: #000;
 }
 
 .footer .footer-left img {
@@ -45,12 +44,9 @@
 }
 
 @media screen and (max-width: 992px) {
-  .footer{
-    padding: 0 0 !important;
-  }
   .footer {
     flex-wrap: wrap;
-    padding-left: 10% !important;
+    padding: 50px 7% !important;
   }
   .footer .footer-left p {
     font-size: 14px !important;
