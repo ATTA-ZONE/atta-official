@@ -30,10 +30,10 @@ export default defineComponent({
 
     onMounted(()=>{
       const url = window.location.pathname
-      if (url.indexOf('mynft')) {
+      if (url.indexOf('mynft')>-1) {
         selectedTab.value = 0
       }
-      if (url.indexOf('history')) {
+      if (url.indexOf('history')>-1) {
         selectedTab.value = 1
       }
     })
