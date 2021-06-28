@@ -6,7 +6,7 @@ const service = axios.create({
   baseURL: '',
   // 当发送跨域请求时携带cookie
   // withCredentials: true,
-  timeout: 5000,
+  timeout: 20000,
 });
 
 // 请求拦截
