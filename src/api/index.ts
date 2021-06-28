@@ -13,7 +13,6 @@ const service = axios.create({
 service.interceptors.request.use(
   (config) => {
     // 模拟指定请求令牌
-    config.headers["X-Token"] = "my token";
     return config;
   },
   (error) => {
