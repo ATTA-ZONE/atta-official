@@ -1,7 +1,7 @@
 <template>
   <div class="tabs-wrap">
     <router-link class="assets-tab" v-for="(item, idx) in tabs" :key="idx" @click="toggleTab(idx)" :to="{path: item.link}">
-      <span :class="{'active-text':selectedTab == idx}">{{item.name}}</span>
+      <span :class="{'active-text':selectedTab == idx}">{{$t(item.name)}}</span>
       <div v-if="selectedTab == idx" class="active-tab"></div>
     </router-link>
   </div>
@@ -15,11 +15,11 @@ export default defineComponent({
   setup(){
     const tabs = [
       {
-        name: '我的NFT',
+        name: 'My NFT',
         link:'/assets/mynft'
       },
       {
-        name: 'NFT操作記錄',
+        name: 'NFT Logs',
         link:'/assets/history'
       }
     ]
