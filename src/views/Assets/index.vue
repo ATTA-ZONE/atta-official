@@ -10,7 +10,7 @@
   </div>
 </template>
 <script lang='ts'>
-import { defineComponent, ref } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
 export default defineComponent({
   setup(){
     const tabs = [
@@ -27,6 +27,16 @@ export default defineComponent({
     const toggleTab = (idx) => {
 			selectedTab.value = idx
 		}
+
+    onMounted(()=>{
+      const url = window.location.pathname
+      if (url.indexOf('mynft')) {
+        selectedTab.value = 0
+      }
+      if (url.indexOf('history')) {
+        selectedTab.value = 1
+      }
+    })
     return {
       tabs,
       selectedTab,
