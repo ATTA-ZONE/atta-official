@@ -11,20 +11,20 @@
             <video
               autoplay
               loop
-              :src="item.primaryPic"
+              :src="formatVideoUrl(item.primaryPic)"
               muted
             ></video>
             <video
               class="mohu"
               autoplay
               loop
-              :src="item?.primaryPic"
+              :src="formatVideoUrl(item.primaryPic)"
               muted
             ></video>
           </div>
           <div class="my-assets-left" v-else>
-            <img :src="item.primaryPic" />
-            <img class="mohu" :src="item.primaryPic" />
+            <img :src="formatVideoUrl(item.primaryPic)" />
+            <img class="mohu" :src="formatVideoUrl(item.primaryPic)" />
           </div>
           <div class="my-assets-right">
             <div class="my-assets-right-tit">{{ item.name }}</div>
@@ -209,6 +209,7 @@ export default defineComponent({
     const lang = ref('')
   	const base_url = ref('')
   	const scansite_base_url = ref('')
+    const locationUrl = ref('')
 
 		const isEn = computed(() => {
       return locale.value.trim() == "en";
@@ -240,7 +241,7 @@ export default defineComponent({
       }
       let auctionAddress =
         chainSetting["contractSetting"]["atta_ERC721"][targetChainId].address;
-      let requestUrl = "https://api-testnet.bscscan.com/api?module=account&action=tokennfttx&contractaddress=" +
+      let requestUrl = scansite_base_url.value + "/api?module=account&action=tokennfttx&contractaddress=" +
         auctionAddress +
         "&address=" +
         walletId.value +
@@ -307,6 +308,10 @@ export default defineComponent({
 		const getMoreList = () => {
       current.value += 1;
       getAssetsList(tokenarr.value);
+    }
+
+    const formatVideoUrl = (item) => {
+      return locationUrl.value + item
     }
 
 		const getFormat = (item) => {
@@ -434,16 +439,16 @@ export default defineComponent({
     }
 
 		onMounted(() => {
-      if (window.location.href.indexOf("47.118.74.48") > -1) {
-        base_url.value = "http://47.118.74.48:8081";
-        scansite_base_url.value = '/atest'
-			} else if (window.location.href.indexOf("atta.zone") > -1) {
+      if (window.location.href.indexOf("atta.zone") > -1) {
         base_url.value = "https://www.bazhuayu.io";
         scansite_base_url.value = 'https://api.bscscan.com'
+        locationUrl.value = window.location.origin
 			} else {
         base_url.value = "http://47.118.74.48:8081";
-        scansite_base_url.value = '/atest';
+        scansite_base_url.value = 'https://api-testnet.bscscan.com'
+        locationUrl.value = 'http://47.118.74.48:8081'
       }
+
       getAccount();
 		})
 
@@ -465,7 +470,8 @@ export default defineComponent({
 			changeishide,
 			zhuanyiaddress,
 			editzyclick,
-      cancelMobile
+      cancelMobile,
+      formatVideoUrl
     };
   }
 });

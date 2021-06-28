@@ -75,9 +75,7 @@ export default defineComponent({
       let auctionAddress =
         chainSetting["contractSetting"]["atta_ERC721"][targetChainId].address;
       let accounts = await window.CHAIN.WALLET.enable();
-      let bscAd =
-        scansite_base_url.value +
-        "/api?module=account&action=tokennfttx&contractaddress=" +
+      let bscAd = scansite_base_url.value + "/api?module=account&action=tokennfttx&contractaddress=" +
         auctionAddress +
         "&address=" +
         accounts[0] +
@@ -111,15 +109,12 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      if (window.location.href.indexOf("47.118.74.48") > -1) {
-        base_url.value = "http://47.118.74.48:8081";
-        scansite_base_url.value = '/atest'
-			} else if (window.location.href.indexOf("atta.zone") > -1) {
+      if (window.location.href.indexOf("atta.zone") > -1) {
         base_url.value = "https://www.bazhuayu.io";
         scansite_base_url.value = 'https://api.bscscan.com'
 			} else {
         base_url.value = "http://47.118.74.48:8081";
-        scansite_base_url.value = '/atest';
+        scansite_base_url.value = 'https://api-testnet.bscscan.com'
       }
       getNftHistory();
     });
