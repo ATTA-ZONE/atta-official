@@ -53,7 +53,7 @@ import { chainSetting } from "../../assets/js/chainSetting";
 export default defineComponent({
   name: "history",
   setup() {
-    const dataList = ref([]);
+    const dataList:any = ref([]);
     const base_url = ref("");
     const scansite_base_url = ref("");
 
