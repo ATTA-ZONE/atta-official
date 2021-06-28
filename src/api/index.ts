@@ -24,10 +24,7 @@ service.interceptors.request.use(
 
 // 响应拦截器
 service.interceptors.response.use(
-  /**
-   * 通过判断状态码统一处理响应，根据情况修改
-   * 同时也可以通过HTTP状态码判断请求结果
-   */
+
   (response) => {
     const res = response.data;
 

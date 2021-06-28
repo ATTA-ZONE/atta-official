@@ -240,8 +240,7 @@ export default defineComponent({
       }
       let auctionAddress =
         chainSetting["contractSetting"]["atta_ERC721"][targetChainId].address;
-      let requestUrl = scansite_base_url.value + 
-        "/api?module=account&action=tokennfttx&contractaddress=" +
+      let requestUrl = "https://api-testnet.bscscan.com/api?module=account&action=tokennfttx&contractaddress=" +
         auctionAddress +
         "&address=" +
         walletId.value +
