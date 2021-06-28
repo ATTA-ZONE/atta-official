@@ -37,6 +37,11 @@
       </div>
     </div>
   </div>
+  <ul style="padding: 150px 0" v-if="dataList.length < 1">
+    <li class="flex nothing">
+      <div style="margin: 0 auto">{{ $t("norecord") }}</div>
+    </li>
+  </ul>
 </template>
 <script lang="ts">
 import {
