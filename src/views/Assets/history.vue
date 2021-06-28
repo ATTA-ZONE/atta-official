@@ -93,7 +93,7 @@ export default defineComponent({
             axios
               .get(
                 window.base_url +
-                  "/v2/commodity/edition_basic_id",{params:{tokenTypeId: dataList.value[i].tokenID, lang: "en"}}
+                  "/v2/commodity/edition_basic_id",{params:{tokenTypeId: dataList.value[i].tokenID, lang: getCookie('lang')== 'en'? 'EN':'TC'}}
               )
               .then((itm) => {
                 dataList.value[i] = Object.assign(dataList.value[i], 0, {
