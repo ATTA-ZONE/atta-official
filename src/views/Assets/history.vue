@@ -18,7 +18,7 @@
           <div class="history-desc">
             <div class="desc-info">
               <span class="desc-info-edtion"
-                >{{ item.edition || item.editions }}{{ $t("ban") }}</span
+                >{{$t('ban2')}}{{ item.edition || item.editions }}{{ $t("ban") }}</span
               >
             </div>
             <div class="desc-address">
