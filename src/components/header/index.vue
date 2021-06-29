@@ -120,11 +120,12 @@ export default defineComponent({
     const accountAddress = ref("");
 
     const switchLanauge = () => {
-      var lang = getCookie("lang") ? "EN" : "TC";
+      var lang = getCookie("lang") == 'en' ? "EN" : "TC";
       const json = { lang: lang };
       const formData = new FormData();
       formData.append("lang", lang);
       axios.post(window.base_url + "/v2/user/lang/select", formData);
+      window.location.reload()
     };
 
     const switchLang = (str: string) => {
