@@ -125,7 +125,7 @@ export default defineComponent({
       const formData = new FormData();
       formData.append("lang", lang);
       axios.post(window.base_url + "/v2/user/lang/select", formData);
-      window.location.reload()
+      
     };
 
     const switchLang = (str: string) => {
@@ -133,6 +133,7 @@ export default defineComponent({
       setCookie("lang", str);
       showMask.value = false;
       switchLanauge();
+      window.location.reload()
     };
 
     const closemodal = () => {
