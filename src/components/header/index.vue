@@ -8,9 +8,6 @@
         <a @click="goAnchor('Contents')">
           {{ $t("NFT Contents") }}
         </a>
-        <a @click="goAnchor('Service')">
-          {{ $t("Services") }}
-        </a>
         <a @click="goAnchor('Contact')">
           {{ $t("Contact") }}
         </a>
@@ -61,9 +58,6 @@
         </a>
         <a @click="goAnchor('Contents')">
           {{ $t("NFT Contents") }}
-        </a>
-        <a @click="goAnchor('Service')">
-          {{ $t("Services") }}
         </a>
         <a @click="goAnchor('Contact')">
           {{ $t("Contact") }}
