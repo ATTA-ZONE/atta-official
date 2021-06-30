@@ -267,6 +267,7 @@ export default defineComponent({
     const walletId = ref('')
     const tokenarr:any = ref([])
     const showTransferModel = ref(false)
+    const isErc1155 = ref(false)
     const modelTitle = ref('')
     const modelTips = ref('')
     const modifyIpt = ref('')
@@ -443,7 +444,15 @@ export default defineComponent({
       });
     }
 
-		const editzyclick = (e) => {
+    const transferERC1155 = ()=> {
+      
+    }
+		
+    const editzyclick = (e) => {
+      if (isErc1155.value) {
+        transferERC1155()
+        return false
+      }
       const newaddress2 = (document.querySelector(".newaddress2 input") as HTMLInputElement).value;
       
       const web3 = new window.Web3(window.CHAIN.WALLET.provider());
@@ -484,6 +493,7 @@ export default defineComponent({
         "tips02"
       )}</span>`;
       if (!e.target.dataset.json) {
+        isErc1155.value = true
         return false
       }
       const obj = JSON.parse(e.target.dataset.json);
@@ -514,7 +524,6 @@ export default defineComponent({
 			editzyclick,
       cancelMobile,
       formatVideoUrl,
-      transferAddress,
       showTransferModel
     };
   }
