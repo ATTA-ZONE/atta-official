@@ -170,7 +170,7 @@
           <div class="listbox">
             <div class="everydatabox">
               <p class="tit">
-                <span>当前钱包余额：1</span>
+                <span>当前钱包余额：{{walletBalance}}</span>
                 <span style="margin-left: 50px">{{ $t("blockchain") }}</span>
               </p>
               <div class="inputbox flex between">
@@ -220,7 +220,15 @@
             <span>{{modelTitle}}</span
             ><img class="none" @click="cancelMobile" src="/imgs/close.png" />
           </div>
-          <div class="modify-ipt" v-html="modifyIpt"></div>
+          <div class="modify-ipt">
+            <div class="modify-ipt-add">
+              <div class="modify-ipt-tit dqaddress">{{$t("walltAdress")}}
+                <span>{{walletId}}</span>
+              </div>
+              <div class="modify-ipt-tit newaddress2">{{$t("transferTo")}}<input type="text" v-model="transferToAddress" />
+              </div>
+            </div>
+          </div>
           <div class="modify-tips" v-html="modelTips"></div>
           <div class="modify-btn flex">
             <button
@@ -252,6 +260,7 @@ import { defineComponent, computed, onMounted, ref } from "vue";
 import axios from '../../api';
 import { chainSetting } from "../../assets/js/chainSetting";
 import { useI18n } from "vue-i18n";
+import { getCookie } from "../../utils";
 
 export default defineComponent({
   name: "mynft",
@@ -270,8 +279,12 @@ export default defineComponent({
     const isErc1155 = ref(false)
     const modelTitle = ref('')
     const modelTips = ref('')
-    const modifyIpt = ref('')
+    const transferToAddress = ref('')
     const modifyBtnActive:any = ref({})
+    const chainId = ref("");
+    const walletBalance = ref("");
+    const targetChainId = ref("");
+    const web3 = ref();
 
 		const isEn = computed(() => {
       return locale.value.trim() == "en";
@@ -294,15 +307,8 @@ export default defineComponent({
     }
 
 		const geteveryqkl = () => {
-      let targetChainId = "";
-
-      if (window.location.href.indexOf("atta.zone") == -1) {
-        targetChainId = "97";
-      } else {
-        targetChainId = "56";
-      }
       let auctionAddress =
-        chainSetting["contractSetting"]["atta_ERC721"][targetChainId].address;
+        chainSetting["contractSetting"]["atta_ERC721"][targetChainId.value].address;
       let requestUrl = window.scansite_base_url + "/api?module=account&action=tokennfttx&contractaddress=" +
         auctionAddress +
         "&address=" +
@@ -359,13 +365,51 @@ export default defineComponent({
       window.CHAIN.WALLET.enable().then((res:any) => {
         if (res && res.length) {
           walletId.value = res[0];
+          transferToAddress.value = res[0];
+          initAccount()
           geteveryqkl();
         } else {
           getAssetsList([]);
         }
       });
     }
+
+    const initAccount = async()=>{
+      chainId.value = await window.CHAIN.WALLET.chainId();
+      const walletType = getCookie(window.CHAIN.WALLET.__wallet__);
+
+      if (walletType) {
+        web3.value = new window.Web3(window.CHAIN.WALLET.provider());
+      } else if (window.ethereum) {
+        web3.value = new window.Web3(window.ethereum);
+      }
+      getWallet()
+    }
+
+    const getWallet = () => {
+      const userAddress = web3.value.utils.toChecksumAddress(walletId.value);
+      const busdAddress: any = chainSetting["contractSetting"]["atta_ERC1155_Airdrop"][chainId.value].address;
+
+      const busdABI =
+        chainSetting["contractSetting"]["atta_ERC1155_Airdrop"]["abi"];
+      const busdContractInstance = new web3.value.eth.Contract(
+        busdABI,
+        busdAddress
+      );
+      busdContractInstance.methods
+        .balanceOf(userAddress, 1)
+        .call()
+        .then((price: any) => {
+          walletBalance.value = price;
+        });
+    }
+
     onMounted(() => {
+      if (window.location.href.indexOf("atta.zone") == -1) {
+        targetChainId.value = "97";
+      } else {
+        targetChainId.value = "56";
+      }
       getAccount();
 		})
 
@@ -404,23 +448,14 @@ export default defineComponent({
     }
 
 		const zyajax = (newaddress, obj) => {
-      var web3 = new window.Web3(window.CHAIN.WALLET.provider());
-      var chainId = "";
-      window.CHAIN.WALLET.chainId().then(function (res:any) {
-        chainId = web3.utils.hexToNumber(res);
-        let targetChainId = "";
-        if (window.location.href.indexOf("atta.zone") == -1) {
-          targetChainId = "97";
-        } else {
-          targetChainId = "56";
-        }
-        if (chainId != targetChainId) {
-          window.CHAIN.WALLET.switchRPCSettings(targetChainId);
+        chainId.value = web3.value.utils.hexToNumber(chainId.value);
+        if (chainId.value != targetChainId.value) {
+          window.CHAIN.WALLET.switchRPCSettings(targetChainId.value);
         }
         const ERC721Address: any =
-          chainSetting["contractSetting"]["atta_ERC721"][chainId].address; // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
+          chainSetting["contractSetting"]["atta_ERC721"][chainId.value].address; // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
         var ERC721ABI = chainSetting["contractSetting"]["atta_ERC721"]["abi"];
-        var ERC721ContractInstance = new web3.eth.Contract(
+        var ERC721ContractInstance = new web3.value.eth.Contract(
           ERC721ABI,
           ERC721Address
         );
@@ -437,15 +472,37 @@ export default defineComponent({
           });
         setTimeout(() => {
           alert(t("tipsjs5"));
-          setTimeout(function () {
+          setTimeout(()=>{
             cancelMobile();
           }, 1800);
         }, 1000);
-      });
     }
 
     const transferERC1155 = ()=> {
-      
+      chainId.value = web3.value.utils.hexToNumber(chainId.value);
+        if (chainId.value != targetChainId.value) {
+          window.CHAIN.WALLET.switchRPCSettings(targetChainId.value);
+        }
+        const ERC1155Address: any =
+          chainSetting["contractSetting"]["atta_ERC1155_Airdrop"][chainId.value].address; // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
+        var ERC1155ABI = chainSetting["contractSetting"]["atta_ERC1155_Airdrop"]["abi"];
+        var ERC1155ContractInstance = new web3.value.eth.Contract(
+          ERC1155ABI,
+          ERC1155Address
+        );
+        // busdAddress 供外界使用
+
+        ERC1155ContractInstance.methods
+          .safeTransferFrom(walletId.value, transferToAddress.value, 1, 1, "0x")
+          .send({
+            from: walletId.value,
+          })
+          .then(()=> {
+            alert(t("tipsjs4"));
+          });
+        setTimeout(()=> {
+          cancelMobile();
+        }, 3000);
     }
 		
     const editzyclick = (e) => {
@@ -476,19 +533,6 @@ export default defineComponent({
       const dom1:any = document.querySelector('.modify-btn-active')
       dom1.textContent = t("confirmCurrent");
       modelTitle.value = t("transfer");
-      let html = ``;
-      html +=
-        `<div class="modify-ipt-add">
-            <div class="modify-ipt-tit dqaddress">${t("walltAdress")}<span>` +
-        walletId.value + `</span></div>
-            <div class="modify-ipt-tit newaddress2">${t(
-              "transferTo"
-            )}<input type="text" value=` +
-        walletId.value +
-        `></div>
-          </div>`;
-
-      modifyIpt.value = html;
       modelTips.value = `<span class="modify-tips-content">${t(
         "tips02"
       )}</span>`;
@@ -507,8 +551,9 @@ export default defineComponent({
       modifyBtnActive,
       modelTitle,
       modelTips,
-      modifyIpt,
 			assetsList,
+      walletBalance,
+      transferToAddress,
 			current,
 			pageSize,
 			showMoreInfo,
