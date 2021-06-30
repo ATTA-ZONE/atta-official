@@ -120,7 +120,75 @@
                   v-if="json.status == 2"
                   :data-endedition="item.endEdition"
                   :data-json="JSON.stringify(json)"
-                  @click="zhuanyiaddress($event)"
+                  @click="transferAddress($event)"
+                >
+                  {{ $t("transfer") }}
+                </button>
+              </div>
+              <div class="horizontalline"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="everymynftbox">
+        <div class="flex between mobilflex">
+          <div class="my-assets-left">
+            <video
+              autoplay
+              loop
+              src="/ATTAdrop.mp4"
+              muted
+            ></video>
+            <video
+              class="mohu"
+              autoplay
+              loop
+              src="/ATTAdrop.mp4"
+              muted
+            ></video>
+          </div>
+          <div class="my-assets-right">
+            <div class="my-assets-right-tit">ATTA Airdrop NFT</div>
+            <div class="my-assets-right-creator flex">
+              <div class="details-right-creator-img">
+                <img src="/imgs/t8.png" />
+              </div>
+              <span>@ATTA</span>
+              <div class="my-assets-right-creator-edition">
+                
+              </div>
+            </div>
+            <div class="details-right-des-tit">
+              {{ $t("productdescription") }}
+            </div>
+            <div
+              class="details-right-des" v-html="$t('erc1155Desc')"
+            ></div>
+          </div>
+        </div>
+        <div class="tablistbox">
+          <div class="listbox">
+            <div class="everydatabox">
+              <p class="tit">
+                <span>当前钱包余额：1</span>
+                <span style="margin-left: 50px">{{ $t("blockchain") }}</span>
+              </p>
+              <div class="inputbox flex between">
+                <div class="srkbox">
+                  <input
+                    type="text"
+                    readonly
+                    :value="$t('inwallet') + walletId"
+                  />
+                  <span
+                    class="clickedit"
+                    onclick="editnftaddress(event)"
+                    >{{ $t("clickedit") }}</span
+                  >
+                </div>
+                <button
+                  class="ntfbtn"
+                  @click="transferAddress"
                 >
                   {{ $t("transfer") }}
                 </button>
@@ -145,45 +213,37 @@
     </div>
 
     <!-- modify -->
-    <div class="modify none">
+    <div :class="['modify',{'modify-tc-active': showTransferModel}]" v-show="showTransferModel">
       <div class="modify-container flex">
         <div class="modify-form">
           <div class="modify-tit flex" data-type="name">
-            <span>title</span
-            ><img class="none" @click="cancelMobile()" src="/imgs/close.png" />
+            <span>{{modelTitle}}</span
+            ><img class="none" @click="cancelMobile" src="/imgs/close.png" />
           </div>
-          <div class="modify-ipt"></div>
-          <div class="modify-tips"></div>
+          <div class="modify-ipt" v-html="modifyIpt"></div>
+          <div class="modify-tips" v-html="modelTips"></div>
           <div class="modify-btn flex">
             <button
               class="add modify-btn-active"
               type="button"
+              ref="modifyBtnActive"
               @click="editzyclick($event)"
             ></button>
             
             <button
               class="cancel cancel-mobile none"
               type="button"
-              @click="cancelMobile()"
+              @click="cancelMobile"
             >
               {{ $t('cancel') }}
             </button>
           </div>
-          <div class="modify-close" @click="cancelMobile()">
+          <div class="modify-close" @click="cancelMobile">
             <img src="/imgs/close.png" />
           </div>
         </div>
       </div>
     </div>
-    <!--提示弹窗-->
-    <div class="hsycms-model-mask" id="mask-tips"></div>
-    <div class="hsycms-model hsycms-model-tips" id="tips">
-      <div class="hsycms-model-text">这里是提示内容</div>
-    </div>
-    <!-- foot -->
-    <div class="footerpage"></div>
-
-    <!-- <div class="tips"></div> -->
   </div>
 </template>
 
@@ -206,6 +266,11 @@ export default defineComponent({
     const selectedNft = ref()
     const walletId = ref('')
     const tokenarr:any = ref([])
+    const showTransferModel = ref(false)
+    const modelTitle = ref('')
+    const modelTips = ref('')
+    const modifyIpt = ref('')
+    const modifyBtnActive:any = ref({})
 
 		const isEn = computed(() => {
       return locale.value.trim() == "en";
@@ -291,7 +356,6 @@ export default defineComponent({
 
 		const getAccount = () => {
       window.CHAIN.WALLET.enable().then((res:any) => {
-        console.log(res, '---');
         if (res && res.length) {
           walletId.value = res[0];
           geteveryqkl();
@@ -300,6 +364,9 @@ export default defineComponent({
         }
       });
     }
+    onMounted(() => {
+      getAccount();
+		})
 
 		const getMoreList = () => {
       current.value += 1;
@@ -332,9 +399,7 @@ export default defineComponent({
     }
 
 		const cancelMobile = () => {
-      const dom1: HTMLElement = <HTMLElement>document.querySelector(".modify");
-      dom1.classList.remove("modify-tc-active");
-      dom1.style.display = "none";
+      showTransferModel.value = false
     }
 
 		const zyajax = (newaddress, obj) => {
@@ -397,50 +462,42 @@ export default defineComponent({
       }
     }
 
-		const zhuanyiaddress = (e) => {
-      const obj = JSON.parse(e.target.dataset.json);
-      const endedition = JSON.parse(e.target.dataset.endedition);
-      const dom1: HTMLElement = <HTMLElement>document.querySelector(".modify-tit span");
-      const dom2: HTMLElement = <HTMLElement>document.querySelector(".modify-ipt");
-      const dom3: HTMLElement = <HTMLElement>document.querySelector(".modify-tips");
-      const dom4: HTMLElement = <HTMLElement>document.querySelector(".modify-btn-active");
-      const dom6: HTMLElement = <HTMLElement>document.querySelector(".modify");
-      dom1.textContent =
-        t("transfer1") +
-        obj.edition +
-        ` of ` +
-        endedition +
-        t("newWallt");
-      var html = ``;
+		const transferAddress = (e) => {
+      showTransferModel.value=true
+      const dom1:any = document.querySelector('.modify-btn-active')
+      dom1.textContent = t("confirmCurrent");
+      modelTitle.value = t("transfer");
+      let html = ``;
       html +=
         `<div class="modify-ipt-add">
-						<div class="modify-ipt-tit dqaddress">${t("walltAdress")}<span>` +
-        walletId.value +
-        `</span></div>
-						<div class="modify-ipt-tit newaddress2">${t(
+            <div class="modify-ipt-tit dqaddress">${t("walltAdress")}<span>` +
+        walletId.value + `</span></div>
+            <div class="modify-ipt-tit newaddress2">${t(
               "transferTo"
             )}<input type="text" value=` +
         walletId.value +
         `></div>
-					</div>`;
+          </div>`;
 
-      dom2.innerHTML = html;
-      dom3.innerHTML = `<span class="modify-tips-content">${t(
+      modifyIpt.value = html;
+      modelTips.value = `<span class="modify-tips-content">${t(
         "tips02"
       )}</span>`;
-      dom4.classList.add("add");
-      dom4.textContent = t("confirmCurrent");
-      dom4.setAttribute("data-type", e.target.dataset.json);
-      dom6.style.display = "block";
+      if (!e.target.dataset.json) {
+        return false
+      }
+      const obj = JSON.parse(e.target.dataset.json);
+      const endedition = JSON.parse(e.target.dataset.endedition);
+      modelTitle.value = t("transfer1") + obj.edition + ` of ` + endedition + t("newWallt");
+      dom1.setAttribute("data-type", e.target.dataset.json);
     }
-
-		onMounted(() => {
-      getAccount();
-		})
 
     return {
       isEn,
-      t,
+      modifyBtnActive,
+      modelTitle,
+      modelTips,
+      modifyIpt,
 			assetsList,
 			current,
 			pageSize,
@@ -453,10 +510,12 @@ export default defineComponent({
 			getFormat,
 			getIntroduce,
 			changeishide,
-			zhuanyiaddress,
+			transferAddress,
 			editzyclick,
       cancelMobile,
-      formatVideoUrl
+      formatVideoUrl,
+      transferAddress,
+      showTransferModel
     };
   }
 });

@@ -193,7 +193,6 @@ export default defineComponent({
         getCookie("currentAddress") == "false"
           ? ""
           : getCookie("currentAddress");
-      console.log(accountAddress.value);
       window.addEventListener("resize", resizeWindow);
       resizeWindow();
       switchLanauge();
