@@ -130,6 +130,13 @@
           </div>
         </div>
       </li>
+    </ul>
+    <ul v-else style="padding: 150px 0">
+      <li class="flex nothing">
+        <div style="margin: 0 auto">{{ $t("norecord") }}</div>
+      </li>
+    </ul>
+    <ul>
       <li class="everymynftbox">
         <div class="flex between mobilflex">
           <div class="my-assets-left">
@@ -197,11 +204,6 @@
             </div>
           </div>
         </div>
-      </li>
-    </ul>
-    <ul v-else style="padding: 150px 0">
-      <li class="flex nothing">
-        <div style="margin: 0 auto">{{ $t("norecord") }}</div>
       </li>
     </ul>
     <div class="bzy-e-more" v-if="assetsList.total > 9">
