@@ -131,7 +131,7 @@
         </div>
       </li>
     </ul>
-    <ul v-if="walletBalance == 0 && !assetsList.records || assetsList.records.length < 1" style="padding: 150px 0">
+    <ul v-if="walletBalance == 0 && (!assetsList.records || assetsList.records.length < 1)" style="padding: 150px 0">
       <li class="flex nothing">
         <div style="margin: 0 auto">{{ $t("norecord") }}</div>
       </li>
@@ -363,17 +363,16 @@ export default defineComponent({
       });
     }
 
-		const getAccount = () => {
-      window.CHAIN.WALLET.enable().then((res:any) => {
-        if (res && res.length) {
-          walletId.value = res[0];
-          transferToAddress.value = res[0];
-          initAccount()
-          geteveryqkl();
-        } else {
-          getAssetsList([]);
-        }
-      });
+		const getAccount = async() => {
+      const accounts = await window.CHAIN.WALLET.enable()
+      if (accounts[0]) {
+        walletId.value = accounts[0]
+        transferToAddress.value = accounts[0];
+        initAccount()
+        geteveryqkl();
+      } else {
+         getAssetsList([]);
+      }
     }
 
     const initAccount = async()=>{
