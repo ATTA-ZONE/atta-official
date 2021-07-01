@@ -55,8 +55,8 @@
               <div class="flex my-assets-right-download">
                 <a
                   class="flex download"
-                  :download="item.attachment"
-                  :href="item.attachment"
+                  :download="item.name"
+                  :href="formatVideoUrl(item.attachment)"
                   >{{ $t("down") }}</a
                 >
               </div>
@@ -171,6 +171,16 @@
             <div
               class="details-right-des" v-html="$t('erc1155Desc')"
             ></div>
+            <div class="my-assets-right-price">
+              <div class="flex my-assets-right-download">
+                <a
+                  class="flex download"
+                  download="ATTAdrop.mp4"
+                  href="/ATTAdrop.mp4"
+                  >{{ $t("down") }}</a
+                >
+              </div>
+            </div>
           </div>
         </div>
         <div class="tablistbox">
