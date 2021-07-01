@@ -131,12 +131,12 @@
         </div>
       </li>
     </ul>
-    <ul v-else style="padding: 150px 0">
+    <ul v-if="walletBalance == 0 && !assetsList.records || assetsList.records.length < 1" style="padding: 150px 0">
       <li class="flex nothing">
         <div style="margin: 0 auto">{{ $t("norecord") }}</div>
       </li>
     </ul>
-    <ul>
+    <ul v-if="walletBalance > 0">
       <li class="everymynftbox">
         <div class="flex between mobilflex">
           <div class="my-assets-left">
@@ -177,7 +177,7 @@
           <div class="listbox">
             <div class="everydatabox">
               <p class="tit">
-                <span>当前钱包余额：{{walletBalance}}</span>
+                <span>{{$t('currentWallet')}}：{{walletBalance}}</span>
                 <span style="margin-left: 50px">{{ $t("blockchain") }}</span>
               </p>
               <div class="inputbox flex between">
@@ -284,7 +284,7 @@ export default defineComponent({
     const transferToAddress = ref('')
     const modifyBtnActive:any = ref({})
     const chainId = ref("");
-    const walletBalance = ref("");
+    const walletBalance = ref(0);
     const targetChainId = ref("");
     const web3 = ref();
 

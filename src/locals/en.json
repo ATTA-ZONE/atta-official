@@ -121,6 +121,7 @@
     "Address modification record",
     "Transfer record"
   ],
+  "currentWallet":"Current wallet balance",
   "nosuc": "Withdraw successfully",
   "tips6": "Are you sure you want to [Withdrawal of casting application]？",
   "tips3": "Confirm",
