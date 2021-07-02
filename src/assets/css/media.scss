@@ -23,6 +23,13 @@
   .video-wrap .header-txt {
     top: 80px !important;
   }
+  .video-wrap{
+    img.star-image{
+      width: 75.1px;
+      bottom: -40px;
+      right: -135px;
+    }
+  }
   
   .modal-container {
     .modal-wrap {
@@ -65,7 +72,7 @@
   div.home-page > div .home-page-two {
     margin-top: 0;
   }
-  .home-page .home-page-two .page-two img:nth-child(1){
+  .home-page .home-page-two div.page-two img:nth-child(1){
     width: 65.8px;
     left: -5px;
   }
