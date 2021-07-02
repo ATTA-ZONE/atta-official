@@ -55,8 +55,7 @@
               <div class="flex my-assets-right-download">
                 <a
                   class="flex download"
-                  :download="item.basicId+ '.mp4'"
-                  :href="formatVideoUrl(item.attachment)"
+                  @click="downloadFile(item)"
                   >{{ $t("down") }}</a
                 >
               </div>
@@ -434,6 +433,17 @@ export default defineComponent({
       return window.locationUrl + item
     }
 
+    const downloadFile = (item) => {
+      const a = document.createElement('a');
+      const url = formatVideoUrl(item.attachment); // 完整的url则直接使用
+      fetch(url).then(res => res.blob()).then(blob => { // 将链接地址字符内容转变成blob地址
+        a.href = URL.createObjectURL(blob)
+        a.download = item.name // 下载文件的名字
+        document.body.appendChild(a)
+        a.click()
+      })
+    }
+
 		const getFormat = (item) => {
       return item.primaryPic.substr(item.primaryPic.lastIndexOf(".") + 1);
     }
@@ -581,7 +591,8 @@ export default defineComponent({
 			editzyclick,
       cancelMobile,
       formatVideoUrl,
-      showTransferModel
+      showTransferModel,
+      downloadFile
     };
   }
 });
