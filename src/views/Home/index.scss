@@ -6,10 +6,16 @@
 }
 
 .video-wrap {
-  position: absolute;
+  position: absolute; 
   top: 0;
   left: 0;
   z-index: 99;
+  .star-image{
+    position: absolute;
+    bottom: -160px;
+    right: -100px;
+    margin-right: 150px;
+  }
 }
 
 .home-page {
@@ -45,6 +51,9 @@ video{
 }
 .video-wrap video {
   height: 808px;
+}
+.content-wrap video {
+  object-fit: contain;
 }
 .header-txt {
   width: 100%;

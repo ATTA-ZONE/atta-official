@@ -4,13 +4,13 @@
     <div class="header-txt">
       <img src="/imgs/Text.png" />
     </div>
+    <img class="star-image" src="/imgs/pageTworightTop.png" />
   </div>
   <div class="home-page flex">
     <div>
       <div class="home-page-two flex">
         <div class="page-two flex">
           <img src="/imgs/pageTwoLeft.png" />
-          <img src="/imgs/pageTworightTop.png" />
           <p :class="[isEn ? 'page-two-en' : 'page-two-ch fz-fm-pf']">
             {{ $t("attaInfo") }}<br />{{ $t("attaInfo1") }}
           </p>
