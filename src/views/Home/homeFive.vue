@@ -1,7 +1,7 @@
 <template>
   <div class="home-page-five" id="Contents">
         <img class="img-search" src="/imgs/SearchLeft.png" />
-        <div class="header flex">
+        <div class="header flex between">
           <span class="han-son">
             {{ $t("Discover ATTA") }}
             <br />
@@ -123,3 +123,8 @@ export default defineComponent({
   }
 });
 </script>
+<style  scoped>
+  .between{
+    justify-content: space-between;
+  }
+</style>
