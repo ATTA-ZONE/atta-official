@@ -34,8 +34,11 @@
             />
           </div>
           <div class="claim-title">
-            {{ $t("Claim deadline") }}: 2021-6-31 20:00
+            {{ $t("Claim deadline") }}: {{$t("btnword")}}
           </div>
+          <!-- <div class="claim-title">
+            {{ $t("Claim deadline") }}: 2021-6-31 20:00
+          </div> -->
           <div class="claim-title" v-if="props.accountAddress">
             {{ $t(claimBtn) }}
           </div>
@@ -186,6 +189,10 @@ export default defineComponent({
     };
 
     const getNftBsc = async () => {
+      let bool = false;
+      if(!bool){
+        return;
+      }
       if (submitBtn.value === "Connect now") {
         getAddress();
         return false;
@@ -370,8 +377,10 @@ export default defineComponent({
         padding: 14px 70px;
         margin-top: 20px;
         cursor: pointer;
-        color: rgba(168, 222, 238, 1);
-        border: 1px solid rgba(168, 222, 238, 1);
+        color: #555555;
+        // color: rgba(168, 222, 238, 1);
+        border: 1px solid #555555;
+        // border: 1px solid rgba(168, 222, 238, 1);
       }
     }
   }
