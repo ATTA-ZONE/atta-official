@@ -1,5 +1,5 @@
 <template>
-  <div class="mynftbox">
+  <div class="mynftbox" v-loading="loading">
     <ul v-if="assetsList?.records && assetsList.records.length > 0">
       <li
         v-for="(item, idx) in assetsList.records"
@@ -296,6 +296,7 @@ export default defineComponent({
     const walletBalance = ref(0);
     const targetChainId = ref("");
     const web3 = ref();
+    const loading = ref<boolean>(false)
 
 		const isEn = computed(() => {
       return locale.value.trim() == "en";
@@ -313,6 +314,7 @@ export default defineComponent({
         .then((res:any) => {
           if (res.code == 0) {
             assetsList.value = res.data.pageResult;
+            loading.value = false
           }
         });
     }
@@ -374,6 +376,7 @@ export default defineComponent({
 
 		const getAccount = async() => {
       const accounts = await window.CHAIN.WALLET.enable()
+      loading.value = true
       if (accounts[0]) {
         walletId.value = accounts[0]
         transferToAddress.value = accounts[0];
@@ -592,7 +595,8 @@ export default defineComponent({
       cancelMobile,
       formatVideoUrl,
       showTransferModel,
-      downloadFile
+      downloadFile,
+      loading
     };
   }
 });
