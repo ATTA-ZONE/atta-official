@@ -34,7 +34,7 @@
             />
           </div>
           <div class="claim-title">
-            {{ $t("Claim deadline") }}: {{$t("btnword")}}
+            {{$t("btnword")}}
           </div>
           <!-- <div class="claim-title">
             {{ $t("Claim deadline") }}: 2021-6-31 20:00
