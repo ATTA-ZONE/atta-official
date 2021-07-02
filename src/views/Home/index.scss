@@ -64,7 +64,7 @@ video{
   left: 0;
 }
  .header-txt img {
-  width: 75%;
+  width: 66%;
   padding: 10% 20px !important;
 }
 
@@ -79,12 +79,13 @@ video{
 }
 .home-page .home-page-two .page-two {
   width: 1085px;
-  height: 551px;
+  // height: 551px;
   background: url(/imgs/pageTwoBgiBgi.png) no-repeat center center;
   background-size: cover;
   position: relative;
   justify-content: center;
   align-items: center;
+  padding: 30px 0;
 }
 .home-page .home-page-two .page-two .page-two-en {
   font-family: 'Hanson-Bold';
