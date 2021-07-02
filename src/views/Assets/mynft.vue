@@ -330,7 +330,7 @@ export default defineComponent({
 
       axios.get(requestUrl).then((res:any) => {
         let nftData = res.result;
-        if (!nftData || nftData.length < 1) {
+        if (!nftData || nftData.length < 1 || !Array.isArray(nftData)) {
           loading.value = false;
           return false;
         }
