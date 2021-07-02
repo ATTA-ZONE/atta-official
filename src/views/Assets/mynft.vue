@@ -55,7 +55,7 @@
               <div class="flex my-assets-right-download">
                 <a
                   class="flex download"
-                  :download="item.name"
+                  :download="item.basicId+ '.mp4'"
                   :href="formatVideoUrl(item.attachment)"
                   >{{ $t("down") }}</a
                 >
@@ -81,7 +81,7 @@
             >
               <p class="tit">
                 <span
-                  >Token ID : {{ json.edition }} of {{ item.endEdition }}</span
+                  >{{$t('banhao2')}}: {{ json.edition }} of {{ item.endEdition }}</span
                 >
                 <span style="margin-left: 50px">{{ $t("blockchain") }}</span>
               </p>
