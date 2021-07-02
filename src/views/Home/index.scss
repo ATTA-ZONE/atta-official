@@ -46,6 +46,9 @@ video{
 .video-wrap video {
   height: 808px;
 }
+.content-wrap video {
+  object-fit: contain;
+}
 .header-txt {
   width: 100%;
   text-align: center;
