@@ -331,7 +331,8 @@ export default defineComponent({
       axios.get(requestUrl).then((res:any) => {
         let nftData = res.result;
         if (!nftData || nftData.length < 1) {
-          return false
+          loading.value = false;
+          return false;
         }
         let obj = {}
         let arr:any = []
