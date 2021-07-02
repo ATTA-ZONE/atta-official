@@ -433,7 +433,7 @@ export default defineComponent({
       return window.locationUrl + item
     }
 
-    const downloadFile = (item) => {
+    const downloadFile = (item:any) => {
       const a = document.createElement('a');
       const url = formatVideoUrl(item.attachment); // 完整的url则直接使用
       fetch(url).then(res => res.blob()).then(blob => { // 将链接地址字符内容转变成blob地址
