@@ -1,5 +1,5 @@
 <template>
-  <div class="history-container">
+  <div class="history-container" v-loading="loading">
     <div class="history-items">
       <div>
         <div
@@ -53,6 +53,7 @@ export default defineComponent({
   name: "history",
   setup() {
     const dataList: any = ref([]);
+    const loading = ref<boolean>(false)
 
     const timeFormat = (str) => {
       const date = new Date(str);
@@ -103,17 +104,20 @@ export default defineComponent({
                 });
               });
           }
+          loading.value = false
         }
       });
     };
 
     onMounted(() => {
+      loading.value = true
       getNftHistory();
     })
 
     return {
       dataList,
-      timeFormat
+      timeFormat,
+      loading
     };
   },
 });
