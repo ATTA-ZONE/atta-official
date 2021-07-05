@@ -1,7 +1,7 @@
 <template>
   <div class="video-wrap">
     <video autoplay loop src="/nftInfo.mp4" muted></video>
-    <div class="header-txt">
+    <div class="header-txt flex">
       <img src="/imgs/Text.png" />
     </div>
     <img class="star-image" src="/imgs/pageTworightTop.png" />

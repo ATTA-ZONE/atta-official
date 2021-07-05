@@ -11,17 +11,18 @@
 
 @media only screen and (max-width: 992px) {
   .video-wrap .header-txt img {
-    width: 75%;
-    padding: 10% 20px !important;
+    width: 66%;
+    padding: 0% 20px !important;
+    margin-top: 4%;
   }
   .video-wrap .header-txt {
-    padding: 0% 20px !important;
+    padding: 0% !important;
   }
   .video-wrap video {
     height: 245px !important;
   }
   .video-wrap .header-txt {
-    top: 80px !important;
+    // top: 80px !important;
   }
   .video-wrap{
     img.star-image{
