@@ -144,6 +144,7 @@ export default defineComponent({
           if (res.length > 0) {
             accountAddress.value = res[0];
             setCookie("currentAddress", res[0]);
+            window.location.reload()
           }
         });
       } else {
@@ -151,10 +152,10 @@ export default defineComponent({
           if (res.length > 0) {
             accountAddress.value = res[0];
             setCookie("currentAddress", res[0]);
+            window.location.reload()
           }
         })
       }
-      window.location.reload()
     };
 
     const goAnchor = (id: number | string) => {
