@@ -154,6 +154,7 @@ export default defineComponent({
           }
         })
       }
+      window.location.reload()
     };
 
     const goAnchor = (id: number | string) => {
