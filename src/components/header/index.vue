@@ -147,7 +147,12 @@ export default defineComponent({
           }
         });
       } else {
-        window.CHAIN.WALLET.connect("MetaMask")
+        window.CHAIN.WALLET.connect("MetaMask").then(res=>{
+          if (res.length > 0) {
+            accountAddress.value = res[0];
+            setCookie("currentAddress", res[0]);
+          }
+        })
       }
     };
 
