@@ -138,13 +138,21 @@ export default defineComponent({
         "address",
         accounts[0]
       );
-      console.log(web3.value.utils);
-      let bscAd =
-        window.scansite_base_url +
-        "/api?module=logs&action=getLogs&fromBlock=0&toBlock=latest&address=0xD752fc21081f154cC7d34f08aA57929A6f18B1Fe&topic0=0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62&topic2=" +
-        address1 +
-        "&topic2_3_opr=or&topic3=" +
-        address1;
+      let bscAd: string = "";
+      if (window.location.href.indexOf("atta.zone") > -1) {
+        bscAd =
+          "https://api.bscscan.com/api?module=logs&action=getLogs&fromBlock=0&toBlock=latest&address=0x777a1530ce62b144e083d4a7595f47c99a290a48&topic0=0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62&topic2=" +
+          address1 +
+          "&topic2_3_opr=or&topic3=" +
+          address1;
+      } else {
+        bscAd =
+          window.scansite_base_url +
+          "/api?module=logs&action=getLogs&fromBlock=0&toBlock=latest&address=0xD752fc21081f154cC7d34f08aA57929A6f18B1Fe&topic0=0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62&topic2=" +
+          address1 +
+          "&topic2_3_opr=or&topic3=" +
+          address1;
+      }
       axios.get(bscAd).then((res: any) => {
         if (res.status == 1 && res.result.length > 0) {
           for (let i = 0; i < res.result.length; i++) {
@@ -161,8 +169,8 @@ export default defineComponent({
             //let id = Number(res.result[i].data.slice(-128,-64))
           }
           dataList.value.push(...res.result);
-          loading.value = false;
         }
+        loading.value = false;
       });
     };
 
