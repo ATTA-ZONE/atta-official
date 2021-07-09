@@ -5,7 +5,7 @@
   <div class="bsc-tips" style="display:none;position:absolute;top:80px;left:50%;transform:translateX(-50%);z-index:9999;color:#fff;background: #9567FF;border-radius: 10px;white-space: nowrap;padding:10px 20px;">
     <span class="rpcname">{{chentext[entclang].tips03+chentext[entclang].tips04}}</span>
     <a @click="changenetwork()" class="target-rpcname">{{chentext[entclang].tips04}}</a>
-    <img @click="closeBsc()" style="width: 20px;vertical-align: bottom;" src="/imgs/Close.png" />
+    <img @click="closeBsc()" style="width: 20px;vertical-align: bottom;" src="/imgs/close.png" />
   </div>
 </template>
 <script lang="ts">
