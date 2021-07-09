@@ -56,10 +56,10 @@ export default defineComponent({
     display: flex;
     padding: 0 10%;
     margin-bottom: 30px;
+    justify-content: space-around;
   }
   .assets-tab {
     color: #fff;
-    margin-right:100px;
   }
   .active-text {
     display: inline-block;
@@ -74,5 +74,9 @@ export default defineComponent({
   }
   .router-view {
     padding: 0 10%;
+  }
+  .el-loading-mask {
+    min-height: 300px;
+    background-color: rgba(0, 0, 0, 1);
   }
 </style>

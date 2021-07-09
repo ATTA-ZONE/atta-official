@@ -1,5 +1,5 @@
 <template>
-  <div class="history-container">
+  <div class="history-container" v-loading="loading">
     <div class="history-items">
       <div>
         <div
@@ -9,7 +9,9 @@
         >
           <div class="history-title">
             <div class="title-info">
-              <span class="title-info-name">{{ item.name }}</span>
+              <span class="title-info-name">{{
+                item.name || "ATTA Airdrop NFT"
+              }}</span>
             </div>
             <div class="title-time">
               {{ timeFormat(item.timeStamp) }}
@@ -17,9 +19,13 @@
           </div>
           <div class="history-desc">
             <div class="desc-info">
-              <span class="desc-info-edtion"
-                >{{$t('ban2')}}{{ item.edition || item.editions }}{{ $t("ban") }}</span
+              <span
+                class="desc-info-edtion"
+                v-if="item.edition || item.editions"
+                >{{ $t("ban2") }}{{ item.edition || item.editions
+                }}{{ $t("ban") }}</span
               >
+              <span class="desc-info-edtion" v-else>{{ $t("number") }}: 1</span>
             </div>
             <div class="desc-address">
               <div>
@@ -47,12 +53,14 @@
 import { defineComponent, ref, onMounted } from "vue";
 import axios from "../../api";
 import { chainSetting } from "../../assets/js/chainSetting";
-import {getCookie} from '../../utils'
+import { getCookie } from "../../utils";
 
 export default defineComponent({
   name: "history",
   setup() {
     const dataList: any = ref([]);
+    const loading = ref<boolean>(false);
+    const web3 = ref();
 
     const timeFormat = (str) => {
       const date = new Date(str);
@@ -68,9 +76,9 @@ export default defineComponent({
       return Y + M + D + h + m + s;
     };
 
-    const getNftHistory = async () => {
+    const getNFT = async () => {
       let targetChainId: any = "";
-      console.log(window.base_url);
+
       if (window.location.href.indexOf("atta.zone") == -1) {
         targetChainId = "97";
       } else {
@@ -86,34 +94,97 @@ export default defineComponent({
         "&address=" +
         accounts[0] +
         "&sort=desc";
+      return new Promise((resolve, reject) => {
+        axios.get(bscAd).then((res) => {
+          resolve(res);
+        });
+      });
+    };
+
+    const dealNFT = (id) => {
+      return new Promise((resolve, reject) => {
+        axios
+          .get(window.base_url + "/v2/commodity/edition_basic_id", {
+            params: {
+              tokenTypeId: id,
+              lang: getCookie("lang") == "en" ? "EN" : "TC",
+            },
+          })
+          .then((itm) => {
+            resolve(itm);
+          });
+      });
+    };
+
+    const getNftHistory = async () => {
+      let res: any = await getNFT();
+      if (res.status == 1 && res.result.length > 0) {
+        for (let i = 0; i < res.result.length; i++) {
+          let itm: any = await dealNFT(res.result[i].tokenID);
+          res.result[i].timeStamp *= 1000;
+          res.result[i] = Object.assign(res.result[i], 0, {
+            name: itm.data.name,
+            edition: itm.data.edition,
+          });
+        }
+        dataList.value.push(...res.result);
+        loading.value = false;
+      }
+    };
+
+    const get1155History = async () => {
+      let accounts = await window.CHAIN.WALLET.enable();
+      const address1 = web3.value.eth.abi.encodeParameter(
+        "address",
+        accounts[0]
+      );
+      let bscAd: string = "";
+      if (window.location.href.indexOf("atta.zone") > -1) {
+        bscAd =
+          "https://api.bscscan.com/api?module=logs&action=getLogs&fromBlock=0&toBlock=latest&address=0x777a1530ce62b144e083d4a7595f47c99a290a48&topic0=0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62&topic2=" +
+          address1 +
+          "&topic2_3_opr=or&topic3=" +
+          address1 + '&apikey=9GRF9Q9HT18PBCHQQD84N7U2MGC6I1NE27';
+      } else {
+        bscAd =
+          window.scansite_base_url +
+          "/api?module=logs&action=getLogs&fromBlock=0&toBlock=latest&address=0xD752fc21081f154cC7d34f08aA57929A6f18B1Fe&topic0=0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62&topic2=" +
+          address1 +
+          "&topic2_3_opr=or&topic3=" +
+          address1;
+      }
       axios.get(bscAd).then((res: any) => {
         if (res.status == 1 && res.result.length > 0) {
-          dataList.value = res.result;
-          for (let i = 0; i < dataList.value.length; i++) {
-            dataList.value[i].timeStamp *= 1000;
-            axios
-              .get(
-                window.base_url +
-                  "/v2/commodity/edition_basic_id",{params:{tokenTypeId: dataList.value[i].tokenID, lang: getCookie('lang')== 'en'? 'EN':'TC'}}
-              )
-              .then((itm) => {
-                dataList.value[i] = Object.assign(dataList.value[i], 0, {
-                  name: itm.data.name,
-                  edition: itm.data.edition,
-                });
-              });
+          for (let i = 0; i < res.result.length; i++) {
+            res.result[i].timeStamp =
+              web3.value.utils.hexToNumber(res.result[i].timeStamp) * 1000;
+            res.result[i] = Object.assign(res.result[i], 0, {
+              from: res.result[i].topics[2]
+                .split("000000000000000000000000")
+                .join(""),
+              to: res.result[i].topics[3]
+                .split("000000000000000000000000")
+                .join(""),
+            });
+            //let id = Number(res.result[i].data.slice(-128,-64))
           }
+          dataList.value.push(...res.result);
         }
+        loading.value = false;
       });
     };
 
     onMounted(() => {
+      loading.value = true;
+      web3.value = new window.Web3(window.ethereum);
       getNftHistory();
-    })
+      get1155History();
+    });
 
     return {
       dataList,
-      timeFormat
+      timeFormat,
+      loading,
     };
   },
 });
