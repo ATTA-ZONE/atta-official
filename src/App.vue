@@ -22,11 +22,11 @@ export default defineComponent({
       chentext : {
         tc :{
           "tips03":"您的錢包當前連接的主網為：[",
-          "tips04":"]，八爪娛平台當前僅支持BSC主網，點擊切換至BSC主網 "
+          "tips04":"]，ATTA平台當前僅支持BSC主網，點擊切換至BSC主網 "
         },
         en : {
           "tips03":"Your wallet is connected to the [",
-          "tips04":"]. To use BSC on Bazhuayu, please switch to"
+          "tips04":"]. To use BSC on ATTA, please switch to"
         }
       }
     }
