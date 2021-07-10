@@ -6,7 +6,7 @@
       <font style="color: rgb(168, 222, 238)">{{ $t("Services") }}</font>
     </span>
     <img class="mouse" src="/imgs/MouseLeft.png" />
-    <p>
+    <p :class="isEn?'niunito':''">
       {{
         $t(
           "If you are a content creator, celebrity, artist, or real-world trend label interested in"

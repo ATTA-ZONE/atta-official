@@ -6,10 +6,10 @@
     </div>
     <img class="star-image" src="/imgs/pageTworightTop.png" />
   </div>
-  <div :class="[isEn? 'hanson':'','home-page flex']">
+  <div :class="['home-page flex']">
     <div>
       <div class="home-page-two flex">
-        <div class="page-two flex">
+        <div :class="['page-two flex',isEn?'hanson':'']">
           <img src="/imgs/pageTwoLeft.png" />
           <p :class="[isEn ? 'page-two-en' : 'page-two-ch fz-fm-pf']">
             {{ $t("attaInfo") }}<br />{{ $t("attaInfo1") }}
@@ -69,12 +69,12 @@
         </div>
         <div class="txt-right">
           <div class="txt-middle">
-            <span>
+            <span :class="isEn?'hanson':''">
               <font style="color: #a8deee">{{ $t("Upcoming") }} -</font>
               <br />
               {{ $t("O2 Music NFT") }}
             </span>
-            <p class="fz-fm-pf">{{ $t("musicInfo") }}</p>
+            <p :class="['fz-fm-pf',isEn?'niunito':'']">{{ $t("musicInfo") }}</p>
             <a>{{ $t("Coming soon") }}</a>
           </div>
         </div>

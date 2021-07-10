@@ -2,14 +2,14 @@
   <div class="footer flex" id="Contact">
     <div class="footer-left">
       <img src="/imgs/logo.png" />
-      <p v-if="isEn">
+      <p v-if="isEn" class="niunito">
         ATTA is a blockchain-based content
         <br />creator for premium copyright assets.
       </p>
       <p v-else>ATTA是基於區塊鏈NFT技術構建的數字潮流品牌</p>
     </div>
     <div class="footer-right">
-      <span>{{ $t("Follow Us") }}</span>
+      <span :class="isEn?'niunito':''">{{ $t("Follow Us") }}</span>
       <div class="foot-imgs">
         <div class="foot-wechat-wrap">
           <img

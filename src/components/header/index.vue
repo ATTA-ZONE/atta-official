@@ -49,7 +49,7 @@
         v-if="isMobile"
         src="/imgs/menu.png"
       />
-      <div class="header-links" v-if="!isMobile">
+      <div :class="['header-links',isEn?'hanson':'']" v-if="!isMobile">
         <a @click="goAnchor('Introduction')">
           {{ $t("Introduce") }}
         </a>
@@ -112,6 +112,10 @@ export default defineComponent({
     const isMobile = ref(false);
     const showModal = ref(false);
     const accountAddress = ref("");
+
+    const isEn = computed(() => {
+      return locale.value.trim() == "en";
+    });
 
     const switchLanauge = () => {
       var lang = getCookie("lang") == "en" ? "EN" : "TC";
@@ -233,6 +237,7 @@ export default defineComponent({
       walletStatus,
       emitAddress,
       goAssets,
+      isEn
     };
   },
 });

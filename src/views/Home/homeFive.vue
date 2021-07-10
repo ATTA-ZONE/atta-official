@@ -7,7 +7,7 @@
             <br />
             <font style="color: #a8deee">{{ $t("NFT Contents") }}</font>
           </span>
-          <p>
+          <p :class="isEn?'niunito':''">
             {{
               $t(
                 "ATTA specializes in NFT contents including but not limited to:"
@@ -23,25 +23,25 @@
             <div class="commodity-top commodity-left">
               <img src="/imgs/front.png" />
             </div>
-            <p>{{ $t("TYLOO CSGO - ESPORTS NFT") }}</p>
+            <p :class="isEn?'niunito':''">{{ $t("TYLOO CSGO - ESPORTS NFT") }}</p>
             <div class="price-total flex">
               <div>
-                <p>Price</p>
-                <p>?? BUSD</p>
+                <p :class="isEn?'niunito':''">Price</p>
+                <p :class="isEn?'hanson':''">?? BUSD</p>
               </div>
               <div>
-                <p>Total Edition</p>
-                <p>???</p>
+                <p :class="isEn?'niunito':''">Total Edition</p>
+                <p :class="isEn?'hanson':''">???</p>
               </div>
             </div>
             <div class="commodity-info flex">
               <img src="/imgs/Ellipse.png" />
-              <div>
+              <div :class="isEn?'niunito':''">
                 <p>E-sports</p>
                 <p>{{ $t("TYLOO CSGO TEAM") }}</p>
               </div>
             </div>
-            <a @click="toBaZhuayu">
+            <a :class="isEn?'niunito':''" @click="toBaZhuayu">
               {{ $t("E-SPORT") }}
             </a>
           </div>
@@ -49,25 +49,25 @@
             <div class="commodity-top commodity-middle">
               <img src="/imgs/front02.png" />
             </div>
-            <p>{{ $t("April - Experimental Music NFT") }}</p>
+            <p :class="isEn?'niunito':''">{{ $t("April - Experimental Music NFT") }}</p>
             <div class="price-total flex">
               <div>
-                <p>Price</p>
-                <p>350 BUSD</p>
+                <p :class="isEn?'niunito':''">Price</p>
+                <p :class="isEn?'hanson':''">350 BUSD</p>
               </div>
               <div>
-                <p>Total Edition</p>
-                <p>150</p>
+                <p :class="isEn?'niunito':''">Total Edition</p>
+                <p :class="isEn?'hanson':''">150</p>
               </div>
             </div>
             <div class="commodity-info flex">
               <img src="/imgs/Ellipse02.png" />
-              <div>
+              <div :class="isEn?'niunito':''">
                 <p>Musician& Artist</p>
                 <p>{{ $t("DING WU") }}</p>
               </div>
             </div>
-            <a @click="toBaZhuayu">
+            <a :class="isEn?'niunito':''" @click="toBaZhuayu">
               {{ $t("MUSIC") }}
             </a>
           </div>
@@ -75,50 +75,56 @@
             <div class="commodity-top commodity-right">
               <img src="/imgs/front03.png" />
             </div>
-            <p>{{ $t("NIU N.X - Designer Toy NFT") }}</p>
+            <p :class="isEn?'niunito':''">{{ $t("NIU N.X - Designer Toy NFT") }}</p>
             <div class="price-total flex">
               <div>
-                <p>Price</p>
-                <p>2039 HKD</p>
+                <p :class="isEn?'niunito':''">Price</p>
+                <p :class="isEn?'hanson':''">2039 HKD</p>
               </div>
               <div>
-                <p>Total Edition</p>
-                <p>200</p>
+                <p :class="isEn?'niunito':''">Total Edition</p>
+                <p :class="isEn?'hanson':''">200</p>
               </div>
             </div>
             <div class="commodity-info flex">
               <img src="/imgs/Ellipse03.png" />
-              <div>
+              <div :class="isEn?'niunito':''">
                 <p>Celebrities</p>
                 <p>{{ $t("Raquel Xu") }}</p>
               </div>
             </div>
-            <a @click="toBaZhuayu">
+            <a :class="isEn?'niunito':''" @click="toBaZhuayu">
               {{ $t("CELEBRITIES") }}
             </a>
           </div>
         </div>
         <div class="nft">
           <img src="/imgs/Group426.png" />
-          <p>
+          <p :class="isEn?'niunito':''">
             {{ $t("Find more exclusive NFTs at BAZHUAYU!") }}
           </p>
-          <a @click="toBaZhuayu">
+          <a :class="isEn?'niunito':''" @click="toBaZhuayu">
             {{ $t("Discover More NFTs") }}
           </a>
         </div>
       </div>
 </template>
 <script lang='ts'>
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
+import { useI18n } from "vue-i18n";
 export default defineComponent({
   setup() {
+    const { locale } = useI18n();
+    const isEn = computed(() => {
+      return locale.value.trim() == "en";
+    });
     const toBaZhuayu = () => {
       window.open("https://www.bazhuayu.io/");
     };
 
     return {
-      toBaZhuayu
+      toBaZhuayu,
+      isEn
     }
   }
 });
