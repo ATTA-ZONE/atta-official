@@ -434,7 +434,7 @@ export default defineComponent({
     }
 
     const formatVideoUrl = (item) => {
-      return window.locationUrl + item
+       return window.base_url + item
     }
 
     const downloadFile = (item:any) => {
