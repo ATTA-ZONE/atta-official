@@ -4,6 +4,7 @@ import i18n from './locals'
 import axios from './api'
 import router from './router'
 import VueAxios from 'vue-axios'
+import "./assets/css/index.scss";
 import { ElLoading } from 'element-plus';
 import 'element-plus/packages/theme-chalk/src/base.scss'
 

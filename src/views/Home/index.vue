@@ -6,7 +6,7 @@
     </div>
     <img class="star-image" src="/imgs/pageTworightTop.png" />
   </div>
-  <div class="home-page flex">
+  <div :class="[isEn? 'hanson':'','home-page flex']">
     <div>
       <div class="home-page-two flex">
         <div class="page-two flex">
@@ -68,7 +68,7 @@
           <img src="/imgs/binance.png" />
         </div>
         <div class="txt-right">
-          <div :class="['txt-middle',isEn?'han-son':'']">
+          <div class="txt-middle">
             <span>
               <font style="color: #a8deee">{{ $t("Upcoming") }} -</font>
               <br />

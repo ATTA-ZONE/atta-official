@@ -12,6 +12,7 @@
 import { defineComponent } from "vue";
 import headerCell from "@/components/header/index.vue";
 import footerCell from "@/components/footer/index.vue";
+import { chainSetting } from "@/assets/js/chainSetting";
 
 export default defineComponent({
   components: { headerCell, footerCell },
@@ -57,8 +58,8 @@ export default defineComponent({
       if (res != this.targetChainId) {
         let dom1:any = document.querySelector('.rpcname');
         let dom2:any = document.querySelector('.target-rpcname');
-        dom1.textContent = this.chentext[this.entclang].tips03+RPCSetting[res]['CHAIN_NAME']+this.chentext[this.entclang].tips04;
-        dom2.textContent = RPCSetting[targetChainId]['CHAIN_NAME'];
+        dom1.textContent = this.chentext[this.entclang].tips03+chainSetting[res]['CHAIN_NAME']+this.chentext[this.entclang].tips04;
+        dom2.textContent = chainSetting[this.targetChainId]['CHAIN_NAME'];
         this.showBsc();
       } else {
         this.closeBsc();
@@ -72,7 +73,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style lang="scss">
-@import '@/assets/css/index.scss';
-</style>
