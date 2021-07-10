@@ -68,8 +68,8 @@
           <img src="/imgs/binance.png" />
         </div>
         <div class="txt-right">
-          <div class="txt-middle">
-            <span class="han-son">
+          <div :class="['txt-middle',isEn?'han-son':'']">
+            <span>
               <font style="color: #a8deee">{{ $t("Upcoming") }} -</font>
               <br />
               {{ $t("O2 Music NFT") }}
