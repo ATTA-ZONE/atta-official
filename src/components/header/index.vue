@@ -93,7 +93,7 @@
   />
 </template>
 <script lang='ts'>
-import { computed, defineComponent, onMounted, onUnmounted, ref } from "vue";
+import { computed, defineComponent, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import modal from "../../views/Home/modal.vue";
 import greenDot from "/imgs/greenDot.png";
@@ -114,12 +114,11 @@ export default defineComponent({
     const accountAddress = ref("");
 
     const switchLanauge = () => {
-      var lang = getCookie("lang") == 'en' ? "EN" : "TC";
+      var lang = getCookie("lang") == "en" ? "EN" : "TC";
       const json = { lang: lang };
       const formData = new FormData();
       formData.append("lang", lang);
       axios.post(window.base_url + "/v2/user/lang/select", formData);
-      
     };
 
     const switchLang = (str: string) => {
@@ -127,7 +126,7 @@ export default defineComponent({
       setCookie("lang", str);
       showMask.value = false;
       switchLanauge();
-      window.location.reload()
+      window.location.reload();
     };
 
     const closemodal = () => {
@@ -148,13 +147,13 @@ export default defineComponent({
           }
         });
       } else {
-        window.CHAIN.WALLET.connect("MetaMask").then(res=>{
+        window.CHAIN.WALLET.connect("MetaMask").then((res) => {
           if (res.length > 0) {
             accountAddress.value = res[0];
             setCookie("currentAddress", res[0]);
             window.location.reload()
           }
-        })
+        });
       }
     };
 
@@ -182,11 +181,7 @@ export default defineComponent({
       }
     };
 
-    onUnmounted(() => {
-      window.removeEventListener("resize", resizeWindow);
-    });
-
-    onMounted(async () => {
+    onMounted(() => {
       if (window.location.href.indexOf("atta.zone") > -1) {
         window.base_url = "https://www.bazhuayu.io";
         window.scansite_base_url = "https://api.bscscan.com";
@@ -203,6 +198,21 @@ export default defineComponent({
       window.addEventListener("resize", resizeWindow);
       resizeWindow();
       switchLanauge();
+
+      let beforeTime = 0;
+      let leaveTime = 0;
+
+      window.onunload = () => {
+        leaveTime = new Date().getTime() - beforeTime;
+        if (leaveTime <= 5) {
+          setCookie("currentAddress", "false");
+          window.removeEventListener("resize", resizeWindow);
+        }
+      };
+
+      window.onbeforeunload = () => {
+        beforeTime = new Date().getTime();
+      };
     });
 
     const emitAddress = (str: string) => {
