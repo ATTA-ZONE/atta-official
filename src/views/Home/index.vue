@@ -103,9 +103,10 @@ export default defineComponent({
     });
 
     const playVideo = () => {
-      let dom: any = document.querySelector("media-video")
-      dom.play()
-      
+      let dom: any = document.querySelector(".media-video")
+      if (dom.paused) {
+        dom.play()
+      }
     }
 
     const handleScroll = () => {
