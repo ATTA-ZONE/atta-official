@@ -1,7 +1,7 @@
 <template>
   <div class="video-wrap">
-    <video autoplay loop src="/nftInfo.mp4" muted></video>
-    <div class="header-txt flex">
+    <video class="media-video" autoplay loop src="/nftInfo.mp4" muted></video>
+    <div class="header-txt flex" @click="playVideo">
       <img src="/imgs/Text.png" />
     </div>
     <img class="star-image" src="/imgs/pageTworightTop.png" />
@@ -93,7 +93,7 @@ import homeSix from "./homeSix.vue";
 
 export default defineComponent({
   components: { homeFive, homeSix },
-  setup: () => {
+  setup() {
     const { locale } = useI18n();
 
     const transitionImage = ref(false);
@@ -101,6 +101,12 @@ export default defineComponent({
     const isEn = computed(() => {
       return locale.value.trim() == "en";
     });
+
+    const playVideo = () => {
+      let dom: any = document.querySelector("media-video")
+      dom.play()
+      
+    }
 
     const handleScroll = () => {
       let scrollY = document.documentElement.scrollTop;
@@ -118,6 +124,7 @@ export default defineComponent({
     return {
       transitionImage,
       isEn,
+      playVideo
     };
   },
 });
