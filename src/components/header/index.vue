@@ -49,7 +49,7 @@
         v-if="isMobile"
         src="/imgs/menu.png"
       />
-      <div :class="['header-links',isEn?'hanson':'']" v-if="!isMobile">
+      <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
         <a @click="goAnchor('Introduction')">
           {{ $t("Introduce") }}
         </a>
@@ -93,7 +93,7 @@
   />
 </template>
 <script lang='ts'>
-import { computed, defineComponent, onMounted, ref } from "vue";
+import { computed, defineComponent, onMounted, onUnmounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import modal from "../../views/Home/modal.vue";
 import greenDot from "/imgs/greenDot.png";
@@ -147,7 +147,7 @@ export default defineComponent({
           if (res.length > 0) {
             accountAddress.value = res[0];
             setCookie("currentAddress", res[0]);
-            window.location.reload()
+            window.location.reload();
           }
         });
       } else {
@@ -155,7 +155,7 @@ export default defineComponent({
           if (res.length > 0) {
             accountAddress.value = res[0];
             setCookie("currentAddress", res[0]);
-            window.location.reload()
+            window.location.reload();
           }
         });
       }
@@ -205,18 +205,21 @@ export default defineComponent({
 
       let beforeTime = 0;
       let leaveTime = 0;
-
-      window.onunload = () => {
+      window.addEventListener("unload", () => {
         leaveTime = new Date().getTime() - beforeTime;
+        alert(leaveTime);
         if (leaveTime <= 5) {
           setCookie("currentAddress", "false");
-          window.removeEventListener("resize", resizeWindow);
         }
-      };
+      });
 
-      window.onbeforeunload = () => {
+      window.addEventListener("beforeunload", () => {
         beforeTime = new Date().getTime();
-      };
+      });
+    });
+
+    onUnmounted(() => {
+      setCookie("currentAddress", "false");
     });
 
     const emitAddress = (str: string) => {
@@ -237,7 +240,7 @@ export default defineComponent({
       walletStatus,
       emitAddress,
       goAssets,
-      isEn
+      isEn,
     };
   },
 });
