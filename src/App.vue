@@ -2,10 +2,20 @@
   <header-cell />
   <router-view></router-view>
   <footer-cell />
-  <div class="bsc-tips" style="display:none;position:absolute;top:80px;left:50%;transform:translateX(-50%);z-index:9999;color:#fff;background: #9567FF;border-radius: 10px;white-space: nowrap;padding:10px 20px;">
-    <span class="rpcname">{{chentext[entclang].tips03+chentext[entclang].tips04}}</span>
-    <a @click="changenetwork()" class="target-rpcname">{{chentext[entclang].tips04}}</a>
-    <img @click="closeBsc()" style="width: 20px;vertical-align: bottom;" src="/imgs/close.png" />
+  <div
+    class="bsc-tips"
+  >
+    <span class="rpcname">{{
+      chentext[entclang].tips03 + chentext[entclang].tips04
+    }}</span>
+    <a @click="changenetwork()" class="target-rpcname">{{
+      chentext[entclang].tips04
+    }}</a>
+    <img
+      @click="closeBsc"
+      style="width: 20px; vertical-align: bottom"
+      src="/imgs/close.png"
+    />
   </div>
 </template>
 <script lang="ts">
@@ -16,60 +26,82 @@ import { chainSetting } from "./assets/js/chainSetting";
 
 export default defineComponent({
   components: { headerCell, footerCell },
-  data(){
+  data() {
     return {
-      entclang : 'tc',
-      targetChainId : 56,
-      chentext : {
-        tc :{
-          "tips03":"您的錢包當前連接的主網為：[",
-          "tips04":"]，ATTA平台當前僅支持BSC主網，點擊切換至BSC主網 "
+      entclang: "tc",
+      targetChainId: 56,
+      chentext: {
+        tc: {
+          tips03: "您的錢包當前連接的主網為：[",
+          tips04: "]，ATTA平台當前僅支持BSC主網，點擊切換至BSC主網 ",
         },
-        en : {
-          "tips03":"Your wallet is connected to the [",
-          "tips04":"]. To use BSC on ATTA, please switch to"
-        }
-      }
-    }
+        en: {
+          tips03: "Your wallet is connected to the [",
+          tips04: "]. To use BSC on ATTA, please switch to",
+        },
+      },
+    };
   },
-  mounted (){
+  mounted() {
     let self = this;
-    if (document.cookie.indexOf('lang=en') > -1) {
-      self.entclang = 'en';
+    if (document.cookie.indexOf("lang=en") > -1) {
+      self.entclang = "en";
     }
-    if (window.location.href.indexOf('atta.zone') == -1) {
+    if (window.location.href.indexOf("atta.zone") == -1) {
       self.targetChainId = 97;
     }
-    window.CHAIN.WALLET.chainId()
-      .then(function(res){
-        self.RPCSwitchHint(res);
-      })
+    window.CHAIN.WALLET.chainId().then(function (res) {
+      self.RPCSwitchHint(res);
+    });
   },
-  methods :  {
+  methods: {
     closeBsc() {
-        let dom:any = document.querySelector('.bsc-tips');
-        dom.style.display = 'none';
+      let dom: any = document.querySelector(".bsc-tips");
+      dom.style.display = "none";
     },
     showBsc() {
-        let dom:any = document.querySelector('.bsc-tips');
-        dom.style.display = 'block';
+      let dom: any = document.querySelector(".bsc-tips");
+      dom.style.display = "block";
     },
     RPCSwitchHint(res) {
       if (res != this.targetChainId) {
-        let dom1:any = document.querySelector('.rpcname');
-        let dom2:any = document.querySelector('.target-rpcname');
-        dom1.textContent = this.chentext[this.entclang].tips03+chainSetting.RPCSetting[res].CHAIN_NAME+this.chentext[this.entclang].tips04;
-        dom2.textContent = chainSetting.RPCSetting[this.targetChainId]['CHAIN_NAME'];
+        let dom1: any = document.querySelector(".rpcname");
+        let dom2: any = document.querySelector(".target-rpcname");
+        dom1.textContent =
+          this.chentext[this.entclang].tips03 +
+          chainSetting.RPCSetting[res].CHAIN_NAME +
+          this.chentext[this.entclang].tips04;
+        dom2.textContent =
+          chainSetting.RPCSetting[this.targetChainId]["CHAIN_NAME"];
         this.showBsc();
       } else {
         this.closeBsc();
       }
     },
     changenetwork() {
-      window.CHAIN.WALLET.switchRPCSettings(this.targetChainId).then(()=>{
+      window.CHAIN.WALLET.switchRPCSettings(this.targetChainId).then(() => {
         this.closeBsc();
-      })
-    }
-  }
-})
+      });
+    },
+  },
+});
 </script>
+
+<style lang="scss">
+  .bsc-tips {
+    display: none;
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    color: #fff;
+    background: #9567ff;
+    border-radius: 10px;
+    white-space: nowrap;
+    padding: 10px 20px;
+    overflow-x: auto;
+    font-size: 14px;
+    max-width: 84%;
+  }
+</style>
