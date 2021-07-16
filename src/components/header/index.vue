@@ -22,7 +22,7 @@
             </div>
             <div class="wallet-status-address">{{ accountAddress }}</div>
             <div>
-              {{ $t("Current network") }} {{ chainId == 1? 'ETH' : 'BSC' }}
+              {{ $t("Current network") }} {{ chainId == 1 ? "ETH" : "BSC" }}
               <span class="wallet-status-btn" @click="toggleNetwork">切换</span>
             </div>
           </div>
@@ -80,7 +80,7 @@
             </div>
             <div class="wallet-status-address">{{ accountAddress }}</div>
             <div>
-              {{ $t("Current network") }} {{ chainId == 1? 'ETH' : 'BSC' }}
+              {{ $t("Current network") }} {{ chainId == 1 ? "ETH" : "BSC" }}
               <span class="wallet-status-btn" @click="toggleNetwork">切换</span>
             </div>
           </div>
@@ -110,12 +110,13 @@ import { initWeb3 } from "../../assets/js/initweb3";
 import { useRouter } from "vue-router";
 import { getCookie, setCookie } from "../../utils";
 import axios from "../../api";
+import { ElMessageBox } from "element-plus";
 
 export default defineComponent({
   components: { modal },
   setup() {
     const router = useRouter();
-    const { locale } = useI18n();
+    const { locale, t } = useI18n();
     const showMask = ref(false);
     const isMobile = ref(false);
     const showModal = ref(false);
@@ -187,25 +188,33 @@ export default defineComponent({
 
     const toggleNetwork = () => {
       let id = chainId.value == 1 ? 56 : 1;
-      if (id == 56) {
-        window.CHAIN.WALLET.switchRPCSettings(id).then((res) => {
-          chainId.value = 56;
-        });
-      } else {
-        window.ethereum &&
-          window.ethereum
-            .request({
-              method: "wallet_switchEthereumChain",
-              params: [
-                {
-                  chainId: "0x1",
-                },
-              ],
-            })
-            .then(() => {
-              chainId.value = 1;
-            });
-      }
+      let text = chainId.value == 1 ? 'Binance':'Ethereum'
+
+      ElMessageBox.confirm(t('Click to switch to') + ' ' + text + ' ' + t('Mainnet'), "Tips", {
+        confirmButtonText: t('tips3'),
+        cancelButtonText: t('tips4'),
+        type: "info",
+      }).then(() => {
+        if (id == 56) {
+          window.CHAIN.WALLET.switchRPCSettings(id).then((res) => {
+            chainId.value = 56;
+          });
+        } else {
+          window.ethereum &&
+            window.ethereum
+              .request({
+                method: "wallet_switchEthereumChain",
+                params: [
+                  {
+                    chainId: "0x1",
+                  },
+                ],
+              })
+              .then(() => {
+                chainId.value = 1;
+              });
+        }
+      });
     };
 
     const resizeWindow = () => {
