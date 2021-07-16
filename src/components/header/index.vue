@@ -13,14 +13,18 @@
         </a>
         <a @click="goAssets">{{ $t("Asset Management") }}</a>
 
-        <div class="wallet-container" @click="getAddress">
-          <div class="wallet-status">
+        <div class="wallet-container">
+          <div class="wallet-status" @click="getAddress">
             <div>
               {{
                 accountAddress ? $t("Wallet connected") : $t("Connect Wallet")
               }}
             </div>
             <div class="wallet-status-address">{{ accountAddress }}</div>
+            <div>
+              {{ $t("Current network") }} {{ chainId == 1? 'ETH' : 'BSC' }}
+              <span class="wallet-status-btn" @click="toggleNetwork">切换</span>
+            </div>
           </div>
           <img class="connect-status-img" :src="walletStatus" />
         </div>
@@ -66,15 +70,19 @@
         <span @click="showModal = true" class="top-btn">{{
           $t("Claim Your NFT")
         }}</span>
-        <div class="wallet-container" @click="getAddress">
+        <div class="wallet-container">
           <img class="connect-status-img" :src="walletStatus" />
           <div class="wallet-status">
-            <div class="wallet-status-title">
+            <div class="wallet-status-title" @click="getAddress">
               {{
                 accountAddress ? $t("Wallet connected") : $t("Connect Wallet")
               }}
             </div>
             <div class="wallet-status-address">{{ accountAddress }}</div>
+            <div>
+              {{ $t("Current network") }} {{ chainId == 1? 'ETH' : 'BSC' }}
+              <span class="wallet-status-btn" @click="toggleNetwork">切换</span>
+            </div>
           </div>
         </div>
         <p class="switchlanguagebox">
@@ -112,6 +120,7 @@ export default defineComponent({
     const isMobile = ref(false);
     const showModal = ref(false);
     const accountAddress = ref("");
+    const chainId = ref(1);
 
     const isEn = computed(() => {
       return locale.value.trim() == "en";
@@ -176,6 +185,29 @@ export default defineComponent({
       showMask.value = false;
     };
 
+    const toggleNetwork = () => {
+      let id = chainId.value == 1 ? 56 : 1;
+      if (id == 56) {
+        window.CHAIN.WALLET.switchRPCSettings(id).then((res) => {
+          chainId.value = 56;
+        });
+      } else {
+        window.ethereum &&
+          window.ethereum
+            .request({
+              method: "wallet_switchEthereumChain",
+              params: [
+                {
+                  chainId: "0x1",
+                },
+              ],
+            })
+            .then(() => {
+              chainId.value = 1;
+            });
+      }
+    };
+
     const resizeWindow = () => {
       let width = document.getElementsByTagName("body")[0].offsetWidth;
       if (width < 992) {
@@ -185,7 +217,23 @@ export default defineComponent({
       }
     };
 
-    onMounted(() => {
+    const makeCookie = () => {
+      let beforeTime = 0;
+      let leaveTime = 0;
+      window.addEventListener("unload", () => {
+        leaveTime = new Date().getTime() - beforeTime;
+        alert(leaveTime);
+        if (leaveTime <= 5) {
+          setCookie("currentAddress", "false");
+        }
+      });
+
+      window.addEventListener("beforeunload", () => {
+        beforeTime = new Date().getTime();
+      });
+    };
+
+    const getLocation = () => {
       if (window.location.href.indexOf("atta.zone") > -1) {
         window.base_url = "https://www.bazhuayu.io";
         window.scansite_base_url = "https://api.bscscan.com";
@@ -199,22 +247,20 @@ export default defineComponent({
         getCookie("currentAddress") == "false"
           ? ""
           : getCookie("currentAddress");
+    };
+
+    onMounted(() => {
+      getLocation();
       window.addEventListener("resize", resizeWindow);
       resizeWindow();
       switchLanauge();
 
-      let beforeTime = 0;
-      let leaveTime = 0;
-      window.addEventListener("unload", () => {
-        leaveTime = new Date().getTime() - beforeTime;
-        alert(leaveTime);
-        if (leaveTime <= 5) {
-          setCookie("currentAddress", "false");
-        }
-      });
+      makeCookie();
 
-      window.addEventListener("beforeunload", () => {
-        beforeTime = new Date().getTime();
+      window.CHAIN.WALLET.chainId().then((res) => {
+        if (res) {
+          chainId.value = res;
+        }
       });
     });
 
@@ -241,6 +287,8 @@ export default defineComponent({
       emitAddress,
       goAssets,
       isEn,
+      chainId,
+      toggleNetwork,
     };
   },
 });
