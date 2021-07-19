@@ -114,7 +114,7 @@
     @closeNet="showNetworkSwitch=false"
   >
     <span class="switcher-btn" @click="toggleNetwork"
-      >點擊切換至{{ targetNet }}主網</span
+      >{{$t('Click to switch to')}}{{ targetNet }}{{$t('Mainnet')}}</span
     >
   </tip-modal>
 </template>
