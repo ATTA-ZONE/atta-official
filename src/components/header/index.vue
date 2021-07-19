@@ -23,7 +23,7 @@
             <div class="wallet-status-address">{{ accountAddress }}</div>
             <div>
               {{ $t("Current network") }} {{ chainId == 1 ? "ETH" : "BSC" }}
-              <span class="wallet-status-btn" @click="toggleNetwork">切换</span>
+              <span class="wallet-status-btn" @click="toggleNetwork">{{$t('Switch')}}</span>
             </div>
           </div>
           <img class="connect-status-img" :src="walletStatus" />
@@ -81,7 +81,7 @@
             <div class="wallet-status-address">{{ accountAddress }}</div>
             <div>
               {{ $t("Current network") }} {{ chainId == 1 ? "ETH" : "BSC" }}
-              <span class="wallet-status-btn" @click="toggleNetwork">切换</span>
+              <span class="wallet-status-btn" @click="toggleNetwork">{{$t('Switch')}}</span>
             </div>
           </div>
         </div>
