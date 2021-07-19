@@ -1,7 +1,7 @@
 {
   "Upcoming": "Upcoming",
-  "Current network": "Current network:",
-  "Click to switch to": "Click to switch to",
+  "Current network": "Current network: ",
+  "switch network": "Switching network",
   "Mainnet": "Mainnet",
   "Switch": "Switch",
   "Connect Wallet": "Connect Wallet",

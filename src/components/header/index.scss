@@ -27,6 +27,18 @@
   .home-page-one .header {
     padding: 0 10% !important;
   }
+  .switcher-btn {
+    font-size: 12px !important;
+    line-height: 30px !important;
+  }
+}
+
+.switcher-btn {
+  display: inline-block;
+  width: 100%;
+  font-size: 20px;
+  line-height: 48px;
+  background: rgba(168, 222, 238, 1);
 }
 
 .home-page-one {

@@ -14,8 +14,8 @@
         <a @click="goAssets">{{ $t("Asset Management") }}</a>
 
         <div class="wallet-container">
-          <div class="wallet-status" @click="getAddress">
-            <div>
+          <div class="wallet-status">
+            <div @click="getAddress">
               {{
                 accountAddress ? $t("Wallet connected") : $t("Connect Wallet")
               }}
@@ -23,7 +23,11 @@
             <div class="wallet-status-address">{{ accountAddress }}</div>
             <div>
               {{ $t("Current network") }} {{ chainId == 1 ? "ETH" : "BSC" }}
-              <span class="wallet-status-btn" @click="toggleNetwork">{{$t('Switch')}}</span>
+              <span
+                class="wallet-status-btn"
+                @click="showNetworkSwitch = true"
+                >{{ $t("Switch") }}</span
+              >
             </div>
           </div>
           <img class="connect-status-img" :src="walletStatus" />
@@ -81,7 +85,11 @@
             <div class="wallet-status-address">{{ accountAddress }}</div>
             <div>
               {{ $t("Current network") }} {{ chainId == 1 ? "ETH" : "BSC" }}
-              <span class="wallet-status-btn" @click="toggleNetwork">{{$t('Switch')}}</span>
+              <span
+                class="wallet-status-btn"
+                @click="showNetworkSwitch = true"
+                >{{ $t("Switch") }}</span
+              >
             </div>
           </div>
         </div>
@@ -99,27 +107,38 @@
     @address="emitAddress"
     @closemodal="closemodal"
   />
+  <tip-modal
+    :title="$t('switch network')"
+    :content="$t('Current network') + currentNet"
+    v-if="showNetworkSwitch"
+    @closeNet="showNetworkSwitch=false"
+  >
+    <span class="switcher-btn" @click="toggleNetwork"
+      >點擊切換至{{ targetNet }}主網</span
+    >
+  </tip-modal>
 </template>
 <script lang='ts'>
 import { computed, defineComponent, onMounted, onUnmounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import modal from "../../views/Home/modal.vue";
+import tipModal from "../modals/index.vue";
 import greenDot from "/imgs/greenDot.png";
 import redDot from "/imgs/redDot.png";
 import { initWeb3 } from "../../assets/js/initweb3";
 import { useRouter } from "vue-router";
 import { getCookie, setCookie } from "../../utils";
 import axios from "../../api";
-import { ElMessageBox } from "element-plus";
 
 export default defineComponent({
-  components: { modal },
+  components: { modal, tipModal },
   setup() {
     const router = useRouter();
-    const { locale, t } = useI18n();
+    const { locale } = useI18n();
     const showMask = ref(false);
     const isMobile = ref(false);
     const showModal = ref(false);
+    const showNetworkSwitch = ref(false);
     const accountAddress = ref("");
     const chainId = ref(1);
 
@@ -134,6 +153,15 @@ export default defineComponent({
       formData.append("lang", lang);
       axios.post(window.base_url + "/v2/user/lang/select", formData);
     };
+
+    const currentNet = computed(() => {
+      return chainId.value == 1 ? "Ethereum" : "Binance"
+    });
+
+    const targetNet = computed(() => {
+      console.log(chainId.value);
+      return chainId.value == 1 ? "Binance" : "Ethereum"
+    });
 
     const switchLang = (str: string) => {
       locale.value = str;
@@ -188,33 +216,28 @@ export default defineComponent({
 
     const toggleNetwork = () => {
       let id = chainId.value == 1 ? 56 : 1;
-      let text = chainId.value == 1 ? 'Binance':'Ethereum'
 
-      ElMessageBox.confirm(t('Click to switch to') + ' ' + text + ' ' + t('Mainnet'), "Tips", {
-        confirmButtonText: t('tips3'),
-        cancelButtonText: t('tips4'),
-        type: "info",
-      }).then(() => {
-        if (id == 56) {
-          window.CHAIN.WALLET.switchRPCSettings(id).then((res) => {
-            chainId.value = 56;
-          });
-        } else {
-          window.ethereum &&
-            window.ethereum
-              .request({
-                method: "wallet_switchEthereumChain",
-                params: [
-                  {
-                    chainId: "0x1",
-                  },
-                ],
-              })
-              .then(() => {
-                chainId.value = 1;
-              });
-        }
-      });
+      if (id == 56) {
+        window.CHAIN.WALLET.switchRPCSettings(id).then(() => {
+          chainId.value = 56;
+          showNetworkSwitch.value = false
+        });
+      } else {
+        window.ethereum &&
+          window.ethereum
+            .request({
+              method: "wallet_switchEthereumChain",
+              params: [
+                {
+                  chainId: "0x1",
+                },
+              ],
+            })
+            .then(() => {
+              chainId.value = 1;
+              showNetworkSwitch.value = false
+            });
+      }
     };
 
     const resizeWindow = () => {
@@ -263,7 +286,6 @@ export default defineComponent({
       window.addEventListener("resize", resizeWindow);
       resizeWindow();
       switchLanauge();
-
       makeCookie();
 
       window.CHAIN.WALLET.chainId().then((res) => {
@@ -298,6 +320,9 @@ export default defineComponent({
       isEn,
       chainId,
       toggleNetwork,
+      showNetworkSwitch,
+      currentNet,
+      targetNet,
     };
   },
 });
