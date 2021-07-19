@@ -267,7 +267,8 @@ export default defineComponent({
   font-size: 16px;
 }
 .desc-address {
-  width: 550px;
+  // width: 550px;
+  word-wrap:break-word;
 }
 .desc-info-address {
   color: #a8deee;
