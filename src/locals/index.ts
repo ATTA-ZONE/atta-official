@@ -9,10 +9,10 @@ const messages = {
 }
 
 const i18n = createI18n({
-  locale: getCookie('lang')? getCookie('lang'): 'ch', // set locale
+  locale: getCookie('lg')? getCookie('lg'): 'ch',
   globalInjection: true,
-  fallbackLocale: 'ch', // set fallback locale
-  messages // set locale messages
+  fallbackLocale: 'ch',
+  messages
 })
 
 export default i18n

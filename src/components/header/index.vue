@@ -147,7 +147,7 @@ export default defineComponent({
     });
 
     const switchLanauge = () => {
-      var lang = getCookie("lang") == "en" ? "EN" : "TC";
+      var lang = getCookie("lg") == "en" ? "EN" : "TC";
       const json = { lang: lang };
       const formData = new FormData();
       formData.append("lang", lang);
@@ -165,7 +165,7 @@ export default defineComponent({
 
     const switchLang = (str: string) => {
       locale.value = str;
-      setCookie("lang", str);
+      setCookie("lg", str);
       showMask.value = false;
       switchLanauge();
       window.location.reload();

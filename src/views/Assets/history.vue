@@ -107,7 +107,7 @@ export default defineComponent({
           .get(window.base_url + "/v2/commodity/edition_basic_id", {
             params: {
               tokenTypeId: id,
-              lang: getCookie("lang") == "en" ? "EN" : "TC",
+              lang: getCookie("lg") == "en" ? "EN" : "TC",
             },
           })
           .then((itm) => {
