@@ -9,7 +9,6 @@
     </div>
     <p class="word">{{$t('downCopywriting')}}</p>
     <div class="btnimg titlebox">
-      <a href="https://itms-apps://itunes.apple.com/app/id1558403908"><img :src="isEn ? '/imgs/apple_en.png' : '/imgs/apple_ch.png'" alt=""></a>
       <a href="https://apps.apple.com/cn/app/id1558403908"><img :src="isEn ? '/imgs/apple_en.png' : '/imgs/apple_ch.png'" alt=""></a>
       <a href="https://www.bazhuayu.io/upload/ATTA.apk" download="https://www.bazhuayu.io/upload/ATTA.apk"><img :src="isEn ? '/imgs/anzhuo_en.png' : '/imgs/anzhuo_ch.png'" alt=""></a>
     </div>
