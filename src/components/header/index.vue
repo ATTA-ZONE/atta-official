@@ -59,7 +59,7 @@
         src="/imgs/menu.png"
       />
       <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
-        <router-link to="/charity">{{ $t("ATTA Charity") }}</router-link>
+        <!-- <router-link to="/charity">{{ $t("ATTA Charity") }}</router-link> -->
         <a @click="goAnchor('Introduction')">
           {{ $t("Introduce") }}
         </a>
@@ -148,8 +148,14 @@ export default defineComponent({
       return locale.value.trim() == "en";
     });
 
-    const currentText = computed(()=> t('Current network') + ' ' + currentNet + ' ' + t('Mainnet'))
-    const targetText = computed(()=> t('Click to switch to')+ ' ' + targetNet + ' ' + t('Mainnet'))
+    const currentText = computed(()=> {
+      const text = chainId.value == 1 ? "ETH" : "BSC"
+      return t('Current network') + ' ' + text + ' ' + t('Mainnet')
+    })
+    const targetText = computed(()=> {
+      const text = chainId.value == 1 ? "BSC" : "ETH"
+      return t('Click to switch to')+ ' ' + text + ' ' + t('Mainnet')
+    })
 
     const switchLanauge = () => {
       var lang = getCookie("lg") == "en" ? "EN" : "TC";
@@ -158,15 +164,6 @@ export default defineComponent({
       formData.append("lang", lang);
       axios.post(window.base_url + "/v2/user/lang/select", formData);
     };
-
-    const currentNet = computed(() => {
-      return chainId.value == 1 ? "ETH" : "BSC"
-    });
-
-    const targetNet = computed(() => {
-      console.log(chainId.value);
-      return chainId.value == 1 ? "BSC" : "ETH"
-    });
 
     const switchLang = (str: string) => {
       locale.value = str;
@@ -327,9 +324,7 @@ export default defineComponent({
       isEn,
       chainId,
       toggleNetwork,
-      showNetworkSwitch,
-      currentNet,
-      targetNet,
+      showNetworkSwitch
     };
   },
 });
