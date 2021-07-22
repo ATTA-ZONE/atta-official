@@ -111,12 +111,12 @@
   />
   <tip-modal
     :title="$t('switch network')"
-    :content="$t('Current network') + currentNet + $t('Mainnet')"
+    :content="currentText"
     v-if="showNetworkSwitch"
     @closeNet="showNetworkSwitch=false"
   >
     <span class="switcher-btn" @click="toggleNetwork"
-      >{{$t('Click to switch to')}}{{ targetNet }}{{$t('Mainnet')}}</span
+      >{{targetText}}</span
     >
   </tip-modal>
 </template>
@@ -136,7 +136,7 @@ export default defineComponent({
   components: { modal, tipModal },
   setup() {
     const router = useRouter();
-    const { locale } = useI18n();
+    const { locale, t } = useI18n();
     const showMask = ref(false);
     const isMobile = ref(false);
     const showModal = ref(false);
@@ -147,6 +147,9 @@ export default defineComponent({
     const isEn = computed(() => {
       return locale.value.trim() == "en";
     });
+
+    const currentText = computed(()=> t('Current network') + ' ' + currentNet + ' ' + t('Mainnet'))
+    const targetText = computed(()=> t('Click to switch to')+ ' ' + targetNet + ' ' + t('Mainnet'))
 
     const switchLanauge = () => {
       var lang = getCookie("lg") == "en" ? "EN" : "TC";
@@ -306,6 +309,8 @@ export default defineComponent({
     };
 
     return {
+      currentText,
+      targetText,
       switchLang,
       goAnchor,
       closemodal,
