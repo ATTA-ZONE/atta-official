@@ -438,11 +438,12 @@ export default defineComponent({
     }
 
     const downloadFile = (item:any) => {
+      const name = item.name.replace('.','');
       const a = document.createElement('a');
       const url = formatVideoUrl(item.attachment); // 完整的url则直接使用
       fetch(url).then(res => res.blob()).then(blob => { // 将链接地址字符内容转变成blob地址
         a.href = URL.createObjectURL(blob)
-        a.download = item.name // 下载文件的名字
+        a.download = name; // 下载文件的名字
         document.body.appendChild(a)
         a.click()
       })
