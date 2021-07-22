@@ -37,7 +37,7 @@ export default defineComponent({
   height: 100vh;
   padding: 32px 23px 110px 29px;
   text-align: center;
-  // box-sizing: border-box;
+  background-image: url('/imgs/bgdown.png');
     .titlebox{
       display: flex;
       justify-content: space-between;
