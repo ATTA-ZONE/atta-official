@@ -111,12 +111,12 @@
   />
   <tip-modal
     :title="$t('switch network')"
-    :content="$t('Current network') + currentNet"
+    :content="currentText"
     v-if="showNetworkSwitch"
     @closeNet="showNetworkSwitch=false"
   >
     <span class="switcher-btn" @click="toggleNetwork"
-      >{{$t('Click to switch to')}}{{ targetNet }}{{$t('Mainnet')}}</span
+      >{{targetText}}</span
     >
   </tip-modal>
 </template>
@@ -136,7 +136,7 @@ export default defineComponent({
   components: { modal, tipModal },
   setup() {
     const router = useRouter();
-    const { locale } = useI18n();
+    const { locale, t } = useI18n();
     const showMask = ref(false);
     const isMobile = ref(false);
     const showModal = ref(false);
@@ -148,6 +148,15 @@ export default defineComponent({
       return locale.value.trim() == "en";
     });
 
+    const currentText = computed(()=> {
+      const text = chainId.value == 1 ? "ETH" : "BSC"
+      return t('Current network') + ' ' + text + ' ' + t('Mainnet')
+    })
+    const targetText = computed(()=> {
+      const text = chainId.value == 1 ? "BSC" : "ETH"
+      return t('Click to switch to')+ ' ' + text + ' ' + t('Mainnet')
+    })
+
     const switchLanauge = () => {
       var lang = getCookie("lg") == "en" ? "EN" : "TC";
       const json = { lang: lang };
@@ -155,15 +164,6 @@ export default defineComponent({
       formData.append("lang", lang);
       axios.post(window.base_url + "/v2/user/lang/select", formData);
     };
-
-    const currentNet = computed(() => {
-      return chainId.value == 1 ? "Ethereum" : "Binance"
-    });
-
-    const targetNet = computed(() => {
-      console.log(chainId.value);
-      return chainId.value == 1 ? "Binance" : "Ethereum"
-    });
 
     const switchLang = (str: string) => {
       locale.value = str;
@@ -306,6 +306,8 @@ export default defineComponent({
     };
 
     return {
+      currentText,
+      targetText,
       switchLang,
       goAnchor,
       closemodal,
@@ -322,9 +324,7 @@ export default defineComponent({
       isEn,
       chainId,
       toggleNetwork,
-      showNetworkSwitch,
-      currentNet,
-      targetNet,
+      showNetworkSwitch
     };
   },
 });
