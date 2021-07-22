@@ -1,4 +1,5 @@
 <template>
+  <header-cell />
   <div class="tabs-wrap">
     <router-link class="assets-tab" v-for="(item, idx) in tabs" :key="idx" @click="toggleTab(idx)" :to="{path: item.link}">
       <span :class="{'active-text':selectedTab == idx}">{{$t(item.name)}}</span>
@@ -8,10 +9,14 @@
   <div class="router-view">
     <router-view></router-view>
   </div>
+  <footer-cell />
 </template>
 <script lang='ts'>
 import { defineComponent, onMounted, ref } from "vue";
+import headerCell from "@/components/header/index.vue";
+import footerCell from "@/components/footer/index.vue";
 export default defineComponent({
+  components : {headerCell,footerCell},
   setup(){
     const tabs = [
       {

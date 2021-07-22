@@ -1,4 +1,5 @@
 <template>
+  <header-cell />
   <div class="video-wrap">
     <video class="media-video" autoplay loop src="/nftInfo.mp4" muted></video>
     <div class="header-txt flex" @click="playVideo">
@@ -81,8 +82,16 @@
       </div>
       <home-five />
       <home-six />
+      <div class="downappbox">
+        <p class="fz-fm-zhzh">{{ $t("Scan to download") }}</p>
+        <p class="fz-fm-zhzh" style="margin-top: 20px;">ATTA APP</p>
+        <div class="imgbox">
+          <img src="/imgs/code.png" alt="">
+        </div>
+      </div>
     </div>
   </div>
+  <footer-cell />
 </template>
 
 <script lang="ts">
@@ -90,9 +99,11 @@ import { defineComponent, ref, computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import homeFive from "./homeFive.vue";
 import homeSix from "./homeSix.vue";
+import headerCell from "@/components/header/index.vue";
+import footerCell from "@/components/footer/index.vue";
 
 export default defineComponent({
-  components: { homeFive, homeSix },
+  components: { homeFive, homeSix ,headerCell,footerCell},
   setup() {
     const { locale } = useI18n();
 
