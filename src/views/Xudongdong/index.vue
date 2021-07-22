@@ -33,11 +33,14 @@ export default defineComponent({
 });
 </script>
 <style lang='scss'>
+body{
+  background-image: url('/imgs/bgdown.png');
+  background-size: 100% 100%;
+}
 .downbox{
   height: 100vh;
   padding: 32px 23px 110px 29px;
   text-align: center;
-  background-image: url('/imgs/bgdown.png');
     .titlebox{
       display: flex;
       justify-content: space-between;
