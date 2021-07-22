@@ -70,8 +70,12 @@ body{
     .btnimg{
       margin-top: 80px;
       padding: 0 5px;
-      img{
-        width: 100%;
+      a{
+        display: inline-block;
+        width: 43.61%;
+        img{
+          width: 100%;
+        }
       }
     }
 }
