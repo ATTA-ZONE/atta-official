@@ -2,6 +2,7 @@
   <div class="home-page-one" id="Introduction">
     <div class="mask-container" v-if="showMask">
       <div class="mask-wrap">
+        <router-link to="/charity">{{ $t("ATTA Charity") }}</router-link>
         <a @click="goAnchor('Upcoming')" style="margin-top: 0">
           {{ $t("Upcoming") }}
         </a>
@@ -58,6 +59,7 @@
         src="/imgs/menu.png"
       />
       <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
+        <router-link to="/charity">{{ $t("ATTA Charity") }}</router-link>
         <a @click="goAnchor('Introduction')">
           {{ $t("Introduce") }}
         </a>
@@ -109,7 +111,7 @@
   />
   <tip-modal
     :title="$t('switch network')"
-    :content="$t('Current network') + currentNet"
+    :content="$t('Current network') + currentNet + $t('Mainnet')"
     v-if="showNetworkSwitch"
     @closeNet="showNetworkSwitch=false"
   >
@@ -155,12 +157,12 @@ export default defineComponent({
     };
 
     const currentNet = computed(() => {
-      return chainId.value == 1 ? "Ethereum" : "Binance"
+      return chainId.value == 1 ? "ETH" : "BSC"
     });
 
     const targetNet = computed(() => {
       console.log(chainId.value);
-      return chainId.value == 1 ? "Binance" : "Ethereum"
+      return chainId.value == 1 ? "BSC" : "ETH"
     });
 
     const switchLang = (str: string) => {
