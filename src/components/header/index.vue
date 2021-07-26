@@ -4,16 +4,6 @@
       <div class="mask-wrap">
         <router-link to="/">{{ $t("home") }}</router-link>
         <router-link to="/charity">{{ $t("ATTA Charity") }}</router-link>
-        <!-- <a @click="goAnchor('Upcoming')" style="margin-top: 0">
-          {{ $t("Upcoming") }}
-        </a>
-        <a @click="goAnchor('Contents')">
-          {{ $t("NFT Contents") }}
-        </a>
-        <a @click="goAnchor('Contact')">
-          {{ $t("Contact") }}
-        </a>
-        <a @click="goAssets">{{ $t("Asset Management") }}</a> -->
         <div class="wallet-container">
           <div class="wallet-status">
             <div @click="getAddress">
@@ -49,9 +39,14 @@
       </div>
     </div>
     <div class="header flex">
-      <router-link to="/"
-        ><img class="brandLogo" src="/imgs/logo.png"
-      /></router-link>
+      <div class="flex">
+        <img class="brandLogo" src="/imgs/logo.png"/>
+        <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
+          <router-link @click="setMenu(1)" :class="{'selected-tab': selectedMenu == 1}" to="/">{{ $t("home") }}</router-link>
+          <router-link @click="setMenu(2)" :class="{'selected-tab': selectedMenu == 2}" to="/charity">{{ $t("ATTA Charity") }}</router-link>
+          <router-link @click="setMenu(3)" :class="{'selected-tab': selectedMenu == 3}" to="/assets">{{ $t("Asset Management") }}</router-link>
+        </div>
+      </div>
       <img
         class="head-menu"
         @click="showMask = true"
@@ -59,9 +54,6 @@
         src="/imgs/menu.png"
       />
       <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
-        <router-link to="/">{{ $t("home") }}</router-link>
-        <router-link to="/charity">{{ $t("ATTA Charity") }}</router-link>
-        <router-link to="/assets">{{ $t("Asset Management") }}</router-link>
         <span @click="showModal = true" class="top-btn">{{
           $t("Claim Your NFT")
         }}</span>
@@ -132,10 +124,15 @@ export default defineComponent({
     const showNetworkSwitch = ref(false);
     const accountAddress = ref("");
     const chainId = ref(1);
+    const selectedMenu = ref(1);
 
     const isEn = computed(() => {
       return locale.value.trim() == "en";
     });
+
+    const setMenu = (num) => {
+      selectedMenu.value = num
+    }
 
     const currentText = computed(()=> {
       const text = chainId.value == 1 ? "ETH" : "BSC"
@@ -296,6 +293,8 @@ export default defineComponent({
 
     return {
       currentText,
+      setMenu,
+      selectedMenu,
       targetText,
       switchLang,
       goAnchor,
