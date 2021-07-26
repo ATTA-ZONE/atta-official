@@ -1,12 +1,13 @@
 <template>
   <header-cell />
-  <div class="tabs-wrap">
-    <router-link class="assets-tab" v-for="(item, idx) in tabs" :key="idx" @click="toggleTab(idx)" :to="{path: item.link}">
-      <span :class="{'active-text':selectedTab == idx}">{{$t(item.name)}}</span>
-      <div v-if="selectedTab == idx" class="active-tab"></div>
-    </router-link>
-  </div>
   <div class="router-view">
+    <div class="tabs-wrap">
+      <router-link class="assets-tab" v-for="(item, idx) in tabs" :key="idx" @click="toggleTab(idx)" :to="{path: item.link}">
+        <span :class="{'active-text':selectedTab == idx}">{{$t(item.name)}}</span>
+        <div v-if="selectedTab == idx" class="active-tab"></div>
+      </router-link>
+    </div>
+  
     <router-view></router-view>
   </div>
   <footer-cell />
@@ -54,7 +55,6 @@ export default defineComponent({
 @media only screen and (max-width: 992px) {
   .tabs-wrap {
     font-size: 14px;
-    
   }
 }
   .tabs-wrap {
@@ -79,6 +79,7 @@ export default defineComponent({
   }
   .router-view {
     padding: 0 10%;
+    min-height: calc(100vh - 490px);
   }
   .el-loading-mask {
     min-height: 300px;
