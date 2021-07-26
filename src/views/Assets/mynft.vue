@@ -414,7 +414,6 @@ export default defineComponent({
         .balanceOf(userAddress, 1)
         .call()
         .then((price: any) => {
-          console.log(price);
           walletBalance.value = price;
         });
     }

@@ -12,7 +12,7 @@
               }}
             </div>
             <div class="wallet-status-address">{{ accountAddress }}</div>
-            <div>
+            <div v-if="accountAddress">
               {{ $t("Current network") }} {{ chainId == 1 ? "ETH" : "BSC" }}
               <span
                 class="wallet-status-btn"
@@ -42,9 +42,9 @@
       <div class="flex">
         <img class="brandLogo" src="/imgs/logo.png"/>
         <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
-          <router-link @click="setMenu(1)" :class="{'selected-tab': selectedMenu == 1}" to="/">{{ $t("home") }}</router-link>
-          <router-link @click="setMenu(2)" :class="{'selected-tab': selectedMenu == 2}" to="/charity">{{ $t("ATTA Charity") }}</router-link>
-          <router-link @click="setMenu(3)" :class="{'selected-tab': selectedMenu == 3}" to="/assets">{{ $t("Asset Management") }}</router-link>
+          <router-link @click="setMenu(1)" :class="[selectedMenu == 1? 'selected-tab':'']" to="/">{{ $t("home") }}</router-link>
+          <router-link @click="setMenu(2)" :class="[selectedMenu == 2? 'selected-tab':'']" to="/charity">{{ $t("ATTA Charity") }}</router-link>
+          <router-link @click="setMenu(3)" :class="[selectedMenu == 3? 'selected-tab':'']" to="/assets">{{ $t("Asset Management") }}</router-link>
         </div>
       </div>
       <img
@@ -66,7 +66,7 @@
               }}
             </div>
             <div class="wallet-status-address">{{ accountAddress }}</div>
-            <div>
+            <div v-if="accountAddress">
               {{ $t("Current network") }} {{ chainId == 1 ? "ETH" : "BSC" }}
               <span
                 class="wallet-status-btn"
@@ -132,6 +132,7 @@ export default defineComponent({
 
     const setMenu = (num) => {
       selectedMenu.value = num
+      console.log(selectedMenu.value);
     }
 
     const currentText = computed(()=> {
