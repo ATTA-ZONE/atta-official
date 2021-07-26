@@ -7,7 +7,7 @@
         <router-link @click="setMenu(3)" :class="[selectedMenu == 3? 'selected-tab':'']" to="/assets">{{ $t("Asset Management") }}</router-link>
         <div class="wallet-container">
           <div class="wallet-status">
-            <div @click="getAddress">
+            <div @click="getAddress" style="font-size:16px">
               {{
                 accountAddress ? $t("Wallet connected") : $t("Connect Wallet")
               }}

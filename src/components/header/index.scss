@@ -92,9 +92,9 @@
 
 .top-btn {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 40px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   margin: 0 20px;
   color: rgba(168, 222, 238, 1);
   border: 1px solid rgba(168, 222, 238, 1);
@@ -140,6 +140,7 @@
     padding: 0 3px;
     border-radius: 4px;
     border: 1px solid rgba(168, 222, 238, 1);
+    color: #a8deee;
   }
 }
 
@@ -152,7 +153,7 @@
   left: 0;
   z-index: 999;
   padding: 50px 25px 0 25px;
-  font-size: 20px;
+  font-size: 16px;
   background: rgba(20, 20, 20, 0.48);
   backdrop-filter: blur(30px);
   box-sizing: border-box;
@@ -167,7 +168,7 @@
     // padding: 30px 9%;
     a {
       display: block;
-      margin: 8% 0;
+      margin: 10% 0;
       color: rgba(255, 255, 255, 0.6) !important;
       z-index: 100;
     }
