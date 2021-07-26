@@ -41,7 +41,7 @@
     </div>
     <div class="header flex">
       <div class="flex">
-        <img class="brandLogo" src="/imgs/logo.png"/>
+        <img class="brandLogo" src="/imgs/logo.png" @click="$router.push({name:'Home'})"/>
         <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
           <router-link :class="[selectedPath == '/'? 'selected-tab':'']" to="/">{{ $t("home") }}</router-link>
           <router-link :class="[selectedPath == '/charity'? 'selected-tab':'']" to="/charity">{{ $t("ATTA Charity") }}</router-link>
