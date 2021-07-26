@@ -42,9 +42,9 @@
       <div class="flex">
         <img class="brandLogo" src="/imgs/logo.png"/>
         <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
-          <router-link @click="setMenu(1)" :class="[selectedMenu == 1? 'selected-tab':'']" to="/">{{ $t("home") }}</router-link>
-          <router-link @click="setMenu(2)" :class="[selectedMenu == 2? 'selected-tab':'']" to="/charity">{{ $t("ATTA Charity") }}</router-link>
-          <router-link @click="setMenu(3)" :class="[selectedMenu == 3? 'selected-tab':'']" to="/assets">{{ $t("Asset Management") }}</router-link>
+          <router-link :class="[selectedPath == '/'? 'selected-tab':'']" to="/">{{ $t("home") }}</router-link>
+          <router-link :class="[selectedPath == '/charity'? 'selected-tab':'']" to="/charity">{{ $t("ATTA Charity") }}</router-link>
+          <router-link :class="[selectedPath == '/assets/mynft'? 'selected-tab':'']" to="/assets">{{ $t("Asset Management") }}</router-link>
         </div>
       </div>
       <img
@@ -122,18 +122,14 @@ export default defineComponent({
     const isMobile = ref(false);
     const showModal = ref(false);
     const showNetworkSwitch = ref(false);
-    const accountAddress = ref("");
+    const accountAddress = ref('');
     const chainId = ref(1);
-    const selectedMenu = ref(1);
 
     const isEn = computed(() => {
       return locale.value.trim() == "en";
     });
 
-    const setMenu = (num) => {
-      selectedMenu.value = num
-      console.log(selectedMenu.value);
-    }
+    const selectedPath = computed(()=>location.pathname)
 
     const currentText = computed(()=> {
       const text = chainId.value == 1 ? "ETH" : "BSC"
@@ -294,8 +290,7 @@ export default defineComponent({
 
     return {
       currentText,
-      setMenu,
-      selectedMenu,
+      selectedPath,
       targetText,
       switchLang,
       goAnchor,
