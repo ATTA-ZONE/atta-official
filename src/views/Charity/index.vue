@@ -84,6 +84,10 @@
                 </div>
             </div>
         </div>
+        <button @click="showssrbool = !showssrbool" class="webh5_foldbtn">
+            {{ showssrbool ? $t('charity_open') : $t('charity_retract')}}
+            <img :src="!showssrbool ? '/imgs/arrow3.png' : '/imgs/arrow4.png'" alt="">
+        </button>
         <div class="nftseriesbox">
             <div class="title flexbetween">
                 <span class="Fzlt_Thb">{{$t('charity_nft_tit')}}</span>
@@ -92,7 +96,12 @@
             <p class="nft_content_word">{{$t('charity_nft_content')}}</p>
             <div class="nftimgsbox imgscontentbox">
                 <div v-for="(item,index) in nftlist" :key="index" class="nftimgevery series14 flexbetween">
-                    <img :src="item.url" alt="">
+                    <video autoplay loop
+                        :src="item.url"
+                        v-if="item.url.indexOf('mp4') != -1"
+                        muted
+                    ></video>
+                    <img v-else :src="item.url" alt="">
                     <div class="wordsbox">
                         <h1>{{isEn ? item.titleen : item.titlech}}</h1>
                         <p>{{isEn ? item.contenten : item.contentch}}</p>
@@ -107,6 +116,10 @@
                 </div>
             </div>
         </div>
+        <button @click="showssrbool2 = !showssrbool2" class="webh5_foldbtn">
+            {{ showssrbool2 ? $t('charity_open') : $t('charity_retract')}}
+            <img :src="!showssrbool2 ? '/imgs/arrow3.png' : '/imgs/arrow4.png'" alt="">
+        </button>
       </div>
   </div>
   <footer-cell />
@@ -135,7 +148,7 @@ export default defineComponent({
                   contenten : 'Collect all SSR+R NFTs: win one "ATTA X Smile Angel" Special Angel NFT to redeem VIP tickets for three "Smile Angel Special Concerts" at www.atta.zone',
                   titlech : 'ATTA X嫣然 天使NFT',
                   contentch : '集齊所有SSR+R 類NFT：獲贈“ATTA X嫣然 天使NFT”一枚，憑天使NFT可前往兌換三場“嫣然愛音樂”演唱會VIP門票',
-                  url:'/imgs/series14.png',
+                  url:'/series20.mp4',
                 }
           ],
           nftlist2:[
@@ -151,14 +164,14 @@ export default defineComponent({
                   contenten : 'Collect "Sui Bian" SSR: win one limited-edition "Sui Bian" T-shirt + one "Sui Bian" digital inkjet',
                   titlech : '限量版“隨便”T恤 +隨便噴繪',
                   contentch : '收集“隨便”SSR NFT：獲贈實物限量版“隨便“T恤 +隨便噴繪一幅',
-                  url:'/imgs/series14.png',
+                  url:'/imgs/series17.png',
                 },
                 {
                   titleen : 'limited-edition "Snow Kid" T-shirt + any R NFT digital inkjet',
                   contenten : 'Collect all R: win a limited-edition "Snow Kid" T-shirt + any R NFT digital inkjet',
                   titlech : '限量版“雪孩子“T恤+ 指定R類噴繪”',
                   contentch : '集齊所有R類NFT：獲贈實物限量版“雪孩子“T恤+ 指定R類噴繪一幅',
-                  url:'/imgs/series14.png',
+                  url:'/imgs/series18.png',
                 },
                 {
                   titleen : 'hardcopy of any NFT included in the box',
@@ -172,7 +185,7 @@ export default defineComponent({
                   contenten : 'Collect five different N: win one illustrator-designed canvas bag ',
                   titlech : '潮流插畫師帆布包',
                   contentch : '集齊5種N類NFT：獲贈潮流插畫師帆布包一件',
-                  url:'/imgs/series14.png',
+                  url:'/imgs/series19.png',
                 },
                 {
                   titleen : '"Xi Diao" Tibetan Incense by Smile Angel',
@@ -276,6 +289,7 @@ export default defineComponent({
             }
             .imgscontentbox{
                 margin-top: 25px;
+                margin-bottom: 25px;
                 flex-wrap: wrap;
                 .imgsevery{
                     background: rgba(27,30,31);
@@ -389,9 +403,8 @@ export default defineComponent({
                         padding: 22px 31px;
                     }
                 }
-                .series14{
-                    
-                    img{
+                .series14{  
+                    img,video{
                         border-top-width: 21.78px;
                         border-left-width: 27px;
                         border-right-width: 22px;
@@ -417,7 +430,7 @@ export default defineComponent({
             margin-top: 42px;
             .nftimgevery{
                 margin-bottom: 40px;
-                img{
+                img,video{
                     border-color: rgba(150, 150, 150, 0.25);
                     border-style: solid;
                     box-sizing: border-box;
@@ -444,14 +457,113 @@ export default defineComponent({
             }
         }
     }
+    .webh5_foldbtn{
+        display: none;
+    }
 }
 @media only screen and (max-width: 992px){
     .titlebox{
+        padding-bottom: 17px !important;
         h1{
             font-size: 20px !important;
         }
         p{
-            font-size: 14px !important;
+            margin-top: 10px !important;
+            font-size: 12px !important;
+        }
+        .btnbox{
+            margin-top: 24px !important;
+            span{
+                font-size: 14px !important;
+            }
+            button{
+                font-size: 13px !important;
+                padding: 3.5px 22px !important;
+            }
+        }
+    }
+    .charitybox .contentbox {
+        padding-top: 24px;
+        .rseriesbox,.nseriesbox,.nftseriesbox{
+            margin-top: 0px !important;
+        }
+        .ssrseriesbox .title,.rseriesbox .title,.nseriesbox .title, .nftseriesbox .title{
+            font-size: 20px;
+            img{
+                // width: 19px;
+                display: none;
+            }
+        }
+        .imgscontentbox{
+            margin-top: 10px !important;
+            .series1,.series2,.series3,.series4,.series5,.series6,.series7,.series8,.series9,.series10,.series11,.series12,.series13{
+                width: 100% !important;
+                margin-bottom: 23.05px;
+                margin-top: 0px !important;
+                img{
+                    border-top-width: 25.59px !important;
+                    border-left-width: 23.4px !important;
+                    border-right-width: 23.4px !important;
+                    border-bottom-width: 24.68px !important;
+                }
+                p{
+                    padding: 19.19px 23.4px !important;
+                    font-size: 20px !important;
+                }
+            }
+        }
+    }
+    .webh5_foldbtn{
+        border: 1px solid #A8DEEE;
+        background-color: transparent;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 22px;
+        text-align: center;
+        letter-spacing: -0.025em;
+        color: #A8DEEE;
+        padding: 6.5px 21px;
+        display: flex;
+        align-items: center;
+        margin: auto;
+        margin-bottom: 20px;
+        display: block !important;
+        img{
+            width: 13px;
+            margin-left: 6px;
+        }
+    }
+    .nft_content_word{
+        font-size: 12px !important;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .nftimgsbox.imgscontentbox{
+        .nftimgevery{
+            flex-direction: column;
+            .series14{
+                border-top-width: 12px !important;
+                border-left-width: 15px !important;
+                border-right-width: 15px !important;
+                border-bottom-width: 12px !important;
+            }
+            img,video{
+                width: 100% !important;
+            }
+            .wordsbox{
+                background-color: rgb(29, 31, 31);
+                width: 100% !important;
+                padding: 17.25px 15px;
+                box-sizing: border-box;
+                h1{
+                    font-size: 20px;
+                }
+                p{
+                    margin-top: 4px !important;
+                    font-size: 13px !important;
+                }
+            }
         }
     }
 }

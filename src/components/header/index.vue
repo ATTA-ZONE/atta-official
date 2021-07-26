@@ -59,7 +59,7 @@
         src="/imgs/menu.png"
       />
       <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
-        <!-- <router-link to="/charity">{{ $t("ATTA Charity") }}</router-link> -->
+        <router-link to="/charity">{{ $t("ATTA Charity") }}</router-link>
         <a @click="goAnchor('Introduction')">
           {{ $t("Introduce") }}
         </a>
