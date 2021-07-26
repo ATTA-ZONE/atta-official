@@ -2,8 +2,9 @@
   <div class="home-page-one" id="Introduction">
     <div class="mask-container" v-if="showMask">
       <div class="mask-wrap">
+        <router-link to="/">{{ $t("home") }}</router-link>
         <router-link to="/charity">{{ $t("ATTA Charity") }}</router-link>
-        <a @click="goAnchor('Upcoming')" style="margin-top: 0">
+        <!-- <a @click="goAnchor('Upcoming')" style="margin-top: 0">
           {{ $t("Upcoming") }}
         </a>
         <a @click="goAnchor('Contents')">
@@ -12,8 +13,7 @@
         <a @click="goAnchor('Contact')">
           {{ $t("Contact") }}
         </a>
-        <a @click="goAssets">{{ $t("Asset Management") }}</a>
-
+        <a @click="goAssets">{{ $t("Asset Management") }}</a> -->
         <div class="wallet-container">
           <div class="wallet-status">
             <div @click="getAddress">
@@ -59,19 +59,8 @@
         src="/imgs/menu.png"
       />
       <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
+        <router-link to="/">{{ $t("home") }}</router-link>
         <router-link to="/charity">{{ $t("ATTA Charity") }}</router-link>
-        <a @click="goAnchor('Introduction')">
-          {{ $t("Introduce") }}
-        </a>
-        <a @click="goAnchor('Upcoming')">
-          {{ $t("Upcoming") }}
-        </a>
-        <a @click="goAnchor('Contents')">
-          {{ $t("NFT Contents") }}
-        </a>
-        <a @click="goAnchor('Contact')">
-          {{ $t("Contact") }}
-        </a>
         <router-link to="/assets">{{ $t("Asset Management") }}</router-link>
         <span @click="showModal = true" class="top-btn">{{
           $t("Claim Your NFT")
