@@ -280,10 +280,6 @@ export default defineComponent({
       });
     });
 
-    onUnmounted(() => {
-      setCookie("currentAddress", "false");
-    });
-
     const emitAddress = (str: string) => {
       accountAddress.value = str;
     };
