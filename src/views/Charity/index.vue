@@ -239,13 +239,13 @@ export default defineComponent({
         padding-bottom: 33px;
         h1{
             font-weight: normal;
-            font-size: 40px;
+            font-size: 30px;
         }
         p{
             margin-top: 14px;
             font-family: Inter;
             font-style: normal;
-            font-size: 24px;
+            font-size: 18px;
             line-height: 190%;
             color: rgba(255, 255, 255, 0.7);
         }
@@ -257,7 +257,7 @@ export default defineComponent({
                 font-family: Inter;
                 font-style: normal;
                 font-weight: bold;
-                font-size: 26px;
+                font-size: 19.5px;
                 line-height: 183.5%;
                 letter-spacing: 0.01em;
                 color: #FFFFFF;
@@ -265,11 +265,11 @@ export default defineComponent({
             button{
                 background-color: transparent;
                 border: 1px solid #A8DEEE;
-                padding: 12px 44px;
+                padding: 8px 30px;
                 font-family: Inter;
                 font-style: normal;
                 font-weight: 600;
-                font-size: 16px;
+                font-size: 12px;
                 line-height: 22px;
                 text-align: center;
                 letter-spacing: -0.025em;
@@ -282,7 +282,7 @@ export default defineComponent({
         .ssrseriesbox,.rseriesbox,.nseriesbox,.nftseriesbox{
             .title{
                 align-items: center;
-                font-size: 48px;
+                font-size: 36px;
                 img{
                     cursor: pointer;
                 }
@@ -303,7 +303,7 @@ export default defineComponent({
                         font-family: Inter;
                         font-style: normal;
                         font-weight: 600;
-                        font-size: 24px;
+                        font-size: 18px;
                         line-height: 190%;
                     }
                 }
@@ -316,7 +316,7 @@ export default defineComponent({
                         border-bottom-width: 27.58px;
                     }
                     p{
-                        padding: 21.74px 28px;
+                        padding: 22px 28px;
                     }
                 }
                 .series2{
@@ -328,7 +328,7 @@ export default defineComponent({
                         border-bottom-width: 27.26px;
                     }
                     p{
-                        padding: 27.74px 28.53px;
+                        padding: 22px 28.53px;
                     }
                 }
                 .series3,.series6{
@@ -340,7 +340,7 @@ export default defineComponent({
                         border-bottom-width: 27.17px;
                     }
                     p{
-                        padding: 22px 48px;
+                        padding: 22px 42px;
                     }
                 }
                 .series4{
@@ -352,7 +352,7 @@ export default defineComponent({
                         border-bottom-width: 27.26px;
                     }
                     p{
-                        padding: 22px 39px;
+                        padding: 22px 36.73px;
                     }
                 }
                 .series5{
@@ -364,7 +364,7 @@ export default defineComponent({
                         border-bottom-width: 27.26px;
                     }
                     p{
-                        padding: 22px 48px;
+                        padding: 22px 43px;
                     }
                 }
                 .series7{
@@ -376,7 +376,7 @@ export default defineComponent({
                         border-bottom-width: 28.26px;
                     }
                     p{
-                        padding: 22px 23px;
+                        padding: 22px 28px;
                     }
                 }
                 .series11{
@@ -419,7 +419,7 @@ export default defineComponent({
                 font-family: Inter;
                 font-style: normal;
                 font-weight: 500;
-                font-size: 24px;
+                font-size: 18px;
                 line-height: 190%;
                 color: rgba(255, 255, 255, 0.7);
             }
@@ -439,9 +439,10 @@ export default defineComponent({
                 }
                .wordsbox{
                    width: 45%;
+                   padding-top: 20px;
                    h1{
                         font-weight: bold;
-                        font-size: 24px;
+                        font-size: 18px;
                         line-height: 120%;
                    }
                    p{
