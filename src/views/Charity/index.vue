@@ -206,8 +206,8 @@ export default defineComponent({
   },
   setup() {
     const { locale } = useI18n();
-    const showssrbool = ref(false);
-    const showssrbool2 = ref(false);
+    const showssrbool = ref(true);
+    const showssrbool2 = ref(true);
     const isEn = computed(() => {
         console.log(isEn);
         
