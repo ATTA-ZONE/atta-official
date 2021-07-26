@@ -421,6 +421,7 @@ export default defineComponent({
                 font-weight: 500;
                 font-size: 24px;
                 line-height: 190%;
+                color: rgba(255, 255, 255, 0.7);
             }
         }
         .rseriesbox,.nseriesbox,.nftseriesbox{
@@ -537,7 +538,6 @@ export default defineComponent({
     }
     .nft_content_word{
         font-size: 12px !important;
-        color: rgba(255, 255, 255, 0.7);
     }
     .nftimgsbox.imgscontentbox{
         .nftimgevery{
