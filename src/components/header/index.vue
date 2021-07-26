@@ -4,16 +4,6 @@
       <div class="mask-wrap">
         <router-link to="/">{{ $t("home") }}</router-link>
         <router-link to="/charity">{{ $t("ATTA Charity") }}</router-link>
-        <!-- <a @click="goAnchor('Upcoming')" style="margin-top: 0">
-          {{ $t("Upcoming") }}
-        </a>
-        <a @click="goAnchor('Contents')">
-          {{ $t("NFT Contents") }}
-        </a>
-        <a @click="goAnchor('Contact')">
-          {{ $t("Contact") }}
-        </a>
-        <a @click="goAssets">{{ $t("Asset Management") }}</a> -->
         <div class="wallet-container">
           <div class="wallet-status">
             <div @click="getAddress">
@@ -22,7 +12,7 @@
               }}
             </div>
             <div class="wallet-status-address">{{ accountAddress }}</div>
-            <div>
+            <div v-if="accountAddress">
               {{ $t("Current network") }} {{ chainId == 1 ? "ETH" : "BSC" }}
               <span
                 class="wallet-status-btn"
@@ -49,9 +39,14 @@
       </div>
     </div>
     <div class="header flex">
-      <router-link to="/"
-        ><img class="brandLogo" src="/imgs/logo.png"
-      /></router-link>
+      <div class="flex">
+        <img class="brandLogo" src="/imgs/logo.png"/>
+        <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
+          <router-link @click="setMenu(1)" :class="[selectedMenu == 1? 'selected-tab':'']" to="/">{{ $t("home") }}</router-link>
+          <router-link @click="setMenu(2)" :class="[selectedMenu == 2? 'selected-tab':'']" to="/charity">{{ $t("ATTA Charity") }}</router-link>
+          <router-link @click="setMenu(3)" :class="[selectedMenu == 3? 'selected-tab':'']" to="/assets">{{ $t("Asset Management") }}</router-link>
+        </div>
+      </div>
       <img
         class="head-menu"
         @click="showMask = true"
@@ -59,9 +54,6 @@
         src="/imgs/menu.png"
       />
       <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
-        <router-link to="/">{{ $t("home") }}</router-link>
-        <router-link to="/charity">{{ $t("ATTA Charity") }}</router-link>
-        <router-link to="/assets">{{ $t("Asset Management") }}</router-link>
         <span @click="showModal = true" class="top-btn">{{
           $t("Claim Your NFT")
         }}</span>
@@ -74,7 +66,7 @@
               }}
             </div>
             <div class="wallet-status-address">{{ accountAddress }}</div>
-            <div>
+            <div v-if="accountAddress">
               {{ $t("Current network") }} {{ chainId == 1 ? "ETH" : "BSC" }}
               <span
                 class="wallet-status-btn"
@@ -132,10 +124,16 @@ export default defineComponent({
     const showNetworkSwitch = ref(false);
     const accountAddress = ref("");
     const chainId = ref(1);
+    const selectedMenu = ref(1);
 
     const isEn = computed(() => {
       return locale.value.trim() == "en";
     });
+
+    const setMenu = (num) => {
+      selectedMenu.value = num
+      console.log(selectedMenu.value);
+    }
 
     const currentText = computed(()=> {
       const text = chainId.value == 1 ? "ETH" : "BSC"
@@ -296,6 +294,8 @@ export default defineComponent({
 
     return {
       currentText,
+      setMenu,
+      selectedMenu,
       targetText,
       switchLang,
       goAnchor,
