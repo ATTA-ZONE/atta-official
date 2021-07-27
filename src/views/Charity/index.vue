@@ -286,7 +286,7 @@ export default defineComponent({
               ['/imgs/series9.png','/imgs/series9_LB.png'],
               ['/imgs/series10.png','/imgs/series10_LB.png'],
               ['/imgs/series11.png','/imgs/series11_LB.png'],
-              ['/imgs/series12.png','/imgs/series12_LB.jpg'],
+              ['/imgs/series12.png','/imgs/series12_LB.png'],
               ['/imgs/series13.png','/imgs/series13_LB.png'],
               ['/imgs/series9.png','/imgs/series9_LB_2.png'],
           ]
