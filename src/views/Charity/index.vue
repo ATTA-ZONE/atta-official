@@ -126,7 +126,11 @@
                     </el-carousel>
                     <p>{{$t('charity_n_content7')}}</p>
                 </div>
-                <div class="imgsevery series13">
+            </div>
+        </div>
+        <div class="nseriesbox" v-if="!showssrbool">
+            <div class="imgscontentbox flex">
+                <div class="imgsevery series13" style="margin-right:31.46px">
                     <el-carousel indicator-position="none" arrow="never" :height="winW+'px'">
                         <el-carousel-item v-for="item in lbimgs[12]" :key="item">
                             <img :src="item" alt="">
@@ -153,7 +157,6 @@
                 <span class="Fzlt_Thb">{{$t('charity_nft_tit')}}</span>
                 <img style="margin-left:41px" :src="showssrbool2 ? '/imgs/arrow1.png' : '/imgs/arrow2.png'" alt="" @click="showssrbool2 = !showssrbool2">
             </div>
-            <!-- <p class="nft_content_word">{{$t('charity_nft_content')}}</p> -->
             <div class="rule">
                 <p class="rule_title">{{$t("rule_title")}}</p>
                 <p class="rule_title">{{$t("rule_tip1")}} nft@atta.zone</p>
