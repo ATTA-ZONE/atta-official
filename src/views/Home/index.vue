@@ -84,11 +84,18 @@
       </div>
       <home-five />
       <home-six />
-      <div class="downappbox">
-        <p class="fz-fm-zhzh">{{ $t("Scan to download") }}</p>
-        <p class="fz-fm-zhzh" style="margin-top: 20px;">ATTA APP</p>
+      <div class="downappbox pcstyle">
+        <div class="h5show">
+          <p class="fz-fm-zhzh">{{ $t("Scan to download") }}</p>
+          <p class="fz-fm-zhzh" style="margin-top: 20px;">ATTA APP</p>
+        </div>
         <div class="imgbox">
           <img src="/imgs/code.png" alt="">
+        </div>
+        <div class="pcshow">
+          <p class="fz-fm-zhzh">{{ $t("Scan to download") }}</p>
+          <p class="fz-fm-zhzh" style="margin-top: 20px;">ATTA APP</p>
+          <p class="content">{{$t("Scan to download2")}}</p>
         </div>
       </div>
     </div>

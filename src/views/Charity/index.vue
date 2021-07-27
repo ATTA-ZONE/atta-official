@@ -139,8 +139,8 @@ export default defineComponent({
                 {
                   titleen : 'ATTA X "ATTA X Smile Angel" donation certificate NFT',
                   contenten : 'All Mystery Box purchasers: win a "ATTA X Smile Angel" donation certificate NFT',
-                  titlech : 'ATTA X 嫣然愛心捐贈',
-                  contentch : '每位購買盲盒者：獲贈“ATTA X 嫣然愛心捐贈”NFT紀念證書一份',
+                  titlech : '嫣然慈善愛心捐贈NFT紀念證書',
+                  contentch : '盲盒首次發行期間，購買的用戶都可以獲贈嫣然慈善愛心捐贈NFT幾年證書一份',
                   url:'/imgs/series14.png',
                 },
                 {

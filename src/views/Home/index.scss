@@ -494,30 +494,68 @@ div.onehanglogo{
   font-size: 53px;
   margin: 102px auto;
   font-weight: bold;
+  .h5show{
+    display: none;
+  }
   .imgbox{
     background-color: #fff;
     width: 359px;
     height: 359px;
     text-align: center;
     border-radius: 34px;
-    margin: auto;
     padding: 24px;
-    margin-top: 59px;
     box-sizing: border-box;
     img{
-      // margin-top: 24px;
       width: 100%;
+    }
+  }
+  .pcshow{
+    .content{
+      font-size: 20px;
+      line-height: 190%;
+      text-align: center;
+      font-family: "pingfang HK";
+      font-style: normal;
+      font-weight: normal;
+      color: rgba(250, 250, 250, 0.8);
+    }
+  }
+}
+.pcstyle{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 59.44%;
+  .fz-fm-zhzh{
+    font-size: 40px;
+  }
+  .pcshow{
+    width: 447px;
+    .content{
+      margin-top: 27px;
     }
   }
 }
 @media only screen and (max-width: 992px){
+  .pcstyle{
+    display: block;
+  }
   .downappbox{
     font-size: 32px;
+    .h5show{
+      display: block;
+      
+    }
+    .pcshow{
+      display: none;
+    }
     .imgbox{
       width: 55%;
       height: 55vw;
       padding: 15px;
       border-radius: 20px;
+      margin: auto;
+      margin-top: 59px;
     }
   }
 }
