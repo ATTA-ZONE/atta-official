@@ -56,7 +56,7 @@
                     <p>{{$t('charity_r_content2')}}</p>
                 </div>
                 <div class="imgsevery series5">
-                    <el-carousel indicator-position="none" arrow="never" :height="(winW04>0?winW04:winW)+'px'">
+                    <el-carousel indicator-position="none" arrow="never" :height="winW01+'px'">
                         <el-carousel-item v-for="item in lbimgs[4]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
@@ -298,6 +298,7 @@ export default defineComponent({
     const showssrbool2 = ref(true);
     
     const winW = ref(1260);
+    const winW01 = ref(0);
     const winW02 = ref(0);
     const winW03 = ref(0);
     const winW04 = ref(0);
@@ -307,6 +308,7 @@ export default defineComponent({
     if(window.innerWidth){
         if(window.innerWidth > 992){
             winW.value = window.innerWidth*0.29;
+            winW01.value = window.innerWidth*0.6;
             winW02.value = 0;
             winW03.value = 0;
             winW04.value = 0;
@@ -315,6 +317,7 @@ export default defineComponent({
             winW07.value = 0;
         }else{
             winW.value = window.innerWidth*0.93;
+            winW01.value = window.innerWidth*0.95;
             winW02.value = window.innerWidth*0.5;
             winW03.value = window.innerWidth*0.745;
             winW04.value = window.innerWidth*0.7;
@@ -329,6 +332,7 @@ export default defineComponent({
         if(window.innerWidth){
             if(window.innerWidth > 992){
                 winW.value = window.innerWidth*0.29;
+                winW01.value = window.innerWidth*0.6;
                 winW02.value = 0;
                 winW03.value = 0;
                 winW04.value = 0;
@@ -337,6 +341,7 @@ export default defineComponent({
                 winW07.value = 0;
             }else{
                 winW.value = window.innerWidth*0.93;
+                winW01.value = window.innerWidth*0.95;
                 winW02.value = window.innerWidth*0.5;
                 winW03.value = window.innerWidth*0.745;
                 winW04.value = window.innerWidth*0.7;
@@ -356,6 +361,7 @@ export default defineComponent({
         showssrbool2,
         isEn,
         winW,
+        winW01,
         winW02,
         winW03,
         winW04,
