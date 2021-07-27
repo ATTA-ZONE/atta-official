@@ -227,7 +227,7 @@ export default defineComponent({
                 {
                   titleen : 'large-size signature version of digital inkjet',
                   contenten : 'Collect 2 different SSR NFTs: win one large-size signature version of digital inkjet created by young artists',
-                  titlech : '藝術家聯名創作的大尺寸簽名版數字',
+                  titlech : '藝術家聯名創作的大尺寸簽名版數字噴繪',
                   contentch : '集齊兩種SSR類NFT：獲贈本次藝術家聯名創作的大尺寸簽名版數字噴繪',
                   url:'/imgs/series21.png',
                 },
@@ -248,7 +248,7 @@ export default defineComponent({
                 {
                   titleen : 'hardcopy of any NFT included in the box',
                   contenten : 'Collect any R and 4 different N items: win one hardcopy of any NFT included in the box',
-                  titlech : '指定NFT的打印版”',
+                  titlech : '指定NFT的打印版',
                   contentch : '集齊任意一種R+4種N類NFT：獲贈指定NFT的打印版一張',
                   url:'/imgs/series22.png',
                 },
