@@ -308,7 +308,7 @@ export default defineComponent({
     if(window.innerWidth){
         if(window.innerWidth > 992){
             winW.value = window.innerWidth*0.29;
-            winW01.value = window.innerWidth*0.6;
+            winW01.value = window.innerWidth*0.62;
             winW02.value = 0;
             winW03.value = 0;
             winW04.value = 0;
@@ -332,7 +332,7 @@ export default defineComponent({
         if(window.innerWidth){
             if(window.innerWidth > 992){
                 winW.value = window.innerWidth*0.29;
-                winW01.value = window.innerWidth*0.6;
+                winW01.value = window.innerWidth*0.618;
                 winW02.value = 0;
                 winW03.value = 0;
                 winW04.value = 0;
