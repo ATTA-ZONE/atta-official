@@ -25,7 +25,11 @@
                     <p>{{$t('charity_ssr_content1')}}</p>
                 </div>
                 <div class="imgsevery series2">
-                    <img src="/imgs/series2.png" alt="">
+                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                        <el-carousel-item v-for="item in lbimgs[1]" :key="item">
+                            <img :src="item" alt="">
+                        </el-carousel-item>
+                    </el-carousel>
                     <p>{{$t('charity_ssr_content2')}}</p>
                 </div>
             </div>
@@ -36,15 +40,27 @@
             </div>
             <div class="imgscontentbox flexbetween">
                 <div class="imgsevery series3">
-                    <img src="/imgs/series3.png" alt="">
+                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                        <el-carousel-item v-for="item in lbimgs[2]" :key="item">
+                            <img :src="item" alt="">
+                        </el-carousel-item>
+                    </el-carousel>
                     <p>{{$t('charity_r_content1')}}</p>
                 </div>
                 <div class="imgsevery series4">
-                    <img src="/imgs/series4.png" alt="">
+                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                        <el-carousel-item v-for="item in lbimgs[3]" :key="item">
+                            <img :src="item" alt="">
+                        </el-carousel-item>
+                    </el-carousel>
                     <p>{{$t('charity_r_content2')}}</p>
                 </div>
                 <div class="imgsevery series5">
-                    <img src="/imgs/series5.png" alt="">
+                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                        <el-carousel-item v-for="item in lbimgs[4]" :key="item">
+                            <img :src="item" alt="">
+                        </el-carousel-item>
+                    </el-carousel>
                     <p>{{$t('charity_r_content3')}}</p>
                 </div>
             </div>
@@ -55,35 +71,67 @@
             </div>
             <div class="imgscontentbox flexbetween">
                 <div class="imgsevery series6">
-                    <img src="/imgs/series6.png" alt="">
+                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                        <el-carousel-item v-for="item in lbimgs[5]" :key="item">
+                            <img :src="item" alt="">
+                        </el-carousel-item>
+                    </el-carousel>
                     <p>{{$t('charity_n_content1')}}</p>
                 </div>
                 <div class="imgsevery series7">
-                    <img src="/imgs/series7.png" alt="">
+                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                        <el-carousel-item v-for="item in lbimgs[6]" :key="item">
+                            <img :src="item" alt="">
+                        </el-carousel-item>
+                    </el-carousel>
                     <p>{{$t('charity_n_content2')}}</p>
                 </div>
                 <div class="imgsevery series8">
-                    <img src="/imgs/series8.png" alt="">
+                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                        <el-carousel-item v-for="item in lbimgs[7]" :key="item">
+                            <img :src="item" alt="">
+                        </el-carousel-item>
+                    </el-carousel>
                     <p>{{$t('charity_n_content3')}}</p>
                 </div>
                 <div class="imgsevery series9">
-                    <img src="/imgs/series9.png" alt="">
+                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                        <el-carousel-item v-for="item in lbimgs[8]" :key="item">
+                            <img :src="item" alt="">
+                        </el-carousel-item>
+                    </el-carousel>
                     <p>{{$t('charity_n_content4')}}</p>
                 </div>
                 <div class="imgsevery series10">
-                    <img src="/imgs/series10.png" alt="">
+                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                        <el-carousel-item v-for="item in lbimgs[9]" :key="item">
+                            <img :src="item" alt="">
+                        </el-carousel-item>
+                    </el-carousel>
                     <p>{{$t('charity_n_content5')}}</p>
                 </div>
                 <div class="imgsevery series11">
-                    <img src="/imgs/series11.png" alt="">
+                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                        <el-carousel-item v-for="item in lbimgs[10]" :key="item">
+                            <img :src="item" alt="">
+                        </el-carousel-item>
+                    </el-carousel>
                     <p>{{$t('charity_n_content6')}}</p>
                 </div>
                 <div class="imgsevery series12">
-                    <img src="/imgs/series12.png" alt="">
+                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                        <el-carousel-item v-for="item in lbimgs[11]" :key="item">
+                            <img :src="item" alt="">
+                        </el-carousel-item>
+                    </el-carousel>
                     <p>{{$t('charity_n_content7')}}</p>
                 </div>
                 <div class="imgsevery series13">
-                    <img src="/imgs/series13.png" alt="">
+                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                        <el-carousel-item v-for="item in lbimgs[12]" :key="item">
+                            <img :src="item" alt="">
+                        </el-carousel-item>
+                    </el-carousel>
                     <p>{{$t('charity_n_content8')}}</p>
                 </div>
             </div>
@@ -209,7 +257,19 @@ export default defineComponent({
                 },
           ],
           lbimgs : [
-              ['/imgs/series1.png','/imgs/series1_LB.png']
+              ['/imgs/series1.png','/imgs/series1_LB.png'],
+              ['/imgs/series2.png','/imgs/series2_LB.png'],
+              ['/imgs/series3.png','/imgs/series3_LB.png'],
+              ['/imgs/series4.png','/imgs/series4_LB.png'],
+              ['/imgs/series5.png','/imgs/series5_LB.png'],
+              ['/imgs/series6.png','/imgs/series6_LB.png'],
+              ['/imgs/series7.png','/imgs/series7_LB.png'],
+              ['/imgs/series8.png','/imgs/series8_LB.png'],
+              ['/imgs/series9.png','/imgs/series9_LB.png'],
+              ['/imgs/series10.png','/imgs/series10_LB.png'],
+              ['/imgs/series11.png','/imgs/series11_LB.png'],
+              ['/imgs/series12.png','/imgs/series12_LB.png'],
+              ['/imgs/series13.png','/imgs/series13_LB.png'],
           ]
       };
   },
