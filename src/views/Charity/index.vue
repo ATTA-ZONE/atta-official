@@ -104,7 +104,7 @@
                 </div>
                 <div class="imgsevery series10">
                     <el-carousel indicator-position="none" arrow="never" :height="winW+'px'">
-                        <el-carousel-item v-for="item in lbimgs[9]" :key="item">
+                        <el-carousel-item v-for="item in lbimgs[13]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
                     </el-carousel>
