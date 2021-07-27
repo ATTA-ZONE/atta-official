@@ -11,9 +11,9 @@
       </div>
       <div class="contentbox">
         <div class="ssrseriesbox">
-            <div class="title flexbetween">
+            <div class="title flex">
                 <span class="Fzlt_Thb">{{$t('charity_ssr_tit')}}</span>
-                <img :src="showssrbool ? '/imgs/arrow1.png' : '/imgs/arrow2.png'" alt="" @click="showssrbool = !showssrbool">
+                <img style="margin-left:41px" :src="showssrbool ? '/imgs/arrow1.png' : '/imgs/arrow2.png'" alt="" @click="showssrbool = !showssrbool">
             </div>
             <div class="imgscontentbox flexbetween">
                 <div class="imgsevery series1">
@@ -102,13 +102,13 @@
                     </el-carousel>
                     <p>{{$t('charity_n_content4')}}</p>
                 </div>
-                <div class="imgsevery series10">
+                <div class="imgsevery series9">
                     <el-carousel indicator-position="none" arrow="never" height="23.1rem">
-                        <el-carousel-item v-for="item in lbimgs[9]" :key="item">
+                        <el-carousel-item v-for="item in lbimgs[13]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
                     </el-carousel>
-                    <p>{{$t('charity_n_content5')}}</p>
+                    <p>{{$t('charity_n_content4_2')}}</p>
                 </div>
                 <div class="imgsevery series11">
                     <el-carousel indicator-position="none" arrow="never" height="23.1rem">
@@ -126,13 +126,26 @@
                     </el-carousel>
                     <p>{{$t('charity_n_content7')}}</p>
                 </div>
-                <div class="imgsevery series13">
+                
+            </div>
+        </div>
+        <div class="nseriesbox" v-if="!showssrbool">
+            <div class="imgscontentbox flex" style="margin-top:0px">
+                <div class="imgsevery series13" style="margin-right:31.46px">
                     <el-carousel indicator-position="none" arrow="never" height="23.1rem">
                         <el-carousel-item v-for="item in lbimgs[12]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
                     </el-carousel>
                     <p>{{$t('charity_n_content8')}}</p>
+                </div>
+                <div class="imgsevery series10">
+                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                        <el-carousel-item v-for="item in lbimgs[9]" :key="item">
+                            <img :src="item" alt="">
+                        </el-carousel-item>
+                    </el-carousel>
+                    <p>{{$t('charity_n_content5')}}</p>
                 </div>
             </div>
         </div>
@@ -141,11 +154,14 @@
             <img :src="!showssrbool ? '/imgs/arrow3.png' : '/imgs/arrow4.png'" alt="">
         </button>
         <div class="nftseriesbox">
-            <div class="title flexbetween">
+            <div class="title flex">
                 <span class="Fzlt_Thb">{{$t('charity_nft_tit')}}</span>
-                <img :src="showssrbool2 ? '/imgs/arrow1.png' : '/imgs/arrow2.png'" alt="" @click="showssrbool2 = !showssrbool2">
+                <img style="margin-left:41px" :src="showssrbool2 ? '/imgs/arrow1.png' : '/imgs/arrow2.png'" alt="" @click="showssrbool2 = !showssrbool2">
             </div>
-            <p class="nft_content_word">{{$t('charity_nft_content')}}</p>
+            <!-- <p class="nft_content_word">{{$t('charity_nft_content')}}</p> -->
+            <div class="rule">
+                <p class="rule_title"></p>
+            </div>
             <div class="nftimgsbox imgscontentbox">
                 <div v-for="(item,index) in nftlist" :key="index" class="nftimgevery series14 flexbetween">
                     <video autoplay loop
@@ -268,8 +284,9 @@ export default defineComponent({
               ['/imgs/series9.png','/imgs/series9_LB.png'],
               ['/imgs/series10.png','/imgs/series10_LB.png'],
               ['/imgs/series11.png','/imgs/series11_LB.png'],
-              ['/imgs/series12.png','/imgs/series12_LB.png'],
+              ['/imgs/series12.png','/imgs/series12_LB.jpg'],
               ['/imgs/series13.png','/imgs/series13_LB.png'],
+              ['/imgs/series9.png','/imgs/series9_LB_2.png'],
           ]
       };
   },
