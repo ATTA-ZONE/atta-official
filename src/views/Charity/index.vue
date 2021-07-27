@@ -17,7 +17,7 @@
             </div>
             <div class="imgscontentbox flexbetween">
                 <div class="imgsevery series1">
-                    <el-carousel indicator-position="none" arrow="never" height="22.1rem">
+                    <el-carousel indicator-position="none" arrow="never" :height="winW+'px'">
                         <el-carousel-item v-for="item in lbimgs[0]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
@@ -25,7 +25,7 @@
                     <p>{{$t('charity_ssr_content1')}}</p>
                 </div>
                 <div class="imgsevery series2">
-                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                    <el-carousel indicator-position="none" arrow="never" :height="(winW02>0?winW02:winW)+'px'">
                         <el-carousel-item v-for="item in lbimgs[1]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
@@ -40,7 +40,7 @@
             </div>
             <div class="imgscontentbox flexbetween">
                 <div class="imgsevery series3">
-                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                    <el-carousel indicator-position="none" arrow="never"  :height="(winW03>0?winW03:winW)+'px'">
                         <el-carousel-item v-for="item in lbimgs[2]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
@@ -48,7 +48,7 @@
                     <p>{{$t('charity_r_content1')}}</p>
                 </div>
                 <div class="imgsevery series4">
-                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                    <el-carousel indicator-position="none" arrow="never" :height="(winW04>0?winW04:winW)+'px'">
                         <el-carousel-item v-for="item in lbimgs[3]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
@@ -56,7 +56,7 @@
                     <p>{{$t('charity_r_content2')}}</p>
                 </div>
                 <div class="imgsevery series5">
-                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                    <el-carousel indicator-position="none" arrow="never" :height="(winW04>0?winW04:winW)+'px'">
                         <el-carousel-item v-for="item in lbimgs[4]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
@@ -71,7 +71,7 @@
             </div>
             <div class="imgscontentbox flexbetween">
                 <div class="imgsevery series6">
-                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                    <el-carousel indicator-position="none" arrow="never" :height="(winW05>0?winW05:winW)+'px'">
                         <el-carousel-item v-for="item in lbimgs[5]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
@@ -79,7 +79,7 @@
                     <p>{{$t('charity_n_content1')}}</p>
                 </div>
                 <div class="imgsevery series7">
-                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                    <el-carousel indicator-position="none" arrow="never" :height="(winW06>0?winW06:winW)+'px'">
                         <el-carousel-item v-for="item in lbimgs[6]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
@@ -87,7 +87,7 @@
                     <p>{{$t('charity_n_content2')}}</p>
                 </div>
                 <div class="imgsevery series8">
-                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                    <el-carousel indicator-position="none" arrow="never" :height="winW+'px'">
                         <el-carousel-item v-for="item in lbimgs[7]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
@@ -95,23 +95,23 @@
                     <p>{{$t('charity_n_content3')}}</p>
                 </div>
                 <div class="imgsevery series9">
-                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                    <el-carousel indicator-position="none" arrow="never" :height="winW+'px'">
                         <el-carousel-item v-for="item in lbimgs[8]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
                     </el-carousel>
                     <p>{{$t('charity_n_content4')}}</p>
                 </div>
-                <div class="imgsevery series9">
-                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
-                        <el-carousel-item v-for="item in lbimgs[13]" :key="item">
+                <div class="imgsevery series10">
+                    <el-carousel indicator-position="none" arrow="never" :height="winW+'px'">
+                        <el-carousel-item v-for="item in lbimgs[9]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
                     </el-carousel>
                     <p>{{$t('charity_n_content4_2')}}</p>
                 </div>
                 <div class="imgsevery series11">
-                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                    <el-carousel indicator-position="none" arrow="never" :height="(winW07>0?winW07:winW)+'px'">
                         <el-carousel-item v-for="item in lbimgs[10]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
@@ -119,20 +119,15 @@
                     <p>{{$t('charity_n_content6')}}</p>
                 </div>
                 <div class="imgsevery series12">
-                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                    <el-carousel indicator-position="none" arrow="never" :height="(winW06>0?winW06:winW)+'px'">
                         <el-carousel-item v-for="item in lbimgs[11]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
                     </el-carousel>
                     <p>{{$t('charity_n_content7')}}</p>
                 </div>
-                
-            </div>
-        </div>
-        <div class="nseriesbox" v-if="!showssrbool">
-            <div class="imgscontentbox flex" style="margin-top:0px">
-                <div class="imgsevery series13" style="margin-right:31.46px">
-                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                <div class="imgsevery series13">
+                    <el-carousel indicator-position="none" arrow="never" :height="winW+'px'">
                         <el-carousel-item v-for="item in lbimgs[12]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
@@ -140,7 +135,7 @@
                     <p>{{$t('charity_n_content8')}}</p>
                 </div>
                 <div class="imgsevery series10">
-                    <el-carousel indicator-position="none" arrow="never" height="23.1rem">
+                    <el-carousel indicator-position="none" arrow="never" :height="winW+'px'">
                         <el-carousel-item v-for="item in lbimgs[9]" :key="item">
                             <img :src="item" alt="">
                         </el-carousel-item>
@@ -298,15 +293,72 @@ export default defineComponent({
     const { locale } = useI18n();
     const showssrbool = ref(true);
     const showssrbool2 = ref(true);
+    
+    const winW = ref(1260);
+    const winW02 = ref(0);
+    const winW03 = ref(0);
+    const winW04 = ref(0);
+    const winW05 = ref(0);
+    const winW06 = ref(0);
+    const winW07 = ref(0);
+    if(window.innerWidth){
+        if(window.innerWidth > 992){
+            winW.value = window.innerWidth*0.29;
+            winW02.value = 0;
+            winW03.value = 0;
+            winW04.value = 0;
+            winW05.value = 0;
+            winW06.value = 0;
+            winW07.value = 0;
+        }else{
+            winW.value = window.innerWidth*0.93;
+            winW02.value = window.innerWidth*0.5;
+            winW03.value = window.innerWidth*0.745;
+            winW04.value = window.innerWidth*0.7;
+            winW05.value = window.innerWidth*0.63;
+            winW06.value = window.innerWidth*0.65;
+            winW07.value = window.innerWidth*0.6;
+        }
+    }else{
+        winW.value = 1260*0.29;
+    }
+    window.onresize = () => {
+        if(window.innerWidth){
+            if(window.innerWidth > 992){
+                winW.value = window.innerWidth*0.29;
+                winW02.value = 0;
+                winW03.value = 0;
+                winW04.value = 0;
+                winW05.value = 0;
+                winW06.value = 0;
+                winW07.value = 0;
+            }else{
+                winW.value = window.innerWidth*0.93;
+                winW02.value = window.innerWidth*0.5;
+                winW03.value = window.innerWidth*0.745;
+                winW04.value = window.innerWidth*0.7;
+                winW05.value = window.innerWidth*0.63;
+                winW06.value = window.innerWidth*0.65;
+                winW07.value = window.innerWidth*0.6;
+            }
+        }else{
+            winW.value = 1260*0.29;
+        }
+    }
     const isEn = computed(() => {
-        console.log(isEn);
-        
       return locale.value.trim() == "en";
     });
     return {
         showssrbool,
         showssrbool2,
         isEn,
+        winW,
+        winW02,
+        winW03,
+        winW04,
+        winW05,
+        winW06,
+        winW07
     };
   },
 });
