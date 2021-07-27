@@ -157,7 +157,7 @@ export default defineComponent({
                   contenten : 'Collect two different SSR: win one large-size digital inkjet created by young artists ',
                   titlech : '藝術家聯名創作的大尺寸簽名版數字',
                   contentch : '集齊兩種SSR類NFT：獲贈本次藝術家聯名創作的大尺寸簽名版數字噴繪',
-                  url:'/imgs/series14.png',
+                  url:'/imgs/series21.png',
                 },
                 {
                   titleen : 'limited-edition "Sui Bian" T-shirt + one "Sui Bian" digital inkjet',
@@ -178,7 +178,7 @@ export default defineComponent({
                   contenten : 'Collect any R + four different N: win one hardcopy of any NFT in the box ',
                   titlech : '指定NFT的打印版”',
                   contentch : '集齊任意一種R+4種N類NFT：獲贈指定NFT的打印版一張',
-                  url:'/imgs/series14.png',
+                  url:'/imgs/series22.png',
                 },
                 {
                   titleen : 'illustrator-designed canvas bag',
