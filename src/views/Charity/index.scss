@@ -57,8 +57,17 @@
             .title{
                 align-items: center;
                 font-size: 36px;
-                img{
+                img,span{
                     cursor: pointer;
+                }
+                .tips{
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 20px;
+                    line-height: 190%;
+                    color: rgba(255, 255, 255, 0.7);
+                    margin-left: 77px;
+                    margin-top: -5px;
                 }
             }
             .imgscontentbox{
@@ -275,6 +284,9 @@
             font-size: 20px;
             img{
                 // width: 19px;
+                display: none;
+            }
+            .tips{
                 display: none;
             }
         }

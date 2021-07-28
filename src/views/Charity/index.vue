@@ -6,13 +6,14 @@
           <p>{{$t('charity_content')}}</p>
           <div class="btnbox">
               <span>{{$t('charity_btnlable')}}</span>
-              <button>{{$t('charity_btnname')}}</button>
+              <button @click="jumppage()">{{$t('charity_btnname')}}</button>
           </div>
       </div>
       <div class="contentbox">
         <div class="ssrseriesbox">
             <div class="title flex">
-                <span class="Fzlt_Thb">{{$t('charity_ssr_tit')}}</span>
+                <span class="Fzlt_Thb" @click="showssrbool = !showssrbool">{{$t('charity_ssr_tit')}}</span>
+                <span class="tips" @click="showssrbool = !showssrbool">{{$t('Click to expand')}}</span>
                 <img style="margin-left:41px" :src="showssrbool ? '/imgs/arrow1.png' : '/imgs/arrow2.png'" alt="" @click="showssrbool = !showssrbool">
             </div>
             <div class="imgscontentbox flexbetween">
@@ -154,7 +155,8 @@
         </button>
         <div class="nftseriesbox">
             <div class="title flex">
-                <span class="Fzlt_Thb">{{$t('charity_nft_tit')}}</span>
+                <span class="Fzlt_Thb" @click="showssrbool2 = !showssrbool2">{{$t('charity_nft_tit')}}</span>
+                <span class="tips" @click="showssrbool2 = !showssrbool2">{{$t('Click to expand')}}</span>
                 <img style="margin-left:41px" :src="showssrbool2 ? '/imgs/arrow1.png' : '/imgs/arrow2.png'" alt="" @click="showssrbool2 = !showssrbool2">
             </div>
             <div class="rule">
@@ -212,14 +214,14 @@ export default defineComponent({
                   titleen : '"ATTA X Smile Angel" donation certificate NFT',
                   contenten : 'All Mystery Box purchasers: will receive a special “ATTA X Smile Angel” donation certificate NFT',
                   titlech : '嫣然慈善愛心捐贈NFT紀念證書',
-                  contentch : '盲盒首次發行期間，購買的用戶都可以獲贈嫣然慈善愛心捐贈NFT幾年證書一份',
+                  contentch : '盲盒首次發行期間購買的用戶，都可以獲贈嫣然慈善愛心捐贈NFT紀念證書一份',
                   url:'/imgs/series14.png',
                 },
                 {
                   titleen : '"ATTA X Smile Angel" Special Angel NFT',
                   contenten : 'Collect all SSR+R NFTs: win one “ATTA X Smile Angel” Special Angel NFT, with which you can go to www.atta.zone to redeem VIP tickets for three “Smile Angel Special Concerts” ',
-                  titlech : 'ATTA X嫣然 天使NFT',
-                  contentch : '集齊所有SSR+R 類NFT：獲贈“ATTA X嫣然 天使NFT”一枚，憑天使NFT可前往兌換三場“嫣然愛音樂”演唱會VIP門票',
+                  titlech : 'ATTA X 嫣然天使NFT',
+                  contentch : '集齊所有SSR+R類NFT的用戶可以獲贈“ATTA X嫣然天使NFT”一枚，憑天使NFT可前往兌換今年三場“嫣然愛音樂”演唱會VIP門票，演出嘉賓包括痛仰樂團，木馬樂隊等。演出詳情和參加辦法請關注ATTA官網。',
                   url:'/series20.mp4',
                 }
           ],
@@ -356,6 +358,9 @@ export default defineComponent({
     const isEn = computed(() => {
       return locale.value.trim() == "en";
     });
+    const jumppage = () => {
+        window.open('https://www.binance.com/en/nft/blindBox/detail?productId=116462123537859584');
+    };
     return {
         showssrbool,
         showssrbool2,
@@ -367,7 +372,8 @@ export default defineComponent({
         winW04,
         winW05,
         winW06,
-        winW07
+        winW07,
+        jumppage
     };
   },
 });
