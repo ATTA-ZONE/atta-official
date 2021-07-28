@@ -157,7 +157,7 @@
             <div class="title flex">
                 <span class="Fzlt_Thb" @click="showssrbool2 = !showssrbool2">{{$t('charity_nft_tit')}}</span>
                 <span class="tips" @click="showssrbool2 = !showssrbool2">{{$t('Click to expand')}}</span>
-                <img style="margin-left:41px" :src="showssrbool2 ? '/imgs/arrow1.png' : '/imgs/arrow2.png'" alt="" @click="showssrbool2 = !showssrbool2">
+                <img style="margin-left:41px;" :src="showssrbool2 ? '/imgs/arrow1.png' : '/imgs/arrow2.png'" alt="" @click="showssrbool2 = !showssrbool2">
             </div>
             <div class="rule">
                 <p class="rule_title">{{$t("rule_title")}}</p>
