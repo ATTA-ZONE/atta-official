@@ -165,6 +165,7 @@
                 <p class="rule_title">{{$t("rule_tip2")}}</p>
                 <p class="rule_title">{{$t("rule_tip3")}}</p>
                 <p class="rule_title">{{$t("rule_tip4")}}</p>
+                <p class="rule_title">{{$t("rule_tip5")}}</p>
             </div>
             <div class="nftimgsbox imgscontentbox">
                 <div v-for="(item,index) in nftlist" :key="index" class="nftimgevery series14 flexbetween">
