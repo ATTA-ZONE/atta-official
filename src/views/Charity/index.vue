@@ -161,7 +161,7 @@
             </div>
             <div class="rule">
                 <p class="rule_title">{{$t("rule_title")}}</p>
-                <p class="rule_title">{{$t("rule_tip1")}} nft@atta.zone</p>
+                <p class="rule_title">{{$t("rule_tip1")}} nft@atta.zone {{isEn ? '.': '。'}}</p>
                 <p class="rule_title">{{$t("rule_tip2")}}</p>
                 <p class="rule_title">{{$t("rule_tip3")}}</p>
                 <p class="rule_title">{{$t("rule_tip4")}}</p>
