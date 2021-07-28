@@ -222,7 +222,7 @@ export default defineComponent({
                   titleen : '"ATTA X Smile Angel" Special Angel NFT',
                   contenten : 'Collect all SSR+R NFTs: win one “ATTA X Smile Angel” Special Angel NFT, with which you can go to www.atta.zone to redeem VIP tickets for three “Smile Angel Special Concerts” ',
                   titlech : 'ATTA X 嫣然天使NFT',
-                  contentch : '集齊所有SSR+R類NFT的用戶可以獲贈“ATTA X嫣然天使NFT”一枚，憑天使NFT可前往兌換今年三場“嫣然愛音樂”演唱會VIP門票，演出嘉賓包括痛仰樂團，木馬樂隊等。演出詳情和參加辦法請關注ATTA官網。',
+                  contentch : '集齊所有SSR+R類NFT的用戶可以獲贈“ATTA X嫣然天使NFT”一枚，憑天使NFT可前往兌換今年三場“嫣然愛音樂”演唱會VIP門票，演出嘉賓包括痛仰樂團，木馬樂隊等。演出詳情和參加辦法請關注ATTA官網',
                   url:'/series20.mp4',
                 }
           ],
