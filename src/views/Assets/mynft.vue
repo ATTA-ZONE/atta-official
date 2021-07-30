@@ -511,7 +511,7 @@ export default defineComponent({
         })
         .then(function (res: any) {
           alert(t("tipsjs4"));
-          geteveryqkl();
+          location.reload();
         });
       setTimeout(() => {
         alert(t("tipsjs5"));
