@@ -306,6 +306,9 @@ export default defineComponent({
           }
         }
       });
+      window.ethereum.on("networkChanged", function(accounts) {
+        location.reload();
+      });
     });
 
     const emitAddress = (str: string) => {
