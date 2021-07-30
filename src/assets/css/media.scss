@@ -93,7 +93,7 @@
   }
   div.home-page > div .home-page-three {
     margin-top: 0 !important;
-    padding: 10px 15% 5px !important;
+    padding: 10px 5% 5px !important;
     display: none;
   }
   div.home-page > div .home-page-three.threeweb{
@@ -102,21 +102,29 @@
   }
   div.home-page > div .home-page-three.threeweb .twohanglogo{
     margin-top: 0;
-    justify-content: center;
+    justify-content: inherit;
     align-items: center;
   }
   div.home-page > div .home-page-three.threeweb .threehanglogo{
     align-items: center;
     display: flex;
     width: 100%;
-    justify-content: inherit;
+    justify-content: space-evenly;
     position: absolute;
-    bottom: 0;
+    bottom: 0; 
     left: 0;
   }
   .home-page .home-page-three.threeweb .logo1 {
     width: 164px;
     height: 12px;
+  }
+  .home-page .home-page-three.threeweb .logo9 {
+    width: 94px;
+    height: 21px;
+  }
+  .home-page .home-page-three.threeweb .logo10 {
+    width: 27px;
+    height: 39px;
   }
   .home-page .home-page-three.threeweb .logo2 {
     width: 83px;
@@ -134,11 +142,12 @@
     height: 38px;
   }
   .home-page .home-page-three.threeweb .logo8 {
-    width: 79px;
+    width: 88px;
     height: auto;
   }
   .home-page .home-page-three .logo3 {
-    width: 129px;
+    width: 120px;
+    height: auto;
   }
   .home-page .home-page-three.threeweb .logo5 {
     width: 38px;
