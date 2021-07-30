@@ -81,7 +81,7 @@
                   >{{ $t("banhao2") }}: {{ json.edition }} of
                   {{ item.endEdition }}</span
                 >
-                <span style="margin-left: 50px">{{ $t("blockchain") }}</span>
+                <span style="margin-left: 50px">{{ blockText }}</span>
               </p>
               <div class="inputbox flex between">
                 <div class="srkbox">
@@ -177,7 +177,7 @@
             <div class="everydatabox">
               <p class="tit">
                 <span>{{ $t("currentWallet") }}：{{ walletBalance }}</span>
-                <span style="margin-left: 50px">{{ $t("blockchain") }}</span>
+                <span style="margin-left: 50px">{{ blockText }}</span>
               </p>
               <div class="inputbox flex between">
                 <div class="srkbox">
@@ -273,15 +273,15 @@ export default defineComponent({
     const current = ref(1);
     const pageSize = ref(9);
     const showMoreInfo = ref(-1);
-    const selectedNftName = ref("");
+    const selectedNftName = ref('');
     const selectedNft = ref();
-    const walletId = ref("");
+    const walletId = ref('');
     const tokenarr: any = ref([]);
     const showTransferModel = ref(false);
     const isErc1155 = ref(false);
-    const modelTitle = ref("");
-    const modelTips = ref("");
-    const transferToAddress = ref("");
+    const modelTitle = ref('');
+    const modelTips = ref('');
+    const transferToAddress = ref('');
     const modifyBtnActive: any = ref({});
     const chainId = ref(0);
     const walletBalance = ref(0);
@@ -291,6 +291,10 @@ export default defineComponent({
 
     const isEn = computed(() => {
       return locale.value.trim() == "en";
+    });
+    
+    const blockText = computed(() => {
+      return chainId.value == 1 || chainId.value == 4 ? t('ethchain') : t('blockchain')
     });
 
     const getAssetsList = (arr) => {
@@ -616,6 +620,7 @@ export default defineComponent({
       showTransferModel,
       downloadFile,
       loading,
+      blockText
     };
   },
 });
