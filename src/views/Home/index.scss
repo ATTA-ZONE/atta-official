@@ -132,7 +132,7 @@ video{
 }
 .home-page .home-page-three {
   /* padding: 91.5px 10%; */
-  padding:48px 18% 48px 15%;
+  padding:48px 10% 48px 5%;
   background: rgba(5, 5, 5, 0.48);
   width: 100%;
   justify-content: space-around;
@@ -151,8 +151,8 @@ video{
   align-items: center;
 }
 div.onehanglogo{
-  width: 98%;
-  margin-left: 1%;
+  width: 100%;
+  margin-left: 0%;
 }
 .twohanglogo{
   margin: 0 auto;
@@ -165,12 +165,24 @@ div.onehanglogo{
 .home-page .home-page-three img {
   margin: 20px 0;
 }
+.home-page .home-page-three{
+  .img-right{
+    width: 258px;
+    text-align:center;
+  }
+}
 .home-page .home-page-three .logo1 {
   width: 258px;
   height: 19px;
 }
 .logo3 {
   width: 258px;
+}
+.logo9{
+width: 193px;
+}
+.logo10{
+  width: 65px;
 }
 .home-page .home-page-three .logo2 {
   width: 166px;

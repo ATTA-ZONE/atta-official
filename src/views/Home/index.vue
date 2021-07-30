@@ -19,36 +19,42 @@
       </div>
       <div class="home-page-three" id="Upcoming">
         <div class="onehanglogo">
-          <img class="logo1" src="/imgs/logo01.png" />
+          <img class="logo3" src="/imgs/bsc.png" />
           <img class="logo2" src="/imgs/logo02.png" />
-          <img class="logo6" src="/imgs/logo06.png" />
+          <img class="logo9" src="/imgs/logo09.png" />
+          <img class="logo1" src="/imgs/logo01.png" />
         </div>
         <div class="twohanglogo">
-          <img class="logo3" src="/imgs/bsc.png" />
           <div class="img-center">
             <img class="logo7" src="/imgs/logo07.png" />
           </div>
+          <img class="logo10" src="/imgs/logo10.png" />
           <div class="img-center">
             <img class="logo5" src="/imgs/logo05.png" />
           </div>
           <img class="logo8" src="/imgs/logo08.png" />
+          <div class="img-right">
+            <img class="logo6" src="/imgs/logo06.png" />
+          </div>
           <img src="/imgs/pageTwoRightBtm.png" class="start" />
         </div>
       </div>
       <div class="home-page-three threeweb">
         <div class="onehanglogo">
-          <img class="logo2" src="/imgs/logo02.png" />
           <img class="logo3" src="/imgs/bsc.png" />
+          <img class="logo2" src="/imgs/logo02.png" />
+          <img class="logo8" src="/imgs/logo08.png" />
         </div>
         <div class="twohanglogo">
           <img class="logo1" src="/imgs/logo01.png" />
+          <img class="logo9" src="/imgs/logo09.png" />
           <img src="/imgs/pageTwoRightBtm.png" class="start" />
         </div>
         <div class="threehanglogo">
           <img class="logo5" src="/imgs/logo05.png" />
           <img class="logo6" src="/imgs/logo06.png" />
           <img class="logo7" src="/imgs/logo07.png" />
-          <img class="logo8" src="/imgs/logo08.png" />
+          <img class="logo10" src="/imgs/logo10.png" />
         </div>
       </div>
       <div class="home-page-four flex">
