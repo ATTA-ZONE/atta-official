@@ -8,8 +8,12 @@
               <span>{{$t('charity_btnlable')}}</span>
               <button @click="jumppage()">{{$t('charity_btnname')}}</button>
           </div>
-          <p>{{$t('auction_Introduction1')}}</p>
+          <p class="auction-introduction">{{$t('auction_Introduction1')}}</p>
           <p style="margin-top:0;">{{$t('auction_Introduction2')}}</p>
+          <div class="btnbox">
+              <span>{{$t('auction_btnlable')}}</span>
+              <button @click="jumppageAuction()">{{$t('auction_btnlable_btn')}}</button>
+          </div>
       </div>
       <div class="contentbox">
         <div class="ssrseriesbox">
@@ -364,6 +368,10 @@ export default defineComponent({
     const jumppage = () => {
         window.open('https://www.binance.com/en/nft/blindBox/detail?productId=116462123537859584');
     };
+    const jumppageAuction = () => {
+        window.open('https://www.binance.com/en/nft/goods/detail?productId=4808176&isProduct=1');
+    };
+    
     return {
         showssrbool,
         showssrbool2,
@@ -376,7 +384,8 @@ export default defineComponent({
         winW05,
         winW06,
         winW07,
-        jumppage
+        jumppage,
+        jumppageAuction
     };
   },
 });
