@@ -140,6 +140,16 @@ export const chainSetting = {
                 "owner_id": 1,
                 "address": "0x790575dcE4E68e5e3c4508DB0293EE2A9ab890a7"
             },
+            "1":
+            {
+                "owner_id": 1,
+                "address": "0x44d84e290aac6b8706a8819672571bccf9f6598b"
+            },
+            "4":
+            {
+                "owner_id": 1,
+                "address": "0x3e2e7ad186c81cd7eba182ce89ce94cd48edcc5f"
+            },
 
         },
         "vending_machine": {

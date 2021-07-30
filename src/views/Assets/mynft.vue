@@ -326,7 +326,7 @@ export default defineComponent({
         auctionAddress +
         "&address=" +
         walletId.value +
-        "&sort=desc";
+        "&sort=desc&apikey=" + window.apikey;
 
       axios.get(requestUrl).then((res:any) => {
         let nftData = res.result;

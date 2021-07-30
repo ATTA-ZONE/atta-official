@@ -260,11 +260,11 @@ export default defineComponent({
     const getLocation = () => {
       if (window.location.href.indexOf("atta.zone") > -1) {
         window.base_url = "https://www.bazhuayu.io";
-        window.scansite_base_url = "https://api.bscscan.com";
+        
         window.locationUrl = window.location.origin;
       } else {
         window.base_url = "http://47.118.74.48:8081";
-        window.scansite_base_url = "https://api-testnet.bscscan.com";
+        
         window.locationUrl = "http://47.118.74.48:8081";
       }
       accountAddress.value =
@@ -283,6 +283,26 @@ export default defineComponent({
       window.CHAIN.WALLET.chainId().then((res) => {
         if (res) {
           chainId.value = res;
+          switch (res) {
+            case 1:
+              window.scansite_base_url = "https://api-cn.etherscan.com";
+              break;
+            case 4:
+              window.scansite_base_url = "https://api-rinkeby.etherscan.io";
+              break;
+            case 56:
+              window.scansite_base_url = "https://api.bscscan.com";
+              break;
+            case 97:
+              window.scansite_base_url = "https://api-testnet.bscscan.com";
+              break;
+          }
+          if (res == 1 || res == 4) {
+            window.apikey = 'B6E489JHYYK4T1AHTGPI3HHRCSD2VX18X4'
+          } else {
+            window.apikey = '9GRF9Q9HT18PBCHQQD84N7U2MGC6I1NE27'
+          }
+          console.log(res);
         }
       });
     });
