@@ -14,7 +14,7 @@
             </div>
             <div class="wallet-status-address">{{ accountAddress }}</div>
             <div v-if="accountAddress">
-              {{ $t("Current network") }} {{ chainId == 1 ? "ETH" : "BSC" }}
+              {{ $t("Current network") }} {{ chainId == 1 || chainId == 4? "ETH" : "BSC" }}
               <span
                 class="wallet-status-btn"
                 @click="showNetworkSwitch = true"
@@ -74,7 +74,7 @@
             </div>
             <div class="wallet-status-address">{{ accountAddress }}</div>
             <div v-if="accountAddress">
-              {{ $t("Current network") }} {{ chainId == 1 ? "ETH" : "BSC" }}
+              {{ $t("Current network") }} {{ chainId == 1 || chainId == 4 ? "ETH" : "BSC" }}
               <span
                 class="wallet-status-btn"
                 @click="showNetworkSwitch = true"
@@ -299,10 +299,11 @@ export default defineComponent({
           }
           if (res == 1 || res == 4) {
             window.apikey = 'B6E489JHYYK4T1AHTGPI3HHRCSD2VX18X4'
+            window.chainType = 'eth'
           } else {
             window.apikey = '9GRF9Q9HT18PBCHQQD84N7U2MGC6I1NE27'
+            window.chainType = 'bsc'
           }
-          console.log(res);
         }
       });
     });
