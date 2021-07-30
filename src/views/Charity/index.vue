@@ -8,6 +8,8 @@
               <span>{{$t('charity_btnlable')}}</span>
               <button @click="jumppage()">{{$t('charity_btnname')}}</button>
           </div>
+          <p>{{$t('auction_Introduction1')}}</p>
+          <p style="margin-top:0;">{{$t('auction_Introduction2')}}</p>
       </div>
       <div class="contentbox">
         <div class="ssrseriesbox">
