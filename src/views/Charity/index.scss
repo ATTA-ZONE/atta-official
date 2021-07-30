@@ -51,6 +51,9 @@
                 cursor: pointer;
             }
         }
+        p.auction-introduction{
+            margin-top: 28px;
+        }
     }
     .contentbox{
         padding-top: 40px;
@@ -267,6 +270,9 @@
         p{
             margin-top: 10px !important;
             font-size: 12px !important;
+        }
+        p.auction-introduction{
+            margin-top: 20px !important;
         }
         .btnbox{
             margin-top: 24px !important;
