@@ -61,6 +61,8 @@ export default defineComponent({
     const dataList: any = ref([]);
     const loading = ref<boolean>(false);
     const web3 = ref();
+    const chainId = ref(0);
+    const targetChainId = ref('');
 
     const timeFormat = (str) => {
       const date = new Date(str);
@@ -77,15 +79,8 @@ export default defineComponent({
     };
 
     const getNFT = async () => {
-      let targetChainId: any = "";
-
-      if (window.location.href.indexOf("atta.zone") == -1) {
-        targetChainId = "97";
-      } else {
-        targetChainId = "56";
-      }
       let auctionAddress =
-        chainSetting["contractSetting"]["atta_ERC721"][targetChainId].address;
+        chainSetting["contractSetting"]["atta_ERC721"][targetChainId.value].address;
       let accounts = await window.CHAIN.WALLET.enable();
       let bscAd =
         window.scansite_base_url +
@@ -93,7 +88,7 @@ export default defineComponent({
         auctionAddress +
         "&address=" +
         accounts[0] +
-        "&sort=desc";
+        "&sort=desc&apikey=" + window.apikey;
       return new Promise((resolve, reject) => {
         axios.get(bscAd).then((res) => {
           resolve(res);
@@ -107,6 +102,7 @@ export default defineComponent({
           .get(window.base_url + "/v2/commodity/edition_basic_id", {
             params: {
               tokenTypeId: id,
+              chainType: window.chainType,
               lang: getCookie("lg") == "en" ? "EN" : "TC",
             },
           })
@@ -174,9 +170,24 @@ export default defineComponent({
       });
     };
 
-    onMounted(() => {
+    onMounted(async() => {
       loading.value = true;
       web3.value = new window.Web3(window.ethereum);
+      chainId.value = await window.CHAIN.WALLET.chainId();
+      switch (chainId.value) {
+        case 1:
+          targetChainId.value = '1';
+          break;
+        case 4:
+          targetChainId.value = '4';
+          break;
+        case 56:
+          targetChainId.value = '56';
+          break;
+        case 97:
+          targetChainId.value = '97';
+          break;
+      }
       getNftHistory();
       get1155History();
     });

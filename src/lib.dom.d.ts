@@ -6,4 +6,6 @@ declare interface Window {
   base_url:any
   scansite_base_url:any
   locationUrl:any
+  apikey: any
+  chainType: any
 }
