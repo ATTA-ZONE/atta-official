@@ -43,15 +43,10 @@
       <div class="flex">
         <img class="brandLogo" src="/imgs/logo.png" @click="$router.push({name:'Home'})"/>
         <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
-          <!-- <router-link :class="[selectedPath == '/'? 'selected-tab':'']" to="/">{{ $t("home") }}</router-link> -->
-          <a @click="goAnchor('Introduction')">
-            {{ $t("Introduce") }}
-          </a>
-          <a @click="goAnchor('Upcoming')">
-            {{ $t("Upcoming") }}
-          </a>
+          <router-link :class="[selectedPath == '/'? 'selected-tab':'']" to="/">{{ $t("home") }}</router-link>
           <router-link :class="[selectedPath == '/charity'? 'selected-tab':'']" to="/charity">{{ $t("ATTA Charity") }}</router-link>
           <router-link :class="[selectedPath == '/assets/mynft'? 'selected-tab':'']" to="/assets">{{ $t("Asset Management") }}</router-link>
+          <router-link :class="[selectedPath == '/stak'? 'selected-tab':'']" to="/stak">{{ $t("stakName") }}</router-link>
         </div>
       </div>
       <img
