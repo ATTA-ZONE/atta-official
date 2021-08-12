@@ -6,7 +6,8 @@ const Assets = () => import("../views/Assets/index.vue");
 const mynft = () => import("../views/Assets/mynft.vue");
 const history = () => import("../views/Assets/history.vue");
 const Charity = () => import("../views/Charity/index.vue");
-const Stak = () => import("../views/Stak/index.vue");
+const match = () => import("../views/match/index.vue");
+const loading = () => import("../views/match/loading.vue");
 const Xudongdong = () => import("../views/Xudongdong/index.vue");
  
 const routes = [
@@ -39,9 +40,14 @@ const routes = [
     component: Charity,
   },
   {
-    path: "/stak",
-    name: "stak",
-    component: Stak,
+    path: "/match",
+    name: "match",
+    component: match,
+  },
+  {
+    path: "/loading",
+    name: "loading",
+    component: loading,
   },
   {
     path: "/xudongdong",
