@@ -168,6 +168,7 @@ export default defineComponent({
 
     const getAddress = () => {
       if (!accountAddress.value) {
+        // 获取钱包地址
         initWeb3().then((res: any) => {
           if (res.length > 0) {
             accountAddress.value = res[0];

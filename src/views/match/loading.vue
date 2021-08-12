@@ -18,4 +18,17 @@ export default defineComponent({
 
 
 <style lang="scss">
+.match-load{
+  text-align: center;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 552px);
+  p{ 
+    text-align: center;
+    font-size:48px;
+    line-height: 80px;
+    font-weight:bold;
+  }
+}
 </style>
