@@ -69,7 +69,7 @@
       <p>比赛开始时间</p> 
       <h5>8月xx日 14:00</h5>
     </div>
-    <div>
+    <div >
     </div>
   </div>
   <footer-cell />

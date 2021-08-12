@@ -178,5 +178,7 @@
   "downCopywriting" : "ATTA app is the exclusive physical NFC scanning tool of ATTA platform. You can download this app to experience if you own the physical items released by ATTA.  ",
   "charity_open" : "More",
   "charity_retract" : "Fold",
-  "matchName" : "Match"
+  "matchName" : "Match",
+  "load_text01":"Coming soon...",
+  "load_text02":""
 }

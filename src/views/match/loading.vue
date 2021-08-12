@@ -1,7 +1,7 @@
 <template>
   <header-cell />
   <div class="match-load flex">
-    <p>{{$t('load_text01')}}<br>{{$t('load_text02')}}</p>
+    <p class="hanson">{{$t('load_text01')}}<br>{{$t('load_text02')}}</p>
   </div>
   <footer-cell />
 </template>
