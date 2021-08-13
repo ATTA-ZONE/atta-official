@@ -46,7 +46,7 @@
           <router-link :class="[selectedPath == '/'? 'selected-tab':'']" to="/">{{ $t("home") }}</router-link>
           <router-link :class="[selectedPath == '/charity'? 'selected-tab':'']" to="/charity">{{ $t("ATTA Charity") }}</router-link>
           <router-link :class="[selectedPath == '/assets/mynft'? 'selected-tab':'']" to="/assets">{{ $t("Asset Management") }}</router-link>
-          <!-- <router-link :class="[selectedPath == '/match'? 'selected-tab':'']" to="/match">{{ $t("matchName") }}</router-link> -->
+          <router-link :class="[selectedPath == '/match'? 'selected-tab':'']" to="/match">{{ $t("matchName") }}</router-link>
         </div>
       </div>
       <img

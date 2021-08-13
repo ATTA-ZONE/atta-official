@@ -1,7 +1,7 @@
 <template>
   <header-cell />
   <div class="match-container">
-    <!-- <img class="top-banner" src="/imgs/starkBanner.png" /> -->
+    <!-- <img class="top-banner" src="/match/starkBanner.png" /> -->
     <div class="match-header flex">
       <div class="match-title" :class="isEn ? 'hanson' : ''">
         <p class="title-top">{{$t("match_title01")}}</p>
@@ -11,7 +11,7 @@
     </div>
     <div class="match-introduce flex">
       <div class="introduce-list">
-        <img src="/imgs/rita.png" alt="">
+        <img src="/match/rita.png" alt="">
         <div class="introduce-text">
           <h5>{{$t("match_rita_title")}}</h5>
           <p :class="isEn ? 'niunito' : ''">{{$t("match_rita_text")}}</p>
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="introduce-list list-middle">
-        <img src="/imgs/aill.png" alt="">
+        <img src="/match/aill.png" alt="">
         <div class="introduce-text">
           <h5>{{$t("match_aill_title")}}</h5>
           <p :class="isEn ? 'niunito' : ''">{{$t("match_aill_text")}}</p>
@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="introduce-list">
-        <img src="/imgs/tx.png" alt="">
+        <img src="/match/tx.png" alt="">
         <div class="introduce-text">
           <h5>{{$t("match_tx_title")}}</h5>
           <p :class="isEn ? 'niunito' : ''">{{$t("match_tx_text")}}</p>
@@ -44,7 +44,7 @@
       </div>
       <div class="rule-text">
         <div class="match-title" :class="isEn ? 'hanson' : ''">
-          <p class="title-top">{{$t("match_title01")}}</p>
+          <p class="title-top">{{$t("match_title001")}}</p>
           <p class="title-bottom">{{$t("match_rule")}}</p>
         </div>
         <div class="rule-list" :class="isEn ? 'niunito' : ''">
