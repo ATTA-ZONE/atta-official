@@ -1,4 +1,4 @@
-import { c_auction_abi, c_ERC20_abi, c_vendingMachine_abi, c_ERC721_abi, c_atta_ERC1155_Airdrop_abi, c_atta_ERC1155_Airdrop_MerkleProof_abi ,d_ERC721_abi} from './contractABI'
+import { c_auction_abi, c_ERC20_abi, c_vendingMachine_abi, c_ERC721_abi, c_atta_ERC1155_Airdrop_abi, c_atta_ERC1155_Airdrop_MerkleProof_abi ,d_ERC721_abi,c_atta_vote_abi} from './contractABI'
 
 export const chainSetting = {
     "RPCSetting":
@@ -208,6 +208,21 @@ export const chainSetting = {
             {
                 "owner_id": 1,
                 "address": "0xFe27452f8639Ad0B41D99E919C80B601A42D6880"
+            }
+        },
+
+        "atta_vote_abi": {
+            "proxy": "",
+            "abi": c_atta_vote_abi,
+            "56":
+            {
+                "owner_id": 22,
+                "address": "0xab1bdbe54d2bf257f92cce7db58977ca2a3f37f3"
+            },
+            "97":
+            {
+                "owner_id": 1,
+                "address": "0xab1bdbe54d2bf257f92cce7db58977ca2a3f37f3"
             }
         }
     }

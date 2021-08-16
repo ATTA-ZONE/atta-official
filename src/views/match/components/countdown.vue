@@ -1,77 +1,222 @@
 <template>
-  <div class="match-header flex">
-    <div class="match-title" :class="isEn ? 'hanson' : ''">
-      <p class="title-top">{{$t("Summer")}}</p>
-      <p class="title-bottom">{{$t("Playoffs")}}</p>
+<el-collapse accordion>
+    <!-- 循环，多个game列表数据 -->
+  <el-collapse-item v-for="index in 7" class="">
+    <template #title>
+      <div class="match-header flex">
+        <div class="match-title hanson">
+          <p class="title-top">{{$t("Summer")}}</p>
+          <p class="title-bottom">{{$t("Playoffs")}} {{index + 1}}</p>
+        </div>
+        <p class="match-text text-r niunito">{{$t("reward_pool01")}} 接口取值 BUSD <br> {{$t("reward_pool02")}}</p>
+      </div>
+      <img class="header-icon" src="/match/more.png" alt="">
+    </template>
+    <div class="match-countdown hanson">
+      <p>{{$t("VotingCountdown")}}</p>
+      <h5>{{hour}}h:{{minute}}m:{{second}}s</h5>
+      <p>{{$t("Match_Start")}}</p> 
+      <h5>Aug 21th 17:00</h5>
     </div>
-    <p class="match-text text-r" :class="isEn ? 'niunito' : ''">{{$t("reward_pool01")}}23188 BUSD <br> {{$t("reward_pool02")}}</p>
-  </div>
-  <div class="match-countdown" :class="isEn ? 'hanson' : ''">
-    <p>{{$t("VotingCountdown")}}</p>
-    <h5>{{hour}}h:{{minute}}m:{{second}}s</h5>
-    <p>{{$t("Match_Start")}}</p> 
-    <h5> Aug 21th 17:00</h5>
-  </div>
-  <!-- 循环，多个game列表数据 -->
-  <div>
     <div class="game-team flex">
       <div class="team-logo">
         <img class="logo-winner" src="/match/WINNER.png" alt="">
         <div>
-          <img src="//img.crawler.qq.com/lolwebvideo/20180925110059/69d20800d8dad53348ff74ce3d1ab737/0" alt="">
-          <p :class="isEn ? 'hanson' : ''">TEAM 01</p>
+          <img src="/match/unGame.png" alt="">
+          <p class="hanson">战队名称接口取值</p>
         </div>
-        <button v-if="allTime > 0" :class="isEn ? 'niunito' : ''">Vote for Team 01</button>
-        <button v-else class="unVote" :class="isEn ? 'niunito' : ''">Vote ENDED</button>
+        <button v-if="allTime > 0" class="niunito">Vote for Team 01</button>
+        <button v-else class="unVote niunito">Vote ENDED</button>
       </div>
       <div class="team-logo">
         <div>
           <img src="//img.crawler.qq.com/lolwebvideo/20210524154625/5856bdab95962f5ac864d284adf6097e/0" alt="">
-          <p :class="isEn ? 'hanson' : ''">TEAM 02</p>
+          <p class="hanson">战队名称接口取值</p>
         </div>
-        <button :class="isEn ? 'niunito' : ''">Vote for Team 02</button>
+        <button @click="voteTeam" class="niunito">Vote for Team 02</button>
       </div>
     </div>
-    <h5 class="prize-pools-title" :class="isEn ? 'hanson' : ''">{{$t("pool_status")}}</h5>
-    <h6 class="prize-pools-number" :class="isEn ? 'hanson' : ''">{{$t("CurrentNFTvotes")}}</h6>
+    <h5 class="prize-pools-title hanson">{{$t("pool_status")}}</h5>
+    <h6 class="prize-pools-number hanson">{{$t("CurrentNFTvotes")}}</h6>
     <div class="prize-pools flex">
       <div class="prize-pools-list">
-        <div class="prize-pools-info" :class="isEn ? 'hanson' : ''">
+        <div class="prize-pools-info hanson">
           <p class="list-title">{{$t("winning_pool01")}}</p>
           <p class="list-number">TEAMSR 69% xx BUSD</p>
           <p class="list-number">R 25% xx BUSD</p>
           <p class="list-number">N 06% xx BUSD</p>
         </div>
-        <div :class="isEn ? 'niunito' : ''">
-          <p class="info-text">{{$t("SR")}}<br>{{$t("SR01")}}</p>
-          <p class="info-text">{{$t("R")}}<br>{{$t("R01")}}</p>
-          <p class="info-text">{{$t("N")}}<br>{{$t("N01")}}</p>
+        <div class="niunito">
+          <p class="info-text">SR (1256个) {{$t("SR")}} 69%.
+            <font v-if="isEn"><br>{{$t("SR01")}}XXXX BUSD</font>
+            <font v-else>{{$t("SR01")}}XXX BUSD</font>
+          </p>
+          <p class="info-text">R(125个) {{$t("R")}} 25%.
+            <font v-if="isEn"><br>{{$t("R01")}}XXXX BUSD</font>
+            <font v-else>{{$t("R01")}}XXX BUSD</font>
+          </p>
+          <p class="info-text">N(15个) {{$t("N")}} 6%.
+            <font v-if="isEn"><br>{{$t("N01")}}XXXX BUSD</font>
+            <font v-else>{{$t("N01")}}XXX BUSD</font>
+          </p>
         </div>
       </div>
       <div class="prize-pools-list">
-        <div class="prize-pools-info" :class="isEn ? 'hanson' : ''">
+        <div class="prize-pools-info hanson">
           <p class="list-title">{{$t("winning_pool02")}}</p>
           <p class="list-number">TEAMSR 69% xx BUSD</p>
           <p class="list-number">R 25% xx BUSD</p>
           <p class="list-number">N 06% xx BUSD</p>
         </div>
-        <div :class="isEn ? 'niunito' : ''">
-          <p class="info-text">{{$t("SR")}}<br>{{$t("SR01")}}</p>
-          <p class="info-text">{{$t("R")}}<br>{{$t("R01")}}</p>
-          <p class="info-text">{{$t("N")}}<br>{{$t("N01")}}</p>
+        <div class="niunito">
+          <p class="info-text">SR (1256个) {{$t("SR")}} 69%.
+            <font v-if="isEn"><br>{{$t("SR01")}}XXX BUSD</font>
+            <font v-else>{{$t("SR01")}}XXX BUSD</font>
+          </p>
+          <p class="info-text">R(125个) {{$t("R")}} 25%.
+            <font v-if="isEn"><br>{{$t("R01")}}XXX BUSD</font>
+            <font v-else>{{$t("R01")}}XXX BUSD</font>
+          </p>
+          <p class="info-text">N(15个) {{$t("N")}} 6%.
+            <font v-if="isEn"><br>{{$t("N01")}}XXX BUSD</font>
+            <font v-else>{{$t("N01")}}XXX BUSD</font>
+          </p>
         </div>
       </div>
     </div>
-    <h6 class="prize-pools-number" :class="isEn ? 'hanson' : ''">{{$t("MyVotes")}}</h6>
+    <h6 class="prize-pools-number hanson">{{$t("MyVotes")}}</h6>
     <div class="prize-pools flex">
       <div class="prize-pools-list">
-        <div class="prize-pools-info" :class="isEn ? 'hanson' : ''">
+        <div class="prize-pools-info hanson">
           <p class="list-title">{{$t("winning_pool01")}}</p>
           <p class="list-number">TEAMSR 69% xx BUSD</p>
           <p class="list-number">R 25% xx BUSD</p>
           <p class="list-number">N 06% xx BUSD</p>
         </div>
-        <div :class="isEn ? 'niunito' : ''">
+        <div class="niunito">
+          <p class="info-text">SR (5{{$t("SRRN1")}}
+            <font v-if="isEn">XXXX BUSD {{$t("SRRN")}}</font>
+            <font v-else>XXXX BUSD</font>
+          </p>
+          <p class="info-text">R (3{{$t("SRRN1")}}
+            <font v-if="isEn">XXXX BUSD {{$t("SRRN")}}</font>
+            <font v-else>XXXX BUSD</font>
+          </p>
+          <p class="info-text">N (0{{$t("SRRN1")}}
+            <font v-if="isEn">XXXX BUSD {{$t("SRRN")}}</font>
+            <font v-else>XXXX BUSD</font>
+          </p>
+          <p class="info-text-title">{{$t("TotalWinning")}}
+            <font v-if="isEn"><br>XXXX BUSD</font>
+            <font v-else>XXXX BUSD</font>
+          </p>
+          <p class="info-text-address">{{$t("distributed")}}<br>{{$t("hrs")}}</p>
+        </div>
+      </div>
+      <div class="prize-pools-list">
+        <div class="prize-pools-info hanson">
+          <p class="list-title">{{$t("winning_pool02")}}</p>
+          <p class="list-number">TEAMSR 69% xx BUSD</p>
+          <p class="list-number">R 25% xx BUSD</p>
+          <p class="list-number">N 06% xx BUSD</p>
+        </div>
+        <div class="niunito">
+          <p class="info-text">SR (5{{$t("SRRN2")}}
+            <font v-if="isEn">XXXX BUSD{{$t("SRRN")}}</font>
+            <font v-else>XXXX BUSD</font>
+          </p>
+          <p class="info-text">R (3{{$t("SRRN2")}}
+            <font v-if="isEn">XXXX BUSD{{$t("SRRN")}}</font>
+            <font v-else>XXXX BUSD</font>
+          </p>
+          <p class="info-text">N (0{{$t("SRRN2")}}
+            <font v-if="isEn"> XXXX BUSD{{$t("SRRN")}}</font>
+            <font v-else>XXXX BUSD</font>
+          </p>
+          <p class="info-text-title">{{$t("TotalWinning")}}
+            <font v-if="isEn"><br>XXXX BUSD</font>
+            <font v-else>XXXX BUSD</font>
+          </p>
+          <p class="info-text-address">{{$t("distributed")}}<br>{{$t("hrs")}}</p>
+        </div>
+      </div>
+    </div>
+  </el-collapse-item>
+  
+</el-collapse>
+  <!-- 循环，多个game列表数据 -->
+  <div v-if="dialogBol">
+    <div class="match-header flex">
+      <div class="match-title hanson">
+        <p class="title-top">{{$t("Summer")}}</p>
+        <p class="title-bottom">{{$t("Playoffs")}}</p>
+      </div>
+      <p class="match-text text-r niunito">{{$t("reward_pool01")}}23188 BUSD <br> {{$t("reward_pool02")}}</p>
+    </div>
+    <div class="match-countdown hanson">
+      <p>{{$t("VotingCountdown")}}</p>
+      <h5>{{hour}}h:{{minute}}m:{{second}}s</h5>
+      <p>{{$t("Match_Start")}}</p> 
+      <h5> Aug 21th 17:00</h5>
+    </div>
+    <div class="game-team flex">
+      <div class="team-logo">
+        <img class="logo-winner" src="/match/WINNER.png" alt="">
+        <div>
+          <img src="/match/unGame.png" alt="">
+          <p class="hanson">TEAM 01</p>
+        </div>
+        <button v-if="allTime > 0" class="niunito">Vote for Team 01</button>
+        <button v-else class="unVote niunito">Vote ENDED</button>
+      </div>
+      <div class="team-logo">
+        <div>
+          <img src="//img.crawler.qq.com/lolwebvideo/20210524154625/5856bdab95962f5ac864d284adf6097e/0" alt="">
+          <p class="hanson">TEAM 02</p>
+        </div>
+        <button @click="voteTeam" class="niunito">Vote for Team 02</button>
+      </div>
+    </div>
+    <h5 class="prize-pools-title hanson">{{$t("pool_status")}}</h5>
+    <h6 class="prize-pools-number hanson">{{$t("CurrentNFTvotes")}}</h6>
+    <div class="prize-pools flex">
+      <div class="prize-pools-list">
+        <div class="prize-pools-info hanson">
+          <p class="list-title">{{$t("winning_pool01")}}</p>
+          <p class="list-number">TEAMSR 69% xx BUSD</p>
+          <p class="list-number">R 25% xx BUSD</p>
+          <p class="list-number">N 06% xx BUSD</p>
+        </div>
+        <div class="niunito">
+          <p class="info-text">{{$t("SRRN0")}}<br>{{$t("SR01")}}</p>
+          <p class="info-text">{{$t("SRRN0")}}<br>{{$t("R01")}}</p>
+          <p class="info-text">{{$t("SRRN0")}}<br>{{$t("N01")}}</p>
+        </div>
+      </div>
+      <div class="prize-pools-list">
+        <div class="prize-pools-info hanson">
+          <p class="list-title">{{$t("winning_pool02")}}</p>
+          <p class="list-number">TEAMSR 69% xx BUSD</p>
+          <p class="list-number">R 25% xx BUSD</p>
+          <p class="list-number">N 06% xx BUSD</p>
+        </div>
+        <div class="niunito">
+          <p class="info-text">{{$t("SRRN0")}}<br>{{$t("SR01")}}</p>
+          <p class="info-text">{{$t("SRRN0")}}<br>{{$t("R01")}}</p>
+          <p class="info-text">{{$t("SRRN0")}}<br>{{$t("N01")}}</p>
+        </div>
+      </div>
+    </div>
+    <h6 class="prize-pools-number hanson">{{$t("MyVotes")}}</h6>
+    <div class="prize-pools flex">
+      <div class="prize-pools-list">
+        <div class="prize-pools-info hanson">
+          <p class="list-title">{{$t("winning_pool01")}}</p>
+          <p class="list-number">TEAMSR 69% xx BUSD</p>
+          <p class="list-number">R 25% xx BUSD</p>
+          <p class="list-number">N 06% xx BUSD</p>
+        </div>
+        <div class="niunito">
           <p class="info-text">{{$t("SR1")}}</p>
           <p class="info-text">{{$t("R1")}}</p>
           <p class="info-text">{{$t("N1")}}</p>
@@ -80,13 +225,13 @@
         </div>
       </div>
       <div class="prize-pools-list">
-        <div class="prize-pools-info" :class="isEn ? 'hanson' : ''">
+        <div class="prize-pools-info hanson">
           <p class="list-title">{{$t("winning_pool02")}}</p>
           <p class="list-number">TEAMSR 69% xx BUSD</p>
           <p class="list-number">R 25% xx BUSD</p>
           <p class="list-number">N 06% xx BUSD</p>
         </div>
-        <div :class="isEn ? 'niunito' : ''">
+        <div class="niunito">
           <p class="info-text">{{$t("SR2")}}</p>
           <p class="info-text">{{$t("R2")}}</p>
           <p class="info-text">{{$t("N2")}}</p>
@@ -141,12 +286,19 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed, onMounted,watch } from "vue";
-import { ElInputNumber } from 'element-plus';
+import { ElInputNumber,ElCollapse,ElCollapseItem } from 'element-plus';
 import { useI18n } from "vue-i18n";
+import { getCookie, setCookie } from "../../../utils";
+import { initWeb3 } from "../../../assets/js/initweb3";
 
 export default defineComponent({
-  components: { ElInputNumber},
+  components: { ElInputNumber,ElCollapse,ElCollapseItem},
   setup() {
+    console.log(window.CHAIN.WALLET);
+        // 获取钱包地址
+        initWeb3().then((res: any) => {
+          console.log(res);
+        });
     const { locale, t } = useI18n();
     const isEn = computed(() => {
       return locale.value.trim() == "en";
@@ -239,6 +391,37 @@ export default defineComponent({
     const SRNumber = ref(0);
     const RNumber = ref(0);
     const NNumber = ref(0);
+    // 投票
+    const voteTeam = ()=>{
+      let currentAddress = getCookie("currentAddress") == "false" ? "" : getCookie("currentAddress");
+      if(currentAddress){
+        console.log("开启钱包");
+      }else{
+        console.log("未开启钱包");
+      }
+    }
+    // 获取钱包地址
+    const accountAddress = ref('');
+    const getAddress = () => {
+      if (!accountAddress.value) {
+        // 获取钱包地址
+        initWeb3().then((res: any) => {
+          if (res.length > 0) {
+            accountAddress.value = res[0];
+            setCookie("currentAddress", res[0]);
+            window.location.reload();
+          }
+        });
+      } else {
+        window.CHAIN.WALLET.connect("MetaMask").then((res) => {
+          if (res.length > 0) {
+            accountAddress.value = res[0];
+            setCookie("currentAddress", res[0]);
+            window.location.reload();
+          }
+        });
+      }
+    };
     return {
       hour,
       minute,
@@ -252,7 +435,8 @@ export default defineComponent({
       dialogBolVote,
       voteType,
       voteStepFn,
-      closeDialog
+      closeDialog,
+      voteTeam
     }
   }
 });

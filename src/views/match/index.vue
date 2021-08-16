@@ -39,7 +39,7 @@
       <div class="rule-busd flex">
         <div class="rule-number" :class="isEn ? 'hanson' : ''">
           <p class="number-text">{{$t("match_rule_award")}}</p>
-          <p class="number-busd">278,257 BUSD</p>
+          <p class="number-busd">{{busd}} BUSD</p>
         </div>
       </div>
       <div class="rule-text">
@@ -62,22 +62,38 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed,ref } from "vue";
 import { useI18n } from "vue-i18n";
 import headerCell from "@/components/header/index.vue";
 import footerCell from "@/components/footer/index.vue";
 import countdown from "./components/countdown.vue";
+import { getCookie,getAbi,moneyFormat } from "../../utils";
+import { chainSetting } from "../../assets/js/chainSetting";
 
 export default defineComponent({
   components: { headerCell,footerCell,countdown},
   setup() {
     const { locale, t } = useI18n();
+    const busd = ref('100000');//奖池总数量
     const isEn = computed(() => {
       return locale.value.trim() == "en";
     });
-
+    busd.value = moneyFormat(busd.value)
+    // abi下的所有方法
+    const MerkleDistributionInstance = getAbi("atta_vote_abi");
+    console.log(MerkleDistributionInstance);
+    // 获取的abi下的vault方法
+    MerkleDistributionInstance.methods
+      .batchRaceInfo([1])
+      .call()
+      .then(function (res: any) {
+        console.log(res);
+      }).catch((err:any)=>{
+          console.log(err);
+      })
     return {
-      isEn
+      isEn,
+      busd
     }
   }
 });

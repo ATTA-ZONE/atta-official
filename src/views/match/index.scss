@@ -28,10 +28,14 @@
     .title-top{
       color: #A9DEEE;
     }
+    .title-bottom{
+      color: #fff;
+    }
   }
   .match-header{
     justify-content: space-between;
     align-items:center;
+    width: 100%;
     .match-title{
       width: 480px;
     }
@@ -161,6 +165,9 @@
       overflow: auto;
       .introduce-list{
         min-width: 146px;
+        &:hover{
+          margin-top: 0;
+        }
         .introduce-text{
           padding: 0 10px;
           h5{
@@ -249,8 +256,8 @@
         width: 100%;
         div{
           height:195px;
+          width: calc(100% - 10px);
           img{
-            width:85px;
             height:85px;
           }
           p{
@@ -401,6 +408,20 @@
           width: calc(100vw - 40px) !important;
           height:43px;
         }
+      }
+    }
+    .el-collapse{
+      border: 0;
+      .header-icon{
+        position: absolute;
+        right: 0;
+        top: 50px;
+      }
+      .el-collapse-item__header{
+        position: relative;
+      }
+      .el-collapse-item__wrap{
+        overflow: inherit;
       }
     }
   }
