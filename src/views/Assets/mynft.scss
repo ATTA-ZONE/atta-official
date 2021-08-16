@@ -17,7 +17,7 @@ a {
   width: 50%;
   position: relative;
 }
-.everymynftbox .my-assets-left video {
+.everymynftbox .my-assets-left video ,.everymynftbox .my-assets-left img{
   width: 100%;
   position: relative;
   z-index: 3;
@@ -145,6 +145,33 @@ a {
 }
 .ishide {
   transform: rotate(180deg);
+}
+.bzy-e-more{
+	margin: 10px 0 50px;
+}
+.bzy-e-more div{
+	width: 155px;
+    height: 30px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.bzy-e-more div span{
+	border: 1px solid rgba(255,255,255,0.7);
+    padding: 5px 15px;
+	margin: 10px;
+}
+.bzy-e-more div:hover span {
+	color: #fff;
+}
+.bzy-e-more div span:hover {
+	color: #9567FF;
+	border-color: #9567FF;
+}
+.hightliang {
+	color: #9567FF !important;
+	border-color: #9567FF !important;
 }
 @media only screen and (max-width: 992px){
 	.mobilflex{

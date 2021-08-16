@@ -66,11 +66,11 @@
             <img
               src="/imgs/arrow.png"
               alt=""
-              :class="item.ishide ? 'ishide' : ''"
+              :class="item.ishide ? '' : 'ishide'"
               @click="changeishide(item.ishide, idx)"
             />
           </p>
-          <div class="listbox" v-if="!item.ishide">
+          <div class="listbox" v-if="item.ishide">
             <div
               class="everydatabox"
               v-for="(json, index) in item.mintList"
@@ -200,13 +200,18 @@
         </div>
       </li>
     </ul>
-    <div class="bzy-e-more" v-if="assetsList.total > 9">
+    <!-- <div class="bzy-e-more" v-if="assetsList.total > 9">
       <div class="flex assets-list-load" @click="getMoreList">
         <span class="language-tc">{{ $t("more") }}</span>
         <img src="/imgs/next.png" />
         <img src="/imgs/xiala2.png" />
       </div>
-    </div>
+    </div> -->
+    <div class="bzy-e-more" v-if="assetsList.total > 9">
+			<div class="fenyebox flex">
+				<span v-for="(item,index) in assetsList.pages" :key="index" @click="getMoreList(item)" :class="item == current ? 'hightliang' : ''">{{item}}</span>
+			</div>
+		</div>
 
     <!-- modify -->
     <div
@@ -319,59 +324,57 @@ export default defineComponent({
       let auctionAddress =
         chainSetting["contractSetting"]["atta_ERC721"][targetChainId.value]
           .address;
-      let requestUrl =
-        window.scansite_base_url +
-        "/api?module=account&action=tokennfttx&contractaddress=" +
-        auctionAddress +
-        "&address=" +
-        walletId.value +
-        "&sort=desc&apikey=" +
-        window.apikey;
+      let auctionAddress2 = chainSetting["contractSetting"]['blindbox_ERC721'][targetChainId.value].address;
+      let requestUrl = window.scansite_base_url + "/api?module=account&action=tokennfttx&contractaddress=" +auctionAddress +"&address=" +walletId.value +"&sort=desc&apikey=" + window.apikey;
+      let requestUrl2 = window.scansite_base_url + "/api?module=account&action=tokennfttx&contractaddress=" +auctionAddress2 +"&address=" +walletId.value +"&sort=desc&apikey=" + window.apikey;
 
       axios.get(requestUrl).then((res: any) => {
-        let nftData = res.result;
-        if (!nftData || nftData.length < 1 || !Array.isArray(nftData)) {
-          loading.value = false;
-          return false;
-        }
-        let obj = {};
-        let arr: any = [];
-        for (let i = 0; i < nftData.length; i++) {
-          const token: any = nftData[i].tokenID;
-          const nft: any = nftData[i];
-          if (!obj[token]) {
-            obj[token] = true;
-            let jsonData = {
-              tokenID: token,
-              listdata: [nft],
-              tojia: 0,
-              fromjian: 0,
-            } as any;
-            arr.push(jsonData);
-          } else {
-            arr.forEach((item: any) => {
-              if (item.tokenID == nftData[i].tokenID) {
-                item.listdata.push(nftData[i]);
+        axios.get(requestUrl2).then((res2: any) => {
+          let nftData = res.result;
+          nftData = nftData.concat(res2.result);
+          if (!nftData || nftData.length < 1 || !Array.isArray(nftData)) {
+            loading.value = false;
+            return false;
+          }
+          let obj = {};
+          let arr: any = [];
+          for (let i = 0; i < nftData.length; i++) {
+            const token: any = nftData[i].tokenID;
+            const nft: any = nftData[i];
+            if (!obj[token]) {
+              obj[token] = true;
+              let jsonData = {
+                tokenID: token,
+                listdata: [nft],
+                tojia: 0,
+                fromjian: 0,
+              } as any;
+              arr.push(jsonData);
+            } else {
+              arr.forEach((item: any) => {
+                if (item.tokenID == nftData[i].tokenID) {
+                  item.listdata.push(nftData[i]);
+                }
+              });
+            }
+          }
+          arr.forEach((item: any) => {
+            item.listdata.forEach((json) => {
+              if (json.to.toUpperCase() == walletId.value.toUpperCase()) {
+                item.tojia += 1;
+              }
+              if (json.from.toUpperCase() == walletId.value.toUpperCase()) {
+                item.fromjian -= 1;
               }
             });
-          }
-        }
-        arr.forEach((item: any) => {
-          item.listdata.forEach((json) => {
-            if (json.to.toUpperCase() == walletId.value.toUpperCase()) {
-              item.tojia += 1;
-            }
-            if (json.from.toUpperCase() == walletId.value.toUpperCase()) {
-              item.fromjian -= 1;
+            item.jsnum = item.tojia + item.fromjian;
+            if (item.jsnum == 1) {
+              tokenarr.value.push(item.tokenID);
             }
           });
-          item.jsnum = item.tojia + item.fromjian;
-          if (item.jsnum == 1) {
-            tokenarr.value.push(item.tokenID);
-          }
-        });
 
-        getAssetsList(tokenarr.value);
+          getAssetsList(tokenarr.value);
+        });
       });
     };
 
@@ -441,9 +444,11 @@ export default defineComponent({
       getAccount();
     });
 
-    const getMoreList = () => {
-      current.value += 1;
+    const getMoreList = (num) => {
+			let dom = document.body;
+      current.value = num;
       getAssetsList(tokenarr.value);
+			dom.scrollIntoView(true);
     };
 
     const formatVideoUrl = (item) => {
