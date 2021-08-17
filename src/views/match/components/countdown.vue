@@ -1,12 +1,12 @@
 <template>
 <el-collapse accordion>
     <!-- 循环，多个game列表数据 -->
-  <el-collapse-item v-for="index in 7" class="">
+  <el-collapse-item v-for="item in matchInfoList" :key="item.id" class="">
     <template #title>
       <div class="match-header flex">
         <div class="match-title hanson">
           <p class="title-top">{{$t("Summer")}}</p>
-          <p class="title-bottom">{{$t("Playoffs")}} {{index + 1}}</p>
+          <p class="title-bottom">{{$t("Playoffs")}} {{item.name}}</p>
         </div>
         <p class="match-text text-r niunito">{{$t("reward_pool01")}} 接口取值 BUSD <br> {{$t("reward_pool02")}}</p>
       </div>
@@ -22,18 +22,18 @@
       <div class="team-logo">
         <img class="logo-winner" src="/match/WINNER.png" alt="">
         <div>
-          <img src="/match/unGame.png" alt="">
-          <p class="hanson">战队名称接口取值</p>
+          <img :src="'/match/'+(item.teamA?item.teamA:'unGame')+'.png'" alt="">
+          <p class="hanson">{{item.teamA}}</p>
         </div>
-        <button v-if="allTime > 0" class="niunito">Vote for Team 01</button>
-        <button v-else class="unVote niunito">Vote ENDED</button>
+        <button v-if="allTime > 0" class="niunito">{{item.attaMatchOptions[0].bettingItem}}</button>
+        <button v-else class="unVote niunito">{{item.attaMatchOptions[0].bettingItem}}</button>
       </div>
       <div class="team-logo">
         <div>
-          <img src="//img.crawler.qq.com/lolwebvideo/20210524154625/5856bdab95962f5ac864d284adf6097e/0" alt="">
-          <p class="hanson">战队名称接口取值</p>
+          <img :src="'/match/'+(item.teamB?item.teamB:'unGame')+'.png'" alt="">
+          <p class="hanson">{{item.teamB}}</p>
         </div>
-        <button @click="voteTeam" class="niunito">Vote for Team 02</button>
+        <button @click="voteTeam" class="niunito">{{item.attaMatchOptions[1].bettingItem}}</button>
       </div>
     </div>
     <h5 class="prize-pools-title hanson">{{$t("pool_status")}}</h5>
@@ -290,15 +290,31 @@ import { ElInputNumber,ElCollapse,ElCollapseItem } from 'element-plus';
 import { useI18n } from "vue-i18n";
 import { getCookie, setCookie } from "../../../utils";
 import { initWeb3 } from "../../../assets/js/initweb3";
+import axios from "../../../api";
 
 export default defineComponent({
   components: { ElInputNumber,ElCollapse,ElCollapseItem},
   setup() {
-    console.log(window.CHAIN.WALLET);
-        // 获取钱包地址
-        initWeb3().then((res: any) => {
+    const matchInfoList = ref([]);
+    const matchList = ()=>{
+      axios.post(window.base_url + "/v2/match/list", {})
+        .then((res:any) => {
+          if(!res.code){
+            matchInfoList.value.push(...res.data);
+          }
           console.log(res);
         });
+    }
+          
+    onMounted(() => {
+      matchList()
+    });
+
+    console.log(window.CHAIN.WALLET);
+    // 获取钱包地址
+    initWeb3().then((res: any) => {
+      console.log(res);
+    });
     const { locale, t } = useI18n();
     const isEn = computed(() => {
       return locale.value.trim() == "en";
@@ -436,7 +452,8 @@ export default defineComponent({
       voteType,
       voteStepFn,
       closeDialog,
-      voteTeam
+      voteTeam,
+      matchInfoList
     }
   }
 });

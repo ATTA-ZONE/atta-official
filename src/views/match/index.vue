@@ -62,12 +62,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed,ref } from "vue";
+import { defineComponent, computed,ref,onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import headerCell from "@/components/header/index.vue";
 import footerCell from "@/components/footer/index.vue";
 import countdown from "./components/countdown.vue";
 import { getCookie,getAbi,moneyFormat } from "../../utils";
+import axios from "../../api";
 import { chainSetting } from "../../assets/js/chainSetting";
 
 export default defineComponent({
@@ -80,17 +81,17 @@ export default defineComponent({
     });
     busd.value = moneyFormat(busd.value)
     // abi下的所有方法
-    const MerkleDistributionInstance = getAbi("atta_vote_abi");
-    console.log(MerkleDistributionInstance);
-    // 获取的abi下的vault方法
-    MerkleDistributionInstance.methods
-      .batchRaceInfo([1])
-      .call()
-      .then(function (res: any) {
-        console.log(res);
-      }).catch((err:any)=>{
-          console.log(err);
-      })
+    // const MerkleDistributionInstance = getAbi("atta_vote_abi");
+    // console.log(MerkleDistributionInstance);
+    // // 获取的abi下的vault方法
+    // MerkleDistributionInstance.methods
+    //   .batchRaceInfo([1])
+    //   .call()
+    //   .then(function (res: any) {
+    //     console.log(res);
+    //   }).catch((err:any)=>{
+    //       console.log(err);
+    //   });
     return {
       isEn,
       busd

@@ -259,7 +259,7 @@ export default defineComponent({
         
         window.locationUrl = window.location.origin;
       } else {
-        window.base_url = "http://47.118.74.48:8081";
+        window.base_url = "http://47.118.74.48:8001";
         
         window.locationUrl = "http://47.118.74.48:8081";
       }
