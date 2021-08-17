@@ -66,3 +66,26 @@ export function moneyFormat(value) { // 金额 格式化
 			return intPartFormat;
 	}
 }
+
+export function formatDate(millinSeconds){
+	let date = new Date(millinSeconds);
+	let monthArr = new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Spt","Oct","Nov","Dec");
+	let suffix = new Array("st","nd","rd","th");
+	
+	let year = date.getFullYear(); //年
+	let month = monthArr[date.getMonth()]; //月
+	let ddate:any = date.getDate(); //日
+	let hours = date.getHours();
+	let minute:any = date.getMinutes();
+	
+	if(ddate % 10 < 1 || ddate % 10 > 3) {
+		ddate = ddate + suffix[3];
+	}else if(ddate % 10 == 1) {
+		ddate = ddate + suffix[0];
+	} else if(ddate % 10 == 2) {
+		ddate = ddate + suffix[1];
+	}else {
+		ddate = ddate + suffix[2];
+	}
+	return month + " "+ ddate + " " + (hours<10?'0'+hours:hours) + ":" + (minute<10?'0'+minute:minute);
+}

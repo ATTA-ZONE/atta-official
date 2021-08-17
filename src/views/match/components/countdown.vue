@@ -1,14 +1,14 @@
 <template>
-<el-collapse accordion>
+<el-collapse accordion @change="collapseChange">
     <!-- 循环，多个game列表数据 -->
-  <el-collapse-item v-for="item in matchInfoList" :key="item.id" class="">
+  <el-collapse-item v-for="item in matchInfoList" :key="item.id" :name="item.id" class="">
     <template #title>
       <div class="match-header flex">
         <div class="match-title hanson">
           <p class="title-top">{{$t("Summer")}}</p>
           <p class="title-bottom">{{$t("Playoffs")}} {{item.name}}</p>
         </div>
-        <p class="match-text niunito">{{$t("reward_pool01")}} 接口取值 BUSD <br> {{$t("reward_pool02")}}<br> {{$t("reward_pool03")}}</p>
+        <p class="match-text niunito">{{$t("reward_pool01")}} {{curRewardPool}} BUSD <br> {{$t("reward_pool02")}}<br> {{$t("reward_pool03")}}</p>
       </div>
       <img class="header-icon" src="/match/more.png" alt="">
     </template>
@@ -16,7 +16,7 @@
       <p>{{$t("VotingCountdown")}}</p>
       <h5>{{hour}}h:{{minute}}m:{{second}}s</h5>
       <p>{{$t("Match_Start")}}</p> 
-      <h5>Aug 21th 17:00</h5>
+      <h5>{{item.gameDate}}</h5>
     </div>
     <div class="game-team flex">
       <div class="team-logo">
@@ -25,15 +25,15 @@
           <img :src="'/match/'+(item.teamA?item.teamA:'unGame')+'.png'" alt="">
           <p class="hanson">{{item.teamA}}</p>
         </div>
-        <button v-if="allTime > 0" class="niunito">{{item.attaMatchOptions[0].bettingItem}}</button>
-        <button v-else class="unVote niunito">{{item.attaMatchOptions[0].bettingItem}}</button>
+        <button v-if="allTime > 0" class="niunito">{{item.attaMatchOptions[0]?item.attaMatchOptions[0].bettingItem:'vote to team'}}</button>
+        <button v-else class="unVote niunito">{{item.attaMatchOptions[0]?item.attaMatchOptions[0].bettingItem:'vote to team'}}</button>
       </div>
       <div class="team-logo">
         <div>
           <img :src="'/match/'+(item.teamB?item.teamB:'unGame')+'.png'" alt="">
           <p class="hanson">{{item.teamB}}</p>
         </div>
-        <button @click="voteTeam" class="niunito">{{item.attaMatchOptions[1].bettingItem}}</button>
+        <button @click="voteTeam" class="niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
       </div>
     </div>
     <h5 class="prize-pools-title hanson">{{$t("pool_status")}}</h5>
@@ -47,15 +47,15 @@
           <p class="list-number">N 06% xx BUSD</p>
         </div>
         <div class="niunito">
-          <p class="info-text">SR (1256个) {{$t("SR")}} 69%.
+          <p class="info-text">SR (1256个) {{$t("SRRN0")}} 69%.
             <font v-if="isEn"><br>{{$t("SR01")}}XXXX BUSD</font>
             <font v-else>{{$t("SR01")}}XXX BUSD</font>
           </p>
-          <p class="info-text">R(125个) {{$t("R")}} 25%.
+          <p class="info-text">R(125个) {{$t("SRRN0")}} 25%.
             <font v-if="isEn"><br>{{$t("R01")}}XXXX BUSD</font>
             <font v-else>{{$t("R01")}}XXX BUSD</font>
           </p>
-          <p class="info-text">N(15个) {{$t("N")}} 6%.
+          <p class="info-text">N(15个) {{$t("SRRN0")}} 6%.
             <font v-if="isEn"><br>{{$t("N01")}}XXXX BUSD</font>
             <font v-else>{{$t("N01")}}XXX BUSD</font>
           </p>
@@ -69,15 +69,15 @@
           <p class="list-number">N 06% xx BUSD</p>
         </div>
         <div class="niunito">
-          <p class="info-text">SR (1256个) {{$t("SR")}} 69%.
+          <p class="info-text">SR (1256个) {{$t("SRRN0")}} 69%.
             <font v-if="isEn"><br>{{$t("SR01")}}XXX BUSD</font>
             <font v-else>{{$t("SR01")}}XXX BUSD</font>
           </p>
-          <p class="info-text">R(125个) {{$t("R")}} 25%.
+          <p class="info-text">R(125个) {{$t("SRRN0")}} 25%.
             <font v-if="isEn"><br>{{$t("R01")}}XXX BUSD</font>
             <font v-else>{{$t("R01")}}XXX BUSD</font>
           </p>
-          <p class="info-text">N(15个) {{$t("N")}} 6%.
+          <p class="info-text">N(15个) {{$t("SRRN0")}} 6%.
             <font v-if="isEn"><br>{{$t("N01")}}XXX BUSD</font>
             <font v-else>{{$t("N01")}}XXX BUSD</font>
           </p>
@@ -142,105 +142,7 @@
       </div>
     </div>
   </el-collapse-item>
-  
 </el-collapse>
-  <!-- 循环，多个game列表数据 -->
-  <div v-if="dialogBol">
-    <div class="match-header flex">
-      <div class="match-title hanson">
-        <p class="title-top">{{$t("Summer")}}</p>
-        <p class="title-bottom">{{$t("Playoffs")}}</p>
-      </div>
-      <p class="match-text niunito">{{$t("reward_pool01")}}23188 BUSD <br> {{$t("reward_pool02")}}</p>
-    </div>
-    <div class="match-countdown hanson">
-      <p>{{$t("VotingCountdown")}}</p>
-      <h5>{{hour}}h:{{minute}}m:{{second}}s</h5>
-      <p>{{$t("Match_Start")}}</p> 
-      <h5> Aug 21th 17:00</h5>
-    </div>
-    <div class="game-team flex">
-      <div class="team-logo">
-        <img class="logo-winner" src="/match/WINNER.png" alt="">
-        <div>
-          <img src="/match/unGame.png" alt="">
-          <p class="hanson">TEAM 01</p>
-        </div>
-        <button v-if="allTime > 0" class="niunito">Vote for Team 01</button>
-        <button v-else class="unVote niunito">Vote ENDED</button>
-      </div>
-      <div class="team-logo">
-        <div>
-          <img src="//img.crawler.qq.com/lolwebvideo/20210524154625/5856bdab95962f5ac864d284adf6097e/0" alt="">
-          <p class="hanson">TEAM 02</p>
-        </div>
-        <button @click="voteTeam" class="niunito">Vote for Team 02</button>
-      </div>
-    </div>
-    <h5 class="prize-pools-title hanson">{{$t("pool_status")}}</h5>
-    <h6 class="prize-pools-number hanson">{{$t("CurrentNFTvotes")}}</h6>
-    <div class="prize-pools flex">
-      <div class="prize-pools-list">
-        <div class="prize-pools-info hanson">
-          <p class="list-title">{{$t("winning_pool01")}}</p>
-          <p class="list-number">TEAMSR 69% xx BUSD</p>
-          <p class="list-number">R 25% xx BUSD</p>
-          <p class="list-number">N 06% xx BUSD</p>
-        </div>
-        <div class="niunito">
-          <p class="info-text">{{$t("SRRN0")}}<br>{{$t("SR01")}}</p>
-          <p class="info-text">{{$t("SRRN0")}}<br>{{$t("R01")}}</p>
-          <p class="info-text">{{$t("SRRN0")}}<br>{{$t("N01")}}</p>
-        </div>
-      </div>
-      <div class="prize-pools-list">
-        <div class="prize-pools-info hanson">
-          <p class="list-title">{{$t("winning_pool02")}}</p>
-          <p class="list-number">TEAMSR 69% xx BUSD</p>
-          <p class="list-number">R 25% xx BUSD</p>
-          <p class="list-number">N 06% xx BUSD</p>
-        </div>
-        <div class="niunito">
-          <p class="info-text">{{$t("SRRN0")}}<br>{{$t("SR01")}}</p>
-          <p class="info-text">{{$t("SRRN0")}}<br>{{$t("R01")}}</p>
-          <p class="info-text">{{$t("SRRN0")}}<br>{{$t("N01")}}</p>
-        </div>
-      </div>
-    </div>
-    <h6 class="prize-pools-number hanson">{{$t("MyVotes")}}</h6>
-    <div class="prize-pools flex">
-      <div class="prize-pools-list">
-        <div class="prize-pools-info hanson">
-          <p class="list-title">{{$t("winning_pool01")}}</p>
-          <p class="list-number">TEAMSR 69% xx BUSD</p>
-          <p class="list-number">R 25% xx BUSD</p>
-          <p class="list-number">N 06% xx BUSD</p>
-        </div>
-        <div class="niunito">
-          <p class="info-text">{{$t("SR1")}}</p>
-          <p class="info-text">{{$t("R1")}}</p>
-          <p class="info-text">{{$t("N1")}}</p>
-          <p class="info-text-title">{{$t("TotalWinning")}}<br>{{$t("Rewards")}}</p>
-          <p class="info-text-address">{{$t("distributed")}}<br>{{$t("hrs")}}</p>
-        </div>
-      </div>
-      <div class="prize-pools-list">
-        <div class="prize-pools-info hanson">
-          <p class="list-title">{{$t("winning_pool02")}}</p>
-          <p class="list-number">TEAMSR 69% xx BUSD</p>
-          <p class="list-number">R 25% xx BUSD</p>
-          <p class="list-number">N 06% xx BUSD</p>
-        </div>
-        <div class="niunito">
-          <p class="info-text">{{$t("SR2")}}</p>
-          <p class="info-text">{{$t("R2")}}</p>
-          <p class="info-text">{{$t("N2")}}</p>
-          <p class="info-text-title">{{$t("TotalWinning")}}<br>{{$t("Rewards")}}</p>
-          <p class="info-text-address">{{$t("distributed")}}<br>{{$t("hrs")}}</p>
-        </div>
-      </div>
-    </div>
-  </div>
   <!-- 投票NFT -->
   <div v-if="dialogBol" class="match-dialog flex">
     <!-- 可以投票 -->
@@ -288,26 +190,98 @@
 import { defineComponent, ref, computed, onMounted,watch } from "vue";
 import { ElInputNumber,ElCollapse,ElCollapseItem } from 'element-plus';
 import { useI18n } from "vue-i18n";
-import { getCookie, setCookie } from "../../../utils";
+import { getCookie, setCookie,getAbi,formatDate } from "../../../utils";
 import { initWeb3 } from "../../../assets/js/initweb3";
 import axios from "../../../api";
 
 export default defineComponent({
   components: { ElInputNumber,ElCollapse,ElCollapseItem},
-  setup() {
-    const matchInfoList = ref([]);
-    const matchList = ()=>{
-      axios.post(window.base_url + "/v2/match/list", {})
+  setup(props,{emit}) {
+    const matchInfoList = ref();
+    const matchList = ()=>{//获取赛事信息列表
+      return new Promise((resolve, reject) => {
+        axios.post(window.base_url + "/v2/match/list", {})
         .then((res:any) => {
           if(!res.code){
-            matchInfoList.value.push(...res.data);
+            let data = res.data;
+            let idList:any = [];
+            data.forEach((item:any)=>{
+              idList.push(item.matchTokenId)
+            })
+            let content = {
+              data,idList
+            }
+            resolve(content);
           }
-          console.log(res);
         });
+      })
+    };
+    const totalRewardPool = ref(0);//总奖池
+    const curRewardPool = ref(0);//当前比赛分到的奖池
+    const matchBusd = (data:any)=>{
+      return new Promise((resolve, reject) => {
+        axios.post(window.base_url + "/v2/activity/bet_pool?id=1", {})
+        .then((res:any) => {
+          totalRewardPool.value = res.data.totalRewardPool;
+          emit('totalRewardPool',res.data.totalRewardPool )
+          curRewardPool.value = res.data.curRewardPool;
+          resolve({res,data})
+        });
+      })
+    }
+    const nowDataTime = ref(0);
+    const batchRaceInfoFn = (data:any)=>{//通过链调取数据
+      return new Promise((resolve, reject) => {
+        // abi下的所有方法
+        const MerkleDistributionInstance = getAbi("atta_vote_abi");
+        console.log(MerkleDistributionInstance);
+        // 获取的abi下的vault方法
+        MerkleDistributionInstance.methods
+          .batchRaceInfo(data.idList)
+          .call()
+          .then(function (res: any) {
+            res[0].forEach((info: any,i:any) => {//遍历比赛时间,并添加到对应数据
+              data.data[i].gameTime = info;
+            })
+            nowDataTime.value = res[2];
+            gameLists(data.data);
+          }).catch((err:any)=>{
+              console.log(err);
+          });
+      })
+    }
+    // 对数据进行重装:主要是时间戳
+    const gameLists = (data:any)=>{
+      data.forEach((info:any,i:any)=>{
+        if(info.gameTime > 0){
+          info.gameDate = formatDate(info.gameTime*1000);
+        }
+      })
+      matchInfoList.value = data;
+    }
+    // 展开的时候处理计时器
+    const collapseChange = (data:any)=>{
+      hours.value = 0;
+      minutes.value = 0;
+      seconds.value = 0;
+      matchInfoList.value.forEach((item:any)=>{
+        if(item.id == data){//找到当前打开的数据
+          if(item.gameTime && (item.gameTime > (nowDataTime.value + 300))){//比赛时间确认，且比赛时间在当前时间5m之后
+            timeDown((nowDataTime.value + 300),item.gameTime)
+          }else{
+            timeDown((nowDataTime.value + 300),item.gameTime)
+          }
+        }
+      })
     }
           
     onMounted(() => {
-      matchList()
+      window.clearInterval(timeStart.value);//关闭计时器
+      matchList().then(res=>{
+        return matchBusd(res)
+      }).then((res1:any)=>{
+        batchRaceInfoFn(res1.data)
+      })
     });
 
     console.log(window.CHAIN.WALLET);
@@ -322,10 +296,10 @@ export default defineComponent({
     const hours = ref(0);
     const minutes = ref(0);
     const seconds = ref(0);
-    const endTime = ref('2021/08/12');
+    const timeStart = ref();//计时器
     // 倒计时函数
-    const add = ()=>{
-      let time = window.setInterval( ()=> {
+    const setTime = ()=>{
+      timeStart.value = window.setInterval( ()=> {
         if (hours.value !== 0 && minutes.value === 0 && seconds.value === 0) {
             hours.value -= 1;
             minutes.value = 59;
@@ -335,7 +309,7 @@ export default defineComponent({
             seconds.value = 59;
         } else if (hours.value === 0 && minutes.value === 0 && seconds.value === 0) {
             seconds.value = 0
-            window.clearInterval(time)
+            window.clearInterval(timeStart.value);//关闭计时器
         } else if (hours.value !== 0 && minutes.value !== 0 && seconds.value === 0) {
             minutes.value -= 1;
             seconds.value = 59;
@@ -346,18 +320,15 @@ export default defineComponent({
     };
     // 时间戳转换
     const allTime = ref(0);
-    const timeDown = ()=>{
-      let endTimes = new Date(endTime.value);
-      let nowTime = new Date();
-      allTime.value = ((endTimes.getTime() - nowTime.getTime()) / 1000)*1;
-      let leftTime = ((endTimes.getTime() - nowTime.getTime()) / 1000)*1;
+    const timeDown = (startTime:number,endTime:number)=>{
+      allTime.value = (endTime - startTime)*1;
+      let leftTime = endTime - startTime;
       if(leftTime <= 0) return;
       hours.value = parseInt(((leftTime / (60 * 60)) % 24)+'');
       minutes.value = parseInt(((leftTime / 60) % 60)+'');
       seconds.value = parseInt((leftTime % 60)+'');
-      add()
+      setTime()
     };
-    timeDown();
     // 防止数值小于10时，出现一位数
     const num = (n)=>{
         return n < 10 ? '0' + n : n
@@ -453,7 +424,9 @@ export default defineComponent({
       voteStepFn,
       closeDialog,
       voteTeam,
-      matchInfoList
+      matchInfoList,
+      collapseChange,
+      curRewardPool
     }
   }
 });

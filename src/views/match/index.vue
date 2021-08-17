@@ -39,7 +39,7 @@
       <div class="rule-busd flex">
         <div class="rule-number" :class="isEn ? 'hanson' : ''">
           <p class="number-text">{{$t("match_rule_award")}}</p>
-          <p class="number-busd">{{busd}} BUSD</p>
+          <p class="number-busd">{{totalRewardPoolNumber}} BUSD</p>
         </div>
       </div>
       <div class="rule-text">
@@ -56,7 +56,7 @@
         </div>
       </div>
     </div>
-    <countdown/>
+    <countdown @totalRewardPool="totalRewardPool"/>
   </div>
   <footer-cell />
 </template>
@@ -92,9 +92,16 @@ export default defineComponent({
     //   }).catch((err:any)=>{
     //       console.log(err);
     //   });
+    const totalRewardPoolNumber = ref(0);
+    const totalRewardPool = (res:any)=>{
+      totalRewardPoolNumber.value = res;
+      console.log(res);
+    }
     return {
       isEn,
-      busd
+      busd,
+      totalRewardPool,
+      totalRewardPoolNumber
     }
   }
 });
