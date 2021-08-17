@@ -8,7 +8,7 @@
           <p class="title-top">{{$t("Summer")}}</p>
           <p class="title-bottom">{{$t("Playoffs")}} {{item.name}}</p>
         </div>
-        <p class="match-text text-r niunito">{{$t("reward_pool01")}} 接口取值 BUSD <br> {{$t("reward_pool02")}}</p>
+        <p class="match-text niunito">{{$t("reward_pool01")}} 接口取值 BUSD <br> {{$t("reward_pool02")}}<br> {{$t("reward_pool03")}}</p>
       </div>
       <img class="header-icon" src="/match/more.png" alt="">
     </template>
@@ -151,7 +151,7 @@
         <p class="title-top">{{$t("Summer")}}</p>
         <p class="title-bottom">{{$t("Playoffs")}}</p>
       </div>
-      <p class="match-text text-r niunito">{{$t("reward_pool01")}}23188 BUSD <br> {{$t("reward_pool02")}}</p>
+      <p class="match-text niunito">{{$t("reward_pool01")}}23188 BUSD <br> {{$t("reward_pool02")}}</p>
     </div>
     <div class="match-countdown hanson">
       <p>{{$t("VotingCountdown")}}</p>
