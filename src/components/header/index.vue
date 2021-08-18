@@ -42,17 +42,17 @@
     <div class="header flex">
       <div class="flex">
         <img class="brandLogo" src="/imgs/logo.png" @click="$router.push({name:'Home'})"/>
-        <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
-          <!-- <router-link :class="[selectedPath == '/'? 'selected-tab':'']" to="/">{{ $t("home") }}</router-link> -->
-          <a @click="goAnchor('Introduction')">
-            {{ $t("Introduce") }}
-          </a>
-          <a @click="goAnchor('Upcoming')">
-            {{ $t("Upcoming") }}
-          </a> 
-          <router-link :class="[selectedPath == '/esports'? 'selected-tab':'']" to="/esports">{{ $t("matchName") }}</router-link>
-          <router-link :class="[selectedPath == '/charity'? 'selected-tab':'']" to="/charity">{{ $t("ATTA Charity") }}</router-link>
-          <router-link :class="[selectedPath == '/assets/mynft'? 'selected-tab':'']" to="/assets">{{ $t("Asset Management") }}</router-link>
+        <div class="more-list" :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
+          <div class="more-hover">
+            <span>{{selectedPath == '/'?$t("home"):selectedPath == '/charity'?$t("ATTA Charity"):selectedPath == '/assets/mynft'?$t("Asset Management"):selectedPath == '/esports'?$t("matchName"):''}}</span>
+            <img src="/imgs/arrow.png" alt="">
+          </div>
+          <div class="more-content">
+            <router-link :class="[selectedPath == '/'? 'selected-tab':'']" to="/">{{ $t("home") }}</router-link>
+            <router-link :class="[selectedPath == '/charity'? 'selected-tab':'']" to="/charity">{{ $t("ATTA Charity") }}</router-link>
+            <router-link :class="[selectedPath == '/assets/mynft'? 'selected-tab':'']" to="/assets">{{ $t("Asset Management") }}</router-link>
+            <router-link :class="[selectedPath == '/esports'? 'selected-tab':'']" to="/esports">{{ $t("matchName") }}</router-link>
+          </div>
         </div>
       </div>
       <img
@@ -174,6 +174,7 @@ export default defineComponent({
 
     const getAddress = () => {
       if (!accountAddress.value) {
+        // 获取钱包地址
         initWeb3().then((res: any) => {
           if (res.length > 0) {
             accountAddress.value = res[0];
@@ -264,7 +265,7 @@ export default defineComponent({
         
         window.locationUrl = window.location.origin;
       } else {
-        window.base_url = "http://47.118.74.48:8081";
+        window.base_url = "http://47.118.74.48:8001";
         
         window.locationUrl = "http://47.118.74.48:8081";
       }
