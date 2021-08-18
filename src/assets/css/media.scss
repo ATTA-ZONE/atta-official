@@ -8,6 +8,51 @@
     display: none;
   }
 }
+@media screen and (max-width: 1399px) and (min-width: 993px){
+  div.more-list{
+    width: 200px;
+    position: relative;
+    &:hover{
+      .more-content{
+        transition: height 0.3s ease-in-out;
+        height: 200px !important;
+      }
+      img{
+        transition: transform 0.3s ease-in-out;
+        transform: rotate(-90deg);
+      }
+    }
+    .more-hover{
+      margin-top: 5px;
+      display: flex;
+      span{
+        display:block;
+        margin-right: 10px;
+      }
+      img{
+        transition: transform 0.3s ease-in-out;
+        display:block;
+      }
+    }
+    .more-content{
+      transition: height 0.3s ease-in-out;
+      height:0;
+      overflow: hidden;
+      position: absolute;
+      top: 29px;
+      background-color: #14141494;
+      left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      a{
+        &:hover{
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
 
 @media only screen and (max-width: 992px) {
   .video-wrap .header-txt img {

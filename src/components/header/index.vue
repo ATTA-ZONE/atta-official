@@ -42,11 +42,17 @@
     <div class="header flex">
       <div class="flex">
         <img class="brandLogo" src="/imgs/logo.png" @click="$router.push({name:'Home'})"/>
-        <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
-          <router-link :class="[selectedPath == '/'? 'selected-tab':'']" to="/">{{ $t("home") }}</router-link>
-          <router-link :class="[selectedPath == '/charity'? 'selected-tab':'']" to="/charity">{{ $t("ATTA Charity") }}</router-link>
-          <router-link :class="[selectedPath == '/assets/mynft'? 'selected-tab':'']" to="/assets">{{ $t("Asset Management") }}</router-link>
-          <router-link :class="[selectedPath == '/match'? 'selected-tab':'']" to="/match">{{ $t("matchName") }}</router-link>
+        <div class="more-list" :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
+          <div class="more-hover">
+            <span>{{selectedPath == '/'?$t("home"):selectedPath == '/charity'?$t("ATTA Charity"):selectedPath == '/assets/mynft'?$t("Asset Management"):selectedPath == '/match'?$t("matchName"):''}}</span>
+            <img src="/imgs/arrow.png" alt="">
+          </div>
+          <div class="more-content">
+            <router-link :class="[selectedPath == '/'? 'selected-tab':'']" to="/">{{ $t("home") }}</router-link>
+            <router-link :class="[selectedPath == '/charity'? 'selected-tab':'']" to="/charity">{{ $t("ATTA Charity") }}</router-link>
+            <router-link :class="[selectedPath == '/assets/mynft'? 'selected-tab':'']" to="/assets">{{ $t("Asset Management") }}</router-link>
+            <router-link :class="[selectedPath == '/match'? 'selected-tab':'']" to="/match">{{ $t("matchName") }}</router-link>
+          </div>
         </div>
       </div>
       <img

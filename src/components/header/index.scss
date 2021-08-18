@@ -35,6 +35,20 @@
   }
 }
 
+.more-list{
+  margin-left: 15px;
+  .more-hover{
+    width: 140px;
+    span{
+      display:none;
+    }
+    img{
+      width: 28px !important;
+      height: 28px !important;
+      display:none;
+    }
+  }
+}
 .selected-tab {
   border-bottom: 1px solid #a8deee;
 }
