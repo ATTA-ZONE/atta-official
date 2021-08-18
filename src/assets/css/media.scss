@@ -26,7 +26,9 @@
       margin-top: 5px;
       display: flex;
       span{
+        font-size: 18px;
         display:block;
+        margin-left: 8px;
         margin-right: 10px;
       }
       img{
@@ -37,9 +39,11 @@
     .more-content{
       transition: height 0.3s ease-in-out;
       height:0;
+      flex-direction:column;
+      justify-content: space-around;
       overflow: hidden;
       position: absolute;
-      top: 29px;
+      top: 36px;
       background-color: #14141494;
       left: 0;
       display: flex;
