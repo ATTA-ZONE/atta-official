@@ -44,7 +44,7 @@
         <img class="brandLogo" src="/imgs/logo.png" @click="$router.push({name:'Home'})"/>
         <div class="more-list" :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
           <div class="more-hover">
-            <span>{{selectedPath == '/'?$t("home"):selectedPath == '/charity'?$t("ATTA Charity"):selectedPath == '/assets/mynft'?$t("Asset Management"):selectedPath == '/esports'?$t("matchName"):''}}</span>
+            <span :class="isEn ? 'hanson' : ''">{{selectedPath == '/'?$t("home"):selectedPath == '/charity'?$t("ATTA Charity"):selectedPath == '/assets/mynft'?$t("Asset Management"):selectedPath == '/esports'?$t("matchName"):''}}</span>
             <img src="/imgs/arrow.png" alt="">
           </div>
           <div class="more-content">
