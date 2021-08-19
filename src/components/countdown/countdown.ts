@@ -40,7 +40,7 @@ export default defineComponent({
         axios.post(window.base_url + "/v2/activity/bet_pool?id=1", {})
         .then((res:any) => {
           totalRewardPool.value = res.data?res.data.totalRewardPool:0;
-          emit('totalReward',res.data?res.data.totalRewardPool:0 );
+          emit('totalRewardPool',res.data?res.data.totalRewardPool:0 );
           curRewardPool.value = res.data?res.data.curRewardPool:0;
           resolve({res,data})
         });
