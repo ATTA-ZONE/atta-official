@@ -93,7 +93,7 @@
           <p class="list-title">{{$t("winning_pool01")}}</p>
           <p class="list-number">SR*{{item.attaMatchUserBet&&item.attaMatchUserBet[2]?item.attaMatchUserBet[2].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[2]?moneyFormatNum(item.attaMatchUserBet[2].rewardCount):0}} BUSD</p>
           <p class="list-number">R*{{item.attaMatchUserBet&&item.attaMatchUserBet[1]?item.attaMatchUserBet[1].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[1]?moneyFormatNum(item.attaMatchUserBet[1].rewardCount):0}} BUSD</p>
-          <p class="list-number">N*{{item.attaMatchUserBet&&item.attaMatchUserBet[0]?item.attaMatchUserBet[0].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[0]?moneyFormatNum(item.attaMatchUserBet[1].rewardCount):0}} BUSD</p>
+          <p class="list-number">N*{{item.attaMatchUserBet&&item.attaMatchUserBet[0]?item.attaMatchUserBet[0].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[0]?moneyFormatNum(item.attaMatchUserBet[0].rewardCount):0}} BUSD</p>
         </div>
         <div class="niunito">
           <p class="info-text">SR ({{item.attaMatchUserBet&&item.attaMatchUserBet[2]?item.attaMatchUserBet[2].tickets:0}}{{$t("SRRN1")}}
@@ -105,8 +105,8 @@
             <span v-else>{{item.attaMatchUserBet&&item.attaMatchUserBet[1]?moneyFormatNum(item.attaMatchUserBet[1].rewardCount):0}} BUSD</span>
           </p>
           <p class="info-text">N ({{item.attaMatchUserBet&&item.attaMatchUserBet[0]?item.attaMatchUserBet[0].tickets:0}}{{$t("SRRN1")}}
-            <span v-if="isEn">{{item.attaMatchUserBet&&item.attaMatchUserBet[0]?moneyFormatNum(item.attaMatchUserBet[1].rewardCount):0}} BUSD {{$t("SRRN")}}</span>
-            <span v-else>{{item.attaMatchUserBet&&item.attaMatchUserBet[0]?moneyFormatNum(item.attaMatchUserBet[1].rewardCount):0}} BUSD</span>
+            <span v-if="isEn">{{item.attaMatchUserBet&&item.attaMatchUserBet[0]?moneyFormatNum(item.attaMatchUserBet[0].rewardCount):0}} BUSD {{$t("SRRN")}}</span>
+            <span v-else>{{item.attaMatchUserBet&&item.attaMatchUserBet[0]?moneyFormatNum(item.attaMatchUserBet[0].rewardCount):0}} BUSD</span>
           </p>
           <p class="info-text-title">{{$t("TotalWinning")}}
             <span v-if="isEn"><br>{{item.temaAAll}} BUSD</span>
