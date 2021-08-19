@@ -183,7 +183,7 @@
         <p class="vote-title vote-bzy">{{$t("voteAvailable")}}</p>
         <p class="content-bzy">{{$t("voteMystery01")}}<br>{{$t("voteMystery02")}} <a href="https://www.bazhuayu.io/mobile/tc/blindbox.html" target="_blank">bazhuayu.io</a>  {{$t("voteMystery03")}}</p>
       </div>
-      <button @click="closeDialog">{{$t("voteOK")}}55555</button>
+      <button @click="closeDialog">{{$t("voteOK")}}</button>
     </div>
   </div>
   <div class="match-modify-tips" v-show="modelTips">{{modelTips}}</div>

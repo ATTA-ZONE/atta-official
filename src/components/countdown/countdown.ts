@@ -89,8 +89,8 @@ export default defineComponent({
             .batchEstimateReward([walletId.value,walletId.value],[matchTokenId,matchTokenId],[optionId[0].id,optionId[1].id])
             .call()
             .then((res01: any)=>{
-              matchInfoList.value[index].temaAAll = moneyFormat(web3.value.utils.fromWei(res01[0]));
-              matchInfoList.value[index].temaBAll = moneyFormat(web3.value.utils.fromWei(res01[1]));
+              matchInfoList.value[index].temaAAll = moneyFormat(Math.floor(web3.value.utils.fromWei(res01[0])));
+              matchInfoList.value[index].temaBAll = moneyFormat(Math.floor(web3.value.utils.fromWei(res01[1])));
             }).catch((err:any)=>{
                 console.log(err);
             });
