@@ -13,6 +13,26 @@ export default defineComponent({
     const MerkleDistributionInstance = getAbi("atta_vote_abi");
     const matchInfoList = ref();
     const web3 = ref();
+    const matchListTimes = async ()=>{//获取赛事信息列表
+      const accounts = await window.CHAIN.WALLET.enable();
+      walletId.value = accounts[0];
+      return new Promise((resolve, reject) => {
+        axios.post(window.base_url + "/v2/match/list?address="+walletId.value, {})
+        .then((res:any) => {
+          if(!res.code){
+            let data = res.data;
+            let idList:any = [];
+            data.forEach((item:any,index:number) => {
+              idList.push(item.matchTokenId);
+            })
+            let content = {
+              data,idList
+            }
+            resolve(content);
+          }
+        });
+      })
+    };
     const matchList = async ()=>{//获取赛事信息列表
       const accounts = await window.CHAIN.WALLET.enable();
       walletId.value = accounts[0];
@@ -154,7 +174,7 @@ export default defineComponent({
     });
     const onMountedTime = ()=>{
       timeContent.value = window.setInterval(()=>{
-        matchList().then(res=>{
+        matchListTimes().then(res=>{
           return matchBusd(res)
         }).then((res1:any)=>{
           batchRaceInfoFn(res1.data);
