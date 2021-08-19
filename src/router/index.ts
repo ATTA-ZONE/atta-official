@@ -8,7 +8,6 @@ const history = () => import("../views/Assets/history.vue");
 const Charity = () => import("../views/Charity/index.vue");
 const esports = () => import("../views/match/index.vue");
 const Xudongdong = () => import("../views/Xudongdong/index.vue");
-const esports = () => import("../views/match/loading.vue");
  
 const routes = [
   {
