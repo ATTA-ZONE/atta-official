@@ -8,7 +8,8 @@
           <p class="title-top">{{$t("Summer")}}</p>
           <p class="title-bottom">{{$t("Playoffs")}} {{item.name}}</p>
         </div>
-        <p class="match-text niunito">{{$t("reward_pool01")}} {{moneyFormatNum(curRewardPool)}} BUSD <br> {{$t("reward_pool02")}}<br> {{$t("reward_pool03")}}</p>
+        <!-- <br> {{$t("reward_pool02")}} -->
+        <p class="match-text niunito">{{$t("reward_pool01")}} {{moneyFormatNum(curRewardPool)}} BUSD <br> {{$t("reward_pool03")}}</p>
       </div>
       <img class="header-icon" src="/match/more.png" alt="">
     </template>
@@ -90,7 +91,7 @@
     <div class="prize-pools flex">
       <div class="prize-pools-list">
         <div class="prize-pools-info hanson">
-          <p class="list-title">{{$t("winning_pool01")}}</p>
+          <p class="list-title">{{item.teamA?item.teamA:'TBD'}}{{$t("winning_pool01")}}</p>
           <p class="list-number">SR*{{item.attaMatchUserBet&&item.attaMatchUserBet[2]?item.attaMatchUserBet[2].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[2]?moneyFormatNum(item.attaMatchUserBet[2].rewardCount):0}} BUSD</p>
           <p class="list-number">R*{{item.attaMatchUserBet&&item.attaMatchUserBet[1]?item.attaMatchUserBet[1].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[1]?moneyFormatNum(item.attaMatchUserBet[1].rewardCount):0}} BUSD</p>
           <p class="list-number">N*{{item.attaMatchUserBet&&item.attaMatchUserBet[0]?item.attaMatchUserBet[0].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[0]?moneyFormatNum(item.attaMatchUserBet[0].rewardCount):0}} BUSD</p>
@@ -117,7 +118,7 @@
       </div>
       <div class="prize-pools-list">
         <div class="prize-pools-info hanson">
-          <p class="list-title">{{$t("winning_pool02")}}</p>
+          <p class="list-title">{{item.teamB?item.teamB:'TBD'}}{{$t("winning_pool02")}}</p>
           <p class="list-number">SR*{{item.attaMatchUserBet&&item.attaMatchUserBet[5]?item.attaMatchUserBet[5].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[5]?moneyFormatNum(item.attaMatchUserBet[5].rewardCount):0}} BUSD</p>
           <p class="list-number">R*{{item.attaMatchUserBet&&item.attaMatchUserBet[4]?item.attaMatchUserBet[4].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[4]?moneyFormatNum(item.attaMatchUserBet[4].rewardCount):0}} BUSD</p>
           <p class="list-number">N*{{item.attaMatchUserBet&&item.attaMatchUserBet[3]?item.attaMatchUserBet[3].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[3]?moneyFormatNum(item.attaMatchUserBet[3].rewardCount):0}} BUSD</p>

@@ -22,8 +22,9 @@ export default defineComponent({
           if(!res.code){
             let data = res.data;
             let idList:any = [];
-            data.forEach((item:any)=>{
-              idList.push(item.matchTokenId)
+            data.forEach((item:any,index:number) => {
+              idList.push(item.matchTokenId);
+              if(item.status == 1) collapseIndex.value = index+1;
             })
             let content = {
               data,idList
@@ -110,7 +111,7 @@ export default defineComponent({
       })
       matchInfoList.value = data;
     }    
-    const collapseIndex = ref('');
+    const collapseIndex = ref();
     // 展开的时候处理计时器
     const collapseChange = (data:any)=>{
       collapseIndex.value = data;
@@ -148,13 +149,11 @@ export default defineComponent({
         batchRaceInfoFn(res1.data);
       }).then(()=>{
         geteveryqkl();
-        // onMountedTime();
+        onMountedTime();
       })
     });
     const onMountedTime = ()=>{
       timeContent.value = window.setInterval(()=>{
-        console.log(255555555555555);
-        
         matchList().then(res=>{
           return matchBusd(res)
         }).then((res1:any)=>{
