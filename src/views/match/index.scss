@@ -154,6 +154,19 @@
           color: rgba(255, 255, 255, 0.7);
           font-weight: 400;
         }
+        button{
+          margin-top: 30px;
+          width: 160px;
+          height:40px;
+          border: 0;
+          background: #A8DEEE;
+          border: 0;
+          font-size: 18px;
+          font-weight: 800;
+          line-height: 27px;
+          text-align: center;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -284,6 +297,11 @@
           p{
             font-size: 12px;
             line-height: 190%;
+          }
+          button{
+            width: 90px;
+            font-size: 14px;
+            height:30px;
           }
         }
       }

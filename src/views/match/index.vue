@@ -53,6 +53,7 @@
           <p>{{$t("match_rule03")}}</p>
           <p>{{$t("match_rule04")}}</p>
           <p>{{$t("match_rule05")}}</p>
+          <button @click="toBaZhuaYu" :class="isEn ? 'niunito' : ''"> {{$t("match_draw_now")}} </button>
         </div>
       </div>
     </div>
