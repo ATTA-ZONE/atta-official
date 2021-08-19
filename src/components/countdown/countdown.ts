@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, onMounted,watch } from "vue";
+import { defineComponent, ref, computed, onMounted,onBeforeUnmount } from "vue";
 import { ElInputNumber,ElCollapse,ElCollapseItem } from 'element-plus';
 import { useI18n } from "vue-i18n";
 import { getCookie, setCookie,getAbi,formatDate,moneyFormat } from "../../utils";
@@ -50,12 +50,13 @@ export default defineComponent({
     const batchRaceInfoFn = (data:any)=>{//通过链调取数据,比赛信息
       return new Promise((resolve, reject) => {
         // abi下的所有方法
-        console.log(getAbi("atta_vote_abi"));
         MerkleDistributionInstance.then(res=>{
           res.methods
           .batchRaceInfo(data.idList)
           .call()
           .then(function (res: any) {
+            console.log(res,8888);
+            
             res[0].forEach((info: any,i:any) => {//遍历比赛时间,并添加到对应数据
               data.data[i].gameTime = info;
             })
@@ -87,9 +88,9 @@ export default defineComponent({
             res.methods
             .batchEstimateReward([walletId.value,walletId.value],[matchTokenId,matchTokenId],[optionId[0].id,optionId[1].id])
             .call()
-            .then((res: any)=>{
-              matchInfoList.value[index].temaAAll = moneyFormat(web3.value.utils.fromWei(res[0]));
-              matchInfoList.value[index].temaBAll = moneyFormat(web3.value.utils.fromWei(res[1]));
+            .then((res01: any)=>{
+              matchInfoList.value[index].temaAAll = moneyFormat(web3.value.utils.fromWei(res01[0]));
+              matchInfoList.value[index].temaBAll = moneyFormat(web3.value.utils.fromWei(res01[1]));
             }).catch((err:any)=>{
                 console.log(err);
             });
@@ -104,7 +105,7 @@ export default defineComponent({
     const gameLists = (data:any)=>{
       data.forEach((info:any,i:any)=>{
         if(info.gameTime > 0){
-          info.gameDate = formatDate((info.gameTime + 300)*1000);
+          info.gameDate = formatDate(((info.gameTime*1) + 300)*1000);
         }
       })
       matchInfoList.value = data;
@@ -117,8 +118,6 @@ export default defineComponent({
       window.clearInterval(timeStart.value);//关闭计时器
       matchInfoList.value.forEach((item:any,index:number)=>{
         if(item.id == data){//找到当前打开的数据
-          console.log(item.gameTime,nowDataTime.value);
-          
           if(item.gameTime && (item.gameTime > (nowDataTime.value))){//比赛时间确认，且比赛时间在当前时间5m之后
             let gameTime = JSON.parse(JSON.stringify(item.gameTime));
             let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
@@ -132,8 +131,9 @@ export default defineComponent({
         }
       })
     }
-       
+    const timeContent = ref();
     onMounted(() => {
+      window.clearInterval(timeContent.value);//关闭计时器
       window.clearInterval(timeStart.value);//关闭计时器
       emit('loadingBol',true )
       matchList().then(res=>{
@@ -142,8 +142,26 @@ export default defineComponent({
         batchRaceInfoFn(res1.data);
       }).then(()=>{
         geteveryqkl();
+        // onMountedTime();
       })
     });
+    const onMountedTime = ()=>{
+      timeContent.value = window.setInterval(()=>{
+        console.log(255555555555555);
+        
+        matchList().then(res=>{
+          return matchBusd(res)
+        }).then((res1:any)=>{
+          batchRaceInfoFn(res1.data);
+        }).then(()=>{
+          geteveryqkl();
+        })
+      },10000)
+    }
+    onBeforeUnmount(()=>{
+      window.clearInterval(timeContent.value);//关闭计时器
+      window.clearInterval(timeStart.value);//关闭计时器
+    })
     const { locale, t } = useI18n();
     const isEn = computed(() => {
       return locale.value.trim() == "en";

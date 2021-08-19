@@ -101,7 +101,7 @@ export default defineComponent({
       if(!accountAddress.value){
         childContent.value = false;
       }else{
-        childContent.value = false;
+        childContent.value = true;
       }
     })
     // 获取钱包地址
