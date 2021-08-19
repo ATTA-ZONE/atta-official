@@ -381,6 +381,9 @@ export default defineComponent({
         Move();
         dialogBol.value = false;
         voteType.value = 1;
+        SRNumber.value = 0;
+        RNumber.value = 0;
+        NNumber.value = 0;
         
         window.clearInterval(timeStart.value);//关闭计时器
         emit('loadingBol',true )
@@ -391,6 +394,7 @@ export default defineComponent({
         }).then(()=>{
           geteveryqkl();
         })
+        collapseChange(collapseIndex.value)
       }else if(voteType.value == 1){
         voteType.value = voteType.value+1;
       } 
