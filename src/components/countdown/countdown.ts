@@ -106,7 +106,7 @@ export default defineComponent({
     const gameLists = (data:any)=>{
       data.forEach((info:any,i:any)=>{
         if(info.startTime > 0){
-          info.gameDate = formatDate(((info.startTime*1) + 600)*1000);
+          info.gameDate = formatDate(((info.startTime*1))*1000);
         }
       })
       matchInfoList.value = data;
