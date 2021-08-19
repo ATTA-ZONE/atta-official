@@ -185,7 +185,7 @@
   "match_title001":"Voting Rules",
   "match_title02":"",
   "match_text":"This first batch of NFT collection includes 2 kinds of N, with 1200 pieces each; One kind of R with 730 pieces; One kind of SR with 200 pieces. Drawing possibilities of these four types of cards are 12%, 12 %, 7.3% and 2%, respectively with voting weights of 1,1,5 and 20, respectively.",
-  "match_draw_now":"BUY NOW",
+  "match_draw_now":"Draw now",
   "match_rita_title":"Rita NFT Series",
   "match_rita_text":"Rita’s NFT series contains four types of NFT cards, including a hot figure combining with her favorite LOL champion Soraka, her classic commentary figure and maid outfit figure. All NFT cards are designed by former Riot Games artists. ",
   "match_aill_title":"Fireloli NFT Series",
@@ -221,7 +221,10 @@
   "distributed":"(To be distributed to voting wallet address",
   "hrs":" within 2 hrs after the match ends)",
   "unitTxt":"",
-  
+  "voting information":"Please connect your wallet first to view the voting information.",
+  "mainnet only":"（Currently support BSC mainnet only）",
+  "ConnectNow":"Connect now",
+
   "YourNFTsvote":" Your NFTs that can currently be used to vote:",
   "voteSR":"SR NFT",
   "voteR":"R NFT",

@@ -198,6 +198,10 @@
   "match_rule03":"3. 投票在比赛开始前五分钟截止；",
   "match_rule04":"4. 比赛完成后，用户可以在ATTA官网根据比赛结果和投票结果领取奖励;奖励会在2小时内由每场比赛的奖励池合约自动发送到用户钱包;",
   "match_rule05":"5. 投票使用的NFT永远不会消失，可以进行下一次投票，但同一时间单一NFT只可投票一场比赛；",
+  
+  "voting information":"請先連接錢包以展示完整投票信息",
+  "mainnet only":"（當前僅支持BSC主網）",
+  "ConnectNow":"連接錢包",
 
   "Summer":"LPL夏季季後賽",
   "Playoffs":"Game",

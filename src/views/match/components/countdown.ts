@@ -3,7 +3,6 @@ import { ElInputNumber,ElCollapse,ElCollapseItem } from 'element-plus';
 import { useI18n } from "vue-i18n";
 import { getCookie, setCookie,getAbi,formatDate,moneyFormat } from "../../../utils";
 import { chainSetting } from "../../../assets/js/chainSetting";
-import { initWeb3 } from "../../../assets/js/initweb3";
 import axios from "../../../api";
 
 export default defineComponent({
@@ -14,9 +13,11 @@ export default defineComponent({
     const MerkleDistributionInstance = getAbi("atta_vote_abi");
     const matchInfoList = ref();
     const web3 = ref();
-    const matchList = ()=>{//获取赛事信息列表
+    const matchList = async ()=>{//获取赛事信息列表
+      const accounts = await window.CHAIN.WALLET.enable();
+      walletId.value = accounts[0];
       return new Promise((resolve, reject) => {
-        axios.post(window.base_url + "/v2/match/list", {})
+        axios.post(window.base_url + "/v2/match/list?address="+walletId.value, {})
         .then((res:any) => {
           if(!res.code){
             let data = res.data;
@@ -73,8 +74,6 @@ export default defineComponent({
       } else if (window.ethereum) {
         web3.value = new window.Web3(window.ethereum);
       }
-      console.log(matchInfoList.value);
-      
       return new Promise((resolve, reject) => {
         if(matchInfoList.value[index].attaMatchOptions.length){//存在比赛队伍，且有数据
           console.log(walletId.value);
@@ -104,7 +103,6 @@ export default defineComponent({
     // 对数据进行重装:主要是时间戳
     const gameLists = (data:any)=>{
       data.forEach((info:any,i:any)=>{
-        console.log(info.gameTime);
         if(info.gameTime > 0){
           info.gameDate = formatDate(info.gameTime*1000);
         }
@@ -132,7 +130,7 @@ export default defineComponent({
         }
       })
     }
-          
+       
     onMounted(() => {
       window.clearInterval(timeStart.value);//关闭计时器
       emit('loadingBol',true )
@@ -143,11 +141,6 @@ export default defineComponent({
       }).then(()=>{
         geteveryqkl();
       })
-    });
-
-    // 获取钱包地址
-    initWeb3().then((res: any) => {
-      console.log(res);
     });
     const { locale, t } = useI18n();
     const isEn = computed(() => {
@@ -207,7 +200,6 @@ export default defineComponent({
     const chainId = ref();
     const tokenarr: any = ref([]);
     const geteveryqkl = async () => {
-      const accounts = await window.CHAIN.WALLET.enable();
       chainId.value = await window.CHAIN.WALLET.chainId();
       console.log(chainSetting["contractSetting"]["atta_match"]);
       switch (chainId.value) {
@@ -224,7 +216,6 @@ export default defineComponent({
           targetChainId.value = '97';
           break;
       }
-      walletId.value = accounts[0];
       let auctionAddress = chainSetting["contractSetting"]["atta_match"][targetChainId.value].address;
       let requestUrl = window.scansite_base_url + "/api?module=account&action=tokennfttx&contractaddress=" +auctionAddress +"&address=" + walletId.value +"&sort=desc&apikey=" + window.apikey;
       axios.get(requestUrl).then((res: any) => {
@@ -273,7 +264,7 @@ export default defineComponent({
         getAssetsList(tokenarr.value);
       });
     };
-    const formContent = ref({})
+    const formContent = ref()
     // 获取用户未使用的NFT
     const getAssetsList = (data:any)=>{
       let info = {
@@ -285,23 +276,20 @@ export default defineComponent({
         if(!res.code){
           formContent.value = res.data;
         }else{
-          formContent.value = {SR:[],R:[],N:[]};
-        }
-        console.log('测试数据001',res);  
+          formContent.value = undefined;
+        } 
       });
     }
     
     //停止页面滚动
     const stopMove = ()=>{
-      let m = function(e){e.preventDefault();};
-      document.body.style.height = "100vh";
-      document.body.style.overflow='hidden';
+      // document.body.style.height = "100vh";
+      // document.body.style.overflow='hidden';
     };
     //开启页面滚动
     const Move = ()=>{
-      let m =function(e){e.preventDefault();};
-      document.body.style.height = "";
-      document.body.style.overflow='';//出现滚动条
+      // document.body.style.height = "";
+      // document.body.style.overflow='';//出现滚动条
     };
     
     // 弹框展示
@@ -314,7 +302,8 @@ export default defineComponent({
       stopMove()
       dialogOptionId.value = optionId.id;
       dialogMatchTokenId.value = matchTokenId;
-      if(!formContent.value){
+      let bol = formContent.value;
+      if(!formContent.value || Object.keys(bol).length <= 0){
         voteType.value = 1;
         dialogBolVote.value = false;
         dialogBol.value = true;
@@ -327,8 +316,6 @@ export default defineComponent({
     const loadingDialog = ref(false);
     const axiosFrom = ()=>{//提交数据
       let NFTList = [];
-      console.log(formContent.value['SR']);
-      
       if(SRNumber.value > 0){
         let arr = formContent.value['SR'].slice(0, SRNumber.value);
         NFTList = NFTList.concat(arr);
@@ -341,38 +328,15 @@ export default defineComponent({
         let arr = formContent.value['N'].slice(0, NNumber.value);
         NFTList = NFTList.concat(arr);
       }  
-			var web3 = new window.Web3(window.CHAIN.WALLET.provider());
-      let setting_proof: any = chainSetting["contractSetting"]['atta_vote_abi'];
-      let MerkleDistributionAddress = setting_proof[97].address;
-
-      
       // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
-      let MerkleDistributionABI = setting_proof["abi"];
-			var busdContractInstance = new web3.eth.Contract(MerkleDistributionABI, MerkleDistributionAddress);
-      console.log(MerkleDistributionABI,MerkleDistributionAddress,busdContractInstance);
-      
-			busdContractInstance.methods.batchClaimRewardRace(["0x5520D94eB535659993Ee994e47806F8D7275A4ab"],1).call()
-				.then(function (res) {
-          console.log(res);
-          
-        }).catch(err=>{
-          console.log(err);
-          
+      MerkleDistributionInstance.then(res=>{
+        res.methods
+        .stake(NFTList,dialogOptionId.value,dialogMatchTokenId.value)
+        .send({from: walletId.value})
+        .then((res: any)=>{
+          voteType.value = voteType.value+1;
         })
-      // console.log(NFTList,dialogOptionId.value,dialogMatchTokenId.value );
-      // const MerkleDistributionInstance = getAbi("atta_vote_abi");
-      // console.log('测试数据',window.CHAIN.WALLET.enable());
-      
-
-      // MerkleDistributionInstance.then(res=>{
-      //   res.methods
-      //   .batchClaimRewardRace(["0x5520D94eB535659993Ee994e47806F8D7275A4ab"],1)
-      //   .call()
-      //   .then((res: any)=>{
-      //     console.log(res);
-          
-      //   })
-      // })
+      })
     }
     // 继续下一步
     const voteStepFn = ()=>{
@@ -380,6 +344,7 @@ export default defineComponent({
         axiosFrom()
       }
       if(voteType.value == 3){
+        Move();
         dialogBol.value = false;
         voteType.value = 1;
       }else if(voteType.value == 1){
@@ -398,52 +363,14 @@ export default defineComponent({
     const SRNumber = ref(0);
     const RNumber = ref(0);
     const NNumber = ref(0);
-    // 投票
-    const voteTeam = ()=>{
-      let currentAddress = getCookie("currentAddress") == "false" ? "" : getCookie("currentAddress");
-      if(currentAddress){
-        console.log("开启钱包");
-      }else{
-        console.log("未开启钱包");
-      }
-    }
-    // 获取钱包地址
-    const accountAddress = ref('');
-    const getAddress = () => {
-      if (!accountAddress.value) {
-        // 获取钱包地址
-        initWeb3().then((res: any) => {
-          if (res.length > 0) {
-            accountAddress.value = res[0];
-            setCookie("currentAddress", res[0]);
-            window.location.reload();
-          }
-        });
-      } else {
-        window.CHAIN.WALLET.connect("MetaMask").then((res) => {
-          if (res.length > 0) {
-            accountAddress.value = res[0];
-            setCookie("currentAddress", res[0]);
-            window.location.reload();
-          }
-        });
-      }
-    };
-    
-    // 投票数据判断，避免页面报错
-    const attaMatchGameBet = async (data:any,name:string,index:number)=>{
-      let item = await data;
-      // if(data && data.length && data[index]){
-      //   return data[index].name;
-      // }else{
-        return 0;
-      // }
-    };
     const tips = (txt:string)=>{
       modelTips.value = txt;
       setTimeout(()=>{
         modelTips.value = '';
       },3000)
+    }
+    const moneyFormatNum = (num)=>{
+      return moneyFormat(num)
     }
     return {
       hour,
@@ -459,7 +386,7 @@ export default defineComponent({
       voteType,
       voteStepFn,
       closeDialog,
-      voteTeam,
+      moneyFormatNum,
       matchInfoList,
       collapseChange,
       nowDataTime,
@@ -467,8 +394,7 @@ export default defineComponent({
       formContent,
       openDialog,
       loadingDialog,
-      modelTips,
-      attaMatchGameBet
+      modelTips
     }
   }
 });

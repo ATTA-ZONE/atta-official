@@ -1,4 +1,6 @@
-
+.el-loading-mask{
+  background-color: rgba(0,0,0,0.8);
+}
 .match-modify-tips{
   padding:5px 15px;
   display:inline-block;
@@ -49,6 +51,9 @@
     width: 100%;
     .match-title{
       width: 480px;
+    }
+    p.match-text-header{
+      width:600px;
     }
     .match-text{
       width: 390px;
@@ -102,6 +107,7 @@
           font-weight: 800;
           line-height: 27px;
           text-align: center;
+          cursor: pointer;
         }
       }
     }
@@ -151,6 +157,34 @@
       }
     }
   }
+  .null-id{
+    width: 100%;
+    margin-top: 110px;
+    text-align: center;
+    h5{
+      font-size: 48px;
+      line-height: 140%;
+      color: #A9DEEE;
+    }
+    p{
+      margin-top: 6px;
+      font-size: 36px;
+      line-height: 190%;
+      color: rgba(250, 250, 250, 0.8);
+    }
+    button{
+      margin-top: 76px;
+      margin-bottom: 70px;
+      border:0;
+      width: 302px;
+      height: 78px;
+      background: #A8DEEE;
+      color: #090A0A;
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 150%;
+    }
+  }
 }
 
 @media only screen and (max-width: 992px){
@@ -163,6 +197,10 @@
           font-size: 20px;
           line-height: 140%;
         }
+      }
+      
+      p.match-text-header{
+        width:100%;
       }
       .match-text{
         margin-top: 10px;
