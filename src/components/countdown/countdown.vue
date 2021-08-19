@@ -16,25 +16,25 @@
       <p>{{$t("VotingCountdown")}}</p>
       <h5>{{hour}}h:{{minute}}m:{{second}}s</h5>
       <p>{{$t("Match_Start")}}</p> 
-      <h5>{{item.gameDate}}</h5>
+      <h5>{{item.gameDate?item.gameDate:'TBD'}}</h5>
     </div>
     <div class="game-team flex">
       <div class="team-logo">
         <img v-if="item.result == 1" class="logo-winner" src="/match/WINNER.png" alt="">
         <div>
           <img :src="'/match/'+(item.teamA?item.teamA:'unGame')+'.png'" alt="">
-          <p class="hanson">{{item.teamA}}</p>
+          <p class="hanson">{{item.teamA?item.teamA:'TBD'}}</p>
         </div>
-        <button v-if="nowDataTime <= item.gameTime" @click.stop="openDialog(item.attaMatchOptions[0],item.matchTokenId)" class="niunito">{{item.attaMatchOptions[0]?item.attaMatchOptions[0].bettingItem:'vote to team'}}</button>
+        <button v-if="nowDataTime <= item.gameTime && item.teamA && item.teamB" @click.stop="openDialog(item.attaMatchOptions[0],item.matchTokenId)" class="niunito">{{item.attaMatchOptions[0]?item.attaMatchOptions[0].bettingItem:'vote to team'}}</button>
         <button v-else class="unVote niunito">{{item.attaMatchOptions[0]?item.attaMatchOptions[0].bettingItem:'vote to team'}}</button>
       </div>
       <div class="team-logo">
         <img v-if="item.result == 2" class="logo-winner" src="/match/WINNER.png" alt="">
         <div>
           <img :src="'/match/'+(item.teamB?item.teamB:'unGame')+'.png'" alt="">
-          <p class="hanson">{{item.teamB}}</p>
+          <p class="hanson">{{item.teamB?item.teamB:'TBD'}}</p>
         </div>
-        <button v-if="nowDataTime <= item.gameTime" @click.stop="openDialog(item.attaMatchOptions[1],item.matchTokenId)" class="niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
+        <button v-if="nowDataTime <= item.gameTime && item.teamA && item.teamB" @click.stop="openDialog(item.attaMatchOptions[1],item.matchTokenId)" class="niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
         <button v-else class="unVote niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
       </div>
     </div>
@@ -183,7 +183,7 @@
         <p class="vote-title vote-bzy">{{$t("voteAvailable")}}</p>
         <p class="content-bzy">{{$t("voteMystery01")}}<br>{{$t("voteMystery02")}} <a href="https://www.bazhuayu.io/mobile/tc/blindbox.html" target="_blank">bazhuayu.io</a>  {{$t("voteMystery03")}}</p>
       </div>
-      <button @click="closeDialog">{{$t("voteOK")}}</button>
+      <button @click="closeDialog">{{$t("voteOK")}}55555</button>
     </div>
   </div>
   <div class="match-modify-tips" v-show="modelTips">{{modelTips}}</div>

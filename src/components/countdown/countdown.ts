@@ -7,7 +7,7 @@ import axios from "../../api";
 
 export default defineComponent({
   components: { ElInputNumber,ElCollapse,ElCollapseItem},
-  emits: ["totalReward","loadingBol"],
+  emits: ["totalRewardPool","loadingBol"],
   setup(props,{emit}) {
     const modelTips = ref('');
     const MerkleDistributionInstance = getAbi("atta_vote_abi");
@@ -104,7 +104,7 @@ export default defineComponent({
     const gameLists = (data:any)=>{
       data.forEach((info:any,i:any)=>{
         if(info.gameTime > 0){
-          info.gameDate = formatDate(info.gameTime*1000);
+          info.gameDate = formatDate((info.gameTime + 300)*1000);
         }
       })
       matchInfoList.value = data;
@@ -117,6 +117,8 @@ export default defineComponent({
       window.clearInterval(timeStart.value);//关闭计时器
       matchInfoList.value.forEach((item:any,index:number)=>{
         if(item.id == data){//找到当前打开的数据
+          console.log(item.gameTime,nowDataTime.value);
+          
           if(item.gameTime && (item.gameTime > (nowDataTime.value))){//比赛时间确认，且比赛时间在当前时间5m之后
             let gameTime = JSON.parse(JSON.stringify(item.gameTime));
             let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
@@ -219,7 +221,6 @@ export default defineComponent({
       let auctionAddress = chainSetting["contractSetting"]["atta_match"][targetChainId.value].address;
       let requestUrl = window.scansite_base_url + "/api?module=account&action=tokennfttx&contractaddress=" +auctionAddress +"&address=" + walletId.value +"&sort=desc&apikey=" + window.apikey;
       axios.get(requestUrl).then((res: any) => {
-        emit('loadingBol',false )
         let nftData = res.result;
         if (!nftData || nftData.length < 1 || !Array.isArray(nftData)) {
           emit('loadingBol',false )
@@ -278,6 +279,9 @@ export default defineComponent({
         }else{
           formContent.value = undefined;
         } 
+        emit('loadingBol',false )
+      }).catch(err=>{
+        emit('loadingBol',false )
       });
     }
     
@@ -328,12 +332,14 @@ export default defineComponent({
         let arr = formContent.value['N'].slice(0, NNumber.value);
         NFTList = NFTList.concat(arr);
       }  
+      loadingDialog.value = true;
       // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
       MerkleDistributionInstance.then(res=>{
         res.methods
         .stake(NFTList,dialogOptionId.value,dialogMatchTokenId.value)
         .send({from: walletId.value})
         .then((res: any)=>{
+          loadingDialog.value = false;
           voteType.value = voteType.value+1;
         })
       })
@@ -347,6 +353,17 @@ export default defineComponent({
         Move();
         dialogBol.value = false;
         voteType.value = 1;
+        
+
+        window.clearInterval(timeStart.value);//关闭计时器
+        emit('loadingBol',true )
+        matchList().then(res=>{
+          return matchBusd(res)
+        }).then((res1:any)=>{
+          batchRaceInfoFn(res1.data);
+        }).then(()=>{
+          geteveryqkl();
+        })
       }else if(voteType.value == 1){
         voteType.value = voteType.value+1;
       } 
