@@ -110,26 +110,30 @@ export default defineComponent({
       })
       matchInfoList.value = data;
     }    
+    const collapseIndex = ref('');
     // 展开的时候处理计时器
     const collapseChange = (data:any)=>{
-      hours.value = 0;
-      minutes.value = 0;
-      seconds.value = 0;
-      window.clearInterval(timeStart.value);//关闭计时器
-      matchInfoList.value.forEach((item:any,index:number)=>{
-        if(item.id == data){//找到当前打开的数据
-          if(item.gameTime && (item.gameTime > (nowDataTime.value))){//比赛时间确认，且比赛时间在当前时间5m之后
-            let gameTime = JSON.parse(JSON.stringify(item.gameTime));
-            let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
-            timeDown(nowTime,gameTime)
-          }else{
-            let gameTime = JSON.parse(JSON.stringify(item.gameTime));
-            let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
-            timeDown(nowTime,gameTime)
+      collapseIndex.value = data;
+      setTimeout(()=>{
+        window.clearInterval(timeStart.value);//关闭计时器
+        hours.value = 0;
+        minutes.value = 0;
+        seconds.value = 0;
+        matchInfoList.value.forEach((item:any,index:number)=>{
+          if(item.id == data){//找到当前打开的数据
+            if(item.gameTime && (item.gameTime > (nowDataTime.value))){//比赛时间确认，且比赛时间在当前时间5m之后
+              let gameTime = JSON.parse(JSON.stringify(item.gameTime));
+              let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
+              timeDown(nowTime,gameTime)
+            }else{
+              let gameTime = JSON.parse(JSON.stringify(item.gameTime));
+              let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
+              timeDown(nowTime,gameTime)
+            }
+            batchEstimateReward(item,index)
           }
-          batchEstimateReward(item,index)
-        }
-      })
+        })
+      },500)
     }
     const timeContent = ref();
     onMounted(() => {
@@ -359,6 +363,10 @@ export default defineComponent({
         .then((res: any)=>{
           loadingDialog.value = false;
           voteType.value = voteType.value+1;
+        }).catch((err:any)=>{
+          loadingDialog.value = false;
+          closeDialog();
+          tips('系统繁忙，请稍后再试！')
         })
       })
     }
@@ -372,7 +380,6 @@ export default defineComponent({
         dialogBol.value = false;
         voteType.value = 1;
         
-
         window.clearInterval(timeStart.value);//关闭计时器
         emit('loadingBol',true )
         matchList().then(res=>{
@@ -429,7 +436,8 @@ export default defineComponent({
       formContent,
       openDialog,
       loadingDialog,
-      modelTips
+      modelTips,
+      collapseIndex
     }
   }
 });

@@ -43,7 +43,7 @@
     <div class="prize-pools flex">
       <div class="prize-pools-list">
         <div class="prize-pools-info hanson">
-          <p class="list-title">{{$t("winning_pool01")}}</p>
+          <p class="list-title">{{item.teamA?item.teamA:'TBD'}}{{$t("winning_pool01")}}</p>
           <p class="list-number">SR {{item.attaMatchGameBet&&item.attaMatchGameBet[2]?item.attaMatchGameBet[2].rewardRate:0}}% {{item.attaMatchGameBet&&item.attaMatchGameBet[2]?moneyFormatNum(item.attaMatchGameBet[2].rewardCount):0}} BUSD</p>
           <p class="list-number">R {{item.attaMatchGameBet&&item.attaMatchGameBet[1]?item.attaMatchGameBet[1].rewardRate:0}}% {{item.attaMatchGameBet&&item.attaMatchGameBet[1]?moneyFormatNum(item.attaMatchGameBet[1].rewardCount):0}} BUSD</p>
           <p class="list-number">N {{item.attaMatchGameBet&&item.attaMatchGameBet[0]?item.attaMatchGameBet[0].rewardRate:0}}% {{item.attaMatchGameBet&&item.attaMatchGameBet[0]?moneyFormatNum(item.attaMatchGameBet[0].rewardCount):0}} BUSD</p>
@@ -65,7 +65,7 @@
       </div>
       <div class="prize-pools-list">
         <div class="prize-pools-info hanson">
-          <p class="list-title">{{$t("winning_pool02")}}</p>
+          <p class="list-title">{{item.teamB?item.teamB:'TBD'}}{{$t("winning_pool02")}}</p>
           <p class="list-number">SR {{item.attaMatchGameBet&&item.attaMatchGameBet[5]?item.attaMatchGameBet[5].rewardRate:0}}% {{item.attaMatchGameBet&&item.attaMatchGameBet[5]?moneyFormatNum(item.attaMatchGameBet[5].rewardCount):0}} BUSD</p>
           <p class="list-number">R {{item.attaMatchGameBet&&item.attaMatchGameBet[4]?item.attaMatchGameBet[4].rewardRate:0}}% {{item.attaMatchGameBet&&item.attaMatchGameBet[4]?moneyFormatNum(item.attaMatchGameBet[4].rewardCount):0}} BUSD</p>
           <p class="list-number">N {{item.attaMatchGameBet&&item.attaMatchGameBet[3]?item.attaMatchGameBet[3].rewardRate:0}}% {{item.attaMatchGameBet&&item.attaMatchGameBet[3]?moneyFormatNum(item.attaMatchGameBet[3].rewardCount):0}} BUSD</p>
