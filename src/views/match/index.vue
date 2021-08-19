@@ -71,7 +71,7 @@ import { defineComponent, computed,ref,onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import headerCell from "@/components/header/index.vue";
 import footerCell from "@/components/footer/index.vue";
-import countdown from "./components/countdown.vue";
+import countdown from "@/components/countdown/countdown.vue";
 import { initWeb3 } from "../../assets/js/initweb3";
 import { setCookie,getCookie,getAbi,moneyFormat } from "../../utils";
 

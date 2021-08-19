@@ -1,9 +1,9 @@
 import { defineComponent, ref, computed, onMounted,watch } from "vue";
 import { ElInputNumber,ElCollapse,ElCollapseItem } from 'element-plus';
 import { useI18n } from "vue-i18n";
-import { getCookie, setCookie,getAbi,formatDate,moneyFormat } from "../../../utils";
-import { chainSetting } from "../../../assets/js/chainSetting";
-import axios from "../../../api";
+import { getCookie, setCookie,getAbi,formatDate,moneyFormat } from "../../utils";
+import { chainSetting } from "../../assets/js/chainSetting";
+import axios from "../../api";
 
 export default defineComponent({
   components: { ElInputNumber,ElCollapse,ElCollapseItem},

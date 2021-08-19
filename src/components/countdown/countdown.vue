@@ -20,7 +20,7 @@
     </div>
     <div class="game-team flex">
       <div class="team-logo">
-        <img class="logo-winner" src="/match/WINNER.png" alt="">
+        <img v-if="item.result == 1" class="logo-winner" src="/match/WINNER.png" alt="">
         <div>
           <img :src="'/match/'+(item.teamA?item.teamA:'unGame')+'.png'" alt="">
           <p class="hanson">{{item.teamA}}</p>
@@ -29,6 +29,7 @@
         <button v-else class="unVote niunito">{{item.attaMatchOptions[0]?item.attaMatchOptions[0].bettingItem:'vote to team'}}</button>
       </div>
       <div class="team-logo">
+        <img v-if="item.result == 2" class="logo-winner" src="/match/WINNER.png" alt="">
         <div>
           <img :src="'/match/'+(item.teamB?item.teamB:'unGame')+'.png'" alt="">
           <p class="hanson">{{item.teamB}}</p>
