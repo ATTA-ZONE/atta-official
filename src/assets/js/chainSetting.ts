@@ -1,4 +1,4 @@
-import { c_auction_abi, c_ERC20_abi, c_vendingMachine_abi, c_ERC721_abi, c_atta_ERC1155_Airdrop_abi, c_atta_ERC1155_Airdrop_MerkleProof_abi } from './contractABI'
+import { c_auction_abi, c_ERC20_abi, c_vendingMachine_abi, c_ERC721_abi, c_atta_ERC1155_Airdrop_abi, c_atta_ERC1155_Airdrop_MerkleProof_abi ,d_ERC721_abi,c_atta_vote_abi} from './contractABI'
 
 export const chainSetting = {
     "RPCSetting":
@@ -152,6 +152,21 @@ export const chainSetting = {
             },
 
         },
+        'blindbox_ERC721': {
+            'proxy': '',
+            'abi': d_ERC721_abi,
+            56:
+                {
+                    'owner_id': 17,
+                    'address': '0x18Cdf431F8D0c232d0535443a01385C7deE01A26'
+                },
+            97:
+                {
+                    'owner_id': 1,
+                    'address': '0x56789a8d8f2735f94989a09d1ade68ad79a674de'
+                },
+            
+        },
         "vending_machine": {
             "proxy": "",
             "abi": c_vendingMachine_abi,
@@ -194,7 +209,36 @@ export const chainSetting = {
                 "owner_id": 1,
                 "address": "0xFe27452f8639Ad0B41D99E919C80B601A42D6880"
             }
-        }
+        },
+
+        "atta_vote_abi": {
+            "proxy": "",
+            "abi": c_atta_vote_abi,
+            "56":
+            {
+                "owner_id": 22,
+                "address": "0xe62c1833fb238e64026e13c8404919aef461936e"
+            },
+            "97":
+            {
+                "owner_id": 1,
+                "address": "0x2033d36CB8b154a8551a53E04817F0Bbc190bc73"
+            }
+        },
+        'atta_match': {
+            'proxy': '',
+            56:
+                {
+                    'owner_id': 17,
+                    'address': '0x2400714597e7B850e31e09eC71f0A1e48780d4f2'
+                },
+            97:
+                {
+                    'owner_id': 1,
+                    'address': '0x56789a8d8f2735f94989a09d1ade68ad79a674de'
+                },
+            
+        },
     }
 }
 

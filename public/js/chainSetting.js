@@ -182,7 +182,7 @@ var contractSetting = {
                 'owner_id': 1,
                 'address': '0xFe27452f8639Ad0B41D99E919C80B601A42D6880'
             }
-    }
+    },
 }
 
 
