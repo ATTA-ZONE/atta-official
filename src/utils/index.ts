@@ -21,13 +21,13 @@ export function setCookie(name:string, value:string) {
 
 // 获取abi下所有的方法
 import { chainSetting } from "../assets/js/chainSetting";
-export function getAbi(name:string) {
+export async function getAbi(name:string) {
 	// 要获取的abi，下面的所有配置都是统一的，都是为了最后一步获取方法
 	let setting_proof: any = chainSetting["contractSetting"][name];
-	let chainId = "";
 	let web3;
-	chainId = window.CHAIN.WALLET.chainId();
-	let MerkleDistributionAddress = setting_proof[97].address;
+	let chainId;
+	chainId = await window.CHAIN.WALLET.chainId();
+	let MerkleDistributionAddress = setting_proof[chainId].address;
 	// 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
 	let MerkleDistributionABI = setting_proof["abi"];
 	// 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址

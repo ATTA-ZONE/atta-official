@@ -220,8 +220,8 @@
   "SRRN":" will be awarded",
   "TotalWinning":"总计获胜奖励：",
   "distributed":"比赛结束后在2小时内发放至投票钱包地址",
-  "hrs":"",
-
+  "hrs":"", 
+  "unitTxt":"个",
   "YourNFTsvote":"您当前可投票的NFT：",
   "voteSR":"SR级NFT",
   "voteR":"R级NFT",

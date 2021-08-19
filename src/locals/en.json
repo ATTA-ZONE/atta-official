@@ -220,7 +220,8 @@
   "TotalWinning":"Total Winning Rewards:",
   "distributed":"(To be distributed to voting wallet address",
   "hrs":" within 2 hrs after the match ends)",
-
+  "unitTxt":"",
+  
   "YourNFTsvote":" Your NFTs that can currently be used to vote:",
   "voteSR":"SR NFT",
   "voteR":"R NFT",

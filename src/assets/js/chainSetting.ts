@@ -217,14 +217,28 @@ export const chainSetting = {
             "56":
             {
                 "owner_id": 22,
-                "address": "0xab1bdbe54d2bf257f92cce7db58977ca2a3f37f3"
+                "address": "0x2033d36CB8b154a8551a53E04817F0Bbc190bc73"
             },
             "97":
             {
                 "owner_id": 1,
-                "address": "0xab1bdbe54d2bf257f92cce7db58977ca2a3f37f3"
+                "address": "0x2033d36CB8b154a8551a53E04817F0Bbc190bc73"
             }
-        }
+        },
+        'atta_match': {
+            'proxy': '',
+            56:
+                {
+                    'owner_id': 17,
+                    'address': '0x2400714597e7B850e31e09eC71f0A1e48780d4f2'
+                },
+            97:
+                {
+                    'owner_id': 1,
+                    'address': '0x56789a8d8f2735f94989a09d1ade68ad79a674de'
+                },
+            
+        },
     }
 }
 
