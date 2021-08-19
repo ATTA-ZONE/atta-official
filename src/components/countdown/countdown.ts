@@ -76,15 +76,12 @@ export default defineComponent({
           .batchRaceInfo(data.idList)
           .call()
           .then(function (res: any) {
-            console.log(res,8888);
-            
             res[0].forEach((info: any,i:any) => {//遍历比赛时间,并添加到对应数据
               data.data[i].gameTime = info;
             })
             nowDataTime.value = res[2];
             gameLists(data.data);
           }).catch((err:any)=>{
-              console.log(err);
           });
         })
       })
@@ -98,12 +95,9 @@ export default defineComponent({
       }
       return new Promise((resolve, reject) => {
         if(matchInfoList.value[index].attaMatchOptions.length){//存在比赛队伍，且有数据
-          console.log(walletId.value);
-          
           // abi下的所有方法
           let matchTokenId = matchInfoList.value[index].matchTokenId;
           let optionId = matchInfoList.value[index].attaMatchOptions;
-          console.log(MerkleDistributionInstance);
           // 获取的abi下的batchEstimateReward方法：0：当前钱包，1：matchTokenId  2：比赛战队的id
           MerkleDistributionInstance.then(res=>{
             res.methods
@@ -113,7 +107,6 @@ export default defineComponent({
               matchInfoList.value[index].temaAAll = moneyFormat(Math.floor(web3.value.utils.fromWei(res01[0])));
               matchInfoList.value[index].temaBAll = moneyFormat(Math.floor(web3.value.utils.fromWei(res01[1])));
             }).catch((err:any)=>{
-                console.log(err);
             });
           })
         }else{
@@ -174,12 +167,13 @@ export default defineComponent({
     });
     const onMountedTime = ()=>{
       timeContent.value = window.setInterval(()=>{
-        matchListTimes().then(res=>{
+        matchList().then(res=>{
           return matchBusd(res)
         }).then((res1:any)=>{
           batchRaceInfoFn(res1.data);
         }).then(()=>{
           geteveryqkl();
+          collapseChange(collapseIndex.value)
         })
       },10000)
     }
@@ -246,7 +240,6 @@ export default defineComponent({
     const tokenarr: any = ref([]);
     const geteveryqkl = async () => {
       chainId.value = await window.CHAIN.WALLET.chainId();
-      console.log(chainSetting["contractSetting"]["atta_match"]);
       switch (chainId.value) {
         case 1:
           targetChainId.value = '1';
@@ -387,7 +380,6 @@ export default defineComponent({
         }).catch((err:any)=>{
           loadingDialog.value = false;
           closeDialog();
-          tips('系统繁忙，请稍后再试！')
         })
       })
     }
