@@ -39,7 +39,8 @@
       <div class="rule-busd flex">
         <div class="rule-number" :class="isEn ? 'hanson' : ''">
           <p class="number-text">{{$t("match_rule_award")}}</p>
-          <p class="number-busd">{{totalRewardPoolNumber}} BUSD</p>
+          <!-- totalRewardPoolNumber -->
+          <p class="number-busd">{{$t("match-Tbd")}} BUSD</p>
         </div>
       </div>
       <div class="rule-text">

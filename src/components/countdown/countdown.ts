@@ -13,26 +13,6 @@ export default defineComponent({
     const MerkleDistributionInstance = getAbi("atta_vote_abi");
     const matchInfoList = ref();
     const web3 = ref();
-    const matchListTimes = async ()=>{//获取赛事信息列表
-      const accounts = await window.CHAIN.WALLET.enable();
-      walletId.value = accounts[0];
-      return new Promise((resolve, reject) => {
-        axios.post(window.base_url + "/v2/match/list?address="+walletId.value, {})
-        .then((res:any) => {
-          if(!res.code){
-            let data = res.data;
-            let idList:any = [];
-            data.forEach((item:any,index:number) => {
-              idList.push(item.matchTokenId);
-            })
-            let content = {
-              data,idList
-            }
-            resolve(content);
-          }
-        });
-      })
-    };
     const matchList = async ()=>{//获取赛事信息列表
       const accounts = await window.CHAIN.WALLET.enable();
       walletId.value = accounts[0];
@@ -44,7 +24,7 @@ export default defineComponent({
             let idList:any = [];
             data.forEach((item:any,index:number) => {
               idList.push(item.matchTokenId);
-              if(item.status == 1) collapseIndex.value = index+1;
+              // if(item.status == 1) collapseIndex.value = index+1;
             })
             let content = {
               data,idList
@@ -67,6 +47,13 @@ export default defineComponent({
         });
       })
     }
+    const nowDate = ()=>{
+      axios.get(window.base_url + "/v2/match/get_cur_time", {})
+      .then((res)=>{
+        nowDataTime.value = res.data;
+      })
+      
+    }
     const nowDataTime = ref(0);
     const batchRaceInfoFn = (data:any)=>{//通过链调取数据,比赛信息
       return new Promise((resolve, reject) => {
@@ -79,7 +66,7 @@ export default defineComponent({
             res[0].forEach((info: any,i:any) => {//遍历比赛时间,并添加到对应数据
               data.data[i].gameTime = info;
             })
-            nowDataTime.value = res[2];
+            // nowDataTime.value = res[2];
             gameLists(data.data);
           }).catch((err:any)=>{
           });
@@ -118,8 +105,8 @@ export default defineComponent({
     // 对数据进行重装:主要是时间戳
     const gameLists = (data:any)=>{
       data.forEach((info:any,i:any)=>{
-        if(info.gameTime > 0){
-          info.gameDate = formatDate(((info.gameTime*1) + 300)*1000);
+        if(info.startTime > 0){
+          info.gameDate = formatDate(((info.startTime*1) + 600)*1000);
         }
       })
       matchInfoList.value = data;
@@ -127,6 +114,9 @@ export default defineComponent({
     const collapseIndex = ref();
     // 展开的时候处理计时器
     const collapseChange = (data:any)=>{
+      nowDate();
+      console.log(data);
+      
       collapseIndex.value = data;
       setTimeout(()=>{
         window.clearInterval(timeStart.value);//关闭计时器
@@ -135,16 +125,20 @@ export default defineComponent({
         seconds.value = 0;
         matchInfoList.value.forEach((item:any,index:number)=>{
           if(item.id == data){//找到当前打开的数据
+            console.log(item.teamA,item.teamB);
             if(nowDataTime.value <= item.gameTime && item.teamA != 'TBD' && item.teamB != 'TBD'){
-              if(item.gameTime && (item.gameTime > (nowDataTime.value))){//比赛时间确认，且比赛时间在当前时间5m之后
-                let gameTime = JSON.parse(JSON.stringify(item.gameTime));
-                let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
-                timeDown(nowTime,gameTime)
-              }else{
+              console.log(888888);
+              
+              if(item.gameTime && (item.gameTime > (nowDataTime.value - 300))){//比赛时间确认，且比赛时间在当前时间5m之后
                 let gameTime = JSON.parse(JSON.stringify(item.gameTime));
                 let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
                 timeDown(nowTime,gameTime)
               }
+              // else{
+              //   let gameTime = JSON.parse(JSON.stringify(item.gameTime));
+              //   let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
+              //   timeDown(nowTime,gameTime)
+              // }
             }
             batchEstimateReward(item,index)
           }
@@ -153,6 +147,7 @@ export default defineComponent({
     }
     const timeContent = ref();
     onMounted(() => {
+      nowDate();
       window.clearInterval(timeContent.value);//关闭计时器
       window.clearInterval(timeStart.value);//关闭计时器
       emit('loadingBol',true )

@@ -9,8 +9,8 @@
           <p class="title-top">{{$t("Summer")}}</p>
           <p class="title-bottom">{{$t("Playoffs")}} {{item.name}}</p>
         </div>
-        <!-- <br> {{$t("reward_pool02")}} -->
-        <p class="match-text niunito">{{$t("reward_pool01")}} {{moneyFormatNum(curRewardPool)}} BUSD <br> {{$t("reward_pool03")}}</p>
+        <!-- <br> {{$t("reward_pool02")}} moneyFormatNum(curRewardPool)-->
+        <p class="match-text niunito">{{$t("reward_pool01")}} {{$t("match-Tbd")}} BUSD <br> {{$t("reward_pool03")}}</p>
       </div>
       <img class="header-icon" src="/match/more.png" alt="">
     </template>
