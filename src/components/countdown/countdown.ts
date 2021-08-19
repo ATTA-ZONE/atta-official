@@ -121,14 +121,16 @@ export default defineComponent({
         seconds.value = 0;
         matchInfoList.value.forEach((item:any,index:number)=>{
           if(item.id == data){//找到当前打开的数据
-            if(item.gameTime && (item.gameTime > (nowDataTime.value))){//比赛时间确认，且比赛时间在当前时间5m之后
-              let gameTime = JSON.parse(JSON.stringify(item.gameTime));
-              let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
-              timeDown(nowTime,gameTime)
-            }else{
-              let gameTime = JSON.parse(JSON.stringify(item.gameTime));
-              let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
-              timeDown(nowTime,gameTime)
+            if(nowDataTime.value <= item.gameTime && item.teamA != 'TBD' && item.teamB != 'TBD'){
+              if(item.gameTime && (item.gameTime > (nowDataTime.value))){//比赛时间确认，且比赛时间在当前时间5m之后
+                let gameTime = JSON.parse(JSON.stringify(item.gameTime));
+                let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
+                timeDown(nowTime,gameTime)
+              }else{
+                let gameTime = JSON.parse(JSON.stringify(item.gameTime));
+                let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
+                timeDown(nowTime,gameTime)
+              }
             }
             batchEstimateReward(item,index)
           }
@@ -411,6 +413,13 @@ export default defineComponent({
         modelTips.value = '';
       },3000)
     }
+    const unDialog = ()=>{
+      if(isEn.value){
+        tips("Voting is not open yet.")
+      }else{
+        tips("投票尚未開始~")
+      }
+    }
     const moneyFormatNum = (num)=>{
       return moneyFormat(num)
     }
@@ -437,7 +446,8 @@ export default defineComponent({
       openDialog,
       loadingDialog,
       modelTips,
-      collapseIndex
+      collapseIndex,
+      unDialog
     }
   }
 });

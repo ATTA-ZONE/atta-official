@@ -1,5 +1,5 @@
 <template>
-<el-collapse accordion @change="collapseChange">
+<el-collapse accordion v-model="collapseIndex" @change="collapseChange">
     <!-- 循环，多个game列表数据 -->
   <el-collapse-item v-for="item in matchInfoList" :key="item.id" :name="item.id" class="">
     <template #title>
@@ -22,20 +22,20 @@
       <div class="team-logo">
         <img v-if="item.result == 1" class="logo-winner" src="/match/WINNER.png" alt="">
         <div>
-          <img :src="'/match/'+(item.teamA?item.teamA:'unGame')+'.png'" alt="">
+          <img :src="'/match/'+(item.teamA&&item.teamA != 'TBD'?item.teamA:'unGame')+'.png'" alt="">
           <p class="hanson">{{item.teamA?item.teamA:'TBD'}}</p>
         </div>
-        <button v-if="nowDataTime <= item.gameTime && item.teamA && item.teamB" @click.stop="openDialog(item.attaMatchOptions[0],item.matchTokenId)" class="niunito">{{item.attaMatchOptions[0]?item.attaMatchOptions[0].bettingItem:'vote to team'}}</button>
-        <button v-else class="unVote niunito">{{item.attaMatchOptions[0]?item.attaMatchOptions[0].bettingItem:'vote to team'}}</button>
+        <button v-if="nowDataTime <= item.gameTime && item.teamA != 'TBD' && item.teamB != 'TBD'" @click.stop="openDialog(item.attaMatchOptions[0],item.matchTokenId)" class="niunito">{{item.attaMatchOptions[0]?item.attaMatchOptions[0].bettingItem:'vote to team'}}</button>
+        <button @click="unDialog" v-else class="unVote niunito">{{item.attaMatchOptions[0]?item.attaMatchOptions[0].bettingItem:'vote to team'}}</button>
       </div>
       <div class="team-logo">
         <img v-if="item.result == 2" class="logo-winner" src="/match/WINNER.png" alt="">
         <div>
-          <img :src="'/match/'+(item.teamB?item.teamB:'unGame')+'.png'" alt="">
+          <img :src="'/match/'+(item.teamB&&item.teamB != 'TBD'?item.teamB:'unGame')+'.png'" alt="">
           <p class="hanson">{{item.teamB?item.teamB:'TBD'}}</p>
         </div>
-        <button v-if="nowDataTime <= item.gameTime && item.teamA && item.teamB" @click.stop="openDialog(item.attaMatchOptions[1],item.matchTokenId)" class="niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
-        <button v-else class="unVote niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
+        <button v-if="nowDataTime <= item.gameTime && item.teamA != 'TBD' && item.teamB != 'TBD'" @click.stop="openDialog(item.attaMatchOptions[1],item.matchTokenId)" class="niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
+        <button @click="unDialog" v-else class="unVote niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
       </div>
     </div>
     <h5 class="prize-pools-title hanson">{{$t("pool_status")}}</h5>
