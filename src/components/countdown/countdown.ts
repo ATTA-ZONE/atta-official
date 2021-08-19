@@ -387,14 +387,16 @@ export default defineComponent({
         
         window.clearInterval(timeStart.value);//关闭计时器
         emit('loadingBol',true )
-        matchList().then(res=>{
-          return matchBusd(res)
-        }).then((res1:any)=>{
-          batchRaceInfoFn(res1.data);
-        }).then(()=>{
-          geteveryqkl();
-        })
-        collapseChange(collapseIndex.value)
+        setTimeout(()=>{
+          matchList().then(res=>{
+            return matchBusd(res)
+          }).then((res1:any)=>{
+            batchRaceInfoFn(res1.data);
+          }).then(()=>{
+            geteveryqkl();
+          })
+          collapseChange(collapseIndex.value)
+        },3000)
       }else if(voteType.value == 1){
         voteType.value = voteType.value+1;
       } 
