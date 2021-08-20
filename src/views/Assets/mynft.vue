@@ -1,5 +1,6 @@
 <template>
   <div class="mynftbox" v-loading="loading">
+    <div class="bootomtips">{{$t("bootomtips")}}</div>
     <ul v-if="assetsList?.records && assetsList.records.length > 0">
       <li
         v-for="(item, idx) in assetsList.records"

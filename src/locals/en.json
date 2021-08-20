@@ -241,5 +241,6 @@
   "voteSubmit":"Submit",
 
   "load_text01":"Coming soon...",
-  "load_text02":""
+  "load_text02":"",
+  "bootomtips" : "NFT minting will be done by 11:59 am on every workday for all the NFT sold before this time."
 }
