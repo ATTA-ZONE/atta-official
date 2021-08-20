@@ -50,6 +50,13 @@ ul {
   font-family: 'Hanson-Bold';
   src: url("@/assets/css/fonts/Hanson-Bold.ttf");
 }
+.SiYuan-light{
+  font-family: "SiYuan-light" !important;
+}
+@font-face {
+	font-family: SiYuan-light;
+	src: url("../fonts/SourceHanSansTWHK-Light.otf");
+}
 .han-son {
   font-family: "Hanson-Bold" !important;
 }
