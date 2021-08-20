@@ -24,7 +24,9 @@
       <div class="team-logo">
         <img v-if="item.result == 1" class="logo-winner" src="/match/WINNER.png" alt="">
         <div>
-          <img :src="'/match/'+(item.teamA&&item.teamA != 'TBD'?item.teamA:'unGame')+'.png'" alt="">
+          <img v-if="item.teamB.indexOf('LNG')>=0" src="/match/LNG.png" alt="">
+          <img v-if="item.teamB.indexOf('WE')>=0" src="/match/WE.png" alt="">
+          <img v-if="item.teamA.indexOf('LNG')>==-1 && item.teamA.indexOf('WE')==-1" :src="'/match/'+(item.teamA&&item.teamA != 'TBD'?item.teamA:'unGame')+'.png'" alt="">
           <p class="hanson">{{item.teamA?item.teamA:'TBD'}}</p>
         </div>
         <button v-if="nowDataTime <= item.gameTime && item.teamA != 'TBD' && item.teamB != 'TBD'" @click.stop="openDialog(item.attaMatchOptions[0],item.matchTokenId)" class="niunito">{{item.attaMatchOptions[0]?item.attaMatchOptions[0].bettingItem:'vote to team'}}</button>
@@ -33,7 +35,9 @@
       <div class="team-logo">
         <img v-if="item.result == 2" class="logo-winner" src="/match/WINNER.png" alt="">
         <div>
-          <img :src="'/match/'+(item.teamB&&item.teamB != 'TBD'?item.teamB:'unGame')+'.png'" alt="">
+          <img v-if="item.teamB.indexOf('LNG')>=0" src="/match/LNG.png" alt="">
+          <img v-if="item.teamB.indexOf('WE')>=0" src="/match/WE.png" alt="">
+          <img v-if="item.teamB.indexOf('LNG')>==-1 && item.teamB.indexOf('WE')==-1" :src="'/match/'+(item.teamB&&item.teamB != 'TBD'?item.teamB:'unGame')+'.png'" alt="">
           <p class="hanson">{{item.teamB?item.teamB:'TBD'}}</p>
         </div>
         <button v-if="nowDataTime <= item.gameTime && item.teamA != 'TBD' && item.teamB != 'TBD'" @click.stop="openDialog(item.attaMatchOptions[1],item.matchTokenId)" class="niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
