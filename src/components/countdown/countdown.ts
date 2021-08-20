@@ -22,8 +22,9 @@ export default defineComponent({
           if(!res.code){
             let data = res.data;
             let idList:any = [];
-            data.forEach((item:any)=>{
-              idList.push(item.matchTokenId)
+            data.forEach((item:any,index:number) => {
+              idList.push(item.matchTokenId);
+              // if(item.status == 1) collapseIndex.value = index+1;
             })
             let content = {
               data,idList
@@ -46,6 +47,13 @@ export default defineComponent({
         });
       })
     }
+    const nowDate = ()=>{
+      axios.get(window.base_url + "/v2/match/get_cur_time", {})
+      .then((res)=>{
+        nowDataTime.value = res.data;
+      })
+      
+    }
     const nowDataTime = ref(0);
     const batchRaceInfoFn = (data:any)=>{//通过链调取数据,比赛信息
       return new Promise((resolve, reject) => {
@@ -55,15 +63,12 @@ export default defineComponent({
           .batchRaceInfo(data.idList)
           .call()
           .then(function (res: any) {
-            console.log(res,8888);
-            
             res[0].forEach((info: any,i:any) => {//遍历比赛时间,并添加到对应数据
-              data.data[i].gameTime = info;
+              data.data[i].gameTime = info*1;
             })
-            nowDataTime.value = res[2];
+            // nowDataTime.value = res[2];
             gameLists(data.data);
           }).catch((err:any)=>{
-              console.log(err);
           });
         })
       })
@@ -77,22 +82,18 @@ export default defineComponent({
       }
       return new Promise((resolve, reject) => {
         if(matchInfoList.value[index].attaMatchOptions.length){//存在比赛队伍，且有数据
-          console.log(walletId.value);
-          
           // abi下的所有方法
           let matchTokenId = matchInfoList.value[index].matchTokenId;
           let optionId = matchInfoList.value[index].attaMatchOptions;
-          console.log(MerkleDistributionInstance);
           // 获取的abi下的batchEstimateReward方法：0：当前钱包，1：matchTokenId  2：比赛战队的id
           MerkleDistributionInstance.then(res=>{
             res.methods
             .batchEstimateReward([walletId.value,walletId.value],[matchTokenId,matchTokenId],[optionId[0].id,optionId[1].id])
             .call()
             .then((res01: any)=>{
-              matchInfoList.value[index].temaAAll = moneyFormat(web3.value.utils.fromWei(res01[0]));
-              matchInfoList.value[index].temaBAll = moneyFormat(web3.value.utils.fromWei(res01[1]));
+              matchInfoList.value[index].temaAAll = moneyFormat(Math.floor(web3.value.utils.fromWei(res01[0])));
+              matchInfoList.value[index].temaBAll = moneyFormat(Math.floor(web3.value.utils.fromWei(res01[1])));
             }).catch((err:any)=>{
-                console.log(err);
             });
           })
         }else{
@@ -104,35 +105,44 @@ export default defineComponent({
     // 对数据进行重装:主要是时间戳
     const gameLists = (data:any)=>{
       data.forEach((info:any,i:any)=>{
-        if(info.gameTime > 0){
-          info.gameDate = formatDate(((info.gameTime*1) + 300)*1000);
+        if(info.startTime > 0){
+          info.gameDate = info.startTime?formatDate(((info.startTime*1))*1000):'';
         }
       })
       matchInfoList.value = data;
     }    
+    const collapseIndex = ref();
     // 展开的时候处理计时器
     const collapseChange = (data:any)=>{
-      hours.value = 0;
-      minutes.value = 0;
-      seconds.value = 0;
-      window.clearInterval(timeStart.value);//关闭计时器
-      matchInfoList.value.forEach((item:any,index:number)=>{
-        if(item.id == data){//找到当前打开的数据
-          if(item.gameTime && (item.gameTime > (nowDataTime.value))){//比赛时间确认，且比赛时间在当前时间5m之后
-            let gameTime = JSON.parse(JSON.stringify(item.gameTime));
-            let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
-            timeDown(nowTime,gameTime)
-          }else{
-            let gameTime = JSON.parse(JSON.stringify(item.gameTime));
-            let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
-            timeDown(nowTime,gameTime)
+      nowDate();
+      collapseIndex.value = data;
+      setTimeout(()=>{
+        window.clearInterval(timeStart.value);//关闭计时器
+        hours.value = 0;
+        minutes.value = 0;
+        seconds.value = 0;
+        matchInfoList.value.forEach((item:any,index:number)=>{
+          if(item.id == data){//找到当前打开的数据
+            if(nowDataTime.value <= item.gameTime && item.teamA != 'TBD' && item.teamB != 'TBD'){
+              if(item.gameTime && (item.gameTime > (nowDataTime.value - 300))){//比赛时间确认，且比赛时间在当前时间5m之后
+                let gameTime = JSON.parse(JSON.stringify(item.gameTime));
+                let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
+                timeDown(nowTime,gameTime)
+              }
+              // else{
+              //   let gameTime = JSON.parse(JSON.stringify(item.gameTime));
+              //   let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
+              //   timeDown(nowTime,gameTime)
+              // }
+            }
+            batchEstimateReward(item,index)
           }
-          batchEstimateReward(item,index)
-        }
-      })
+        })
+      },500)
     }
     const timeContent = ref();
     onMounted(() => {
+      nowDate();
       window.clearInterval(timeContent.value);//关闭计时器
       window.clearInterval(timeStart.value);//关闭计时器
       emit('loadingBol',true )
@@ -142,19 +152,18 @@ export default defineComponent({
         batchRaceInfoFn(res1.data);
       }).then(()=>{
         geteveryqkl();
-        // onMountedTime();
+        onMountedTime();
       })
     });
     const onMountedTime = ()=>{
       timeContent.value = window.setInterval(()=>{
-        console.log(255555555555555);
-        
         matchList().then(res=>{
           return matchBusd(res)
         }).then((res1:any)=>{
           batchRaceInfoFn(res1.data);
         }).then(()=>{
           geteveryqkl();
+          collapseChange(collapseIndex.value)
         })
       },10000)
     }
@@ -196,8 +205,9 @@ export default defineComponent({
     const timeDown = (startTime:number,endTime:number)=>{
       allTime.value = (endTime - startTime)*1;
       let leftTime = endTime - startTime;
+      
       if(leftTime <= 0) return;
-      hours.value = parseInt(((leftTime / (60 * 60)) % 24)+'');
+      hours.value = parseInt(((leftTime / (60 * 60)))+'');
       minutes.value = parseInt(((leftTime / 60) % 60)+'');
       seconds.value = parseInt((leftTime % 60)+'');
       setTime()
@@ -221,7 +231,6 @@ export default defineComponent({
     const tokenarr: any = ref([]);
     const geteveryqkl = async () => {
       chainId.value = await window.CHAIN.WALLET.chainId();
-      console.log(chainSetting["contractSetting"]["atta_match"]);
       switch (chainId.value) {
         case 1:
           targetChainId.value = '1';
@@ -359,6 +368,9 @@ export default defineComponent({
         .then((res: any)=>{
           loadingDialog.value = false;
           voteType.value = voteType.value+1;
+        }).catch((err:any)=>{
+          loadingDialog.value = false;
+          closeDialog();
         })
       })
     }
@@ -371,17 +383,22 @@ export default defineComponent({
         Move();
         dialogBol.value = false;
         voteType.value = 1;
+        SRNumber.value = 0;
+        RNumber.value = 0;
+        NNumber.value = 0;
         
-
         window.clearInterval(timeStart.value);//关闭计时器
         emit('loadingBol',true )
-        matchList().then(res=>{
-          return matchBusd(res)
-        }).then((res1:any)=>{
-          batchRaceInfoFn(res1.data);
-        }).then(()=>{
-          geteveryqkl();
-        })
+        setTimeout(()=>{
+          matchList().then(res=>{
+            return matchBusd(res)
+          }).then((res1:any)=>{
+            batchRaceInfoFn(res1.data);
+          }).then(()=>{
+            geteveryqkl();
+          })
+          collapseChange(collapseIndex.value)
+        },3000)
       }else if(voteType.value == 1){
         voteType.value = voteType.value+1;
       } 
@@ -403,6 +420,13 @@ export default defineComponent({
       setTimeout(()=>{
         modelTips.value = '';
       },3000)
+    }
+    const unDialog = ()=>{
+      if(isEn.value){
+        tips("Voting is not open yet.")
+      }else{
+        tips("投票尚未開始~")
+      }
     }
     const moneyFormatNum = (num)=>{
       return moneyFormat(num)
@@ -429,7 +453,9 @@ export default defineComponent({
       formContent,
       openDialog,
       loadingDialog,
-      modelTips
+      modelTips,
+      collapseIndex,
+      unDialog
     }
   }
 });

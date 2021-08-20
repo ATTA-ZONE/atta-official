@@ -2,7 +2,7 @@
   <header-cell />
   <div class="charitybox">
       <div class="titlebox">
-          <h1 class="Fzlt_Thb">{{$t('charity_tit')}} | {{$t('charity_tit2')}}</h1>
+          <h1 class="Fzlt_Thb SiYuan-light">{{$t('charity_tit')}} | {{$t('charity_tit2')}}</h1>
           <p>{{$t('charity_content')}}</p>
           <div class="btnbox">
               <span>{{$t('charity_btnlable')}}</span>
@@ -18,7 +18,7 @@
       <div class="contentbox">
         <div class="ssrseriesbox">
             <div class="title flex">
-                <span class="Fzlt_Thb" @click="showssrbool = !showssrbool">{{$t('charity_ssr_tit')}}</span>
+                <span class="Fzlt_Thb SiYuan-light" @click="showssrbool = !showssrbool">{{$t('charity_ssr_tit')}}</span>
                 <span class="tips" @click="showssrbool = !showssrbool">{{$t('Click to expand')}}</span>
                 <img style="margin-left:41px" :src="showssrbool ? '/imgs/arrow1.png' : '/imgs/arrow2.png'" alt="" @click="showssrbool = !showssrbool">
             </div>
@@ -43,7 +43,7 @@
         </div>
         <div class="rseriesbox" v-if="!showssrbool">
             <div class="title flexbetween">
-                <span class="Fzlt_Thb">{{$t('charity_r_tit')}}</span>
+                <span class="Fzlt_Thb SiYuan-light">{{$t('charity_r_tit')}}</span>
             </div>
             <div class="imgscontentbox flexbetween">
                 <div class="imgsevery series3">
@@ -74,7 +74,7 @@
         </div>
         <div class="nseriesbox" v-if="!showssrbool">
             <div class="title flexbetween">
-                <span class="Fzlt_Thb">{{$t('charity_n_tit')}}</span>
+                <span class="Fzlt_Thb SiYuan-light">{{$t('charity_n_tit')}}</span>
             </div>
             <div class="imgscontentbox flexbetween">
                 <div class="imgsevery series6">
@@ -161,7 +161,7 @@
         </button>
         <div class="nftseriesbox">
             <div class="title flex">
-                <span class="Fzlt_Thb" @click="showssrbool2 = !showssrbool2">{{$t('charity_nft_tit')}}</span>
+                <span class="Fzlt_Thb SiYuan-light" @click="showssrbool2 = !showssrbool2">{{$t('charity_nft_tit')}}</span>
                 <span class="tips" @click="showssrbool2 = !showssrbool2">{{$t('Click to expand')}}</span>
                 <img style="margin-left:41px;" :src="showssrbool2 ? '/imgs/arrow1.png' : '/imgs/arrow2.png'" alt="" @click="showssrbool2 = !showssrbool2">
             </div>

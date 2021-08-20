@@ -217,7 +217,7 @@ export const chainSetting = {
             "56":
             {
                 "owner_id": 22,
-                "address": "0x2033d36CB8b154a8551a53E04817F0Bbc190bc73"
+                "address": "0xe62c1833fb238e64026e13c8404919aef461936e"
             },
             "97":
             {
@@ -230,7 +230,7 @@ export const chainSetting = {
             56:
                 {
                     'owner_id': 17,
-                    'address': '0x2400714597e7B850e31e09eC71f0A1e48780d4f2'
+                    'address': '0x18Cdf431F8D0c232d0535443a01385C7deE01A26'
                 },
             97:
                 {

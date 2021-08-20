@@ -2,14 +2,14 @@
   <header-cell />
   <div class="match-container" v-loading="loading">
     <!-- <img class="top-banner" src="/match/starkBanner.png" /> -->
-    <div class="match-header flex">
+    <div v-if="false" class="match-header flex">
       <div class="match-title" :class="isEn ? 'hanson' : ''">
         <p class="title-top">{{$t("match_title01")}}</p>
         <p class="title-bottom">{{$t("match_title02")}}</p>
       </div>
       <p class="match-text match-text-header" :class="isEn ? 'niunito' : ''">{{$t("match_text")}}</p>
     </div>
-    <div class="match-introduce flex">
+    <div v-if="false" class="match-introduce flex">
       <div class="introduce-list">
         <img src="/match/rita.png" alt="">
         <div class="introduce-text">
@@ -35,11 +35,12 @@
         </div>
       </div>
     </div>
-    <div v-if="childContent" class="match-rule flex">
+    <div class="match-rule flex">
       <div class="rule-busd flex">
         <div class="rule-number" :class="isEn ? 'hanson' : ''">
           <p class="number-text">{{$t("match_rule_award")}}</p>
-          <p class="number-busd">{{totalRewardPoolNumber}} BUSD</p>
+          <!-- totalRewardPoolNumber -->
+          <p class="number-busd">{{$t("match-Tbd")}} BUSD</p>
         </div>
       </div>
       <div class="rule-text">
@@ -53,6 +54,7 @@
           <p>{{$t("match_rule03")}}</p>
           <p>{{$t("match_rule04")}}</p>
           <p>{{$t("match_rule05")}}</p>
+          <button @click="toBaZhuaYu" :class="isEn ? 'niunito' : ''"> {{$t("match_draw_now")}} </button>
         </div>
       </div>
     </div>
