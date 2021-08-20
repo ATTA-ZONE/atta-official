@@ -50,44 +50,44 @@
       <div class="prize-pools-list">
         <div class="prize-pools-info hanson">
           <p class="list-title">{{item.teamA?item.teamA:'TBD'}}{{$t("winning_pool01")}}</p>
-          <p class="list-number">SR {{item.attaMatchGameBet&&item.attaMatchGameBet[2]?item.attaMatchGameBet[2].rewardRate:0}}% {{item.attaMatchGameBet&&item.attaMatchGameBet[2]?moneyFormatNum(item.attaMatchGameBet[2].rewardCount):0}} BUSD</p>
-          <p class="list-number">R {{item.attaMatchGameBet&&item.attaMatchGameBet[1]?item.attaMatchGameBet[1].rewardRate:0}}% {{item.attaMatchGameBet&&item.attaMatchGameBet[1]?moneyFormatNum(item.attaMatchGameBet[1].rewardCount):0}} BUSD</p>
-          <p class="list-number">N {{item.attaMatchGameBet&&item.attaMatchGameBet[0]?item.attaMatchGameBet[0].rewardRate:0}}% {{item.attaMatchGameBet&&item.attaMatchGameBet[0]?moneyFormatNum(item.attaMatchGameBet[0].rewardCount):0}} BUSD</p>
+          <p class="list-number">SR {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[2]?item.attaMatchGameBetNow[2].rewardRate:0}}% {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[2]?moneyFormatNum(item.attaMatchGameBetNow[2].rewardCount):0}} BUSD</p>
+          <p class="list-number">R {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[1]?item.attaMatchGameBetNow[1].rewardRate:0}}% {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[1]?moneyFormatNum(item.attaMatchGameBetNow[1].rewardCount):0}} BUSD</p>
+          <p class="list-number">N {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[0]?item.attaMatchGameBetNow[0].rewardRate:0}}% {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[0]?moneyFormatNum(item.attaMatchGameBetNow[0].rewardCount):0}} BUSD</p>
         </div>
         <div class="niunito">
-          <p class="info-text">SR ({{item.attaMatchGameBet&&item.attaMatchGameBet[2]?item.attaMatchGameBet[2].tickets:0}}{{$t("unitTxt")}}) {{$t("SRRN0")}} {{item.attaMatchGameBet&&item.attaMatchGameBet[2]?item.attaMatchGameBet[2].rewardRate:0}}%.
-            <span v-if="isEn"><br>{{$t("SR01")}}{{item.attaMatchGameBet&&item.attaMatchGameBet[2]?moneyFormatNum(item.attaMatchGameBet[2].rewardForSingle):0}} BUSD</span>
-            <span v-else>{{$t("SR01")}}{{item.attaMatchGameBet&&item.attaMatchGameBet[2]?moneyFormatNum(item.attaMatchGameBet[2].rewardForSingle):0}} BUSD</span>
+          <p class="info-text">SR ({{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[2]?item.attaMatchGameBetNow[2].tickets:0}}{{$t("unitTxt")}}) {{$t("SRRN0")}} {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[2]?item.attaMatchGameBetNow[2].rewardRate:0}}%.
+            <span v-if="isEn"><br>{{$t("SR01")}}{{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[2]?moneyFormatNum(item.attaMatchGameBetNow[2].rewardForSingle):0}} BUSD</span>
+            <span v-else>{{$t("SR01")}}{{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[2]?moneyFormatNum(item.attaMatchGameBetNow[2].rewardForSingle):0}} BUSD</span>
           </p>
-          <p class="info-text">R({{item.attaMatchGameBet&&item.attaMatchGameBet[1]?item.attaMatchGameBet[1].tickets:0}}{{$t("unitTxt")}}) {{$t("SRRN0")}} {{item.attaMatchGameBet&&item.attaMatchGameBet[1]?item.attaMatchGameBet[1].rewardRate:0}}%.
-            <span v-if="isEn"><br>{{$t("R01")}}{{item.attaMatchGameBet&&item.attaMatchGameBet[1]?moneyFormatNum(item.attaMatchGameBet[1].rewardForSingle):0}} BUSD</span>
-            <span v-else>{{$t("R01")}}{{item.attaMatchGameBet&&item.attaMatchGameBet[1]?moneyFormatNum(item.attaMatchGameBet[1].rewardForSingle):0}} BUSD</span>
+          <p class="info-text">R({{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[1]?item.attaMatchGameBetNow[1].tickets:0}}{{$t("unitTxt")}}) {{$t("SRRN0")}} {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[1]?item.attaMatchGameBetNow[1].rewardRate:0}}%.
+            <span v-if="isEn"><br>{{$t("R01")}}{{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[1]?moneyFormatNum(item.attaMatchGameBetNow[1].rewardForSingle):0}} BUSD</span>
+            <span v-else>{{$t("R01")}}{{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[1]?moneyFormatNum(item.attaMatchGameBetNow[1].rewardForSingle):0}} BUSD</span>
           </p>
-          <p class="info-text">N({{item.attaMatchGameBet&&item.attaMatchGameBet[0]?item.attaMatchGameBet[0].tickets:0}}{{$t("unitTxt")}}) {{$t("SRRN0")}} {{item.attaMatchGameBet&&item.attaMatchGameBet[0]?item.attaMatchGameBet[0].rewardRate:0}}%.
-            <span v-if="isEn"><br>{{$t("N01")}}{{item.attaMatchGameBet&&item.attaMatchGameBet[0]?moneyFormatNum(item.attaMatchGameBet[0].rewardForSingle):0}} BUSD</span>
-            <span v-else>{{$t("N01")}}{{item.attaMatchGameBet&&item.attaMatchGameBet[0]?moneyFormatNum(item.attaMatchGameBet[0].rewardForSingle):0}} BUSD</span>
+          <p class="info-text">N({{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[0]?item.attaMatchGameBetNow[0].tickets:0}}{{$t("unitTxt")}}) {{$t("SRRN0")}} {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[0]?item.attaMatchGameBetNow[0].rewardRate:0}}%.
+            <span v-if="isEn"><br>{{$t("N01")}}{{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[0]?moneyFormatNum(item.attaMatchGameBetNow[0].rewardForSingle):0}} BUSD</span>
+            <span v-else>{{$t("N01")}}{{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[0]?moneyFormatNum(item.attaMatchGameBetNow[0].rewardForSingle):0}} BUSD</span>
           </p>
         </div>
       </div>
       <div class="prize-pools-list">
         <div class="prize-pools-info hanson">
           <p class="list-title">{{item.teamB?item.teamB:'TBD'}}{{$t("winning_pool02")}}</p>
-          <p class="list-number">SR {{item.attaMatchGameBet&&item.attaMatchGameBet[5]?item.attaMatchGameBet[5].rewardRate:0}}% {{item.attaMatchGameBet&&item.attaMatchGameBet[5]?moneyFormatNum(item.attaMatchGameBet[5].rewardCount):0}} BUSD</p>
-          <p class="list-number">R {{item.attaMatchGameBet&&item.attaMatchGameBet[4]?item.attaMatchGameBet[4].rewardRate:0}}% {{item.attaMatchGameBet&&item.attaMatchGameBet[4]?moneyFormatNum(item.attaMatchGameBet[4].rewardCount):0}} BUSD</p>
-          <p class="list-number">N {{item.attaMatchGameBet&&item.attaMatchGameBet[3]?item.attaMatchGameBet[3].rewardRate:0}}% {{item.attaMatchGameBet&&item.attaMatchGameBet[3]?moneyFormatNum(item.attaMatchGameBet[3].rewardCount):0}} BUSD</p>
+          <p class="list-number">SR {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[5]?item.attaMatchGameBetNow[5].rewardRate:0}}% {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[5]?moneyFormatNum(item.attaMatchGameBetNow[5].rewardCount):0}} BUSD</p>
+          <p class="list-number">R {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[4]?item.attaMatchGameBetNow[4].rewardRate:0}}% {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[4]?moneyFormatNum(item.attaMatchGameBetNow[4].rewardCount):0}} BUSD</p>
+          <p class="list-number">N {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[3]?item.attaMatchGameBetNow[3].rewardRate:0}}% {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[3]?moneyFormatNum(item.attaMatchGameBetNow[3].rewardCount):0}} BUSD</p>
         </div>
         <div class="niunito">
-          <p class="info-text">SR ({{item.attaMatchGameBet&&item.attaMatchGameBet[5]?item.attaMatchGameBet[5].tickets:0}}{{$t("unitTxt")}}) {{$t("SRRN0")}} {{item.attaMatchGameBet&&item.attaMatchGameBet[5]?item.attaMatchGameBet[5].rewardRate:0}}%.
-            <span v-if="isEn"><br>{{$t("SR01")}}{{item.attaMatchGameBet&&item.attaMatchGameBet[5]?moneyFormatNum(item.attaMatchGameBet[5].rewardForSingle):0}} BUSD</span>
-            <span v-else>{{$t("SR01")}}{{item.attaMatchGameBet&&item.attaMatchGameBet[5]?moneyFormatNum(item.attaMatchGameBet[5].rewardForSingle):0}} BUSD</span>
+          <p class="info-text">SR ({{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[5]?item.attaMatchGameBetNow[5].tickets:0}}{{$t("unitTxt")}}) {{$t("SRRN0")}} {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[5]?item.attaMatchGameBetNow[5].rewardRate:0}}%.
+            <span v-if="isEn"><br>{{$t("SR01")}}{{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[5]?moneyFormatNum(item.attaMatchGameBetNow[5].rewardForSingle):0}} BUSD</span>
+            <span v-else>{{$t("SR01")}}{{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[5]?moneyFormatNum(item.attaMatchGameBetNow[5].rewardForSingle):0}} BUSD</span>
           </p>
-          <p class="info-text">R ({{item.attaMatchGameBet&&item.attaMatchGameBet[4]?item.attaMatchGameBet[4].tickets:0}}{{$t("unitTxt")}}) {{$t("SRRN0")}} {{item.attaMatchGameBet&&item.attaMatchGameBet[4]?item.attaMatchGameBet[4].rewardRate:0}}%.
-            <span v-if="isEn"><br>{{$t("R01")}}{{item.attaMatchGameBet&&item.attaMatchGameBet[4]?moneyFormatNum(item.attaMatchGameBet[4].rewardForSingle):0}} BUSD</span>
-            <span v-else>{{$t("R01")}}{{item.attaMatchGameBet&&item.attaMatchGameBet[4]?moneyFormatNum(item.attaMatchGameBet[4].rewardForSingle):0}} BUSD</span>
+          <p class="info-text">R ({{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[4]?item.attaMatchGameBetNow[4].tickets:0}}{{$t("unitTxt")}}) {{$t("SRRN0")}} {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[4]?item.attaMatchGameBetNow[4].rewardRate:0}}%.
+            <span v-if="isEn"><br>{{$t("R01")}}{{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[4]?moneyFormatNum(item.attaMatchGameBetNow[4].rewardForSingle):0}} BUSD</span>
+            <span v-else>{{$t("R01")}}{{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[4]?moneyFormatNum(item.attaMatchGameBetNow[4].rewardForSingle):0}} BUSD</span>
           </p>
-          <p class="info-text">N({{item.attaMatchGameBet&&item.attaMatchGameBet[3]?(item.attaMatchGameBet[3].tickets):0}}{{$t("unitTxt")}}) {{$t("SRRN0")}} {{item.attaMatchGameBet&&item.attaMatchGameBet[3]?item.attaMatchGameBet[3].rewardRate:0}}%.
-            <span v-if="isEn"><br>{{$t("N01")}}{{item.attaMatchGameBet&&item.attaMatchGameBet[3]?moneyFormatNum(item.attaMatchGameBet[3].rewardForSingle):0}} BUSD</span>
-            <span v-else>{{$t("N01")}}{{item.attaMatchGameBet&&item.attaMatchGameBet[3]?moneyFormatNum(item.attaMatchGameBet[3].rewardForSingle):0}} BUSD</span>
+          <p class="info-text">N({{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[3]?(item.attaMatchGameBetNow[3].tickets):0}}{{$t("unitTxt")}}) {{$t("SRRN0")}} {{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[3]?item.attaMatchGameBetNow[3].rewardRate:0}}%.
+            <span v-if="isEn"><br>{{$t("N01")}}{{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[3]?moneyFormatNum(item.attaMatchGameBetNow[3].rewardForSingle):0}} BUSD</span>
+            <span v-else>{{$t("N01")}}{{item.attaMatchGameBetNow&&item.attaMatchGameBetNow[3]?moneyFormatNum(item.attaMatchGameBetNow[3].rewardForSingle):0}} BUSD</span>
           </p>
         </div>
       </div>
@@ -97,22 +97,22 @@
       <div class="prize-pools-list">
         <div class="prize-pools-info hanson">
           <p class="list-title">{{item.teamA?item.teamA:'TBD'}}{{$t("winning_pool01")}}</p>
-          <p class="list-number">SR*{{item.attaMatchUserBet&&item.attaMatchUserBet[2]?item.attaMatchUserBet[2].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[2]?moneyFormatNum(item.attaMatchUserBet[2].rewardCount):0}} BUSD</p>
-          <p class="list-number">R*{{item.attaMatchUserBet&&item.attaMatchUserBet[1]?item.attaMatchUserBet[1].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[1]?moneyFormatNum(item.attaMatchUserBet[1].rewardCount):0}} BUSD</p>
-          <p class="list-number">N*{{item.attaMatchUserBet&&item.attaMatchUserBet[0]?item.attaMatchUserBet[0].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[0]?moneyFormatNum(item.attaMatchUserBet[0].rewardCount):0}} BUSD</p>
+          <p class="list-number">SR*{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[2]?item.attaMatchUserBetNow[2].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[2]?moneyFormatNum(item.attaMatchUserBetNow[2].rewardCount):0}} BUSD</p>
+          <p class="list-number">R*{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[1]?item.attaMatchUserBetNow[1].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[1]?moneyFormatNum(item.attaMatchUserBetNow[1].rewardCount):0}} BUSD</p>
+          <p class="list-number">N*{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[0]?item.attaMatchUserBetNow[0].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[0]?moneyFormatNum(item.attaMatchUserBetNow[0].rewardCount):0}} BUSD</p>
         </div>
         <div class="niunito">
-          <p class="info-text">SR ({{item.attaMatchUserBet&&item.attaMatchUserBet[2]?item.attaMatchUserBet[2].tickets:0}}{{$t("SRRN1")}}{{item.teamA&&item.teamA!='TBD'?item.teamA:'TEAM TBD'}}{{$t("SRRN01")}}
-            <span v-if="isEn">{{item.attaMatchUserBet&&item.attaMatchUserBet[2]?moneyFormatNum(item.attaMatchUserBet[2].rewardCount):0}} BUSD {{$t("SRRN")}}</span>
-            <span v-else>{{item.attaMatchUserBet&&item.attaMatchUserBet[2]?moneyFormatNum(item.attaMatchUserBet[2].rewardCount):0}} BUSD</span>
+          <p class="info-text">SR ({{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[2]?item.attaMatchUserBetNow[2].tickets:0}}{{$t("SRRN1")}}{{item.teamA&&item.teamA!='TBD'?item.teamA:'TEAM TBD'}}{{$t("SRRN01")}}
+            <span v-if="isEn">{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[2]?moneyFormatNum(item.attaMatchUserBetNow[2].rewardCount):0}} BUSD {{$t("SRRN")}}</span>
+            <span v-else>{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[2]?moneyFormatNum(item.attaMatchUserBetNow[2].rewardCount):0}} BUSD</span>
           </p>
-          <p class="info-text">R ({{item.attaMatchUserBet&&item.attaMatchUserBet[1]?item.attaMatchUserBet[1].tickets:0}}{{$t("SRRN1")}}{{item.teamA&&item.teamA!='TBD'?item.teamA:'TEAM TBD'}}{{$t("SRRN01")}}
-            <span v-if="isEn">{{item.attaMatchUserBet&&item.attaMatchUserBet[1]?moneyFormatNum(item.attaMatchUserBet[1].rewardCount):0}} BUSD {{$t("SRRN")}}</span>
-            <span v-else>{{item.attaMatchUserBet&&item.attaMatchUserBet[1]?moneyFormatNum(item.attaMatchUserBet[1].rewardCount):0}} BUSD</span>
+          <p class="info-text">R ({{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[1]?item.attaMatchUserBetNow[1].tickets:0}}{{$t("SRRN1")}}{{item.teamA&&item.teamA!='TBD'?item.teamA:'TEAM TBD'}}{{$t("SRRN01")}}
+            <span v-if="isEn">{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[1]?moneyFormatNum(item.attaMatchUserBetNow[1].rewardCount):0}} BUSD {{$t("SRRN")}}</span>
+            <span v-else>{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[1]?moneyFormatNum(item.attaMatchUserBetNow[1].rewardCount):0}} BUSD</span>
           </p>
-          <p class="info-text">N ({{item.attaMatchUserBet&&item.attaMatchUserBet[0]?item.attaMatchUserBet[0].tickets:0}}{{$t("SRRN1")}}{{item.teamA&&item.teamA!='TBD'?item.teamA:'TEAM TBD'}}{{$t("SRRN01")}}
-            <span v-if="isEn">{{item.attaMatchUserBet&&item.attaMatchUserBet[0]?moneyFormatNum(item.attaMatchUserBet[0].rewardCount):0}} BUSD {{$t("SRRN")}}</span>
-            <span v-else>{{item.attaMatchUserBet&&item.attaMatchUserBet[0]?moneyFormatNum(item.attaMatchUserBet[0].rewardCount):0}} BUSD</span>
+          <p class="info-text">N ({{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[0]?item.attaMatchUserBetNow[0].tickets:0}}{{$t("SRRN1")}}{{item.teamA&&item.teamA!='TBD'?item.teamA:'TEAM TBD'}}{{$t("SRRN01")}}
+            <span v-if="isEn">{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[0]?moneyFormatNum(item.attaMatchUserBetNow[0].rewardCount):0}} BUSD {{$t("SRRN")}}</span>
+            <span v-else>{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[0]?moneyFormatNum(item.attaMatchUserBetNow[0].rewardCount):0}} BUSD</span>
           </p>
           <p class="info-text-title">{{$t("TotalWinning")}}
             <span v-if="isEn"><br>{{item.temaAAll}} BUSD</span>
@@ -124,22 +124,22 @@
       <div class="prize-pools-list">
         <div class="prize-pools-info hanson">
           <p class="list-title">{{item.teamB?item.teamB:'TBD'}}{{$t("winning_pool02")}}</p>
-          <p class="list-number">SR*{{item.attaMatchUserBet&&item.attaMatchUserBet[5]?item.attaMatchUserBet[5].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[5]?moneyFormatNum(item.attaMatchUserBet[5].rewardCount):0}} BUSD</p>
-          <p class="list-number">R*{{item.attaMatchUserBet&&item.attaMatchUserBet[4]?item.attaMatchUserBet[4].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[4]?moneyFormatNum(item.attaMatchUserBet[4].rewardCount):0}} BUSD</p>
-          <p class="list-number">N*{{item.attaMatchUserBet&&item.attaMatchUserBet[3]?item.attaMatchUserBet[3].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBet&&item.attaMatchUserBet[3]?moneyFormatNum(item.attaMatchUserBet[3].rewardCount):0}} BUSD</p>
+          <p class="list-number">SR*{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[5]?item.attaMatchUserBetNow[5].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[5]?moneyFormatNum(item.attaMatchUserBetNow[5].rewardCount):0}} BUSD</p>
+          <p class="list-number">R*{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[4]?item.attaMatchUserBetNow[4].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[4]?moneyFormatNum(item.attaMatchUserBetNow[4].rewardCount):0}} BUSD</p>
+          <p class="list-number">N*{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[3]?item.attaMatchUserBetNow[3].tickets:0}}&nbsp;&nbsp;{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[3]?moneyFormatNum(item.attaMatchUserBetNow[3].rewardCount):0}} BUSD</p>
         </div>
         <div class="niunito">
-          <p class="info-text">SR ({{item.attaMatchUserBet&&item.attaMatchUserBet[5]?item.attaMatchUserBet[5].tickets:0}}{{$t("SRRN1")}}{{item.teamB&&item.teamB!='TBD'?item.teamB:'TEAM TBD'}}{{$t("SRRN01")}}
-            <span v-if="isEn">{{item.attaMatchUserBet&&item.attaMatchUserBet[5]?moneyFormatNum(item.attaMatchUserBet[5].rewardCount):0}} BUSD{{$t("SRRN")}}</span>
-            <span v-else>{{item.attaMatchUserBet&&item.attaMatchUserBet[5]?moneyFormatNum(item.attaMatchUserBet[5].rewardCount):0}} BUSD</span>
+          <p class="info-text">SR ({{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[5]?item.attaMatchUserBetNow[5].tickets:0}}{{$t("SRRN1")}}{{item.teamB&&item.teamB!='TBD'?item.teamB:'TEAM TBD'}}{{$t("SRRN01")}}
+            <span v-if="isEn">{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[5]?moneyFormatNum(item.attaMatchUserBetNow[5].rewardCount):0}} BUSD{{$t("SRRN")}}</span>
+            <span v-else>{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[5]?moneyFormatNum(item.attaMatchUserBetNow[5].rewardCount):0}} BUSD</span>
           </p>
-          <p class="info-text">R ({{item.attaMatchUserBet&&item.attaMatchUserBet[4]?item.attaMatchUserBet[4].tickets:0}}{{$t("SRRN1")}}{{item.teamB&&item.teamB!='TBD'?item.teamB:'TEAM TBD'}}{{$t("SRRN01")}}
-            <span v-if="isEn">{{item.attaMatchUserBet&&item.attaMatchUserBet[4]?moneyFormatNum(item.attaMatchUserBet[4].rewardCount):0}} BUSD{{$t("SRRN")}}</span>
-            <span v-else>{{item.attaMatchUserBet&&item.attaMatchUserBet[4]?moneyFormatNum(item.attaMatchUserBet[4].rewardCount):0}} BUSD</span>
+          <p class="info-text">R ({{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[4]?item.attaMatchUserBetNow[4].tickets:0}}{{$t("SRRN1")}}{{item.teamB&&item.teamB!='TBD'?item.teamB:'TEAM TBD'}}{{$t("SRRN01")}}
+            <span v-if="isEn">{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[4]?moneyFormatNum(item.attaMatchUserBetNow[4].rewardCount):0}} BUSD{{$t("SRRN")}}</span>
+            <span v-else>{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[4]?moneyFormatNum(item.attaMatchUserBetNow[4].rewardCount):0}} BUSD</span>
           </p>
-          <p class="info-text">N ({{item.attaMatchUserBet&&item.attaMatchUserBet[3]?item.attaMatchUserBet[3].tickets:0}}{{$t("SRRN1")}}{{item.teamB&&item.teamB!='TBD'?item.teamB:'TEAM TBD'}}{{$t("SRRN01")}}
-            <span v-if="isEn"> {{item.attaMatchUserBet&&item.attaMatchUserBet[3]?moneyFormatNum(item.attaMatchUserBet[3].rewardCount):0}} BUSD{{$t("SRRN")}}</span>
-            <span v-else>{{item.attaMatchUserBet&&item.attaMatchUserBet[3]?moneyFormatNum(item.attaMatchUserBet[3].rewardCount):0}} BUSD</span>
+          <p class="info-text">N ({{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[3]?item.attaMatchUserBetNow[3].tickets:0}}{{$t("SRRN1")}}{{item.teamB&&item.teamB!='TBD'?item.teamB:'TEAM TBD'}}{{$t("SRRN01")}}
+            <span v-if="isEn"> {{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[3]?moneyFormatNum(item.attaMatchUserBetNow[3].rewardCount):0}} BUSD{{$t("SRRN")}}</span>
+            <span v-else>{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[3]?moneyFormatNum(item.attaMatchUserBetNow[3].rewardCount):0}} BUSD</span>
           </p>
           <p class="info-text-title">{{$t("TotalWinning")}}
             <span v-if="isEn"><br>{{item.temaBAll}} BUSD</span>

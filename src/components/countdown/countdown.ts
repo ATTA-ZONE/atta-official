@@ -102,9 +102,57 @@ export default defineComponent({
         }
       })
     }
-    // 对数据进行重装:主要是时间戳
+    // 对数据进行重装
     const gameLists = (data:any)=>{
       data.forEach((info:any,i:any)=>{
+        info.attaMatchGameBetNow = ['','','','','',''];
+        info.attaMatchGameBet.forEach((item:any)=>{
+          if(item.optionsId == 1){
+            if(item.betLevel == "N"){//第一队的N
+              info.attaMatchGameBetNow[0] = item;
+            }
+            if(item.betLevel == "R"){//第一队的N
+              info.attaMatchGameBetNow[1] = item;
+            }
+            if(item.betLevel == "SR"){//第一队的N
+              info.attaMatchGameBetNow[2] = item;
+            }
+          }else{
+            if(item.betLevel == "N"){//第一队的N
+              info.attaMatchGameBetNow[3] = item;
+            }
+            if(item.betLevel == "R"){//第一队的N
+              info.attaMatchGameBetNow[4] = item;
+            }
+            if(item.betLevel == "SR"){//第一队的N
+              info.attaMatchGameBetNow[5] = item;
+            }
+          }
+        })
+        info.attaMatchUserBetNow = ['','','','','',''];
+        info.attaMatchUserBet.forEach((item:any)=>{
+          if(item.optionsId == 1){
+            if(item.betLevel == "N"){//第一队的N
+              info.attaMatchUserBetNow[0] = item;
+            }
+            if(item.betLevel == "R"){//第一队的N
+              info.attaMatchUserBetNow[1] = item;
+            }
+            if(item.betLevel == "SR"){//第一队的N
+              info.attaMatchUserBetNow[2] = item;
+            }
+          }else{
+            if(item.betLevel == "N"){//第一队的N
+              info.attaMatchUserBetNow[3] = item;
+            }
+            if(item.betLevel == "R"){//第一队的N
+              info.attaMatchUserBetNow[4] = item;
+            }
+            if(item.betLevel == "SR"){//第一队的N
+              info.attaMatchUserBetNow[5] = item;
+            }
+          }
+        })
         if(i == 0){
           info.curRewardPool = 5000;
         }else{
