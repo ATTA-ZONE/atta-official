@@ -11,7 +11,7 @@
         </div>
         
         <!-- <br> {{$t("reward_pool02")}} moneyFormatNum(curRewardPool)-->
-        <p class="match-text niunito">{{$t("reward_pool01")}} {{item.curRewardPool?moneyFormatNum(item.curRewardPool):$t("match-Tbd")}} BUSD <br> {{$t("reward_pool03")}}</p>
+        <p class="match-text niunito">{{$t("reward_pool01")}} {{item.curRewardPoolTemp?moneyFormatNum(item.curRewardPoolTemp):$t("match-Tbd")}} BUSD <br> {{$t("reward_pool03")}}</p>
       </div>
       <img class="header-icon" src="/match/more.png" alt="">
     </template>
