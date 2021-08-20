@@ -427,16 +427,9 @@ export default defineComponent({
     // 继续下一步
     const voteStepFn = ()=>{
       modelTips.value = '';
+      console.log(SRNumber.value,voteType.value);
       if(voteType.value == 2){
-        if(SRNumber.value > 0 || RNumber.value > 0 || NNumber.value > 0){
-          axiosFrom()
-        }else{
-          if(isEn.value){
-            tips("You haven't selected any NFTs to vote.")
-          }else{
-            tips("您還未選擇任何NFT進行投票~")
-          }
-        }
+        axiosFrom()
       }
       if(voteType.value == 3){
         Move();
@@ -457,7 +450,15 @@ export default defineComponent({
           collapseChange(collapseIndex.value)
         },3000)
       }else if(voteType.value == 1){
-        voteType.value = voteType.value+1;
+        if(SRNumber.value > 0 || RNumber.value > 0 || NNumber.value > 0){
+          voteType.value = voteType.value+1;
+        }else{
+          if(isEn.value){
+            tips("You haven't selected any NFTs to vote.")
+          }else{
+            tips("您還未選擇任何NFT進行投票~")
+          }
+        }
       } 
     }
     // 关闭弹框
