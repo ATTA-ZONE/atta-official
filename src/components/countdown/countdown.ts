@@ -426,8 +426,17 @@ export default defineComponent({
     }
     // 继续下一步
     const voteStepFn = ()=>{
+      modelTips.value = '';
       if(voteType.value == 2){
-        axiosFrom()
+        if(SRNumber.value > 0 || RNumber.value > 0 || NNumber.value > 0){
+          axiosFrom()
+        }else{
+          if(isEn.value){
+            tips("You haven't selected any NFTs to vote.")
+          }else{
+            tips("您還未選擇任何NFT進行投票~")
+          }
+        }
       }
       if(voteType.value == 3){
         Move();
