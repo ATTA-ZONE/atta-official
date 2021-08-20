@@ -91,7 +91,7 @@ export default defineComponent({
     busd.value = moneyFormat(busd.value)
     const totalRewardPoolNumber = ref();
     const totalRewardPool = (res:any)=>{
-      totalRewardPoolNumber.value = moneyFormat(res);
+      totalRewardPoolNumber.value = res?moneyFormat(res):0;
     }
     const loadingBol = (res:any)=>{
       loading.value = res;
