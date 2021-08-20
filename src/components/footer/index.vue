@@ -23,7 +23,6 @@
             src="/imgs/footer01.png"
           />
         </div>
-        <img @click="toPage(2)" src="/imgs/footer02.png" />
         <img @click="toPage(3)" src="/imgs/footer03.png" />
         <img @click="toPage(4)" src="/imgs/footer04.png" />
         <img @click="toPage(5)" src="/imgs/footer05.png" />
