@@ -16,8 +16,12 @@ export default defineComponent({
     const matchList = async ()=>{//获取赛事信息列表
       const accounts = await window.CHAIN.WALLET.enable();
       walletId.value = accounts[0];
+      
+      let lang = getCookie("lg") == "en" ? "EN" : "TC";
+      let formData = new FormData();
+      formData.append("lang", lang);
       return new Promise((resolve, reject) => {
-        axios.post(window.base_url + "/v2/match/list?address="+walletId.value, {})
+        axios.post(window.base_url + "/v2/match/list?address="+walletId.value, formData)
         .then((res:any) => {
           if(!res.code){
             let data = res.data;
@@ -56,6 +60,7 @@ export default defineComponent({
     }
     const nowDataTime = ref(0);
     const batchRaceInfoFn = (data:any)=>{//通过链调取数据,比赛信息
+      console.log(data);
       return new Promise((resolve, reject) => {
         // abi下的所有方法
         MerkleDistributionInstance.then(res=>{
@@ -105,6 +110,8 @@ export default defineComponent({
     // 对数据进行重装
     const gameLists = (data:any)=>{
       data.forEach((info:any,i:any)=>{
+        totalRewardPool.value = info.totalRewardPoolTemp;
+        emit('totalRewardPool',info.totalRewardPoolTemp);
         info.attaMatchGameBetNow = ['','','','','',''];
         info.attaMatchGameBet.forEach((item:any)=>{
           if(item.optionsId == 1){
@@ -153,11 +160,6 @@ export default defineComponent({
             }
           }
         })
-        if(i == 0){
-          info.curRewardPool = 5000;
-        }else{
-          info.curRewardPool = 0;
-        }
         if(info.startTime > 0){
           info.gameDate = info.startTime?formatDate(((info.startTime*1))*1000):'';
         }
@@ -200,9 +202,7 @@ export default defineComponent({
       window.clearInterval(timeStart.value);//关闭计时器
       emit('loadingBol',true )
       matchList().then(res=>{
-        return matchBusd(res)
-      }).then((res1:any)=>{
-        batchRaceInfoFn(res1.data);
+        batchRaceInfoFn(res);
       }).then(()=>{
         geteveryqkl();
         onMountedTime();
@@ -211,9 +211,7 @@ export default defineComponent({
     const onMountedTime = ()=>{
       timeContent.value = window.setInterval(()=>{
         matchList().then(res=>{
-          return matchBusd(res)
-        }).then((res1:any)=>{
-          batchRaceInfoFn(res1.data);
+          batchRaceInfoFn(res);
         }).then(()=>{
           geteveryqkl();
           collapseChange(collapseIndex.value)
@@ -444,9 +442,7 @@ export default defineComponent({
         emit('loadingBol',true )
         setTimeout(()=>{
           matchList().then(res=>{
-            return matchBusd(res)
-          }).then((res1:any)=>{
-            batchRaceInfoFn(res1.data);
+            batchRaceInfoFn(res);
           }).then(()=>{
             geteveryqkl();
           })

@@ -39,8 +39,8 @@
       <div class="rule-busd flex">
         <div class="rule-number" :class="isEn ? 'hanson' : ''">
           <p class="number-text">{{$t("match_rule_award")}}</p>
-          <!-- totalRewardPoolNumber -->
-          <p class="number-busd">{{$t("match-Tbd")}} BUSD</p>
+          <!--  -->
+          <p class="number-busd">{{totalRewardPoolNumber?totalRewardPoolNumber:$t("match-Tbd")}} BUSD</p>
         </div>
       </div>
       <div class="rule-text">
@@ -89,10 +89,9 @@ export default defineComponent({
       return locale.value.trim() == "en";
     });
     busd.value = moneyFormat(busd.value)
-    const totalRewardPoolNumber = ref(0);
+    const totalRewardPoolNumber = ref();
     const totalRewardPool = (res:any)=>{
-      totalRewardPoolNumber.value = res;
-      console.log(res);
+      totalRewardPoolNumber.value = moneyFormat(res);
     }
     const loadingBol = (res:any)=>{
       loading.value = res;
