@@ -429,7 +429,7 @@ export default defineComponent({
       }
     }
     const moneyFormatNum = (num)=>{
-      return moneyFormat(num)
+      return moneyFormat(num*1)
     }
     return {
       hour,
