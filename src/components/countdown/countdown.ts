@@ -105,6 +105,11 @@ export default defineComponent({
     // 对数据进行重装:主要是时间戳
     const gameLists = (data:any)=>{
       data.forEach((info:any,i:any)=>{
+        if(i == 0){
+          info.curRewardPool = 5000;
+        }else{
+          info.curRewardPool = 0;
+        }
         if(info.startTime > 0){
           info.gameDate = info.startTime?formatDate(((info.startTime*1))*1000):'';
         }
