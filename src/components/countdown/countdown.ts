@@ -64,7 +64,7 @@ export default defineComponent({
           .call()
           .then(function (res: any) {
             res[0].forEach((info: any,i:any) => {//遍历比赛时间,并添加到对应数据
-              data.data[i].gameTime = info;
+              data.data[i].gameTime = info*1;
             })
             // nowDataTime.value = res[2];
             gameLists(data.data);
@@ -115,8 +115,6 @@ export default defineComponent({
     // 展开的时候处理计时器
     const collapseChange = (data:any)=>{
       nowDate();
-      console.log(data);
-      
       collapseIndex.value = data;
       setTimeout(()=>{
         window.clearInterval(timeStart.value);//关闭计时器
@@ -125,10 +123,7 @@ export default defineComponent({
         seconds.value = 0;
         matchInfoList.value.forEach((item:any,index:number)=>{
           if(item.id == data){//找到当前打开的数据
-            console.log(item.teamA,item.teamB);
             if(nowDataTime.value <= item.gameTime && item.teamA != 'TBD' && item.teamB != 'TBD'){
-              console.log(888888);
-              
               if(item.gameTime && (item.gameTime > (nowDataTime.value - 300))){//比赛时间确认，且比赛时间在当前时间5m之后
                 let gameTime = JSON.parse(JSON.stringify(item.gameTime));
                 let nowTime = JSON.parse(JSON.stringify(nowDataTime.value));
@@ -210,8 +205,9 @@ export default defineComponent({
     const timeDown = (startTime:number,endTime:number)=>{
       allTime.value = (endTime - startTime)*1;
       let leftTime = endTime - startTime;
+      
       if(leftTime <= 0) return;
-      hours.value = parseInt(((leftTime / (60 * 60)) % 24)+'');
+      hours.value = parseInt(((leftTime / (60 * 60)))+'');
       minutes.value = parseInt(((leftTime / 60) % 60)+'');
       seconds.value = parseInt((leftTime % 60)+'');
       setTime()
