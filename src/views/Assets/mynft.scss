@@ -9,6 +9,16 @@ a {
     align-items: flex-start;
     margin-bottom: 100px;
 }
+.bootomtips{
+  padding: 12px 0 12px 27px;
+	// text-align: center;
+	width: 100%;
+	border: 1px solid #A8DEEE;
+	box-sizing: border-box;
+	border-radius: 4px;
+	font-size: 22px;
+	margin-bottom: 35px;
+}
 .between {
   justify-content: space-between;
   align-items: flex-start;
@@ -174,6 +184,10 @@ a {
 	border-color: #9567FF !important;
 }
 @media only screen and (max-width: 992px){
+  .bootomtips{
+    font-size: 16px;
+    padding: 12px 10px;
+  }
 	.mobilflex{
 		flex-direction: column;
 		margin-bottom: 50px;

@@ -241,7 +241,7 @@
   "voteMystery03":"去購買",
   "voteOK":"知道了",
   "voteSubmit":"提交",
-
-  "load_text01":"暫未開放",
-  "load_text02":"敬請期待"
+  "load_text01":"暂未开放",
+  "load_text02":"敬请期待",
+  "bootomtips" : "NFT鑄造將在每個工作日中午12點進行，鑄造前一天所銷售的所有NFT。"
 }
