@@ -60,7 +60,6 @@ export default defineComponent({
     }
     const nowDataTime = ref(0);
     const batchRaceInfoFn = (data:any)=>{//通过链调取数据,比赛信息
-      console.log(data);
       return new Promise((resolve, reject) => {
         // abi下的所有方法
         MerkleDistributionInstance.then(res=>{
