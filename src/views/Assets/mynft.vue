@@ -497,6 +497,8 @@ export default defineComponent({
     };
 
     const zyajax = (newaddress, obj) => {
+      loading.value = true;
+      console.log(newaddress, loading.value);
       chainId.value = web3.value.utils.hexToNumber(chainId.value);
       if (chainId.value != Number(targetChainId.value)) {
         window.CHAIN.WALLET.switchRPCSettings(targetChainId.value);
@@ -517,6 +519,7 @@ export default defineComponent({
           from: walletId.value,
         })
         .then(function (res: any) {
+          loading.value = false;
           alert(t("tipsjs4"));
           location.reload();
         });
