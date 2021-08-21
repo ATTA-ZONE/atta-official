@@ -113,7 +113,7 @@ export default defineComponent({
         emit('totalRewardPool',info.totalRewardPoolTemp);
         info.attaMatchGameBetNow = ['','','','','',''];
         info.attaMatchGameBet.forEach((item:any)=>{
-          if(item.optionsId == 1){
+          if(item.optionsId == 1 || item.optionsId == 3 || item.optionsId == 5 || item.optionsId == 7 || item.optionsId == 9 || item.optionsId == 11){
             if(item.betLevel == "N"){//第一队的N
               info.attaMatchGameBetNow[0] = item;
             }
