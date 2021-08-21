@@ -198,6 +198,9 @@
   "match_rule03":"3. Voting will be closed 5 minutes before the start of each match",
   "match_rule04":"4. After each match, users can receive their rewards on ATTA’s official website based on the match and voting results. Rewards will be automatically sent to users’ wallets within 2 hrs by the rewards pool contract of that match.",
   "match_rule05":"5. The NFT used for voting will never be burned, and can be used for the next match. However, each NFT can only vote in one match at a time.",
+  
+  "match_rule06":"6.The more total NFTs of the series that have participated in the voting, the larger the voting reward pool will be.",
+
   "Summer":"LPL Summer",
   "Playoffs":"Playoffs",
   "reward_pool01":"BSC current voting reward pool: ",
