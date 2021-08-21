@@ -58,12 +58,16 @@
         </div>
       </div>
     </div>
-    <countdown v-if="childContent" @totalRewardPool="totalRewardPool" @loadingBol="loadingBol"/>
-    <div v-else class="null-id">
+    <countdown v-if="childContent && chainId != 1 && chainId != 4" @totalRewardPool="totalRewardPool" @loadingBol="loadingBol"/>
+    <div v-if="!childContent" class="null-id">
       <h5>{{$t("voting information")}}</h5>
       <p>{{$t("mainnet only")}}</p>
       <button @click="getAddress">{{$t("ConnectNow")}}</button>
     </div>
+  </div>
+  <div v-if="chainIdContent == 'ETH' && (chainId == 1 || chainId == 4)" class="bsc-tips">
+    <span>{{$t("ethBsc")}}</span>
+    <a @click="toggleNetwork">BSC_MAINNET</a>
   </div>
   <footer-cell />
 </template>
@@ -96,10 +100,17 @@ export default defineComponent({
     const loadingBol = (res:any)=>{
       loading.value = res;
     }
-
+    const chainId = ref(1);
+    const chainIdContent = ref('BSC')
     onMounted(() => {
+      // chainId == 1 || chainId == 4? "ETH" : "BSC"
+      window.CHAIN.WALLET.chainId().then((res) => {//判断钱包连接地址，是否是bsc网络
+        chainId.value = res;
+        chainIdContent.value = chainId == 1 || chainId == 4? "ETH" : "BSC";
+        
+      })
       accountAddress.value = getCookie("currentAddress") == "false" ? "" : getCookie("currentAddress");
-      if(!accountAddress.value){
+      if(!accountAddress.value){//判断是否连接钱包
         childContent.value = false;
       }else{
         childContent.value = true;
@@ -130,6 +141,30 @@ export default defineComponent({
     const toBaZhuaYu = ()=>{
       window.open("https://www.bazhuayu.io/mobile/tc/blindbox.html")
     }
+
+    const toggleNetwork = () => {
+      let id = chainId.value == 1 ? 56 : 1;
+
+      if (id == 56) {
+        window.CHAIN.WALLET.switchRPCSettings(id).then(() => {
+          chainId.value = 56;
+        });
+      } else {
+        window.ethereum &&
+          window.ethereum
+            .request({
+              method: "wallet_switchEthereumChain",
+              params: [
+                {
+                  chainId: "0x1",
+                },
+              ],
+            })
+            .then(() => {
+              chainId.value = 1;
+            });
+      }
+    };
     return {
       isEn,
       busd,
@@ -139,7 +174,10 @@ export default defineComponent({
       loadingBol,
       childContent,
       getAddress,
-      toBaZhuaYu
+      toBaZhuaYu,
+      chainId,
+      toggleNetwork,
+      chainIdContent
     }
   }
 });

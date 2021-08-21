@@ -204,6 +204,8 @@
   "ConnectNow":"連接錢包",
   "match-Tbd":"待定",
 
+  "ethBsc":"您的錢包當前連接的主網為：[ETH_MAINNET]，ATTA賽事投票僅支持BSC主網，點擊切換至BSC主網 ",
+
   "Summer":"LPL夏季季後賽",
   "Playoffs":"",
   "reward_pool01":"BSC本場投票獎勵池: ",
