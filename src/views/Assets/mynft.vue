@@ -501,8 +501,9 @@ export default defineComponent({
       if (chainId.value != Number(targetChainId.value)) {
         window.CHAIN.WALLET.switchRPCSettings(targetChainId.value);
       }
-      const ERC721Address: any =
-        chainSetting["contractSetting"]["atta_ERC721"][chainId.value].address; // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
+      const ERC721Address: any = obj.contract; 
+
+        // chainSetting["contractSetting"]["atta_ERC721"][chainId.value].address; // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
       var ERC721ABI = chainSetting["contractSetting"]["atta_ERC721"]["abi"];
       var ERC721ContractInstance = new web3.value.eth.Contract(
         ERC721ABI,
