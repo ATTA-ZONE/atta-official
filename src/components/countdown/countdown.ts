@@ -479,11 +479,19 @@ export default defineComponent({
         modelTips.value = '';
       },3000)
     }
-    const unDialog = ()=>{
-      if(isEn.value){
-        tips("Voting is not open yet.")
+    const unDialog = (data:any)=>{
+      if((data.curTime+300) >= data.startTime){
+        if(isEn.value){
+          tips("The vote has closed")
+        }else{
+          tips("投票已結束")
+        }
       }else{
-        tips("投票尚未開始~")
+        if(isEn.value){
+          tips("Voting is not open yet.")
+        }else{
+          tips("投票尚未開始~")
+        }
       }
     }
     const moneyFormatNum = (num)=>{

@@ -205,6 +205,7 @@
   "mainnet only":"（當前僅支持BSC主網）",
   "ConnectNow":"連接錢包",
   "match-Tbd":"待定",
+  "voteOver":"投票已結束",
 
   "ethBsc":"您的錢包當前連接的主網為：[ETH_MAINNET]，ATTA賽事投票僅支持BSC主網，點擊切換至BSC主網 ",
 

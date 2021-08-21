@@ -17,7 +17,8 @@
     </template>
     <div class="match-countdown hanson">
       <p>{{$t("VotingCountdown")}}</p>
-      <h5>{{hour}}h:{{minute}}m:{{second}}s</h5>
+      <h5 v-if="(item.curTime+300) >= item.startTime">{{$t("voteOver")}}</h5>
+      <h5 v-else>{{hour}}h:{{minute}}m:{{second}}s</h5>
       <p>{{$t("Match_Start")}}</p> 
       <h5>{{item.gameDate?item.gameDate:'TBD'}}</h5>
     </div>
@@ -31,7 +32,7 @@
           <p class="hanson">{{item.teamA?item.teamA:'TBD'}}</p>
         </div>
         <button v-if="nowDataTime <= item.gameTime && item.teamA != 'TBD' && item.teamB != 'TBD'" @click.stop="openDialog(item.attaMatchOptions[0],item.matchTokenId)" class="niunito">{{item.attaMatchOptions[0]?item.attaMatchOptions[0].bettingItem:'vote to team'}}</button>
-        <button @click="unDialog" v-else class="unVote niunito">{{item.attaMatchOptions[0]?item.attaMatchOptions[0].bettingItem:'vote to team'}}</button>
+        <button @click="unDialog(item)" v-else class="unVote niunito">{{item.attaMatchOptions[0]?item.attaMatchOptions[0].bettingItem:'vote to team'}}</button>
       </div>
       <div class="team-logo">
         <img v-if="item.result == 2" class="logo-winner" src="/match/WINNER.png" alt="">
@@ -42,7 +43,7 @@
           <p class="hanson">{{item.teamB?item.teamB:'TBD'}}</p>
         </div>
         <button v-if="nowDataTime <= item.gameTime && item.teamA != 'TBD' && item.teamB != 'TBD'" @click.stop="openDialog(item.attaMatchOptions[1],item.matchTokenId)" class="niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
-        <button @click="unDialog" v-else class="unVote niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
+        <button @click="unDialog(item)" v-else class="unVote niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
       </div>
     </div>
     <h5 class="prize-pools-title hanson">{{$t("pool_status")}}</h5>

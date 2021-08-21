@@ -229,6 +229,7 @@
   "mainnet only":"（Currently support BSC mainnet only）",
   "ConnectNow":"Connect now",
   "match-Tbd":"TBD",
+  "voteOver":"The vote has closed",
 
   "ethBsc":"Your wallet is currently connected to: [ETH_MAINNET]. ATTA E-Sports voting only supports BSC network. Please switch to ",
 
