@@ -45,7 +45,7 @@
   </div>
   <ul style="padding: 150px 0" v-if="dataList.length < 1">
     <li class="flex nothing">
-      <div style="margin: 0 auto">{{ $t("norecord") }}</div>
+      <div style="margin: 0 auto">{{ $t("noOperateRecord") }}</div>
     </li>
   </ul>
 </template>
@@ -62,7 +62,7 @@ export default defineComponent({
     const loading = ref<boolean>(false);
     const web3 = ref();
     const chainId = ref(0);
-    const targetChainId = ref('');
+    const targetChainId = ref("");
 
     const timeFormat = (str) => {
       const date = new Date(str);
@@ -80,7 +80,11 @@ export default defineComponent({
 
     const getNFT = async () => {
       let auctionAddress =
-        chainSetting["contractSetting"]["atta_ERC721"][targetChainId.value].address;
+        chainSetting["contractSetting"]["atta_ERC721"][targetChainId.value]
+          .address;
+      let auctionAddress2 =
+        chainSetting["contractSetting"]["blindbox_ERC721"][targetChainId.value]
+          .address;
       let accounts = await window.CHAIN.WALLET.enable();
       let bscAd =
         window.scansite_base_url +
@@ -88,10 +92,33 @@ export default defineComponent({
         auctionAddress +
         "&address=" +
         accounts[0] +
-        "&sort=desc&apikey=" + window.apikey;
+        "&sort=desc&apikey=" +
+        window.apikey;
+      let bscAd2 =
+        window.scansite_base_url +
+        "/api?module=account&action=tokennfttx&contractaddress=" +
+        auctionAddress2 +
+        "&address=" +
+        accounts[0] +
+        "&sort=desc&apikey=" +
+        window.apikey;
       return new Promise((resolve, reject) => {
-        axios.get(bscAd).then((res) => {
-          resolve(res);
+        axios.get(bscAd).then((res: any) => {
+          axios.get(bscAd2).then((res2: any) => {
+            if (res.length < 1 && res2.length < 1) {
+              loading.value = false;
+              return false;
+            }
+            let nftData = res.result;
+            nftData = nftData.concat(res2.result);
+            let arr: any = [];
+            for (let i = 0; i < nftData.length; i++) {
+              if (arr.indexOf(nftData[i].timeStamp) < 0) {
+                arr.push(nftData[i]);
+              }
+            }
+            resolve(arr);
+          });
         });
       });
     };
@@ -113,19 +140,20 @@ export default defineComponent({
     };
 
     const getNftHistory = async () => {
-      let res: any = await getNFT();
-      if (res.status == 1 && res.result.length > 0) {
-        for (let i = 0; i < res.result.length; i++) {
-          let itm: any = await dealNFT(res.result[i].tokenID);
-          res.result[i].timeStamp *= 1000;
-          res.result[i] = Object.assign(res.result[i], 0, {
-            name: itm.data.name,
-            edition: itm.data.edition,
-          });
+      let nftList: any = await getNFT();
+        for (let i = 0; i < nftList.length; i++) {
+          let itm: any = await dealNFT(nftList[i].tokenID);
+          if (itm.data) {
+            nftList[i] = Object.assign(nftList[i], 0, {
+              name: itm.data.name,
+              edition: itm.data.edition,
+            });
+          }
+          nftList[i].timeStamp *= 1000;
         }
-        dataList.value.push(...res.result);
+        dataList.value.push(...nftList);
         loading.value = false;
-      }
+      
     };
 
     const get1155History = async () => {
@@ -140,7 +168,8 @@ export default defineComponent({
           "https://api.bscscan.com/api?module=logs&action=getLogs&fromBlock=0&toBlock=latest&address=0x777a1530ce62b144e083d4a7595f47c99a290a48&topic0=0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62&topic2=" +
           address1 +
           "&topic2_3_opr=or&topic3=" +
-          address1 + '&apikey=9GRF9Q9HT18PBCHQQD84N7U2MGC6I1NE27';
+          address1 +
+          "&apikey=9GRF9Q9HT18PBCHQQD84N7U2MGC6I1NE27";
       } else {
         bscAd =
           window.scansite_base_url +
@@ -170,22 +199,22 @@ export default defineComponent({
       });
     };
 
-    onMounted(async() => {
+    onMounted(async () => {
       loading.value = true;
       web3.value = new window.Web3(window.ethereum);
       chainId.value = await window.CHAIN.WALLET.chainId();
       switch (chainId.value) {
         case 1:
-          targetChainId.value = '1';
+          targetChainId.value = "1";
           break;
         case 4:
-          targetChainId.value = '4';
+          targetChainId.value = "4";
           break;
         case 56:
-          targetChainId.value = '56';
+          targetChainId.value = "56";
           break;
         case 97:
-          targetChainId.value = '97';
+          targetChainId.value = "97";
           break;
       }
       getNftHistory();
@@ -279,7 +308,7 @@ export default defineComponent({
 }
 .desc-address {
   // width: 550px;
-  word-wrap:break-word;
+  word-wrap: break-word;
 }
 .desc-info-address {
   color: #a8deee;

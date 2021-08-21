@@ -85,6 +85,7 @@
   "mint": "Minting ",
   "inpreparation": "(function coming soon)",
   "norecord": "There's nothing here.",
+  "noOperateRecord": "There's nothing here.",
   "more": "Load More",
   "linkwallet": "Please connect your wallet",
   "tips1": "You need to connect your wallet first in order to receive NFTs",
