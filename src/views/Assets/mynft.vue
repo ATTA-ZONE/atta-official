@@ -518,6 +518,7 @@ export default defineComponent({
         })
         .then(function (res: any) {
           // alert(t("tipsjs4"));
+          cancelMobile();
           alert(t("tipsjs5"));
           location.reload();
         });
