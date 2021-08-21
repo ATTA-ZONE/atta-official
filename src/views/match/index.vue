@@ -106,7 +106,7 @@ export default defineComponent({
       // chainId == 1 || chainId == 4? "ETH" : "BSC"
       window.CHAIN.WALLET.chainId().then((res) => {//判断钱包连接地址，是否是bsc网络
         chainId.value = res;
-        chainIdContent.value = chainId == 1 || chainId == 4? "ETH" : "BSC";
+        chainIdContent.value = chainId.value == 1 || chainId.value == 4? "ETH" : "BSC";
         
       })
       accountAddress.value = getCookie("currentAddress") == "false" ? "" : getCookie("currentAddress");
