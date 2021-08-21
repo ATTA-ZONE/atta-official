@@ -517,15 +517,16 @@ export default defineComponent({
           from: walletId.value,
         })
         .then(function (res: any) {
-          alert(t("tipsjs4"));
+          // alert(t("tipsjs4"));
+          alert(t("tipsjs5"));
           location.reload();
         });
-      setTimeout(() => {
-        alert(t("tipsjs5"));
-        setTimeout(() => {
-          cancelMobile();
-        }, 1800);
-      }, 1000);
+      // setTimeout(() => {
+      //   alert(t("tipsjs5"));
+      //   setTimeout(() => {
+      //     cancelMobile();
+      //   }, 1800);
+      // }, 1000);
     };
 
     const transferERC1155 = () => {
