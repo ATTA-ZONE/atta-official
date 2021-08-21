@@ -137,7 +137,7 @@ export default defineComponent({
         })
         info.attaMatchUserBetNow = ['','','','','',''];
         info.attaMatchUserBet.forEach((item:any)=>{
-          if(item.optionsId == 1){
+          if(item.optionsId == 1 || item.optionsId == 3 || item.optionsId == 5 || item.optionsId == 7 || item.optionsId == 9 || item.optionsId == 11){
             if(item.betLevel == "N"){//第一队的N
               info.attaMatchUserBetNow[0] = item;
             }
