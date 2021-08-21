@@ -48,6 +48,11 @@ const routes = [
     name: "xudongdong",
     component: Xudongdong,
   },
+  {
+    path: "/esports",
+    name: "esports",
+    component: esports,
+  },
 ];
  
 const router = createRouter({

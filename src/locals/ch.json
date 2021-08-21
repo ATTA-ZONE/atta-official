@@ -85,6 +85,7 @@
   "mint": "鑄造中",
   "inpreparation": "(功能準備中)",
   "norecord": "暫無藏品記錄",
+  "noOperateRecord": "暫無操作記錄",
   "more": "加載更多",
   "linkwallet": "您需要連接錢包",
   "tips1": "為了接收您的NFT,您需要先連接錢包。",
