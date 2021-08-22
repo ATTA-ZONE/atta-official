@@ -158,6 +158,11 @@
         line-height: 56px;
         letter-spacing: 0em;
         color: #fff;
+        span{
+          display: inline-block;
+          width: 50%;
+          text-align: center;
+        }
       }
     }
   }
