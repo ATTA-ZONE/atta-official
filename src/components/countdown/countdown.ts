@@ -12,6 +12,7 @@ export default defineComponent({
     const modelTips = ref('');
     const MerkleDistributionInstance = getAbi("atta_vote_abi");
     const matchInfoList = ref();
+    const matchconcentList = ref();
     const web3 = ref();
     const matchList = async ()=>{//获取赛事信息列表
       const accounts = await window.CHAIN.WALLET.enable();
@@ -104,6 +105,7 @@ export default defineComponent({
           matchInfoList.value[index].temaAAll = 0;
           matchInfoList.value[index].temaBAll = 0;
         }
+        matchconcentList.value = matchInfoList.value;
       })
     }
     // 对数据进行重装
@@ -162,8 +164,11 @@ export default defineComponent({
         if(info.startTime > 0){
           info.gameDate = info.startTime?formatDate(((info.startTime*1))*1000):'';
         }
+        info.temaAAll = 0;
+        info.temaBAll = 0;
       })
       matchInfoList.value = data;
+      matchconcentList.value = data;
     }    
     const collapseIndex = ref();
     // 展开的时候处理计时器
@@ -512,7 +517,7 @@ export default defineComponent({
       voteStepFn,
       closeDialog,
       moneyFormatNum,
-      matchInfoList,
+      matchconcentList,
       collapseChange,
       nowDataTime,
       curRewardPool,

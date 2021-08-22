@@ -2,7 +2,7 @@
 <!-- v-model="collapseIndex"-->
 <el-collapse accordion @change="collapseChange">
     <!-- 循环，多个game列表数据 -->
-  <el-collapse-item v-for="item in matchInfoList" :key="item.id" :name="item.id" class="">
+  <el-collapse-item v-for="item in matchconcentList" :key="item.id" :name="item.id" class="">
     <template #title>
       <div class="match-header flex">
         <div class="match-title hanson">
