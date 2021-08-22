@@ -191,7 +191,7 @@ export default defineComponent({
               //   timeDown(nowTime,gameTime)
               // }
             }
-            batchEstimateReward(item,index)
+            // batchEstimateReward(item,index)
           }
         })
       },500)

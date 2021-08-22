@@ -117,8 +117,8 @@
             <span v-else>{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[0]?moneyFormatNum(item.attaMatchUserBetNow[0].rewardCount):0}} BUSD</span>
           </p>
           <p class="info-text-title">{{$t("TotalWinning")}}
-            <span v-if="isEn"><br>{{item.temaAAll}} BUSD</span>
-            <span v-else>{{item.temaAAll}} BUSD</span>
+            <span v-if="isEn"><br>{{item.rewardPersonalTotalCountA}} BUSD</span>
+            <span v-else>{{item.rewardPersonalTotalCountA}} BUSD</span>
           </p>
           <p class="info-text-address">{{$t("distributed")}}<br>{{$t("hrs")}}</p>
         </div>
@@ -144,8 +144,8 @@
             <span v-else>{{item.attaMatchUserBetNow&&item.attaMatchUserBetNow[3]?moneyFormatNum(item.attaMatchUserBetNow[3].rewardCount):0}} BUSD</span>
           </p>
           <p class="info-text-title">{{$t("TotalWinning")}}
-            <span v-if="isEn"><br>{{item.temaBAll}} BUSD</span>
-            <span v-else>{{item.temaBAll}} BUSD</span>
+            <span v-if="isEn"><br>{{item.rewardPersonalTotalCountB}} BUSD</span>
+            <span v-else>{{item.rewardPersonalTotalCountB}} BUSD</span>
           </p>
           <p class="info-text-address">{{$t("distributed")}}<br>{{$t("hrs")}}</p>
         </div>
