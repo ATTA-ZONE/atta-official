@@ -162,6 +162,8 @@ export default defineComponent({
         if(info.startTime > 0){
           info.gameDate = info.startTime?formatDate(((info.startTime*1))*1000):'';
         }
+        info.temaAAll = 0;
+        info.temaBAll = 0;
       })
       matchInfoList.value = data;
     }    
