@@ -67,6 +67,8 @@ export default defineComponent({
           .batchRaceInfo(data.idList)
           .call()
           .then(function (res: any) {
+            console.log(res);
+            
             res[0].forEach((info: any,i:any) => {//遍历比赛时间,并添加到对应数据
               data.data[i].gameTime = info*1;
             })
