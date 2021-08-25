@@ -55,7 +55,10 @@
           <p>{{$t("match_rule04")}}</p>
           <p>{{$t("match_rule05")}}</p>
           <p>{{$t("match_rule06")}}</p>
-          <p>{{$t("match_rule07")}}</p>
+          <p>{{$t("match_rule07")}} nft@atta.zone {{$t("match_rule0702")}}</p>
+          <p>{{$t("match_rule08")}}</p>
+          <p>{{$t("match_rule09")}}</p>
+          <p>{{$t("match_rule10")}}</p>
           <button @click="toBaZhuaYu" :class="isEn ? 'niunito' : ''"> {{$t("match_draw_now")}} </button>
         </div>
       </div>
