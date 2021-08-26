@@ -153,6 +153,12 @@
     </div>
   </el-collapse-item>
 </el-collapse>
+<!--  全球决赛模块 -->
+<div class="global-finals">
+  <h5 class="hanson">{{$t("globalFinals01")}}</h5>
+  <p class="global-finals-title01">{{$t("globalFinals02")}}</p>
+  <p class="global-finals-title02">{{$t("globalFinals03")}}</p>
+</div>
   <!-- 投票NFT -->
   <div v-if="dialogBol" class="match-dialog flex" v-loading="loadingDialog">
     <!-- 可以投票 -->
