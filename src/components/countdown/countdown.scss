@@ -166,6 +166,28 @@
       }
     }
   }
+  .global-finals{
+    margin: 200px 185px 200px;
+    padding-top: 30px;
+    padding-bottom: 96px;
+    text-align: center;
+    background: rgba(169, 222, 238, 0.1);
+    border: 5px solid #A9DEEE;
+    h5{
+      font-weight: bold;
+      font-size: 50px;
+      line-height: 190%;
+    }
+    p{
+      font-weight: bold;
+      font-size: 40px;
+      line-height: 161%;
+    }
+    .global-finals-title01{
+      margin-top: 25px;
+      color: #A9DEEE;
+    }
+  }
   .match-dialog{
     width: 100vw;
     height: 100vh;

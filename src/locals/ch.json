@@ -253,5 +253,8 @@
   "voteSubmit":"提交",
   "load_text01":"暂未开放",
   "load_text02":"敬请期待",
-  "bootomtips" : "NFT鑄造將在每個工作日中午12點進行，鑄造前一天所銷售的所有NFT。"
+  "bootomtips" : "NFT鑄造將在每個工作日中午12點進行，鑄造前一天所銷售的所有NFT。",
+  "globalFinals01":"敬請期待",
+  "globalFinals02":"英雄聯盟S11全球總決賽",
+  "globalFinals03":"投票池即將開通"
 }
