@@ -8,7 +8,7 @@
       </div>
       <div class="modal-right">
         <div class="modal-right-title">{{$t(data.title)}}</div>
-        <div class="modal-right-info" v-html="$t(data.content)"></div>
+        <div :class="['modal-right-info',isEn ? 'justify' : '']" v-html="$t(data.content)"></div>
         <div class="modal-right-digtials">
           <div v-if="data.total">{{$t('library_copywriting_36')}}{{data.total}}</div>
           <div v-if="data.minted">{{$t('library_copywriting_37')}}{{data.minted}}</div>
@@ -27,7 +27,8 @@
   </div>
 </template>
 <script lang='ts'>
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
+import { useI18n } from "vue-i18n";
 export default defineComponent({
   name: "modal",
   props: {
@@ -43,6 +44,10 @@ export default defineComponent({
     // ETH:0,
     // BSC:0,
     // desc:['01','30','50'],//编号及说明
+    const { locale, t } = useI18n();
+    const isEn = computed(() => {
+      return locale.value.trim() == "en";
+    });
     const data:any = props.content
 
     const closeNet = () => {
@@ -50,6 +55,7 @@ export default defineComponent({
     }
     return {
       data,
+      isEn,
       closeNet
     }
   }
@@ -90,6 +96,9 @@ export default defineComponent({
       }
     }
   }
+  .justify {
+    text-align: justify;
+  }
   .mask-item {
     width: 100%;
     height: 100vh;
@@ -101,20 +110,21 @@ export default defineComponent({
   }
   .modal-container {
     background: #323232;
-    width: 900px;
-    height: 600px;
+    width: 1100px;
+    height: 670px;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    padding: 30px 90px;
     text-align: center;
     z-index: 102;
+    overflow-y: auto;
     .close-btn {
       position: absolute;
       top: 15px;
       right: 15px;
       width: 36px;
+      z-index: 103;
     }
     .modal-content {
       width: 100%;
@@ -125,6 +135,7 @@ export default defineComponent({
         height: 100%;
         overflow: hidden;
         position: relative;
+        background-color: #000;
         img, video {
           width: auto;
           height: 100%;
@@ -142,6 +153,7 @@ export default defineComponent({
         position: relative;
         box-sizing: border-box;
         text-align: left;
+        background-color: #6b6b6b;
         &-title {
           font-size: 22px;
           margin-bottom:10px;
@@ -153,7 +165,8 @@ export default defineComponent({
         }
         &-digtials {
           position: absolute;
-          bottom: 0;
+          bottom: 30px;
+          font-size: 16px;
           font-weight: 300;
         }
       }
