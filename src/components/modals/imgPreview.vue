@@ -1,16 +1,16 @@
 <template>
   <div class="modal-container">
     <img @click="closeNet" class="close-btn" src="/imgs/close.png">
-    <div v-if="!data.desc">
+    <div class="modal-content" v-if="data.desc">
       <div class="modal-left">
-        <img v-if="data.type =='img'" src="https://www.bazhuayu.io/upload/v2data/2021-05-02/fcaf13bc-46ed-4bb6-9284-db5985b05a87.png" />
-        <video v-if="data.type == 'video'" src="data.url" height="100%"></video>
+        <img src="https://www.bazhuayu.io/upload/v2data/2021-05-02/fcaf13bc-46ed-4bb6-9284-db5985b05a87.png" />
+        <video v-if="data.type == 'video'" autoplay loop muted controls src="data.url" height="100%"></video>
       </div>
       <div class="modal-right">
-        <div class="modal-right-title">{{data.desc.title}}</div>
-        <div class="modal-right-info">{{data.desc.info}}</div>
+        <div class="modal-right-title">{{data.desc || '丁武'}}</div>
+        <div class="modal-right-info">{{data.desc || '三反五反看见你我佛我弄完年我饿饭我㤙服务的那份渴望了呢'}}</div>
         <div class="modal-right-digtials">
-          <div></div>
+          <div>adasasd</div>
         </div>
       </div>
     </div>
@@ -83,6 +83,44 @@ export default defineComponent({
       right: 15px;
       width: 36px;
     }
+    .modal-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      .modal-left {
+        width: 60%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        img, video {
+          width: auto;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+      .modal-right {
+        width: 40%;
+        height: 100%;
+        padding: 30px;
+        overflow: hidden;
+        position: relative;
+        box-sizing: border-box;
+        &-title {
+          font-size: 26px;
+          margin-bottom:10px;
+        }
+        &-info {
+          font-size: 18px;
+        }
+        &-digtials {
+          position: absolute;
+          bottom: 0;
+        }
+      }
+    }
     .modal-banner {
       width: 100%;
       height: 100%;
@@ -90,19 +128,6 @@ export default defineComponent({
         width:auto;
         height: 100%;
       }
-    }
-    .title {
-      font-size: 30px;
-    }
-    .content, .title {
-      padding-bottom: 30px;
-      border-bottom: 1px solid rgba($color:#fff, $alpha: 0.2);
-    }
-    .content {
-      opacity: 0.7;
-      font-size: 24px;
-      margin-top: 32px;
-      margin-bottom: 32px;
     }
   }
 </style>
