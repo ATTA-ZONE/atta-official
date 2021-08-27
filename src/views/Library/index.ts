@@ -13,6 +13,24 @@ export default defineComponent({
             text01:'library_copywriting_8',//右侧内容第一段
             remark:'library_copywriting_114',//右侧备注
             logo:'/library/yanran.png',//右侧logo
+            imgsList:[
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_15'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_15_2'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_15_3'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_15_4'
+              }
+            ]
           },
           {
             img01:'/library/libraryTitle/library04.png',//左边大图
@@ -20,6 +38,20 @@ export default defineComponent({
             text01:'library_copywriting_10',//右侧内容第一段
             remark:'library_copywriting_114',//右侧备注
             logo:'/library/yanran.png',//右侧logo
+            imgsList:[
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_16'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_16'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_16'
+              }
+            ]
           },
           {
             img01:'/library/libraryTitle/library04.png',//左边大图
@@ -27,6 +59,24 @@ export default defineComponent({
             text01:'library_copywriting_11',//右侧内容第一段
             remark:'library_copywriting_114',//右侧备注
             logo:'/library/yanran.png',//右侧logo
+            imgsList:[
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_17'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_17'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_18'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_19'
+              }
+            ]
           },
           {
             img01:'/library/libraryTitle/library04.png',//左边大图
@@ -34,6 +84,64 @@ export default defineComponent({
             text01:'library_copywriting_12',//右侧内容第一段
             remark:'library_copywriting_114',//右侧备注
             logo:'/library/yanran.png',//右侧logo
+            imgsList:[
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_20'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_21'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_22'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_23'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_24'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_25'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_26'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_27'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_28'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_29'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_30'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_31'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_32'
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:'library_copywriting_33'
+              }
+            ]
           },
           {
             img01:'/library/libraryTitle/library04.png',//左边大图
@@ -48,26 +156,26 @@ export default defineComponent({
             text01:'library_copywriting_14',//右侧内容第一段
             remark:'library_copywriting_114',//右侧备注
             logo:'/library/yanran.png',//右侧logo
+            imgsList:[
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:''
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:''
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:''
+              },
+              {
+                url:'/library/libraryList/glass (1).png',
+                text:''
+              }
+            ]
           },
-        ],
-        imgsList:[
-            {
-              url:'/library/libraryList/glass (1).png',
-              text:'library_copywriting_15'
-            },
-            {
-              url:'/library/libraryList/glass (1).png',
-              text:'library_copywriting_15_2'
-            },
-            {
-              url:'/library/libraryList/glass (1).png',
-              text:'library_copywriting_15_3'
-            },
-            {
-              url:'/library/libraryList/glass (1).png',
-              text:'library_copywriting_15_4'
-            }
-          ]
+        ]
       }
   },
   name: "library",
