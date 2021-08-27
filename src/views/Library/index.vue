@@ -24,9 +24,9 @@
         </div>
         <div class="more-content flex" :class="moreNumber&&(moreNumber==index+1)?'more-content-more':''">
           <div class="content-info" v-for="(info,num) in item.imgsList" :class="[info.url?'':'img-null',item.imgName?'manghe-info':'']" :key="info.url">
-            <img v-if="item.detailName" @click="openModal(item,index,info,num)" class="library-pos" :class="item.detailName=='br'?'pos-br':'pos-tr'" src="/library/detail.png" alt="">
             <img :src="info.url" alt="">
             <p class="hanson">{{$t(info.text)}}</p>
+            <img v-if="item.detailName" @click="openModal(item,index,info,num)" class="library-pos" :class="item.detailName=='br'?'pos-br':'pos-tr'" src="/library/detail.png" alt="">
           </div>
         </div>
       </div>

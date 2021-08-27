@@ -331,7 +331,7 @@ export default defineComponent({
         url:index==1?info.url:info.mp4Url,//大图
         title:item.title,//标题
         content:item.text01,//详情文案
-        type:!index&&index==1?'img':'video',
+        type:index&&index==1?'img':'video',
         total:info.nolist?info.nolist[0]:'',//总版数
         minted:info.nolist?info.nolist[1]:'',//已经铸造数量
         BSC:info.nolist?info.nolist[2]:'',
