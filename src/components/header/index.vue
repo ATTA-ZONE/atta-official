@@ -5,7 +5,7 @@
         <router-link to="/">{{ $t("home") }}</router-link>
         <router-link to="/esports">{{ $t("matchName") }}</router-link>
         <router-link to="/charity">{{ $t("ATTA Charity") }}</router-link>
-        <router-link to="/library">{{ $t("NFTlibrary") }}</router-link>
+        <router-link to="/librarys">{{ $t("NFTlibrary") }}</router-link>
         <router-link to="/assets">{{ $t("Asset Management") }}</router-link>
         <div class="wallet-container">
           <div class="wallet-status">
@@ -53,7 +53,7 @@
             <router-link :class="[selectedPath == '/'? 'selected-tab':'']" to="/">{{ $t("home") }}</router-link>
             <router-link :class="[selectedPath == '/esports'? 'selected-tab':'']" to="/esports">{{ $t("matchName") }}</router-link>
             <router-link :class="[selectedPath == '/charity'? 'selected-tab':'']" to="/charity">{{ $t("ATTA Charity") }}</router-link>
-            <router-link :class="[selectedPath == '/library'? 'selected-tab':'']" to="/library">{{ $t("NFTlibrary") }}</router-link>
+            <router-link :class="[selectedPath == '/librarys'? 'selected-tab':'']" to="/librarys">{{ $t("NFTlibrary") }}</router-link>
             <router-link :class="[selectedPath == '/assets/mynft'? 'selected-tab':'']" to="/assets">{{ $t("Asset Management") }}</router-link>
           </div>
         </div>
