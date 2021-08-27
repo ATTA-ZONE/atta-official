@@ -157,7 +157,7 @@ export default defineComponent({
             title:'library_copywriting_6',//标题
             text01:'library_copywriting_13',//右侧内容第一段
             remark:'',//右侧备注
-            logo:'',//右侧logo
+            logo:'/library/yanran.png',//右侧logo
             detailName:'',
           },
           {
@@ -243,6 +243,7 @@ export default defineComponent({
     msg: String,
   },
   setup() {
+    const modelBol = ref(false);
     const moreNumber = ref(0);
     const moreBtn = (index: number)=>{
       if(moreNumber.value == index){
@@ -251,9 +252,37 @@ export default defineComponent({
         moreNumber.value = index;
       }
     }
+    const contents = ref({})
+    // item:父级 index:第几个父级 info:子集  num:第几个子集
+    const openModal = (item,index,info,num)=>{
+      console.log(99999999);
+      
+      let data = {
+        url:item.img01,//大图
+        title:item.title,//标题
+        content:item.text01,//详情文案
+        type:!index?'video':index==1?'video':'img',
+        total:0,//总版数
+        minted:0,//已经铸造数量
+        ETH:0,
+        BSC:0,
+        desc:['01','30','50'],//编号及说明
+      }
+      contents.value = data;
+      modelBol.value = true;
+    }
+    const closeNet = ()=>{
+      modelBol.value = false;
+      contents.value = {};
+    }
+
     return {
       moreBtn,
-      moreNumber
+      moreNumber,
+      modelBol,
+      openModal,
+      contents,
+      closeNet
     }
   }
 

@@ -23,8 +23,8 @@
           <span>{{moreNumber&&(moreNumber==index+1)?  $t('library_copywriting_116'):  $t('library_copywriting_115')}}</span>
         </div>
         <div class="more-content flex" :class="moreNumber&&(moreNumber==index+1)?'more-content-more':''">
-          <div class="content-info" v-for="info in item.imgsList" :class="[info.url?'':'img-null',item.imgName?'manghe-info':'']" :key="info.url">
-            <img v-if="item.detailName" class="library-pos" :class="item.detailName=='br'?'pos-br':'pos-tr'" src="/library/detail.png" alt="">
+          <div class="content-info" v-for="(info,num) in item.imgsList" :class="[info.url?'':'img-null',item.imgName?'manghe-info':'']" :key="info.url">
+            <img v-if="item.detailName" @click="openModal(item,index,info,num)" class="library-pos" :class="item.detailName=='br'?'pos-br':'pos-tr'" src="/library/detail.png" alt="">
             <img :src="info.url" alt="">
             <p class="hanson">{{$t(info.text)}}</p>
           </div>
@@ -34,9 +34,7 @@
     </div>  
   </div>
   <footer-cell />
-  <!--
-  <mediaModal></mediaModal>
-  -->
+  <mediaModal :content="contents" @closeNet="closeNet" v-if="modelBol"></mediaModal>
 </template>
 
 <script lang="ts" src="./index.ts"></script>
