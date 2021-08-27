@@ -1,4 +1,5 @@
 <template>
+  <div class="mask-item"></div>
   <div class="modal-container">
     <img @click="closeNet" class="close-btn" src="/imgs/close.png">
     <div class="modal-content" v-if="data.title">
@@ -58,24 +59,46 @@ export default defineComponent({
 <style scoped lang='scss'>
   @media screen and (max-width: 992px) {
     .modal-container {
-      width: 70% !important;
-      height: 240px !important;
+      width: 76% !important;
+      height: auto !important;
       padding: 30px !important;
       .close-btn {
         width: 24px !important;
       }
-      .title {
-        font-size: 16px !important;
-      }
-      .content, .title {
-        padding-bottom: 16px !important;
-      }
-      .content {
-        font-size: 14px !important;
-        margin-top: 24px !important;
-        margin-bottom: 24px !important;
+      .modal-content {
+        display: block !important;
+        .modal-left, .modal-right {
+          width: 100% !important;
+        }
+        .modal-left {
+          height: 250px !important;
+        }
+         .modal-right {
+           padding: 20px 0 0 0 !important;
+           &-title {
+            font-size: 16px !important;
+            margin-bottom:10px;
+          }
+          &-info {
+            font-size: 12px !important;
+            margin-bottom:10px;
+          }
+          &-digtials {
+            font-size: 12px !important;
+            position: relative !important;
+          }
+         }
       }
     }
+  }
+  .mask-item {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 101;
   }
   .modal-container {
     background: #323232;
@@ -87,6 +110,7 @@ export default defineComponent({
     transform: translate(-50%,-50%);
     padding: 30px 90px;
     text-align: center;
+    z-index: 102;
     .close-btn {
       position: absolute;
       top: 15px;
@@ -131,6 +155,7 @@ export default defineComponent({
         &-digtials {
           position: absolute;
           bottom: 0;
+          font-weight: 300;
         }
       }
     }
