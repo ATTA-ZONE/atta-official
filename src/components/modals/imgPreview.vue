@@ -2,27 +2,27 @@
   <div class="mask-item"></div>
   <div class="modal-container">
     <img @click="closeNet" class="close-btn" src="/imgs/close.png">
-    <div class="modal-content" v-if="data.title">
+    <div class="modal-content" v-if="data.type == 'video'">
       <div class="modal-left">
-        <video autoplay loop muted controls src="https://www.bazhuayu.io/upload/other/gs.mp4" height="100%"></video>
+        <video autoplay loop muted controls :src="data.url" height="100%"></video>
       </div>
       <div class="modal-right">
         <div class="modal-right-title">{{$t(data.title)}}</div>
         <div class="modal-right-info" v-html="$t(data.content)"></div>
         <div class="modal-right-digtials">
-          <div>{{$t('library_copywriting_36')}}{{data.total}}</div>
-          <div>{{$t('library_copywriting_37')}}{{data.minted}}</div>
-          <div>{{$t('library_copywriting_38')}}{{data.BSC}}</div>
-          <div>{{$t('library_copywriting_39')}}{{data.ETH}}</div>
-          <div>{{$t('library_copywriting_40')}}{{data.desc[0]}}{{$t('library_copywriting_41')}}{{data.desc[1]}}{{$t('library_copywriting_42')}}{{data.desc[2]}}{{$t('library_copywriting_43')}}{{data.desc[3]}}{{$t('library_copywriting_44')}}{{data.desc[4]}}{{$t('library_copywriting_45')}}</div>
-          <div>{{$t('library_copywriting_86')}}</div>
-          <div>{{$t('library_copywriting_87')}}</div>
-          <div>{{$t('library_copywriting_88')}}</div>
+          <div v-if="data.total">{{$t('library_copywriting_36')}}{{data.total}}</div>
+          <div v-if="data.minted">{{$t('library_copywriting_37')}}{{data.minted}}</div>
+          <div v-if="data.BSC">{{$t('library_copywriting_38')}}{{data.BSC}}</div>
+          <div v-if="data.ETH">{{$t('library_copywriting_39')}}{{data.ETH}}</div>
+          <div v-if="data.desc && data.desc.length">{{$t('library_copywriting_40')}}{{data.desc[0]}}{{$t('library_copywriting_41')}}{{data.desc[1]}}{{$t('library_copywriting_42')}}{{data.desc[2]}}{{$t('library_copywriting_43')}}{{data.desc[3]}}{{$t('library_copywriting_44')}}{{data.desc[4]}}{{$t('library_copywriting_45')}}</div>
+          <div v-if="data.rarity && data.rarity.length">{{$t('library_copywriting_86')}}{{data.rarity[0]}}</div>
+          <div v-if="data.rarity && data.rarity.length">{{$t('library_copywriting_87')}}{{data.rarity[1]}}</div>
+          <div v-if="data.rarity && data.rarity.length">{{$t('library_copywriting_88')}}{{data.rarity[2]}}</div>
         </div>
       </div>
     </div>
     <div class="modal-banner" v-else>
-      <img src="https://www.bazhuayu.io/upload/v2data/2021-05-02/fcaf13bc-46ed-4bb6-9284-db5985b05a87.png" >
+      <img :src="data.url" >
     </div>
   </div>
 </template>

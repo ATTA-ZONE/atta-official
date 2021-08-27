@@ -2,7 +2,7 @@
   <header-cell />
   <div class="library-page">
     <h5 class="library-title">{{$t('library_copywriting_1')}}</h5>
-    <div class="library-list" v-for="(item,index) in libraryList" :key="index">
+    <div class="library-list" v-for="(item,index) in libraryList" :key="item.img01">
       <h5 class="list-title">{{$t(item.title)}}</h5>
       <div class="library-list-info flex">
         <div class="library-img">
