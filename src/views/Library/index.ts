@@ -216,22 +216,6 @@ export default defineComponent({
               {
                 url:'/library/libraryList/mh12.png',
                 text:''
-              },
-              {
-                url:'/library/libraryList/mh13.png',
-                text:''
-              },
-              {
-                url:'/library/libraryList/mh14.png',
-                text:''
-              },
-              {
-                url:'/library/libraryList/mh15.png',
-                text:''
-              },
-              {
-                url:'/library/libraryList/mh16.png',
-                text:''
               }
             ]
           },
