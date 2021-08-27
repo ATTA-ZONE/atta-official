@@ -1,6 +1,7 @@
 import { defineComponent,ref } from "vue";
 import headerCell from "@/components/header/index.vue";
 import footerCell from "@/components/footer/index.vue";
+import { getCookie, setCookie,getAbi,formatDate,moneyFormat } from "../../utils";
 import mediaModal from "@/components/modals/imgPreview.vue";
 export default defineComponent({
   components: { headerCell,footerCell,mediaModal},
@@ -335,6 +336,7 @@ export default defineComponent({
     msg: String,
   },
   setup() {
+    const lang = getCookie("lg") == "en" ? "EN" : "TC";
     const modelBol = ref(false);
     const moreNumber = ref(0);
     const moreBtn = (index: number)=>{
@@ -373,7 +375,8 @@ export default defineComponent({
       modelBol,
       openModal,
       contents,
-      closeNet
+      closeNet,
+      lang
     }
   }
 
