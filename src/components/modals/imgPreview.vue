@@ -1,7 +1,7 @@
 <template>
   <div class="modal-container">
     <img @click="closeNet" class="close-btn" src="/imgs/close.png">
-    <div class="modal-content" v-if="data.text">
+    <div class="modal-content" v-if="data.title">
       <div class="modal-left">
         <video autoplay loop muted controls src="https://www.bazhuayu.io/upload/other/gs.mp4" height="100%"></video>
       </div>
