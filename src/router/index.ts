@@ -53,6 +53,11 @@ const routes = [
     name: "esports",
     component: esports,
   },
+  {
+    path: "/library",
+    name: "library",
+    component: () => import("../views/Library/index.vue")
+  }
 ];
  
 const router = createRouter({
