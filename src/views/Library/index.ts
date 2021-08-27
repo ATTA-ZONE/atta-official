@@ -253,14 +253,14 @@ export default defineComponent({
                 url:'/library/libraryList/mh05.png',
                 text:'',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/827a2541-0cd6-4d58-b87d-b964bb656782.mp4',
-                nolist:[730,0,0,0],
+                nolist:[740,0,0,0],
                 desc:['082','02','1','001','730']
               },
               {
                 url:'/library/libraryList/mh06.png',
                 text:'',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/eb9ba69d-60ac-4ddb-9861-d6821f852127.mp4',
-                nolist:[45,6,5,0],
+                nolist:[730,0,0,0],
                 desc:['011','01','1','006','050']
               },
               {
