@@ -13,11 +13,44 @@ export default defineComponent({
             text01:'library_copywriting_8',//右侧内容第一段
             remark:'library_copywriting_114',//右侧备注
             logo:'/library/yanran.png',//右侧logo
-            imgsname:'dingwu',
+          },
+          {
+            img01:'/library/libraryTitle/library04.png',//左边大图
+            title:'library_copywriting_3',//标题
+            text01:'library_copywriting_10',//右侧内容第一段
+            remark:'library_copywriting_114',//右侧备注
+            logo:'/library/yanran.png',//右侧logo
+          },
+          {
+            img01:'/library/libraryTitle/library04.png',//左边大图
+            title:'library_copywriting_4',//标题
+            text01:'library_copywriting_11',//右侧内容第一段
+            remark:'library_copywriting_114',//右侧备注
+            logo:'/library/yanran.png',//右侧logo
+          },
+          {
+            img01:'/library/libraryTitle/library04.png',//左边大图
+            title:'library_copywriting_5',//标题
+            text01:'library_copywriting_12',//右侧内容第一段
+            remark:'library_copywriting_114',//右侧备注
+            logo:'/library/yanran.png',//右侧logo
+          },
+          {
+            img01:'/library/libraryTitle/library04.png',//左边大图
+            title:'library_copywriting_6',//标题
+            text01:'library_copywriting_13',//右侧内容第一段
+            remark:'library_copywriting_114',//右侧备注
+            logo:'/library/yanran.png',//右侧logo
+          },
+          {
+            img01:'/library/libraryTitle/library04.png',//左边大图
+            title:'library_copywriting_7',//标题
+            text01:'library_copywriting_14',//右侧内容第一段
+            remark:'library_copywriting_114',//右侧备注
+            logo:'/library/yanran.png',//右侧logo
           },
         ],
-        imgsList:{
-          dingwu:[
+        imgsList:[
             {
               url:'/library/libraryList/glass (1).png',
               text:'library_copywriting_15'
@@ -35,7 +68,6 @@ export default defineComponent({
               text:'library_copywriting_15_4'
             }
           ]
-        }
       }
   },
   name: "library",
