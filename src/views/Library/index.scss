@@ -59,6 +59,7 @@
     .library-more{
       margin-top: 55px;
       .more-btn{
+        cursor: pointer;
         .library-icon{
           width: 36px;height: 36px;
           transition: all 0.5s ease-in-out;
@@ -69,6 +70,7 @@
           transform: rotate(90deg);
         }
         span{
+          cursor: pointer;
           line-height: 36px;
           font-size: 22px;
           line-height: 150%;

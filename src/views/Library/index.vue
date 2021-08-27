@@ -28,9 +28,9 @@
             <p class="hanson">{{$t(info.text)}}</p>
             <!--<img v-if="item.detailName" class="library-pos" :class="item.detailName=='br'?'pos-br':'pos-tr'" src="/library/detail.png" alt="">-->
           </div>
+          <p class="library-bottom-remark">{{$t(item.remark)}}</p>
         </div>
       </div>
-      <p class="library-bottom-remark">{{$t(item.remark)}}</p>
     </div>  
   </div>
   <footer-cell />
