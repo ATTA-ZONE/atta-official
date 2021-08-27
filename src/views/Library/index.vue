@@ -23,7 +23,7 @@
           <span>{{moreNumber&&(moreNumber==index+1)?  $t('library_copywriting_116'):  $t('library_copywriting_115')}}</span>
         </div>
         <div class="more-content flex" :class="moreNumber&&(moreNumber==index+1)?'more-content-more':''">
-          <div class="content-info" v-for="info in imgsList[item.imgsname]" :key="info.url">
+          <div class="content-info" v-for="info in item.imgsList" :key="info.url">
             <img :src="info.url" alt="">
             <p class="hanson">{{$t(info.text)}}</p>
           </div>

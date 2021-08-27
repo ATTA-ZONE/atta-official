@@ -14,28 +14,26 @@ export default defineComponent({
             remark:'library_copywriting_114',//右侧备注
             logo:'/library/yanran.png',//右侧logo
             imgsname:'dingwu',
+            imgsList:[
+              {
+                url:'/library/libraryList/dw01.png',
+                text:'library_copywriting_15'
+              },
+              {
+                url:'/library/libraryList/dw02.png',
+                text:'library_copywriting_15_2'
+              },
+              {
+                url:'/library/libraryList/dw03.png',
+                text:'library_copywriting_15_3'
+              },
+              {
+                url:'/library/libraryList/dw04.png',
+                text:'library_copywriting_15_4'
+              }
+            ]
           },
-        ],
-        imgsList:{
-          dingwu:[
-            {
-              url:'/library/libraryList/glass (1).png',
-              text:'library_copywriting_15'
-            },
-            {
-              url:'/library/libraryList/glass (1).png',
-              text:'library_copywriting_15_2'
-            },
-            {
-              url:'/library/libraryList/glass (1).png',
-              text:'library_copywriting_15_3'
-            },
-            {
-              url:'/library/libraryList/glass (1).png',
-              text:'library_copywriting_15_4'
-            }
-          ]
-        }
+        ]
       }
   },
   name: "library",
@@ -56,6 +54,5 @@ export default defineComponent({
       moreNumber
     }
   }
-
 
 });
