@@ -15,9 +15,9 @@
           <div v-if="data.BSC">{{$t('library_copywriting_38')}}{{data.BSC}}</div>
           <div v-if="data.ETH">{{$t('library_copywriting_39')}}{{data.ETH}}</div>
           <div v-if="data.desc && data.desc.length">{{$t('library_copywriting_40')}}{{data.desc[0]}}{{$t('library_copywriting_41')}}{{data.desc[1]}}{{$t('library_copywriting_42')}}{{data.desc[2]}}{{$t('library_copywriting_43')}}{{data.desc[3]}}{{$t('library_copywriting_44')}}{{data.desc[4]}}{{$t('library_copywriting_45')}}</div>
-          <div v-if="data.rarity && data.rarity.length">{{$t('library_copywriting_86')}}{{data.rarity[0]}}</div>
-          <div v-if="data.rarity && data.rarity.length">{{$t('library_copywriting_87')}}{{data.rarity[1]}}</div>
-          <div v-if="data.rarity && data.rarity.length">{{$t('library_copywriting_88')}}{{data.rarity[2]}}</div>
+          <div v-if="data.rarity && data.rarity.length > 0">{{$t('library_copywriting_86')}}{{data.rarity[0]}}</div>
+          <div v-if="data.rarity && data.rarity.length > 0">{{$t('library_copywriting_87')}}{{data.rarity[1]}}</div>
+          <div v-if="data.rarity && data.rarity.length > 0">{{$t('library_copywriting_88')}}{{data.rarity[2]}}</div>
         </div>
       </div>
     </div>
@@ -44,7 +44,6 @@ export default defineComponent({
     // BSC:0,
     // desc:['01','30','50'],//编号及说明
     const data:any = props.content
-    console.log(data, props);
 
     const closeNet = () => {
       context.emit('closeNet')
@@ -71,7 +70,7 @@ export default defineComponent({
           width: 100% !important;
         }
         .modal-left {
-          height: 250px !important;
+          height: 300px !important;
         }
          .modal-right {
            padding: 20px 0 0 0 !important;
