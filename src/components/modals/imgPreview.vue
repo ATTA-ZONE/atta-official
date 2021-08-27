@@ -3,14 +3,20 @@
     <img @click="closeNet" class="close-btn" src="/imgs/close.png">
     <div class="modal-content" v-if="data.title">
       <div class="modal-left">
-        <img :src="data.url" />
-        <video v-if="data.type == 'video'" autoplay loop muted controls src="data.url" height="100%"></video>
+        <video autoplay loop muted controls src="https://www.bazhuayu.io/upload/other/gs.mp4" height="100%"></video>
       </div>
       <div class="modal-right">
         <div class="modal-right-title">{{$t(data.title)}}</div>
         <div class="modal-right-info" v-html="$t(data.content)"></div>
         <div class="modal-right-digtials">
-          <div>adasasd</div>
+          <div>{{$t('library_copywriting_36')}}{{data.total}}</div>
+          <div>{{$t('library_copywriting_37')}}{{data.minted}}</div>
+          <div>{{$t('library_copywriting_38')}}{{data.BSC}}</div>
+          <div>{{$t('library_copywriting_39')}}{{data.ETH}}</div>
+          <div>{{$t('library_copywriting_40')}}{{data.desc[0]}}{{$t('library_copywriting_41')}}{{data.desc[1]}}{{$t('library_copywriting_42')}}{{data.desc[2]}}{{$t('library_copywriting_43')}}{{data.desc[3]}}{{$t('library_copywriting_44')}}{{data.desc[4]}}{{$t('library_copywriting_45')}}</div>
+          <div>{{$t('library_copywriting_86')}}</div>
+          <div>{{$t('library_copywriting_87')}}</div>
+          <div>{{$t('library_copywriting_88')}}</div>
         </div>
       </div>
     </div>
@@ -37,7 +43,7 @@ export default defineComponent({
     // BSC:0,
     // desc:['01','30','50'],//编号及说明
     const data:any = props.content
-    console.log(data);
+    console.log(data, props);
 
     const closeNet = () => {
       context.emit('closeNet')
@@ -75,7 +81,7 @@ export default defineComponent({
     background: #323232;
     width: 900px;
     height: 600px;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -112,12 +118,15 @@ export default defineComponent({
         overflow: hidden;
         position: relative;
         box-sizing: border-box;
+        text-align: left;
         &-title {
-          font-size: 26px;
+          font-size: 22px;
           margin-bottom:10px;
+          font-weight: 400;
         }
         &-info {
-          font-size: 18px;
+          font-size: 16px;
+          font-weight: 300;
         }
         &-digtials {
           position: absolute;
