@@ -82,13 +82,22 @@
       .more-content{
         width: 100%;
         height:0;
+        flex-wrap: wrap;
         overflow: hidden;
         transition: overflow 0.5s ease-in-out;
         margin-top: 43px;
         justify-content:space-between;
         font-size: 0;
+        div.manghe-info{
+          width: 22%;
+          background: rgba(169, 222, 238, 0);
+          p{
+            display: none;
+          }
+        }
         .content-info{
           width: 30%;
+          margin-bottom: 26px;
           background: rgba(169, 222, 238, 0.1);
           img{
             width: 100%;
@@ -101,13 +110,16 @@
             padding: 0 20px;
           }
         }
+        div.img-null{
+          opacity: 0;
+        }
       }
     }
     .library-bottom-remark{
       font-size: 18px;
       line-height: 150%;
       color: #fff;
-      margin-top: 25px;
+      margin-bottom: 25px;
     }
   }
 }

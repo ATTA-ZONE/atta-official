@@ -17,13 +17,13 @@
           </div>
         </div>
       </div>
-      <div class="library-more">
+      <div class="library-more" v-if="item.imgsList && item.imgsList.length">
         <div class="more-btn flex" @click="moreBtn(index+1)">
           <img class="library-icon" :class="moreNumber&&(moreNumber==index+1)?'more-icon':''" src="/match/more.png" alt="">
           <span>{{moreNumber&&(moreNumber==index+1)?  $t('library_copywriting_116'):  $t('library_copywriting_115')}}</span>
         </div>
         <div class="more-content flex" :class="moreNumber&&(moreNumber==index+1)?'more-content-more':''">
-          <div class="content-info" v-for="info in item.imgsList" :key="info.url">
+          <div class="content-info" v-for="info in item.imgsList" :class="[info.url?'':'img-null',item.imgName?'manghe-info':'']" :key="info.url">
             <img :src="info.url" alt="">
             <p class="hanson">{{$t(info.text)}}</p>
           </div>
