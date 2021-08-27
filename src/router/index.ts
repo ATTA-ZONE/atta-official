@@ -54,8 +54,8 @@ const routes = [
     component: esports,
   },
   {
-    path: "/librarys",
-    name: "librarys",
+    path: "/libraries",
+    name: "libraries",
     component: () => import("../views/Library/index.vue")
   }
 ];
