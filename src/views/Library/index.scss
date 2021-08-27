@@ -1,0 +1,41 @@
+.library-page{
+  .library-title{
+    font-family: Maven Pro;
+    padding:0 150px;
+    height:178px;
+    line-height:178px;
+    font-weight: bold;
+    font-size: 53px;
+    background: rgba(250, 250, 250, 0.1);
+    backdrop-filter: blur(90px);
+  }
+  .library-list-info{
+    padding:0 170px;
+    width:100%;
+    font-size: 0;
+    .library-img{
+      width: 45%;
+      padding-right: 20px;
+      position: relative;
+      &::before{
+        content:"";
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 4px;
+        height:100%;
+        background: linear-gradient(180deg, #A9DEEE 0%, #A9DEEE 63.02%, #BFFDE3 100%);
+      }
+      img{
+        width: 100%;
+      }
+    }
+    .library-text{
+      width: 55%;
+      padding-left: 20px;
+      .text-top{
+        
+      }
+    }
+  }
+}
