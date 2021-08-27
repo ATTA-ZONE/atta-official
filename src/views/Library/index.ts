@@ -14,7 +14,7 @@ export default defineComponent({
             remark:'library_copywriting_114',//右侧备注
             logo:'/library/yanran.png',//右侧logo
             imgsname:'dingwu',
-          }
+          },
         ],
         imgsList:{
           dingwu:[
