@@ -1,6 +1,6 @@
 <template>
   <header-cell />
-  <div class="library-page">
+  <div class="library-page" :class="lang=='EN'?'library-size':''">
     <h5 class="library-title">{{$t('library_copywriting_1')}}</h5>
     <div class="library-list" v-for="(item,index) in libraryList" :key="item.img01">
       <h5 class="list-title">{{$t(item.title)}}</h5>

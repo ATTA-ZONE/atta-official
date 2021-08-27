@@ -141,6 +141,11 @@
     }
   }
 }
+.library-size{
+  p,h5,h6,span,a,button,div{
+    font-family: NunitoSans !important;
+  }
+}
 @media only screen and (max-width: 992px){
   .library-page{
     .library-title{
