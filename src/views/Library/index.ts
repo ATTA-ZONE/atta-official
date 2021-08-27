@@ -12,6 +12,7 @@ export default defineComponent({
             title:'library_copywriting_2',//标题
             text01:'library_copywriting_8',//右侧内容第一段
             remark:'library_copywriting_114',//右侧备注
+            detailName:'br',
             logo:'',//右侧logo
             imgsList:[
               {
@@ -38,6 +39,7 @@ export default defineComponent({
             text01:'library_copywriting_10',//右侧内容第一段
             remark:'',//右侧备注
             logo:'',//右侧logo
+            detailName:'br',
             imgsList:[
               {
                 url:'/library/libraryList/xdd01.png',
@@ -59,6 +61,7 @@ export default defineComponent({
             text01:'library_copywriting_11',//右侧内容第一段
             remark:'library_copywriting_114',//右侧备注
             logo:'',//右侧logo
+            detailName:'br',
             imgsList:[
               {
                 url:'/library/libraryList/o201.png',
@@ -84,6 +87,7 @@ export default defineComponent({
             text01:'library_copywriting_12',//右侧内容第一段
             remark:'library_copywriting_114',//右侧备注
             logo:'/library/yanran.png',//右侧logo
+            detailName:'br',
             imgsList:[
               {
                 url:'/library/libraryList/cs01.png',
@@ -154,6 +158,7 @@ export default defineComponent({
             text01:'library_copywriting_13',//右侧内容第一段
             remark:'',//右侧备注
             logo:'',//右侧logo
+            detailName:'',
           },
           {
             img01:'/library/libraryTitle/library06.png',//左边大图
@@ -162,6 +167,7 @@ export default defineComponent({
             remark:'',//右侧备注
             logo:'',//右侧logo
             imgName:'manghe',
+            detailName:'tr',
             imgsList:[
               {
                 url:'/library/libraryList/mh01.png',

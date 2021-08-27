@@ -98,6 +98,7 @@
         .content-info{
           width: 30%;
           margin-bottom: 26px;
+          position: relative;
           background: rgba(169, 222, 238, 0.1);
           img{
             width: 100%;
@@ -108,6 +109,19 @@
             color: #FFFFFF;
             font-weight: bold;
             padding: 0 20px;
+          }
+          .library-pos{
+            width: 30px;
+            position: absolute;
+            cursor: pointer;
+          }
+          .pos-br{
+            right:30px;
+            bottom:110px;
+          }
+          .pos-tr{
+            right:34px;
+            top:20px;
           }
         }
         div.img-null{
