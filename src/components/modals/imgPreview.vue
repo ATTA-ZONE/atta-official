@@ -10,7 +10,12 @@
         <div class="modal-right-title">{{data.desc || '丁武'}}</div>
         <div class="modal-right-info">{{data.desc || '三反五反看见你我佛我弄完年我饿饭我㤙服务的那份渴望了呢'}}</div>
         <div class="modal-right-digtials">
-          <div>adasasd</div>
+          <div>{{$t('library_copywriting_36')}}</div>
+          <div>{{$t('library_copywriting_37')}}</div>
+          <div>{{$t('library_copywriting_38')}}</div>
+          <div>{{$t('library_copywriting_39')}}</div>
+          <div>{{$t('library_copywriting_40')}}</div>
+          <div>{{$t('library_copywriting_40')}}</div>
         </div>
       </div>
     </div>
