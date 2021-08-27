@@ -1,9 +1,22 @@
 <template>
   <div class="modal-container">
     <img @click="closeNet" class="close-btn" src="/imgs/close.png">
-    <div class="title">{{data.title}}</div>
-    <div class="content">{{data.content}}</div>
-    <slot></slot>
+    <div v-if="!data.desc">
+      <div class="modal-left">
+        <img v-if="data.type =='img'" src="https://www.bazhuayu.io/upload/v2data/2021-05-02/fcaf13bc-46ed-4bb6-9284-db5985b05a87.png" />
+        <video v-if="data.type == 'video'" src="data.url" height="100%"></video>
+      </div>
+      <div class="modal-right">
+        <div class="modal-right-title">{{data.desc.title}}</div>
+        <div class="modal-right-info">{{data.desc.info}}</div>
+        <div class="modal-right-digtials">
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-banner" v-else>
+      <img src="https://www.bazhuayu.io/upload/v2data/2021-05-02/fcaf13bc-46ed-4bb6-9284-db5985b05a87.png" >
+    </div>
   </div>
 </template>
 <script lang='ts'>
@@ -11,13 +24,15 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "modal",
   props: {
-    title: String,
-    content: String
+    url: String,
+    type: String,
+    desc: Object
   },
   setup(props, context) {
     const data:any = {
-      title: props.title,
-      content: props.content
+      url: props.url,
+      type: props.type,
+      desc: props.desc
     }
 
     const closeNet = () => {
@@ -54,8 +69,8 @@ export default defineComponent({
   }
   .modal-container {
     background: #323232;
-    width: 610px;
-    height: 330px;
+    width: 900px;
+    height: 600px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -67,6 +82,14 @@ export default defineComponent({
       top: 15px;
       right: 15px;
       width: 36px;
+    }
+    .modal-banner {
+      width: 100%;
+      height: 100%;
+      img {
+        width:auto;
+        height: 100%;
+      }
     }
     .title {
       font-size: 30px;
