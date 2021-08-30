@@ -32,7 +32,7 @@
                             <div class="righttab flex">
                                 <div class="everyimgbox" v-for="everyimg in info.imglist" :key="everyimg.titleen">
                                     <img :src="everyimg.url" alt="" v-if="everyimg.url.indexOf('mp4') == -1">
-                                    <video :src="everyimg.url" v-else autoplay loop muted height="551.2"></video>
+                                    <video :src="everyimg.url" v-else autoplay loop muted></video>
                                     <p>{{isEn ? everyimg.titleen : everyimg.titlech}}</p>
                                 </div>
                             </div>
@@ -65,16 +65,16 @@ export default defineComponent({
                   contentch : '《願愛⽆憂》由痛仰樂團演唱，是痛仰樂團贈送給北京嫣然天使⼉童公益基⾦會的歌曲。該⾸作品的NFT版本由北京嫣然天使⼉童公益基⾦會聯合官⽅合作夥伴ATTA精⼼製作呈現，全球限量1份。本次拍賣部分所得將捐贈北京嫣然天使⼉童公益基⾦會，助⼒慈善。',
                   url:'/imgs/Charity_img2.png',
                   url2:'/imgs/Charity_img3.png',
-                  titleen2 : '痛仰乐队',
-                  contenten2 : 'May Love Be Without Worries was played by Miserable Faith and originally donated to Smile Angel Foundation. This special NFT version is produced by ATTA with only ONE version in the universe. Part of the auction will be donated to the Smile Angel Foundation to support children born with clefts and their families.',
-                  titlech2 : '痛仰乐队',
+                  titleen2 : 'Miserable Faith',
+                  contenten2 : 'Miserable faith, founded in 1999, is one of the most prestigious rock bands in China. The team has released six albums and EP so far  ， Participated in hundreds of special performances and music festivals, and won a large group of music fans covering different ages and identity attributes. They have never left the front line of Chinese Rock N Roll, and they are also a rare Rock N Roll force that has always maintained strong creative energy and successfully realized transformation.',
+                  titlech2 : '痛仰樂隊',
                   contentch2 : '成立於1999年的痛仰樂團（Miserable Faith）是當下中國享有最高聲譽的搖滾樂隊之一。組隊至今發行專輯及EP共六張 ，參加各類專場、音樂節演出數百場，獲得了覆蓋不同年齡層和身份内容的龐大樂迷群。他們從未離開中國搖滾第一線，也是其中少有的始終保持旺盛創作精力並成功實現轉型的搖滾勁旅。',
                 },
                 {
                   titleen : '02 Binance NFT for Good: ATTA x Smile Angel Foundation Childhood Fantasy Mystery Box',
                   contenten : 'ATTA X Smile Angel Foundation Childhood Fantasy Mystery Box includes paintings originally donated to the Smile Angel Foundation and were created by a dozen of boys and girls, including daughter of Faye Wong. Several up-and-coming young artists are also invited to recreate based on these original paintings and include their artwork in the Mystery Box. Part of the sales will be donated to the Smile Angel Foundation to support children born with clefts and their families.<br/><br/>Rules for Redeeming NFT Utilities：<br/>1. For users who are eligible to redeem the benefits, please send your BinanceNFT uid, your location and screenshots of your opened Mystery Box NFTs collection (NFT set that is eligible for relevant utilities) to official ATTA email: nft@atta.zone .<br/>2. According to the rules, ATTA will review the list of winners and make announcement on Twitter and Telegram. The Special Angel NFT will be distributed by Binance NFT to qualifying users’ Binance NFT account.<br/>3. Regarding the physical benefits and utilities, eligible users will receive a confirmation email. Upon receiving the email, users need to reply with their contact information, address, etc. ATTA will send out the rewards after confirming the information.<br/>4. For redeeming the Special Angel NFT, after Binance NFT have opened their claim function, users need to transfer it to ATTA’s official website and redeem the NFT there for concert ticket.<br/>5. If you have further questions, you can directly go through WeChat (atta_official) to contact ATTA customer service staff.<br/>',
                   titlech : '02 Binance NFT for Good: <br/>小小慈善家藝術盲盒',
-                  contentch : '小小慈善家藝術盲盒包括由十多位愛心小朋友捐贈的繪畫作品，以及基於這些作品，由ATTA策劃與多位青年藝術家、插畫師共同二次創作的作品。發售部分所得將捐贈北京嫣然天使兒童公益基金會，助力慈善，為唇腭裂出生缺陷兒童及家庭盡一些綿薄之力。<br/><br/>兌換規則：<br/>1.符合兌換權益條件的用戶，請將幣安NFT uid、所在地和已打開盲盒截圖（符合權益組合）發送至官方郵箱 nft@atta.zone<br/>2.根據兌換規則，ATTA將會核對中獎用戶名單，在twitter和telegram社群中公布。其中天使NFT將由幣安NFT空投到用戶幣安賬戶中<br/>3.關於實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回復聯系和地址等信息，確認後，由ATTA官方統一寄送。（實物獎品郵寄僅限中國大陸、香港、臺灣和澳門地區）<br/>4.天使NFT的門票兌換，在幣安NFT開放提取後，由用戶提到ATTA官網平臺進行後續演唱會門票兌換<br/>',
+                  contentch : '小小慈善家藝術盲盒包括由十多位愛心小朋友捐贈的繪畫作品，以及基於這些作品，由ATTA策劃與多位青年藝術家、插畫師共同二次創作的作品。發售部分所得將捐贈北京嫣然天使兒童公益基金會，助力慈善，為唇腭裂出生缺陷兒童及家庭盡一些綿薄之力。<br/><br/>兌換規則：<br/>1.符合兌換權益條件的用戶，請將幣安NFT uid、所在地和已打開盲盒截圖（符合權益組合）發送至官方郵箱 nft@atta.zone<br/>2.根據兌換規則，ATTA將會核對中獎用戶名單，在twitter和telegram社群中公布。其中天使NFT將由幣安NFT空投到用戶幣安賬戶中<br/>3.關於實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回復聯系和地址等信息，確認後，由ATTA官方統一寄送。<br/>4.天使NFT的門票兌換，在幣安NFT開放提取後，由用戶提到ATTA官網平臺進行後續演唱會門票兌換<br/>',
                   url:'/imgs/Charity_img4.png',
                 },
           ],
@@ -156,7 +156,7 @@ export default defineComponent({
                                         {
                                             url : '/library/libraryList/cs14.png',
                                             titleen : 'A Rabbit',
-                                            titlech : '一只兔子',
+                                            titlech : '壹只兔子',
                                         },
                                         {
                                             url : '/library/libraryList/cs07.png',
@@ -176,15 +176,15 @@ export default defineComponent({
                                         {
                                             url : '/library/libraryList/cs02.png',
                                             titleen : 'Lovebirds',
-                                            titlech : '比翼鸟',
+                                            titlech : '比翼鳥',
                                         },
                                     ]
                             },
                             {
                                 namelableen : 'Utility NFT',
-                                namelablech : '权益NFT',
+                                namelablech : '權益NFT',
                                 tipsen: "1.All Mystery Box purchasers: will receive a special “ATTA X Smile Angel” donation certificate NFT.<br/>2.Collect all SSR+R NFTs: win one “ATTA X Smile Angel” Special Angel NFT, with which you can go to www.atta.zone to redeem VIP tickets for three “Smile Angel Special Concerts”",
-                                tipsch : "1.每位購買盲盒者都将獲贈“ATTA X 嫣然愛心捐贈”NFT紀念證書一份<br/>2.集齊所有SSR+R 類NFT：獲贈“ATTA X嫣然 天使NFT”一枚，憑天使NFT可前往兌換三場“嫣然愛音樂”演唱會VIP門票",
+                                tipsch : "1.每位購買盲盒者都将獲贈“ATTA X 嫣然愛心捐贈”NFT紀念證書一份<br/>2.集齊所有SSR+R 類NFT：獲贈“ATTA X 嫣然 天使NFT”一枚，憑天使NFT可前往兌換三場“嫣然愛音樂”演唱會VIP門票",
                                 imglist : [
                                     {
                                         url : '/imgs/Charity_img5.jpg',
@@ -192,7 +192,7 @@ export default defineComponent({
                                         titlech : 'NFT紀念證書',
                                     },
                                     {
-                                        url : '/series20.mp4',
+                                        url : '/imgs/Charity_img6.jpg',
                                         titleen : 'Special Angel NFT',
                                         titlech : '天使NFT',
                                     },
@@ -290,7 +290,7 @@ export default defineComponent({
                                         {
                                             url : '/library/libraryList/cs14.png',
                                             titleen : 'A Rabbit',
-                                            titlech : '一只兔子',
+                                            titlech : '壹只兔子',
                                         },
                                         {
                                             url : '/library/libraryList/cs07.png',
@@ -310,7 +310,7 @@ export default defineComponent({
                                         {
                                             url : '/library/libraryList/cs02.png',
                                             titleen : 'Lovebirds',
-                                            titlech : '比翼鸟',
+                                            titlech : '比翼鳥',
                                         },
                                     ]
                             },
@@ -318,13 +318,13 @@ export default defineComponent({
                 },
                 {
                     namelableen : 'Utility NFT',
-                    namelablech : '权益NFT',
+                    namelablech : '權益NFT',
                     list : [
                             {
                                     namelableen : 'Utility NFT',
-                                    namelablech : '权益NFT',
+                                    namelablech : '權益NFT',
                                     tipsen: "1.All Mystery Box purchasers: will receive a special “ATTA X Smile Angel” donation certificate NFT.<br/>2.Collect all SSR+R NFTs: win one “ATTA X Smile Angel” Special Angel NFT, with which you can go to www.atta.zone to redeem VIP tickets for three “Smile Angel Special Concerts”",
-                                    tipsch : "1.每位購買盲盒者都将獲贈“ATTA X 嫣然愛心捐贈”NFT紀念證書一份<br/>2.集齊所有SSR+R 類NFT：獲贈“ATTA X嫣然 天使NFT”一枚，憑天使NFT可前往兌換三場“嫣然愛音樂”演唱會VIP門票",
+                                    tipsch : "1.每位購買盲盒者都将獲贈“ATTA X 嫣然愛心捐贈”NFT紀念證書一份<br/>2.集齊所有SSR+R 類NFT：獲贈“ATTA X 嫣然 天使NFT”一枚，憑天使NFT可前往兌換三場“嫣然愛音樂”演唱會VIP門票",
                                     imglist : [
                                         {
                                             url : '/imgs/Charity_img5.jpg',
@@ -332,7 +332,7 @@ export default defineComponent({
                                             titlech : 'NFT紀念證書',
                                         },
                                         {
-                                            url : '/series20.mp4',
+                                            url : '/imgs/Charity_img6.jpg',
                                             titleen : 'Special Angel NFT',
                                             titlech : '天使NFT',
                                         },
