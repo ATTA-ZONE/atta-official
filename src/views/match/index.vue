@@ -85,6 +85,7 @@ import footerCell from "@/components/footer/index.vue";
 import countdown from "@/components/countdown/countdown.vue";
 import { initWeb3 } from "../../assets/js/initweb3";
 import { setCookie,getCookie,getAbi,moneyFormat } from "../../utils";
+import axios from "../../api";
 
 export default defineComponent({
   components: { headerCell,footerCell,countdown},
@@ -124,24 +125,43 @@ export default defineComponent({
     // 获取钱包地址
     const accountAddress = ref('');
     const getAddress = () => {
+      let info = {
+        address:'',
+        chainId:0
+      };
       if (!accountAddress.value) {
         // 获取钱包地址
         initWeb3().then((res: any) => {
           if (res.length > 0) {
             accountAddress.value = res[0];
+            info.address = res[0];
+            info.chainId = chainId.value;
             setCookie("currentAddress", res[0]);
-            window.location.reload();
+            axios.post(window.base_url + "/atta/addLogin", info)
+            .then((res:any) => {
+              window.location.reload();
+            }).catch(err=>{
+              window.location.reload();
+            })
           }
         });
       } else {
         window.CHAIN.WALLET.connect("MetaMask").then((res) => {
           if (res.length > 0) {
             accountAddress.value = res[0];
+            info.address = res[0];
+            info.chainId = chainId.value;
             setCookie("currentAddress", res[0]);
-            window.location.reload();
+            axios.post(window.base_url + "/atta/addLogin", info)
+            .then((res:any) => {
+              window.location.reload();
+            }).catch(err=>{
+              window.location.reload();
+            })
           }
         });
       }
+
     };
     const toBaZhuaYu = ()=>{
       window.open("https://www.bazhuayu.io/mobile/tc/blindbox.html")
