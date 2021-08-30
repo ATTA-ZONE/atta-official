@@ -63,12 +63,8 @@ export default defineComponent({
                 text:'library_copywriting_16'
               },
               {
-                url:'/library/libraryList/xdd02.png',
-                text:'library_copywriting_16'
-              },
-              {
-                url:'/library/libraryList/xdd03.png',
-                text:'library_copywriting_16'
+                url:'https://www.bazhuayu.io/upload/other/xu.png',
+                text:'xudongdong_second_img'
               }
             ]
           },
