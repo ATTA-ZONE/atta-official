@@ -148,6 +148,9 @@ export default defineComponent({
           left: 50%;
           transform: translateX(-50%);
         }
+        video {
+          width: 100% !important;
+        }
       }
       .modal-right {
         width: 40%;
