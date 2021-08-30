@@ -14,6 +14,7 @@
           <div v-if="data.minted">{{$t('library_copywriting_37')}}{{data.minted}}</div>
           <div v-if="data.BSC">{{$t('library_copywriting_38')}}{{data.BSC}}</div>
           <div v-if="data.ETH">{{$t('library_copywriting_39')}}{{data.ETH}}</div>
+          <div v-if="data.nftnumber">{{$t('nftnumber')}}{{data.nftnumber}}</div>
           <div v-if="data.desc && data.desc.length">{{$t('library_copywriting_40')}}{{data.desc[0]}}{{$t('library_copywriting_41')}}{{data.desc[1]}}{{$t('library_copywriting_42')}}{{data.desc[2]}}{{$t('library_copywriting_43')}}{{data.desc[3]}}{{$t('library_copywriting_44')}}{{data.desc[4]}}{{$t('library_copywriting_45')}}</div>
           <div v-if="data.rarity && data.rarity.length > 0">{{$t('library_copywriting_86')}}{{data.rarity[0]}}</div>
           <div v-if="data.rarity && data.rarity.length > 0">{{$t('library_copywriting_87')}}{{data.rarity[1]}}</div>

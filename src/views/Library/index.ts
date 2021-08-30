@@ -373,6 +373,7 @@ export default defineComponent({
         minted:info.nolist?info.nolist[1]:'',//已经铸造数量
         BSC:info.nolist?info.nolist[2]:'',
         ETH:info.nolist?info.nolist[3]:'',
+        nftnumber:info.nolist?info.nolist[4]+'':'',
         desc:info.desc?info.desc:'',//编号及说明
         rarity:info.rarity?info.rarity:''
       }
