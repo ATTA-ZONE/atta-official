@@ -14,6 +14,7 @@
           <div v-if="data.minted">{{$t('library_copywriting_37')}}{{data.minted}}</div>
           <div v-if="data.BSC">{{$t('library_copywriting_38')}}{{data.BSC}}</div>
           <div v-if="data.ETH">{{$t('library_copywriting_39')}}{{data.ETH}}</div>
+          <div v-if="data.nftnumber">{{$t('nftnumber')}}{{data.nftnumber}}</div>
           <div v-if="data.desc && data.desc.length">{{$t('library_copywriting_40')}}{{data.desc[0]}}{{$t('library_copywriting_41')}}{{data.desc[1]}}{{$t('library_copywriting_42')}}{{data.desc[2]}}{{$t('library_copywriting_43')}}{{data.desc[3]}}{{$t('library_copywriting_44')}}{{data.desc[4]}}{{$t('library_copywriting_45')}}</div>
           <div v-if="data.rarity && data.rarity.length > 0">{{$t('library_copywriting_86')}}{{data.rarity[0]}}</div>
           <div v-if="data.rarity && data.rarity.length > 0">{{$t('library_copywriting_87')}}{{data.rarity[1]}}</div>
@@ -66,8 +67,10 @@ export default defineComponent({
     .modal-container {
       width: 76% !important;
       height: auto !important;
-      padding: 30px !important;
+      padding: 20px !important;
       .close-btn {
+        right: 0 !important;
+        top: 0 !important;
         width: 24px !important;
       }
       .modal-content {
@@ -79,7 +82,7 @@ export default defineComponent({
           height: 300px !important;
         }
          .modal-right {
-           padding: 20px 0 0 0 !important;
+           padding: 20px !important;
            &-title {
             font-size: 16px !important;
             margin-bottom:10px;
@@ -91,6 +94,7 @@ export default defineComponent({
           &-digtials {
             font-size: 12px !important;
             position: relative !important;
+            bottom: 0 !important;
           }
          }
       }
@@ -110,8 +114,8 @@ export default defineComponent({
   }
   .modal-container {
     background: #323232;
-    width: 1100px;
-    height: 670px;
+    width: 900px;
+    height: 500px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -144,6 +148,9 @@ export default defineComponent({
           left: 50%;
           transform: translateX(-50%);
         }
+        video {
+          width: 100% !important;
+        }
       }
       .modal-right {
         width: 40%;
@@ -154,6 +161,11 @@ export default defineComponent({
         box-sizing: border-box;
         text-align: left;
         background-color: #6b6b6b;
+        ::-webkit-scrollbar {
+          width:2px;
+          height:4px;
+          background-color: #fff;
+        }
         &-title {
           font-size: 22px;
           margin-bottom:10px;
@@ -162,9 +174,12 @@ export default defineComponent({
         &-info {
           font-size: 16px;
           font-weight: 300;
+          max-height: 220px;
+          overflow-y: auto;
+          padding-right: 6px;
         }
         &-digtials {
-          position: absolute;
+          position: fixed;
           bottom: 30px;
           font-size: 16px;
           font-weight: 300;
