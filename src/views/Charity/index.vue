@@ -32,7 +32,7 @@
                             <div class="righttab flex">
                                 <div class="everyimgbox" v-for="everyimg in info.imglist" :key="everyimg.titleen">
                                     <img :src="everyimg.url" alt="" v-if="everyimg.url.indexOf('mp4') == -1">
-                                    <video :src="everyimg.url" v-else autoplay loop muted controls height="551.2"></video>
+                                    <video :src="everyimg.url" v-else autoplay loop muted height="551.2"></video>
                                     <p>{{isEn ? everyimg.titleen : everyimg.titlech}}</p>
                                 </div>
                             </div>
