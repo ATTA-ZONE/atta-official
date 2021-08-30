@@ -83,8 +83,10 @@ export default defineComponent({
                 text:'library_copywriting_17',
                 content:'library_copywriting_53',
                 mp4Url:'https://www.bazhuayu.io/upload/other/APCompressed.mp4',
+                noAPlist:[6,3,0,0,3],
+                APdesc:['011','01','0','000','005'],
                 nolist:[45,6,0,5,1],
-                desc:['011','01','0','000','005']
+                desc:['011','01','1','006','050']
               },
               {
                 url:'/library/libraryList/o202.png',
@@ -250,7 +252,7 @@ export default defineComponent({
                 text:'library_copywriting_89',
                 content:'library_copywriting_90',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/85310bef-bde7-4eea-b497-f44af33104f7.mp4',
-                nolist:[200,0,0,0],
+                nolist:[200,50,50,'0','0'],
                 desc:['080','01','1','001','200']
               },
               {
@@ -258,7 +260,7 @@ export default defineComponent({
                 text:'library_copywriting_99',
                 content:'library_copywriting_100',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/eb9ba69d-60ac-4ddb-9861-d6821f852127.mp4',
-                nolist:[730,0,0,0],
+                nolist:[730,100,100,'0','0'],
                 desc:['080','02','1','001','730']
               },
               {
@@ -266,7 +268,7 @@ export default defineComponent({
                 text:'library_copywriting_101',
                 content:'library_copywriting_102',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/18f1cb1d-4d54-4f4a-a9d0-5b7b59dfc5a1.mp4',
-                nolist:[1200,0,0,0],
+                nolist:[1200,270,270,'0','0'],
                 desc:['080','03','1','001','1200']
               },
               {
@@ -274,7 +276,7 @@ export default defineComponent({
                 text:'library_copywriting_107',
                 content:'library_copywriting_108',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/9dd79a18-68d5-4042-b83b-4cb239655436.mp4',
-                nolist:[1200,0,0,0],
+                nolist:[1200,169,169,'0'],
                 desc:['080','04','1','001','1200']
               },
               {
@@ -282,7 +284,7 @@ export default defineComponent({
                 text:'library_copywriting_91',
                 content:'library_copywriting_92',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/1c93a571-6db3-4430-baeb-6ac6afdca16e.mp4',
-                nolist:[200,0,0,0],
+                nolist:[200,56,56,'0','0'],
                 desc:['081','01','1','001','200']
               },
               {
@@ -290,7 +292,7 @@ export default defineComponent({
                 text:'library_copywriting_95',
                 content:'library_copywriting_96',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/88ca6573-46de-4330-a9ba-18535fb45cef.mp4',
-                nolist:[730,0,0,0],
+                nolist:[730,181,181,'0','0'],
                 desc:['081','02','1','001','730']
               },
               {
@@ -298,7 +300,7 @@ export default defineComponent({
                 text:'library_copywriting_109',
                 content:'library_copywriting_110',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/483b235e-f366-41d1-b582-af9c5bbdd76f.mp4',
-                nolist:[1200,0,0,0],
+                nolist:[1200,333,333,'0','0'],
                 desc:['081','03','1','001','1200']
               },
               {
@@ -306,7 +308,7 @@ export default defineComponent({
                 text:'library_copywriting_103',
                 content:'library_copywriting_104',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/c9119888-959a-4ba7-b7b1-2d81cdd266ce.mp4',
-                nolist:[1200,0,0,0],
+                nolist:[1200,307,307,'0','0'],
                 desc:['081','04','1','001','1200']
               },
               {
@@ -314,7 +316,7 @@ export default defineComponent({
                 text:'library_copywriting_93',
                 content:'library_copywriting_94',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/38942816-fa64-4ef7-be36-51955879772e.mp4',
-                nolist:[200,0,0,0],
+                nolist:[200,54,54,'0','0'],
                 desc:['082','01','1','001','200']
               },
               {
@@ -322,7 +324,7 @@ export default defineComponent({
                 text:'library_copywriting_97',
                 content:'library_copywriting_98',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/827a2541-0cd6-4d58-b87d-b964bb656782.mp4',
-                nolist:[730,0,0,0],
+                nolist:[740,177,177,,'0','0'],
                 desc:['082','02','1','001','740']
               },
               {
@@ -330,7 +332,7 @@ export default defineComponent({
                 text:'library_copywriting_112',
                 content:'library_copywriting_113',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/1a05d52e-1edd-4419-a2a4-e9a1f545bfdd.mp4',
-                nolist:[1200,0,0,0],
+                nolist:[1200,300,300,'0','0'],
                 desc:['028','04','1','001','1200']
               },
               {
@@ -338,7 +340,7 @@ export default defineComponent({
                 text:'library_copywriting_105',
                 content:'library_copywriting_106',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/9c1e11ec-8162-4af8-8cef-325e5461a045.mp4',
-                nolist:[1200,0,0,0],
+                nolist:[1200,290,290,'0','0'],
                 desc:['082','04','1','001','1200']
               }
             ]
