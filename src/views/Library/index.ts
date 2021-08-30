@@ -21,16 +21,10 @@ export default defineComponent({
                 text:'library_copywriting_15',
                 content:'library_copywriting_35',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-05-06/262791a6-8511-43d7-8363-d570d7d1abf3.mp4',
+                noAPlist:[6,4,1,0,3],
+                APdesc:['005','01','0','000','005'],
                 nolist:[45,24,23,1,0],
-                desc:['005','01','1','006','50']
-              },
-              {
-                url:'/library/libraryList/dw01.png',
-                text:'library_copywriting_15_2',
-                content:'library_copywriting_47',
-                mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-05-07/40069c82-2eb8-478e-bff0-c06f466687cf.mp4',
-                nolist:[150,80,73,5,2],
-                desc:['005','04','1','001','150']
+                desc:['005','01','1','006','050']
               },
               {
                 url:'/library/libraryList/dw03.png',
@@ -47,6 +41,14 @@ export default defineComponent({
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-05-06/550f7819-6382-4c75-ad4e-836d42729aa7.mp4',
                 nolist:[150,85,73,5,7],
                 desc:['005','03','1','001','150']
+              },
+              {
+                url:'/library/libraryList/dw01.png',
+                text:'library_copywriting_15_2',
+                content:'library_copywriting_47',
+                mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-05-07/40069c82-2eb8-478e-bff0-c06f466687cf.mp4',
+                nolist:[150,80,73,5,2],
+                desc:['005','04','1','001','150']
               }
             ]
           },
@@ -113,8 +115,10 @@ export default defineComponent({
                 text:'library_copywriting_118',
                 content:'library_copywriting_117',
                 mp4Url:'https://www.atta.zone/ATTAdrop.mp4',
-                // nolist:[50,10,0,5,5],
-                // desc:['011','03','1','001','050']
+                // noAPlist:[6,4,1,0,3],
+                // APdesc:['005','01','0','000','005'],
+                nolist:[2000,2000,2000,0,0],
+                descText:'1 （統壹爲1155鑄造方式）'
               },
               {
                 url:'',
@@ -366,13 +370,20 @@ export default defineComponent({
         title:info.text,//标题
         content:info.content?info.content:'',//详情文案
         type:index&&index==1?'img':'video',
+        APtotal:info.noAPlist?info.noAPlist[0]:'',//总版数
+        APminted:info.noAPlist?info.noAPlist[1]:'',//已经铸造数量
+        APBSC:info.noAPlist?info.noAPlist[2]:'',
+        APETH:info.noAPlist?info.noAPlist[3]:'',
+        APnftnumber:info.noAPlist?info.noAPlist[4]+'':'',
+        APdesc:info.APdesc?info.APdesc:'',//编号及说明
         total:info.nolist?info.nolist[0]:'',//总版数
         minted:info.nolist?info.nolist[1]:'',//已经铸造数量
         BSC:info.nolist?info.nolist[2]:'',
         ETH:info.nolist?info.nolist[3]:'',
         nftnumber:info.nolist?info.nolist[4]+'':'',
         desc:info.desc?info.desc:'',//编号及说明
-        rarity:info.rarity?info.rarity:''
+        rarity:info.rarity?info.rarity:'',
+        descText:info.descText?info.descText:''
       }
       contents.value = data;
       modelBol.value = true;
