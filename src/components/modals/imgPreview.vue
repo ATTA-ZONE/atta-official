@@ -66,8 +66,10 @@ export default defineComponent({
     .modal-container {
       width: 76% !important;
       height: auto !important;
-      padding: 30px !important;
+      padding: 20px !important;
       .close-btn {
+        right: 0 !important;
+        top: 0 !important;
         width: 24px !important;
       }
       .modal-content {
@@ -79,7 +81,7 @@ export default defineComponent({
           height: 300px !important;
         }
          .modal-right {
-           padding: 20px 0 0 0 !important;
+           padding: 20px !important;
            &-title {
             font-size: 16px !important;
             margin-bottom:10px;
@@ -91,6 +93,7 @@ export default defineComponent({
           &-digtials {
             font-size: 12px !important;
             position: relative !important;
+            bottom: 0 !important;
           }
          }
       }
