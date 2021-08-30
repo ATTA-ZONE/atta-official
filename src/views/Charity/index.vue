@@ -31,7 +31,8 @@
                             </div>
                             <div class="righttab flex">
                                 <div class="everyimgbox" v-for="everyimg in info.imglist" :key="everyimg.titleen">
-                                    <img :src="everyimg.url" alt="">
+                                    <img :src="everyimg.url" alt="" v-if="everyimg.url.indexOf('mp4') == -1">
+                                    <video :src="everyimg.url" v-else autoplay loop muted controls height="551.2"></video>
                                     <p>{{isEn ? everyimg.titleen : everyimg.titlech}}</p>
                                 </div>
                             </div>
@@ -186,12 +187,12 @@ export default defineComponent({
                                 tipsch : "1.每位購買盲盒者都将獲贈“ATTA X 嫣然愛心捐贈”NFT紀念證書一份<br/>2.集齊所有SSR+R 類NFT：獲贈“ATTA X嫣然 天使NFT”一枚，憑天使NFT可前往兌換三場“嫣然愛音樂”演唱會VIP門票",
                                 imglist : [
                                     {
-                                        url : '/imgs/series1.png',
+                                        url : '/imgs/Charity_img5.jpg',
                                         titleen : 'Donation Certificate NFT',
                                         titlech : 'NFT紀念證書',
                                     },
                                     {
-                                        url : '/imgs/series1.png',
+                                        url : '/series20.mp4',
                                         titleen : 'Special Angel NFT',
                                         titlech : '天使NFT',
                                     },
@@ -326,12 +327,12 @@ export default defineComponent({
                                     tipsch : "1.每位購買盲盒者都将獲贈“ATTA X 嫣然愛心捐贈”NFT紀念證書一份<br/>2.集齊所有SSR+R 類NFT：獲贈“ATTA X嫣然 天使NFT”一枚，憑天使NFT可前往兌換三場“嫣然愛音樂”演唱會VIP門票",
                                     imglist : [
                                         {
-                                            url : '/imgs/series1.png',
+                                            url : '/imgs/Charity_img5.jpg',
                                             titleen : 'Donation Certificate NFT',
                                             titlech : 'NFT紀念證書',
                                         },
                                         {
-                                            url : '/imgs/series1.png',
+                                            url : '/series20.mp4',
                                             titleen : 'Special Angel NFT',
                                             titlech : '天使NFT',
                                         },
