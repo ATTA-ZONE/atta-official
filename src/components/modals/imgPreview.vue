@@ -66,8 +66,10 @@ export default defineComponent({
     .modal-container {
       width: 76% !important;
       height: auto !important;
-      padding: 30px !important;
+      padding: 20px !important;
       .close-btn {
+        right: 0 !important;
+        top: 0 !important;
         width: 24px !important;
       }
       .modal-content {
@@ -79,7 +81,7 @@ export default defineComponent({
           height: 300px !important;
         }
          .modal-right {
-           padding: 20px 0 0 0 !important;
+           padding: 20px !important;
            &-title {
             font-size: 16px !important;
             margin-bottom:10px;
@@ -91,6 +93,7 @@ export default defineComponent({
           &-digtials {
             font-size: 12px !important;
             position: relative !important;
+            bottom: 0 !important;
           }
          }
       }
@@ -110,8 +113,8 @@ export default defineComponent({
   }
   .modal-container {
     background: #323232;
-    width: 1100px;
-    height: 670px;
+    width: 900px;
+    height: 500px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -154,6 +157,11 @@ export default defineComponent({
         box-sizing: border-box;
         text-align: left;
         background-color: #6b6b6b;
+        ::-webkit-scrollbar {
+          width:2px;
+          height:4px;
+          background-color: #fff;
+        }
         &-title {
           font-size: 22px;
           margin-bottom:10px;
@@ -162,9 +170,12 @@ export default defineComponent({
         &-info {
           font-size: 16px;
           font-weight: 300;
+          max-height: 220px;
+          overflow-y: auto;
+          padding-right: 6px;
         }
         &-digtials {
-          position: absolute;
+          position: fixed;
           bottom: 30px;
           font-size: 16px;
           font-weight: 300;
