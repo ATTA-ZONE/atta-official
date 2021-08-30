@@ -176,21 +176,39 @@ export default defineComponent({
     });
 
     const getAddress = () => {
+      let info = {
+        address:'',
+        chainId:0
+      };
       if (!accountAddress.value) {
         // 获取钱包地址
         initWeb3().then((res: any) => {
           if (res.length > 0) {
             accountAddress.value = res[0];
+            info.address = res[0];
+            info.chainId = chainId.value;
             setCookie("currentAddress", res[0]);
-            window.location.reload();
+            axios.post(window.base_url + "/atta/addLogin", info)
+            .then((res:any) => {
+              window.location.reload();
+            }).catch(err=>{
+              window.location.reload();
+            })
           }
         });
       } else {
         window.CHAIN.WALLET.connect("MetaMask").then((res) => {
           if (res.length > 0) {
             accountAddress.value = res[0];
+            info.address = res[0];
+            info.chainId = chainId.value;
             setCookie("currentAddress", res[0]);
-            window.location.reload();
+            axios.post(window.base_url + "/atta/addLogin", info)
+            .then((res:any) => {
+              window.location.reload();
+            }).catch(err=>{
+              window.location.reload();
+            })
           }
         });
       }
