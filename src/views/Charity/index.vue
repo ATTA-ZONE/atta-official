@@ -2,203 +2,43 @@
   <header-cell />
   <div class="charitybox">
       <div class="titlebox">
-          <h1 class="Fzlt_Thb SiYuan-light">{{$t('charity_tit')}} | {{$t('charity_tit2')}}</h1>
-          <p>{{$t('charity_content')}}</p>
-          <div class="btnbox">
-              <span>{{$t('charity_btnlable')}}</span>
-              <button @click="jumppage()">{{$t('charity_btnname')}}</button>
-          </div>
-          <p class="auction-introduction">{{$t('auction_Introduction1')}}</p>
-          <p style="margin-top:0;">{{$t('auction_Introduction2')}}</p>
-          <div class="btnbox">
-              <span>{{$t('auction_btnlable')}}</span>
-              <button @click="jumppageAuction()">{{$t('auction_btnlable_btn')}}</button>
+            <h1 class="SiYuan-light">{{$t('charity_tit')}}</h1>
+            <img class="bannerimg bannerimg1" src="/imgs/Charity_img1.png" alt="">
+            <p v-html="$t('charity_content')"></p>
+      </div>
+      <img class="bannerimg bannerimg2" src="/imgs/Charity_img1.png" alt="">
+      <div class="contentsbox">
+          <div class="everybox" v-for="item in contentlist" :key="item.url">
+                <h1 v-html="isEn ? item.titleen : item.titlech"></h1>
+                <img :src="item.url" alt="">
+                <p v-html="isEn ? item.contenten : item.contentch"></p>
+                <img :src="item.url2" alt="" v-if="item.url2">
+                <p class="title2">{{isEn ? item.titleen2 : item.titlech2}}</p>
+                <p class="content2">{{isEn ? item.contenten2 : item.contentch2}}</p>
           </div>
       </div>
-      <div class="contentbox">
-        <div class="ssrseriesbox">
-            <div class="title flex">
-                <span class="Fzlt_Thb SiYuan-light" @click="showssrbool = !showssrbool">{{$t('charity_ssr_tit')}}</span>
-                <span class="tips" @click="showssrbool = !showssrbool">{{$t('Click to expand')}}</span>
-                <img style="margin-left:41px" :src="showssrbool ? '/imgs/arrow1.png' : '/imgs/arrow2.png'" alt="" @click="showssrbool = !showssrbool">
-            </div>
-            <div class="imgscontentbox flexbetween">
-                <div class="imgsevery series1">
-                    <el-carousel indicator-position="none" arrow="never" :height="winW+'px'">
-                        <el-carousel-item v-for="item in lbimgs[0]" :key="item">
-                            <img :src="item" alt="">
-                        </el-carousel-item>
-                    </el-carousel>
-                    <p>{{$t('charity_ssr_content1')}}</p>
-                </div>
-                <div class="imgsevery series2">
-                    <el-carousel indicator-position="none" arrow="never" :height="(winW02>0?winW02:winW)+'px'">
-                        <el-carousel-item v-for="item in lbimgs[1]" :key="item">
-                            <img :src="item" alt="">
-                        </el-carousel-item>
-                    </el-carousel>
-                    <p>{{$t('charity_ssr_content2')}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="rseriesbox" v-if="!showssrbool">
-            <div class="title flexbetween">
-                <span class="Fzlt_Thb SiYuan-light">{{$t('charity_r_tit')}}</span>
-            </div>
-            <div class="imgscontentbox flexbetween">
-                <div class="imgsevery series3">
-                    <el-carousel indicator-position="none" arrow="never"  :height="(winW03>0?winW03:winW)+'px'">
-                        <el-carousel-item v-for="item in lbimgs[2]" :key="item">
-                            <img :src="item" alt="">
-                        </el-carousel-item>
-                    </el-carousel>
-                    <p>{{$t('charity_r_content1')}}</p>
-                </div>
-                <div class="imgsevery series4">
-                    <el-carousel indicator-position="none" arrow="never" :height="(winW04>0?winW04:winW)+'px'">
-                        <el-carousel-item v-for="item in lbimgs[3]" :key="item">
-                            <img :src="item" alt="">
-                        </el-carousel-item>
-                    </el-carousel>
-                    <p>{{$t('charity_r_content2')}}</p>
-                </div>
-                <div class="imgsevery series5">
-                    <el-carousel indicator-position="none" arrow="never" :height="winW01+'px'">
-                        <el-carousel-item v-for="item in lbimgs[4]" :key="item">
-                            <img :src="item" alt="">
-                        </el-carousel-item>
-                    </el-carousel>
-                    <p>{{$t('charity_r_content3')}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="nseriesbox" v-if="!showssrbool">
-            <div class="title flexbetween">
-                <span class="Fzlt_Thb SiYuan-light">{{$t('charity_n_tit')}}</span>
-            </div>
-            <div class="imgscontentbox flexbetween">
-                <div class="imgsevery series6">
-                    <el-carousel indicator-position="none" arrow="never" :height="(winW05>0?winW05:winW)+'px'">
-                        <el-carousel-item v-for="item in lbimgs[5]" :key="item">
-                            <img :src="item" alt="">
-                        </el-carousel-item>
-                    </el-carousel>
-                    <p>{{$t('charity_n_content1')}}</p>
-                </div>
-                <div class="imgsevery series7">
-                    <el-carousel indicator-position="none" arrow="never" :height="(winW06>0?winW06:winW)+'px'">
-                        <el-carousel-item v-for="item in lbimgs[6]" :key="item">
-                            <img :src="item" alt="">
-                        </el-carousel-item>
-                    </el-carousel>
-                    <p>{{$t('charity_n_content2')}}</p>
-                </div>
-                <div class="imgsevery series8">
-                    <el-carousel indicator-position="none" arrow="never" :height="winW+'px'">
-                        <el-carousel-item v-for="item in lbimgs[7]" :key="item">
-                            <img :src="item" alt="">
-                        </el-carousel-item>
-                    </el-carousel>
-                    <p>{{$t('charity_n_content3')}}</p>
-                </div>
-                <div class="imgsevery series9">
-                    <el-carousel indicator-position="none" arrow="never" :height="winW+'px'">
-                        <el-carousel-item v-for="item in lbimgs[8]" :key="item">
-                            <img :src="item" alt="">
-                        </el-carousel-item>
-                    </el-carousel>
-                    <p>{{$t('charity_n_content4')}}</p>
-                </div>
-                <div class="imgsevery series10">
-                    <el-carousel indicator-position="none" arrow="never" :height="winW+'px'">
-                        <el-carousel-item v-for="item in lbimgs[13]" :key="item">
-                            <img :src="item" alt="">
-                        </el-carousel-item>
-                    </el-carousel>
-                    <p>{{$t('charity_n_content4_2')}}</p>
-                </div>
-                <div class="imgsevery series11">
-                    <el-carousel indicator-position="none" arrow="never" :height="(winW07>0?winW07:winW)+'px'">
-                        <el-carousel-item v-for="item in lbimgs[10]" :key="item">
-                            <img :src="item" alt="">
-                        </el-carousel-item>
-                    </el-carousel>
-                    <p>{{$t('charity_n_content6')}}</p>
-                </div>
-                <div class="imgsevery series12">
-                    <el-carousel indicator-position="none" arrow="never" :height="(winW06>0?winW06:winW)+'px'">
-                        <el-carousel-item v-for="item in lbimgs[11]" :key="item">
-                            <img :src="item" alt="">
-                        </el-carousel-item>
-                    </el-carousel>
-                    <p>{{$t('charity_n_content7')}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="nseriesbox" v-if="!showssrbool">
-            <div class="imgscontentbox flex">
-                <div class="imgsevery series13" style="margin-right:31.46px">
-                    <el-carousel indicator-position="none" arrow="never" :height="winW+'px'">
-                        <el-carousel-item v-for="item in lbimgs[12]" :key="item">
-                            <img :src="item" alt="">
-                        </el-carousel-item>
-                    </el-carousel>
-                    <p>{{$t('charity_n_content8')}}</p>
-                </div>
-                <div class="imgsevery series10">
-                    <el-carousel indicator-position="none" arrow="never" :height="winW+'px'">
-                        <el-carousel-item v-for="item in lbimgs[9]" :key="item">
-                            <img :src="item" alt="">
-                        </el-carousel-item>
-                    </el-carousel>
-                    <p>{{$t('charity_n_content5')}}</p>
-                </div>
-            </div>
-        </div>
-        <button @click="showssrbool = !showssrbool" class="webh5_foldbtn">
-            {{ showssrbool ? $t('charity_open') : $t('charity_retract')}}
-            <img :src="!showssrbool ? '/imgs/arrow3.png' : '/imgs/arrow4.png'" alt="">
-        </button>
-        <div class="nftseriesbox">
-            <div class="title flex">
-                <span class="Fzlt_Thb SiYuan-light" @click="showssrbool2 = !showssrbool2">{{$t('charity_nft_tit')}}</span>
-                <span class="tips" @click="showssrbool2 = !showssrbool2">{{$t('Click to expand')}}</span>
-                <img style="margin-left:41px;" :src="showssrbool2 ? '/imgs/arrow1.png' : '/imgs/arrow2.png'" alt="" @click="showssrbool2 = !showssrbool2">
-            </div>
-            <div class="rule">
-                <p class="rule_title">{{$t("rule_title")}}</p>
-                <p class="rule_title">{{$t("rule_tip1")}} nft@atta.zone {{isEn ? '.': '。'}}</p>
-                <p class="rule_title">{{$t("rule_tip2")}}</p>
-                <p class="rule_title">{{$t("rule_tip3")}}</p>
-                <p class="rule_title">{{$t("rule_tip4")}}</p>
-                <p class="rule_title">{{$t("rule_tip5")}}</p>
-            </div>
-            <div class="nftimgsbox imgscontentbox">
-                <div v-for="(item,index) in nftlist" :key="index" class="nftimgevery series14 flexbetween">
-                    <video autoplay loop
-                        :src="item.url"
-                        v-if="item.url.indexOf('mp4') != -1"
-                        muted
-                    ></video>
-                    <img v-else :src="item.url" alt="">
-                    <div class="wordsbox">
-                        <h1>{{isEn ? item.titleen : item.titlech}}</h1>
-                        <p>{{isEn ? item.contenten : item.contentch}}</p>
+      <div class="tablistbox">
+            <el-tabs v-model="activeName" @tab-click="handleClick">
+                <el-tab-pane :label="isEn ? item.namelableen : item.namelablech" :name="index" v-for="(item,index) in tablistdata" :key="item.namelableen">
+                    <div class="everytabbox">
+                        <div class="everytablist flex" v-for="info in item.list" :key="info.namelablech">
+                            <div class="lefttab">
+                                <h1>{{isEn ? info.namelableen : info.namelablech}}</h1>
+                                <p v-if="info.num1">{{$t('charity2_word1') + info.num1}}</p>
+                                <p v-if="info.num2">{{$t('charity2_word2') + info.num2}}</p>
+                                <p v-if="info.num3">{{$t('charity2_word3') + info.num3}}</p>
+                                <p v-if="info.tipsch" class="xgqy" v-html="isEn ? info.tipsen : info.tipsch"></p>
+                            </div>
+                            <div class="righttab flex">
+                                <div class="everyimgbox" v-for="everyimg in info.imglist" :key="everyimg.titleen">
+                                    <img :src="everyimg.url" alt="">
+                                    <p>{{isEn ? everyimg.titleen : everyimg.titlech}}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div v-for="(item,index) in nftlist2" :key="index" class="nftimgevery series14 flexbetween" v-if="!showssrbool2">
-                    <img :src="item.url" alt="">
-                    <div class="wordsbox">
-                        <h1>{{isEn ? item.titleen : item.titlech}}</h1>
-                        <p>{{isEn ? item.contenten : item.contentch}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button @click="showssrbool2 = !showssrbool2" class="webh5_foldbtn">
-            {{ showssrbool2 ? $t('charity_open') : $t('charity_retract')}}
-            <img :src="!showssrbool2 ? '/imgs/arrow3.png' : '/imgs/arrow4.png'" alt="">
-        </button>
+                </el-tab-pane>
+            </el-tabs>
       </div>
   </div>
   <footer-cell />
@@ -209,95 +49,296 @@ import { defineComponent, ref, computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import headerCell from "@/components/header/index.vue";
 import footerCell from "@/components/footer/index.vue";
-import { ElCarousel, ElCarouselItem } from 'element-plus';
+import {ElTabs,ElTabPane} from 'element-plus';
 // import 'element-plus/packages/theme-chalk/src/base.scss'
 
 export default defineComponent({
-  components: { headerCell,footerCell,ElCarousel,ElCarouselItem},
+  components: { headerCell,footerCell,ElTabs,ElTabPane},
   data() {
       return {
-          nftlist:[
+          contentlist : [
                 {
-                  titleen : '"ATTA X Smile Angel" donation certificate NFT',
-                  contenten : 'All Mystery Box purchasers: will receive a special “ATTA X Smile Angel” donation certificate NFT',
-                  titlech : '嫣然慈善愛心捐贈NFT紀念證書',
-                  contentch : '盲盒首次發行期間購買的用戶，都可以獲贈嫣然慈善愛心捐贈NFT紀念證書一份',
-                  url:'/imgs/series14.png',
+                  titleen : '01 Binance NFT for Good: ATTA X Miserable Faith X Smile Angel Foundation - May Love Be Without Worries Special Edition',
+                  contenten : 'May Love Be Without Worries was played by Miserable Faith and originally donated to Smile Angel Foundation. This special NFT version is produced by ATTA with only ONE version in the universe. Part of the auction will be donated to the Smile Angel Foundation to support children born with clefts and their families.',
+                  titlech : '01 Binance NFT for Good:<br/> 痛仰 - 願愛無憂特別版數字專輯',
+                  contentch : '《願愛⽆憂》由痛仰樂團演唱，是痛仰樂團贈送給北京嫣然天使⼉童公益基⾦會的歌曲。該⾸作品的NFT版本由北京嫣然天使⼉童公益基⾦會聯合官⽅合作夥伴ATTA精⼼製作呈現，全球限量1份。本次拍賣部分所得將捐贈北京嫣然天使⼉童公益基⾦會，助⼒慈善。',
+                  url:'/imgs/Charity_img2.png',
+                  url2:'/imgs/Charity_img3.png',
+                  titleen2 : '痛仰乐队',
+                  contenten2 : 'May Love Be Without Worries was played by Miserable Faith and originally donated to Smile Angel Foundation. This special NFT version is produced by ATTA with only ONE version in the universe. Part of the auction will be donated to the Smile Angel Foundation to support children born with clefts and their families.',
+                  titlech2 : '痛仰乐队',
+                  contentch2 : '成立於1999年的痛仰樂團（Miserable Faith）是當下中國享有最高聲譽的搖滾樂隊之一。組隊至今發行專輯及EP共六張 ，參加各類專場、音樂節演出數百場，獲得了覆蓋不同年齡層和身份内容的龐大樂迷群。他們從未離開中國搖滾第一線，也是其中少有的始終保持旺盛創作精力並成功實現轉型的搖滾勁旅。',
                 },
                 {
-                  titleen : '"ATTA X Smile Angel" Special Angel NFT',
-                  contenten : 'Collect all SSR+R NFTs: win one “ATTA X Smile Angel” Special Angel NFT, with which you can go to www.atta.zone to redeem VIP tickets for three “Smile Angel Special Concerts” ',
-                  titlech : 'ATTA X 嫣然天使NFT',
-                  contentch : '集齊所有SSR+R類NFT的用戶可以獲贈“ATTA X嫣然天使NFT”一枚，憑天使NFT可前往兌換今年三場“嫣然愛音樂”演唱會VIP門票，演出嘉賓包括痛仰樂團，木馬樂隊等。演出詳情和參加辦法請關注ATTA官網',
-                  url:'/series20.mp4',
-                }
-          ],
-          nftlist2:[
-                {
-                  titleen : 'large-size signature version of digital inkjet',
-                  contenten : 'Collect 2 different SSR NFTs: win one large-size signature version of digital inkjet created by young artists',
-                  titlech : '藝術家聯名創作的大尺寸簽名版數字噴繪',
-                  contentch : '集齊兩種SSR類NFT：獲贈本次藝術家聯名創作的大尺寸簽名版數字噴繪',
-                  url:'/imgs/series21.png',
-                },
-                {
-                  titleen : 'limited-edition "Sui Bian" T-shirt + one "Sui Bian" digital inkjet',
-                  contenten : 'Collect “Sui Bian” SSR NFT: win one limited-edition “Sui Bian” T-shirt + one “Sui Bian” digital inkjet',
-                  titlech : '限量版“隨便”T恤 +隨便噴繪',
-                  contentch : '收集“隨便”SSR NFT：獲贈實物限量版“隨便“T恤 +隨便噴繪一幅',
-                  url:'/imgs/series17.png',
-                },
-                {
-                  titleen : 'limited-edition "Snow Kid" T-shirt + any R NFT digital inkjet',
-                  contenten : 'Collect all R NFTs: win a limited-edition “Snow Kid” T-shirt + any R NFT digital inkjet',
-                  titlech : '限量版“雪孩子“T恤+ 指定R類噴繪”',
-                  contentch : '集齊所有R類NFT：獲贈實物限量版“雪孩子“T恤+ 指定R類噴繪一幅',
-                  url:'/imgs/series18.png',
-                },
-                {
-                  titleen : 'hardcopy of any NFT included in the box',
-                  contenten : 'Collect any R and 4 different N items: win one hardcopy of any NFT included in the box',
-                  titlech : '指定NFT的打印版',
-                  contentch : '集齊任意一種R+4種N類NFT：獲贈指定NFT的打印版一張',
-                  url:'/imgs/series22.png',
-                },
-                {
-                  titleen : 'illustrator-designed canvas bag',
-                  contenten : 'Collect 5 different N items: win one illustrator-designed canvas bag',
-                  titlech : '潮流插畫師帆布包',
-                  contentch : '集齊5種N類NFT：獲贈潮流插畫師帆布包一件',
-                  url:'/imgs/series19.png',
-                },
-                {
-                  titleen : '"Xi Diao" Tibetan Incense by Smile Angel',
-                  contenten : 'Collect 4 different N items: win one “Xi Diao” Tibetan Incense by Smile Angel',
-                  titlech : '嫣然典藏“喜調”藏香',
-                  contentch : '集齊4種N類NFT：獲贈嫣然典藏”喜調”藏香一份',
-                  url:'/imgs/series15.png',
-                },
-                {
-                  titleen : '"Xiao Te" Smile Angel 15-year Anniversary Bag',
-                  contenten : 'Collect 3 different N items: win one “Xiao Te” Smile Angel 15-year Anniversary Bag',
-                  titlech : '嫣然十五周年“小特”環保包',
-                  contentch : '集齊3種N類NFT：獲贈嫣然十五周年“小特“環保包',
-                  url:'/imgs/series16.png',
+                  titleen : '02 Binance NFT for Good: ATTA x Smile Angel Foundation Childhood Fantasy Mystery Box',
+                  contenten : 'ATTA X Smile Angel Foundation Childhood Fantasy Mystery Box includes paintings originally donated to the Smile Angel Foundation and were created by a dozen of boys and girls, including daughter of Faye Wong. Several up-and-coming young artists are also invited to recreate based on these original paintings and include their artwork in the Mystery Box. Part of the sales will be donated to the Smile Angel Foundation to support children born with clefts and their families.<br/><br/>Rules for Redeeming NFT Utilities：<br/>1. For users who are eligible to redeem the benefits, please send your BinanceNFT uid, your location and screenshots of your opened Mystery Box NFTs collection (NFT set that is eligible for relevant utilities) to official ATTA email: nft@atta.zone .<br/>2. According to the rules, ATTA will review the list of winners and make announcement on Twitter and Telegram. The Special Angel NFT will be distributed by Binance NFT to qualifying users’ Binance NFT account.<br/>3. Regarding the physical benefits and utilities, eligible users will receive a confirmation email. Upon receiving the email, users need to reply with their contact information, address, etc. ATTA will send out the rewards after confirming the information.<br/>4. For redeeming the Special Angel NFT, after Binance NFT have opened their claim function, users need to transfer it to ATTA’s official website and redeem the NFT there for concert ticket.<br/>5. If you have further questions, you can directly go through WeChat (atta_official) to contact ATTA customer service staff.<br/>',
+                  titlech : '02 Binance NFT for Good: <br/>小小慈善家藝術盲盒',
+                  contentch : '小小慈善家藝術盲盒包括由十多位愛心小朋友捐贈的繪畫作品，以及基於這些作品，由ATTA策劃與多位青年藝術家、插畫師共同二次創作的作品。發售部分所得將捐贈北京嫣然天使兒童公益基金會，助力慈善，為唇腭裂出生缺陷兒童及家庭盡一些綿薄之力。<br/><br/>兌換規則：<br/>1.符合兌換權益條件的用戶，請將幣安NFT uid、所在地和已打開盲盒截圖（符合權益組合）發送至官方郵箱 nft@atta.zone<br/>2.根據兌換規則，ATTA將會核對中獎用戶名單，在twitter和telegram社群中公布。其中天使NFT將由幣安NFT空投到用戶幣安賬戶中<br/>3.關於實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回復聯系和地址等信息，確認後，由ATTA官方統一寄送。（實物獎品郵寄僅限中國大陸、香港、臺灣和澳門地區）<br/>4.天使NFT的門票兌換，在幣安NFT開放提取後，由用戶提到ATTA官網平臺進行後續演唱會門票兌換<br/>',
+                  url:'/imgs/Charity_img4.png',
                 },
           ],
-          lbimgs : [
-              ['/imgs/series1.png','/imgs/series1_LB.png'],
-              ['/imgs/series2.png','/imgs/series2_LB.png'],
-              ['/imgs/series3.png','/imgs/series3_LB.png'],
-              ['/imgs/series4.png','/imgs/series4_LB.png'],
-              ['/imgs/series5.png','/imgs/series5_LB.png'],
-              ['/imgs/series6.png','/imgs/series6_LB.png'],
-              ['/imgs/series7.png','/imgs/series7_LB.png'],
-              ['/imgs/series8.png','/imgs/series8_LB.png'],
-              ['/imgs/series9.png','/imgs/series9_LB.png'],
-              ['/imgs/series10.png','/imgs/series10_LB.png'],
-              ['/imgs/series11.png','/imgs/series11_LB.png'],
-              ['/imgs/series12.png','/imgs/series12_LB.png'],
-              ['/imgs/series13.png','/imgs/series13_LB.png'],
-              ['/imgs/series9.png','/imgs/series9_LB_2.png'],
+          tablistdata : [
+                {
+                    namelableen : 'ALL NFT',
+                    namelablech : '全部NFT',
+                    list : [
+                            {
+                                    namelableen : 'SSR Series',
+                                    namelablech : 'SSR系列',
+                                    num1 : '700',
+                                    num2 : 'SSR',
+                                    num3 : '1.98%',
+                                    imglist : [
+                                        {
+                                            url : '/library/libraryList/cs01.png',
+                                            titleen : 'Happy Birthady',
+                                            titlech : 'Happy Birthady',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs09.png',
+                                            titleen : 'Sui Bian',
+                                            titlech : '隨便',
+                                        },
+                                    ]
+                            },
+                            {
+                                    namelableen : 'R Series',
+                                    namelablech : 'R系列',
+                                    num1 : '2300',
+                                    num2 : 'R',
+                                    num3 : '6.52%',
+                                    imglist : [
+                                        {
+                                            url : '/library/libraryList/cs03.png',
+                                            titleen : 'National Day',
+                                            titlech : '國慶',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs08.png',
+                                            titleen : 'A Panorama of Rivers and Mountains',
+                                            titlech : '千裏江山圖',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs06.png',
+                                            titleen : 'Girl',
+                                            titlech : '女孩',
+                                        },
+                                    ]
+                            },
+                            {
+                                    namelableen : 'N Series',
+                                    namelablech : 'N系列',
+                                    num1 : '3000',
+                                    num2 : 'N',
+                                    num3 : '8.50%',
+                                    imglist : [
+                                        {
+                                            url : '/library/libraryList/cs10.png',
+                                            titleen : "I'm a little bird",
+                                            titlech : '我是一只小小鸟',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs11.png',
+                                            titleen : 'Miss You',
+                                            titlech : 'Miss You',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs12.png',
+                                            titleen : 'Magpie',
+                                            titlech : '喜鵲',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs13.png',
+                                            titleen : 'Picasso Pigeon',
+                                            titlech : '畢加索-鴿子',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs14.png',
+                                            titleen : 'A Rabbit',
+                                            titlech : '一只兔子',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs07.png',
+                                            titleen : 'Drummer',
+                                            titlech : '鼓手',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs04.png',
+                                            titleen : 'Dad I love you',
+                                            titlech : '爸爸我愛你',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs05.png',
+                                            titleen : 'Picasso Pigeon',
+                                            titlech : '畢加索-鴿子',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs02.png',
+                                            titleen : 'Lovebirds',
+                                            titlech : '比翼鸟',
+                                        },
+                                    ]
+                            },
+                            {
+                                namelableen : 'Utility NFT',
+                                namelablech : '权益NFT',
+                                tipsen: "1.All Mystery Box purchasers: will receive a special “ATTA X Smile Angel” donation certificate NFT.<br/>2.Collect all SSR+R NFTs: win one “ATTA X Smile Angel” Special Angel NFT, with which you can go to www.atta.zone to redeem VIP tickets for three “Smile Angel Special Concerts”",
+                                tipsch : "1.每位購買盲盒者都将獲贈“ATTA X 嫣然愛心捐贈”NFT紀念證書一份<br/>2.集齊所有SSR+R 類NFT：獲贈“ATTA X嫣然 天使NFT”一枚，憑天使NFT可前往兌換三場“嫣然愛音樂”演唱會VIP門票",
+                                imglist : [
+                                    {
+                                        url : '/imgs/series1.png',
+                                        titleen : 'Donation Certificate NFT',
+                                        titlech : 'NFT紀念證書',
+                                    },
+                                    {
+                                        url : '/imgs/series1.png',
+                                        titleen : 'Special Angel NFT',
+                                        titlech : '天使NFT',
+                                    },
+                                ]
+                                                
+                            },
+                    ]
+                },
+                {
+                    namelableen : 'SSR',
+                    namelablech : 'SSR',
+                    list : [
+                            {
+                                    namelableen : 'SSR Series',
+                                    namelablech : 'SSR系列',
+                                    num1 : '700',
+                                    num2 : 'SSR',
+                                    num3 : '1.98%',
+                                    imglist : [
+                                        {
+                                            url : '/library/libraryList/cs01.png',
+                                            titleen : 'Happy Birthady',
+                                            titlech : 'Happy Birthady',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs09.png',
+                                            titleen : 'Sui Bian',
+                                            titlech : '隨便',
+                                        },
+                                    ]
+                            }
+                    ]
+                },
+                {
+                    namelableen : 'R',
+                    namelablech : 'R',
+                    list : [
+                            {
+                                    namelableen : 'R Series',
+                                    namelablech : 'R系列',
+                                    num1 : '2300',
+                                    num2 : 'R',
+                                    num3 : '6.52%',
+                                    imglist : [
+                                        {
+                                            url : '/library/libraryList/cs03.png',
+                                            titleen : 'National Day',
+                                            titlech : '國慶',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs08.png',
+                                            titleen : 'A Panorama of Rivers and Mountains',
+                                            titlech : '千裏江山圖',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs06.png',
+                                            titleen : 'Girl',
+                                            titlech : '女孩',
+                                        },
+                                    ]
+                            },
+                    ]
+                },
+                {
+                    namelableen : 'N',
+                    namelablech : 'N',
+                    list : [
+                            {
+                                    namelableen : 'N Series',
+                                    namelablech : 'N系列',
+                                    num1 : '3000',
+                                    num2 : 'N',
+                                    num3 : '8.50%',
+                                    imglist : [
+                                        {
+                                            url : '/library/libraryList/cs10.png',
+                                            titleen : "I'm a little bird",
+                                            titlech : '我是一只小小鸟',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs11.png',
+                                            titleen : 'Miss You',
+                                            titlech : 'Miss You',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs12.png',
+                                            titleen : 'Magpie',
+                                            titlech : '喜鵲',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs13.png',
+                                            titleen : 'Picasso Pigeon',
+                                            titlech : '畢加索-鴿子',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs14.png',
+                                            titleen : 'A Rabbit',
+                                            titlech : '一只兔子',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs07.png',
+                                            titleen : 'Drummer',
+                                            titlech : '鼓手',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs04.png',
+                                            titleen : 'Dad I love you',
+                                            titlech : '爸爸我愛你',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs05.png',
+                                            titleen : 'Picasso Pigeon',
+                                            titlech : '畢加索-鴿子',
+                                        },
+                                        {
+                                            url : '/library/libraryList/cs02.png',
+                                            titleen : 'Lovebirds',
+                                            titlech : '比翼鸟',
+                                        },
+                                    ]
+                            },
+                    ]
+                },
+                {
+                    namelableen : 'Utility NFT',
+                    namelablech : '权益NFT',
+                    list : [
+                            {
+                                    namelableen : 'Utility NFT',
+                                    namelablech : '权益NFT',
+                                    tipsen: "1.All Mystery Box purchasers: will receive a special “ATTA X Smile Angel” donation certificate NFT.<br/>2.Collect all SSR+R NFTs: win one “ATTA X Smile Angel” Special Angel NFT, with which you can go to www.atta.zone to redeem VIP tickets for three “Smile Angel Special Concerts”",
+                                    tipsch : "1.每位購買盲盒者都将獲贈“ATTA X 嫣然愛心捐贈”NFT紀念證書一份<br/>2.集齊所有SSR+R 類NFT：獲贈“ATTA X嫣然 天使NFT”一枚，憑天使NFT可前往兌換三場“嫣然愛音樂”演唱會VIP門票",
+                                    imglist : [
+                                        {
+                                            url : '/imgs/series1.png',
+                                            titleen : 'Donation Certificate NFT',
+                                            titlech : 'NFT紀念證書',
+                                        },
+                                        {
+                                            url : '/imgs/series1.png',
+                                            titleen : 'Special Angel NFT',
+                                            titlech : '天使NFT',
+                                        },
+                                    ]
+                            },
+                    ]
+                },
           ]
       };
   },
@@ -314,6 +355,7 @@ export default defineComponent({
     const winW05 = ref(0);
     const winW06 = ref(0);
     const winW07 = ref(0);
+    // const activeName = ref('1');
     if(window.innerWidth){
         if(window.innerWidth > 992){
             winW.value = window.innerWidth*0.29;
@@ -364,6 +406,8 @@ export default defineComponent({
     }
     const isEn = computed(() => {
       return locale.value.trim() == "en";
+    });
+    onMounted(() => {
     });
     const jumppage = () => {
         window.open('https://www.binance.com/en/nft/blindBox/detail?productId=116462123537859584');

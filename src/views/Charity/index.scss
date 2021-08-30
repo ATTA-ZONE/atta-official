@@ -1,5 +1,4 @@
 .charitybox{
-    padding: 0 10%;
     .flexbetween{
         display: flex;
         justify-content: space-between;
@@ -8,367 +7,229 @@
         color: #A9DEEE;
     }
     .titlebox{
-        border-bottom: 1px solid rgba($color: #fff, $alpha: 0.15);
+        width: 66.66%;
+        margin: 0 auto;
         padding-bottom: 33px;
         h1{
             font-weight: normal;
-            font-size: 30px;
+            font-size: 60px;
+            text-align: center;
         }
         p{
-            margin-top: 14px;
+            margin-top: 47px;
             font-family: Inter;
             font-style: normal;
             font-size: 18px;
-            line-height: 190%;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        .btnbox{
-            margin-top: 33px;
-            display: flex;
-            align-items: center;
-            span{
-                font-family: Inter;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 19.5px;
-                line-height: 183.5%;
-                letter-spacing: 0.01em;
-                color: #FFFFFF;
-            }
-            button{
-                background-color: transparent;
-                border: 1px solid #A8DEEE;
-                padding: 8px 30px;
-                font-family: Inter;
-                font-style: normal;
-                font-weight: 600;
-                font-size: 12px;
-                line-height: 22px;
-                text-align: center;
-                letter-spacing: -0.025em;
-                color: #A8DEEE;
-                cursor: pointer;
-            }
+            line-height: 150%;
+            color: rgba(255, 255, 255);
         }
         p.auction-introduction{
             margin-top: 28px;
         }
     }
-    .contentbox{
-        padding-top: 40px;
-        .ssrseriesbox,.rseriesbox,.nseriesbox,.nftseriesbox{
-            .title{
-                align-items: center;
-                font-size: 36px;
-                img,span{
-                    cursor: pointer;
-                }
-                img{
-                    margin-top: -7px;
-                }
-                .tips{
-                    font-style: normal;
-                    font-weight: 500;
-                    font-size: 20px;
-                    line-height: 190%;
-                    color: rgba(255, 255, 255, 0.7);
-                    margin-left: 77px;
-                    margin-top: -7px;
-                }
+    .bannerimg1{
+        display: none;
+    }
+    .bannerimg{
+        width: 100%;
+        background-size: 100% auto;
+        margin-top: 47px;
+        margin-bottom: 70px;
+    }
+    .contentsbox{
+        width: 52.77%;
+        margin: 0 auto;
+        text-align: center;
+        .everybox{
+            margin-top: 80px;
+            h1{
+                font-size: 38px;
+                line-height: 52px;
+                letter-spacing: 0.02em;
             }
-            .imgscontentbox{
-                margin-top: 25px;
-                margin-bottom: 25px;
-                flex-wrap: wrap;
-                .imgsevery{
-                    background: rgba(27,30,31);
-                    img{
-                        border-color: rgba(150, 150, 150, 0.25);
-                        border-style: solid;
-                        width: 100%;
-                        box-sizing: border-box;
-                    }
-                    p{
-                        font-family: Inter;
-                        font-style: normal;
-                        font-weight: 600;
-                        font-size: 18px;
-                        line-height: 190%;
-                    }
-                }
-                .series1,.series8,.series9,.series10,.series13{
-                    width: 31.119%;
-                    img{
-                        border-top-width: 28.6px;
-                        border-left-width: 26.15px;
-                        border-right-width: 26.15px;
-                        border-bottom-width: 27.58px;
-                    }
-                    p{
-                        padding: 22px 28px;
-                    }
-                }
-                .series2{
-                    width: 64.793%;
-                    img{
-                        border-top-width: 29px;
-                        border-left-width: 38px;
-                        border-right-width: 39px;
-                        border-bottom-width: 27.26px;
-                    }
-                    p{
-                        padding: 22px 28.53px;
-                    }
-                }
-                .series3,.series6{
-                    width: 50.991%;
-                    img{
-                        border-top-width: 29px;
-                        border-left-width: 42.6px;
-                        border-right-width: 43.09px;
-                        border-bottom-width: 27.17px;
-                    }
-                    p{
-                        padding: 22px 42px;
-                    }
-                }
-                .series4{
-                    width: 43.966%;
-                    img{
-                        border-top-width: 29px;
-                        border-left-width: 36.73px;
-                        border-right-width: 36.09px;
-                        border-bottom-width: 27.26px;
-                    }
-                    p{
-                        padding: 22px 36.73px;
-                    }
-                }
-                .series5{
-                    width: 36.46%;
-                    img{
-                        border-top-width: 31px;
-                        border-left-width: 43px;
-                        border-right-width: 49px;
-                        border-bottom-width: 27.26px;
-                    }
-                    p{
-                        padding: 22px 43px;
-                    }
-                }
-                .series7{
-                    width: 46.115%;
-                    img{
-                        border-top-width: 29px;
-                        border-left-width: 28px;
-                        border-right-width: 27px;
-                        border-bottom-width: 28.26px;
-                    }
-                    p{
-                        padding: 22px 28px;
-                    }
-                }
-                .series11{
-                    width: 50.33%;
-                    img{
-                        border-top-width: 29px;
-                        border-left-width: 26px;
-                        border-right-width: 25px;
-                        border-bottom-width: 27.26px;
-                    }
-                    p{
-                        padding: 22px 26px;
-                    }
-                }
-                .series12{
-                    width: 45.409%;
-                    img{
-                        border-top-width: 28px;
-                        border-left-width: 31px;
-                        border-right-width: 30px;
-                        border-bottom-width: 27.26px;
-                    }
-                    p{
-                        padding: 22px 31px;
-                    }
-                }
-                .series14{  
-                    img,video{
-                        border-top-width: 21.78px;
-                        border-left-width: 27px;
-                        border-right-width: 22px;
-                        border-bottom-width: 22.86px;
-                    }
-                }
-                .series5,.series8,.series9,.series10,.series11,.series12,.series13{
-                    margin-top: 40px;
-                }
+            img{
+                width: auto;
+                background-size: 100% auto;
+                margin-top: 80px;
             }
-            .nft_content_word{
-                font-family: Inter;
+            p{
+                text-align: left;
                 font-style: normal;
-                font-weight: 500;
-                font-size: 18px;
-                line-height: 190%;
-                color: rgba(255, 255, 255, 0.7);
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 150%;
+                margin-top: 100px;
             }
-            .rule{
-                color: rgba(255, 255, 255, 0.7);
-                font-family: Inter;
-                font-style: normal;
-                font-weight: 500;
-                font-size: 18px;
-                line-height: 190%;
+            .title2{
+                margin-top: 20px;
+                text-align: center;
+            }
+            .content2{
+                margin-top: 20px;
             }
         }
-        .rseriesbox,.nseriesbox,.nftseriesbox{
-            margin-top: 40px;
-        }
-        .nftimgsbox{
-            margin-top: 42px;
-            .nftimgevery{
-                margin-bottom: 40px;
-                img,video{
-                    border-color: rgba(150, 150, 150, 0.25);
-                    border-style: solid;
-                    box-sizing: border-box;
-                    width: 49.451%;
-                }
-               .wordsbox{
-                   width: 45%;
-                   padding-top: 20px;
-                   h1{
-                        font-weight: bold;
-                        font-size: 18px;
-                        line-height: 120%;
-                   }
-                   p{
-                        margin-top: 28px;
-                        font-family: Inter;
+    }
+    .tablistbox{
+        padding: 0 10% 50px 10%;
+        margin-top: 150px;
+        .everytabbox{
+            .everytablist{
+                align-items: flex-start;
+                .lefttab{
+                    width: 20%;
+                    margin-top: 30px;
+                    h1{
                         font-style: normal;
-                        font-weight: 500;
-                        font-size: 16px;
+                        font-weight: 800;
+                        font-size: 28px;
+                        line-height: 38px;
+                        letter-spacing: 0.02em;
+                        margin-bottom: 25px;
+                    }
+                    p{
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 20px;
                         line-height: 150%;
-                        letter-spacing: -0.01em;
-                        color: rgba(255, 255, 255, 0.6);
-                   }
-               }
+                        color: rgba(255, 255, 255, 0.8);    
+                        width: 85%;                    
+                    }
+                }
+                .righttab{
+                    width: 80%;
+                    flex-wrap: wrap;
+                    .everyimgbox{
+                        width: 33.33%;
+                        padding-right: 16px;
+                        box-sizing: border-box;
+                        display: flex;
+                        flex-direction: column;
+                        margin-top: 30px;
+                        img{
+                            width: 100%;
+                            background-size: 100% auto;
+                        }
+                        p{
+                            background: rgba(169, 222, 238, 0.1);
+                            padding: 18px 0 18px 17px;
+                        }
+                    }
+                    // .everyimgbox:nth-child(3n){
+                    //     padding-right: 0;
+                    // }
+                }
             }
         }
     }
     .webh5_foldbtn{
         display: none;
     }
+    .el-tabs__nav-wrap::after{
+        background-color: transparent;
+    }
+    .el-tabs__item{
+        font-size: 28px;
+        color: #fff !important;
+        margin-bottom: 7px;
+    }
+    .el-tabs__active-bar{
+        background-color: #A8DEEE;
+    }
 }
 @media only screen and (max-width: 992px){
-    .titlebox{
-        padding-bottom: 17px !important;
-        h1{
-            font-size: 20px !important;
-        }
-        p{
-            margin-top: 10px !important;
-            font-size: 12px !important;
-        }
-        p.auction-introduction{
-            margin-top: 20px !important;
-        }
-        .btnbox{
-            margin-top: 24px !important;
-            span{
-                font-size: 14px !important;
+    .charitybox{
+        .titlebox{
+            width: 100%;
+            .bannerimg1{
+                display: block;
+                margin-top: 40px;
+                margin-bottom: 62px;
             }
-            button{
-                font-size: 13px !important;
-                padding: 3.5px 22px !important;
+            h1,p{
+                width: 79.73%;
+                margin: 0 auto;
             }
-        }
-    }
-    .charitybox .contentbox {
-        padding-top: 24px;
-        .rseriesbox,.nseriesbox,.nftseriesbox{
-            margin-top: 0px !important;
-        }
-        .ssrseriesbox .title,.rseriesbox .title,.nseriesbox .title, .nftseriesbox .title{
-            font-size: 20px;
-            img{
-                // width: 19px;
-                display: none;
+            h1{
+                font-size: 28px;
+                font-weight: 800;
+                line-height: 140%;
             }
-            .tips{
-                display: none;
+            p{
+                font-size: 16px;
+            }
+            p.auction-introduction{
+                margin-top: 20px !important;
             }
         }
-        .imgscontentbox{
-            margin-top: 10px !important;
-            .series1,.series2,.series3,.series4,.series5,.series6,.series7,.series8,.series9,.series10,.series11,.series12,.series13{
-                width: 100% !important;
-                margin-bottom: 23.05px;
-                margin-top: 0px !important;
-                img{
-                    border-top-width: 25.59px !important;
-                    border-left-width: 23.4px !important;
-                    border-right-width: 23.4px !important;
-                    border-bottom-width: 24.68px !important;
-                }
-                p{
-                    padding: 19.19px 23.4px !important;
-                    font-size: 20px !important;
-                }
-            }
-            .series13{
-                margin-right: 0 !important;
-            }
+        .bannerimg2{
+            display: none;
         }
-    }
-    .webh5_foldbtn{
-        border: 1px solid #A8DEEE;
-        background-color: transparent;
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 13px;
-        line-height: 22px;
-        text-align: center;
-        letter-spacing: -0.025em;
-        color: #A8DEEE;
-        padding: 6.5px 21px;
-        display: flex;
-        align-items: center;
-        margin: auto;
-        margin-bottom: 20px;
-        display: block !important;
-        img{
-            width: 13px;
-            margin-left: 6px;
-        }
-    }
-    .nft_content_word{
-        font-size: 12px !important;
-    }
-    .nftimgsbox.imgscontentbox{
-        .nftimgevery{
-            flex-direction: column;
-            .series14{
-                border-top-width: 12px !important;
-                border-left-width: 15px !important;
-                border-right-width: 15px !important;
-                border-bottom-width: 12px !important;
-            }
-            img,video{
-                width: 100% !important;
-            }
-            .wordsbox{
-                background-color: rgb(29, 31, 31);
-                width: 100% !important;
-                padding: 17.25px 15px;
-                box-sizing: border-box;
+        .contentsbox{
+            width: 84%;
+            .everybox{
+                margin-top: 7px;
                 h1{
-                    font-size: 20px;
+                    font-size: 22px;
+                    line-height: 30px;
+                }
+                img,p{
+                    margin-top: 56px;
+                }
+                img{
+                    width: auto;
+                    max-width: 100%;
                 }
                 p{
-                    margin-top: 4px !important;
-                    font-size: 13px !important;
+                    font-size: 16px;
+                }
+            }
+        }
+        .tablistbox{
+            margin-top: 47px;
+            .el-tabs__header.is-top{
+                display: none;
+            }
+            .everytabbox .everytablist{
+                flex-wrap: wrap;
+                margin-bottom: 60px;
+                .lefttab,.righttab{
+                    margin-top: 0;
+                    width: 100%;
+                }
+                .lefttab{
+                    h1{
+                        width: 50%;
+                        display: inline-block;
+                        margin-bottom: 0;
+                    }
+                    p{
+                        display: inline-block;
+                        width: 50%;
+                        text-align: right;
+                    }
+                    p:nth-child(3),p:nth-child(4){
+                        width: 100%;
+                        text-align: right;
+                    }
+                    .xgqy{
+                        display: block;
+                        width: 95%;
+                        text-align: justify;
+                        margin-top: 20px;
+                    }
+                }
+                .righttab{
+                    overflow: auto;
+                    white-space:nowrap;
+                    display: block;
+                    .everyimgbox{
+                        display: inline-block;
+                        width: 100%;
+                        box-sizing: content-box;
+                        p{
+                            margin-top: -5px;
+                        }
+                    }
                 }
             }
         }
