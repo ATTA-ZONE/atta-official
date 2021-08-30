@@ -8,17 +8,28 @@
       </div>
       <div class="modal-right">
         <div class="modal-right-title">{{$t(data.title)}}</div>
-        <div :class="['modal-right-info',isEn ? 'justify' : '']" v-html="$t(data.content)"></div>
-        <div class="modal-right-digtials">
-          <div v-if="data.total">{{$t('library_copywriting_36')}}{{data.total}}</div>
-          <div v-if="data.minted">{{$t('library_copywriting_37')}}{{data.minted}}</div>
-          <div v-if="data.BSC">{{$t('library_copywriting_38')}}{{data.BSC}}</div>
-          <div v-if="data.ETH">{{$t('library_copywriting_39')}}{{data.ETH}}</div>
-          <div v-if="data.nftnumber">{{$t('nftnumber')}}{{data.nftnumber}}</div>
-          <div v-if="data.desc && data.desc.length">{{$t('library_copywriting_40')}}{{data.desc[0]}}{{$t('library_copywriting_41')}}{{data.desc[1]}}{{$t('library_copywriting_42')}}{{data.desc[2]}}{{$t('library_copywriting_43')}}{{data.desc[3]}}{{$t('library_copywriting_44')}}{{data.desc[4]}}{{$t('library_copywriting_45')}}</div>
-          <div v-if="data.rarity && data.rarity.length > 0">{{$t('library_copywriting_86')}}{{data.rarity[0]}}</div>
-          <div v-if="data.rarity && data.rarity.length > 0">{{$t('library_copywriting_87')}}{{data.rarity[1]}}</div>
-          <div v-if="data.rarity && data.rarity.length > 0">{{$t('library_copywriting_88')}}{{data.rarity[2]}}</div>
+        <div class="modal-info">
+          <div :class="['modal-right-info',isEn ? 'justify' : '']" v-html="$t(data.content)"></div>
+          <div class="modal-right-digtials">
+            <div v-if="data.APtotal">{{$t('library_copywriting_AP')}}{{$t('library_copywriting_36')}}{{data.APtotal}}</div>
+            <div v-if="data.APminted">{{$t('library_copywriting_AP')}}{{$t('library_copywriting_37')}}{{data.APminted}}</div>
+            <div v-if="data.APBSC">{{$t('library_copywriting_AP')}}{{$t('library_copywriting_38')}}{{data.APBSC}}</div>
+            <div v-if="data.APETH">{{$t('library_copywriting_AP')}}{{$t('library_copywriting_39')}}{{data.APETH}}</div>
+            <div v-if="data.APnftnumber">{{$t('library_copywriting_AP')}}{{$t('nftnumber')}}{{data.APnftnumber}}</div>
+
+            <div v-if="data.total">{{$t('library_copywriting_36')}}{{data.total}}</div>
+            <div v-if="data.minted">{{$t('library_copywriting_37')}}{{data.minted}}</div>
+            <div v-if="data.BSC">{{$t('library_copywriting_38')}}{{data.BSC}}</div>
+            <div v-if="data.ETH">{{$t('library_copywriting_39')}}{{data.ETH}}</div>
+            <div v-if="data.nftnumber">{{$t('nftnumber')}}{{data.nftnumber}}</div>
+            <div v-if="data.APdesc && data.APdesc.length">{{$t('library_copywriting_40')}}{{data.APdesc[0]}}{{$t('library_copywriting_41')}}{{data.APdesc[1]}}{{$t('library_copywriting_42')}}{{data.APdesc[2]}}{{$t('library_copywriting_43AP')}}{{data.APdesc[3]}}{{$t('library_copywriting_44')}}{{data.APdesc[4]}}{{$t('library_copywriting_45')}}</div>
+
+            <div v-if="data.desc && data.desc.length">{{$t('library_copywriting_40')}}{{data.desc[0]}}{{$t('library_copywriting_41')}}{{data.desc[1]}}{{$t('library_copywriting_42')}}{{data.desc[2]}}{{$t('library_copywriting_43')}}{{data.desc[3]}}{{$t('library_copywriting_44')}}{{data.desc[4]}}{{$t('library_copywriting_45')}}</div>
+            <div v-if="data.descText && data.descText.length">{{$t('library_copywriting_40')}}{{data.descText}}</div>
+            <div v-if="data.rarity && data.rarity.length > 0">{{$t('library_copywriting_86')}}{{data.rarity[0]}}</div>
+            <div v-if="data.rarity && data.rarity.length > 0">{{$t('library_copywriting_87')}}{{data.rarity[1]}}</div>
+            <div v-if="data.rarity && data.rarity.length > 0">{{$t('library_copywriting_88')}}{{data.rarity[2]}}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -174,15 +185,16 @@ export default defineComponent({
         &-info {
           font-size: 16px;
           font-weight: 300;
-          max-height: 220px;
-          overflow-y: auto;
           padding-right: 6px;
         }
         &-digtials {
-          position: fixed;
-          bottom: 30px;
+          margin-top: 30px;
           font-size: 16px;
           font-weight: 300;
+        }
+        .modal-info{
+          max-height: 400px;
+          overflow-y: auto;
         }
       }
     }
