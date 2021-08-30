@@ -17,19 +17,19 @@ export default defineComponent({
             logo:'',//右侧logo
             imgsList:[
               {
-                url:'/library/libraryList/dw01.png',
+                url:'/library/libraryList/dw02.png',
                 text:'library_copywriting_15',
                 content:'library_copywriting_35',
-                mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-05-07/40069c82-2eb8-478e-bff0-c06f466687cf.mp4',
-                nolist:[45,24,23,1],
+                mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-05-06/262791a6-8511-43d7-8363-d570d7d1abf3.mp4',
+                nolist:[45,24,23,1,0],
                 desc:['005','01','1','006','50']
               },
               {
-                url:'/library/libraryList/dw02.png',
+                url:'/library/libraryList/dw01.png',
                 text:'library_copywriting_15_2',
                 content:'library_copywriting_47',
-                mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-05-06/262791a6-8511-43d7-8363-d570d7d1abf3.mp4',
-                nolist:[150,80,75,5],
+                mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-05-07/40069c82-2eb8-478e-bff0-c06f466687cf.mp4',
+                nolist:[150,80,73,5,2],
                 desc:['005','04','1','001','150']
               },
               {
@@ -37,7 +37,7 @@ export default defineComponent({
                 text:'library_copywriting_15_3',
                 content:'library_copywriting_49',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-05-06/0f47d6d0-a9d3-4d95-9650-fb22da6c673b.mp4',
-                nolist:[150,80,75,5],
+                nolist:[150,80,70,5,5],
                 desc:['005','02','1','001','150']
               },
               {
@@ -45,7 +45,7 @@ export default defineComponent({
                 text:'library_copywriting_15_4',
                 content:'library_copywriting_51',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-05-06/550f7819-6382-4c75-ad4e-836d42729aa7.mp4',
-                nolist:[150,85,80,5],
+                nolist:[150,85,73,5,7],
                 desc:['005','03','1','001','150']
               }
             ]
@@ -85,15 +85,15 @@ export default defineComponent({
                 text:'library_copywriting_17',
                 content:'library_copywriting_53',
                 mp4Url:'https://www.bazhuayu.io/upload/other/APCompressed.mp4',
-                nolist:[45,6,1,5],
-                desc:['011','01','1','006','050']
+                nolist:[45,6,0,5,1],
+                desc:['011','01','0','000','005']
               },
               {
                 url:'/library/libraryList/o202.png',
                 text:'library_copywriting_17',
                 content:'library_copywriting_53_bw',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-02/54f4822a-046e-4d57-ac2b-fc86916f4ed1.mp4',
-                nolist:[45,6,1,5],
+                nolist:[45,6,0,5,1],
                 desc:['011','01','1','006','050']
               },
               {
@@ -101,7 +101,7 @@ export default defineComponent({
                 text:'library_copywriting_18',
                 content:'library_copywriting_55',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-02/1290705b-0231-4a63-a891-b9205a2d1a9d.mp4',
-                nolist:[80,8,3,5],
+                nolist:[50,8,0,5,3],
                 desc:['011','02','1','001','050']
               },
               {
@@ -109,8 +109,20 @@ export default defineComponent({
                 text:'library_copywriting_19',
                 content:'library_copywriting_57',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-02/291540c7-8961-40a0-b0a8-59b1f49a67a8.mp4',
-                nolist:[50,10,5,5],
+                nolist:[50,10,0,5,5],
                 desc:['011','03','1','001','050']
+              },
+              {
+                url:'/library/libraryList/o205.png',
+                text:'library_copywriting_118',
+                content:'library_copywriting_117',
+                mp4Url:'https://www.atta.zone/ATTAdrop.mp4',
+                // nolist:[50,10,0,5,5],
+                // desc:['011','03','1','001','050']
+              },
+              {
+                url:'',
+                text:''
               }
             ]
           },
@@ -206,11 +218,14 @@ export default defineComponent({
                 mp4Url:'https://www.bazhuayu.io/upload/other/tz.mp4',
                 rarity:['3000','N','8.50%']
               },
-              
               {
-                url:'',
-                text:''
-              }
+                url:'/library/libraryList/cs15.png',
+                text:'library_copywriting_119',
+                content:'library_copywriting_120',
+                mp4Url:'https://www.atta.zone/series20.mp4',
+                // nolist:[50,10,0,5,5],
+                // desc:['011','03','1','001','050']
+              },
             ]
           },
           {
@@ -267,7 +282,7 @@ export default defineComponent({
                 text:'library_copywriting_97',
                 content:'library_copywriting_98',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/827a2541-0cd6-4d58-b87d-b964bb656782.mp4',
-                nolist:[740,0,0,0],
+                nolist:[730,0,0,0],
                 desc:['082','02','1','001','730']
               },
               {
@@ -276,7 +291,7 @@ export default defineComponent({
                 content:'library_copywriting_100',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/eb9ba69d-60ac-4ddb-9861-d6821f852127.mp4',
                 nolist:[730,0,0,0],
-                desc:['011','01','1','006','050']
+                desc:['080','02','1','001','730']
               },
               {
                 url:'/library/libraryList/mh07.png',
@@ -284,7 +299,7 @@ export default defineComponent({
                 content:'library_copywriting_102',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/18f1cb1d-4d54-4f4a-a9d0-5b7b59dfc5a1.mp4',
                 nolist:[1200,0,0,0],
-                desc:['080','04','1','001','1200']
+                desc:['080','03','1','001','1200']
               },
               {
                 url:'/library/libraryList/mh08.png',
@@ -308,7 +323,7 @@ export default defineComponent({
                 content:'library_copywriting_108',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-19/9dd79a18-68d5-4042-b83b-4cb239655436.mp4',
                 nolist:[1200,0,0,0],
-                desc:['080','03','1','001','1200']
+                desc:['080','04','1','001','1200']
               },
               {
                 url:'/library/libraryList/mh11.png',
