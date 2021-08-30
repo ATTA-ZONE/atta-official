@@ -48,7 +48,7 @@
                 line-height: 52px;
                 letter-spacing: 0.02em;
             }
-            img{
+            img,video{
                 width: auto;
                 background-size: 100% auto;
                 margin-top: 80px;
@@ -115,6 +115,7 @@
                         p{
                             background: rgba(169, 222, 238, 0.1);
                             padding: 18px 0 18px 17px;
+                            font-family: NunitoSans;
                         }
                     }
                     // .everyimgbox:nth-child(3n){

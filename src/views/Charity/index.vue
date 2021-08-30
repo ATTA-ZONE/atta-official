@@ -10,7 +10,8 @@
       <div class="contentsbox">
           <div class="everybox" v-for="item in contentlist" :key="item.url">
                 <h1 v-html="isEn ? item.titleen : item.titlech"></h1>
-                <img :src="item.url" alt="">
+                <img :src="item.url" alt="" v-if="item.url.indexOf('mp4') == -1">
+                <video :src="item.url" v-else autoplay loop muted style="width: 300px;"></video>
                 <p v-html="isEn ? item.contenten : item.contentch"></p>
                 <img :src="item.url2" alt="" v-if="item.url2">
                 <p class="title2">{{isEn ? item.titleen2 : item.titlech2}}</p>
@@ -63,7 +64,7 @@ export default defineComponent({
                   contenten : 'May Love Be Without Worries was played by Miserable Faith and originally donated to Smile Angel Foundation. This special NFT version is produced by ATTA with only ONE version in the universe. Part of the auction will be donated to the Smile Angel Foundation to support children born with clefts and their families.',
                   titlech : '01 Binance NFT for Good:<br/> 痛仰 - 願愛無憂特別版數字專輯',
                   contentch : '《願愛⽆憂》由痛仰樂團演唱，是痛仰樂團贈送給北京嫣然天使⼉童公益基⾦會的歌曲。該⾸作品的NFT版本由北京嫣然天使⼉童公益基⾦會聯合官⽅合作夥伴ATTA精⼼製作呈現，全球限量1份。本次拍賣部分所得將捐贈北京嫣然天使⼉童公益基⾦會，助⼒慈善。',
-                  url:'/imgs/Charity_img2.png',
+                  url:'/Charity_img2.mp4',
                   url2:'/imgs/Charity_img3.png',
                   titleen2 : 'Miserable Faith',
                   contenten2 : 'Miserable faith, founded in 1999, is one of the most prestigious rock bands in China. The team has released six albums and EP so far  ， Participated in hundreds of special performances and music festivals, and won a large group of music fans covering different ages and identity attributes. They have never left the front line of Chinese Rock N Roll, and they are also a rare Rock N Roll force that has always maintained strong creative energy and successfully realized transformation.',
