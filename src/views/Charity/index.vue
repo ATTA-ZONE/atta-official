@@ -75,7 +75,7 @@ export default defineComponent({
                   titleen : '02 Binance NFT for Good: ATTA x Smile Angel Foundation Childhood Fantasy Mystery Box',
                   contenten : 'ATTA X Smile Angel Foundation Childhood Fantasy Mystery Box includes paintings originally donated to the Smile Angel Foundation and were created by a dozen of boys and girls, including daughter of Faye Wong. Several up-and-coming young artists are also invited to recreate based on these original paintings and include their artwork in the Mystery Box. Part of the sales will be donated to the Smile Angel Foundation to support children born with clefts and their families.<br/><br/>Rules for Redeeming NFT Utilities：<br/>1. For users who are eligible to redeem the benefits, please send your BinanceNFT uid, your location and screenshots of your opened Mystery Box NFTs collection (NFT set that is eligible for relevant utilities) to official ATTA email: nft@atta.zone .<br/>2. According to the rules, ATTA will review the list of winners and make announcement on Twitter and Telegram. The Special Angel NFT will be distributed by Binance NFT to qualifying users’ Binance NFT account.<br/>3. Regarding the physical benefits and utilities, eligible users will receive a confirmation email. Upon receiving the email, users need to reply with their contact information, address, etc. ATTA will send out the rewards after confirming the information.<br/>4. For redeeming the Special Angel NFT, after Binance NFT have opened their claim function, users need to transfer it to ATTA’s official website and redeem the NFT there for concert ticket.<br/>5. If you have further questions, you can directly go through WeChat (atta_official) to contact ATTA customer service staff.<br/>',
                   titlech : '02 Binance NFT for Good: <br/>小小慈善家藝術盲盒',
-                  contentch : '小小慈善家藝術盲盒包括由十多位愛心小朋友捐贈的繪畫作品，以及基於這些作品，由ATTA策劃與多位青年藝術家、插畫師共同二次創作的作品。發售部分所得將捐贈北京嫣然天使兒童公益基金會，助力慈善，為唇腭裂出生缺陷兒童及家庭盡一些綿薄之力。<br/><br/>兌換規則：<br/>1.符合兌換權益條件的用戶，請將幣安NFT uid、所在地和已打開盲盒截圖（符合權益組合）發送至官方郵箱 nft@atta.zone<br/>2.根據兌換規則，ATTA將會核對中獎用戶名單，在twitter和telegram社群中公布。其中天使NFT將由幣安NFT空投到用戶幣安賬戶中<br/>3.關於實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回復聯系和地址等信息，確認後，由ATTA官方統一寄送。<br/>4.天使NFT的門票兌換，在幣安NFT開放提取後，由用戶提到ATTA官網平臺進行後續演唱會門票兌換<br/>',
+                  contentch : '小小慈善家藝術盲盒包括由十多位愛心小朋友捐贈的繪畫作品，以及基於這些作品，由ATTA策劃與多位青年藝術家、插畫師共同二次創作的作品。發售部分所得將捐贈北京嫣然天使兒童公益基金會，助力慈善，為唇腭裂出生缺陷兒童及家庭盡一些綿薄之力。<br/><br/>兌換規則：<br/>1.符合兌換權益條件的用戶，請將幣安NFT uid、所在地和已打開盲盒截圖（符合權益組合）發送至官方郵箱 nft@atta.zone<br/>2.根據兌換規則，ATTA將會核對中獎用戶名單，在twitter和telegram社群中公布。其中天使NFT將由幣安NFT空投到用戶幣安賬戶中<br/>3.關於實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回復聯系和地址等信息，確認後，由ATTA官方統一寄送<br/>4.天使NFT的門票兌換，在幣安NFT開放提取後，由用戶提到ATTA官網平臺進行後續演唱會門票兌換<br/>',
                   url:'/imgs/Charity_img4.png',
                 },
           ],
@@ -137,7 +137,7 @@ export default defineComponent({
                                         {
                                             url : '/library/libraryList/cs10.png',
                                             titleen : "I'm a little bird",
-                                            titlech : '我是一只小小鸟',
+                                            titlech : '我是壹只小小鳥',
                                         },
                                         {
                                             url : '/library/libraryList/cs11.png',
@@ -271,7 +271,7 @@ export default defineComponent({
                                         {
                                             url : '/library/libraryList/cs10.png',
                                             titleen : "I'm a little bird",
-                                            titlech : '我是一只小小鸟',
+                                            titlech : '我是壹只小小鳥',
                                         },
                                         {
                                             url : '/library/libraryList/cs11.png',
