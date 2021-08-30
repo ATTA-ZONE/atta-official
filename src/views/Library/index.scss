@@ -89,7 +89,7 @@
         overflow: hidden;
         transition: overflow 0.5s ease-in-out;
         margin-top: 43px;
-        justify-content:space-between;
+        justify-content: flex-start;
         font-size: 0;
         div.manghe-info{
           width: 22%;
@@ -100,15 +100,21 @@
         }
         .content-info{
           width: 30%;
-          margin-bottom: 26px;
+          margin: 0 1.5% 26px;
           position: relative;
           cursor: pointer;
+          font-size: 22px;
           background: rgba(169, 222, 238, 0.1);
           img{
             width: 100%;
           }
+          .cover-desc {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+          }
           p{
-            font-size: 22px;
             color: #FFFFFF;
             font-weight: bold;
             padding: 6px 12px;
