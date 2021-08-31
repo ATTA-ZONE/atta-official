@@ -43,7 +43,7 @@
           <p class="hanson">{{item.teamB?item.teamB:'TBD'}}</p>
         </div>
         <button v-if="nowDataTime <= item.gameTime && item.teamA != 'TBD' && item.teamB != 'TBD'" @click.stop="openDialog(item.attaMatchOptions[1],item.matchTokenId)" class="niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
-        <button @click="unDialog(item)" v-else class="unVote niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
+        <button @click="unDialog(item)"  v-else class="unVote niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
       </div>
     </div>
     <h5 class="prize-pools-title hanson">{{$t("pool_status")}}</h5>
@@ -172,9 +172,9 @@
         <p class="content-text">{{$t("voteR")}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;({{formContent['R'].length}}{{isEn?'':'个'}})</p>
         <p class="content-text">{{$t("voteN")}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;({{formContent['N'].length}}{{isEn?'':'个'}})</p>
         <p class="content-title">{{$t("voteSelected")}}</p>
-        <p class="content-text">{{$t("voteSR")}}<el-input-number v-model="SRNumber" :disabled="!formContent['SR'].length" :min="0" :max="formContent['SR'].length" label=""></el-input-number></p>
-        <p class="content-text">{{$t("voteR")}}<el-input-number v-model="RNumber" :disabled="!formContent['R'].length" :min="0" :max="formContent['R'].length" label=""></el-input-number></p>
-        <p class="content-text">{{$t("voteN")}}<el-input-number v-model="NNumber" :disabled="!formContent['N'].length" :min="0" :max="formContent['N'].length" label=""></el-input-number></p>
+        <p class="content-text">{{$t("voteSR")}}<el-input-number v-model="SRNumber" :disabled="!formContent['SR'].length" :min="0" :max="formContent['SR'].length" label=""></el-input-number><span class="number-max" @click="maxNumber('SR',formContent['SR'].length)">MAX</span></p>
+        <p class="content-text">{{$t("voteR")}}<el-input-number v-model="RNumber" :disabled="!formContent['R'].length" :min="0" :max="formContent['R'].length" label=""></el-input-number><span class="number-max" @click="maxNumber('R',formContent['R'].length)">MAX</span></p>
+        <p class="content-text">{{$t("voteN")}}<el-input-number v-model="NNumber" :disabled="!formContent['N'].length" :min="0" :max="formContent['N'].length" label=""></el-input-number><span class="number-max" @click="maxNumber('N',formContent['N'].length)">MAX</span></p>
       </div>
       <!-- 投票数据确认 -->
       <div v-if="voteType == 2" class="vote-content vote-content-result">

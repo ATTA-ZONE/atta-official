@@ -501,6 +501,17 @@ export default defineComponent({
     const moneyFormatNum = (num)=>{
       return moneyFormat(num*1)
     }
+    const maxNumber = (type:any,number:any)=>{
+      if(type == 'SR'){
+        SRNumber.value = number;
+      }
+      if(type == 'R'){
+        RNumber.value = number;
+      }
+      if(type == 'N'){
+        NNumber.value = number;
+      }
+    }
     return {
       hour,
       minute,
@@ -525,7 +536,8 @@ export default defineComponent({
       loadingDialog,
       modelTips,
       collapseIndex,
-      unDialog
+      unDialog,
+      maxNumber
     }
   }
 });
