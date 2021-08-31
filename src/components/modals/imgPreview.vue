@@ -165,7 +165,7 @@ export default defineComponent({
           left: 0;
           transform: translateY(-50%);
           width: 100%;
-          height: auto;
+          height: 100%;
         }
       }
       .modal-right {
