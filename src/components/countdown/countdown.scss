@@ -327,6 +327,9 @@
 
           }
         }
+        .el-input.is-disabled .el-input__inner{
+          color: #606266;
+        }
         .el-input-number{
           position: absolute;
           right: 90px;
@@ -334,7 +337,7 @@
           width: 143px;
           height:28px;
           line-height: 28px;
-          background:url(../match/input-number.png);
+          background:url(/match/input-number.png);
           background-size: 143px 28px;
           .el-input-number__decrease{
             border-right: 0.5px solid rgba(255, 255, 255, 0.25);
@@ -342,6 +345,9 @@
           .el-input-number__increase{
             border-left: 0.5px solid rgba(255, 255, 255, 0.25);
             right: 42px;
+          }
+          .el-input__inner{
+            color: #C0C4CC;
           }
           .el-input-number__decrease,.el-input-number__increase{
             margin-top: -1px;
