@@ -224,7 +224,7 @@ export default defineComponent({
                 url:'/library/libraryList/cs13.png',
                 text:'library_copywriting_32',
                 content:'library_copywriting_82',
-                mp4Url:'https://www.bazhuayu.io/upload/other/gezi1.mp4',
+                mp4Url:'https://www.bazhuayu.io/upload/other/gezi.mp4',
                 rarity:['3000','N','8.50%']
               },
               {
