@@ -469,6 +469,12 @@
             width: calc(100vw - 40px);
             left: 0;
           }
+          .content-text{
+            .number-max{
+              right: 28px;
+              top: 3px;
+            }
+          }
           .el-input-number{
             top: 2.5px;
             right: 28px;
