@@ -151,7 +151,7 @@ export default defineComponent({
         overflow: hidden;
         position: relative;
         background-color: #000;
-        img, video {
+        img {
           width: auto;
           height: 100%;
           position: absolute;
@@ -160,7 +160,12 @@ export default defineComponent({
           transform: translateX(-50%);
         }
         video {
-          width: 100% !important;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          width: 100%;
+          height: auto;
         }
       }
       .modal-right {
