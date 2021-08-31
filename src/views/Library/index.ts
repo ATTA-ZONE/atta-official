@@ -139,90 +139,105 @@ export default defineComponent({
               {
                 url:'/library/libraryList/cs01.png',
                 text:'library_copywriting_20',
+                content:'library_copywriting_58',
                 mp4Url:'https://www.bazhuayu.io/upload/other/happy.mp4',
                 rarity:['700','SSR','1.98%']
               },
               {
                 url:'/library/libraryList/cs02.png',
                 text:'library_copywriting_21',
+                content:'library_copywriting_60',
                 mp4Url:'https://www.bazhuayu.io/upload/other/biyi.mp4',
                 rarity:['3000','N','8.50%']
               },
               {
                 url:'/library/libraryList/cs03.png',
                 text:'library_copywriting_22',
+                content:'library_copywriting_62',
                 mp4Url:'https://www.bazhuayu.io/upload/other/gq.mp4',
                 rarity:['2300','R','6.52%']
               },
               {
                 url:'/library/libraryList/cs04.png',
                 text:'library_copywriting_23',
+                content:'library_copywriting_64',
                 mp4Url:'https://www.bazhuayu.io/upload/other/baba.mp4',
                 rarity:['3000','N','8.50%']
               },
               {
                 url:'/library/libraryList/cs05.png',
                 text:'library_copywriting_24',
+                content:'library_copywriting_66',
                 mp4Url:'https://www.bazhuayu.io/upload/other/gezi1.mp4',
                 rarity:['3000','N','8.50%']
               },
               {
                 url:'/library/libraryList/cs06.png',
                 text:'library_copywriting_25',
+                content:'library_copywriting_68',
                 mp4Url:'https://www.bazhuayu.io/upload/other/nh.mp4',
                 rarity:['2300','R','6.52%']
               },
               {
                 url:'/library/libraryList/cs07.png',
                 text:'library_copywriting_26',
+                content:'library_copywriting_70',
                 mp4Url:'https://www.bazhuayu.io/upload/other/gs.mp4',
                 rarity:['3000','N','8.50%']
               },
               {
                 url:'/library/libraryList/cs08.png',
                 text:'library_copywriting_27',
+                content:'library_copywriting_72',
                 mp4Url:'https://www.bazhuayu.io/upload/other/jst.mp4',
                 rarity:['2300','R','6.52%']
               },
               {
                 url:'/library/libraryList/cs09.png',
                 text:'library_copywriting_28',
+                content:'library_copywriting_74',
                 mp4Url:'https://www.bazhuayu.io/upload/other/suibian.mp4',
                 rarity:['700','SSR','1.98%']
               },
               {
                 url:'/library/libraryList/cs10.png',
                 text:'library_copywriting_29',
+                content:'library_copywriting_76',
                 mp4Url:'https://www.bazhuayu.io/upload/other/xxn.mp4',
                 rarity:['3000','N','8.50%']
               },
               {
                 url:'/library/libraryList/cs11.png',
                 text:'library_copywriting_30',
+                content:'library_copywriting_78',
                 mp4Url:'https://www.bazhuayu.io/upload/other/missyou.mp4',
                 rarity:['3000','N','8.50%']
               },
               {
                 url:'/library/libraryList/cs12.png',
                 text:'library_copywriting_31',
+                content:'library_copywriting_80',
                 mp4Url:'https://www.bazhuayu.io/upload/other/xq.mp4',
                 rarity:['3000','N','8.50%']
               },
               {
                 url:'/library/libraryList/cs13.png',
                 text:'library_copywriting_32',
+                content:'library_copywriting_82',
                 mp4Url:'https://www.bazhuayu.io/upload/other/gezi1.mp4',
                 rarity:['3000','N','8.50%']
               },
               {
                 url:'/library/libraryList/cs14.png',
                 text:'library_copywriting_33',
+                content:'library_copywriting_84',
                 mp4Url:'https://www.bazhuayu.io/upload/other/tz.mp4',
                 rarity:['3000','N','8.50%']
               },
               {
                 url:'/library/libraryList/cs15.png',
                 text:'library_copywriting_119',
+                // content:'library_copywriting_84',
                 content:'library_copywriting_120',
                 mp4Url:'https://www.atta.zone/series20.mp4',
                 // nolist:[50,10,0,5,5],
