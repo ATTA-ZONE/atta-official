@@ -303,6 +303,7 @@ width: 193px;
   line-height: 69px;
   text-align: center;
   color: #A8DEEE;
+  cursor: pointer;
 }
 .home-page .home-page-five {
   position: relative;
@@ -449,7 +450,8 @@ width: 193px;
 }
 .home-page .home-page-five .nft img {
   width: 60px;
-  height: 48px;
+  // height: 48px;
+  background-size: 100% auto;
 }
 .home-page .home-page-five .nft p {
   font-size: 18px;

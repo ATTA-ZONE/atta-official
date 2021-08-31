@@ -67,7 +67,7 @@
                 <p>{{ $t("DING WU") }}</p>
               </div>
             </div>
-            <a :class="isEn?'niunito':''" @click="toBaZhuayu">
+            <a :class="isEn?'niunito':''" @click="toBaZhuayu3">
               {{ $t("MUSIC") }}
             </a>
           </div>
@@ -93,17 +93,17 @@
                 <p>{{ $t("Raquel Xu") }}</p>
               </div>
             </div>
-            <a :class="isEn?'niunito':''" @click="toBaZhuayu">
+            <a :class="isEn?'niunito':''" @click="toBaZhuayu3">
               {{ $t("CELEBRITIES") }}
             </a>
           </div>
         </div>
         <div class="nft">
-          <img src="/imgs/Group426.png" />
+          <img src="/imgs/Asset3.png" />
           <p :class="isEn?'niunito':''">
             {{ $t("Find more exclusive NFTs at BAZHUAYU!") }}
           </p>
-          <a :class="isEn?'niunito':''" @click="toBaZhuayu">
+          <a :class="isEn?'niunito':''" @click="toBaZhuayu2">
             {{ $t("Discover More NFTs") }}
           </a>
         </div>
@@ -121,9 +121,17 @@ export default defineComponent({
     const toBaZhuayu = () => {
       window.open("https://www.bazhuayu.io/");
     };
+    const toBaZhuayu2 = () => {
+      window.open("https://www.atta.zone/libraries");
+    };
+    const toBaZhuayu3 = () => {
+      window.open("https://www.bazhuayu.io/mobile/tc/artwork.html?id=1");
+    };
 
     return {
       toBaZhuayu,
+      toBaZhuayu2,
+      toBaZhuayu3,
       isEn
     }
   }

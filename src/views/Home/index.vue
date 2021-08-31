@@ -84,7 +84,7 @@
               {{ $t("O2 Music NFT") }}
             </span>
             <p :class="['fz-fm-pf',isEn?'niunito':'']">{{ $t("musicInfo") }}</p>
-            <a>{{ $t("Coming soon") }}</a>
+            <a @click="jumppage()">{{ $t("Coming soon") }}</a>
           </div>
         </div>
       </div>
@@ -143,6 +143,9 @@ export default defineComponent({
         transitionImage.value = false;
       }
     };
+    const jumppage = () => {
+        window.open('https://www.bazhuayu.io/mobile/tc/artwork.html?id=1');
+    };
 
     onMounted(() => {
       window.addEventListener("scroll", handleScroll);
@@ -151,7 +154,8 @@ export default defineComponent({
     return {
       transitionImage,
       isEn,
-      playVideo
+      playVideo,
+      jumppage
     };
   },
 });

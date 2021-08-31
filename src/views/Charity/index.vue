@@ -152,7 +152,7 @@ export default defineComponent({
                                         {
                                             url : '/library/libraryList/cs13.png',
                                             titleen : 'Picasso Pigeon',
-                                            titlech : '畢加索-鴿子',
+                                            titlech : '畢加索-鴿子 01',
                                         },
                                         {
                                             url : '/library/libraryList/cs14.png',
@@ -172,7 +172,7 @@ export default defineComponent({
                                         {
                                             url : '/library/libraryList/cs05.png',
                                             titleen : 'Picasso Pigeon',
-                                            titlech : '畢加索-鴿子',
+                                            titlech : '畢加索-鴿子 02',
                                         },
                                         {
                                             url : '/library/libraryList/cs02.png',
@@ -286,7 +286,7 @@ export default defineComponent({
                                         {
                                             url : '/library/libraryList/cs13.png',
                                             titleen : 'Picasso Pigeon',
-                                            titlech : '畢加索-鴿子',
+                                            titlech : '畢加索-鴿子 01',
                                         },
                                         {
                                             url : '/library/libraryList/cs14.png',
@@ -306,7 +306,7 @@ export default defineComponent({
                                         {
                                             url : '/library/libraryList/cs05.png',
                                             titleen : 'Picasso Pigeon',
-                                            titlech : '畢加索-鴿子',
+                                            titlech : '畢加索-鴿子 02',
                                         },
                                         {
                                             url : '/library/libraryList/cs02.png',
