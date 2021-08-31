@@ -43,7 +43,8 @@
           <p class="hanson">{{item.teamB?item.teamB:'TBD'}}</p>
         </div>
         <button v-if="nowDataTime <= item.gameTime && item.teamA != 'TBD' && item.teamB != 'TBD'" @click.stop="openDialog(item.attaMatchOptions[1],item.matchTokenId)" class="niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
-        <button @click="unDialog(item)"  v-else class="unVote niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
+        <!-- @click="unDialog(item)" -->
+        <button @click.stop="openDialog(item.attaMatchOptions[1],item.matchTokenId)" v-else class="unVote niunito">{{item.attaMatchOptions[1]?item.attaMatchOptions[1].bettingItem:'vote to team'}}</button>
       </div>
     </div>
     <h5 class="prize-pools-title hanson">{{$t("pool_status")}}</h5>
