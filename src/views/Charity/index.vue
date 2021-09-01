@@ -200,6 +200,55 @@ export default defineComponent({
                                 ]
                                                 
                             },
+                            {
+                                namelableen : 'Physical Benefits',
+                                namelablech : '权益獎品',
+                                tipsen: "Please contact the ATTA staff to collect your utilities, and pay attention to the ATTA twitter and telegram communities. Regarding the physical benefits and utilities, eligible users will receive a confirmation email. Upon receiving the email, users need to reply with their contact information, address, etc. ATTA will send out the rewards after confirming the information.",
+                                tipsch : "本次所有權益請聯系ATTA工作人員領取，相關通知請關注ATTA Twitter和telegram社群。關於實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回復聯系和地址等信息，確認後，由ATTA官方統一寄送。",
+                                imglist : [
+                                    {
+                                        url : '/imgs/Charity_img7.jpg',
+                                        titleen : 'large-size signature version of digital inkjet',
+                                        titlech : '藝術家聯名創作的大尺寸簽名版數字',
+                                    },
+                                    {
+                                        url : '/imgs/Charity_img8.jpg',
+                                        titleen : 'limited-edition "Sui Bian" T-shirt + one "Sui Bian" digital inkjet',
+                                        titlech : '限量版“隨便”T恤 +隨便噴繪',
+                                    },
+                                    {
+                                        url : '/imgs/Charity_img9.jpg',
+                                        titleen : 'limited-edition "Snow Kid" T-shirt + any R NFT digital inkjet',
+                                        titlech : '限量版“雪孩子“T恤+ 指定R類噴繪”',
+                                    },
+                                    {
+                                        url : '/imgs/Charity_img10.jpg',
+                                        titleen : 'hardcopy of any NFT included in the box',
+                                        titlech : '指定NFT的打印版',
+                                    },
+                                    {
+                                        url : '/imgs/Charity_img11.jpg',
+                                        titleen : 'illustrator-designed canvas bag',
+                                        titlech : '潮流插畫師帆布包',
+                                    },
+                                    {
+                                        url : '/imgs/Charity_img12.jpg',
+                                        titleen : '"Xiao Te" Smile Angel 15-year Anniversary Bag',
+                                        titlech : '嫣然十五周年“小特”環保包',
+                                    },
+                                    {
+                                        url : '/imgs/Charity_img13.jpg',
+                                        titleen : '"Xi Diao" Tibetan Incense by Smile Angel',
+                                        titlech : '嫣然典藏“喜調”藏香',
+                                    },
+                                    {
+                                        url : '/imgs/Charity_img14.jpg',
+                                        titleen : 'Girl created by SUN Rushi-8 years old xTatoo Artist Jimmy Huang',
+                                        titlech : '《女孩》- 孫如是 - 8歲 x 紋身藝術家Jimmy Huang',
+                                    },
+                                ]
+                        },
+                            
                     ]
                 },
                 {
@@ -336,6 +385,60 @@ export default defineComponent({
                                             url : '/imgs/Charity_img6.jpg',
                                             titleen : 'Special Angel NFT',
                                             titlech : '天使NFT',
+                                        },
+                                    ]
+                            },
+                    ]
+                },
+                {
+                    namelableen : 'Physical Benefits',
+                    namelablech : '权益獎品',
+                    list : [
+                            {
+                                    namelableen : 'Physical Benefits',
+                                    namelablech : '权益獎品',
+                                    tipsen: "Please contact the ATTA staff to collect your utilities, and pay attention to the ATTA twitter and telegram communities. Regarding the physical benefits and utilities, eligible users will receive a confirmation email. Upon receiving the email, users need to reply with their contact information, address, etc. ATTA will send out the rewards after confirming the information.",
+                                    tipsch : "本次所有權益請聯系ATTA工作人員領取，相關通知請關注ATTA Twitter和telegram社群。關於實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回復聯系和地址等信息，確認後，由ATTA官方統一寄送。",
+                                    imglist : [
+                                        {
+                                            url : '/imgs/Charity_img7.jpg',
+                                            titleen : 'large-size signature version of digital inkjet',
+                                            titlech : '藝術家聯名創作的大尺寸簽名版數字',
+                                        },
+                                        {
+                                            url : '/imgs/Charity_img8.jpg',
+                                            titleen : 'limited-edition "Sui Bian" T-shirt + one "Sui Bian" digital inkjet',
+                                            titlech : '限量版“隨便”T恤 +隨便噴繪',
+                                        },
+                                        {
+                                            url : '/imgs/Charity_img9.jpg',
+                                            titleen : 'limited-edition "Snow Kid" T-shirt + any R NFT digital inkjet',
+                                            titlech : '限量版“雪孩子“T恤+ 指定R類噴繪”',
+                                        },
+                                        {
+                                            url : '/imgs/Charity_img10.jpg',
+                                            titleen : 'hardcopy of any NFT included in the box',
+                                            titlech : '指定NFT的打印版',
+                                        },
+                                        {
+                                            url : '/imgs/Charity_img11.jpg',
+                                            titleen : 'illustrator-designed canvas bag',
+                                            titlech : '潮流插畫師帆布包',
+                                        },
+                                        {
+                                            url : '/imgs/Charity_img12.jpg',
+                                            titleen : '"Xiao Te" Smile Angel 15-year Anniversary Bag',
+                                            titlech : '嫣然十五周年“小特”環保包',
+                                        },
+                                        {
+                                            url : '/imgs/Charity_img13.jpg',
+                                            titleen : '"Xi Diao" Tibetan Incense by Smile Angel',
+                                            titlech : '嫣然典藏“喜調”藏香',
+                                        },
+                                        {
+                                            url : '/imgs/Charity_img14.jpg',
+                                            titleen : 'Girl created by SUN Rushi-8 years old xTatoo Artist Jimmy Huang',
+                                            titlech : '《女孩》- 孫如是 - 8歲 x 紋身藝術家Jimmy Huang',
                                         },
                                     ]
                             },
