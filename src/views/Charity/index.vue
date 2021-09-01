@@ -92,12 +92,12 @@ export default defineComponent({
                                     num3 : '1.98%',
                                     imglist : [
                                         {
-                                            url : '/library/libraryList/cs01.png',
+                                            url : '/library/libraryList/cs01.jpg',
                                             titleen : 'Happy Birthady',
                                             titlech : 'Happy Birthady',
                                         },
                                         {
-                                            url : '/library/libraryList/cs09.png',
+                                            url : '/library/libraryList/cs09.jpg',
                                             titleen : 'Sui Bian',
                                             titlech : '隨便',
                                         },
@@ -111,17 +111,17 @@ export default defineComponent({
                                     num3 : '6.52%',
                                     imglist : [
                                         {
-                                            url : '/library/libraryList/cs03.png',
+                                            url : '/library/libraryList/cs03.jpg',
                                             titleen : 'National Day',
                                             titlech : '國慶',
                                         },
                                         {
-                                            url : '/library/libraryList/cs08.png',
+                                            url : '/library/libraryList/cs08.jpg',
                                             titleen : 'A Panorama of Rivers and Mountains',
                                             titlech : '千裏江山圖',
                                         },
                                         {
-                                            url : '/library/libraryList/cs06.png',
+                                            url : '/library/libraryList/cs06.jpg',
                                             titleen : 'Girl',
                                             titlech : '女孩',
                                         },
@@ -135,47 +135,47 @@ export default defineComponent({
                                     num3 : '8.50%',
                                     imglist : [
                                         {
-                                            url : '/library/libraryList/cs10.png',
+                                            url : '/library/libraryList/cs10.jpg',
                                             titleen : "I'm a little bird",
                                             titlech : '我是壹只小小鳥',
                                         },
                                         {
-                                            url : '/library/libraryList/cs11.png',
+                                            url : '/library/libraryList/cs11.jpg',
                                             titleen : 'Miss You',
                                             titlech : 'Miss You',
                                         },
                                         {
-                                            url : '/library/libraryList/cs12.png',
+                                            url : '/library/libraryList/cs12.jpg',
                                             titleen : 'Magpie',
                                             titlech : '喜鵲',
                                         },
                                         {
-                                            url : '/library/libraryList/cs13.png',
+                                            url : '/library/libraryList/cs13.jpg',
                                             titleen : 'Picasso Pigeon',
                                             titlech : '畢加索-鴿子 01',
                                         },
                                         {
-                                            url : '/library/libraryList/cs14.png',
+                                            url : '/library/libraryList/cs14.jpg',
                                             titleen : 'A Rabbit',
                                             titlech : '壹只兔子',
                                         },
                                         {
-                                            url : '/library/libraryList/cs07.png',
+                                            url : '/library/libraryList/cs07.jpg',
                                             titleen : 'Drummer',
                                             titlech : '鼓手',
                                         },
                                         {
-                                            url : '/library/libraryList/cs04.png',
+                                            url : '/library/libraryList/cs04.jpg',
                                             titleen : 'Dad I love you',
                                             titlech : '爸爸我愛你',
                                         },
                                         {
-                                            url : '/library/libraryList/cs05.png',
+                                            url : '/library/libraryList/cs05.jpg',
                                             titleen : 'Picasso Pigeon',
                                             titlech : '畢加索-鴿子 02',
                                         },
                                         {
-                                            url : '/library/libraryList/cs02.png',
+                                            url : '/library/libraryList/cs02.jpg',
                                             titleen : 'Lovebirds',
                                             titlech : '比翼鳥',
                                         },
@@ -214,12 +214,12 @@ export default defineComponent({
                                     num3 : '1.98%',
                                     imglist : [
                                         {
-                                            url : '/library/libraryList/cs01.png',
+                                            url : '/library/libraryList/cs01.jpg',
                                             titleen : 'Happy Birthady',
                                             titlech : 'Happy Birthady',
                                         },
                                         {
-                                            url : '/library/libraryList/cs09.png',
+                                            url : '/library/libraryList/cs09.jpg',
                                             titleen : 'Sui Bian',
                                             titlech : '隨便',
                                         },
@@ -239,17 +239,17 @@ export default defineComponent({
                                     num3 : '6.52%',
                                     imglist : [
                                         {
-                                            url : '/library/libraryList/cs03.png',
+                                            url : '/library/libraryList/cs03.jpg',
                                             titleen : 'National Day',
                                             titlech : '國慶',
                                         },
                                         {
-                                            url : '/library/libraryList/cs08.png',
+                                            url : '/library/libraryList/cs08.jpg',
                                             titleen : 'A Panorama of Rivers and Mountains',
                                             titlech : '千裏江山圖',
                                         },
                                         {
-                                            url : '/library/libraryList/cs06.png',
+                                            url : '/library/libraryList/cs06.jpg',
                                             titleen : 'Girl',
                                             titlech : '女孩',
                                         },
@@ -269,47 +269,47 @@ export default defineComponent({
                                     num3 : '8.50%',
                                     imglist : [
                                         {
-                                            url : '/library/libraryList/cs10.png',
+                                            url : '/library/libraryList/cs10.jpg',
                                             titleen : "I'm a little bird",
                                             titlech : '我是壹只小小鳥',
                                         },
                                         {
-                                            url : '/library/libraryList/cs11.png',
+                                            url : '/library/libraryList/cs11.jpg',
                                             titleen : 'Miss You',
                                             titlech : 'Miss You',
                                         },
                                         {
-                                            url : '/library/libraryList/cs12.png',
+                                            url : '/library/libraryList/cs12.jpg',
                                             titleen : 'Magpie',
                                             titlech : '喜鵲',
                                         },
                                         {
-                                            url : '/library/libraryList/cs13.png',
+                                            url : '/library/libraryList/cs13.jpg',
                                             titleen : 'Picasso Pigeon',
                                             titlech : '畢加索-鴿子 01',
                                         },
                                         {
-                                            url : '/library/libraryList/cs14.png',
+                                            url : '/library/libraryList/cs14.jpg',
                                             titleen : 'A Rabbit',
                                             titlech : '壹只兔子',
                                         },
                                         {
-                                            url : '/library/libraryList/cs07.png',
+                                            url : '/library/libraryList/cs07.jpg',
                                             titleen : 'Drummer',
                                             titlech : '鼓手',
                                         },
                                         {
-                                            url : '/library/libraryList/cs04.png',
+                                            url : '/library/libraryList/cs04.jpg',
                                             titleen : 'Dad I love you',
                                             titlech : '爸爸我愛你',
                                         },
                                         {
-                                            url : '/library/libraryList/cs05.png',
+                                            url : '/library/libraryList/cs05.jpg',
                                             titleen : 'Picasso Pigeon',
                                             titlech : '畢加索-鴿子 02',
                                         },
                                         {
-                                            url : '/library/libraryList/cs02.png',
+                                            url : '/library/libraryList/cs02.jpg',
                                             titleen : 'Lovebirds',
                                             titlech : '比翼鳥',
                                         },
