@@ -67,7 +67,7 @@ export default defineComponent({
                   url:'/Charity_img2.mp4',
                   url2:'/imgs/Charity_img3.png',
                   titleen2 : 'Miserable Faith',
-                  contenten2 : 'Miserable faith, founded in 1999, is one of the most prestigious rock bands in China. The team has released six albums and EP so far  ， Participated in hundreds of special performances and music festivals, and won a large group of music fans covering different ages and identity attributes. They have never left the front line of Chinese Rock N Roll, and they are also a rare Rock N Roll force that has always maintained strong creative energy and successfully realized transformation.',
+                  contenten2 : 'Miserable faith, founded in 1999, is one of the most prestigious rock bands in China. The team has released six albums and EP so far. Participated in hundreds of special performances and music festivals, and won a large group of music fans covering different ages and identity attributes. They have never left the front line of Chinese Rock N Roll, and they are also a rare Rock N Roll force that has always maintained strong creative energy and successfully realized transformation.',
                   titlech2 : '痛仰樂隊',
                   contentch2 : '成立於1999年的痛仰樂團（Miserable Faith）是當下中國享有最高聲譽的搖滾樂隊之一。組隊至今發行專輯及EP共六張 ，參加各類專場、音樂節演出數百場，獲得了覆蓋不同年齡層和身份内容的龐大樂迷群。他們從未離開中國搖滾第一線，也是其中少有的始終保持旺盛創作精力並成功實現轉型的搖滾勁旅。',
                 },
