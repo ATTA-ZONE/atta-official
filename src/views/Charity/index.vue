@@ -31,7 +31,7 @@
                                 <p v-if="info.tipsch" class="xgqy" v-html="isEn ? info.tipsen : info.tipsch"></p>
                             </div>
                             <div class="righttab flex">
-                                <div class="everyimgbox" v-for="everyimg in info.imglist" :key="everyimg.titleen">
+                                <div class="everyimgbox" v-for="everyimg in info.imglist" :key="everyimg.titleen" @click="openModal($event,everyimg)">
                                     <img :src="everyimg.url" alt="" v-if="everyimg.url.indexOf('mp4') == -1">
                                     <video :src="everyimg.url" v-else autoplay loop muted></video>
                                     <p>{{isEn ? everyimg.titleen : everyimg.titlech}}</p>
@@ -44,6 +44,8 @@
       </div>
   </div>
   <footer-cell />
+  {{modelBol}}
+  <mediaModal :content="contents" @closeNet="closeNet" v-if="modelBol"></mediaModal>
 </template>
 
 <script lang="ts">
@@ -52,10 +54,11 @@ import { useI18n } from "vue-i18n";
 import headerCell from "@/components/header/index.vue";
 import footerCell from "@/components/footer/index.vue";
 import {ElTabs,ElTabPane} from 'element-plus';
+import mediaModal from "@/components/modals/imgPreview.vue";
 // import 'element-plus/packages/theme-chalk/src/base.scss'
 
 export default defineComponent({
-  components: { headerCell,footerCell,ElTabs,ElTabPane},
+  components: { headerCell,footerCell,ElTabs,ElTabPane,mediaModal},
   data() {
       return {
           contentlist : [
@@ -210,42 +213,52 @@ export default defineComponent({
                                         url : '/imgs/Charity_img7.jpg',
                                         titleen : 'large-size signature version of digital inkjet',
                                         titlech : '藝術家聯名創作的大尺寸簽名版數字',
+                                        type:true,
+                                        content:'Charity_json_content1'
                                     },
                                     {
                                         url : '/imgs/Charity_img8.jpg',
                                         titleen : 'limited-edition "Sui Bian" T-shirt + one "Sui Bian" digital inkjet',
                                         titlech : '限量版“隨便”T恤 +隨便噴繪',
+                                        type:true,
+                                        content:'Charity_json_content2'
                                     },
                                     {
                                         url : '/imgs/Charity_img9.jpg',
                                         titleen : 'limited-edition "Snow Kid" T-shirt + any R NFT digital inkjet',
                                         titlech : '限量版“雪孩子“T恤+ 指定R類噴繪”',
-                                    },
-                                    {
-                                        url : '/imgs/Charity_img10.jpg',
-                                        titleen : 'hardcopy of any NFT included in the box',
-                                        titlech : '指定NFT的打印版',
-                                    },
-                                    {
-                                        url : '/imgs/Charity_img11.jpg',
-                                        titleen : 'illustrator-designed canvas bag',
-                                        titlech : '潮流插畫師帆布包',
-                                    },
-                                    {
-                                        url : '/imgs/Charity_img12.jpg',
-                                        titleen : '"Xiao Te" Smile Angel 15-year Anniversary Bag',
-                                        titlech : '嫣然十五周年“小特”環保包',
-                                    },
-                                    {
-                                        url : '/imgs/Charity_img13.jpg',
-                                        titleen : '"Xi Diao" Tibetan Incense by Smile Angel',
-                                        titlech : '嫣然典藏“喜調”藏香',
+                                        type:true,
+                                        content:'Charity_json_content3'
                                     },
                                     {
                                         url : '/imgs/Charity_img14.jpg',
                                         titleen : 'Girl created by SUN Rushi-8 years old xTatoo Artist Jimmy Huang',
                                         titlech : '《女孩》- 孫如是 - 8歲 x 紋身藝術家Jimmy Huang',
+                                        type:true,
+                                        content:'Charity_json_content4'
                                     },
+                                    {
+                                        url : '/imgs/Charity_img11.jpg',
+                                        titleen : 'illustrator-designed canvas bag',
+                                        titlech : '潮流插畫師帆布包',
+                                        type:true,
+                                        content:'Charity_json_content5'
+                                    },
+                                    {
+                                        url : '/imgs/Charity_img12.jpg',
+                                        titleen : '"Xiao Te" Smile Angel 15-year Anniversary Bag',
+                                        titlech : '嫣然十五周年“小特”環保包',
+                                        type:true,
+                                        content:'Charity_json_content6'
+                                    },
+                                    {
+                                        url : '/imgs/Charity_img13.jpg',
+                                        titleen : '"Xi Diao" Tibetan Incense by Smile Angel',
+                                        titlech : '嫣然典藏“喜調”藏香',
+                                        type:true,
+                                        content:'Charity_json_content7'
+                                    },
+                                    
                                 ]
                         },
                             
@@ -404,42 +417,52 @@ export default defineComponent({
                                             url : '/imgs/Charity_img7.jpg',
                                             titleen : 'large-size signature version of digital inkjet',
                                             titlech : '藝術家聯名創作的大尺寸簽名版數字',
+                                            type:true,
+                                            content:'Charity_json_content1'
                                         },
                                         {
                                             url : '/imgs/Charity_img8.jpg',
                                             titleen : 'limited-edition "Sui Bian" T-shirt + one "Sui Bian" digital inkjet',
                                             titlech : '限量版“隨便”T恤 +隨便噴繪',
+                                            type:true,
+                                            content:'Charity_json_content2'
                                         },
                                         {
                                             url : '/imgs/Charity_img9.jpg',
                                             titleen : 'limited-edition "Snow Kid" T-shirt + any R NFT digital inkjet',
                                             titlech : '限量版“雪孩子“T恤+ 指定R類噴繪”',
-                                        },
-                                        {
-                                            url : '/imgs/Charity_img10.jpg',
-                                            titleen : 'hardcopy of any NFT included in the box',
-                                            titlech : '指定NFT的打印版',
-                                        },
-                                        {
-                                            url : '/imgs/Charity_img11.jpg',
-                                            titleen : 'illustrator-designed canvas bag',
-                                            titlech : '潮流插畫師帆布包',
-                                        },
-                                        {
-                                            url : '/imgs/Charity_img12.jpg',
-                                            titleen : '"Xiao Te" Smile Angel 15-year Anniversary Bag',
-                                            titlech : '嫣然十五周年“小特”環保包',
-                                        },
-                                        {
-                                            url : '/imgs/Charity_img13.jpg',
-                                            titleen : '"Xi Diao" Tibetan Incense by Smile Angel',
-                                            titlech : '嫣然典藏“喜調”藏香',
+                                            type:true,
+                                            content:'Charity_json_content3'
                                         },
                                         {
                                             url : '/imgs/Charity_img14.jpg',
                                             titleen : 'Girl created by SUN Rushi-8 years old xTatoo Artist Jimmy Huang',
                                             titlech : '《女孩》- 孫如是 - 8歲 x 紋身藝術家Jimmy Huang',
+                                            type:true,
+                                            content:'Charity_json_content4'
                                         },
+                                        {
+                                            url : '/imgs/Charity_img11.jpg',
+                                            titleen : 'illustrator-designed canvas bag',
+                                            titlech : '潮流插畫師帆布包',
+                                            type:true,
+                                            content:'Charity_json_content5'
+                                        },
+                                        {
+                                            url : '/imgs/Charity_img12.jpg',
+                                            titleen : '"Xiao Te" Smile Angel 15-year Anniversary Bag',
+                                            titlech : '嫣然十五周年“小特”環保包',
+                                            type:true,
+                                            content:'Charity_json_content6'
+                                        },
+                                        {
+                                            url : '/imgs/Charity_img13.jpg',
+                                            titleen : '"Xi Diao" Tibetan Incense by Smile Angel',
+                                            titlech : '嫣然典藏“喜調”藏香',
+                                            type:true,
+                                            content:'Charity_json_content7' 
+                                        },
+                                        
                                     ]
                             },
                     ]
@@ -520,7 +543,32 @@ export default defineComponent({
     const jumppageAuction = () => {
         window.open('https://www.binance.com/en/nft/goods/detail?productId=4808176&isProduct=1');
     };
+
+    const modelBol = ref(false);
+    const contents = ref({});
+
+    // item:父级 index:第几个父级 info:子集  num:第几个子集
+    const openModal = (e,info)=>{
+        let item = JSON.parse(JSON.stringify(info))
+        console.log(item);
+      if(!item.type) return;
+      console.log(7777777777);
+      let data = {
+        url:item.url,//大图
+        mediaType:'image',
+        title:isEn.value ? item.titleen : item.titlech,//标题
+        content:item.content?item.content:'',//详情文案
+        type:'video'
+      }
+      console.log(data);
+      contents.value = data;
+      modelBol.value = true;
+    }
     
+    const closeNet = ()=>{
+      modelBol.value = false;
+      contents.value = {};
+    }
     return {
         showssrbool,
         showssrbool2,
@@ -534,7 +582,11 @@ export default defineComponent({
         winW06,
         winW07,
         jumppage,
-        jumppageAuction
+        jumppageAuction,
+        contents,
+        modelBol,
+        openModal,
+        closeNet
     };
   },
 });
