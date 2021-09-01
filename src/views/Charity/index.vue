@@ -31,7 +31,7 @@
                                 <p v-if="info.tipsch" class="xgqy" v-html="isEn ? info.tipsen : info.tipsch"></p>
                             </div>
                             <div class="righttab flex">
-                                <div class="everyimgbox" v-for="everyimg in info.imglist" :key="everyimg.titleen">
+                                <div class="everyimgbox" v-for="everyimg in info.imglist" :key="everyimg.titleen" @click="openModal($event,everyimg)">
                                     <img :src="everyimg.url" alt="" v-if="everyimg.url.indexOf('mp4') == -1">
                                     <video :src="everyimg.url" v-else autoplay loop muted></video>
                                     <p>{{isEn ? everyimg.titleen : everyimg.titlech}}</p>
@@ -44,6 +44,8 @@
       </div>
   </div>
   <footer-cell />
+  {{modelBol}}
+  <mediaModal :content="contents" @closeNet="closeNet" v-if="modelBol"></mediaModal>
 </template>
 
 <script lang="ts">
@@ -52,10 +54,11 @@ import { useI18n } from "vue-i18n";
 import headerCell from "@/components/header/index.vue";
 import footerCell from "@/components/footer/index.vue";
 import {ElTabs,ElTabPane} from 'element-plus';
+import mediaModal from "@/components/modals/imgPreview.vue";
 // import 'element-plus/packages/theme-chalk/src/base.scss'
 
 export default defineComponent({
-  components: { headerCell,footerCell,ElTabs,ElTabPane},
+  components: { headerCell,footerCell,ElTabs,ElTabPane,mediaModal},
   data() {
       return {
           contentlist : [
@@ -67,7 +70,7 @@ export default defineComponent({
                   url:'/Charity_img2.mp4',
                   url2:'/imgs/Charity_img3.png',
                   titleen2 : 'Miserable Faith',
-                  contenten2 : 'Miserable faith, founded in 1999, is one of the most prestigious rock bands in China. The team has released six albums and EP so far  ， Participated in hundreds of special performances and music festivals, and won a large group of music fans covering different ages and identity attributes. They have never left the front line of Chinese Rock N Roll, and they are also a rare Rock N Roll force that has always maintained strong creative energy and successfully realized transformation.',
+                  contenten2 : 'Miserable faith, founded in 1999, is one of the most prestigious rock bands in China. The team has released six albums and EP so far. Participated in hundreds of special performances and music festivals, and won a large group of music fans covering different ages and identity attributes. They have never left the front line of Chinese Rock N Roll, and they are also a rare Rock N Roll force that has always maintained strong creative energy and successfully realized transformation.',
                   titlech2 : '痛仰樂隊',
                   contentch2 : '成立於1999年的痛仰樂團（Miserable Faith）是當下中國享有最高聲譽的搖滾樂隊之一。組隊至今發行專輯及EP共六張 ，參加各類專場、音樂節演出數百場，獲得了覆蓋不同年齡層和身份内容的龐大樂迷群。他們從未離開中國搖滾第一線，也是其中少有的始終保持旺盛創作精力並成功實現轉型的搖滾勁旅。',
                 },
@@ -92,12 +95,12 @@ export default defineComponent({
                                     num3 : '1.98%',
                                     imglist : [
                                         {
-                                            url : '/library/libraryList/cs01.png',
+                                            url : '/library/libraryList/cs01.jpg',
                                             titleen : 'Happy Birthady',
                                             titlech : 'Happy Birthady',
                                         },
                                         {
-                                            url : '/library/libraryList/cs09.png',
+                                            url : '/library/libraryList/cs09.jpg',
                                             titleen : 'Sui Bian',
                                             titlech : '隨便',
                                         },
@@ -111,17 +114,17 @@ export default defineComponent({
                                     num3 : '6.52%',
                                     imglist : [
                                         {
-                                            url : '/library/libraryList/cs03.png',
+                                            url : '/library/libraryList/cs03.jpg',
                                             titleen : 'National Day',
                                             titlech : '國慶',
                                         },
                                         {
-                                            url : '/library/libraryList/cs08.png',
+                                            url : '/library/libraryList/cs08.jpg',
                                             titleen : 'A Panorama of Rivers and Mountains',
                                             titlech : '千裏江山圖',
                                         },
                                         {
-                                            url : '/library/libraryList/cs06.png',
+                                            url : '/library/libraryList/cs06.jpg',
                                             titleen : 'Girl',
                                             titlech : '女孩',
                                         },
@@ -135,47 +138,47 @@ export default defineComponent({
                                     num3 : '8.50%',
                                     imglist : [
                                         {
-                                            url : '/library/libraryList/cs10.png',
+                                            url : '/library/libraryList/cs10.jpg',
                                             titleen : "I'm a little bird",
                                             titlech : '我是壹只小小鳥',
                                         },
                                         {
-                                            url : '/library/libraryList/cs11.png',
+                                            url : '/library/libraryList/cs11.jpg',
                                             titleen : 'Miss You',
                                             titlech : 'Miss You',
                                         },
                                         {
-                                            url : '/library/libraryList/cs12.png',
+                                            url : '/library/libraryList/cs12.jpg',
                                             titleen : 'Magpie',
                                             titlech : '喜鵲',
                                         },
                                         {
-                                            url : '/library/libraryList/cs13.png',
+                                            url : '/library/libraryList/cs13.jpg',
                                             titleen : 'Picasso Pigeon',
                                             titlech : '畢加索-鴿子 01',
                                         },
                                         {
-                                            url : '/library/libraryList/cs14.png',
+                                            url : '/library/libraryList/cs14.jpg',
                                             titleen : 'A Rabbit',
                                             titlech : '壹只兔子',
                                         },
                                         {
-                                            url : '/library/libraryList/cs07.png',
+                                            url : '/library/libraryList/cs07.jpg',
                                             titleen : 'Drummer',
                                             titlech : '鼓手',
                                         },
                                         {
-                                            url : '/library/libraryList/cs04.png',
+                                            url : '/library/libraryList/cs04.jpg',
                                             titleen : 'Dad I love you',
                                             titlech : '爸爸我愛你',
                                         },
                                         {
-                                            url : '/library/libraryList/cs05.png',
+                                            url : '/library/libraryList/cs05.jpg',
                                             titleen : 'Picasso Pigeon',
                                             titlech : '畢加索-鴿子 02',
                                         },
                                         {
-                                            url : '/library/libraryList/cs02.png',
+                                            url : '/library/libraryList/cs02.jpg',
                                             titleen : 'Lovebirds',
                                             titlech : '比翼鳥',
                                         },
@@ -200,6 +203,65 @@ export default defineComponent({
                                 ]
                                                 
                             },
+                            {
+                                namelableen : 'Physical Benefits',
+                                namelablech : '权益獎品',
+                                tipsen: "Please contact the ATTA staff to collect your utilities, and pay attention to the ATTA twitter and telegram communities. Regarding the physical benefits and utilities, eligible users will receive a confirmation email. Upon receiving the email, users need to reply with their contact information, address, etc. ATTA will send out the rewards after confirming the information.",
+                                tipsch : "本次所有權益請聯系ATTA工作人員領取，相關通知請關注ATTA Twitter和telegram社群。關於實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回復聯系和地址等信息，確認後，由ATTA官方統一寄送。",
+                                imglist : [
+                                    {
+                                        url : '/imgs/Charity_img7.jpg',
+                                        titleen : 'large-size signature version of digital inkjet',
+                                        titlech : '藝術家聯名創作的大尺寸簽名版數字',
+                                        type:true,
+                                        content:'Charity_json_content1'
+                                    },
+                                    {
+                                        url : '/imgs/Charity_img8.jpg',
+                                        titleen : 'limited-edition "Sui Bian" T-shirt + one "Sui Bian" digital inkjet',
+                                        titlech : '限量版“隨便”T恤 +隨便噴繪',
+                                        type:true,
+                                        content:'Charity_json_content2'
+                                    },
+                                    {
+                                        url : '/imgs/Charity_img9.jpg',
+                                        titleen : 'limited-edition "Snow Kid" T-shirt + any R NFT digital inkjet',
+                                        titlech : '限量版“雪孩子“T恤+ 指定R類噴繪”',
+                                        type:true,
+                                        content:'Charity_json_content3'
+                                    },
+                                    {
+                                        url : '/imgs/Charity_img14.jpg',
+                                        titleen : 'Girl created by SUN Rushi-8 years old xTatoo Artist Jimmy Huang',
+                                        titlech : '《女孩》- 孫如是 - 8歲 x 紋身藝術家Jimmy Huang',
+                                        type:true,
+                                        content:'Charity_json_content4'
+                                    },
+                                    {
+                                        url : '/imgs/Charity_img11.jpg',
+                                        titleen : 'illustrator-designed canvas bag',
+                                        titlech : '潮流插畫師帆布包',
+                                        type:true,
+                                        content:'Charity_json_content5'
+                                    },
+                                    {
+                                        url : '/imgs/Charity_img12.jpg',
+                                        titleen : '"Xiao Te" Smile Angel 15-year Anniversary Bag',
+                                        titlech : '嫣然十五周年“小特”環保包',
+                                        type:true,
+                                        content:'Charity_json_content6'
+                                    },
+                                    {
+                                        url : '/imgs/Charity_img13.jpg',
+                                        titleen : '"Xi Diao" Tibetan Incense by Smile Angel',
+                                        titlech : '嫣然典藏“喜調”藏香',
+                                        type:true,
+                                        content:'Charity_json_content7'
+                                    },
+                                    
+                                ]
+                        },
+                            
                     ]
                 },
                 {
@@ -214,12 +276,12 @@ export default defineComponent({
                                     num3 : '1.98%',
                                     imglist : [
                                         {
-                                            url : '/library/libraryList/cs01.png',
+                                            url : '/library/libraryList/cs01.jpg',
                                             titleen : 'Happy Birthady',
                                             titlech : 'Happy Birthady',
                                         },
                                         {
-                                            url : '/library/libraryList/cs09.png',
+                                            url : '/library/libraryList/cs09.jpg',
                                             titleen : 'Sui Bian',
                                             titlech : '隨便',
                                         },
@@ -239,17 +301,17 @@ export default defineComponent({
                                     num3 : '6.52%',
                                     imglist : [
                                         {
-                                            url : '/library/libraryList/cs03.png',
+                                            url : '/library/libraryList/cs03.jpg',
                                             titleen : 'National Day',
                                             titlech : '國慶',
                                         },
                                         {
-                                            url : '/library/libraryList/cs08.png',
+                                            url : '/library/libraryList/cs08.jpg',
                                             titleen : 'A Panorama of Rivers and Mountains',
                                             titlech : '千裏江山圖',
                                         },
                                         {
-                                            url : '/library/libraryList/cs06.png',
+                                            url : '/library/libraryList/cs06.jpg',
                                             titleen : 'Girl',
                                             titlech : '女孩',
                                         },
@@ -269,47 +331,47 @@ export default defineComponent({
                                     num3 : '8.50%',
                                     imglist : [
                                         {
-                                            url : '/library/libraryList/cs10.png',
+                                            url : '/library/libraryList/cs10.jpg',
                                             titleen : "I'm a little bird",
                                             titlech : '我是壹只小小鳥',
                                         },
                                         {
-                                            url : '/library/libraryList/cs11.png',
+                                            url : '/library/libraryList/cs11.jpg',
                                             titleen : 'Miss You',
                                             titlech : 'Miss You',
                                         },
                                         {
-                                            url : '/library/libraryList/cs12.png',
+                                            url : '/library/libraryList/cs12.jpg',
                                             titleen : 'Magpie',
                                             titlech : '喜鵲',
                                         },
                                         {
-                                            url : '/library/libraryList/cs13.png',
+                                            url : '/library/libraryList/cs13.jpg',
                                             titleen : 'Picasso Pigeon',
                                             titlech : '畢加索-鴿子 01',
                                         },
                                         {
-                                            url : '/library/libraryList/cs14.png',
+                                            url : '/library/libraryList/cs14.jpg',
                                             titleen : 'A Rabbit',
                                             titlech : '壹只兔子',
                                         },
                                         {
-                                            url : '/library/libraryList/cs07.png',
+                                            url : '/library/libraryList/cs07.jpg',
                                             titleen : 'Drummer',
                                             titlech : '鼓手',
                                         },
                                         {
-                                            url : '/library/libraryList/cs04.png',
+                                            url : '/library/libraryList/cs04.jpg',
                                             titleen : 'Dad I love you',
                                             titlech : '爸爸我愛你',
                                         },
                                         {
-                                            url : '/library/libraryList/cs05.png',
+                                            url : '/library/libraryList/cs05.jpg',
                                             titleen : 'Picasso Pigeon',
                                             titlech : '畢加索-鴿子 02',
                                         },
                                         {
-                                            url : '/library/libraryList/cs02.png',
+                                            url : '/library/libraryList/cs02.jpg',
                                             titleen : 'Lovebirds',
                                             titlech : '比翼鳥',
                                         },
@@ -337,6 +399,70 @@ export default defineComponent({
                                             titleen : 'Special Angel NFT',
                                             titlech : '天使NFT',
                                         },
+                                    ]
+                            },
+                    ]
+                },
+                {
+                    namelableen : 'Physical Benefits',
+                    namelablech : '权益獎品',
+                    list : [
+                            {
+                                    namelableen : 'Physical Benefits',
+                                    namelablech : '权益獎品',
+                                    tipsen: "Please contact the ATTA staff to collect your utilities, and pay attention to the ATTA twitter and telegram communities. Regarding the physical benefits and utilities, eligible users will receive a confirmation email. Upon receiving the email, users need to reply with their contact information, address, etc. ATTA will send out the rewards after confirming the information.",
+                                    tipsch : "本次所有權益請聯系ATTA工作人員領取，相關通知請關注ATTA Twitter和telegram社群。關於實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回復聯系和地址等信息，確認後，由ATTA官方統一寄送。",
+                                    imglist : [
+                                        {
+                                            url : '/imgs/Charity_img7.jpg',
+                                            titleen : 'large-size signature version of digital inkjet',
+                                            titlech : '藝術家聯名創作的大尺寸簽名版數字',
+                                            type:true,
+                                            content:'Charity_json_content1'
+                                        },
+                                        {
+                                            url : '/imgs/Charity_img8.jpg',
+                                            titleen : 'limited-edition "Sui Bian" T-shirt + one "Sui Bian" digital inkjet',
+                                            titlech : '限量版“隨便”T恤 +隨便噴繪',
+                                            type:true,
+                                            content:'Charity_json_content2'
+                                        },
+                                        {
+                                            url : '/imgs/Charity_img9.jpg',
+                                            titleen : 'limited-edition "Snow Kid" T-shirt + any R NFT digital inkjet',
+                                            titlech : '限量版“雪孩子“T恤+ 指定R類噴繪”',
+                                            type:true,
+                                            content:'Charity_json_content3'
+                                        },
+                                        {
+                                            url : '/imgs/Charity_img14.jpg',
+                                            titleen : 'Girl created by SUN Rushi-8 years old xTatoo Artist Jimmy Huang',
+                                            titlech : '《女孩》- 孫如是 - 8歲 x 紋身藝術家Jimmy Huang',
+                                            type:true,
+                                            content:'Charity_json_content4'
+                                        },
+                                        {
+                                            url : '/imgs/Charity_img11.jpg',
+                                            titleen : 'illustrator-designed canvas bag',
+                                            titlech : '潮流插畫師帆布包',
+                                            type:true,
+                                            content:'Charity_json_content5'
+                                        },
+                                        {
+                                            url : '/imgs/Charity_img12.jpg',
+                                            titleen : '"Xiao Te" Smile Angel 15-year Anniversary Bag',
+                                            titlech : '嫣然十五周年“小特”環保包',
+                                            type:true,
+                                            content:'Charity_json_content6'
+                                        },
+                                        {
+                                            url : '/imgs/Charity_img13.jpg',
+                                            titleen : '"Xi Diao" Tibetan Incense by Smile Angel',
+                                            titlech : '嫣然典藏“喜調”藏香',
+                                            type:true,
+                                            content:'Charity_json_content7' 
+                                        },
+                                        
                                     ]
                             },
                     ]
@@ -417,7 +543,32 @@ export default defineComponent({
     const jumppageAuction = () => {
         window.open('https://www.binance.com/en/nft/goods/detail?productId=4808176&isProduct=1');
     };
+
+    const modelBol = ref(false);
+    const contents = ref({});
+
+    // item:父级 index:第几个父级 info:子集  num:第几个子集
+    const openModal = (e,info)=>{
+        let item = JSON.parse(JSON.stringify(info))
+        console.log(item);
+      if(!item.type) return;
+      console.log(7777777777);
+      let data = {
+        url:item.url,//大图
+        mediaType:'image',
+        title:isEn.value ? item.titleen : item.titlech,//标题
+        content:item.content?item.content:'',//详情文案
+        type:'video'
+      }
+      console.log(data);
+      contents.value = data;
+      modelBol.value = true;
+    }
     
+    const closeNet = ()=>{
+      modelBol.value = false;
+      contents.value = {};
+    }
     return {
         showssrbool,
         showssrbool2,
@@ -431,7 +582,11 @@ export default defineComponent({
         winW06,
         winW07,
         jumppage,
-        jumppageAuction
+        jumppageAuction,
+        contents,
+        modelBol,
+        openModal,
+        closeNet
     };
   },
 });

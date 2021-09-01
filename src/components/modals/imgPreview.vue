@@ -4,12 +4,13 @@
     <img @click="closeNet" class="close-btn" src="/imgs/close.png">
     <div class="modal-content" v-if="data.type == 'video'">
       <div class="modal-left">
-        <video autoplay loop muted controls :src="data.url" height="100%"></video>
+        <video v-if="!data.mediaType" autoplay loop muted controls :src="data.url" height="100%"></video>
+        <img v-else :src="data.url" alt="">
       </div>
       <div class="modal-right">
         <div class="modal-right-title">{{$t(data.title)}}</div>
         <div class="modal-info">
-          <div :class="['modal-right-info',isEn ? 'justify' : '']" v-html="$t(data.content)"></div>
+          <div v-if="data.content" :class="['modal-right-info',isEn ? 'justify' : '']" v-html="$t(data.content)"></div>
           <div class="modal-right-digtials">
             <div v-if="data.APtotal">{{$t('library_copywriting_AP')}}{{$t('library_copywriting_36')}}{{data.APtotal}}</div>
             <div v-if="data.APminted">{{$t('library_copywriting_AP')}}{{$t('library_copywriting_37')}}{{data.APminted}}</div>
