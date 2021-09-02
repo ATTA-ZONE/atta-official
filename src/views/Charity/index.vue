@@ -205,7 +205,7 @@ export default defineComponent({
                             },
                             {
                                 namelableen : 'Physical Benefits',
-                                namelablech : '权益獎品',
+                                namelablech : '權益獎品',
                                 tipsen: "Please contact the ATTA staff to collect your utilities, and pay attention to the ATTA twitter and telegram communities. Regarding the physical benefits and utilities, eligible users will receive a confirmation email. Upon receiving the email, users need to reply with their contact information, address, etc. ATTA will send out the rewards after confirming the information.",
                                 tipsch : "本次所有權益請聯系ATTA工作人員領取，相關通知請關注ATTA Twitter和telegram社群。關於實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回復聯系和地址等信息，確認後，由ATTA官方統一寄送。",
                                 imglist : [
@@ -232,8 +232,8 @@ export default defineComponent({
                                     },
                                     {
                                         url : '/imgs/Charity_img14.jpg',
-                                        titleen : 'Girl created by SUN Rushi-8 years old xTatoo Artist Jimmy Huang',
-                                        titlech : '《女孩》- 孫如是 - 8歲 x 紋身藝術家Jimmy Huang',
+                                        titleen : 'hardcopy of any NFT included in the box',
+                                        titlech : '指定NFT的打印版',
                                         type:true,
                                         content:'Charity_json_content4'
                                     },
@@ -405,11 +405,11 @@ export default defineComponent({
                 },
                 {
                     namelableen : 'Physical Benefits',
-                    namelablech : '权益獎品',
+                    namelablech : '權益獎品',
                     list : [
                             {
                                     namelableen : 'Physical Benefits',
-                                    namelablech : '权益獎品',
+                                    namelablech : '權益獎品',
                                     tipsen: "Please contact the ATTA staff to collect your utilities, and pay attention to the ATTA twitter and telegram communities. Regarding the physical benefits and utilities, eligible users will receive a confirmation email. Upon receiving the email, users need to reply with their contact information, address, etc. ATTA will send out the rewards after confirming the information.",
                                     tipsch : "本次所有權益請聯系ATTA工作人員領取，相關通知請關注ATTA Twitter和telegram社群。關於實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回復聯系和地址等信息，確認後，由ATTA官方統一寄送。",
                                     imglist : [
@@ -436,8 +436,8 @@ export default defineComponent({
                                         },
                                         {
                                             url : '/imgs/Charity_img14.jpg',
-                                            titleen : 'Girl created by SUN Rushi-8 years old xTatoo Artist Jimmy Huang',
-                                            titlech : '《女孩》- 孫如是 - 8歲 x 紋身藝術家Jimmy Huang',
+                                            titleen : 'hardcopy of any NFT included in the box',
+                                            titlech : '指定NFT的打印版',
                                             type:true,
                                             content:'Charity_json_content4'
                                         },
