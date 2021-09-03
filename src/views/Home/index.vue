@@ -25,15 +25,15 @@
         </div>
         <div class="game-list flex">
           <div>
-            <img src="/imgs/pageTworightTop.png" alt="">
+            <img src="/imgs/game1.png" alt="">
             <p>{{$t('home_match_words3')}}</p>
           </div>
           <div>
-            <img src="/imgs/pageTworightTop.png" alt="">
+            <img src="/imgs/game2.png" alt="">
             <p>{{$t('home_match_words4')}}</p>
           </div>
           <div>
-            <img src="/imgs/pageTworightTop.png" alt="">
+            <img src="/imgs/game3.png" alt="">
             <p>{{$t('home_match_words5')}}</p>
           </div>     
         </div>

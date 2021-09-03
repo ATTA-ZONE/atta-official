@@ -580,10 +580,12 @@ width: 193px;
       padding: 0 22%;
       justify-content:space-between;
       margin-top: 78px;
+      width: 100%;
       div{
+        width: 30%;
         img{
-          width: 227px;
-          height:318px;
+          width: 100%;
+          // height:318px;
         }
         p{
           font-size: 18px;
@@ -645,10 +647,10 @@ width: 193px;
         width: 100%;
         overflow: auto;
         div{
-          width: 185px;
+          width: 185px !important;
           img{
             width: 185px;
-            height:260px;
+            // height:260px;
           }
           p{
             font-size: 12px;
