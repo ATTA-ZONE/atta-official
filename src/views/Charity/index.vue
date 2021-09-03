@@ -185,8 +185,8 @@ export default defineComponent({
                                     ]
                             },
                             {
-                                namelableen : 'Utility NFT',
-                                namelablech : '權益NFT',
+                                namelableen : 'Souvenir NFT',
+                                namelablech : '紀念NFT',
                                 tipsen: "1.All Mystery Box purchasers: will receive a special “ATTA X Smile Angel” donation certificate NFT.<br/>2.Collect all SSR+R NFTs: win one “ATTA X Smile Angel” Special Angel NFT, with which you can go to www.atta.zone to redeem VIP tickets for three “Smile Angel Special Concerts”",
                                 tipsch : "1.每位購買盲盒者都将獲贈“ATTA X 嫣然愛心捐贈”NFT紀念證書一份<br/>2.集齊所有SSR+R 類NFT：獲贈“ATTA X 嫣然 天使NFT”一枚，憑天使NFT可前往兌換三場“嫣然愛音樂”演唱會VIP門票",
                                 imglist : [
@@ -204,10 +204,10 @@ export default defineComponent({
                                                 
                             },
                             {
-                                namelableen : 'Physical Benefits',
+                                namelableen : 'NFT Utilities',
                                 namelablech : '權益獎品',
-                                tipsen: "Please contact the ATTA staff to collect your utilities, and pay attention to the ATTA twitter and telegram communities. Regarding the physical benefits and utilities, eligible users will receive a confirmation email. Upon receiving the email, users need to reply with their contact information, address, etc. ATTA will send out the rewards after confirming the information.",
-                                tipsch : "本次所有權益請聯系ATTA工作人員領取，相關通知請關注ATTA Twitter和telegram社群。關於實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回復聯系和地址等信息，確認後，由ATTA官方統一寄送。",
+                                tipsen: "1. For users who are eligible to redeem the benefits, please send your BinanceNFT uid, your location and screenshots of your opened Mystery Box NFTs collection (NFT set that is eligible for relevant utilities) to official ATTA email: nft@atta.zone . <br/>2. ATTA will review the list of winners and make announcement on Twitter and Telegram. The Special Angel NFT will be distributed by Binance NFT to qualifying users’ Binance NFT account. <br/>3. Regarding the physical benefits and utilities, eligible users will receive a confirmation email. Upon receiving the email, users need to reply with their contact information, address, etc. ATTA will send out the rewards after confirming the information. <br/>4. For redeeming the Special Angel NFT, after Binance NFT have opened their claim function, users need to transfer it to ATTA’s official website and redeem the NFT there for concert ticket.",
+                                tipsch : "1. 符合兌換權益條件的用戶，請將幣安 NFT uid、所在地和已打開盲盒截圖（符合權益組合）發送至官方郵箱 nft@atta.zone <br/>2. ATTA 將會核對中獎用戶名單，在 twitter 和 telegram 社群中公布。其中天使 NFT 將由幣安 NFT 空投到用戶幣安賬戶中 <br/>3. 關于實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回複聯系和地址等信息，確認後，由 ATTA 官方統壹寄送。 <br/>4. 天使 NFT 的門票兌換，在幣安 NFT 開放提取後，由用戶提到 ATTA 官網平台進行後續演唱會門票兌換",
                                 imglist : [
                                     {
                                         url : '/imgs/Charity_img7.jpg',
@@ -231,7 +231,7 @@ export default defineComponent({
                                         content:'Charity_json_content3'
                                     },
                                     {
-                                        url : '/imgs/Charity_img14.jpg',
+                                        url : '/imgs/Charity_img14.png',
                                         titleen : 'hardcopy of any NFT included in the box',
                                         titlech : '指定NFT的打印版',
                                         type:true,
@@ -380,12 +380,12 @@ export default defineComponent({
                     ]
                 },
                 {
-                    namelableen : 'Utility NFT',
-                    namelablech : '權益NFT',
+                    namelableen : 'Souvenir NFT',
+                    namelablech : '紀念NFT',
                     list : [
                             {
-                                    namelableen : 'Utility NFT',
-                                    namelablech : '權益NFT',
+                                    namelableen : 'Souvenir NFT',
+                                    namelablech : '紀念NFT',
                                     tipsen: "1.All Mystery Box purchasers: will receive a special “ATTA X Smile Angel” donation certificate NFT.<br/>2.Collect all SSR+R NFTs: win one “ATTA X Smile Angel” Special Angel NFT, with which you can go to www.atta.zone to redeem VIP tickets for three “Smile Angel Special Concerts”",
                                     tipsch : "1.每位購買盲盒者都将獲贈“ATTA X 嫣然愛心捐贈”NFT紀念證書一份<br/>2.集齊所有SSR+R 類NFT：獲贈“ATTA X 嫣然 天使NFT”一枚，憑天使NFT可前往兌換三場“嫣然愛音樂”演唱會VIP門票",
                                     imglist : [
@@ -404,14 +404,14 @@ export default defineComponent({
                     ]
                 },
                 {
-                    namelableen : 'Physical Benefits',
+                    namelableen : 'NFT Utilities',
                     namelablech : '權益獎品',
                     list : [
                             {
-                                    namelableen : 'Physical Benefits',
+                                    namelableen : 'NFT Utilities',
                                     namelablech : '權益獎品',
-                                    tipsen: "Please contact the ATTA staff to collect your utilities, and pay attention to the ATTA twitter and telegram communities. Regarding the physical benefits and utilities, eligible users will receive a confirmation email. Upon receiving the email, users need to reply with their contact information, address, etc. ATTA will send out the rewards after confirming the information.",
-                                    tipsch : "本次所有權益請聯系ATTA工作人員領取，相關通知請關注ATTA Twitter和telegram社群。關於實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回復聯系和地址等信息，確認後，由ATTA官方統一寄送。",
+                                    tipsen: "1. For users who are eligible to redeem the benefits, please send your BinanceNFT uid, your location and screenshots of your opened Mystery Box NFTs collection (NFT set that is eligible for relevant utilities) to official ATTA email: nft@atta.zone . <br/>2. ATTA will review the list of winners and make announcement on Twitter and Telegram. The Special Angel NFT will be distributed by Binance NFT to qualifying users’ Binance NFT account. <br/>3. Regarding the physical benefits and utilities, eligible users will receive a confirmation email. Upon receiving the email, users need to reply with their contact information, address, etc. ATTA will send out the rewards after confirming the information. <br/>4. For redeeming the Special Angel NFT, after Binance NFT have opened their claim function, users need to transfer it to ATTA’s official website and redeem the NFT there for concert ticket.",
+                                    tipsch : "1. 符合兌換權益條件的用戶，請將幣安 NFT uid、所在地和已打開盲盒截圖（符合權益組合）發送至官方郵箱 nft@atta.zone <br/>2. ATTA 將會核對中獎用戶名單，在 twitter 和 telegram 社群中公布。其中天使 NFT 將由幣安 NFT 空投到用戶幣安賬戶中 <br/>3. 關于實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回複聯系和地址等信息，確認後，由 ATTA 官方統壹寄送。 <br/>4. 天使 NFT 的門票兌換，在幣安 NFT 開放提取後，由用戶提到 ATTA 官網平台進行後續演唱會門票兌換",
                                     imglist : [
                                         {
                                             url : '/imgs/Charity_img7.jpg',
@@ -435,7 +435,7 @@ export default defineComponent({
                                             content:'Charity_json_content3'
                                         },
                                         {
-                                            url : '/imgs/Charity_img14.jpg',
+                                            url : '/imgs/Charity_img14.png',
                                             titleen : 'hardcopy of any NFT included in the box',
                                             titlech : '指定NFT的打印版',
                                             type:true,
