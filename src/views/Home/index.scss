@@ -124,10 +124,8 @@ video{
 }
 .home-page .home-page-two .page-two img:nth-child(3) ,.home-page .home-page-three .start{
   position: absolute;
-  /* bottom: -116px;
-  right: -125px; */
   width: 293px;
-  top: -55%;
+  bottom: 250%;
   right: 0%;
 }
 .home-page .home-page-three {
@@ -550,6 +548,55 @@ width: 193px;
     }
   }
 }
+.home-page{
+  .atta-game{
+    padding-top: 98px;
+    background-color:#000;
+    position: relative;
+    z-index: 10;
+    padding-bottom: 35px;
+    .game-title{
+      .game-mb{
+        display: none;
+      }
+      .game-pc{
+        display: block;
+      }
+      h5{
+        font-size: 58px;
+        line-height: 140%;
+        text-align: center;
+      }
+      p{
+        line-height: 38px;
+        text-align: center;
+        letter-spacing: 0.02em;
+        margin-top: 54px;
+        font-size: 28px;
+        color: rgba(250, 250, 250, 0.8);
+      }
+    }
+    .game-list{
+      padding: 0 22%;
+      justify-content:space-between;
+      margin-top: 78px;
+      div{
+        img{
+          width: 227px;
+          height:318px;
+        }
+        p{
+          font-size: 18px;
+          line-height: 25px;
+          text-align: center;
+          letter-spacing: 0.02em;
+          color: #FFFFFF;
+          margin-top: 23px;
+        }
+      }
+    }
+  }
+}
 @media only screen and (max-width: 992px){
   .pcstyle{
     display: block;
@@ -570,6 +617,45 @@ width: 193px;
       border-radius: 20px;
       margin: auto;
       margin-top: 59px;
+    }
+  }
+  .home-page{
+    div.atta-game{
+      padding-top: 27px;
+      .game-title{
+        .game-mb{
+          display: block;
+        }
+        .game-pc{
+          display: none;
+        }
+        h5{
+          font-size: 20px;
+          line-height: 120%;
+        }
+        p{
+          font-size: 16px;
+          line-height: 22px;
+          margin-top: 8px;
+        }
+      }
+      .game-list{
+        padding: 0 25px;
+        margin-top: 15px;
+        width: 100%;
+        overflow: auto;
+        div{
+          width: 185px;
+          img{
+            width: 185px;
+            height:260px;
+          }
+          p{
+            font-size: 12px;
+line-height: 16px;
+          }
+        }
+      }
     }
   }
 }

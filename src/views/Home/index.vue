@@ -17,6 +17,27 @@
           </p>
         </div>
       </div>
+      <div class="atta-game">
+        <div class="game-title">
+          <h5 class="game-pc">{{$t('home_match_words1')}}{{$t('home_match_words1_bz')}}</h5>
+          <h5 class="game-mb"><font style="color:#A9DEEE;line-height:36px;">{{$t('home_match_words1')}}</font><br/>{{$t('home_match_words1_bz')}}</h5>
+          <p>{{$t('home_match_words2')}}</p>
+        </div>
+        <div class="game-list flex">
+          <div>
+            <img src="/imgs/pageTworightTop.png" alt="">
+            <p>{{$t('home_match_words3')}}</p>
+          </div>
+          <div>
+            <img src="/imgs/pageTworightTop.png" alt="">
+            <p>{{$t('home_match_words4')}}</p>
+          </div>
+          <div>
+            <img src="/imgs/pageTworightTop.png" alt="">
+            <p>{{$t('home_match_words5')}}</p>
+          </div>     
+        </div>
+      </div>
       <div class="home-page-three" id="Upcoming">
         <div class="onehanglogo">
           <img class="logo3" src="/imgs/bsc.png" />
