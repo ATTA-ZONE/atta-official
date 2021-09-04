@@ -47,7 +47,6 @@ export default defineComponent({
     const showDesc = ref("");
     const showUserAddress = ref(false);
     const showClaimStatus = ref(false);
-    const showWalletBalance = ref(false);
     const walletBalance = ref(0);
     const targetChainId = ref(0);
     const pageText = ref([
@@ -108,18 +107,9 @@ export default defineComponent({
 
     const btnText = async () => {
       const userAddress = web3.value.utils.toChecksumAddress(accounts.value[0]);
-      const userClaimInput = merkle[chainId.value][userAddress];
-
-      if (!userClaimInput) {
-        claimBtn.value = "not qualified to receive the NFT airdrop.";
-        submitBtn.value = "Got it";
-        showUserAddress.value = false;
-        return false;
-      } else {
         claimBtn.value = "You can claim this NFT airdrop";
         submitBtn.value = "Claim now";
         showUserAddress.value = true;
-      }
     };
 
     const compareAddress = async () => {
@@ -144,8 +134,7 @@ export default defineComponent({
       compareAddress();
     }
 
-    const getClaim = (fnc1: any, fnc2: any, address: any) => {
-      console.log(fnc1, fnc2,address);
+    const getClaim = (fnc1: any, address: any) => {
       fnc1.methods
         .claim()
         .send({
@@ -168,25 +157,22 @@ export default defineComponent({
         getAddress();
         return false;
       }
+      if (submitBtn.value === "Got it") {
+        closeModal()
+        return false;
+      }
 
       if (accounts.value.length > 0) {
         const userAddress = web3.value.utils.toChecksumAddress(
           accounts.value[0]
         );
 
-        if (!merkle[chainId.value] || chainId.value != targetChainId.value) {
+        if (chainId.value != targetChainId.value) {
           window.CHAIN.WALLET.switchRPCSettings(targetChainId.value).then(
             () => {
               initAccount();
             }
           );
-          return false;
-        }
-        const userClaimInput = merkle[chainId.value][userAddress];
-        if (!userClaimInput) {
-          claimBtn.value = "not qualified to receive the NFT airdrop.";
-          submitBtn.value = "Got it";
-          showUserAddress.value = false;
           return false;
         }
 
@@ -209,11 +195,10 @@ export default defineComponent({
           .then(function (res: any) {
             //true->已经领取
             if (!res) {
-              getClaim(MerkleDistributionInstance, userClaimInput, userAddress);
+              getClaim(MerkleDistributionInstance, userAddress);
             } else {
               claimBtn.value = "claimed the NFT airdrop already";
               showClaimStatus.value = true;
-              showWalletBalance.value = true;
             }
             submitBtn.value = "Got it";
             showUserAddress.value = false;
@@ -229,7 +214,6 @@ export default defineComponent({
       claimBtn,
       showUserAddress,
       showClaimStatus,
-      showWalletBalance,
       walletBalance,
       toggleShow,
       closeModal,
@@ -329,10 +313,8 @@ export default defineComponent({
         padding: 14px 70px;
         margin-top: 20px;
         cursor: pointer;
-        color: #555555;
-        // color: rgba(168, 222, 238, 1);
-        border: 1px solid #555555;
-        // border: 1px solid rgba(168, 222, 238, 1);
+        color: rgba(168, 222, 238, 1);
+        border: 1px solid rgba(168, 222, 238, 1);
       }
     }
   }
