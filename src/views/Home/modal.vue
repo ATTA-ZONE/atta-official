@@ -30,7 +30,6 @@
 <script lang='ts'>
 import { defineComponent, onMounted, ref, watch } from "vue";
 import contentCell from "./content-cell.vue";
-import merkle from "/public/js/Merkle.json";
 import { getCookie } from "../../utils";
 import { chainSetting } from "../../assets/js/chainSetting";
 import { initWeb3 } from "../../assets/js/initweb3";
@@ -46,8 +45,6 @@ export default defineComponent({
   },
   setup(props, context) {
     const showDesc = ref("");
-    const showUserAddress = ref(false);
-    const showClaimStatus = ref(false);
     const showHomeModal = ref(false);
     const walletBalance = ref(0);
     const targetChainId = ref(0);
@@ -78,7 +75,6 @@ export default defineComponent({
     watch(props, (newVal, oldVal) => {
       if (newVal.accountAddress || oldVal.accountAddress) {
         submitBtn.value = "Claim now";
-        showUserAddress.value = true;
       }
     });
 
@@ -114,7 +110,6 @@ export default defineComponent({
     const btnText = async () => {
         claimBtn.value = "You can claim this NFT airdrop";
         submitBtn.value = "Claim now";
-        showUserAddress.value = true;
     };
 
     const compareAddress = async () => {
@@ -135,7 +130,6 @@ export default defineComponent({
       submitBtn.value = "Connect now";
     } else {
       submitBtn.value = "Claim now";
-      showUserAddress.value = true;
       compareAddress();
     }
 
@@ -150,7 +144,6 @@ export default defineComponent({
           console.log(err);
         });
       claimBtn.value = "We have received your claim";
-      showClaimStatus.value = true;
     };
 
     const closeModal = () => {
@@ -163,7 +156,7 @@ export default defineComponent({
         return false;
       }
       if (submitBtn.value === "Got it") {
-        closeModal()
+        closeModal();
         return false;
       }
 
@@ -202,10 +195,8 @@ export default defineComponent({
               getClaim(MerkleDistributionInstance, userAddress);
             } else {
               claimBtn.value = "claimed the NFT airdrop already";
-              showClaimStatus.value = true;
             }
             submitBtn.value = "Got it";
-            showUserAddress.value = false;
           });
       }
     };
@@ -216,8 +207,6 @@ export default defineComponent({
       submitBtn,
       props,
       claimBtn,
-      showUserAddress,
-      showClaimStatus,
       walletBalance,
       toggleShow,
       closeModal,
