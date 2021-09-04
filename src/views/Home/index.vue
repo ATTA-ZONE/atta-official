@@ -1,5 +1,5 @@
 <template>
-  <header-cell />
+  <header-cell :isshowHeadModal="showHeadModal" />
   <div class="video-wrap">
     <video class="media-video" autoplay loop src="/nftInfo.mp4" muted></video>
     <div class="header-txt flex" @click="playVideo">
@@ -36,6 +36,9 @@
             <img src="/imgs/game3.png" alt="">
             <p>{{$t('home_match_words5')}}</p>
           </div>     
+        </div>
+        <div @click="showHeadModal = true" class="receive-btn">
+          {{ $t("Claim Your NFT") }}
         </div>
       </div>
       <div class="home-page-three" id="Upcoming">
@@ -142,6 +145,7 @@ export default defineComponent({
   components: { homeFive, homeSix ,headerCell,footerCell},
   setup() {
     const { locale } = useI18n();
+    const showHeadModal = ref(false)
 
     const transitionImage = ref(false);
 
@@ -176,7 +180,8 @@ export default defineComponent({
       transitionImage,
       isEn,
       playVideo,
-      jumppage
+      jumppage,
+      showHeadModal
     };
   },
 });

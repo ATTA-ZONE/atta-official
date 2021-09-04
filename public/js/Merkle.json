@@ -1,4 +1,36 @@
 {
+    "4": {
+        "0xA5413a048d7b236518cf27D84C2F1EF143d49372": {
+            "index": 1,
+            "tokenIds": [
+                1
+            ],
+            "amounts": [
+                10
+            ],
+            "merkleProof": [
+                "0x4c15ca1adafe60cd1b7a95e5869c389ffa0144254f4c894c4e657fae1a4e8a55",
+                "0x4363659c39d5be1859ea3456d5b9bb976bd71d0bd98caf1d55e41c72976063de"
+            ],
+            "address": "0x4Df679A3407E5ab8d547cb22b7f0C98994667558"
+        }
+    },
+    "1": {
+        "0xffa04E940ff39794cB58A777A8F629A1FB4CD231": {
+            "index": 1,
+            "tokenIds": [
+                1
+            ],
+            "amounts": [
+                10
+            ],
+            "merkleProof": [
+                "0x4c15ca1adafe60cd1b7a95e5869c389ffa0144254f4c894c4e657fae1a4e8a55",
+                "0x4363659c39d5be1859ea3456d5b9bb976bd71d0bd98caf1d55e41c72976063de"
+            ],
+            "address": "0x4Df679A3407E5ab8d547cb22b7f0C98994667558"
+        }
+    },
     "97": {
         "0x4Df679A3407E5ab8d547cb22b7f0C98994667558": {
             "index": 1,

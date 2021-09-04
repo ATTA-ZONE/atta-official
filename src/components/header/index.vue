@@ -1,6 +1,6 @@
 <template>
   <div class="home-page-one" id="Introduction">
-    <div class="mask-container" v-if="showMask">
+    <div class="mask-container" v-if="showMask || rest">
       <div class="mask-wrap">
         <router-link to="/">{{ $t("home") }}</router-link>
         <router-link to="/esports">{{ $t("matchName") }}</router-link>
@@ -113,7 +113,7 @@
   </tip-modal>
 </template>
 <script lang='ts'>
-import { computed, defineComponent, onMounted, onUnmounted, ref } from "vue";
+import { computed, defineComponent, onMounted, ref, toRefs } from "vue";
 import { useI18n } from "vue-i18n";
 import modal from "../../views/Home/modal.vue";
 import tipModal from "../modals/index.vue";
@@ -126,7 +126,10 @@ import axios from "../../api";
 
 export default defineComponent({
   components: { modal, tipModal },
-  setup() {
+  props: {
+    isshowHeadModal: Boolean
+  },
+  setup(props) {
     const router = useRouter();
     const { locale, t } = useI18n();
     const showMask = ref(false);
@@ -135,6 +138,7 @@ export default defineComponent({
     const showNetworkSwitch = ref(false);
     const accountAddress = ref('');
     const chainId = ref(1);
+    const rest = props.isshowHeadModal
 
     const isEn = computed(() => {
       return locale.value.trim() == "en";
@@ -358,7 +362,8 @@ export default defineComponent({
       isEn,
       chainId,
       toggleNetwork,
-      showNetworkSwitch
+      showNetworkSwitch,
+      rest
     };
   },
 });

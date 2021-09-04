@@ -2,6 +2,18 @@
   box-sizing: border-box;
 }
 
+.receive-btn {
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    margin: 50px auto 20px;
+    color: #a8deee;
+    border: 1px solid #a8deee;
+}
+
 .video-wrap {
   position: absolute; 
   top: 0;
