@@ -11,17 +11,10 @@
       </div>
       <div class="modal-title">{{ $t("modalTitle") }}</div>
       <div class="content-wrap" style="align-items: end;">
-        <video class="banner" src="/ATTAdrop.mp4" autoplay muted loop />
+        <img class="banner" src="/imgs/lingquan.png" />
         <div class="content-desc">
           <div class="content-desc-title">{{ $t("infoTitle") }}</div>
-          <div class="content-desc-info">
-            {{ $t("infoDesc1") }}
-          </div>
-          <div class="content-desc-info">
-            {{ $t("infoDesc2") }}
-          </div>
-          <div class="content-desc-info">
-            {{ $t("infoDesc3") }}
+          <div class="content-desc-info" v-html="$t('infoDesc2')">
           </div>
           <div class="content-desc-cells">
             <content-cell
