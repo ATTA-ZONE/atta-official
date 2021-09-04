@@ -4300,6 +4300,27 @@ export const c_atta_ERC1155_Airdrop_abi = [
 ]
 export const c_atta_ERC1155_Airdrop_MerkleProof_abi = [
 	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_nftTicket",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_lootNFT",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_xlootNFT",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -4319,35 +4340,15 @@ export const c_atta_ERC1155_Airdrop_MerkleProof_abi = [
 		"type": "event"
 	},
 	{
-		"inputs": [
+		"inputs": [],
+		"name": "claim",
+		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "index",
+				"name": "nftTicketId",
 				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256[]",
-				"name": "tokenIds",
-				"type": "uint256[]"
-			},
-			{
-				"internalType": "uint256[]",
-				"name": "amounts",
-				"type": "uint256[]"
-			},
-			{
-				"internalType": "bytes32[]",
-				"name": "merkleProof",
-				"type": "bytes32[]"
 			}
 		],
-		"name": "claim",
-		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
@@ -4355,29 +4356,8 @@ export const c_atta_ERC1155_Airdrop_MerkleProof_abi = [
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "token_",
+				"name": "user",
 				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "vault_",
-				"type": "address"
-			},
-			{
-				"internalType": "bytes32",
-				"name": "merkleRoot_",
-				"type": "bytes32"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "index",
-				"type": "uint256"
 			}
 		],
 		"name": "isClaimed",
@@ -4393,12 +4373,12 @@ export const c_atta_ERC1155_Airdrop_MerkleProof_abi = [
 	},
 	{
 		"inputs": [],
-		"name": "merkleRoot",
+		"name": "lootNFT",
 		"outputs": [
 			{
-				"internalType": "bytes32",
+				"internalType": "contract IERC721",
 				"name": "",
-				"type": "bytes32"
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -4406,10 +4386,23 @@ export const c_atta_ERC1155_Airdrop_MerkleProof_abi = [
 	},
 	{
 		"inputs": [],
-		"name": "nft",
+		"name": "nftTicket",
 		"outputs": [
 			{
-				"internalType": "contract IERC1155",
+				"internalType": "contract IERC1155_Mintable",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "xlootNFT",
+		"outputs": [
+			{
+				"internalType": "contract IERC721",
 				"name": "",
 				"type": "address"
 			}

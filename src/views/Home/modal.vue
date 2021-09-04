@@ -3,46 +3,23 @@
     <div class="modal-wrap">
       <div class="modal-wrap-name">
         <div class="modal-wrap-name-text">{{ $t("Claim Your NFT") }}</div>
-        <img
-          @click="closeModal"
-          class="modal-close"
-          src="/imgs/close.png"
-        />
+        <img @click="closeModal" class="modal-close" src="/imgs/close.png" />
       </div>
       <div class="modal-title">{{ $t("modalTitle") }}</div>
-      <div class="content-wrap" style="align-items: end;">
+      <div class="content-wrap" style="align-items: center">
         <img class="banner" src="/imgs/lingquan.png" />
         <div class="content-desc">
           <div class="content-desc-title">{{ $t("infoTitle") }}</div>
-          <div class="content-desc-info" v-html="$t('infoDesc2')">
+          <div class="content-desc-info" v-html="$t('infoDesc2')"></div>
+          <div class="content-desc-info">
+            Dear Loot Adventurers, We are excited to invite all of you to join
+            the 1st ATTA Infinite Esports Tournament in the metaverse.  All Loot
+            NFT and xLoot NFT holders will be airdropped with an invitation that
+            comes with entrance tickets in different rarities.  Please hit the
+            claim button below for the invitation. See you at the tournament!
           </div>
-          <div class="content-desc-cells">
-            <content-cell
-              v-for="(item, idx) in pageText"
-              :key="idx"
-              @toggleShow="toggleShow"
-              :title="item.title"
-              :showDesc="showDesc"
-              :btn="showDesc == item.title ? '-' : '+'"
-            />
-          </div>
-          <div class="claim-title">
-            {{$t("btnword")}}
-          </div>
-          <!-- <div class="claim-title">
-            {{ $t("Claim deadline") }}: 2021-6-31 20:00
-          </div> -->
           <div class="claim-title" v-if="props.accountAddress">
             {{ $t(claimBtn) }}
-          </div>
-          <div class="claim-title" v-if="showWalletBalance">
-            {{ $t("Current wallet") }}{{ walletBalance }}
-          </div>
-          <div class="claim-desc" v-if="showUserAddress">
-            {{ $t("Your receving address is") }}: {{ props.accountAddress }}
-          </div>
-          <div class="claimed-text" v-if="showClaimStatus">
-            {{ $t("claimedText") }}
           </div>
           <span class="submit-btn" @click="getNftBsc">{{ $t(submitBtn) }}</span>
         </div>
@@ -72,6 +49,7 @@ export default defineComponent({
     const showClaimStatus = ref(false);
     const showWalletBalance = ref(false);
     const walletBalance = ref(0);
+    const targetChainId = ref(0);
     const pageText = ref([
       {
         title: "ATTA NFT Exclusive Benefits",
@@ -85,7 +63,7 @@ export default defineComponent({
     const submitBtn = ref("");
     const claimBtn = ref("");
     const accounts = ref<any>([]);
-    const chainId = ref("");
+    const chainId = ref(0);
     const web3 = ref();
 
     const toggleShow = (str: string) => {
@@ -107,20 +85,25 @@ export default defineComponent({
       });
     };
 
-    const initAccount = async()=>{
+    const initAccount = async () => {
       accounts.value = await window.CHAIN.WALLET.accounts();
       chainId.value = await window.CHAIN.WALLET.chainId();
       const walletType = getCookie(window.CHAIN.WALLET.__wallet__);
-
+      if (window.location.href.indexOf('atta.zone') == -1) {
+          targetChainId.value = 4;
+      } else {
+          targetChainId.value = 1;
+      }
+      
       if (walletType) {
         web3.value = new window.Web3(window.CHAIN.WALLET.provider());
       } else if (window.ethereum) {
         web3.value = new window.Web3(window.ethereum);
       }
-    }
+    };
 
     onMounted(() => {
-      initAccount()
+      initAccount();
     });
 
     const btnText = async () => {
@@ -141,8 +124,8 @@ export default defineComponent({
 
     const compareAddress = async () => {
       if (accounts && accounts.length > 0) {
-        if (!merkle[chainId.value] || chainId != window.targetChainId) {
-          window.CHAIN.WALLET.switchRPCSettings(window.targetChainId).then(
+        if (!merkle[chainId.value] || chainId.value != targetChainId.value) {
+          window.CHAIN.WALLET.switchRPCSettings(targetChainId.value).then(
             () => {
               btnText();
             }
@@ -162,16 +145,15 @@ export default defineComponent({
     }
 
     const getClaim = (fnc1: any, fnc2: any, address: any) => {
+      console.log(fnc1, fnc2,address);
       fnc1.methods
-        .claim(
-          fnc2["index"],
-          fnc2["address"],
-          fnc2["tokenIds"],
-          fnc2["amounts"],
-          fnc2["merkleProof"]
-        )
+        .claim()
         .send({
           from: address,
+        }).then(res=>{
+          console.log(res);
+        }).catch(err=>{
+          console.log(err);
         });
       claimBtn.value = "We have received your claim";
       showClaimStatus.value = true;
@@ -182,17 +164,8 @@ export default defineComponent({
     };
 
     const getNftBsc = async () => {
-      let bool = false;
-      if(!bool){
-        return;
-      }
       if (submitBtn.value === "Connect now") {
         getAddress();
-        return false;
-      }
-      if (submitBtn.value === "Got it") {
-        showUserAddress.value = false;
-        closeModal();
         return false;
       }
 
@@ -201,10 +174,12 @@ export default defineComponent({
           accounts.value[0]
         );
 
-        if (!merkle[chainId.value] || chainId.value != window.targetChainId) {
-          window.CHAIN.WALLET.switchRPCSettings(window.targetChainId).then((res)=>{
-            initAccount()
-          })
+        if (!merkle[chainId.value] || chainId.value != targetChainId.value) {
+          window.CHAIN.WALLET.switchRPCSettings(targetChainId.value).then(
+            () => {
+              initAccount();
+            }
+          );
           return false;
         }
         const userClaimInput = merkle[chainId.value][userAddress];
@@ -229,29 +204,13 @@ export default defineComponent({
 
         // 查询是否 claim过
         MerkleDistributionInstance.methods
-          .isClaimed(userClaimInput["index"])
+          .isClaimed(accounts.value[0])
           .call()
           .then(function (res: any) {
             //true->已经领取
             if (!res) {
               getClaim(MerkleDistributionInstance, userClaimInput, userAddress);
             } else {
-              const busdAddress: any =
-                chainSetting["contractSetting"]["atta_ERC1155_Airdrop"][chainId.value].address;
-
-              const busdABI =
-                chainSetting["contractSetting"]["atta_ERC1155_Airdrop"]["abi"];
-              const busdContractInstance = new web3.value.eth.Contract(
-                busdABI,
-                busdAddress
-              );
-              busdContractInstance.methods
-                .balanceOf(userAddress, 1)
-                .call()
-                .then((price: any) => {
-                  walletBalance.value = price;
-                });
-
               claimBtn.value = "claimed the NFT airdrop already";
               showClaimStatus.value = true;
               showWalletBalance.value = true;

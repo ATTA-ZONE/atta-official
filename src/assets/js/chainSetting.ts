@@ -199,15 +199,25 @@ export const chainSetting = {
         "atta_ERC1155_Airdrop_MerkleProof": {
             "proxy": "",
             "abi": c_atta_ERC1155_Airdrop_MerkleProof_abi,
-            "56":
-            {
-                "owner_id": 22,
-                "address": "0x659fa585E00D53a2D07eFE311B193B3474406d2F"
-            },
-            "97":
+            // "56":
+            // {
+            //     "owner_id": 22,
+            //     "address": "0x659fa585E00D53a2D07eFE311B193B3474406d2F"
+            // },
+            // "97":
+            // {
+            //     "owner_id": 1,
+            //     "address": "0xFe27452f8639Ad0B41D99E919C80B601A42D6880"
+            // },
+            "4":
             {
                 "owner_id": 1,
-                "address": "0xFe27452f8639Ad0B41D99E919C80B601A42D6880"
+                "address": "0xD1ce28b3993a4865Dc7A6406182D952A4Df2E672"
+            },
+            "1":
+            {
+                "owner_id": 1,
+                "address": "0xffa04E940ff39794cB58A777A8F629A1FB4CD231"
             }
         },
 

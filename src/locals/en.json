@@ -69,8 +69,8 @@
   "Claim deadline": "Claim deadline",
   "Your receving address is": "Your receving address is",
   "You can claim this NFT airdrop": "You can claim this NFT airdrop",
-  "We have received your claim": "We have received your claim. Your NFT will be sent to your wallet shortly.Thanks for participiting this event!",
-  "claimed the NFT airdrop already": "Sorry, the wallet you connected has claimed the NFT airdrop already",
+  "We have received your claim": "We have received your claim，the invitation NFT will send to your wallet soon.",
+  "claimed the NFT airdrop already": "Sorry, the wallet you connected has claimed the invitation NFT already",
   "not qualified to receive the NFT airdrop.": "Sorry, the wallet you connected is not qualified to receive the NFT airdrop.",
   "claimedText": "The NFT airdrop has been sent to your wallet. Due to its development status, BSC currently does not support the display of NFT in BEP 1155 contract in the wallet. Please be assured that the airdrop has been sent if the website has prompted success. ATTA will soon launch an asset management center where you can view, manage, transfer your NFT assets and exchange related rights and interests. Please stay tuned.",
   "common": "Total editions ",
@@ -406,6 +406,6 @@
   "home_match_words1_bz":"Infinite Esports Tournament",
   "home_match_words2":"Boarding on Sept 21",
   "home_match_words3":"ATTA  x LOOT Normal Entrance Ticket  ",
-  "home_match_words4":"ATTA  x LOOT Silver Entrance Ticket",
-  "home_match_words5":"ATTA  x LOOT Gold Entrance Ticket"
+  "home_match_words4":"ATTA  x LOOT rare Entrance Ticket",
+  "home_match_words5":"ATTA  x LOOT legendary Entrance Ticket"
 }
