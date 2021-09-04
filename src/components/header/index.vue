@@ -97,7 +97,7 @@
   </div>
   <modal
     :accountAddress="accountAddress"
-    v-if="showModal || props.showHeadModal"
+    v-if="showModal"
     @address="emitAddress"
     @closemodal="closemodal"
   />
@@ -113,7 +113,7 @@
   </tip-modal>
 </template>
 <script lang='ts'>
-import { computed, defineComponent, onMounted, ref } from "vue";
+import { computed, defineComponent, onMounted, ref, watchEffect } from "vue";
 import { useI18n } from "vue-i18n";
 import modal from "../../views/Home/modal.vue";
 import tipModal from "../modals/index.vue";
@@ -138,7 +138,10 @@ export default defineComponent({
     const showNetworkSwitch = ref(false);
     const accountAddress = ref('');
     const chainId = ref(1);
-    showModal.value = props.showHeadModal
+
+    watchEffect(()=>{
+      showModal.value = props.showHeadModal
+    })
 
     const isEn = computed(() => {
       return locale.value.trim() == "en";
