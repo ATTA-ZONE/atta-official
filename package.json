@@ -8,6 +8,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "element-plus": "^1.0.2-beta.53",
+    "mitt": "^3.0.0",
     "vue": "^3.0.6",
     "vue-axios": "^3.2.4",
     "vue-i18n": "next",

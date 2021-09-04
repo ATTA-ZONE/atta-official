@@ -1,5 +1,5 @@
 <template>
-  <header-cell :showHeadModal="showHeadModal" />
+  <header-cell />
   <div class="video-wrap">
     <video class="media-video" autoplay loop src="/nftInfo.mp4" muted></video>
     <div class="header-txt flex" @click="playVideo">
@@ -37,7 +37,7 @@
             <p>{{$t('home_match_words5')}}</p>
           </div>     
         </div>
-        <div @click="showHeadModal = true" class="receive-btn">
+        <div @click="showHeadModal" class="receive-btn">
           {{ $t("Claim Your NFT") }}
         </div>
       </div>
@@ -140,12 +140,15 @@ import homeFive from "./homeFive.vue";
 import homeSix from "./homeSix.vue";
 import headerCell from "@/components/header/index.vue";
 import footerCell from "@/components/footer/index.vue";
+import bus from '../../utils/bus.js'
 
 export default defineComponent({
   components: { homeFive, homeSix ,headerCell,footerCell},
   setup() {
     const { locale } = useI18n();
-    const showHeadModal = ref(false)
+    const showHeadModal = () => {
+      bus.emit('openHomeModal')
+    }
 
     const transitionImage = ref(false);
 

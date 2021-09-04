@@ -26,7 +26,7 @@
           </div>
           <img class="connect-status-img" :src="walletStatus" />
         </div>
-        <div @click="showModal = true" class="top-btn">
+        <div @click="emitShowModal" class="top-btn">
           {{ $t("Claim Your NFT") }}
         </div>
         <p class="switchlanguagebox">
@@ -65,7 +65,7 @@
         src="/imgs/menu.png"
       />
       <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
-        <span @click="showModal = true" class="top-btn">{{
+        <span @click="emitShowModal" class="top-btn">{{
           $t("Claim Your NFT")
         }}</span>
         <div class="wallet-container">
@@ -97,9 +97,7 @@
   </div>
   <modal
     :accountAddress="accountAddress"
-    v-if="showModal"
     @address="emitAddress"
-    @closemodal="closemodal"
   />
   <tip-modal
     :title="$t('switch network')"
@@ -123,29 +121,26 @@ import { initWeb3 } from "../../assets/js/initweb3";
 import { useRouter } from "vue-router";
 import { getCookie, setCookie } from "../../utils";
 import axios from "../../api";
+import bus from '../../utils/bus.js'
 
 export default defineComponent({
   components: { modal, tipModal },
-  props: {
-    showHeadModal: Boolean
-  },
-  setup(props) {
+  setup() {
     const router = useRouter();
     const { locale, t } = useI18n();
     const showMask = ref(false);
     const isMobile = ref(false);
-    const showModal = ref(false);
     const showNetworkSwitch = ref(false);
     const accountAddress = ref('');
     const chainId = ref(1);
 
-    watchEffect(()=>{
-      showModal.value = props.showHeadModal
-    })
-
     const isEn = computed(() => {
       return locale.value.trim() == "en";
     });
+    
+    const emitShowModal = () => {
+      bus.emit('openHomeModal')
+    }
 
     const selectedPath = computed(()=>location.pathname)
 
@@ -172,10 +167,6 @@ export default defineComponent({
       showMask.value = false;
       switchLanauge();
       window.location.reload();
-    };
-
-    const closemodal = () => {
-      showModal.value = false;
     };
 
     const walletStatus = computed(() => {
@@ -351,10 +342,8 @@ export default defineComponent({
       targetText,
       switchLang,
       goAnchor,
-      closemodal,
       getAddress,
       showMask,
-      showModal,
       isMobile,
       accountAddress,
       greenDot,
@@ -366,7 +355,7 @@ export default defineComponent({
       chainId,
       toggleNetwork,
       showNetworkSwitch,
-      props
+      emitShowModal
     };
   },
 });

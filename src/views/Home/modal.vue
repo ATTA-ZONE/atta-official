@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-container">
+  <div class="modal-container" v-if="showHomeModal">
     <div class="modal-wrap">
       <div class="modal-wrap-name">
         <div class="modal-wrap-name-text">{{ $t("Claim Your NFT") }}</div>
@@ -34,6 +34,7 @@ import merkle from "/public/js/Merkle.json";
 import { getCookie } from "../../utils";
 import { chainSetting } from "../../assets/js/chainSetting";
 import { initWeb3 } from "../../assets/js/initweb3";
+import bus from '../../utils/bus.js'
 
 export default defineComponent({
   components: { contentCell },
@@ -47,6 +48,7 @@ export default defineComponent({
     const showDesc = ref("");
     const showUserAddress = ref(false);
     const showClaimStatus = ref(false);
+    const showHomeModal = ref(false);
     const walletBalance = ref(0);
     const targetChainId = ref(0);
     const pageText = ref([
@@ -64,6 +66,10 @@ export default defineComponent({
     const accounts = ref<any>([]);
     const chainId = ref(0);
     const web3 = ref();
+
+    bus.on('openHomeModal',()=>{
+      showHomeModal.value = true
+    })
 
     const toggleShow = (str: string) => {
       showDesc.value = str;
@@ -106,7 +112,6 @@ export default defineComponent({
     });
 
     const btnText = async () => {
-      const userAddress = web3.value.utils.toChecksumAddress(accounts.value[0]);
         claimBtn.value = "You can claim this NFT airdrop";
         submitBtn.value = "Claim now";
         showUserAddress.value = true;
@@ -114,7 +119,7 @@ export default defineComponent({
 
     const compareAddress = async () => {
       if (accounts && accounts.length > 0) {
-        if (!merkle[chainId.value] || chainId.value != targetChainId.value) {
+        if (chainId.value != targetChainId.value) {
           window.CHAIN.WALLET.switchRPCSettings(targetChainId.value).then(
             () => {
               btnText();
@@ -149,7 +154,7 @@ export default defineComponent({
     };
 
     const closeModal = () => {
-      context.emit("closemodal");
+      showHomeModal.value = false
     };
 
     const getNftBsc = async () => {
@@ -180,7 +185,6 @@ export default defineComponent({
           chainSetting["contractSetting"]["atta_ERC1155_Airdrop_MerkleProof"];
 
         const MerkleDistributionAddress = setting_proof[chainId.value].address;
-        // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
         const MerkleDistributionABI = setting_proof["abi"];
 
         const MerkleDistributionInstance = new web3.value.eth.Contract(
@@ -217,6 +221,7 @@ export default defineComponent({
       walletBalance,
       toggleShow,
       closeModal,
+      showHomeModal,
       getNftBsc,
       getAddress,
     };
