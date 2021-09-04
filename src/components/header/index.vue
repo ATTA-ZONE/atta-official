@@ -1,6 +1,6 @@
 <template>
   <div class="home-page-one" id="Introduction">
-    <div class="mask-container" v-if="showMask || rest">
+    <div class="mask-container" v-if="showMask">
       <div class="mask-wrap">
         <router-link to="/">{{ $t("home") }}</router-link>
         <router-link to="/esports">{{ $t("matchName") }}</router-link>
@@ -97,7 +97,7 @@
   </div>
   <modal
     :accountAddress="accountAddress"
-    v-if="showModal"
+    v-if="showModal || props.showHeadModal"
     @address="emitAddress"
     @closemodal="closemodal"
   />
@@ -113,7 +113,7 @@
   </tip-modal>
 </template>
 <script lang='ts'>
-import { computed, defineComponent, onMounted, ref, toRefs } from "vue";
+import { computed, defineComponent, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import modal from "../../views/Home/modal.vue";
 import tipModal from "../modals/index.vue";
@@ -127,7 +127,7 @@ import axios from "../../api";
 export default defineComponent({
   components: { modal, tipModal },
   props: {
-    isshowHeadModal: Boolean
+    showHeadModal: Boolean
   },
   setup(props) {
     const router = useRouter();
@@ -138,7 +138,7 @@ export default defineComponent({
     const showNetworkSwitch = ref(false);
     const accountAddress = ref('');
     const chainId = ref(1);
-    const rest = props.isshowHeadModal
+    showModal.value = props.showHeadModal
 
     const isEn = computed(() => {
       return locale.value.trim() == "en";
@@ -363,7 +363,7 @@ export default defineComponent({
       chainId,
       toggleNetwork,
       showNetworkSwitch,
-      rest
+      props
     };
   },
 });

@@ -1,5 +1,5 @@
 <template>
-  <header-cell :isshowHeadModal="showHeadModal" />
+  <header-cell :showHeadModal="showHeadModal" />
   <div class="video-wrap">
     <video class="media-video" autoplay loop src="/nftInfo.mp4" muted></video>
     <div class="header-txt flex" @click="playVideo">
