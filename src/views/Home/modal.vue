@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-container" v-if="showHomeModal" v-loading="loading">
+  <div class="modal-container" v-if="showHomeModal">
     <div class="modal-wrap">
       <div class="modal-wrap-name">
         <div class="modal-wrap-name-text">{{ $t("Claim Your NFT") }}</div>
@@ -28,12 +28,13 @@
   </div>
 </template>
 <script lang='ts'>
-import { defineComponent, onMounted, ref, watch } from "vue";
+import { defineComponent, onMounted, ref, watch, h } from "vue";
 import contentCell from "./content-cell.vue";
 import { getCookie } from "../../utils";
 import { chainSetting } from "../../assets/js/chainSetting";
 import { initWeb3 } from "../../assets/js/initweb3";
 import bus from '../../utils/bus.js'
+import { ElNotification } from 'element-plus';
 
 export default defineComponent({
   components: { contentCell },
@@ -48,7 +49,6 @@ export default defineComponent({
     const showHomeModal = ref(false);
     const walletBalance = ref(0);
     const targetChainId = ref(0);
-    const loading = ref<boolean>(false);
     const pageText = ref([
       {
         title: "ATTA NFT Exclusive Benefits",
@@ -167,25 +167,26 @@ export default defineComponent({
 
         const MerkleDistributionAddress = setting_proof[chainId.value].address;
         const MerkleDistributionABI = setting_proof["abi"];
-        console.log(MerkleDistributionABI);
+
         const MerkleDistributionInstance = new web3.value.eth.Contract(
           MerkleDistributionABI,
           MerkleDistributionAddress
         );
-        loading.value = true;
-        setTimeout(() => {
-          loading.value = false;
-        }, 2000);
+        ElNotification({
+          title: 'Tips',
+          message: h(
+            'i',
+            { style: 'color: A8DEEE' },
+            'Just a moment, please',
+          ),
+        });
         MerkleDistributionInstance.methods.claim()
         .send({
           from: userAddress
         }).then(res=>{
           console.log(res);
           claimBtn.value = "We have received your claim";
-          loading.value = false;
         }).catch(err=>{
-          claimBtn.value = "claimed the NFT airdrop already";  
-          submitBtn.value = "Got it";
           console.log(err);
         });
       }
@@ -202,8 +203,7 @@ export default defineComponent({
       closeModal,
       showHomeModal,
       getNftBsc,
-      getAddress,
-      loading
+      getAddress
     };
   },
 });
