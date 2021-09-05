@@ -12,11 +12,13 @@
           <div class="content-desc-title">{{ $t("infoTitle") }}</div>
           <div class="content-desc-info" v-html="$t('infoDesc2')"></div>
           <div class="content-desc-info">
-            Dear Loot Adventurers, We are excited to invite all of you to join
-            the 1st ATTA Infinite Esports Tournament in the metaverse.  All Loot
-            NFT and xLoot NFT holders will be airdropped with an invitation that
-            comes with entrance tickets in different rarities.  Please hit the
-            claim button below for the invitation. See you at the tournament!
+            Dear Loot Adventurers, <br />
+            We are excited to invite all of you to join the 1st ATTA Infinite
+            Esports Tournament in the metaverse. All Loot NFT and xLoot NFT
+            holders will be airdropped with an invitation that comes with
+            entrance tickets in different rarities. Please hit the claim button
+            below for the invitation. <br />
+            See you at the tournament!
           </div>
           <div class="claim-title" v-if="props.accountAddress">
             {{ $t(claimBtn) }}
