@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-container" v-if="showHomeModal">
+  <div class="modal-container" v-if="showHomeModal" v-loading="loading">
     <div class="modal-wrap">
       <div class="modal-wrap-name">
         <div class="modal-wrap-name-text">{{ $t("Claim Your NFT") }}</div>
@@ -30,7 +30,6 @@
 <script lang='ts'>
 import { defineComponent, onMounted, ref, watch } from "vue";
 import contentCell from "./content-cell.vue";
-import merkle from "/public/js/Merkle.json";
 import { getCookie } from "../../utils";
 import { chainSetting } from "../../assets/js/chainSetting";
 import { initWeb3 } from "../../assets/js/initweb3";
@@ -46,11 +45,10 @@ export default defineComponent({
   },
   setup(props, context) {
     const showDesc = ref("");
-    const showUserAddress = ref(false);
-    const showClaimStatus = ref(false);
     const showHomeModal = ref(false);
     const walletBalance = ref(0);
     const targetChainId = ref(0);
+    const loading = ref<boolean>(false);
     const pageText = ref([
       {
         title: "ATTA NFT Exclusive Benefits",
@@ -78,7 +76,6 @@ export default defineComponent({
     watch(props, (newVal, oldVal) => {
       if (newVal.accountAddress || oldVal.accountAddress) {
         submitBtn.value = "Claim now";
-        showUserAddress.value = true;
       }
     });
 
@@ -114,7 +111,6 @@ export default defineComponent({
     const btnText = async () => {
         claimBtn.value = "You can claim this NFT airdrop";
         submitBtn.value = "Claim now";
-        showUserAddress.value = true;
     };
 
     const compareAddress = async () => {
@@ -135,23 +131,8 @@ export default defineComponent({
       submitBtn.value = "Connect now";
     } else {
       submitBtn.value = "Claim now";
-      showUserAddress.value = true;
       compareAddress();
     }
-
-    const getClaim = (fnc1: any, address: any) => {
-      fnc1.methods
-        .claim()
-        .send({
-          from: address,
-        }).then(res=>{
-          console.log(res);
-        }).catch(err=>{
-          console.log(err);
-        });
-      claimBtn.value = "We have received your claim";
-      showClaimStatus.value = true;
-    };
 
     const closeModal = () => {
       showHomeModal.value = false
@@ -163,7 +144,7 @@ export default defineComponent({
         return false;
       }
       if (submitBtn.value === "Got it") {
-        closeModal()
+        closeModal();
         return false;
       }
 
@@ -186,27 +167,27 @@ export default defineComponent({
 
         const MerkleDistributionAddress = setting_proof[chainId.value].address;
         const MerkleDistributionABI = setting_proof["abi"];
-
+        console.log(MerkleDistributionABI);
         const MerkleDistributionInstance = new web3.value.eth.Contract(
           MerkleDistributionABI,
           MerkleDistributionAddress
         );
-
-        // 查询是否 claim过
-        MerkleDistributionInstance.methods
-          .isClaimed(accounts.value[0])
-          .call()
-          .then(function (res: any) {
-            //true->已经领取
-            if (!res) {
-              getClaim(MerkleDistributionInstance, userAddress);
-            } else {
-              claimBtn.value = "claimed the NFT airdrop already";
-              showClaimStatus.value = true;
-            }
-            submitBtn.value = "Got it";
-            showUserAddress.value = false;
-          });
+        loading.value = true;
+        setTimeout(() => {
+          loading.value = false;
+        }, 2000);
+        MerkleDistributionInstance.methods.claim()
+        .send({
+          from: userAddress
+        }).then(res=>{
+          console.log(res);
+          claimBtn.value = "We have received your claim";
+          loading.value = false;
+        }).catch(err=>{
+          claimBtn.value = "claimed the NFT airdrop already";  
+          submitBtn.value = "Got it";
+          console.log(err);
+        });
       }
     };
 
@@ -216,14 +197,13 @@ export default defineComponent({
       submitBtn,
       props,
       claimBtn,
-      showUserAddress,
-      showClaimStatus,
       walletBalance,
       toggleShow,
       closeModal,
       showHomeModal,
       getNftBsc,
       getAddress,
+      loading
     };
   },
 });

@@ -4300,6 +4300,51 @@ export const c_atta_ERC1155_Airdrop_abi = [
 ]
 export const c_atta_ERC1155_Airdrop_MerkleProof_abi = [
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "LootClaimed",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "xLootClaimed",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "claim",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -4321,46 +4366,14 @@ export const c_atta_ERC1155_Airdrop_MerkleProof_abi = [
 		"type": "constructor"
 	},
 	{
-		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": false,
 				"internalType": "uint256",
 				"name": "index",
 				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
 			}
 		],
-		"name": "Claimed",
-		"type": "event"
-	},
-	{
-		"inputs": [],
-		"name": "claim",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "nftTicketId",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "user",
-				"type": "address"
-			}
-		],
-		"name": "isClaimed",
+		"name": "lootIsClaimed",
 		"outputs": [
 			{
 				"internalType": "bool",
@@ -4376,7 +4389,7 @@ export const c_atta_ERC1155_Airdrop_MerkleProof_abi = [
 		"name": "lootNFT",
 		"outputs": [
 			{
-				"internalType": "contract IERC721",
+				"internalType": "contract IERC721Enumerable",
 				"name": "",
 				"type": "address"
 			}
@@ -4398,11 +4411,30 @@ export const c_atta_ERC1155_Airdrop_MerkleProof_abi = [
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "xlootIsClaimed",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "xlootNFT",
 		"outputs": [
 			{
-				"internalType": "contract IERC721",
+				"internalType": "contract IERC721Enumerable",
 				"name": "",
 				"type": "address"
 			}
