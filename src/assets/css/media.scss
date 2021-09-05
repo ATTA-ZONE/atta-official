@@ -83,7 +83,7 @@
   
   .modal-container {
     .modal-wrap {
-      width: 100%;
+      width: 100% !important;
       &-name {
         padding-bottom: 26px;
         border-bottom: 1px solid rgba($color: #fff, $alpha: 0.15);
@@ -93,12 +93,12 @@
         opacity: 1;
       }
       .content-wrap {
-        display: block;
+        display: block !important;
         .banner {
-          width: 100%;
+          width: 100% !important;
         }
         .content-desc {
-          margin: 10px 0;
+          margin: 10px 0 !important;
         }
       }
     }
