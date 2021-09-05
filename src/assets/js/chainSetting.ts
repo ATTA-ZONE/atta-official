@@ -212,12 +212,12 @@ export const chainSetting = {
             "4":
             {
                 "owner_id": 1,
-                "address": "0xD1ce28b3993a4865Dc7A6406182D952A4Df2E672"
+                "address": "0xB69253aaCACde190d1d597Fe8F094531739f9504"
             },
             "1":
             {
                 "owner_id": 1,
-                "address": "0xffa04E940ff39794cB58A777A8F629A1FB4CD231"
+                "address": "0x301AAF18DE48108389826dB9a1c65Ed60d9C46BE"
             }
         },
 
