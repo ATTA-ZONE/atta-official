@@ -33,8 +33,8 @@ import contentCell from "./content-cell.vue";
 import { getCookie } from "../../utils";
 import { chainSetting } from "../../assets/js/chainSetting";
 import { initWeb3 } from "../../assets/js/initweb3";
-import bus from '../../utils/bus.js'
-import { ElNotification } from 'element-plus';
+import bus from "../../utils/bus.js";
+import { ElNotification } from "element-plus";
 
 export default defineComponent({
   components: { contentCell },
@@ -65,9 +65,9 @@ export default defineComponent({
     const chainId = ref(0);
     const web3 = ref();
 
-    bus.on('openHomeModal',()=>{
-      showHomeModal.value = true
-    })
+    bus.on("openHomeModal", () => {
+      showHomeModal.value = true;
+    });
 
     const toggleShow = (str: string) => {
       showDesc.value = str;
@@ -91,12 +91,12 @@ export default defineComponent({
       accounts.value = await window.CHAIN.WALLET.accounts();
       chainId.value = await window.CHAIN.WALLET.chainId();
       const walletType = getCookie(window.CHAIN.WALLET.__wallet__);
-      if (window.location.href.indexOf('atta.zone') == -1) {
-          targetChainId.value = 4;
+      if (window.location.href.indexOf("atta.zone") == -1) {
+        targetChainId.value = 4;
       } else {
-          targetChainId.value = 1;
+        targetChainId.value = 1;
       }
-      
+
       if (walletType) {
         web3.value = new window.Web3(window.CHAIN.WALLET.provider());
       } else if (window.ethereum) {
@@ -108,40 +108,39 @@ export default defineComponent({
       initAccount();
     });
 
-    const btnText = async () => {
-        claimBtn.value = "You can claim this NFT airdrop";
-        submitBtn.value = "Claim now";
-    };
-
-    const compareAddress = async () => {
-      if (accounts && accounts.length > 0) {
-        if (chainId.value != targetChainId.value) {
-          window.CHAIN.WALLET.switchRPCSettings(targetChainId.value).then(
-            () => {
-              btnText();
-            }
-          );
-        } else {
-          btnText();
-        }
-      }
-    };
-
     if (!props.accountAddress) {
       submitBtn.value = "Connect now";
     } else {
       submitBtn.value = "Claim now";
-      compareAddress();
     }
 
     const closeModal = () => {
-      showHomeModal.value = false
+      showHomeModal.value = false;
     };
 
     const getNftBsc = async () => {
       if (submitBtn.value === "Connect now") {
         getAddress();
         return false;
+      }
+      if (
+        chainId.value != targetChainId.value &&
+        window.location.href.indexOf("atta.zone") > -1
+      ) {
+        window.ethereum &&
+          window.ethereum
+            .request({
+              method: "wallet_switchEthereumChain",
+              params: [
+                {
+                  chainId: "0x1",
+                },
+              ],
+            })
+            .then(() => {
+              console.log("网络切换成功");
+            })
+            .catch((e) => {});
       }
       if (submitBtn.value === "Got it") {
         closeModal();
@@ -173,22 +172,21 @@ export default defineComponent({
           MerkleDistributionAddress
         );
         ElNotification({
-          title: 'Tips',
-          message: h(
-            'i',
-            { style: 'color: A8DEEE' },
-            'Just a moment, please',
-          ),
+          title: "Tips",
+          message: h("i", { style: "color: A8DEEE" }, "Just a moment, please"),
         });
-        MerkleDistributionInstance.methods.claim()
-        .send({
-          from: userAddress
-        }).then(res=>{
-          console.log(res);
-          claimBtn.value = "We have received your claim";
-        }).catch(err=>{
-          console.log(err);
-        });
+        MerkleDistributionInstance.methods
+          .claim()
+          .send({
+            from: userAddress,
+          })
+          .then((res) => {
+            console.log(res);
+            claimBtn.value = "We have received your claim";
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     };
 
@@ -203,7 +201,7 @@ export default defineComponent({
       closeModal,
       showHomeModal,
       getNftBsc,
-      getAddress
+      getAddress,
     };
   },
 });
