@@ -127,7 +127,7 @@
 .connect-status-img {
   width: 6px;
   height: 6px;
-  margin-right: 13px;
+  margin-right: 0px;
 }
 
 .wallet-container {
@@ -139,13 +139,22 @@
 .wallet-status {
   color: #fff;
   font-size: 12px;
-
+  min-height:30px;
   &-address {
     opacity: 0.6;
     max-width: 170px;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    display: flex;
+    .address-start{
+      display: inline-block;
+      max-width: calc(100% - 30px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .address-end{
+      width: 30px;
+    }
   }
 
   &-btn {

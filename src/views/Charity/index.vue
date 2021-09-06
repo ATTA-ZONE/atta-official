@@ -140,7 +140,7 @@ export default defineComponent({
                                         {
                                             url : '/library/libraryList/cs10.jpg',
                                             titleen : "I'm a little bird",
-                                            titlech : '我是壹只小小鳥',
+                                            titlech : '我是一只小小鳥',
                                         },
                                         {
                                             url : '/library/libraryList/cs11.jpg',
@@ -160,7 +160,7 @@ export default defineComponent({
                                         {
                                             url : '/library/libraryList/cs14.jpg',
                                             titleen : 'A Rabbit',
-                                            titlech : '壹只兔子',
+                                            titlech : '一只兔子',
                                         },
                                         {
                                             url : '/library/libraryList/cs07.jpg',
@@ -207,7 +207,7 @@ export default defineComponent({
                                 namelableen : 'NFT Utilities',
                                 namelablech : '權益獎品',
                                 tipsen: "1. For users who are eligible to redeem the benefits, please send your BinanceNFT uid, your location and screenshots of your opened Mystery Box NFTs collection (NFT set that is eligible for relevant utilities) to official ATTA email: nft@atta.zone . <br/>2. ATTA will review the list of winners and make announcement on Twitter and Telegram. The Special Angel NFT will be distributed by Binance NFT to qualifying users’ Binance NFT account. <br/>3. Regarding the physical benefits and utilities, eligible users will receive a confirmation email. Upon receiving the email, users need to reply with their contact information, address, etc. ATTA will send out the rewards after confirming the information. <br/>4. For redeeming the Special Angel NFT, after Binance NFT have opened their claim function, users need to transfer it to ATTA’s official website and redeem the NFT there for concert ticket.",
-                                tipsch : "1. 符合兌換權益條件的用戶，請將幣安 NFT uid、所在地和已打開盲盒截圖（符合權益組合）發送至官方郵箱 nft@atta.zone <br/>2. ATTA 將會核對中獎用戶名單，在 twitter 和 telegram 社群中公布。其中天使 NFT 將由幣安 NFT 空投到用戶幣安賬戶中 <br/>3. 關于實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回複聯系和地址等信息，確認後，由 ATTA 官方統壹寄送。 <br/>4. 天使 NFT 的門票兌換，在幣安 NFT 開放提取後，由用戶提到 ATTA 官網平台進行後續演唱會門票兌換",
+                                tipsch : "1. 符合兌換權益條件的用戶，請將幣安 NFT uid、所在地和已打開盲盒截圖（符合權益組合）發送至官方郵箱 nft@atta.zone； <br/>2. ATTA 將會核對中獎用戶名單，在 twitter 和 telegram 社群中公布。其中天使 NFT 將由幣安 NFT 空投到用戶幣安賬戶中； <br/>3. 關于實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回複聯系電話和地址等信息，確認後，由 ATTA 官方統一寄送； <br/>4. 天使 NFT 的門票兌換，在幣安 NFT 開放提取後，由用戶提到 ATTA 官網平台進行後續演唱會門票兌換。",
                                 imglist : [
                                     {
                                         url : '/imgs/Charity_img7.jpg',
@@ -333,7 +333,7 @@ export default defineComponent({
                                         {
                                             url : '/library/libraryList/cs10.jpg',
                                             titleen : "I'm a little bird",
-                                            titlech : '我是壹只小小鳥',
+                                            titlech : '我是一只小小鳥',
                                         },
                                         {
                                             url : '/library/libraryList/cs11.jpg',
@@ -353,7 +353,7 @@ export default defineComponent({
                                         {
                                             url : '/library/libraryList/cs14.jpg',
                                             titleen : 'A Rabbit',
-                                            titlech : '壹只兔子',
+                                            titlech : '一只兔子',
                                         },
                                         {
                                             url : '/library/libraryList/cs07.jpg',
@@ -411,7 +411,7 @@ export default defineComponent({
                                     namelableen : 'NFT Utilities',
                                     namelablech : '權益獎品',
                                     tipsen: "1. For users who are eligible to redeem the benefits, please send your BinanceNFT uid, your location and screenshots of your opened Mystery Box NFTs collection (NFT set that is eligible for relevant utilities) to official ATTA email: nft@atta.zone . <br/>2. ATTA will review the list of winners and make announcement on Twitter and Telegram. The Special Angel NFT will be distributed by Binance NFT to qualifying users’ Binance NFT account. <br/>3. Regarding the physical benefits and utilities, eligible users will receive a confirmation email. Upon receiving the email, users need to reply with their contact information, address, etc. ATTA will send out the rewards after confirming the information. <br/>4. For redeeming the Special Angel NFT, after Binance NFT have opened their claim function, users need to transfer it to ATTA’s official website and redeem the NFT there for concert ticket.",
-                                    tipsch : "1. 符合兌換權益條件的用戶，請將幣安 NFT uid、所在地和已打開盲盒截圖（符合權益組合）發送至官方郵箱 nft@atta.zone <br/>2. ATTA 將會核對中獎用戶名單，在 twitter 和 telegram 社群中公布。其中天使 NFT 將由幣安 NFT 空投到用戶幣安賬戶中 <br/>3. 關于實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回複聯系和地址等信息，確認後，由 ATTA 官方統壹寄送。 <br/>4. 天使 NFT 的門票兌換，在幣安 NFT 開放提取後，由用戶提到 ATTA 官網平台進行後續演唱會門票兌換",
+                                    tipsch : "1. 符合兌換權益條件的用戶，請將幣安 NFT uid、所在地和已打開盲盒截圖（符合權益組合）發送至官方郵箱 nft@atta.zone； <br/>2. ATTA 將會核對中獎用戶名單，在 twitter 和 telegram 社群中公布。其中天使 NFT 將由幣安 NFT 空投到用戶幣安賬戶中； <br/>3. 關于實物權益獎品，符合條件的用戶將會收到確認郵件，用戶收到後需回複聯系電話和地址等信息，確認後，由 ATTA 官方統一寄送； <br/>4. 天使 NFT 的門票兌換，在幣安 NFT 開放提取後，由用戶提到 ATTA 官網平台進行後續演唱會門票兌換。",
                                     imglist : [
                                         {
                                             url : '/imgs/Charity_img7.jpg',

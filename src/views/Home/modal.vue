@@ -7,7 +7,7 @@
       </div>
       <div class="modal-title">{{ $t("modalTitle") }}</div>
       <div class="content-wrap" style="align-items: center">
-        <img class="banner" src="/imgs/lingquan.png" />
+        <img class="banner" src="/imgs/lingquan.jpg" />
         <div class="content-desc">
           <div class="content-desc-title">{{ $t("infoTitle") }}</div>
           <div class="content-desc-info" v-html="$t('infoDesc2')"></div>
