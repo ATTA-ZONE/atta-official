@@ -47,6 +47,8 @@
           <img class="logo2" src="/imgs/logo02.png" />
           <img class="logo9" src="/imgs/logo09.png" />
           <img class="logo1" src="/imgs/logo01.png" />
+          <img class="logo8" src="/imgs/logo08.png" />
+          
         </div>
         <div class="twohanglogo">
           <div class="img-center">
@@ -56,11 +58,13 @@
           <div class="img-center">
             <img class="logo5" src="/imgs/logo05.png" />
           </div>
-          <img class="logo8" src="/imgs/logo08.png" />
+          <img style="width:134px;" src="/imgs/zon_web.png" />
           <div class="img-right">
             <img class="logo6" src="/imgs/logo06.png" />
           </div>
           <img src="/imgs/pageTwoRightBtm.png" class="start" />
+          <img style="width:218px;" src="/imgs/ld_web.png" />
+          <img style="width:186px" src="/imgs/youbi_web.png" />
         </div>
       </div>
       <div class="home-page-three threeweb">
@@ -79,6 +83,11 @@
           <img class="logo6" src="/imgs/logo06.png" />
           <img class="logo7" src="/imgs/logo07.png" />
           <img class="logo10" src="/imgs/logo10.png" />
+        </div>
+        <div class="threehanglogo">
+          <img style="width:92px;" src="/imgs/ld.png" />
+          <img style="width:78px;" src="/imgs/youbi.png" />
+          <img style="width:65px" src="/imgs/zon.png" />
         </div>
       </div>
       <div class="home-page-four flex">

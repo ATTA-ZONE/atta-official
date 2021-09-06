@@ -376,9 +376,9 @@ export default defineComponent({
                 content:'library_copywriting_121_7',
                 mp4Url:'/library/libraryList/attaGame01.png',
                 mediaType:'image',
-                nolist:[50,50,'',50,''],
+                nolist:[650,650,'',650,''],
                 descText:'0 （統壹爲1155鑄造方式）',
-                descTextEn:'0  (ERC -1155)'
+                descTextEn:'2  (ERC -1155)'
               },
               {
                 url:'/library/libraryList/attaGame2.png',
@@ -396,9 +396,9 @@ export default defineComponent({
                 content:'library_copywriting_123_7',
                 mp4Url:'/library/libraryList/attaGame03.png',
                 mediaType:'image',
-                nolist:[650,650,'',650,''],
+                nolist:[50,50,'',50,''],
                 descText:'2 （統壹爲1155鑄造方式）',
-                descTextEn:'2 (ERC -1155)'
+                descTextEn:'0 (ERC -1155)'
               }
             ]
           },
