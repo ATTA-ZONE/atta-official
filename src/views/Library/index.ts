@@ -377,7 +377,7 @@ export default defineComponent({
                 mp4Url:'/library/libraryList/attaGame01.png',
                 mediaType:'image',
                 nolist:[650,650,'',650,''],
-                descText:'0 （統壹爲1155鑄造方式）',
+                descText:'2 （統壹爲1155鑄造方式）',
                 descTextEn:'2  (ERC -1155)'
               },
               {
@@ -397,7 +397,7 @@ export default defineComponent({
                 mp4Url:'/library/libraryList/attaGame03.png',
                 mediaType:'image',
                 nolist:[50,50,'',50,''],
-                descText:'2 （統壹爲1155鑄造方式）',
+                descText:'0 （統壹爲1155鑄造方式）',
                 descTextEn:'0 (ERC -1155)'
               }
             ]
