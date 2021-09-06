@@ -46,7 +46,7 @@
         <img class="brandLogo" src="/imgs/logo.png" @click="$router.push({name:'Home'})"/>
         <div class="more-list" :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
           <div class="more-hover">
-            <span class="hanson">{{selectedPath == '/'?$t("home"):selectedPath == '/charity'?$t("ATTA Charity"):selectedPath == '/assets/mynft'?$t("Asset Management"):selectedPath == '/match'?$t("matchName"):''}}</span>
+            <span class="hanson">{{selectedPath == '/'?$t("home"):selectedPath == '/charity'?$t("ATTA Charity"):selectedPath == '/assets/mynft'?$t("Asset Management"):selectedPath == '/esports'?$t("matchName"):selectedPath == '/libraries'?$t("NFTlibrary"):''}}</span>
             <img src="/imgs/arrow.png" alt="">
           </div>
           <div class="more-content">
@@ -300,6 +300,7 @@ export default defineComponent({
     };
 
     onMounted(() => {
+      console.log(selectedPath.value);
       getLocation();
       window.addEventListener("resize", resizeWindow);
       resizeWindow();

@@ -1,9 +1,9 @@
-@media only screen and (max-width: 1440px) {
+// @media only screen and (max-width: 1440px) {
 
-  .home-page-one .header-links {
-    padding-left: 2% !important;
-  }
-}
+//   .home-page-one .header-links {
+//     padding-left: 2% !important;
+//   }
+// }
 
 @media screen and (max-width: 992px) {
   .wallet-container {
@@ -142,7 +142,7 @@
   min-height:30px;
   &-address {
     opacity: 0.6;
-    max-width: 170px;
+    max-width: 120px;
     overflow: hidden;
     display: flex;
     .address-start{

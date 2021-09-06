@@ -8,14 +8,14 @@
     display: none;
   }
 }
-@media screen and (max-width: 1499px) and (min-width: 993px){
+@media screen and (max-width: 1599px) and (min-width: 993px){
   div.more-list{
     width: 200px;
     position: relative;
     &:hover{
       .more-content{
         transition: height 0.3s ease-in-out;
-        height: 200px !important;
+        height: 236px !important;
       }
       img{
         transition: transform 0.3s ease-in-out;
@@ -45,7 +45,8 @@
       position: absolute;
       top: 36px;
       background-color: #14141494;
-      left: 0;
+      left: 0px;
+      margin-left: 60px;
       display: flex;
       flex-wrap: wrap;
       a{
