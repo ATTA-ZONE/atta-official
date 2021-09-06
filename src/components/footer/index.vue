@@ -6,7 +6,7 @@
         ATTA is a blockchain-based content
         <br />creator for premium copyright assets.
       </p>
-      <p v-else>ATTA是基於區塊鏈NFT技術構建的數字潮流品牌</p>
+      <p v-else>ATTA是基於NFT的數字娛樂與潮流內容生廠商</p>
     </div>
     <div class="footer-right">
       <span :class="isEn?'niunito':''">{{ $t("Follow Us") }}</span>
