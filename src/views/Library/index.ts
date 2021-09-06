@@ -400,7 +400,7 @@ export default defineComponent({
         nftnumber:info.nolist?info.nolist[4]+'':'',
         desc:info.desc?info.desc:'',//编号及说明
         rarity:info.rarity?info.rarity:'',
-        descText:info.descText?info.descText:''
+        descText:!info.descText?'':lang=='TC'?info.descText:lang=='EN'?'1 (Minted by 1155 standard)':''
       }
       contents.value = data;
       modelBol.value = true;
