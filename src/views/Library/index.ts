@@ -120,7 +120,9 @@ export default defineComponent({
                 // noAPlist:[6,4,1,0,3],
                 // APdesc:['005','01','0','000','005'],
                 nolist:[2000,2000,2000,0,0],
-                descText:'1 （統壹爲1155鑄造方式）'
+                descText:'1 （統壹爲1155鑄造方式）',
+                descTextEn:'1 (BEP -1155)'
+                
               },
               {
                 url:'',
@@ -360,6 +362,46 @@ export default defineComponent({
               }
             ]
           },
+          {
+            img01:'/library/libraryTitle/attaGame.jpg',//左边大图
+            title:'library_copywriting_8_new',//标题
+            text01:'library_copywriting_15_new',//右侧内容第一段
+            remark:'',//右侧备注
+            logo:'',//右侧logo
+            detailName:'br',
+            imgsList:[
+              {
+                url:'/library/libraryList/attaGame1.png',
+                text:'library_copywriting_34_7_new',
+                content:'library_copywriting_121_7',
+                mp4Url:'/library/libraryList/attaGame01.png',
+                mediaType:'image',
+                nolist:[50,50,50,'',''],
+                descText:'0 （統壹爲1155鑄造方式）',
+                descTextEn:'0  (BEP -1155)'
+              },
+              {
+                url:'/library/libraryList/attaGame2.png',
+                text:'library_copywriting_35_7_new',
+                content:'library_copywriting_122_7',
+                mp4Url:'/library/libraryList/attaGame02.png',
+                mediaType:'image',
+                nolist:[300,300,300,'',''],
+                descText:'1 （統壹爲1155鑄造方式）',
+                descTextEn:'1 (BEP -1155)'
+              },
+              {
+                url:'/library/libraryList/attaGame3.png',
+                text:'library_copywriting_36_7_new',
+                content:'library_copywriting_123_7',
+                mp4Url:'/library/libraryList/attaGame03.png',
+                mediaType:'image',
+                nolist:[650,650,650,'',''],
+                descText:'2 （統壹爲1155鑄造方式）',
+                descTextEn:'2 (BEP -1155)'
+              }
+            ]
+          },
         ]
       }
   },
@@ -398,9 +440,10 @@ export default defineComponent({
         BSC:info.nolist?info.nolist[2]:'',
         ETH:info.nolist?info.nolist[3]:'',
         nftnumber:info.nolist?info.nolist[4]+'':'',
+        mediaType:info.mediaType?info.mediaType:'',
         desc:info.desc?info.desc:'',//编号及说明
         rarity:info.rarity?info.rarity:'',
-        descText:!info.descText?'':lang=='TC'?info.descText:lang=='EN'?'1 (Minted by 1155 standard)':''
+        descText:!info.descText?'':lang=='TC'?info.descText:lang=='EN'?info.descTextEn:''
       }
       contents.value = data;
       modelBol.value = true;
