@@ -3,8 +3,7 @@
     <div class="footer-left">
       <img src="/imgs/logo.png" />
       <p v-if="isEn" class="niunito">
-        ATTA is a blockchain-based content
-        <br />creator for premium copyright assets.
+        ATTA is a content creator for premium<br/> copyright assets based on NFT
       </p>
       <p v-else>ATTA是基於NFT的數字娛樂與潮流內容生廠商</p>
     </div>
