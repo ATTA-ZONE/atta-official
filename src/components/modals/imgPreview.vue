@@ -137,10 +137,11 @@ export default defineComponent({
     overflow-y: auto;
     .close-btn {
       position: absolute;
-      top: 15px;
-      right: 15px;
-      width: 36px;
+      top: 10px;
+      right: 10px;
+      width: 30px;
       z-index: 103;
+	cursor: pointer;
     }
     .modal-content {
       width: 100%;
