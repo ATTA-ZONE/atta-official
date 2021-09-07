@@ -391,7 +391,7 @@ export default defineComponent({
                 descTextEn:'1 (ERC -1155)'
               },
               {
-                url:'/library/libraryList/attaGame3.png',
+                url:'/library/libraryList/attaGame3.jpg',
                 text:'library_copywriting_36_7_new',
                 content:'library_copywriting_123_7',
                 mp4Url:'/library/libraryList/attaGame03.png',
