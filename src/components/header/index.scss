@@ -70,6 +70,7 @@
 .home-page-one .header-links {
   padding-left: 98px;
   white-space: nowrap;
+
 }
 
 .home-page-one p.switchlanguagebox {
@@ -164,6 +165,16 @@
     border-radius: 4px;
     border: 1px solid rgba(168, 222, 238, 1);
     color: #a8deee;
+  }
+  .wallet-status-title{
+    align-items: center;
+    margin-bottom: 5px;
+    img{
+      margin-right: 5px;
+    }
+    .wallet-status-address{
+      margin-left: 5px;
+    }
   }
 }
 

@@ -64,23 +64,23 @@
         v-if="isMobile"
         src="/imgs/menu.png"
       />
-      <div :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
+      <div :class="['header-links flex', isEn ? 'hanson' : '']" v-if="!isMobile">
         <span @click="emitShowModal" class="top-btn">{{
           $t("Claim Your NFT")
         }}</span>
         <div class="wallet-container">
           <div class="wallet-pos"></div>
           <div class="wallet-status">
-            <div class="wallet-status-title" @click="getAddress">
-            <img class="connect-status-img" :src="walletStatus" />
-              {{
-                accountAddress ? $t("Wallet connected") : $t("Connect Wallet")
-              }}
-            </div>
-              <!-- {{ accountAddress }} -->
-            <div v-if="accountAddress" class="wallet-status-address">
-              <span class="address-start">{{accountAddress}}</span>
-              <span class="address-end">{{accountAddress.slice(-4)}}</span>
+            <div class="wallet-status-title flex" @click="getAddress">
+              <img class="connect-status-img" :src="walletStatus" />
+                {{
+                  accountAddress ? $t("Wallet connected") : $t("Connect Wallet")
+                }}
+              
+              <div v-if="accountAddress" class="wallet-status-address">
+                <span class="address-start">{{accountAddress}}</span>
+                <span class="address-end">{{accountAddress.slice(-4)}}</span>
+              </div>
             </div>
             <div v-if="accountAddress">
               {{ $t("Current network") }} {{ chainId == 1 || chainId == 4 ? "ETH" : "BSC" }}
