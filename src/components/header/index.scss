@@ -140,10 +140,9 @@
 .wallet-status {
   color: #fff;
   font-size: 12px;
-  min-height:30px;
   &-address {
     opacity: 0.6;
-    max-width: 120px;
+    max-width: 90px;
     overflow: hidden;
     display: flex;
     .address-start{
@@ -161,7 +160,7 @@
   &-btn {
     display: inline-block;
     margin-left: 6px;
-    padding: 0 3px;
+    padding: 0 10px;
     border-radius: 4px;
     border: 1px solid rgba(168, 222, 238, 1);
     color: #a8deee;
