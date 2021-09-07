@@ -371,20 +371,20 @@ export default defineComponent({
             detailName:'br',
             imgsList:[
               {
-                url:'/library/libraryList/attaGame1.png',
+                url:'/library/libraryList/attaGame1.jpg',
                 text:'library_copywriting_34_7_new',
                 content:'library_copywriting_121_7',
-                mp4Url:'/library/libraryList/attaGame01.png',
+                mp4Url:'/library/libraryList/attaGame01.jpg',
                 mediaType:'image',
                 nolist:[650,650,'',650,''],
                 descText:'2 （ERC1155標準鑄造）',
                 descTextEn:'2 （Minted in ERC1155 standard）'
               },
               {
-                url:'/library/libraryList/attaGame2.png',
+                url:'/library/libraryList/attaGame2.jpg',
                 text:'library_copywriting_35_7_new',
                 content:'library_copywriting_122_7',
-                mp4Url:'/library/libraryList/attaGame02.png',
+                mp4Url:'/library/libraryList/attaGame02.jpg',
                 mediaType:'image',
                 nolist:[300,300,'',300,''],
                 descText:'1 （ERC1155標準鑄造）',
@@ -394,7 +394,7 @@ export default defineComponent({
                 url:'/library/libraryList/attaGame3.jpg',
                 text:'library_copywriting_36_7_new',
                 content:'library_copywriting_123_7',
-                mp4Url:'/library/libraryList/attaGame03.png',
+                mp4Url:'/library/libraryList/attaGame03.jpg',
                 mediaType:'image',
                 nolist:[50,50,'',50,''],
                 descText:'0 （ERC1155標準鑄造）',
