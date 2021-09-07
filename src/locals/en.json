@@ -6,7 +6,7 @@
   "Switch": "Switch",
   "Click to switch to": "Switch to ",
   "Connect Wallet": "Connect Wallet",
-  "Wallet connected": "Wallet connected",
+  "Wallet connected": "Connected",
   "Claim Your NFT": "Claim admission tickets",
   "btnword" : "Airdrop claim ended",
   "O2 Music NFT": "O2 Music NFT",
@@ -416,5 +416,5 @@
   "library_copywriting_121_7" : "ATTA X Loot Admission Ticket series is ATTA's exclusive benefit to the Loot community. If you have Loot NFTs or xLoot NFTs in your wallet, you will be able to claim your admission tickets. The common ticket NFT will be entitled to redeem a certain amount of voting vouchers for the 1st ATTA Infinite Esports Tournament, please stay tuned.",
   "library_copywriting_122_7" : "ATTA X Loot Admission Ticket series is ATTA's exclusive benefit to the Loot community. If you have Loot NFTs or xLoot NFTs in your wallet, you will be able to claim your admission tickets. The rare ticket NFT will be entitled to redeem a certain amount of voting vouchers for the 1st ATTA Infinite Esports Tournament, please stay tuned.",
   "library_copywriting_123_7" : "ATTA X Loot Admission Ticket series is ATTA's exclusive benefit to the Loot community. If you have Loot NFTs or xLoot NFTs in your wallet, you will be able to claim your admission tickets. The legendary ticket NFT will be entitled to redeem a certain amount of voting vouchers for the 1st ATTA Infinite Esports Tournament, please stay tuned.",
-  "library_copywriting_124_7" : "（ERC - 1155）"
+  "library_copywriting_124_7" : "（Minted in ERC1155 standard）"
 }

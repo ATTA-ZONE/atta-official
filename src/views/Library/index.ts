@@ -120,8 +120,8 @@ export default defineComponent({
                 // noAPlist:[6,4,1,0,3],
                 // APdesc:['005','01','0','000','005'],
                 nolist:[2000,2000,2000,0,0],
-                descText:'1 （統壹爲1155鑄造方式）',
-                descTextEn:'1 (BEP -1155)'
+                descText:'1 （BEP1155 標準鑄造）',
+                descTextEn:'1（Minted in BEP1155 standard）'
                 
               },
               {
@@ -377,8 +377,8 @@ export default defineComponent({
                 mp4Url:'/library/libraryList/attaGame01.png',
                 mediaType:'image',
                 nolist:[650,650,'',650,''],
-                descText:'2 （統壹爲1155鑄造方式）',
-                descTextEn:'2  (ERC -1155)'
+                descText:'2 （ERC1155標準鑄造）',
+                descTextEn:'2 （Minted in ERC1155 standard）'
               },
               {
                 url:'/library/libraryList/attaGame2.png',
@@ -387,8 +387,8 @@ export default defineComponent({
                 mp4Url:'/library/libraryList/attaGame02.png',
                 mediaType:'image',
                 nolist:[300,300,'',300,''],
-                descText:'1 （統壹爲1155鑄造方式）',
-                descTextEn:'1 (ERC -1155)'
+                descText:'1 （ERC1155標準鑄造）',
+                descTextEn:'1 （Minted in ERC1155 standard）'
               },
               {
                 url:'/library/libraryList/attaGame3.jpg',
@@ -397,8 +397,8 @@ export default defineComponent({
                 mp4Url:'/library/libraryList/attaGame03.png',
                 mediaType:'image',
                 nolist:[50,50,'',50,''],
-                descText:'0 （統壹爲1155鑄造方式）',
-                descTextEn:'0 (ERC -1155)'
+                descText:'0 （ERC1155標準鑄造）',
+                descTextEn:'0 （Minted in ERC1155 standard）'
               }
             ]
           },
