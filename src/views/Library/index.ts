@@ -90,7 +90,7 @@ export default defineComponent({
               },
               {
                 url:'/library/libraryList/o202.png',
-                text:'library_copywriting_17',
+                text:'library_copywriting_017',
                 content:'library_copywriting_53_bw',
                 mp4Url:'https://www.bazhuayu.io/upload/v2data/2021-08-02/54f4822a-046e-4d57-ac2b-fc86916f4ed1.mp4',
                 nolist:[45,6,0,5,1],
