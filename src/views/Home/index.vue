@@ -48,6 +48,7 @@
           <img class="logo9" src="/imgs/logo09.png" />
           <img class="logo1" src="/imgs/logo01.png" />
           <img class="logo8" src="/imgs/logo08.png" />
+          <img class="logo5" src="/imgs/logo05.png" />
           
         </div>
         <div class="twohanglogo">
@@ -56,7 +57,7 @@
           </div>
           <img class="logo10" src="/imgs/logo10.png" />
           <div class="img-center">
-            <img class="logo5" src="/imgs/logo05.png" />
+            <img class="logo11" src="/imgs/logo11.png" />
           </div>
           <img style="width:134px;" src="/imgs/zon_web.png" />
           <div class="img-right">
@@ -83,6 +84,7 @@
           <img class="logo6" src="/imgs/logo06.png" />
           <img class="logo7" src="/imgs/logo07.png" />
           <img class="logo10" src="/imgs/logo10.png" />
+          <img class="logo11" src="/imgs/logo11.png" />
         </div>
         <div class="threehanglogo">
           <img style="width:92px;" src="/imgs/ld.png" />
