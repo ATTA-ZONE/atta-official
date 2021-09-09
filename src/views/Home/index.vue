@@ -47,22 +47,23 @@
           <img class="logo2" src="/imgs/logo02.png" />
           <img class="logo9" src="/imgs/logo09.png" />
           <img class="logo1" src="/imgs/logo01.png" />
-          <img class="logo8" src="/imgs/logo08.png" />
-          <img class="logo5" src="/imgs/logo05.png" />
-          
         </div>
-        <div class="twohanglogo">
+        <div class="onehanglogo">
           <div class="img-center">
             <img class="logo7" src="/imgs/logo07.png" />
           </div>
           <img class="logo10" src="/imgs/logo10.png" />
+          <div class="img-right">
+            <img class="logo6" src="/imgs/logo06.png" />
+          </div>
+          <img class="logo8" src="/imgs/logo08.png" />
+          <img class="logo5" src="/imgs/logo05.png" />
+        </div>
+        <div class="twohanglogo">
           <div class="img-center">
             <img class="logo11" src="/imgs/logo11.png" />
           </div>
           <img style="width:134px;" src="/imgs/zon_web.png" />
-          <div class="img-right">
-            <img class="logo6" src="/imgs/logo06.png" />
-          </div>
           <img src="/imgs/pageTwoRightBtm.png" class="start" />
           <img style="width:218px;" src="/imgs/ld_web.png" />
           <img style="width:186px" src="/imgs/youbi_web.png" />
