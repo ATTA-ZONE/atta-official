@@ -96,8 +96,8 @@ export default defineComponent({
                                     imglist : [
                                         {
                                             url : '/library/libraryList/cs01.jpg',
-                                            titleen : 'Happy Birthady',
-                                            titlech : 'Happy Birthady',
+                                            titleen : 'Happy Birthday',
+                                            titlech : 'Happy Birthday',
                                         },
                                         {
                                             url : '/library/libraryList/cs09.jpg',
@@ -277,8 +277,8 @@ export default defineComponent({
                                     imglist : [
                                         {
                                             url : '/library/libraryList/cs01.jpg',
-                                            titleen : 'Happy Birthady',
-                                            titlech : 'Happy Birthady',
+                                            titleen : 'Happy Birthday',
+                                            titlech : 'Happy Birthday',
                                         },
                                         {
                                             url : '/library/libraryList/cs09.jpg',
