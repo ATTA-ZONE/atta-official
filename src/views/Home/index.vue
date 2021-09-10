@@ -67,6 +67,7 @@
           <img src="/imgs/pageTwoRightBtm.png" class="start" />
           <img style="width:218px;" src="/imgs/ld_web.png" />
           <img style="width:186px" src="/imgs/youbi_web.png" />
+          <img style="width:218px;" src="/imgs/alt.jpg" />
         </div>
       </div>
       <div class="home-page-three threeweb">
@@ -88,9 +89,10 @@
           <img class="logo11" src="/imgs/logo11.png" />
         </div>
         <div class="threehanglogo">
-          <img style="width:92px;" src="/imgs/ld.png" />
-          <img style="width:78px;" src="/imgs/youbi.png" />
+          <img style="width:78px;" src="/imgs/ld.png" />
+          <img style="width:65px;" src="/imgs/youbi.png" />
           <img style="width:65px" src="/imgs/zon.png" />
+          <img style="width:65px;" src="/imgs/alt.jpg" />
         </div>
       </div>
       <div class="home-page-four flex">
