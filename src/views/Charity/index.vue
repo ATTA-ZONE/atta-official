@@ -44,7 +44,6 @@
       </div>
   </div>
   <footer-cell />
-  {{modelBol}}
   <mediaModal :content="contents" @closeNet="closeNet" v-if="modelBol"></mediaModal>
 </template>
 
