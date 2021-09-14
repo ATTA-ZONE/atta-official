@@ -21,8 +21,8 @@ export default defineComponent({
   setup(){
     const tabs = [
       {
-        name: 'LML',
-        link:'/esports/lml'
+        name: 'KPL',
+        link:'/esports/kpl'
       },
       {
         name: 'LPL',
@@ -36,7 +36,7 @@ export default defineComponent({
 
     onMounted(()=>{
       const url = window.location.pathname
-      if (url.indexOf('lml')>-1) {
+      if (url.indexOf('kpl')>-1) {
         selectedTab.value = 0
       }
       if (url.indexOf('lpl')>-1) {
