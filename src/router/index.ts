@@ -8,7 +8,7 @@ const history = () => import("../views/Assets/history.vue");
 const Charity = () => import("../views/Charity/index.vue");
 const Esports = () => import("../views/esports/index.vue");
 const lpl = () => import("../views/esports/lpl.vue");
-const lml = () => import("../views/esports/lml.vue");
+const kpl = () => import("../views/esports/kpl.vue");
 const Xudongdong = () => import("../views/Xudongdong/index.vue");
  
 const routes = [
@@ -39,7 +39,7 @@ const routes = [
     path: "/esports",
     name: "esports",
     component: Esports,
-    redirect: '/esports/lml',
+    redirect: '/esports/kpl',
     children: [
       {
         path: 'lpl',
@@ -47,9 +47,9 @@ const routes = [
         component: lpl
       },
       {
-        path: 'lml',
-        name: 'lml',
-        component: lml
+        path: 'kpl',
+        name: 'kpl',
+        component: kpl
       }
     ]
   },
