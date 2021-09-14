@@ -78,7 +78,7 @@ export default defineComponent({
     background: #A8DEEE;
   }
   .router-view {
-    padding: 0 10%;
+    width: 100%;
     min-height: calc(100vh - 490px);
   }
   .el-loading-mask {
