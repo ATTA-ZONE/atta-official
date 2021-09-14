@@ -90,9 +90,9 @@
 import { defineComponent, computed, ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import countdown from "@/components/countdown/countdown.vue";
-import { initWeb3 } from "../../assets/js/initweb3";
-import { setCookie, getCookie, getAbi, moneyFormat } from "../../utils";
-import axios from "../../api";
+import { initWeb3 } from "../../../../assets/js/initweb3";
+import { setCookie, getCookie, getAbi, moneyFormat } from "../../../../utils";
+import axios from "../../../../api";
 
 export default defineComponent({
   components: { countdown },
