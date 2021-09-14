@@ -6,7 +6,9 @@ const Assets = () => import("../views/Assets/index.vue");
 const mynft = () => import("../views/Assets/mynft.vue");
 const history = () => import("../views/Assets/history.vue");
 const Charity = () => import("../views/Charity/index.vue");
-const esports = () => import("../views/match/index.vue");
+const Esports = () => import("../views/esports/index.vue");
+const lpl = () => import("../views/esports/lpl.vue");
+const lml = () => import("../views/esports/lml.vue");
 const Xudongdong = () => import("../views/Xudongdong/index.vue");
  
 const routes = [
@@ -34,24 +36,32 @@ const routes = [
     ]
   },
   {
+    path: "/esports",
+    name: "esports",
+    component: Esports,
+    redirect: '/esports/lml',
+    children: [
+      {
+        path: 'lpl',
+        name:'lpl',
+        component: lpl
+      },
+      {
+        path: 'lml',
+        name: 'lml',
+        component: lml
+      }
+    ]
+  },
+  {
     path: "/charity",
     name: "charity",
     component: Charity,
   },
   {
-    path: "/esports",
-    name: "esports",
-    component: esports,
-  },
-  {
     path: "/xudongdong",
     name: "xudongdong",
     component: Xudongdong,
-  },
-  {
-    path: "/esports",
-    name: "esports",
-    component: esports,
   },
   {
     path: "/libraries",
