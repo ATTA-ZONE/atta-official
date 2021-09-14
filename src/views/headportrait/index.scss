@@ -1,0 +1,242 @@
+.headportraitbox{
+    .flexbetween{
+        display: flex;
+        justify-content: space-between;
+    }
+    .Fzlt_Thb{ 
+        color: #A9DEEE;
+    }
+    .titlebox{
+        width: 66.66%;
+        margin: 0 auto;
+        padding-bottom: 33px;
+        h1{
+            font-weight: normal;
+            font-size: 60px;
+            text-align: center;
+        }
+        p{
+            margin-top: 47px;
+            font-family: Inter;
+            font-style: normal;
+            font-size: 18px;
+            line-height: 150%;
+            color: rgba(255, 255, 255);
+            text-align: justify;
+        }
+        p.auction-introduction{
+            margin-top: 28px;
+        }
+    }
+    .bannerimg1{
+        display: none;
+    }
+    .bannerimg{
+        width: 100%;
+        background-size: 100% auto;
+        margin-top: 47px;
+        margin-bottom: 70px;
+    }
+    .contentsbox{
+        width: 52.77%;
+        margin: 0 auto;
+        text-align: center;
+        .everybox{
+            margin-top: 80px;
+            h1{
+                font-size: 38px;
+                line-height: 52px;
+                letter-spacing: 0.02em;
+            }
+            img,video{
+                width: auto;
+                background-size: 100% auto;
+                margin-top: 80px;
+            }
+            p{
+                text-align: left;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 150%;
+                margin-top: 100px;
+                text-align: justify;
+            }
+            .title2{
+                margin-top: 20px;
+                text-align: center;
+            }
+            .content2{
+                margin-top: 20px;
+            }
+        }
+    }
+    .tablistbox{
+        padding: 0 10% 50px 10%;
+        margin-top: 150px;
+        .everytabbox{
+            .everytablist{
+                align-items: flex-start;
+                .lefttab{
+                    width: 20%;
+                    margin-top: 30px;
+                    h1{
+                        font-style: normal;
+                        font-weight: 800;
+                        font-size: 28px;
+                        line-height: 38px;
+                        letter-spacing: 0.02em;
+                        margin-bottom: 25px;
+                    }
+                    p{
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 20px;
+                        line-height: 150%;
+                        color: rgba(255, 255, 255, 0.8);    
+                        width: 85%;     
+                        text-align: justify;               
+                    }
+                }
+                .righttab{
+                    width: 80%;
+                    flex-wrap: wrap;
+                    .everyimgbox{
+                        width: 33.33%;
+                        padding-right: 16px;
+                        box-sizing: border-box;
+                        display: flex;
+                        flex-direction: column;
+                        margin-top: 30px;
+                        img,video{
+                            width: 100%;
+                            background-size: 100% auto;
+                        }
+                        p{
+                            background: rgba(169, 222, 238, 0.1);
+                            padding: 18px 0 18px 17px;
+                            font-family: NunitoSans;
+                        }
+                    }
+                    // .everyimgbox:nth-child(3n){
+                    //     padding-right: 0;
+                    // }
+                }
+            }
+        }
+    }
+    .webh5_foldbtn{
+        display: none;
+    }
+    .el-tabs__nav-wrap::after{
+        background-color: transparent;
+    }
+    .el-tabs__item{
+        font-size: 28px;
+        color: #fff !important;
+        margin-bottom: 7px;
+    }
+    .el-tabs__active-bar{
+        background-color: #A8DEEE;
+    }
+}
+@media only screen and (max-width: 992px){
+    .charitybox{
+        .titlebox{
+            width: 100%;
+            .bannerimg1{
+                display: block;
+                margin-top: 40px;
+                margin-bottom: 62px;
+            }
+            h1,p{
+                width: 79.73%;
+                margin: 0 auto;
+            }
+            h1{
+                font-size: 28px;
+                font-weight: 800;
+                line-height: 140%;
+            }
+            p{
+                font-size: 16px;
+            }
+            p.auction-introduction{
+                margin-top: 20px !important;
+            }
+        }
+        .bannerimg2{
+            display: none;
+        }
+        .contentsbox{
+            width: 84%;
+            .everybox{
+                margin-top: 7px;
+                h1{
+                    font-size: 22px;
+                    line-height: 30px;
+                }
+                img,p{
+                    margin-top: 56px;
+                }
+                img{
+                    width: auto;
+                    max-width: 100%;
+                }
+                p{
+                    font-size: 16px;
+                }
+            }
+        }
+        .tablistbox{
+            margin-top: 47px;
+            .el-tabs__header.is-top{
+                display: none;
+            }
+            .everytabbox .everytablist{
+                flex-wrap: wrap;
+                margin-bottom: 60px;
+                .lefttab,.righttab{
+                    margin-top: 0;
+                    width: 100%;
+                }
+                .lefttab{
+                    h1{
+                        width: 50%;
+                        display: inline-block;
+                        margin-bottom: 0;
+                    }
+                    p{
+                        display: inline-block;
+                        width: 50%;
+                        text-align: right;
+                    }
+                    p:nth-child(3),p:nth-child(4){
+                        width: 100%;
+                        text-align: right;
+                    }
+                    .xgqy{
+                        display: block;
+                        width: 95%;
+                        text-align: justify;
+                        margin-top: 20px;
+                    }
+                }
+                .righttab{
+                    overflow: auto;
+                    white-space:nowrap;
+                    display: block;
+                    .everyimgbox{
+                        display: inline-block;
+                        width: 100%;
+                        box-sizing: content-box;
+                        p{
+                            margin-top: -5px;
+                            white-space: pre-wrap;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

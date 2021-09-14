@@ -10,6 +10,7 @@ const Esports = () => import("../views/esports/index.vue");
 const lpl = () => import("../views/esports/lpl.vue");
 const lml = () => import("../views/esports/lml.vue");
 const Xudongdong = () => import("../views/Xudongdong/index.vue");
+const Headportrait = () => import("../views/headportrait/index.vue");
  
 const routes = [
   {
@@ -57,6 +58,11 @@ const routes = [
     path: "/charity",
     name: "charity",
     component: Charity,
+  },
+  {
+    path: "/headportrait",
+    name: "headportrait",
+    component: Headportrait,
   },
   {
     path: "/xudongdong",
