@@ -7,8 +7,8 @@ const mynft = () => import("../views/Assets/mynft.vue");
 const history = () => import("../views/Assets/history.vue");
 const Charity = () => import("../views/Charity/index.vue");
 const Esports = () => import("../views/esports/index.vue");
-const lpl = () => import("../views/esports/lpl.vue");
-const kpl = () => import("../views/esports/kpl.vue");
+const lpl = () => import("../views/esports/components/lpl/lpl.vue");
+const kpl = () => import("../views/esports/components/kpl/kpl.vue");
 const Xudongdong = () => import("../views/Xudongdong/index.vue");
 const Headportrait = () => import("../views/headportrait/index.vue");
  
