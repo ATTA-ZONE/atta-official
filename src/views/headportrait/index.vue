@@ -30,6 +30,7 @@
                 <p v-html="$t('faces_7')"></p>
                 <p class="word2" v-html="$t('faces_8')"></p>
             </div>
+            <img src="/imgs/arrow1.png" alt="">
         </div>
         <div class="contentbox2 flex">
             <img src="/imgs/arrow1.png" alt="">
