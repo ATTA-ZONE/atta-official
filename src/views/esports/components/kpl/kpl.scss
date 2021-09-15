@@ -1,15 +1,585 @@
-
+.bgi01{
+  width: 133px;
+  height:32px;
+}
 .banner-container {
-  width:100%;
-  height: 500px;
-  background: url('/imgs/series21.png') center no-repeat;
+  width:100vw;
+  height: 846px;
+  background: url('/kpl/headerBanner.png') center no-repeat;
   background-size: cover;
   position: relative;
   .banner-info {
+    width: 100%;
     text-align: center;
     position: absolute;
-    top: 50%;
+    top: 480px;
     left: 50%;
     transform: translate(-50%, -50%);
+    .kpl-time{
+      font-size:32px;
+      line-height: 45px;
+      color: #fff;
+      margin-top: 40px;
+    }
+    .kpl-team{
+      font-size: 48px;
+      line-height: 67px;
+      color: #fff;
+      margin-top: 70px;
+    }
+    .kpl-btn{
+      width: 680px;
+      justify-content: space-between;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 70px;
+      span{
+        cursor: pointer;
+        display: block;
+        width:240px;
+        height:70px;
+        background: linear-gradient(140.34deg, #DC78FF 19.63%, #0044EA 103.57%);
+        border-radius: 5px;
+        font-size: 32px;
+        line-height: 70px;
+      }
+    }
+  }
+}
+.kpl-prize-pool{
+  margin-top: 80px;
+  width: 707px;
+  .kpl-welcome{
+    justify-content: space-between;
+    align-items:center;
+    p{
+      font-weight: 600;
+      font-size: 42px;
+      line-height: 100%;
+    }
+  }
+  .kpl-vip{
+    margin-top: 60px;
+    img{
+      height: 285px;
+      width:116px;
+    }
+    .vip-text{
+      margin-left: 13px;
+      width: 578px;
+      height:282px;
+      background: url('/kpl/welcome.png') center no-repeat;
+      background-size: cover;
+      padding-left: 35px;
+      padding-top: 26px;
+      p{
+        margin-top: 30px;
+        margin-bottom: 16px;
+        font-size: 18px;
+        line-height: 49px;
+        color: #fff;
+      }
+      h5{
+        font-size: 32px;
+        line-height: 100%;
+      }
+    }
+  }
+  .prize-pool{
+    margin-top: 160px;
+    text-align: center;
+    >h5{
+      font-size: 38px;
+      line-height: 130%;
+      color: #fff;
+    }
+    >img,>p{
+      margin-top: 30px;
+    }
+    >p{
+      font-size: 18px;
+      line-height: 27px;
+    }
+    .award-list{
+      margin-top: 60px;
+      .award{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 60px;
+        width: 618px;
+        height:192px;
+        overflow: hidden;
+        background: linear-gradient(140.34deg, #B54BF0 27.8%, #1A45EA 103.57%);
+        position: relative;
+        p{
+          box-sizing: border-box;
+        }
+        .award-left{
+          height: 60px;
+          width:192px;
+          background: linear-gradient(90deg, #7C7C7C 0.02%, #FFFFFF 63.54%);
+          color: #000;
+          font-size: 26px;
+          font-weight: 900;
+          line-height:60px;
+          transform: rotate(90deg);
+          position:absolute;
+          left: -66px;
+          top: 66px;
+        }
+        .award-right{
+          letter-spacing: 0.1em;
+          margin-left: 60px;
+          padding-top: 80px;
+          height:192px;
+          width: 558px;
+          background: url('/kpl/bgi.png') center no-repeat;
+          background-size: 430px;
+          background-position-x: 160px;
+          font-size: 32px;
+          font-weight: 600;
+          line-height: 55px;
+          span{
+            border-bottom: 4px solid #fff;
+            font-size: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+.kpl-ranking{
+  margin-top: 160px;
+  width: 1060px;
+  text-align: center;
+  .rank-header{
+    justify-content: space-between;
+    p{
+      font-size: 38px;
+      font-weight: 600;
+    }
+    button{
+      cursor: pointer;
+      border:0;
+      width: 154px;
+      height:61px;
+      background: linear-gradient(140.34deg, #DC78FF 19.63%, #0044EA 103.57%);
+      border-radius: 3px;
+      font-size: 28px;
+      line-height: 61px;
+      color:#fff;
+    }
+  }
+  .rank-list{
+    margin-top: 60px;
+    justify-content: space-between;
+    font-size: 0;
+    .ranking{
+      p{
+        width: 220px;
+        height: 46px;
+        text-align: center;
+        line-height: 46px;
+        font-size:25px;
+        background: url('/kpl/rankingText.png') center no-repeat;
+      }
+      img{
+        width: 220px;
+        height:292px;
+        margin-top: 47px;
+      }
+    }
+  }
+  .ranking-more{
+    margin-top: 50px;
+    box-sizing: border-box;
+    width: 211px;
+    height: 61px;
+    border-radius: 3px;
+    font-size:28px;
+    line-height: 100%;
+    text-align: center;
+    color: #fff;
+    border:3px solid #fff;
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+.kpl-rules{
+  margin-top: 116px;
+  width: 1065px;
+  text-align: center;
+  h5{
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 130%;
+    color: #FFFFFF;
+  }
+  >img{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  p{
+    font-size: 22px;
+    line-height: 120%;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+  }
+  button{
+    margin-top: 30px;
+    margin-bottom: 60px;
+    width: 154px;
+    height:61px;
+    border:0;
+    background: linear-gradient(140.34deg, #DC78FF 19.63%, #0044EA 103.57%);
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 39px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    color: #FFFFFF;
+  }
+  .rules-img{
+    justify-content: space-between;
+    align-items:center;
+    padding:0 76px;
+  }
+}
+.kpl-mask{
+  margin-top: 155px;
+  .mask-header{
+    width: 1440px;
+    text-align: center;
+    p,img,button{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    p{
+      font-weight: 600;
+      font-size: 38px;
+      line-height: 130%;
+      color: #fff;
+    }
+    img{
+      margin-top: 30px;
+      margin-bottom: 40px;
+    }
+    button{
+      border: 0;
+      width:140px;
+      height:56px;
+      font-size: 28px;
+      color:#000;
+      cursor: pointer;
+      margin-bottom: 40px;
+    }
+  }
+  .kpl-banner{
+    width: 100%;
+    height: 222px;
+  }
+  .banner-01{
+    background: url('/kpl/mask01.png') center no-repeat;
+    background-size: cover;
+  }
+  .banner-02{
+    background: url('/kpl/mask02.png') center no-repeat;
+    background-size: cover;
+  }
+}
+.kpl-schedule{
+  width: 1440px;
+  text-align: center;
+  margin-top: 160px;
+  .schedule-header{
+    .schedule-title{
+      font-weight: 600;
+      font-size: 38px;
+      line-height: 130%;
+    }
+    img{
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .schedule-time{
+      font-size: 22px;
+      line-height: 110%;
+    }
+  }
+  .schedule-expect{
+    margin-top: 94px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1005px;
+    height:625px;
+    background: url('/kpl/expect.png') center no-repeat;
+    background-size: cover;
+    font-size: 48px;
+    line-height: 625px;
+  }
+}
+.kpl-notice{
+  width: 100vw;
+  background: #1E1E1E;
+  font-size: 0;
+  padding-top: 60px;
+  padding-bottom: 36px;
+  .notice-header{
+    width: 538px;
+    justify-content: space-between;
+    align-items:center;
+    margin-left: auto;
+    margin-right: auto;
+    p{
+      font-weight: 600;
+      font-size: 38px;
+      line-height: 130%;
+    }
+  }
+  p.notice-time{
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 65px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 36px;
+    margin-bottom: 36px;
+  }
+  .notice-team{
+    width: 1200px;
+    justify-content: space-between;
+    .team{
+      width: 544px;
+      font-size: 0;
+      .team-top{
+        justify-content: space-between;
+        height:343px;
+        .team-header{
+          flex-direction: column;
+          justify-content: space-between;
+          img{
+            width: 60px;
+            height:60px;
+          }
+        }
+        .team-name{
+          width: 454px;
+          height:343px;
+          text-align: center;
+          font-weight: 600;
+          font-size: 48px;
+          line-height: 343px;
+        }
+        .team-a{
+          background: url('/kpl/teamA.png') center no-repeat;
+          background-size: cover;
+        }
+        .team-b{
+          background: url('/kpl/teamB.png') center no-repeat;
+          background-size: cover;
+        }
+      }
+      .team-ranking{
+        margin-top: 36px;
+        text-align: center;
+        .ranking-user{
+          padding-left: 120px;
+          padding-right: 80px;
+          justify-content: space-between;
+          img{
+            width: 60px;
+            height:60px;
+            border-radius: 50%;
+          }
+          p{
+            width: 60px;
+            height:60px;
+            border-radius: 50%;
+            font-size: 22px;
+            line-height: 60px;
+            color: #fff;
+            background-color: #000;
+            text-align: center;
+          }
+        }
+      }
+      button{
+        border:0;
+        width:97px;
+        height:61px;
+        background: linear-gradient(140.34deg, #DC78FF 19.63%, #0044EA 103.57%);
+        border-radius: 3px;
+        font-weight: 500;
+        font-size: 28px;
+        color:#fff;
+        display: block;
+        cursor: pointer;
+        margin-top: 40px;
+      }
+    }
+  }
+  .notice-btn{
+    margin-top: 66px;
+    width: 1200px;
+    padding:0 50px;
+    box-sizing: border-box;
+    justify-content:space-between;
+    p{
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 50px;
+      color: #fff;
+    }
+    div{
+      button{
+        border: 0;
+        width: 183px;
+        height:61px;
+        font-weight: 500;
+        color: #fff;
+        font-size: 28px;
+        background: linear-gradient(140.34deg, #DC78FF 19.63%, #0044EA 103.57%);
+        border-radius: 3px;
+      }
+      .btn-right{
+        margin-left: 30px;
+      }
+    }
+  }
+}
+.kpl-award{
+  width: 1100px;
+  margin-top: 216px;
+  h5{
+    margin-bottom: 40px;
+    font-weight: 600;
+    font-size: 48px;
+  }
+  .kpl-award-team{
+    font-size:0;
+    justify-content: space-between;
+    .award-team{
+      background: url('/kpl/team.png') center no-repeat;
+      background-size: 100% 100%;
+      width: 465px;
+      height:316px;
+      padding-left: 80px;
+      h5{
+        margin-top: 40px;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 50px;
+        color:rgba(255,255,255,0.8);
+        margin-bottom: 50px;
+        margin-left: 12px;
+      }
+      p{
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 100%;
+        color:#fff;
+      }
+    }
+  }
+}
+.kpl-voting-ranking{
+  width: 1100px;
+  margin-top: 216px;
+  h5{
+    margin-bottom: 40px;
+    font-weight: 600;
+    font-size: 48px;
+  }
+  .voting-ranking{
+    justify-content:space-between;
+    .voting-ranking-list{
+      background: url('/kpl/rank.png') center no-repeat;
+      background-size: 100% 100%;
+      width: 400px;
+      height:260px;
+      padding-top: 45px;
+      padding-left: 18px;
+      padding-right: 20px;
+      .ranking-bumber{
+        margin-bottom: 16px;
+        img{
+          width:46px;
+          height:46px;
+          margin-right: 8px;
+        }
+        div{
+          height: 46px;
+          width: 100%;
+          text-align:right;
+          background: linear-gradient(140.34deg, #DC78FF 19.63%, #0044EA 103.57%);
+          p{
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 46px;
+            color: #fff;
+            background-color:#666;
+            padding:0 18px;
+            display:inline-block;
+          }
+        }
+      }
+    }
+  }
+}
+.kpl-nft{
+  width: 1100px;
+  margin-top: 216px;
+  h5{
+    margin-bottom: 40px;
+    font-weight: 600;
+    font-size: 48px;
+  }
+  .nft-list{
+    justify-content:space-between;
+    flex-wrap: wrap;
+    .nft-content{
+      margin-bottom: 103px;
+      width: 500px;
+      height:250px;
+      background: url('/kpl/award.png') center no-repeat;
+      background-size: 100% 100%;
+      padding-left: 23px;
+      padding-top: 50px;
+      position: relative;
+      div{
+        p{
+          font-size: 26px;
+          font-weight: 600;
+        }
+        .nft-from,.nft-win{
+          background: url('/kpl/rankingText.png') center no-repeat;
+          background-size: 100% 100%;
+          width: 225px;
+          height:50px;
+          line-height: 50px;
+          text-align: center;
+        }
+        p.nft-win{
+          margin-left: -23px;
+          text-align: left;
+          padding-left: 12px;
+        }
+        .nft-award{
+          margin-top: 16px;
+          margin-bottom: 61px;
+          line-height: 100%;
+        }
+      }
+      img{
+        width: 134px;
+        height:137px;
+        position:absolute;
+        right: 19px;
+        top: 68px;
+      }
+    }
   }
 }
