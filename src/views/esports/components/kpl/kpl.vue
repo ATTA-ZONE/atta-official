@@ -53,9 +53,9 @@
         <button>{{$t('esports_kpl15')}}</button>
       </div>
       <div class="rank-list flex">
-        <div class="ranking" v-for="(item,index) in kpllist" :key="index">
-          <p>{{$t('esports_kpl15_jia')}}NO.{{index + 1}}</p>
-          <img :src="item.imgUrl ? item.imgUrl : '/kpl/headerBanner.png'" alt="">
+        <div class="ranking" v-for="item in 4">
+          <p>{{$t('esports_kpl15_jia')}}NO.{{item}}</p>
+          <img src="/kpl/headerBanner.png" alt="">
         </div>
       </div>
       <button class="ranking-more">{{$t('esports_kpl15_jia2')}}</button>
@@ -92,13 +92,16 @@
       <div class="schedule-expect">{{$t('esports_kpl21')}}</div>
     </div>
     <!-- 预告 -->
-    <div class="kpl-notice margin-auto">
+    <div class="kpl-notice kpl-notice-header margin-auto">
       <div class="notice-header flex">
+        <img class="up-next" src="/kpl/up.png" alt="">
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <p>{{$t('esports_kpl22')}}</p>
+        <p>{{$t('esports_kpl22')}}{{$t('esports_kpl23')}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
+        <img class="up-next" src="/kpl/next.png" alt="">
       </div>
-      <p class="notice-time">{{$t('esports_kpl23')}}</p>
+    </div>
+    <div class="kpl-notice kpl-notice-bgi  margin-auto">
       <div class="notice-team margin-auto flex">
         <div class="team">
           <div class="team-top flex">
@@ -131,6 +134,8 @@
           <button class="margin-auto">{{$t('esports_kpl24')}}</button>
         </div>
       </div>
+    </div>
+    <div class="kpl-notice margin-auto">
       <div class="notice-btn margin-auto flex">
         <p>{{$t('esports_kpl25')}}00{{$t('esports_kpl26')}}</p>
         <div>

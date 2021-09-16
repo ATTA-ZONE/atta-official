@@ -163,6 +163,13 @@
           position:absolute;
           left: -66px;
           top: 66px;
+          img{
+            position:absolute;
+            top: -60px;
+            left: 88px;
+            height:180px;
+            transform: rotate(-90deg);
+          }
         }
         .award-right{
           letter-spacing: 0.1em;
@@ -191,6 +198,7 @@
   text-align: center;
   .rank-header{
     justify-content: space-between;
+    align-items: center;
     p{
       font-size: 38px;
       font-weight: 600;
@@ -237,7 +245,7 @@
     line-height: 100%;
     text-align: center;
     color: #fff;
-    border:3px solid #fff;
+    border:3px solid #a9deee;
     background-color: rgba(0, 0, 0, 0);
   }
 }
@@ -357,19 +365,32 @@
     line-height: 625px;
   }
 }
-.kpl-notice{
-  margin-top: 160px;
+div.kpl-notice-bgi{
+  margin-top: 0;
+  padding-top: 215px;
   width: 100%;
-  background: #1E1E1E;
-  font-size: 0;
+  height:810px;
+  background: url('/kpl/noticeBgi.png') center no-repeat;
+  background-size: cover;
+}
+div.kpl-notice-header{
+  margin-top: 140px;
   padding-top: 60px;
+  padding-bottom: 57px;
+}
+.kpl-notice{
+  width: 100%;
+  font-size: 0;
   padding-bottom: 36px;
   .notice-header{
-    width: 538px;
+    width: 968px;
     justify-content: space-between;
     align-items:center;
     margin-left: auto;
     margin-right: auto;
+    .up-next{
+      cursor: pointer;
+    }
     p{
       font-weight: 600;
       font-size: 38px;
@@ -397,10 +418,11 @@
         height:343px;
         .team-header{
           flex-direction: column;
-          justify-content: space-between;
+          justify-content: end;
           img{
-            width: 60px;
-            height:60px;
+            width: 50px;
+            height:50px;
+            margin-bottom: 10px;
           }
         }
         .team-name{
@@ -428,16 +450,16 @@
           padding-right: 80px;
           justify-content: space-between;
           img{
-            width: 60px;
-            height:60px;
+            width: 50px;
+            height:50px;
             border-radius: 50%;
           }
           p{
-            width: 60px;
-            height:60px;
+            width: 50px;
+            height:50px;
             border-radius: 50%;
             font-size: 22px;
-            line-height: 60px;
+            line-height: 50px;
             color: #fff;
             background-color: #000;
             text-align: center;
@@ -446,12 +468,12 @@
       }
       button{
         border:0;
-        width:97px;
-        height:61px;
+        width:142px;
+        height:45px;
         background: linear-gradient(140.34deg, #DC78FF 19.63%, #0044EA 103.57%);
         border-radius: 3px;
         font-weight: 500;
-        font-size: 28px;
+        font-size: 24px;
         color:#fff;
         display: block;
         cursor: pointer;
@@ -474,13 +496,14 @@
     div{
       button{
         border: 0;
-        width: 183px;
-        height:61px;
+        width: 142px;
+        height:45px;
         font-weight: 500;
         color: #fff;
-        font-size: 28px;
-        background: linear-gradient(140.34deg, #DC78FF 19.63%, #0044EA 103.57%);
+        font-size: 24px;
         border-radius: 3px;
+        border:3px solid #a9deee;
+        background-color: rgba(255, 255, 255, 0)
       }
       .btn-right{
         margin-left: 30px;
@@ -683,6 +706,295 @@
           padding-top: 20px;
         }
       }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 992px){
+  .kpl{
+    margin-top: 0;
+    .schedule-title{
+      font-size: 20px !important;
+    }
+    .margin-auto{
+      padding: 0 27px;
+      margin-top: 40px !important;
+    }
+    >div{
+      width: 100%;
+    }
+    .banner-container{
+      height: 225px;
+      margin-top: -50px;
+      .banner-info{
+        top: 50px;
+        img{
+          width: 127px;
+        }
+        .kpl-time{
+          margin-top: 13px;
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 16px;
+        }
+        .kpl-team{
+          margin-top: 23px;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 20px;
+        }
+        .kpl-btn{
+          width: 100%;
+          padding:0 74px;
+          margin-top: 13px;
+          span{
+            width: 80px;
+            height:23px;font-weight: 500;
+            font-size: 14px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+    .kpl-prize-pool{
+      margin-top: 40px;
+      .kpl-welcome{
+        padding:0 50px;
+        .bgi01{
+          width: 62px;
+          height:15px;
+        }
+        p{
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 91.9%;
+        }
+      }
+      .kpl-vip{
+        margin-top: 25px;
+        >img{
+          width: 68px;
+          height:162px;
+        }
+        .vip-text{
+          width: 241px;
+          height:162px;
+          background-size: 100% 100%;
+          padding:11px 7px;
+          h5{
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 91.9%;
+          }
+          p{
+            margin-top: 15px;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 242.5%;
+          }
+        }
+      }
+    }
+    .prize-pool{
+      margin-top: 40px;
+      >h5{
+        font-weight: 600;
+        font-size: 20px;
+      }
+      .bgi01{
+        width: 62px;
+        height:15px;
+        margin-top: 15px;
+      }
+      >p{
+        margin-top: 25px;
+        font-size: 12px;
+        line-height: 160%;
+      }
+      .award-list{
+        width: 100%;
+        .award{
+          width: 100%;
+          height:100px;
+          .award-left{
+            font-weight: 900;
+            font-size: 14px;
+            height:30px;
+            width: 100px;
+            line-height: 30px;
+            top: 35px;
+            left: -35px;
+            img{
+              height:81px;
+              top: -25px;
+              left: 47px;
+            }
+          }
+          .award-right{
+            padding-top: 41px;
+            width: 292px;
+            height:100px;
+            background-size:100%;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 22px;
+            margin-left: 30px;
+            span{
+              font-size: 20px;
+              border-bottom: 2px solid #fff;
+            }
+          }
+        }
+      }
+    }
+    .kpl-ranking{
+      .rank-header{
+        p{
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 28px;
+        }
+        button{
+          width: 74px;
+          height: 26px;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 20px
+        }
+      }
+      .rank-list{
+        overflow-x: auto;
+        margin-top: 34px;
+        .ranking{
+          margin-right: 14px;
+          width: 144px;
+          height:240px;
+          p{
+            width: 144px;
+            font-weight: 600;
+            height:30px;
+            line-height: 30px;
+            font-size: 14px;
+            background-size: 100%;
+          }
+          img{
+            margin-top: 20px;
+            width: 144px;
+            height:190px;
+          }
+        }
+      }
+      .ranking-more{
+        margin-top: 18px;
+        width: 122px;
+        height:38px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        border:1px solid #a9deee;
+      }
+    }
+    .kpl-rules{
+      h5{
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 153.4%;
+      }
+      .bgi01{
+        width: 62px;
+        height:15px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+      }
+      p{
+        font-size: 12px;
+        line-height: 129%;
+      }
+      button{
+        width: 78px;
+        height:23px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 23px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+      }
+      .rules-img{
+        display: block;
+        padding:0;
+        img{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          &:nth-child(1){
+            width: 240px;
+            height:340px;
+          }
+          &:nth-child(2){
+            width: 98px;
+            height:117px;
+            transform: rotate(90deg);
+            margin-top: 15px;
+            margin-bottom: 30px;
+          }
+          &:nth-child(3){
+            width: 240px;
+            height:240px;
+          }
+        }
+      }
+    }
+    .kpl-mask{
+      margin-top: 96px;
+      .mask-header{
+        width: 100%;
+        p{
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 130%;
+        }
+        img{
+          width: 62px;
+          height:15px;
+          margin-top: 25px;
+          margin-bottom: 25px;
+        }
+        button{
+          width: 100px;
+          height:30px;
+          font-size: 14px;
+          margin-bottom: 24px;
+        }
+      }
+      .kpl-banner{
+        width: 100%;
+        height:77px;
+        background-size: 100% 100%;
+      }
+    }
+    .kpl-schedule{
+      img{
+        width: 62px;
+        height:15px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+      }
+      .schedule-time{
+        font-size: 12px;
+        line-height: 110%;
+      }
+      .schedule-expect{
+        margin-top: 40px;
+        width: 328px;
+        height:204px;
+        line-height: 204px;
+        font-size: 20px;
+        background-size: 100%;
+      }
+    }
+    .kpl-notice{
+
     }
   }
 }
