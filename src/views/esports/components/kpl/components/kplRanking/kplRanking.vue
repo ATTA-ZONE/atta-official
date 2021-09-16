@@ -4,20 +4,30 @@
       <img class="close" src="/match/close.png" alt="">
       <div class="dialog-header margin-auto flex">
         <img src="/kpl/bgi01.png" alt="">
-        <p>当前总投票数排行</p>
+        <p>{{$t('esports_kpl51')}}</p>
         <img src="/kpl/bgi01.png" alt="">
       </div>
       <div class="rank-list flex">
+        <div class="rank-list-rank">
+          <div class="ranking-bumber flex" v-for="item in 5" :key="item">
+            <img src="/kpl/No1.png" alt="">
+            <img src="/kpl/header.png" alt="">
+            <div>
+              <p>32{{$t('esports_kpl32')}}</p>
+            </div>
+          </div>
+        </div>
         <div class="rank-list-rank">
           <div class="ranking-bumber flex">
             <img src="/kpl/No1.png" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
-              <p>32票</p>
+              <p>32{{$t('esports_kpl32')}}</p>
             </div>
           </div>
         </div>
       </div>
+      <p class="timeword">{{$t('esports_kpl52')}}</p>
     </div>
   </div>
 </template>
