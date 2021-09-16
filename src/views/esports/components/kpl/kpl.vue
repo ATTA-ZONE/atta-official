@@ -24,7 +24,7 @@
         <div class="vip-text">
           <h5>{{$t('esports_kpl5')}}</h5>
           <p>
-            <p v-html="$t('esports_kpl6')"></p>
+            <span v-html="$t('esports_kpl6')"></span>
             <span>{{$t('esports_kpl7')}}</span>
           </p>
           <h5>{{$t('esports_kpl8')}}</h5>
@@ -295,8 +295,15 @@
 <script lang="ts" src="./kpl.ts"></script>
 <style>
 html{
-  min-width: 1440px !important;
+  min-width: 1440px;
   overflow-x: auto;
+}
+@media only screen and (max-width: 992px){
+  
+html{
+  min-width: 100% !important;
+  overflow-x: auto;
+}
 }
 </style>
 <style scoped lang='scss'>
