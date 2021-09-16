@@ -56,7 +56,7 @@
       </div>
       <div class="rank-list flex">
         <div class="ranking" v-for="(item,index) in kpllist" :key="index">
-          <p>{{$t('esports_kpl15_jia')}}NO.{{index}}</p>
+          <p>{{$t('esports_kpl15_jia')}}NO.{{item.pm}}</p>
           <img :src="item.imgUrl ? item.imgUrl :'/kpl/headerBanner.png'" alt="">
         </div>
       </div>
