@@ -208,7 +208,7 @@
           <div>
             <p class="nft-from">{{item.title}}</p>
             <p class="nft-award">{{item.content}}</p>
-            <p class="nft-win">{{item.type ? '敗方投票NO.1' : '勝方投票NO.'+(index + 1)}}</p>
+            <p class="nft-win">{{item.type ? $t('esports_kpl66') : $t('esports_kpl65')+(index + 1)}}</p>
           </div>
           <img :src="item.imgUrl" alt="">
         </div>
