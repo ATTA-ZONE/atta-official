@@ -486,6 +486,8 @@
   "esports_kpl61" : "Loot 入場券",
   "esports_kpl62" : "前往投票",
   "esports_kpl63" : "（每個面具可以兌換7張投票券，且只可兌換一次）",
+  "esports_kpl64" : "每位獲獎者可額外領取價值135u的代幣 (OPS，iNFT或Babyswap，自動發放至投票所用錢包)",
+
   "faces_1" : "NFT头像",
   "faces_2" : "NFT头像兑换",
   "faces_3" : "总数量：",
