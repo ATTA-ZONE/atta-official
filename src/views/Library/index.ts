@@ -62,11 +62,17 @@ export default defineComponent({
             imgsList:[
               {
                 url:'/library/libraryList/xdd01.png',
-                text:'library_copywriting_16'
+                mp4Url:'/library/libraryList/xdd01.png',
+                text:'library_copywriting_16',
+                mediaType:'image'
               },
               {
-                url:'https://www.bazhuayu.io/upload/other/xu.png',
-                text:'xudongdong_second_img'
+                url:'/imgs/xudongdongnft.png',
+                text:'xudongdong_second_img',
+                content:'library_copywriting_xdd',
+                mp4Url:'https://www.bazhuayu.io/upload/other/xdd.mp4',
+                nolist:[200,0,0,0,0],
+                desc:['031','00','3','001','200']
               }
             ]
           },
@@ -425,10 +431,10 @@ export default defineComponent({
     const openModal = (item,index,info,num)=>{
       if(!info.url) return;
       let data = {
-        url:index==1?info.url:info.mp4Url,//大图
+        url:info.mp4Url,//大图
         title:info.text,//标题
         content:info.content?info.content:'',//详情文案
-        type:index&&index==1?'img':'video',
+        type:'video',
         APtotal:info.noAPlist?info.noAPlist[0]:'',//总版数
         APminted:info.noAPlist?info.noAPlist[1]:'',//已经铸造数量
         APBSC:info.noAPlist?info.noAPlist[2]:'',
