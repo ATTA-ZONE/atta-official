@@ -144,6 +144,13 @@
         </div>
       </div>
     </div>
+    <!-- 倒计时 -->
+    <div class="kpl-countdown">
+      <p class="countdown-name">投票截止倒计时</p>
+      <p class="countdown-date">156h:56m:23s</p>
+      <p class="countdown-name">比赛开始时间</p>
+      <p class="countdown-date">8月xx日 14:00</p>
+    </div>
     <!-- 奖池 -->
     <div class="kpl-award kpl-title margin-auto">
       <h5>{{$t('esports_kpl29')}} 3000 BUSD</h5>

@@ -2,6 +2,9 @@
 .kpl{
   margin-top: 90px;
   // 公共样式
+  button{
+    cursor: pointer;
+  }
   .bgi01{
     width: 133px;
     height:32px;
@@ -513,7 +516,7 @@ div.kpl-notice-header{
 }
 .kpl-award{
   width: 1100px;
-  margin-top: 216px;
+  margin-top: 140px;
   .kpl-award-team{
     font-size:0;
     justify-content: space-between;
@@ -707,6 +710,19 @@ div.kpl-notice-header{
         }
       }
     }
+  }
+}
+.kpl-countdown{
+  text-align: center;
+  .countdown-name{
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 200%;
+  }
+  .countdown-date{
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 200%;
   }
 }
 
