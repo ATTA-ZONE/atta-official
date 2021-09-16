@@ -4,11 +4,11 @@
     <div class="banner-container">
       <div class="banner-info">
         <img src="/kpl/titleCh.png" />
-        <div class="kpl-time">2021nain9yue24ri - 31ri</div>
-        <div class="kpl-team">当前对战双方： TEAM1 VS TEAM2</div>
+        <div class="kpl-time">{{$t('esports_kpl1')}}</div>
+        <div class="kpl-team">{{$t('esports_kpl2')}}</div>
         <div class="kpl-btn flex"> 
-          <span>参与投票</span>
-          <span>观看直播</span>
+          <span>{{$t('esports_kpl3')}}</span>
+          <span>{{$t('esports_kpl4')}}</span>
         </div>
       </div>
     </div>
@@ -16,29 +16,32 @@
     <div class="kpl-prize-pool margin-auto">
       <div class="kpl-welcome flex">
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <p>欢迎</p>
+        <p>{{$t('esports_kpl4_jia')}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
       </div>
       <div class="kpl-vip flex">
         <img src="/kpl/card.png" alt="">
         <div class="vip-text">
-          <h5>尊敬的会员们</h5>
-          <p>这个特殊的日子终于到了<br/>就在下一个月圆之夜<span>，9月24日</span></p>
-          <h5>是时候带上您的面具，盛装出席了</h5>
+          <h5>{{$t('esports_kpl5')}}</h5>
+          <p>
+            <p v-html="$t('esports_kpl6')"></p>
+            <span>{{$t('esports_kpl7')}}</span>
+          </p>
+          <h5>{{$t('esports_kpl8')}}</h5>
         </div>
       </div>
       <div class="prize-pool">
-        <h5>我们为您准备了，极为丰厚的奖池</h5>
+        <h5>{{$t('esports_kpl9')}}</h5>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <p>每场比赛胜方投票玩家，投票数为前三名的，均可获得NFT等额外权益奖励。<br/>每场比赛败方玩家，投票数为第一名的，可获得NFT等额外权益奖励。</p>
+        <p v-html="$t('esports_kpl10')"></p>
         <div class="award-list">
           <div class="award flex">
             <p class="award-left">PRIZE POOL</p>
-            <p class="award-right">每場投票獎池達 <span>3000 BUSD</span></p>
+            <p class="award-right">{{$t('esports_kpl11')}} <span>3000 BUSD</span></p>
           </div>
           <div class="award flex">
             <p class="award-left" style="font-size:20px;">BATTLE REWARD</p>
-            <p class="award-right">總價值 <span>3,000U</span>現金+<span>NFT</span></p>
+            <p class="award-right">{{$t('esports_kpl12')}} <span>3,000U</span> {{$t('esports_kpl13')}}</p>
           </div>
         </div>
       </div>
@@ -46,23 +49,23 @@
     <!-- 排行 -->
     <div class="kpl-ranking margin-auto">
       <div class="rank-header flex">
-        <p>Top4投票观众</p>
-        <button>查看排行</button>
+        <p>{{$t('esports_kpl14')}}</p>
+        <button>{{$t('esports_kpl15')}}</button>
       </div>
       <div class="rank-list flex">
         <div class="ranking" v-for="item in 4">
-          <p>总投票排行NO.{{item}}</p>
+          <p>{{$t('esports_kpl15_jia')}}NO.{{item}}</p>
           <img src="/kpl/headerBanner.png" alt="">
         </div>
       </div>
-      <button class="ranking-more">更多奖励详情</button>
+      <button class="ranking-more">{{$t('esports_kpl15_jia2')}}</button>
     </div>
     <!-- 规则 -->
     <div class="kpl-rules margin-auto">
-      <h5>ATTA x 英雄聯盟主播系列 NFT <br/>兌換「面具」規則 </h5>
+      <h5 v-html="$t('esports_kpl16')"></h5>
       <img class="bgi01" src="/kpl/bgi01.png" alt="">
-      <p>01 持有ATTA x 英雄聯盟主播系列 NFT的用戶可按照規則兌換「面具」NFT：本次可兌換總量為20個。<br/>02 您持有的SR為20分，R為5分，N為1分，滿30分即可兌換面具； <br/>03 英雄聯盟主播系列NFT兌換即銷毀。</p>
-      <button>兑换面具</button>
+      <p v-html="$t('esports_kpl17')"></p>
+      <button>{{$t('esports_kpl16_jia1')}}</button>
       <div class="rules-img flex">
         <img src="/kpl/rules01.png" alt="">
         <img src="/kpl/rules02.png" alt="">
@@ -72,9 +75,9 @@
     <!-- 面具 -->
     <div class="kpl-mask">
       <div class="mask-header margin-auto">
-        <p>Infinity Headset Genesis「面具」系列NFT</p>
+        <p>{{$t('esports_kpl17_jia1')}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <button>敬请期待</button>
+        <button>{{$t('esports_kpl17_jia2')}}</button>
       </div>
       <div class="kpl-banner banner-01"></div>
       <div class="kpl-banner banner-02"></div>
@@ -82,20 +85,20 @@
     <!-- 赛程 -->
     <div class="kpl-schedule margin-auto">
       <div class="schedule-header">
-        <p class="schedule-title">大會賽程</p>
+        <p class="schedule-title">{{$t('esports_kpl18')}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <p class="schedule-time">活動時間：2021年9月3日15:00～2021年10月17日23:59</p>
+        <p class="schedule-time">{{$t('esports_kpl19')}}</p>
       </div>
-      <div class="schedule-expect">敬请期待</div>
+      <div class="schedule-expect">{{$t('esports_kpl21')}}</div>
     </div>
     <!-- 预告 -->
     <div class="kpl-notice margin-auto">
       <div class="notice-header flex">
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <p>活動預告</p>
+        <p>{{$t('esports_kpl22')}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
       </div>
-      <p class="notice-time">9月XX日</p>
+      <p class="notice-time">{{$t('esports_kpl23')}}</p>
       <div class="notice-team margin-auto flex">
         <div class="team">
           <div class="team-top flex">
@@ -110,7 +113,7 @@
               <p>31</p>
             </div>
           </div>
-          <button class="margin-auto">投票</button>
+          <button class="margin-auto">{{$t('esports_kpl24')}}</button>
         </div>
         <div class="team">
           <div class="team-top flex">
@@ -125,57 +128,57 @@
               <p>31</p>
             </div>
           </div>
-          <button class="margin-auto">投票</button>
+          <button class="margin-auto">{{$t('esports_kpl24')}}</button>
         </div>
       </div>
       <div class="notice-btn margin-auto flex">
-        <p>我的投票券：00张</p>
+        <p>{{$t('esports_kpl25')}}00{{$t('esports_kpl26')}}</p>
         <div>
-          <button>领取投票券</button>
-          <button class="btn-right">购买投票券</button>
+          <button>{{$t('esports_kpl27')}}</button>
+          <button class="btn-right">{{$t('esports_kpl28')}}</button>
         </div>
       </div>
     </div>
     <!-- 奖池 -->
     <div class="kpl-award kpl-title margin-auto">
-      <h5>本场投票奖池：3000 BUSD</h5>
+      <h5>{{$t('esports_kpl29')}} 3000 BUSD</h5>
       <div class="kpl-award-team flex">
         <div class="award-team">
-          <h5>如A队胜利</h5>
-          <p>当前投票总数：XXXX票</p>
-          <p>单票奖励：XXXX BUSD</p>
+          <h5>{{$t('esports_kpl30')}}</h5>
+          <p>{{$t('esports_kpl31')}}XXXX{{$t('esports_kpl32')}}</p>
+          <p>{{$t('esports_kpl33')}}XXXX BUSD</p>
         </div>
         <div class="award-team">
-          <h5>如B队胜利</h5>
-          <p>当前投票总数：XXXX票</p>
-          <p>单票奖励：XXXX BUSD</p>
+          <h5>{{$t('esports_kpl34')}}</h5>
+          <p>{{$t('esports_kpl31')}}XXXX{{$t('esports_kpl32')}}</p>
+          <p>{{$t('esports_kpl33')}}XXXX BUSD</p>
         </div>
       </div>
     </div>
     <!-- 投票排行 -->
     <div class="kpl-voting-ranking kpl-title margin-auto">
-      <h5>本场投票排行</h5>
+      <h5>{{$t('esports_kpl35')}}</h5>
       <div class="voting-ranking flex">
         <div class="voting-ranking-list">
           <div class="ranking-bumber flex">
             <img src="/kpl/No1.png" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
-              <p>32票</p>
+              <p>32{{$t('esports_kpl32')}}</p>
             </div>
           </div>
           <div class="ranking-bumber flex">
             <img src="/kpl/No2.png" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
-              <p>32票</p>
+              <p>32{{$t('esports_kpl32')}}</p>
             </div>
           </div>
           <div class="ranking-bumber flex">
             <img src="/kpl/No3.png" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
-              <p>32票</p>
+              <p>32{{$t('esports_kpl32')}}</p>
             </div>
           </div>
         </div>
@@ -184,21 +187,21 @@
             <img src="/kpl/No1.png" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
-              <p>32票</p>
+              <p>32{{$t('esports_kpl32')}}</p>
             </div>
           </div>
           <div class="ranking-bumber flex">
             <img src="/kpl/No2.png" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
-              <p>32票</p>
+              <p>32{{$t('esports_kpl32')}}</p>
             </div>
           </div>
           <div class="ranking-bumber flex">
             <img src="/kpl/No3.png" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
-              <p>32票</p>
+              <p>32{{$t('esports_kpl32')}}</p>
             </div>
           </div>
         </div>
@@ -206,7 +209,7 @@
     </div>
     <!-- NFT奖励 -->
     <div class="kpl-nft kpl-title margin-auto">
-      <h5>NFT奖励</h5>
+      <h5>{{$t('esports_kpl36')}}</h5>
       <div class="nft-list flex">
         <div class="nft-content flex" v-for="item in kplNft" :key="item">
           <div>
@@ -220,49 +223,46 @@
     </div>
     <!-- 我的投票 -->
     <div class="kpl-my-voting kpl-title margin-auto">
-      <h5>我的投票</h5>
+      <h5>{{$t('esports_kpl43')}}</h5>
       <div class="my-voting flex">
         <div class="voting" >
-          <p class="voting-name">我的投票(TeamA)</p>
+          <p class="voting-name">{{$t('esports_kpl43')}}(TeamA)</p>
           <div class="ranking-bumber flex">
             <img src="/kpl/No1.png" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
-              <p>32票</p>
+              <p>32{{$t('esports_kpl32')}}</p>
             </div>
           </div>
-          <p class="voting-award">获胜奖励：XXXX BUSD</p>
-          <p class="voting-remark">(比賽結束後在24小時內發放至投票錢包地址)</p>
+          <p class="voting-award">{{$t('esports_kpl44')}}XXXX BUSD</p>
+          <p class="voting-remark">{{$t('esports_kpl45')}}</p>
         </div>
         <div class="voting" >
-          <p class="voting-name">我的投票(TeamA)</p>
+          <p class="voting-name">{{$t('esports_kpl43')}}(TeamA)</p>
           <div class="ranking-bumber flex">
             <img src="/kpl/No1.png" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
-              <p>32票</p>
+              <p>32{{$t('esports_kpl32')}}</p>
             </div>
           </div>
-          <p class="voting-award">获胜奖励：XXXX BUSD</p>
-          <p class="voting-remark">(比賽結束後在24小時內發放至投票錢包地址)</p>
+          <p class="voting-award">{{$t('esports_kpl44')}}XXXX BUSD</p>
+          <p class="voting-remark">{{$t('esports_kpl45')}}</p>
         </div>
       </div>
     </div>
     <!-- 投票规则 -->
     <div class="kpl-voting-rules kpl-title flex margin-auto">
-      <h5>投票规则</h5>
+      <h5>{{$t('esports_kpl46')}}</h5>
       <div class="kpl-rules">
-        <p>Q：投票獎池是如何計算的？<br/>A：每場比賽投票獎池分現金和NFT兩部分獎勵。現金獎池為3000 BUSD，由勝方投票玩家根據所投票數均分。</p>
-        <p>Q：NFT獎勵部分是如何計算的？<br/>A：每場比賽勝方投票玩家，投票數為前三名的，均可獲得NFT等額外獎勵。每場比賽敗方投票玩家，投票數為第一名的，可獲得NFT等額外獎勵。不論勝負，每位參與投票的玩家均可獲得參與獎一份。</p>
-        <p>Q：投票獎勵如何發放？<br/>A： 每場比賽投票獎池的現金部分，將在比賽結束後24小時內發放至玩家投票所使用的錢包地址當中。NFT部分請獲獎用戶聯系「侍者」發放</p>
-        <p>Q：如何進行投票？<br/>A：請訪問 bazhuayu.io 獲取投票券。每位尊貴的「面具」持有者均可免費獲贈。</p>
+        <p v-html="$t('esports_kpl47')"></p>
       </div>
     </div>
     <!-- 大会合作伙伴 -->
     <div class="kpl-cooperate margin-auto">
       <div class="kpl-welcome flex">
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <p>大会合作伙伴</p>
+        <p>{{$t('esports_kpl48')}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
       </div>
       <div class="cooperate-list flex">
@@ -271,9 +271,9 @@
             <img src="/kpl/test.png" alt="">
           </div>
           <div class="cooperate-info">
-            <p class="cooperate-title">官方合办</p>
+            <p class="cooperate-title">{{$t('esports_kpl49')}}</p>
             <i></i>
-            <p class="cooperate-text">链闻WINKRYPTO</p>
+            <p class="cooperate-text">{{$t('esports_kpl50')}}</p>
           </div>
         </div>
       </div>
