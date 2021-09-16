@@ -40,7 +40,9 @@
             <p class="award-right" v-if="kplinfo[showkplindex]">{{$t('esports_kpl11')}} <span>{{kplinfo[showkplindex].curRewardPool}} BUSD</span></p>
           </div>
           <div class="award flex">
-            <p class="award-left" style="font-size:20px;">BATTLE REWARD</p>
+            <p class="award-left" style="font-size:20px;">
+              <img src="/kpl/BATTLEREWARD.png" alt="">
+            </p>
             <p class="award-right" v-if="kplinfo[showkplindex]">{{$t('esports_kpl12')}} <span>{{kplinfo[showkplindex].curRewardPool}}U</span> {{$t('esports_kpl13')}}</p>
           </div>
         </div>
@@ -200,6 +202,7 @@
     <!-- NFT奖励 -->
     <div class="kpl-nft kpl-title margin-auto">
       <h5>{{$t('esports_kpl36')}}</h5>
+      <p>{{$t('esports_kpl64')}}</p>
       <div class="nft-list flex" v-if="kplinfo[showkplindex]">
         <div class="nft-content flex" v-for="(item,index) in kplinfo[showkplindex].voteReward" :key="item">
           <div>
