@@ -217,7 +217,7 @@
       <div class="my-voting flex" v-if="kplinfo[showkplindex]">
         <div class="voting">
           <p class="voting-name">{{$t('esports_kpl43')}}({{kplinfo[showkplindex].teamA}})</p>
-          <div class="ranking-bumber flex">
+          <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[0].myVoteTicket">
             <img src="/kpl/No1.png" alt="">
             <img :src="kplinfo[showkplindex].attaMatchOptions[0].myVoteTicket.imgUrl ? kplinfo[showkplindex].attaMatchOptions[0].myVoteTicket.imgUrl :'/kpl/header.png'" alt="">
             <div>
@@ -229,7 +229,7 @@
         </div>
         <div class="voting" >
           <p class="voting-name">{{$t('esports_kpl43')}}({{kplinfo[showkplindex].teamB}})</p>
-          <div class="ranking-bumber flex">
+          <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket">
             <img src="/kpl/No1.png" alt="">
             <img :src="kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket.imgUrl ? kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket.imgUrl :'/kpl/header.png'" alt="">
             <div>
