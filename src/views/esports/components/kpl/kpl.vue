@@ -105,17 +105,18 @@
       <div class="notice-team margin-auto flex">
         <div class="team">
           <div class="team-top flex">
-            <div class="team-header flex">  
-              <img v-for="item in teamHeaderA" :src="item" :key="item" alt="">
+            <div class="team-header flex" v-if="kplinfo[showkplindex]">  
+              <img v-for="item in kplinfo[showkplindex].teamAMemberUrl" :src="item" :key="item ? item : '/kpl/header.png'" alt="">
             </div>
             <div class="team-name team-a">
               <!-- 放置战队logo -->
+              <img v-if="kplinfo[showkplindex]" :src="kplinfo[showkplindex].teamAUrl" alt="">
             </div>
           </div>
           <div class="team-ranking">
-            <div class="ranking-user flex">
-              <img v-for="item in teamUserA" :src="item" :key="item" alt="">
-              <p>31</p>
+            <div class="ranking-user flex" v-if="kplinfo[showkplindex]">
+              <img v-for="item in kplinfo[showkplindex].attaMatchOptions[0].betRecord" :src="item.imgUrl" :key="item" alt="">
+              <p>{{kplinfo[showkplindex].attaMatchOptions[0].betRecord.length}}</p>
             </div>
           </div>
           <button class="margin-auto">{{$t('esports_kpl24')}}</button>
@@ -124,15 +125,16 @@
           <div class="team-top flex">
             <div class="team-name team-b">
               <!-- 放置战队logo -->
+              <img v-if="kplinfo[showkplindex]" :src="kplinfo[showkplindex].teamBUrl" alt="">
             </div>
-            <div class="team-header flex">  
-              <img v-for="item in teamHeaderB" :src="item" :key="item" alt="">
+            <div class="team-header flex" v-if="kplinfo[showkplindex]">  
+              <img v-for="item in kplinfo[showkplindex].teamBMemberUrl" :src="item" :key="item ? item : '/kpl/header.png'" alt="">
             </div>
           </div>
           <div class="team-ranking">
-            <div class="ranking-user flex">
-              <img v-for="item in teamUserA" :src="item" :key="item" alt="">
-              <p>31</p>
+            <div class="ranking-user flex" v-if="kplinfo[showkplindex]">
+              <img v-for="item in kplinfo[showkplindex].attaMatchOptions[1].betRecord" :src="item.imgUrl" :key="item" alt="">
+              <p>{{kplinfo[showkplindex].attaMatchOptions[1].betRecord.length}}</p>
             </div>
           </div>
           <button class="margin-auto">{{$t('esports_kpl24')}}</button>
@@ -141,7 +143,7 @@
     </div>
     <div class="kpl-notice margin-auto">
       <div class="notice-btn margin-auto flex">
-        <p>{{$t('esports_kpl25')}}00{{$t('esports_kpl26')}}</p>
+        <p v-if="kplinfo[showkplindex]">{{$t('esports_kpl25')}}{{kplinfo[showkplindex].myUnuseTicket}}{{$t('esports_kpl26')}}</p>
         <div>
           <button>{{$t('esports_kpl27')}}</button>
           <button class="btn-right">{{$t('esports_kpl28')}}</button>
@@ -157,67 +159,39 @@
     </div>
     <!-- 奖池 -->
     <div class="kpl-award kpl-title margin-auto">
-      <h5>{{$t('esports_kpl29')}} 3000 BUSD</h5>
-      <div class="kpl-award-team flex">
+      <h5 v-if="kplinfo[showkplindex]">{{$t('esports_kpl29')}} {{kplinfo[showkplindex].curRewardPool}} BUSD</h5>
+      <div class="kpl-award-team flex" v-if="kplinfo[showkplindex]">
         <div class="award-team">
-          <h5>{{$t('esports_kpl30')}}</h5>
-          <p>{{$t('esports_kpl31')}}XXXX{{$t('esports_kpl32')}}</p>
-          <p>{{$t('esports_kpl33')}}XXXX BUSD</p>
+          <h5>{{kplinfo[showkplindex].teamA}}</h5>
+          <p>{{$t('esports_kpl31')}}{{kplinfo[showkplindex].attaMatchOptions[0].totalTickets}}{{$t('esports_kpl32')}}</p>
+          <p>{{$t('esports_kpl33')}}{{kplinfo[showkplindex].attaMatchOptions[0].rewardForSingle}} BUSD</p>
         </div>
         <div class="award-team">
-          <h5>{{$t('esports_kpl34')}}</h5>
-          <p>{{$t('esports_kpl31')}}XXXX{{$t('esports_kpl32')}}</p>
-          <p>{{$t('esports_kpl33')}}XXXX BUSD</p>
+          <h5>{{kplinfo[showkplindex].teamB}}</h5>
+          <p>{{$t('esports_kpl31')}}{{kplinfo[showkplindex].attaMatchOptions[1].totalTickets}}{{$t('esports_kpl32')}}</p>
+          <p>{{$t('esports_kpl33')}}{{kplinfo[showkplindex].attaMatchOptions[1].rewardForSingle}} BUSD</p>
         </div>
       </div>
     </div>
     <!-- 投票排行 -->
     <div class="kpl-voting-ranking kpl-title margin-auto">
       <h5>{{$t('esports_kpl35')}}</h5>
-      <div class="voting-ranking flex">
+      <div class="voting-ranking flex" v-if="kplinfo[showkplindex]">
         <div class="voting-ranking-list">
-          <div class="ranking-bumber flex">
-            <img src="/kpl/No1.png" alt="">
-            <img src="/kpl/header.png" alt="">
+          <div class="ranking-bumber flex" v-for="item in kplinfo[showkplindex].attaMatchOptions[0].betTop3" :key="item">
+            <img :src="'/kpl/No'+item.pm+'.png'" alt="">
+            <img :src="item.imgUrl ? item.imgUrl :'/kpl/header.png'" alt="">
             <div>
-              <p>32{{$t('esports_kpl32')}}</p>
-            </div>
-          </div>
-          <div class="ranking-bumber flex">
-            <img src="/kpl/No2.png" alt="">
-            <img src="/kpl/header.png" alt="">
-            <div>
-              <p>32{{$t('esports_kpl32')}}</p>
-            </div>
-          </div>
-          <div class="ranking-bumber flex">
-            <img src="/kpl/No3.png" alt="">
-            <img src="/kpl/header.png" alt="">
-            <div>
-              <p>32{{$t('esports_kpl32')}}</p>
+              <p>{{item.tickets}}{{$t('esports_kpl32')}}</p>
             </div>
           </div>
         </div>
         <div class="voting-ranking-list">
-          <div class="ranking-bumber flex">
-            <img src="/kpl/No1.png" alt="">
-            <img src="/kpl/header.png" alt="">
+          <div class="ranking-bumber flex" v-for="item in kplinfo[showkplindex].attaMatchOptions[1].betTop3" :key="item">
+            <img :src="'/kpl/No'+item.pm+'.png'" alt="">
+            <img :src="item.imgUrl ? item.imgUrl :'/kpl/header.png'" alt="">
             <div>
-              <p>32{{$t('esports_kpl32')}}</p>
-            </div>
-          </div>
-          <div class="ranking-bumber flex">
-            <img src="/kpl/No2.png" alt="">
-            <img src="/kpl/header.png" alt="">
-            <div>
-              <p>32{{$t('esports_kpl32')}}</p>
-            </div>
-          </div>
-          <div class="ranking-bumber flex">
-            <img src="/kpl/No3.png" alt="">
-            <img src="/kpl/header.png" alt="">
-            <div>
-              <p>32{{$t('esports_kpl32')}}</p>
+              <p>{{item.tickets}}{{$t('esports_kpl32')}}</p>
             </div>
           </div>
         </div>
@@ -226,43 +200,43 @@
     <!-- NFT奖励 -->
     <div class="kpl-nft kpl-title margin-auto">
       <h5>{{$t('esports_kpl36')}}</h5>
-      <div class="nft-list flex">
-        <div class="nft-content flex" v-for="item in kplNft" :key="item">
+      <div class="nft-list flex" v-if="kplinfo[showkplindex]">
+        <div class="nft-content flex" v-for="(item,index) in kplinfo[showkplindex].voteReward" :key="item">
           <div>
-            <p class="nft-from">{{item.fromName}}</p>
-            <p class="nft-award">{{item.award}}</p>
-            <p class="nft-win">{{item.win}}</p>
+            <p class="nft-from">{{item.title}}</p>
+            <p class="nft-award">{{item.content}}</p>
+            <p class="nft-win">{{item.type ? '敗方投票NO.1' : '勝方投票NO.'+(index + 1)}}</p>
           </div>
-          <img :src="item.url" alt="">
+          <img :src="item.imgUrl" alt="">
         </div>
       </div>
     </div>
     <!-- 我的投票 -->
     <div class="kpl-my-voting kpl-title margin-auto">
       <h5>{{$t('esports_kpl43')}}</h5>
-      <div class="my-voting flex">
-        <div class="voting" >
-          <p class="voting-name">{{$t('esports_kpl43')}}(TeamA)</p>
+      <div class="my-voting flex" v-if="kplinfo[showkplindex]">
+        <div class="voting">
+          <p class="voting-name">{{$t('esports_kpl43')}}({{kplinfo[showkplindex].teamA}})</p>
           <div class="ranking-bumber flex">
             <img src="/kpl/No1.png" alt="">
-            <img src="/kpl/header.png" alt="">
+            <img :src="kplinfo[showkplindex].attaMatchOptions[0].myVoteTicket.imgUrl ? kplinfo[showkplindex].attaMatchOptions[0].myVoteTicket.imgUrl :'/kpl/header.png'" alt="">
             <div>
-              <p>32{{$t('esports_kpl32')}}</p>
+              <p>{{kplinfo[showkplindex].attaMatchOptions[0].myVoteTicket.tickets}}{{$t('esports_kpl32')}}</p>
             </div>
           </div>
-          <p class="voting-award">{{$t('esports_kpl44')}}XXXX BUSD</p>
+          <p class="voting-award">{{$t('esports_kpl44')}}{{kplinfo[showkplindex].attaMatchOptions[0].myReward}} BUSD</p>
           <p class="voting-remark">{{$t('esports_kpl45')}}</p>
         </div>
         <div class="voting" >
-          <p class="voting-name">{{$t('esports_kpl43')}}(TeamA)</p>
+          <p class="voting-name">{{$t('esports_kpl43')}}({{kplinfo[showkplindex].teamB}})</p>
           <div class="ranking-bumber flex">
             <img src="/kpl/No1.png" alt="">
-            <img src="/kpl/header.png" alt="">
+            <img :src="kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket.imgUrl ? kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket.imgUrl :'/kpl/header.png'" alt="">
             <div>
-              <p>32{{$t('esports_kpl32')}}</p>
+              <p>{{kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket.tickets}}{{$t('esports_kpl32')}}</p>
             </div>
           </div>
-          <p class="voting-award">{{$t('esports_kpl44')}}XXXX BUSD</p>
+          <p class="voting-award">{{$t('esports_kpl44')}}{{kplinfo[showkplindex].attaMatchOptions[1].myReward}} BUSD</p>
           <p class="voting-remark">{{$t('esports_kpl45')}}</p>
         </div>
       </div>
