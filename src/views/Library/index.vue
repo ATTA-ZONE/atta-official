@@ -26,9 +26,7 @@
           <div class="more-content flex" :class="moreNumber&&(moreNumber==index+1)?'more-content-more':''">
           <div class="content-info"  @click="openModal(item,index,info,num)" v-for="(info,num) in item.imgsList" :class="[info.url?'':'img-null',item.imgName?'manghe-info':'']" :key="info.url">
             <img :src="info.url" />
-            <p class="cover-desc" v-if="info.url=='https://www.bazhuayu.io/upload/other/xu.png'">{{$t('Coming soon')}}</p>
             <p class="hanson">{{$t(info.text)}}</p>
-            <!--<img v-if="item.detailName" class="library-pos" :class="item.detailName=='br'?'pos-br':'pos-tr'" src="/library/detail.png" />-->
           </div>
         </div>
         <p v-if="moreNumber&&(moreNumber==index+1)" class="library-bottom-remark">{{$t(item.remark)}}</p>
