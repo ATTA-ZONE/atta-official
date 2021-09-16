@@ -5,7 +5,7 @@
       <div class="banner-info">
         <img src="/kpl/titleCh.png" />
         <div class="kpl-time">{{$t('esports_kpl1')}}</div>
-        <div class="kpl-team">{{$t('esports_kpl2')}}</div>
+        <div class="kpl-team" v-if="kplinfo[showkplindex]">{{kplinfo[showkplindex].teamA + ' VS ' + kplinfo[showkplindex].teamB}}</div>
         <div class="kpl-btn flex"> 
           <span>{{$t('esports_kpl3')}}</span>
           <span>{{$t('esports_kpl4')}}</span>
@@ -37,11 +37,11 @@
         <div class="award-list">
           <div class="award flex">
             <p class="award-left">PRIZE POOL</p>
-            <p class="award-right">{{$t('esports_kpl11')}} <span>3000 BUSD</span></p>
+            <p class="award-right" v-if="kplinfo[showkplindex]">{{$t('esports_kpl11')}} <span>{{kplinfo[showkplindex].curRewardPool}} BUSD</span></p>
           </div>
           <div class="award flex">
             <p class="award-left" style="font-size:20px;">BATTLE REWARD</p>
-            <p class="award-right">{{$t('esports_kpl12')}} <span>3,000U</span> {{$t('esports_kpl13')}}</p>
+            <p class="award-right" v-if="kplinfo[showkplindex]">{{$t('esports_kpl12')}} <span>{{kplinfo[showkplindex].curRewardPool}}U</span> {{$t('esports_kpl13')}}</p>
           </div>
         </div>
       </div>
@@ -53,9 +53,9 @@
         <button>{{$t('esports_kpl15')}}</button>
       </div>
       <div class="rank-list flex">
-        <div class="ranking" v-for="item in 4">
-          <p>{{$t('esports_kpl15_jia')}}NO.{{item}}</p>
-          <img src="/kpl/headerBanner.png" alt="">
+        <div class="ranking" v-for="(item,index) in kpllist" :key="index">
+          <p>{{$t('esports_kpl15_jia')}}NO.{{index}}</p>
+          <img :src="item.imgUrl ? item.imgUrl :'/kpl/headerBanner.png'" alt="">
         </div>
       </div>
       <button class="ranking-more">{{$t('esports_kpl15_jia2')}}</button>
