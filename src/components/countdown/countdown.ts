@@ -208,7 +208,7 @@ export default defineComponent({
         batchRaceInfoFn(res);
       }).then(()=>{
         geteveryqkl();
-        onMountedTime();
+        // onMountedTime();
       })
     });
     const onMountedTime = ()=>{

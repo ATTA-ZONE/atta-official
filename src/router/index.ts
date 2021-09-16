@@ -11,8 +11,14 @@ const lpl = () => import("../views/esports/components/lpl/lpl.vue");
 const kpl = () => import("../views/esports/components/kpl/kpl.vue");
 const Xudongdong = () => import("../views/Xudongdong/index.vue");
 const Headportrait = () => import("../views/headportrait/index.vue");
+const kplModel = () => import("../views/esports/components/kpl/components/kplRanking/kplRanking.vue");
  
 const routes = [
+  {
+    path: "/kplModel",
+    name: "kplModel",
+    component: kplModel,
+  },
   {
     path: "/",
     name: "Home",
@@ -50,7 +56,7 @@ const routes = [
       {
         path: 'kpl',
         name: 'kpl',
-        component: kpl
+        component: kpl,
       }
     ]
   },
