@@ -14,6 +14,7 @@ export default defineComponent({
     const teamHeaderB = ref();
     const kplinfo = ref([]);
     const kpllist = ref([]);
+    const showkplindex = ref(0);
     teamHeaderA.value = [
       '/kpl/header.png','/kpl/header.png','/kpl/header.png','/kpl/header.png','/kpl/header.png'
     ];
@@ -73,6 +74,13 @@ export default defineComponent({
         .then((res: any) => {
           if (res.code == 0) {
             console.log(res);
+            let matchId = res.data.matchId;
+            res.data.matchRes.forEach((item,index) => {
+              if (item.id == matchId) {
+                showkplindex.value = index;
+                return;
+              }
+            });
             kplinfo.value = res.data.matchRes;
             kpllist.value = res.data.betOrder;
           }
@@ -86,7 +94,8 @@ export default defineComponent({
       kplNft,
       getkpllistdata,
       kplinfo,
-      kpllist
+      kpllist,
+      showkplindex
     }
   }
 });
