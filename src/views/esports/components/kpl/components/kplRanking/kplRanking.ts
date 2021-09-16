@@ -7,6 +7,9 @@ export default defineComponent({
   },
   setup(){
     return{
+      rankingtypeshow : 2,
+      title1 : 'esports_kpl51', 
+      title2 : 'esports_kpl53', 
     }
   }
 });

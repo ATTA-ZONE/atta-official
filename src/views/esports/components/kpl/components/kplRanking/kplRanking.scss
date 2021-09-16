@@ -43,6 +43,47 @@
       margin-top: 127px;
     }
   }
+  .tipsrankingbox{
+    .contentwords{
+      font-style: normal;
+      font-weight: 600;
+      font-size: 38px;
+      line-height: 183.5%;
+      text-align: center;
+      margin: 55px auto;
+    }
+    .smolltips{
+      text-align: center;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 183.5%;
+      margin-top: 10px;
+    }
+    .btnbox{
+      text-align: center;
+      max-width: 535px;
+      justify-content: space-between;
+      margin: 0 auto;
+      button{
+        border: none;
+        background: transparent;
+        font-weight: 600;
+        font-size: 38px;
+        line-height: 130%;
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px 15px ;
+      }
+      .btn1{
+        border:5px solid #ddd;
+        border-color:#a9deee #a9deee #bffde3;
+      }
+      .btn2{
+        background: linear-gradient(140.34deg, #DC78FF 19.63%, #0044EA 103.57%);
+        padding:15px 20px;
+      }
+    }
+  }
   .timeword{
     text-align: center;
     font-weight: normal;
