@@ -176,7 +176,7 @@ div.onehanglogo{
 }
 .home-page .home-page-three{
   .img-right{
-    width: 258px;
+    // width: 258px;
     text-align:center;
   }
 }
@@ -204,8 +204,8 @@ width: 193px;
   width: 270px;
 }
 .home-page .home-page-three .logo6 {
-  width: 163px;
-  height: 42px;
+  max-width: 163px;
+  max-height: 42px;
 }
 .home-page .home-page-three .logo7 {
   width: 88px;
