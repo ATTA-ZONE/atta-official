@@ -24,7 +24,7 @@
         <div class="vip-text">
           <h5>{{$t('esports_kpl5')}}</h5>
           <p>
-            <p v-html="$t('esports_kpl6')"></p>
+            <span v-html="$t('esports_kpl6')"></span>
             <span>{{$t('esports_kpl7')}}</span>
           </p>
           <h5>{{$t('esports_kpl8')}}</h5>
@@ -53,9 +53,9 @@
         <button>{{$t('esports_kpl15')}}</button>
       </div>
       <div class="rank-list flex">
-        <div class="ranking" v-for="(item,index) in kpllist" :key="index">
-          <p>{{$t('esports_kpl15_jia')}}NO.{{index + 1}}</p>
-          <img :src="item.imgUrl ? item.imgUrl : '/kpl/headerBanner.png'" alt="">
+        <div class="ranking" v-for="item in 4">
+          <p>{{$t('esports_kpl15_jia')}}NO.{{item}}</p>
+          <img src="/kpl/headerBanner.png" alt="">
         </div>
       </div>
       <button class="ranking-more">{{$t('esports_kpl15_jia2')}}</button>
@@ -92,13 +92,16 @@
       <div class="schedule-expect">{{$t('esports_kpl21')}}</div>
     </div>
     <!-- 预告 -->
-    <div class="kpl-notice margin-auto">
+    <div class="kpl-notice kpl-notice-header margin-auto">
       <div class="notice-header flex">
+        <img class="up-next" src="/kpl/up.png" alt="">
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <p>{{$t('esports_kpl22')}}</p>
+        <p>{{$t('esports_kpl22')}}{{$t('esports_kpl23')}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
+        <img class="up-next" src="/kpl/next.png" alt="">
       </div>
-      <p class="notice-time">{{$t('esports_kpl23')}}</p>
+    </div>
+    <div class="kpl-notice kpl-notice-bgi  margin-auto">
       <div class="notice-team margin-auto flex">
         <div class="team">
           <div class="team-top flex">
@@ -131,6 +134,8 @@
           <button class="margin-auto">{{$t('esports_kpl24')}}</button>
         </div>
       </div>
+    </div>
+    <div class="kpl-notice margin-auto">
       <div class="notice-btn margin-auto flex">
         <p>{{$t('esports_kpl25')}}00{{$t('esports_kpl26')}}</p>
         <div>
@@ -138,6 +143,13 @@
           <button class="btn-right">{{$t('esports_kpl28')}}</button>
         </div>
       </div>
+    </div>
+    <!-- 倒计时 -->
+    <div class="kpl-countdown">
+      <p class="countdown-name">投票截止倒计时</p>
+      <p class="countdown-date">156h:56m:23s</p>
+      <p class="countdown-name">比赛开始时间</p>
+      <p class="countdown-date">8月xx日 14:00</p>
     </div>
     <!-- 奖池 -->
     <div class="kpl-award kpl-title margin-auto">
@@ -283,8 +295,15 @@
 <script lang="ts" src="./kpl.ts"></script>
 <style>
 html{
-  min-width: 1440px !important;
+  min-width: 1440px;
   overflow-x: auto;
+}
+@media only screen and (max-width: 992px){
+  
+html{
+  min-width: 100% !important;
+  overflow-x: auto;
+}
 }
 </style>
 <style scoped lang='scss'>
