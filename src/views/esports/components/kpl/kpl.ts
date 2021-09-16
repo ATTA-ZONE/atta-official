@@ -1,5 +1,7 @@
 
-import { defineComponent,ref } from "vue";
+import { defineComponent,ref ,onMounted,computed} from "vue";
+import { useI18n } from "vue-i18n";
+import axios from "../../../../api";
 export default defineComponent({
   name: "kpl",
   props: {
@@ -7,8 +9,11 @@ export default defineComponent({
   },
   setup(){
     //战队头像
+    const { locale, t } = useI18n();
     const teamHeaderA = ref();
     const teamHeaderB = ref();
+    const kplinfo = ref([]);
+    const kpllist = ref([]);
     teamHeaderA.value = [
       '/kpl/header.png','/kpl/header.png','/kpl/header.png','/kpl/header.png','/kpl/header.png'
     ];
@@ -52,12 +57,36 @@ export default defineComponent({
         url:"/kpl/test.png"
       }
     ]
+    const isEn = computed(() => {
+      return locale.value.trim() == "en";
+    });
+    onMounted(()=>{
+      getkpllistdata();
+    })
+    const getkpllistdata = () => {
+      const bool = isEn.value ? "en" : "tc";
+      axios
+        .post(window.base_url + "/v2/match/list_lol", {
+          address : '',
+          lang: bool,
+        })
+        .then((res: any) => {
+          if (res.code == 0) {
+            console.log(res);
+            kplinfo.value = res.data.matchRes;
+            kpllist.value = res.data.betOrder;
+          }
+        });
+    };
     return{
       teamHeaderA,
       teamHeaderB,
       teamUserB,
       teamUserA,
-      kplNft
+      kplNft,
+      getkpllistdata,
+      kplinfo,
+      kpllist
     }
   }
 });

@@ -53,9 +53,9 @@
         <button>{{$t('esports_kpl15')}}</button>
       </div>
       <div class="rank-list flex">
-        <div class="ranking" v-for="item in 4">
-          <p>{{$t('esports_kpl15_jia')}}NO.{{item}}</p>
-          <img src="/kpl/headerBanner.png" alt="">
+        <div class="ranking" v-for="(item,index) in kpllist" :key="index">
+          <p>{{$t('esports_kpl15_jia')}}NO.{{index + 1}}</p>
+          <img :src="item.imgUrl ? item.imgUrl : '/kpl/headerBanner.png'" alt="">
         </div>
       </div>
       <button class="ranking-more">{{$t('esports_kpl15_jia2')}}</button>
