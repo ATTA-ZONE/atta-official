@@ -435,6 +435,10 @@ div.kpl-notice-header{
           font-weight: 600;
           font-size: 48px;
           line-height: 343px;
+          img{
+            max-width: 307px;
+            max-height: 90px;
+          }
         }
         .team-a{
           background: url('/kpl/teamA.png') center no-repeat;
@@ -1009,8 +1013,111 @@ div.kpl-notice-header{
         background-size: 100%;
       }
     }
+    .kpl-notice-header{
+      width: 100%;
+      .notice-header{
+        width: 100%;
+      }
+      .bgi01{
+        width: 58px;
+        height:14px;
+        display:none;
+      }
+      .up-next{
+        width: 37px;
+      }
+      p{
+        font-weight: 600;
+font-size: 20px;
+      }
+    }
+    .kpl-notice-bgi{
+      width: calc(100% + 30px);
+      height:211px;
+      margin-left: -15px;
+      padding:0;
+      padding-top: 45px;
+      .notice-team{
+        margin-top: 0 !important;
+        width: 100%;
+        .team{
+          width: 143px;
+          .team-top{
+            height:91px;
+            img{
+              width: 16px;
+              height:16px;
+              margin-bottom: 3px;
+            }
+          }
+          .team-name{
+            width: 121px;
+            height:91px;
+            img{
+              max-width: 82px;
+              max-height: 24px;
+            }
+          }
+          .team-ranking{
+            margin-top: 5px;
+            .ranking-user{
+              padding-left: 34px;
+              img{
+                width: 17px;
+                height:17px;
+              }
+              p{
+                width:17px;
+                height:17px;
+                line-height: 17px;
+                font-size: 10px;
+              }
+            }
+          }
+          button{
+            width: 58px;
+            height:21px;
+            font-weight: 500;
+            font-size: 12px;
+            padding:0;
+            margin-top: 14px !important;
+          }
+        }
+      }
+    }
     .kpl-notice{
-
+      .notice-btn{
+        text-align: center;
+        width: 100%;
+        display: block;
+        padding:0;
+        p{
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 28px;
+        }
+        div{
+          margin-top: 26px;
+          button{
+            width: 122px;
+            height:36px;
+            background: linear-gradient(140.34deg, #DC78FF 19.63%, #0044EA 103.57%);
+            border-radius: 5px;
+            border:0;
+            font-weight: 500;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .kpl-countdown{
+      margin-top: 40px;
+      .countdown-name{
+        font-size: 20px;
+      }
+      .countdown-date{
+        font-size: 30px;
+      }
     }
   }
 }

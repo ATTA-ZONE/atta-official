@@ -108,7 +108,9 @@
             <div class="team-header flex">  
               <img v-for="item in teamHeaderA" :src="item" :key="item" alt="">
             </div>
-            <div class="team-name team-a">TEAM A</div>
+            <div class="team-name team-a">
+              <!-- 放置战队logo -->
+            </div>
           </div>
           <div class="team-ranking">
             <div class="ranking-user flex">
@@ -120,7 +122,9 @@
         </div>
         <div class="team">
           <div class="team-top flex">
-            <div class="team-name team-b">TEAM B</div>
+            <div class="team-name team-b">
+              <!-- 放置战队logo -->
+            </div>
             <div class="team-header flex">  
               <img v-for="item in teamHeaderB" :src="item" :key="item" alt="">
             </div>
