@@ -96,11 +96,11 @@
     <!-- 预告 -->
     <div class="kpl-notice kpl-notice-header margin-auto">
       <div class="notice-header flex">
-        <img v-if="showkplindex != 0" class="up-next" src="/kpl/up.png" alt="" @click="beforeclick(showkplindex)">
+        <img :class="showkplindex != 0 ? 'up-next hideimg' : 'up-next'" src="/kpl/up.png" alt="" @click="beforeclick(showkplindex)">
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
         <p v-if="kplinfo[showkplindex]">{{$t(computekpltimeshowword(kplinfo[showkplindex]))}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <img v-if="showkplindex != kplinfo.length - 1" class="up-next" src="/kpl/next.png" alt="" @click="nextclick(showkplindex)">
+        <img :class="showkplindex != kplinfo.length - 1 ? 'up-next hideimg' : 'up-next'" src="/kpl/next.png" alt="" @click="nextclick(showkplindex)">
       </div>
     </div>
     <div class="kpl-notice kpl-notice-bgi  margin-auto">

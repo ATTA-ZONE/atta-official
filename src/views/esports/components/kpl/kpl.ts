@@ -71,9 +71,11 @@ export default defineComponent({
       }
     };
     const beforeclick = (index) => {
+      if (index == 0) {return;}
       showkplindex.value = index - 1;
     }
     const nextclick = (index) => {
+      if (index == kplinfo.value.length - 1) {return;}
       showkplindex.value = index + 1;
     }
     onMounted(()=>{
