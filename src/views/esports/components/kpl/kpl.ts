@@ -73,6 +73,10 @@ export default defineComponent({
         return 'esports_kpl22_jia'
       }
     };
+    const scrollviewbtn = () => {
+      let homePage = document.querySelector(".kpl-notice-header");
+      homePage.scrollIntoView(true);
+    }
     const beforeclick = (index) => {
       if (index == 0) {return;}
       showkplindex.value = index - 1;
@@ -118,7 +122,8 @@ export default defineComponent({
       getkpllistdata,
       computekpltimeshowword,
       beforeclick,
-      nextclick
+      nextclick,
+      scrollviewbtn
     }
   }
 });

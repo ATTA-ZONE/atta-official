@@ -7,7 +7,7 @@
         <div class="kpl-time">{{$t('esports_kpl1')}}</div>
         <div class="kpl-team" v-if="kplinfo[showkplindex]">{{kplinfo[showkplindex].teamA + ' VS ' + kplinfo[showkplindex].teamB}}</div>
         <div class="kpl-btn flex"> 
-          <span>{{$t('esports_kpl3')}}</span>
+          <span @click="scrollviewbtn()">{{$t('esports_kpl3')}}</span>
           <span>{{$t('esports_kpl4')}}</span>
         </div>
       </div>
