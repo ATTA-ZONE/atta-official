@@ -152,7 +152,7 @@
       <div class="notice-btn margin-auto flex">
         <p v-if="kplinfo[showkplindex]">{{$t('esports_kpl25')}}{{kplinfo[showkplindex].myUnuseTicket}}{{$t('esports_kpl26')}}</p>
         <div>
-          <button>{{$t('esports_kpl27')}}</button>
+          <button @click="collectcouponsbtn()">{{$t('esports_kpl27')}}</button>
           <button class="btn-right">{{$t('esports_kpl28')}}</button>
         </div>
       </div>

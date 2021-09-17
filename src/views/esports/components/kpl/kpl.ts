@@ -108,6 +108,18 @@ export default defineComponent({
         ljwatter();
       }
     }
+    const collectcouponsbtn = () => {
+      axios
+      .post(window.base_url + "/attaExchange/getUnclaimedInfo", {
+        "address": address.value,
+        "type": 2,//1   2
+      })
+      .then((res: any) => {
+        if (res.code == 0) {
+          console.log(res.data);
+        }
+      });
+    }
     onMounted(()=>{
       if (window.CHAIN.WALLET) {
         ljwatter();
@@ -163,7 +175,8 @@ export default defineComponent({
       nextclick,
       scrollviewbtn,
       getkplph,
-      voteclick
+      voteclick,
+      collectcouponsbtn
     }
   }
 });
