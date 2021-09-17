@@ -1,6 +1,6 @@
 <template>
 <!-- banner部分 -->
-  <div class="kpl">
+  <div class="kpl" v-loading="loading">
     <div class="banner-container">
       <div class="banner-info">
         <img src="/kpl/titleCh.png" />
@@ -290,6 +290,8 @@ html{
   min-width: 100% !important;
   overflow-x: auto;
 }
+}div.el-loading-mask{
+  background-color: rgba(0,0,0,0.8);
 }
 </style>
 <style scoped lang='scss'>
