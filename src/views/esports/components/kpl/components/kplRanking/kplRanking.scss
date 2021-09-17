@@ -12,6 +12,9 @@
     box-sizing: border-box;
     justify-content: space-between;
   }
+  .rank-media{
+    display: none;
+  }
   .rank-list-rank{
     background-image: url('/kpl/dialogRank.png');
     width: 49%;
@@ -127,8 +130,72 @@
         line-height: 130%;
       }
     }
-    .rank-list{
+  }
+}
 
+@media only screen and (max-width: 992px){
+  .ranking-dialog{
+    .dialog-content{
+      margin-left: 0;
+      margin-right: 0;
+      left: 0;
+      top: 0;
+      margin-top: 0;
+      border:0;
+      width: 100%;
+      .close{
+        width:30px;
+        height:30px;
+        top: 30px;
+        right:30px;
+      }
+      .dialog-header{
+        width: 100%;
+        padding:0 45px;
+        margin-top: 90px;
+        img{
+          width: 40px;
+          height: 10px;
+        }
+        p{
+          font-size: 22px;
+        }
+      }
+      .rank-list{
+        display: none;
+      }
+      .rank-media{
+        display: block;
+        margin-top: 40px;
+        >div{
+          width: 220px;
+          margin-left: auto;
+          margin-right: auto;
+          .ranking-bumber{
+            justify-content: space-between;
+            margin-bottom: 26px;
+            img{
+              width: 30px;
+              height:30px;
+            }
+            div{
+              width: 151px;
+              height:30px;
+              background: linear-gradient(140.34deg, #DC78FF 19.63%, #0044EA 103.57%);
+              text-align: right;
+              padding-right: 10px;
+              p{
+                font-size: 12px;
+                line-height: 30px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .timeword{
+      font-size: 14px;
+      margin-top: 40px;
     }
   }
 }
