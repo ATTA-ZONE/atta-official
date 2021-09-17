@@ -4,7 +4,7 @@
       <img class="close" src="/match/close.png" alt="" @click="closeNet">
       <div class="dialog-header margin-auto flex">
         <img src="/kpl/bgi01.png" alt="">
-        <p>{{$t($t(data.titletips))}}</p>
+        <p v-if="data.titletips">{{$t($t(data.titletips))}}</p>
         <img src="/kpl/bgi01.png" alt="">
       </div>
       <div v-if="data.rankingtypeshow == 1">
