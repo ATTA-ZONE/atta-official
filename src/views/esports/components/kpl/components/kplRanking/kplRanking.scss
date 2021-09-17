@@ -57,6 +57,24 @@
       text-align: center;
       margin: 55px auto;
     }
+    .tptkjiajian{
+      justify-content: center;
+      margin-bottom: 55px;
+      align-items: center;
+      font-size: 38px;
+      p{
+        align-items: center;
+        img{
+          width: 60px;
+          height: 60px;
+        }
+        span{
+          display: inline-block;
+          width: 100px;
+          text-align: center;
+        }
+      }
+    }
     .smolltips{
       text-align: center;
       font-weight: 600;

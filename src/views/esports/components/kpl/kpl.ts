@@ -72,12 +72,39 @@ export default defineComponent({
     }
     const confirmbtn = (res:any) => {
       console.log(res.rankingtypeshow);
+      if (res.rankingtypeshow == 4) {
+        let obj = JSON.parse(JSON.stringify(kplinfo.value[showkplindex.value]))
+        axios
+        .post(window.base_url + "/v2/match/voting_ticket", {
+          "address": address.value,
+          "matchId": obj.id,
+          "optionsId": res.timeid,
+          "usedAmount": res.tpnum
+        })
+        .then((res: any) => {
+          if (res.code == 0) {
+            debugger
+            console.log(res.data);
+          }
+        });
+      }
       kplRankingshow.value = false;
     }
     // 点击 投票
-    const voteclick = (tpnum) =>{
+    const voteclick = (tpnum,timeid) =>{
       if (address.value) {
         if (tpnum > 0) {
+          let data = {
+            titletips : 'esports_kpl69',
+            tips : 'esports_kpl70',
+            content : `<span>${tpnum}个</span>`,
+            rankingtypeshow : 4,
+            btn2show : '8',
+            tpnum : tpnum,
+            timeid : timeid
+          };
+          kplRankingshow.value = true;
+          contents.value = data;
           
         }else{
           let data = {titletips : 'esports_kpl68',content : '<span class="framethreejumppage">戳→  <a style="color: #a9deee;">bazhuayu.io</a>   立刻購買</span>',rankingtypeshow : 3,btn2show : '1'};

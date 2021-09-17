@@ -60,10 +60,18 @@
               <button @click="confirmbtn" v-if="data.rankingtypeshow == 8" class="btn2">{{$t('esports_kpl62')}}</button>
             </div>
         </div>
-        <div v-if="data.rankingtypeshow == 3" class="tipsrankingbox">
-            <!-- <p class="smolltips">{{$t(data.titletips)}}</p> -->
-            <p class="contentwords" v-html="$t(data.content)"></p>
-            <div :class="data.rankingtypeshow == 3 ?'btnbox flex centerbtn':'btnbox flex'">
+        <div v-if="data.rankingtypeshow == 3 || data.rankingtypeshow == 4" class="tipsrankingbox">
+            <p class="smolltips" v-if="data.tips">{{$t(data.tips)}}</p>
+            <p class="contentwords" v-if="data.content" v-html="$t(data.content)"></p>
+            <div v-if="data.tpnum" class="tptkjiajian flex">
+              <span>{{$t('esports_kpl72')}}</span>
+              <p class="flex">
+                <img src="/kpl/No1.png" alt="" @click="addtpnum()">
+                <span>{{data.tpnum}}</span>
+                <img src="/kpl/No2.png" alt="" @click="jiantpnum()">
+              </p>
+            </div>
+            <div :class="(data.rankingtypeshow == 3 || data.rankingtypeshow == 4) ?'btnbox flex centerbtn':'btnbox flex'">
               <button @click="confirmbtn" v-if="data.btn1show == 1" class="btn1">{{$t('esports_kpl56')}}</button>
               <button @click="closeNet" v-if="data.btn2show == 1" class="btn2">{{$t('esports_kpl55')}}</button> <!-- 知道了 -->
               <button @click="confirmbtn" v-if="data.btn2show == 2" class="btn2">{{$t('esports_kpl57')}}</button> <!-- 現在領取 -->
@@ -72,6 +80,7 @@
               <button @click="confirmbtn" v-if="data.btn2show == 5" class="btn2">{{$t('esports_kpl60')}}</button> <!-- 現在兌換 -->
               <button @click="confirmbtn" v-if="data.btn2show == 6" class="btn2">{{$t('esports_kpl61')}}</button> <!-- Loot 入場券 -->
               <button @click="confirmbtn" v-if="data.btn2show == 7" class="btn2">{{$t('esports_kpl62')}}</button> <!-- 前往投票 -->
+              <button @click="confirmbtn" v-if="data.btn2show == 8" class="btn2">{{$t('esports_kpl71')}}</button> <!-- 前往投票 -->
             </div>
         </div>
       </div>

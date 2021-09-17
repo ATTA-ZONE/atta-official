@@ -492,6 +492,10 @@
   "esports_kpl66" : "敗方投票NO.1",
   "esports_kpl67" : "投票開啟倒計時",
   "esports_kpl68" : "您的錢包內沒有可以投票的投票券噢",
+  "esports_kpl69" : "您當前可投票的投票券數量為",
+  "esports_kpl70" : "（每張投票券僅可投票一次，使用後即消耗。）",
+  "esports_kpl71" : "提交",
+  "esports_kpl72" : " 已選：",
 
   "faces_1" : "NFT头像",
   "faces_2" : "NFT头像兑换",
