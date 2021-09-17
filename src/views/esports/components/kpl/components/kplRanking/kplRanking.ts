@@ -10,8 +10,8 @@ export default defineComponent({
     const tipNone = ref(false)
     onMounted(()=>{
       let domText:any = titletipsRef.value;
-      console.dir(domText.scrollWidth);
-      if(domText.scrollWidth > 180){
+      console.dir(domText);
+      if(domText && domText.scrollWidth > 180){
         tipNone.value = true;
       }
     });

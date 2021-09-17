@@ -66,9 +66,9 @@
             <div v-if="data.tpnum" class="tptkjiajian flex">
               <span>{{$t('esports_kpl72')}}</span>
               <p class="flex">
-                <img src="/kpl/No1.png" alt="" @click="addtpnum()">
+                <img src="/kpl/addition.png" alt="" @click="addtpnum()">
                 <span>{{data.tpnum}}</span>
-                <img src="/kpl/No2.png" alt="" @click="jiantpnum()">
+                <img src="/kpl/subtraction.png" alt="" @click="jiantpnum()">
               </p>
             </div>
             <div :class="(data.rankingtypeshow == 3 || data.rankingtypeshow == 4) ?'btnbox flex centerbtn':'btnbox flex'">
