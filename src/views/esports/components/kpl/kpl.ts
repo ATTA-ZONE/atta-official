@@ -69,6 +69,7 @@ export default defineComponent({
     }
     const closeNet = () => {
       kplRankingshow.value = false;
+      getkpllistdata();
     }
     const confirmbtn = (res:any) => {
       console.log(res.rankingtypeshow);
@@ -83,8 +84,9 @@ export default defineComponent({
         })
         .then((res: any) => {
           if (res.code == 0) {
-            debugger
-            console.log(res.data);
+            let data = {titletips : 'esports_kpl73',content : 'esports_kpl74',rankingtypeshow : 3,btn2show : '1'};
+            kplRankingshow.value = true;
+            contents.value = data;
           }
         });
       }

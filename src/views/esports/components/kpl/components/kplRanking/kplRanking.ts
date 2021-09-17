@@ -22,8 +22,13 @@ export default defineComponent({
       data.tpnum = data.tpnum + 1;
     }
     const jiantpnum = () => {
-      if (data.tpnum == 0) {return ;}
+      if (data.tpnum <= 1) {return ;}
       data.tpnum = data.tpnum - 1;
+    }
+    const submitbtn = () => {
+      data.value = {
+
+      }
     }
     return{
       title1 : 'esports_kpl51', 
