@@ -100,6 +100,7 @@ export default defineComponent({
         }
       });
     }
+    // 点击 兌換面具
     const exchangemask = () => {
       let requestUrl = window.base_url + '/attaExchange/queryExchangeInfo?address=' + address.value;
       loading.value = true;
