@@ -57,6 +57,25 @@ export default defineComponent({
     const isEn = computed(() => {
       return locale.value.trim() == "en";
     });
+    const computekpltimeshowword = (data) => {
+      let curTime = data.curTime;
+      let endTime = data.endTime;
+      let startTime = data.startTime;
+      if (startTime > curTime) {
+        if (endTime < curTime) {
+          return 'esports_kpl23'
+        }
+        return 'esports_kpl22'
+      }else{
+        return 'esports_kpl22_jia'
+      }
+    };
+    const beforeclick = (index) => {
+      showkplindex.value = index - 1;
+    }
+    const nextclick = (index) => {
+      showkplindex.value = index + 1;
+    }
     onMounted(()=>{
       getkpllistdata();
     })
@@ -87,10 +106,13 @@ export default defineComponent({
       teamUserB,
       teamUserA,
       kplNft,
-      getkpllistdata,
       kplinfo,
       kpllist,
-      showkplindex
+      showkplindex,
+      getkpllistdata,
+      computekpltimeshowword,
+      beforeclick,
+      nextclick
     }
   }
 });

@@ -96,11 +96,11 @@
     <!-- 预告 -->
     <div class="kpl-notice kpl-notice-header margin-auto">
       <div class="notice-header flex">
-        <img class="up-next" src="/kpl/up.png" alt="">
+        <img v-if="showkplindex != 0" class="up-next" src="/kpl/up.png" alt="" @click="beforeclick(showkplindex)">
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <p>{{$t('esports_kpl22')}}{{$t('esports_kpl23')}}</p>
+        <p v-if="kplinfo[showkplindex]">{{$t(computekpltimeshowword(kplinfo[showkplindex]))}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <img class="up-next" src="/kpl/next.png" alt="">
+        <img v-if="showkplindex != kplinfo.length - 1" class="up-next" src="/kpl/next.png" alt="" @click="nextclick(showkplindex)">
       </div>
     </div>
     <div class="kpl-notice kpl-notice-bgi  margin-auto">
@@ -116,7 +116,7 @@
             </div>
           </div>
           <div class="team-ranking">
-            <div class="ranking-user flex" v-if="kplinfo[showkplindex]">
+            <div class="ranking-user flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length">
               <img v-for="item in kplinfo[showkplindex].attaMatchOptions[0].betRecord" :src="item.imgUrl" :key="item" alt="">
               <p>{{kplinfo[showkplindex].attaMatchOptions[0].betRecord.length}}</p>
             </div>
@@ -134,7 +134,7 @@
             </div>
           </div>
           <div class="team-ranking">
-            <div class="ranking-user flex" v-if="kplinfo[showkplindex]">
+            <div class="ranking-user flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length">
               <img v-for="item in kplinfo[showkplindex].attaMatchOptions[1].betRecord" :src="item.imgUrl" :key="item" alt="">
               <p>{{kplinfo[showkplindex].attaMatchOptions[1].betRecord.length}}</p>
             </div>
@@ -162,7 +162,7 @@
     <!-- 奖池 -->
     <div class="kpl-award kpl-title margin-auto">
       <h5 v-if="kplinfo[showkplindex]">{{$t('esports_kpl29')}} {{kplinfo[showkplindex].curRewardPool}} BUSD</h5>
-      <div class="kpl-award-team flex" v-if="kplinfo[showkplindex]">
+      <div class="kpl-award-team flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length">
         <div class="award-team">
           <h5>{{kplinfo[showkplindex].teamA}}</h5>
           <p>{{$t('esports_kpl31')}}{{kplinfo[showkplindex].attaMatchOptions[0].totalTickets}}{{$t('esports_kpl32')}}</p>
@@ -178,7 +178,7 @@
     <!-- 投票排行 -->
     <div class="kpl-voting-ranking kpl-title margin-auto">
       <h5>{{$t('esports_kpl35')}}</h5>
-      <div class="voting-ranking flex" v-if="kplinfo[showkplindex]">
+      <div class="voting-ranking flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length">
         <div class="voting-ranking-list">
           <div class="ranking-bumber flex" v-for="item in kplinfo[showkplindex].attaMatchOptions[0].betTop3" :key="item">
             <img :src="'/kpl/No'+item.pm+'.png'" alt="">
@@ -217,7 +217,7 @@
     <!-- 我的投票 -->
     <div class="kpl-my-voting kpl-title margin-auto">
       <h5>{{$t('esports_kpl43')}}</h5>
-      <div class="my-voting flex" v-if="kplinfo[showkplindex]">
+      <div class="my-voting flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length">
         <div class="voting">
           <p class="voting-name">{{$t('esports_kpl43')}}({{kplinfo[showkplindex].teamA}})</p>
           <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[0].myVoteTicket">
