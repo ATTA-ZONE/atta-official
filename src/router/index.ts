@@ -60,8 +60,8 @@ const routes = [
     component: Charity,
   },
   {
-    path: "/headportrait",
-    name: "headportrait",
+    path: "/headset",
+    name: "headset",
     component: Headportrait,
   },
   {
