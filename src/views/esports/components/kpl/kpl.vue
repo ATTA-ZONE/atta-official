@@ -43,7 +43,7 @@
             <p class="award-left" style="font-size:20px;">
               <img src="/kpl/BATTLEREWARD.png" alt="">
             </p>
-            <p class="award-right" v-if="kplinfo[showkplindex]">{{$t('esports_kpl12')}} <span>{{kplinfo[showkplindex].curRewardPool}}U</span> {{$t('esports_kpl13')}}</p>
+            <p class="award-right" v-if="kplinfo[showkplindex]">{{$t('esports_kpl12')}} <span>{{kplinfo[showkplindex].curRewardPool}}U</span> {{$t('esports_kpl13')}} <span>NFT</span></p>
           </div>
         </div>
       </div>
@@ -143,6 +143,11 @@
         </div>
       </div>
     </div>
+    <!-- 倒计时 -->
+    <div class="kpl-countdown margin-auto flex" v-if="kplbsstatus == 2">
+      <p class="countdown-name">{{$t('esports_kpl67')}}</p>
+      <p class="countdown-date hanson">156h:56m:23s</p>
+    </div>
     <div class="kpl-notice margin-auto">
       <div class="notice-btn margin-auto flex">
         <p v-if="kplinfo[showkplindex]">{{$t('esports_kpl25')}}{{kplinfo[showkplindex].myUnuseTicket}}{{$t('esports_kpl26')}}</p>
@@ -151,13 +156,6 @@
           <button class="btn-right">{{$t('esports_kpl28')}}</button>
         </div>
       </div>
-    </div>
-    <!-- 倒计时 -->
-    <div class="kpl-countdown" v-if="kplbsstatus == 2">
-      <p class="countdown-name">投票截止倒计时</p>
-      <p class="countdown-date">156h:56m:23s</p>
-      <p class="countdown-name">比赛开始时间</p>
-      <p class="countdown-date">8月xx日 14:00</p>
     </div>
     <!-- 奖池 -->
     <div class="kpl-award kpl-title margin-auto">
