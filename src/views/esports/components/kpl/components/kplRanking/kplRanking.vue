@@ -2,7 +2,7 @@
   <div class="ranking-dialog">
     <div class="dialog-content">
       <img class="close" src="/match/close.png" alt="" @click="closeNet">
-      <div class="dialog-header margin-auto flex">
+      <div class="dialog-header margin-auto">
         <img src="/kpl/bgi01.png" alt="">
         <p v-if="data.titletips">{{$t($t(data.titletips))}}</p>
         <img src="/kpl/bgi01.png" alt="">

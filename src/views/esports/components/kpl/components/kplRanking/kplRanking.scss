@@ -120,17 +120,20 @@
     }
     .dialog-header{
       padding-top: 35px;
-      width: 750px;
+      width: 1100px;
       justify-content: space-between;
       align-items:center;
+      text-align:center;
       img{
         width: 133px;
         height:32px;
       }
       p{
+        display: inline-block;
         font-weight: 600;
         font-size: 38px;
         line-height: 130%;
+        margin:0 15px;
       }
     }
   }
