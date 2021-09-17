@@ -393,7 +393,7 @@ div.kpl-notice-header{
     margin-left: auto;
     margin-right: auto;
     img.hideimg{
-      opacity: 0;
+      opacity: 0 !important;
       cursor: auto;
     }
     .up-next{
@@ -499,13 +499,18 @@ div.kpl-notice-header{
     padding:0 50px;
     box-sizing: border-box;
     justify-content:space-between;
-    p{
-      font-weight: 600;
-      font-size: 36px;
-      line-height: 50px;
-      color: #fff;
+    .notice-left{
+      p{
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 50px;
+        color: #fff;
+      }
+      img{
+        display:none;
+      }
     }
-    div{
+    .notice-right{
       button{
         border: 0;
         width: 142px;
@@ -1062,10 +1067,10 @@ div.kpl-notice-header{
       .bgi01{
         width: 58px;
         height:14px;
-        display:none;
       }
       .up-next{
         width: 37px;
+        display:none;
       }
       p{
         font-weight: 600;
@@ -1132,12 +1137,22 @@ div.kpl-notice-header{
         width: 100%;
         display: block;
         padding:0;
-        p{
-          font-weight: 600;
-          font-size: 20px;
-          line-height: 28px;
+        .notice-left{
+          justify-content: space-between;
+          img.hideimg{
+            opacity: 0 !important;
+            cursor: auto;
+          }
+          .up-next{
+            width: 37px;
+          }
+          p{
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 28px;
+          }
         }
-        div{
+        .notice-right{
           margin-top: 26px;
           button{
             width: 122px;
