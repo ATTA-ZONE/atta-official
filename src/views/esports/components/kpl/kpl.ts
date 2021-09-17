@@ -108,7 +108,10 @@ export default defineComponent({
     const closeNet = () => {
       kplRankingshow.value = false;
     }
-    const confirmbtn = () => {
+    const confirmbtn = (res:any) => {
+      console.log(res.rankingtypeshow);
+      debugger
+      
       kplRankingshow.value = false;
     }
     const voteclick = (tpnum) =>{
