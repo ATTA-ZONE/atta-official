@@ -192,6 +192,27 @@
           }
         }
       }
+      .tipsrankingbox{
+        padding: 0 46px;
+        .smolltips{
+          font-size:12px;
+        }
+        .contentwords{
+          font-size:16px;
+        }
+        .btnbox{
+          flex-wrap: wrap;
+          justify-content: center;
+          button{
+            width: 200px;
+            height:40px;
+            font-size: 18px;
+            line-height: 40px;
+            padding:0;
+            margin-bottom: 16px;
+          }
+        }
+      }
     }
     .timeword{
       font-size: 14px;
