@@ -136,10 +136,7 @@ export default defineComponent({
     const getkpllistdata = () => {
       const bool = isEn.value ? "en" : "tc";
       axios
-        .post(window.base_url + "/v2/match/list_lol", {
-          address : address.value,
-          lang: bool,
-        })
+        .post(window.base_url + "/v2/match/list_lol?address="+address.value+'&lang='+bool)
         .then((res: any) => {
           if (res.code == 0) {
             console.log(res);
