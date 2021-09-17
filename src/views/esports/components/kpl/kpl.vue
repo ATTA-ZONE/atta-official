@@ -121,7 +121,7 @@
               <p>{{kplinfo[showkplindex].attaMatchOptions[0].betRecord.length}}</p>
             </div>
           </div>
-          <button class="margin-auto">{{$t('esports_kpl24')}}</button>
+          <button class="margin-auto" @click="voteclick(kplinfo[showkplindex].myUnuseTicket)">{{$t('esports_kpl24')}}</button>
         </div>
         <div class="team">
           <div class="team-top flex">
@@ -139,7 +139,7 @@
               <p>{{kplinfo[showkplindex].attaMatchOptions[1].betRecord.length}}</p>
             </div>
           </div>
-          <button class="margin-auto">{{$t('esports_kpl24')}}</button>
+          <button class="margin-auto" @click="voteclick(kplinfo[showkplindex].myUnuseTicket)">{{$t('esports_kpl24')}}</button>
         </div>
       </div>
     </div>
