@@ -130,6 +130,17 @@ export default defineComponent({
         }
       });
     }
+    const exchangemask = () => {
+      let requestUrl = window.base_url + '/attaExchange/queryExchangeInfo?address=' + address.value
+      axios.get(requestUrl).then((res: any) => {
+        if (res.code == 0) {
+          let data = {list : [],rankingtypeshow : 2};
+          kplRankingshow.value = true;
+          data.list = res.data;
+          contents.value = data;
+        }
+      });
+    }
     onMounted(()=>{
       if (window.CHAIN.WALLET) {
         ljwatter();
@@ -189,7 +200,8 @@ export default defineComponent({
       getkplph,
       voteclick,
       collectcouponsbtn,
-      closeNet
+      closeNet,
+      exchangemask
     }
   }
 });
