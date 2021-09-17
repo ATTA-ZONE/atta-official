@@ -43,6 +43,14 @@ export default defineComponent({
       data.value.tpnum2 = data.value.tpnum;
       data.value.tpnum = null;
     }
+    const exchangenowbtn = () => {
+      data.value.titletips = 'esports_kpl53';
+      data.value.content = 'esports_kpl85';
+      data.value.rankingtypeshow = 4;
+      data.value.btn1show = '999';//999 不展示此按钮
+      data.value.btn2show = '1';
+      data.value.tips = null;
+    }
     return{
       title1 : 'esports_kpl51', 
       title2 : 'esports_kpl53', 
@@ -52,6 +60,7 @@ export default defineComponent({
       addtpnum,
       jiantpnum,
       submitbtn,
+      exchangenowbtn,
       titletipsRef,
       tipNone
       }

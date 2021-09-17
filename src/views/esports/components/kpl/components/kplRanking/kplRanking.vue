@@ -49,14 +49,23 @@
         <div v-if="data.rankingtypeshow == 2" class="tipsrankingbox">
             <p class="contentwords" v-if="data.content" v-html="$t(data.content)"></p>
             <p class="smolltips" v-if="data.tips">{{$t(data.tips)}}</p>
-            <div>
-              
+            <div v-if="data.list">
+              <p>
+                <span>SR</span>
+                <span>{{data.list.lplNft.SR.length}}{{$t('esports_kpl80')}}</span>
+                <span>R</span>
+                <span>{{data.list.lplNft.R.length}}{{$t('esports_kpl80')}}</span>
+                <span>N</span>
+                <span>{{data.list.lplNft.N.length}}{{$t('esports_kpl80')}}</span>
+              </p>
+              <p>{{$t('esports_kpl81')}}{{data.list.points}}{{$t('esports_kpl82')}}</p>
+              <p>{{$t('esports_kpl83')}} {{data.list.amount}} {{$t('esports_kpl84')}}</p>
             </div>
             <div class="btnbox flex">
               <button @click="confirmbtn" v-if="data.btn1show == 1" class="btn1">{{$t('esports_kpl56')}}</button>
               <!-- <button @click="confirmbtn" v-if="data.btn2show == 1" class="btn2">{{$t('esports_kpl55')}}</button> -->
               <!-- <button @click="confirmbtn" v-if="data.btn2show == 2" class="btn2">{{$t('esports_kpl57')}}</button> -->
-              <button @click="confirmbtn" v-if="data.btn2show == 3" class="btn2">{{$t('esports_kpl58')}}</button><!-- 現在兌換 -->
+              <button @click="exchangenowbtn" v-if="data.btn2show == 3 && data.list.amount > 0" class="btn2">{{$t('esports_kpl58')}}</button><!-- 現在兌換 -->
               <!-- <button @click="confirmbtn" v-if="data.btn2show == 4" class="btn2">{{$t('esports_kpl59')}}</button> -->
               <!-- <button @click="confirmbtn" v-if="data.btn2show == 5" class="btn2">{{$t('esports_kpl60')}}</button> -->
               <!-- <button @click="confirmbtn" v-if="data.btn2show == 6" class="btn2">{{$t('esports_kpl61')}}</button> -->

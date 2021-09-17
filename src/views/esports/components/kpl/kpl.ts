@@ -136,7 +136,11 @@ export default defineComponent({
       axios.get(requestUrl).then((res: any) => {
         loading.value = false;
         if (res.code == 0) {
-          let data = {rankingtypeshow : 2,content : 'esports_kpl78',btn1show : '1',btn2show : '3',tips : 'esports_kpl79'};
+          debugger
+          console.log(res.data);
+          
+          let data = {list:[],rankingtypeshow : 2,content : 'esports_kpl78',btn1show : '1',btn2show : '3',tips : 'esports_kpl79'};
+          data.list = res.data;
           kplRankingshow.value = true;
           contents.value = data;
         }
