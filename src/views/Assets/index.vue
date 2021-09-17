@@ -51,13 +51,16 @@ export default defineComponent({
   }
 });
 </script>
-<style lang='scss'>
+<style lang='scss' scoped>
 @media only screen and (max-width: 992px) {
+  .router-view {
+    padding: 10px 20px;
+  }
   div.tabs-wrap {
     width: 100%;
     font-size: 12px;
-    height:14px;
-    top: 30px;
+    line-height:34px;
+    top: 40px !important;
     left: 0;
     z-index: 1;
     a{
@@ -89,14 +92,15 @@ export default defineComponent({
 .assets-tab span{
   line-height: 34px;
   font-size:18px;
+  font-weight: 500;
 }
 .active-text {
   display: inline-block;
-  font-weight: bold;
-  line-height: 34px;
+  color: #a8deee;
 }
 .router-view {
-  width: 100%;
+  max-width: 1400px;
+  margin: 40px auto;
   min-height: calc(100vh - 490px);
 }
   .el-loading-mask {
