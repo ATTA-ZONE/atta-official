@@ -81,7 +81,7 @@
               <button @click="confirmbtn" v-if="data.btn2show == 6" class="btn2">{{$t('esports_kpl61')}}</button> <!-- Loot 入場券 -->
               <button @click="confirmbtn" v-if="data.btn2show == 7" class="btn2">{{$t('esports_kpl62')}}</button> <!-- 前往投票 -->
               <button @click="submitbtn" v-if="data.btn2show == 8" class="btn2">{{$t('esports_kpl71')}}</button> <!-- 提交 -->
-              <!-- <button @click="confirmbtn" v-if="data.btn2show == 8" class="btn2">{{$t('esports_kpl71')}}</button> -->
+              <button @click="confirmbtn" v-if="data.btn2show == 9" class="btn2">{{$t('esports_kpl77')}}</button> <!-- 确认 -->
             </div>
         </div>
       </div>

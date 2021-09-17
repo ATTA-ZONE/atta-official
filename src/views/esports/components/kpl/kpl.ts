@@ -72,15 +72,15 @@ export default defineComponent({
       getkpllistdata();
     }
     const confirmbtn = (res:any) => {
-      console.log(res.rankingtypeshow);
-      if (res.rankingtypeshow == 4) {
+      console.log(res.value.rankingtypeshow);
+      if (res.value.rankingtypeshow == 4) {
         let obj = JSON.parse(JSON.stringify(kplinfo.value[showkplindex.value]))
         axios
         .post(window.base_url + "/v2/match/voting_ticket", {
           "address": address.value,
           "matchId": obj.id,
-          "optionsId": res.timeid,
-          "usedAmount": res.tpnum
+          "optionsId": res.value.timeid,
+          "usedAmount": res.value.tpnum2
         })
         .then((res: any) => {
           if (res.code == 0) {

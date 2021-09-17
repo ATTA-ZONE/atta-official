@@ -15,7 +15,7 @@ export default defineComponent({
         tipNone.value = true;
       }
     });
-    const data:any = props.contents;
+    const data:any = ref(props.contents);
     const numtp = ref(data.tpnum);
     console.log(data);
     const closeNet = () => {
@@ -25,19 +25,23 @@ export default defineComponent({
       context.emit('confirmbtn',data)
     }
     const addtpnum = () => {
-      if (data.tpnum >= numtp.value) {
+      if (data.value.tpnum >= numtp.value) {
         return;
       }
-      data.tpnum = data.tpnum + 1;
+      data.value.tpnum = data.value.tpnum + 1;
     }
     const jiantpnum = () => {
-      if (data.tpnum <= 1) {return ;}
-      data.tpnum = data.tpnum - 1;
+      if (data.value.tpnum <= 1) {return ;}
+      data.value.tpnum = data.value.tpnum - 1;
     }
     const submitbtn = () => {
-      data.value = {
-
-      }
+      data.value.titletips = 'esports_kpl75';
+      data.value.content = `您選擇了${data.value.tpnum}個投票券，請確認`;
+      data.value.rankingtypeshow = 4;
+      data.value.btn1show = '1';
+      data.value.btn2show = '9';
+      data.value.tpnum2 = data.value.tpnum;
+      data.value.tpnum = null;
     }
     return{
       title1 : 'esports_kpl51', 
@@ -47,8 +51,9 @@ export default defineComponent({
       confirmbtn,
       addtpnum,
       jiantpnum,
+      submitbtn,
       titletipsRef,
       tipNone
-    }
+      }
   }
 });
