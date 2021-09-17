@@ -47,12 +47,12 @@
         <img class="brandLogo" src="/imgs/logo.png" @click="$router.push({name:'Home'})"/>
         <div class="more-list" :class="['header-links', isEn ? 'hanson' : '']" v-if="!isMobile">
           <div class="more-hover">
-            <span class="hanson">{{selectedPath == '/'?$t("home"):selectedPath == '/charity'?$t("ATTA Charity"):selectedPath == '/assets/mynft'?$t("Asset Management"):selectedPath == '/esports'?$t("matchName"):selectedPath == '/libraries'?$t("NFTlibrary"):''}}</span>
+            <span class="hanson">{{selectedPath == '/'?$t("home"):selectedPath == '/charity'?$t("ATTA Charity"):selectedPath == '/assets/mynft'?$t("Asset Management"):(selectedPath == '/esports/kpl'||selectedPath == '/esports/lpl')?$t("matchName"):selectedPath == '/libraries'?$t("NFTlibrary"):selectedPath == '/headportrait'?$t("headportrait"):''}}</span>
             <img src="/imgs/arrow.png" alt="">
           </div>
           <div class="more-content">
             <router-link :class="[selectedPath == '/'? 'selected-tab':'']" to="/">{{ $t("home") }}</router-link>
-            <router-link :class="[selectedPath == '/esports'? 'selected-tab':'']" to="/esports">{{ $t("matchName") }}</router-link>
+            <router-link :class="[(selectedPath == '/esports/kpl'||selectedPath == '/esports/lpl')? 'selected-tab':'']" to="/esports/kpl">{{ $t("matchName") }}</router-link>
             <router-link :class="[selectedPath == '/headportrait'? 'selected-tab':'']" to="/headportrait">{{ $t("headportrait") }}</router-link>
             <router-link :class="[selectedPath == '/charity'? 'selected-tab':'']" to="/charity">{{ $t("ATTA Charity") }}</router-link>
             <router-link :class="[selectedPath == '/libraries'? 'selected-tab':'']" to="/libraries">{{ $t("NFTlibrary") }}</router-link>
