@@ -10,20 +10,24 @@
       <div v-if="data.rankingtypeshow == 1">
         <div class="rank-list flex">
           <div class="rank-list-rank">
-            <div class="ranking-bumber flex" v-for="item in data.list" :key="item">
-              <img src="/kpl/No1.png" alt="">
-              <img src="/kpl/header.png" alt="">
-              <div>
-                <p>32{{$t('esports_kpl32')}}</p>
+            <div v-for="(item,index) in data.list" :key="item">
+              <div class="ranking-bumber flex" v-if="index < 5">
+                  <img src="/kpl/No1.png" alt="">
+                  <img src="/kpl/header.png" alt="">
+                  <div>
+                    <p>32{{$t('esports_kpl32')}}</p>
+                  </div>
               </div>
             </div>
           </div>
           <div class="rank-list-rank">
-            <div class="ranking-bumber flex">
-              <img src="/kpl/No1.png" alt="">
-              <img src="/kpl/header.png" alt="">
-              <div>
-                <p>32{{$t('esports_kpl32')}}</p>
+            <div v-for="(item,index) in data.list" :key="item">
+              <div class="ranking-bumber flex" v-if="index > 4">
+                  <img src="/kpl/No1.png" alt="">
+                  <img src="/kpl/header.png" alt="">
+                  <div>
+                    <p>32{{$t('esports_kpl32')}}</p>
+                  </div>
               </div>
             </div>
           </div>
