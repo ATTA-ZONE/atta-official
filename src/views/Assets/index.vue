@@ -53,34 +53,52 @@ export default defineComponent({
 </script>
 <style lang='scss'>
 @media only screen and (max-width: 992px) {
-  .tabs-wrap {
-    font-size: 14px;
+  div.tabs-wrap {
+    width: 100%;
+    font-size: 12px;
+    height:14px;
+    top: 30px;
+    left: 0;
+    z-index: 1;
+    a{
+      height:14px;
+      span{
+        font-size: 14px;
+        line-height: 100%;
+      }
+    }
   }
 }
-  .tabs-wrap {
-    display: flex;
-    padding: 0 10%;
-    margin-bottom: 30px;
-    justify-content: space-around;
-  }
-  .assets-tab {
-    color: #fff;
-  }
-  .active-text {
-    display: inline-block;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  .active-tab {
-    width: 90%;
-    height: 1px;
-    margin: auto;
-    background: #A8DEEE;
-  }
-  .router-view {
-    padding: 0 10%;
-    min-height: calc(100vh - 490px);
-  }
+.tabs-wrap {
+  display: flex;
+  justify-content: space-around;
+  z-index: 100;
+  position: absolute;
+  top: 110px;
+  left: 350px;
+  width: 280px;
+  height:34px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.tabs-wrap a{
+  text-decoration:none;
+}
+.assets-tab {
+  color: #fff;
+}
+.assets-tab span{
+  line-height: 34px;
+  font-size:18px;
+}
+.active-text {
+  display: inline-block;
+  font-weight: bold;
+  line-height: 34px;
+}
+.router-view {
+  width: 100%;
+  min-height: calc(100vh - 490px);
+}
   .el-loading-mask {
     min-height: 300px;
     background-color: rgba(0, 0, 0, 1);
