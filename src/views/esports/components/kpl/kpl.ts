@@ -13,7 +13,6 @@ export default defineComponent({
     const loading = ref(false)
     //战队头像
     const { locale, t } = useI18n();
-    const teamHeaderB = ref();
     const kplinfo = ref([]);
     const kpllist = ref([]);
     const showkplindex = ref(0);
@@ -21,46 +20,8 @@ export default defineComponent({
     const address = ref(''); //0 进行中 1 已结束 2 未开始
     const kplRankingshow = ref(false); //0 进行中 1 已结束 2 未开始
     const contents = ref({}); //0 进行中 1 已结束 2 未开始
-    teamHeaderB.value = [
-      '/kpl/header.png','/kpl/header.png','/kpl/header.png','/kpl/header.png','/kpl/header.png'
-    ];
-    // 用户头像  前四名
-    const teamUserA = ref();
-    const teamUserB = ref();
-    teamUserA.value = [
-      '/kpl/header.png','/kpl/header.png','/kpl/header.png','/kpl/header.png'
-    ];
-    teamUserB.value = [
-      '/kpl/header.png','/kpl/header.png','/kpl/header.png','/kpl/header.png'
-    ];
     // nft奖励部分的数据
-    const kplNft = ref();
-    kplNft.value = [
-      {
-        fromName:'由XXXX提供',
-        award:"2000張 卡牌+Key一枚",
-        win:"胜方投票NO.3",
-        url:"/kpl/test.png"
-      },
-      {
-        fromName:'由XXXX提供',
-        award:"2000張 卡牌+Key一枚",
-        win:"胜方投票NO.3",
-        url:"/kpl/test.png"
-      },
-      {
-        fromName:'由XXXX提供',
-        award:"2000張 卡牌+Key一枚",
-        win:"胜方投票NO.3",
-        url:"/kpl/test.png"
-      },
-      {
-        fromName:'由XXXX提供',
-        award:"2000張 卡牌+Key一枚",
-        win:"胜方投票NO.3",
-        url:"/kpl/test.png"
-      }
-    ]
+    
     const isEn = computed(() => {
       return locale.value.trim() == "en";
     });
@@ -98,7 +59,7 @@ export default defineComponent({
       })
       .then((res: any) => {
         if (res.code == 0) {
-          let data = {list : [],rankingtypeshow : 1};
+          let data = {list : [],rankingtypeshow : 1,titletips : 'esports_kpl51'};
           kplRankingshow.value = true;
           data.list = res.data;
           contents.value = data;
@@ -119,7 +80,9 @@ export default defineComponent({
         if (tpnum > 0) {
           
         }else{
-          alert('您的钱包内没有可以投票的NFT噢~')
+          let data = {titletips : 'esports_kpl68',content : '<span>戳→  <a>bazhuayu.io</a>   立刻購買</span>',rankingtypeshow : 3,btn2show : '1'};
+          kplRankingshow.value = true;
+          contents.value = data;
         }
       }else{
         ljwatter();
@@ -192,10 +155,6 @@ export default defineComponent({
         });
     };
     return{
-      teamHeaderB,
-      teamUserB,
-      teamUserA,
-      kplNft,
       kplinfo,
       kpllist,
       showkplindex,
