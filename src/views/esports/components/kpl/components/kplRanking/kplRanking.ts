@@ -1,11 +1,20 @@
 
-import { defineComponent,ref } from "vue";
+import { defineComponent,onMounted,ref } from "vue";
 export default defineComponent({
   name: "kplRanking",
   props: {
     contents : Object
   },
   setup(props, context){
+    const titletipsRef = ref(null);
+    const tipNone = ref(false)
+    onMounted(()=>{
+      let domText:any = titletipsRef.value;
+      console.dir(domText.scrollWidth);
+      if(domText.scrollWidth > 180){
+        tipNone.value = true;
+      }
+    });
     const data:any = props.contents;
     const numtp = ref(data.tpnum);
     console.log(data);
@@ -38,6 +47,8 @@ export default defineComponent({
       confirmbtn,
       addtpnum,
       jiantpnum,
+      titletipsRef,
+      tipNone
     }
   }
 });

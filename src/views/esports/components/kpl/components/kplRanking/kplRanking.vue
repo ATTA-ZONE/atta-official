@@ -3,9 +3,9 @@
     <div class="dialog-content flex">
       <img class="close" src="/match/close.png" alt="" @click="closeNet">
       <div>
-        <div class="dialog-header margin-auto" v-if="data.titletips">
+        <div class="dialog-header margin-auto" :class="tipNone?'imgs-none':''" v-if="data.titletips">
           <img src="/kpl/bgi01.png" alt="">
-          <p>{{$t(data.titletips)}}</p>
+          <p ref="titletipsRef">{{$t(data.titletips)}}</p>
           <img src="/kpl/bgi01.png" alt="">
         </div>
         <div v-if="data.rankingtypeshow == 1">

@@ -175,10 +175,14 @@
         top: 30px;
         right:30px;
       }
+      div.imgs-none{
+        img{
+          display: none;
+        }
+      }
       .dialog-header{
         width: 100%;
-        padding:0 45px;
-        margin-top: 90px;
+        padding:0 35px;
         img{
           width: 40px;
           height: 10px;
