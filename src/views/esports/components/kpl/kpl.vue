@@ -158,7 +158,7 @@
           <img :class="showkplindex != kplinfo.length - 1 ? 'up-next' : 'up-next hideimg'" src="/kpl/next.png" alt="" @click="nextclick(showkplindex)">
         </div>
         <div class="notice-right">
-          <button>{{$t('esports_kpl27')}}</button>
+          <button @click="collectcouponsbtn()">{{$t('esports_kpl27')}}</button>
           <button class="btn-right">{{$t('esports_kpl28')}}</button>
         </div>
       </div>
