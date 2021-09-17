@@ -16,7 +16,7 @@ export default defineComponent({
       }
     });
     const data:any = ref(props.contents);
-    const numtp = ref(data.tpnum);
+    const numtp = ref(data.value.tpnum);
     console.log(data);
     const closeNet = () => {
       context.emit('closeNet')
