@@ -153,7 +153,7 @@
       </div>
     </div>
     <!-- 倒计时 -->
-    <div class="kpl-countdown">
+    <div class="kpl-countdown" v-if="kplbsstatus == 2">
       <p class="countdown-name">投票截止倒计时</p>
       <p class="countdown-date">156h:56m:23s</p>
       <p class="countdown-name">比赛开始时间</p>

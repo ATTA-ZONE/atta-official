@@ -14,6 +14,7 @@ export default defineComponent({
     const kplinfo = ref([]);
     const kpllist = ref([]);
     const showkplindex = ref(0);
+    const kplbsstatus = ref(0); //0 进行中 1 已结束 2 未开始
     teamHeaderB.value = [
       '/kpl/header.png','/kpl/header.png','/kpl/header.png','/kpl/header.png','/kpl/header.png'
     ];
@@ -62,11 +63,13 @@ export default defineComponent({
       let endTime = data.endTime;
       let startTime = data.startTime;
       if (startTime > curTime) {
-        if (endTime < curTime) {
+        if (endTime > curTime) {
+          kplbsstatus.value = 1;
           return 'esports_kpl23'
         }
         return 'esports_kpl22'
       }else{
+        kplbsstatus.value = 2;
         return 'esports_kpl22_jia'
       }
     };
@@ -111,6 +114,7 @@ export default defineComponent({
       kplinfo,
       kpllist,
       showkplindex,
+      kplbsstatus,
       getkpllistdata,
       computekpltimeshowword,
       beforeclick,
