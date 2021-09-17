@@ -19,6 +19,7 @@ export default defineComponent({
     const kplbsstatus = ref(0); //0 进行中 1 已结束 2 未开始
     const address = ref(''); //0 进行中 1 已结束 2 未开始
     const kplRankingshow = ref(false); //0 进行中 1 已结束 2 未开始
+    const contents = ref({}); //0 进行中 1 已结束 2 未开始
     teamHeaderB.value = [
       '/kpl/header.png','/kpl/header.png','/kpl/header.png','/kpl/header.png','/kpl/header.png'
     ];
@@ -90,14 +91,16 @@ export default defineComponent({
       showkplindex.value = index + 1;
     }
     const getkplph = () =>{
-      kplRankingshow.value = true;
       axios
       .post(window.base_url + "/v2/match/bet_sort", {
         pageSize : 10,
       })
       .then((res: any) => {
         if (res.code == 0) {
-          console.log(res.data);
+          let data = {list : [],rankingtypeshow : 1};
+          kplRankingshow.value = true;
+          data.list = res.data;
+          contents.value = data;
         }
       });
     }
@@ -174,6 +177,7 @@ export default defineComponent({
       kplbsstatus,
       address,
       kplRankingshow,
+      contents,
       getkpllistdata,
       computekpltimeshowword,
       beforeclick,

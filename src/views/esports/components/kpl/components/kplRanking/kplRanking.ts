@@ -3,13 +3,16 @@ import { defineComponent,ref } from "vue";
 export default defineComponent({
   name: "kplRanking",
   props: {
-    msg: String,
+    contents : Object
   },
-  setup(){
+  setup(props, context){
+    const data:any = props.contents;
+    console.log(data);
+    
     return{
-      rankingtypeshow : 2,
       title1 : 'esports_kpl51', 
       title2 : 'esports_kpl53', 
+      data
     }
   }
 });
