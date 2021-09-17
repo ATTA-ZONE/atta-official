@@ -7,10 +7,10 @@
         <p>{{$t(title1)}}</p>
         <img src="/kpl/bgi01.png" alt="">
       </div>
-      <div>
+      <div v-if="data.rankingtypeshow == 1">
         <div class="rank-list flex">
           <div class="rank-list-rank">
-            <div class="ranking-bumber flex" v-for="item in 5" :key="item">
+            <div class="ranking-bumber flex" v-for="item in data.list" :key="item">
               <img src="/kpl/No1.png" alt="">
               <img src="/kpl/header.png" alt="">
               <div>
@@ -30,7 +30,7 @@
         </div>
         <p class="timeword">{{$t('esports_kpl52')}}</p>
       </div>
-      <div class="tipsrankingbox">
+      <div v-if="data.rankingtypeshow == 2" class="tipsrankingbox">
           <p class="smolltips">{{$t('esports_kpl63')}}</p>
           <p class="contentwords" v-html="$t('esports_kpl54')"></p>
           <div class="btnbox flex">
