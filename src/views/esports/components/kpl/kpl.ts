@@ -15,6 +15,7 @@ export default defineComponent({
     const kpllist = ref([]);
     const showkplindex = ref(0);
     const kplbsstatus = ref(0); //0 进行中 1 已结束 2 未开始
+    const address = ref(''); //0 进行中 1 已结束 2 未开始
     teamHeaderB.value = [
       '/kpl/header.png','/kpl/header.png','/kpl/header.png','/kpl/header.png','/kpl/header.png'
     ];
@@ -85,14 +86,36 @@ export default defineComponent({
       if (index == kplinfo.value.length - 1) {return;}
       showkplindex.value = index + 1;
     }
+    const getkplph = () =>{
+      axios
+      .post(window.base_url + "/v2/match/bet_sort", {
+        pageSize : 10,
+      })
+      .then((res: any) => {
+        if (res.code == 0) {
+          console.log(res.data);
+        }
+      });
+    }
     onMounted(()=>{
-      getkpllistdata();
+      if (window.CHAIN.WALLET) {
+        window.CHAIN.WALLET.enable().then((res) => {
+          if (res.length) {
+            address.value = res[0];
+            getkpllistdata();
+          }else{
+            getkpllistdata();
+          }
+        });
+      }else{
+        getkpllistdata();
+      }
     })
     const getkpllistdata = () => {
       const bool = isEn.value ? "en" : "tc";
       axios
         .post(window.base_url + "/v2/match/list_lol", {
-          address : '0x87d0086b833ed0b0f52db3cd296ad89b77ef7c3b',
+          address : address.value,
           lang: bool,
         })
         .then((res: any) => {
@@ -119,11 +142,13 @@ export default defineComponent({
       kpllist,
       showkplindex,
       kplbsstatus,
+      address,
       getkpllistdata,
       computekpltimeshowword,
       beforeclick,
       nextclick,
-      scrollviewbtn
+      scrollviewbtn,
+      getkplph
     }
   }
 });

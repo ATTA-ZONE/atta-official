@@ -52,7 +52,7 @@
     <div class="kpl-ranking margin-auto">
       <div class="rank-header flex">
         <p>{{$t('esports_kpl14')}}</p>
-        <button>{{$t('esports_kpl15')}}</button>
+        <button @click="getkplph()">{{$t('esports_kpl15')}}</button>
       </div>
       <div class="rank-list flex">
         <div class="ranking" v-for="(item,index) in kpllist" :key="index">
