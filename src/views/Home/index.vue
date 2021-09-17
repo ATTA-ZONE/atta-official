@@ -10,7 +10,7 @@
   <div :class="['home-page flex']">
     <div>
       <div class="home-page-two flex">
-        <div :class="['page-two flex',isEn?'hanson':'']">
+        <div :class="['page-two flex', isEn ? 'hanson' : '']">
           <img src="/imgs/pageTwoLeft.png" />
           <p :class="[isEn ? 'page-two-en' : 'page-two-ch fz-fm-pf']">
             {{ $t("attaInfo") }}<br />{{ $t("attaInfo1") }}
@@ -19,23 +19,30 @@
       </div>
       <div class="atta-game">
         <div class="game-title">
-          <h5 class="game-pc">{{$t('home_match_words1')}}{{$t('home_match_words1_bz')}}</h5>
-          <h5 class="game-mb"><font style="color:#A9DEEE;line-height:36px;">{{$t('home_match_words1')}}</font><br/>{{$t('home_match_words1_bz')}}</h5>
-          <p>{{$t('home_match_words2')}}</p>
+          <h5 class="game-pc">
+            {{ $t("home_match_words1") }}{{ $t("home_match_words1_bz") }}
+          </h5>
+          <h5 class="game-mb">
+            <font style="color: #a9deee; line-height: 36px">{{
+              $t("home_match_words1")
+            }}</font
+            ><br />{{ $t("home_match_words1_bz") }}
+          </h5>
+          <p>{{ $t("home_match_words2") }}</p>
         </div>
         <div class="game-list flex">
           <div>
-            <img src="/imgs/game1.png" alt="">
-            <p>{{$t('home_match_words3')}}</p>
+            <img src="/imgs/game1.png" alt="" />
+            <p>{{ $t("home_match_words3") }}</p>
           </div>
           <div>
-            <img src="/imgs/game2.png" alt="">
-            <p>{{$t('home_match_words4')}}</p>
+            <img src="/imgs/game2.png" alt="" />
+            <p>{{ $t("home_match_words4") }}</p>
           </div>
           <div>
-            <img src="/imgs/game3.png" alt="">
-            <p>{{$t('home_match_words5')}}</p>
-          </div>     
+            <img src="/imgs/game3.png" alt="" />
+            <p>{{ $t("home_match_words5") }}</p>
+          </div>
         </div>
         <div @click="showHeadModal" class="receive-btn">
           {{ $t("Claim Your NFT") }}
@@ -56,21 +63,26 @@
           <div class="img-right">
             <img class="logo6" src="/imgs/logo06.png" />
           </div>
-          <div class="img-right">
-            <img class="logo6" src="/imgs/my-nft.png" />
-          </div>
-          <img class="logo8" src="/imgs/logo08.png" />
           <img class="logo5" src="/imgs/logo05.png" />
+          <img class="logo8" src="/imgs/logo08.png" />
         </div>
         <div class="twohanglogo">
           <div class="img-center">
             <img class="logo11" src="/imgs/logo11.png" />
           </div>
-          <img style="width:134px;" src="/imgs/zon_web.png" />
+          <img style="width: 218px" src="/imgs/ld_web.png" />
           <img src="/imgs/pageTwoRightBtm.png" class="start" />
-          <img style="width:218px;" src="/imgs/ld_web.png" />
-          <img style="width:186px" src="/imgs/youbi_web.png" />
-          <img style="width:218px;" src="/imgs/alt.jpg" />
+          <img style="width: 134px" src="/imgs/zon_web.png" />
+          <img style="width: 186px" src="/imgs/youbi_web.png" />
+        </div>
+        <div class="twohanglogo">
+          <div class="img-right">
+            <img class="logo6" src="/imgs/shima.png" />
+          </div>
+          <img style="width: 218px" src="/imgs/alt.jpg" />
+          <div class="img-right">
+            <img class="logo6" src="/imgs/my-nft.png" />
+          </div>
         </div>
       </div>
       <div class="home-page-three threeweb">
@@ -83,20 +95,23 @@
           <img class="logo1" src="/imgs/logo01.png" />
           <img class="logo9" src="/imgs/logo09.png" />
           <img src="/imgs/pageTwoRightBtm.png" class="start" />
-          <img class="logo5" src="/imgs/logo05.png" />
         </div>
         <div class="threehanglogo">
+          <img class="logo5" src="/imgs/logo05.png" />
           <img class="logo6" src="/imgs/logo06.png" />
           <img class="logo7" src="/imgs/logo07.png" />
-            <img class="logo6" src="/imgs/my-nft.png" />
           <img class="logo10" src="/imgs/logo10.png" />
           <img class="logo11" src="/imgs/logo11.png" />
         </div>
         <div class="threehanglogo">
-          <img style="width:78px;" src="/imgs/ld.png" />
-          <img style="width:65px;" src="/imgs/youbi.png" />
-          <img style="width:65px" src="/imgs/zon.png" />
-          <img style="width:65px;" src="/imgs/alt.jpg" />
+          <img style="width: 90px" src="/imgs/ld.png" />
+          <img style="width: 90px" src="/imgs/youbi.png" />
+          <img style="width: 90px" src="/imgs/zon.png" />
+        </div>
+        <div class="threehanglogo">
+          <img style="width: 90px" src="/imgs/shima.png" />
+          <img style="width: 90px" src="/imgs/alt.jpg" />
+          <img class="logo6" src="/imgs/my-nft.png" />
         </div>
       </div>
       <div class="home-page-four flex">
@@ -120,12 +135,14 @@
         </div>
         <div class="txt-right">
           <div class="txt-middle">
-            <span :class="isEn?'hanson':''">
+            <span :class="isEn ? 'hanson' : ''">
               <font style="color: #a8deee">{{ $t("Upcoming") }} -</font>
               <br />
               {{ $t("O2 Music NFT") }}
             </span>
-            <p :class="['fz-fm-pf',isEn?'niunito':'']">{{ $t("musicInfo") }}</p>
+            <p :class="['fz-fm-pf', isEn ? 'niunito' : '']">
+              {{ $t("musicInfo") }}
+            </p>
             <a @click="jumppage()">{{ $t("Coming soon") }}</a>
           </div>
         </div>
@@ -135,15 +152,15 @@
       <div class="downappbox pcstyle">
         <div class="h5show">
           <p class="fz-fm-zhzh">{{ $t("Scan to download") }}</p>
-          <p class="fz-fm-zhzh" style="margin-top: 20px;">ATTA APP</p>
+          <p class="fz-fm-zhzh" style="margin-top: 20px">ATTA APP</p>
         </div>
         <div class="imgbox">
-          <img src="/imgs/code.png" alt="">
+          <img src="/imgs/code.png" alt="" />
         </div>
         <div class="pcshow">
           <p class="fz-fm-zhzh">{{ $t("Scan to download") }}</p>
-          <p class="fz-fm-zhzh" style="margin-top: 20px;">ATTA APP</p>
-          <p class="content">{{$t("Scan to download2")}}</p>
+          <p class="fz-fm-zhzh" style="margin-top: 20px">ATTA APP</p>
+          <p class="content">{{ $t("Scan to download2") }}</p>
         </div>
       </div>
     </div>
@@ -158,15 +175,15 @@ import homeFive from "./homeFive.vue";
 import homeSix from "./homeSix.vue";
 import headerCell from "@/components/header/index.vue";
 import footerCell from "@/components/footer/index.vue";
-import bus from '../../utils/bus.js'
+import bus from "../../utils/bus.js";
 
 export default defineComponent({
-  components: { homeFive, homeSix ,headerCell,footerCell},
+  components: { homeFive, homeSix, headerCell, footerCell },
   setup() {
     const { locale } = useI18n();
     const showHeadModal = () => {
-      bus.emit('openHomeModal')
-    }
+      bus.emit("openHomeModal");
+    };
 
     const transitionImage = ref(false);
 
@@ -175,11 +192,11 @@ export default defineComponent({
     });
 
     const playVideo = () => {
-      let dom: any = document.querySelector(".media-video")
+      let dom: any = document.querySelector(".media-video");
       if (dom.paused) {
-        dom.play()
+        dom.play();
       }
-    }
+    };
 
     const handleScroll = () => {
       let scrollY = document.documentElement.scrollTop;
@@ -190,7 +207,7 @@ export default defineComponent({
       }
     };
     const jumppage = () => {
-        window.open('https://www.bazhuayu.io/mobile/tc/artwork.html?id=1');
+      window.open("https://www.bazhuayu.io/mobile/tc/artwork.html?id=1");
     };
 
     onMounted(() => {
@@ -202,7 +219,7 @@ export default defineComponent({
       isEn,
       playVideo,
       jumppage,
-      showHeadModal
+      showHeadModal,
     };
   },
 });
