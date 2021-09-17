@@ -1113,7 +1113,8 @@ div.kpl-notice-header{
                 height:17px;
               }
               p{
-                width:17px;
+                min-width:17px;
+                max-width:17px;
                 height:17px;
                 line-height: 17px;
                 font-size: 10px;
@@ -1132,13 +1133,15 @@ div.kpl-notice-header{
       }
     }
     .kpl-notice{
+      margin-top: 0 !important;
       .notice-btn{
         text-align: center;
         width: 100%;
         display: block;
         padding:0;
+        margin-top: 0 !important;
         .notice-left{
-          justify-content: space-between;
+          justify-content: center;
           img.hideimg{
             opacity: 0 !important;
             cursor: auto;
@@ -1169,10 +1172,10 @@ div.kpl-notice-header{
     .kpl-countdown{
       margin-top: 40px;
       .countdown-name{
-        font-size: 20px;
+        font-size: 18px;
       }
       .countdown-date{
-        font-size: 30px;
+        font-size: 25px;
       }
     }
     .kpl-award{
@@ -1272,6 +1275,56 @@ div.kpl-notice-header{
         .voting{
           width: 327px;
           height:223px;
+        }
+      }
+    }
+    .kpl-cooperate{
+      .kpl-welcome{
+        padding:0 20px;
+        .bgi01{
+          width: 62px;
+          height:15px;
+        }
+        p{
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 91.9%;
+        }
+      }
+      .cooperate-list{
+        margin-top: 25px;
+        margin-bottom: 12px;
+      }
+      .cooperate{
+        width: 327px;
+        height:87px;
+        margin-bottom: 12px;
+        .cooperate-logo{
+          padding:27px 47px;
+          width: 191px;
+          height:87px;
+          img{
+            max-width: 97px;
+            max-height:32px;
+          }
+        }
+        .cooperate-info{
+          width: 132px;
+          height:87px;
+          padding-top: 15px;
+          padding-left: 6px;
+          padding-right: 6px;
+          .cooperate-title{
+            font-size: 15px;
+            padding-bottom: 10px;
+          }
+          i{
+            width: 118px;
+          }
+          .cooperate-text{
+            font-size: 14px;
+            padding-top: 15px;
+          }
         }
       }
     }
