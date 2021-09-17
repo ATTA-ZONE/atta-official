@@ -275,6 +275,7 @@
         </div>
       </div>
     </div>
+    <kplRanking :content="contents" @closeNet="closeNet" v-if="kplRankingshow"></kplRanking>
   </div>
 </template>
 <script lang="ts" src="./kpl.ts"></script>
