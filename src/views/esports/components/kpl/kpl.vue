@@ -150,8 +150,14 @@
     </div>
     <div class="kpl-notice margin-auto">
       <div class="notice-btn margin-auto flex">
-        <p v-if="kplinfo[showkplindex]">{{$t('esports_kpl25')}}{{kplinfo[showkplindex].myUnuseTicket}}{{$t('esports_kpl26')}}</p>
-        <div>
+        <div class="notice-left flex">
+          <img :class="showkplindex != 0 ? 'up-next' : 'up-next hideimg'" src="/kpl/up.png" alt="" @click="beforeclick(showkplindex)">
+
+          <p v-if="kplinfo[showkplindex]">{{$t('esports_kpl25')}}{{kplinfo[showkplindex].myUnuseTicket}}{{$t('esports_kpl26')}}</p>
+          
+          <img :class="showkplindex != kplinfo.length - 1 ? 'up-next' : 'up-next hideimg'" src="/kpl/next.png" alt="" @click="nextclick(showkplindex)">
+        </div>
+        <div class="notice-right">
           <button>{{$t('esports_kpl27')}}</button>
           <button class="btn-right">{{$t('esports_kpl28')}}</button>
         </div>
