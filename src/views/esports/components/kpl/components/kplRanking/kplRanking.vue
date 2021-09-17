@@ -59,6 +59,20 @@
             <button @click="confirmbtn" v-if="data.rankingtypeshow == 8" class="btn2">{{$t('esports_kpl62')}}</button>
           </div>
       </div>
+      <div v-if="data.rankingtypeshow == 3" class="tipsrankingbox">
+          <p class="smolltips">{{$t('esports_kpl63')}}</p>
+          <p class="contentwords" v-html="$t('esports_kpl54')"></p>
+          <div class="btnbox flex">
+            <button @click="confirmbtn" v-if="data.rankingtypeshow == 3 || data.rankingtypeshow == 5 || data.rankingtypeshow == 6 || data.rankingtypeshow == 8 || data.rankingtypeshow == 10 || data.rankingtypeshow == 11 || data.rankingtypeshow == 12" class="btn1">{{$t('esports_kpl56')}}</button>
+            <button @click="confirmbtn" v-if="data.rankingtypeshow == 2" class="btn2">{{$t('esports_kpl55')}}</button>
+            <button @click="confirmbtn" v-if="data.rankingtypeshow == 2" class="btn2">{{$t('esports_kpl57')}}</button>
+            <button @click="confirmbtn" v-if="data.rankingtypeshow == 3" class="btn2">{{$t('esports_kpl58')}}</button>
+            <button @click="confirmbtn" v-if="data.rankingtypeshow == 6" class="btn2">{{$t('esports_kpl59')}}</button>
+            <button @click="confirmbtn" v-if="data.rankingtypeshow == 6" class="btn2">{{$t('esports_kpl60')}}</button>
+            <button @click="confirmbtn" v-if="data.rankingtypeshow == 6" class="btn2">{{$t('esports_kpl61')}}</button>
+            <button @click="confirmbtn" v-if="data.rankingtypeshow == 8" class="btn2">{{$t('esports_kpl62')}}</button>
+          </div>
+      </div>
     </div>
   </div>
 </template>
