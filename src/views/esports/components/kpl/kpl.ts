@@ -10,6 +10,7 @@ export default defineComponent({
     msg: String,
   },
   setup(){
+    const loading = ref(false)
     //战队头像
     const { locale, t } = useI18n();
     const teamHeaderB = ref();
@@ -134,14 +135,18 @@ export default defineComponent({
       });
     }
     const exchangemask = () => {
-      let requestUrl = window.base_url + '/attaExchange/queryExchangeInfo?address=' + address.value
+      let requestUrl = window.base_url + '/attaExchange/queryExchangeInfo?address=' + address.value;
+      loading.value = true;
       axios.get(requestUrl).then((res: any) => {
+        loading.value = false;
         if (res.code == 0) {
           let data = {list : [],rankingtypeshow : 2};
           kplRankingshow.value = true;
           data.list = res.data;
           contents.value = data;
         }
+      }).catch(err=>{
+        loading.value = false;
       });
     }
     onMounted(()=>{
@@ -205,7 +210,8 @@ export default defineComponent({
       collectcouponsbtn,
       closeNet,
       confirmbtn,
-      exchangemask
+      exchangemask,
+      loading
     }
   }
 });
