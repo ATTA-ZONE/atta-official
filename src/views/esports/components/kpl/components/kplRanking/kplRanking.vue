@@ -32,6 +32,17 @@
             </div>
           </div>
         </div>
+        <div class="rank-media">
+          <div v-for="(item,index) in data.list" :key="item">
+              <div class="ranking-bumber flex">
+                  <img :src="'/kpl/No'+item.pm+'.png'" alt="">
+                  <img :src="item.imgUrl ? item.imgUrl :'/kpl/header.png'" alt="">
+                  <div>
+                    <p>{{item.tickets}}{{$t('esports_kpl32')}}</p>
+                  </div>
+              </div>
+            </div>
+        </div>
         <p class="timeword">{{$t('esports_kpl52')}}</p>
       </div>
       <div v-if="data.rankingtypeshow == 2" class="tipsrankingbox">
