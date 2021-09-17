@@ -1,7 +1,7 @@
 <template>
   <div class="ranking-dialog">
     <div class="dialog-content">
-      <img class="close" src="/match/close.png" alt="">
+      <img class="close" src="/match/close.png" alt="" @click="closeNet">
       <div class="dialog-header margin-auto flex">
         <img src="/kpl/bgi01.png" alt="">
         <p>{{$t(title1)}}</p>
@@ -12,10 +12,10 @@
           <div class="rank-list-rank">
             <div v-for="(item,index) in data.list" :key="item">
               <div class="ranking-bumber flex" v-if="index < 5">
-                  <img src="/kpl/No1.png" alt="">
-                  <img src="/kpl/header.png" alt="">
+                  <img :src="'/kpl/No'+item.pm+'.png'" alt="">
+                  <img :src="item.imgUrl ? item.imgUrl :'/kpl/header.png'" alt="">
                   <div>
-                    <p>32{{$t('esports_kpl32')}}</p>
+                    <p>{{item.tickets}}{{$t('esports_kpl32')}}</p>
                   </div>
               </div>
             </div>
@@ -23,10 +23,10 @@
           <div class="rank-list-rank">
             <div v-for="(item,index) in data.list" :key="item">
               <div class="ranking-bumber flex" v-if="index > 4">
-                  <img src="/kpl/No1.png" alt="">
-                  <img src="/kpl/header.png" alt="">
+                  <img :src="'/kpl/No'+item.pm+'.png'" alt="">
+                  <img :src="item.imgUrl ? item.imgUrl :'/kpl/header.png'" alt="">
                   <div>
-                    <p>32{{$t('esports_kpl32')}}</p>
+                    <p>{{item.tickets}}{{$t('esports_kpl32')}}</p>
                   </div>
               </div>
             </div>

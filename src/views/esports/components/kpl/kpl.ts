@@ -104,6 +104,9 @@ export default defineComponent({
         }
       });
     }
+    const closeNet = () => {
+      kplRankingshow.value = false;
+    }
     const voteclick = (tpnum) =>{
       if (address.value) {
         if (tpnum > 0) {
@@ -185,7 +188,8 @@ export default defineComponent({
       scrollviewbtn,
       getkplph,
       voteclick,
-      collectcouponsbtn
+      collectcouponsbtn,
+      closeNet
     }
   }
 });
