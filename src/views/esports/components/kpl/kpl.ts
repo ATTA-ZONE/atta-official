@@ -110,8 +110,6 @@ export default defineComponent({
     }
     const confirmbtn = (res:any) => {
       console.log(res.rankingtypeshow);
-      debugger
-      
       kplRankingshow.value = false;
     }
     const voteclick = (tpnum) =>{
