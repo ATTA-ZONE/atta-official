@@ -62,9 +62,9 @@
       <div v-if="data.rankingtypeshow == 3" class="tipsrankingbox">
           <!-- <p class="smolltips">{{$t(data.titletips)}}</p> -->
           <p class="contentwords" v-html="$t(data.content)"></p>
-          <div class="btnbox flex">
+          <div :class="data.rankingtypeshow == 3 ?'btnbox flex centerbtn':'btnbox flex'">
             <button @click="confirmbtn" v-if="data.btn1show == 1" class="btn1">{{$t('esports_kpl56')}}</button>
-            <button @click="confirmbtn" v-if="data.btn2show == 1" class="btn2">{{$t('esports_kpl55')}}</button> <!-- 知道了 -->
+            <button @click="closeNet" v-if="data.btn2show == 1" class="btn2">{{$t('esports_kpl55')}}</button> <!-- 知道了 -->
             <button @click="confirmbtn" v-if="data.btn2show == 2" class="btn2">{{$t('esports_kpl57')}}</button> <!-- 現在領取 -->
             <button @click="confirmbtn" v-if="data.btn2show == 3" class="btn2">{{$t('esports_kpl58')}}</button> <!-- 現在兌換 -->
             <button @click="confirmbtn" v-if="data.btn2show == 4" class="btn2">{{$t('esports_kpl59')}}</button> <!-- ATTA面具 -->

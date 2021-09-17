@@ -52,6 +52,7 @@ export default defineComponent({
       if (index == kplinfo.value.length - 1) {return;}
       showkplindex.value = index + 1;
     }
+    // 点击 查看排行
     const getkplph = () =>{
       axios
       .post(window.base_url + "/v2/match/bet_sort", {
@@ -73,12 +74,13 @@ export default defineComponent({
       console.log(res.rankingtypeshow);
       kplRankingshow.value = false;
     }
+    // 点击 投票
     const voteclick = (tpnum) =>{
       if (address.value) {
         if (tpnum > 0) {
           
         }else{
-          let data = {titletips : 'esports_kpl68',content : '<span>戳→  <a>bazhuayu.io</a>   立刻購買</span>',rankingtypeshow : 3,btn2show : '1'};
+          let data = {titletips : 'esports_kpl68',content : '<span class="framethreejumppage">戳→  <a style="color: #a9deee;">bazhuayu.io</a>   立刻購買</span>',rankingtypeshow : 3,btn2show : '1'};
           kplRankingshow.value = true;
           contents.value = data;
         }
