@@ -47,6 +47,9 @@
           <img class="logo2" src="/imgs/logo02.png" />
           <img class="logo9" src="/imgs/logo09.png" />
           <img class="logo1" src="/imgs/logo01.png" />
+          <div class="img-right">
+            <img class="logo6" src="/imgs/my-nft.png" />
+          </div>
         </div>
         <div class="onehanglogo">
           <div class="img-center">
@@ -56,11 +59,11 @@
           <div class="img-right">
             <img class="logo6" src="/imgs/logo06.png" />
           </div>
-          <div class="img-right">
-            <img class="logo6" src="/imgs/my-nft.png" />
-          </div>
           <img class="logo8" src="/imgs/logo08.png" />
           <img class="logo5" src="/imgs/logo05.png" />
+          <div class="img-right">
+            <img class="logo6" src="/imgs/shima.png" />
+          </div>
         </div>
         <div class="twohanglogo">
           <div class="img-center">
@@ -77,26 +80,31 @@
         <div class="onehanglogo">
           <img class="logo3" src="/imgs/bsc.png" />
           <img class="logo2" src="/imgs/logo02.png" />
-          <img class="logo8" src="/imgs/logo08.png" />
+          <img class="logo9" src="/imgs/logo09.png" />
         </div>
         <div class="twohanglogo">
           <img class="logo1" src="/imgs/logo01.png" />
-          <img class="logo9" src="/imgs/logo09.png" />
-          <img src="/imgs/pageTwoRightBtm.png" class="start" />
-          <img class="logo5" src="/imgs/logo05.png" />
-        </div>
-        <div class="threehanglogo">
-          <img class="logo6" src="/imgs/logo06.png" />
-          <img class="logo7" src="/imgs/logo07.png" />
             <img class="logo6" src="/imgs/my-nft.png" />
-          <img class="logo10" src="/imgs/logo10.png" />
-          <img class="logo11" src="/imgs/logo11.png" />
+          <img class="logo7" src="/imgs/logo07.png" />
+          <img src="/imgs/pageTwoRightBtm.png" class="start" />
         </div>
         <div class="threehanglogo">
-          <img style="width:78px;" src="/imgs/ld.png" />
-          <img style="width:65px;" src="/imgs/youbi.png" />
-          <img style="width:65px" src="/imgs/zon.png" />
-          <img style="width:65px;" src="/imgs/alt.jpg" />
+          <img class="logo10" src="/imgs/logo10.png" />
+          <img class="logo6" src="/imgs/logo06.png" />
+          <img class="logo5" src="/imgs/logo05.png" />
+          <img class="logo8" src="/imgs/logo08.png" />
+        </div>
+        <div class="threehanglogo">
+          <!-- <img style="width:78px;" src="/imgs/ld.png" /> -->
+          <!-- <img style="width:65px;" src="/imgs/youbi.png" /> -->
+          <img style="width:90px;" src="/imgs/shima.png" />
+          <img class="logo11" src="/imgs/logo11.png" />
+          <img style="width:90px" src="/imgs/zon.png" />
+        </div>
+        <div class="threehanglogo">
+          <img style="width:90px;" src="/imgs/ld.png" />
+          <img style="width:90px;" src="/imgs/youbi.png" />
+          <img style="width:90px;" src="/imgs/alt.jpg" />
         </div>
       </div>
       <div class="home-page-four flex">
