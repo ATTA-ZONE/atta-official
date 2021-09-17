@@ -11,11 +11,15 @@ export default defineComponent({
     const closeNet = () => {
       context.emit('closeNet')
     }
+    const confirmbtn = () => {
+      context.emit('confirmbtn',data)
+    }
     return{
       title1 : 'esports_kpl51', 
       title2 : 'esports_kpl53', 
       data,
-      closeNet
+      closeNet,
+      confirmbtn
     }
   }
 });
