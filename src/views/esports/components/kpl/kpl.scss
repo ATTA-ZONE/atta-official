@@ -1197,16 +1197,56 @@ div.kpl-notice-header{
       }
       >p{
         font-size: 12px;
-        line-height: 138%;
+        line-height: 20px;
+        margin-bottom: 13px;
       }
       .nft-list{
         .nft-content{
           width: 327px;
           height: 164px;
+          padding-left: 17px;
+          padding-top: 32px;
+          margin-bottom: 25px;
           img{
             width: 88px;
-            height: 90px
+            height: 90px;
+            right:12px;
+            top: 44px;
           }
+          div{
+            .nft-from{
+              width: 147px;
+              height:32px;
+              font-size: 16px;
+              line-height: 32px;
+            }
+            .nft-award{
+              font-size: 16px;
+              margin-top: 10px;
+              margin-bottom: 40px;
+            }
+            .nft-win{
+              width: 147px;
+              height:42px;
+              font-size: 16px;
+              line-height: 42px;
+              margin-left: -18px;
+            }
+          }
+        }
+      }
+    }
+    .kpl-my-voting{
+      margin-top: 15px;
+      h5{
+        margin-bottom: 0;
+      }
+      .my-voting{
+        flex-wrap: wrap;
+        margin-top: 25px;
+        .voting{
+          width: 327px;
+          height:223px;
         }
       }
     }
