@@ -97,20 +97,34 @@ export default defineComponent({
         }
       });
     }
+    const voteclick = (tpnum) =>{
+      if (address.value) {
+        if (tpnum > 0) {
+          
+        }else{
+          alert('您的钱包内没有可以投票的NFT噢~')
+        }
+      }else{
+        ljwatter();
+      }
+    }
     onMounted(()=>{
       if (window.CHAIN.WALLET) {
-        window.CHAIN.WALLET.enable().then((res) => {
-          if (res.length) {
-            address.value = res[0];
-            getkpllistdata();
-          }else{
-            getkpllistdata();
-          }
-        });
+        ljwatter();
       }else{
         getkpllistdata();
       }
     })
+    const ljwatter = () => {
+      window.CHAIN.WALLET.enable().then((res) => {
+        if (res.length) {
+          address.value = res[0];
+          getkpllistdata();
+        }else{
+          getkpllistdata();
+        }
+      });
+    }
     const getkpllistdata = () => {
       const bool = isEn.value ? "en" : "tc";
       axios
@@ -148,7 +162,8 @@ export default defineComponent({
       beforeclick,
       nextclick,
       scrollviewbtn,
-      getkplph
+      getkplph,
+      voteclick
     }
   }
 });
