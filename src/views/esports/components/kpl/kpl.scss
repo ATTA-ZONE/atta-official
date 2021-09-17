@@ -788,18 +788,19 @@ div.kpl-notice-header{
       height: 225px;
       margin-top: -50px;
       .banner-info{
-        top: 50px;
+        top: 90px;
         img{
           width: 127px;
         }
         .kpl-time{
-          margin-top: 13px;
+          margin-top: 10px;
           font-weight: 600;
           font-size: 12px;
           line-height: 16px;
+          opacity: 0.6;
         }
         .kpl-team{
-          margin-top: 23px;
+          margin-top: 10px;
           font-weight: 600;
           font-size: 14px;
           line-height: 20px;
@@ -807,7 +808,7 @@ div.kpl-notice-header{
         .kpl-btn{
           width: 100%;
           padding:0 74px;
-          margin-top: 13px;
+          margin-top: 6px;
           span{
             width: 80px;
             height:23px;font-weight: 500;

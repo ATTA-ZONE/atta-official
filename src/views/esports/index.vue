@@ -54,17 +54,18 @@ export default defineComponent({
 <style lang='scss'>
 @media only screen and (max-width: 992px) {
   div.tabs-wrap {
-    width: 100%;
+    width: 181px;
     font-size: 12px;
-    height:14px;
+    height:25px;
     top: 30px;
-    left: 0;
+    left: 50%;
+    margin-left: -90px;
     z-index: 1;
     a{
-      height:14px;
+      height:25px;
       span{
         font-size: 14px;
-        line-height: 100%;
+        line-height: 25px;
       }
     }
   }
