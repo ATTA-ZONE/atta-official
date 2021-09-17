@@ -51,7 +51,7 @@ export default defineComponent({
   }
 });
 </script>
-<style lang='scss'>
+<style lang='scss' scoped>
 @media only screen and (max-width: 992px) {
   div.tabs-wrap {
     width: 181px;
