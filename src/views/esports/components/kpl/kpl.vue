@@ -7,8 +7,8 @@
         <div class="kpl-time">{{$t('esports_kpl1')}}</div>
         <div class="kpl-team" v-if="kplinfo[showkplindex]">{{kplinfo[showkplindex].teamA + ' VS ' + kplinfo[showkplindex].teamB}}</div>
         <div class="kpl-btn flex"> 
-          <span @click="scrollviewbtn()">{{$t('esports_kpl3')}}</span>
-          <span>{{$t('esports_kpl4')}}</span>
+          <span @click="scrollviewbtn()" :class="isEn?'kpl-btn-en':''">{{$t('esports_kpl3')}}</span>
+          <span :class="isEn?'kpl-btn-en':''">{{$t('esports_kpl4')}}</span>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@
             <span v-html="$t('esports_kpl6')"></span>
             <span>{{$t('esports_kpl7')}}</span>
           </p>
-          <h5>{{$t('esports_kpl8')}}</h5>
+          <h5 :class="isEn?'kpl-welcome-en':''">{{$t('esports_kpl8')}}</h5>
         </div>
       </div>
       <div class="prize-pool">
@@ -37,7 +37,7 @@
         <div class="award-list">
           <div class="award flex">
             <p class="award-left">PRIZE POOL</p>
-            <p class="award-right" v-if="kplinfo[showkplindex]">{{$t('esports_kpl11')}} <span>{{kplinfo[showkplindex].curRewardPool}} BUSD</span></p>
+            <p class="award-right" :class="isEn?'award-right-en':''" v-if="kplinfo[showkplindex]">{{$t('esports_kpl11')}} <span>{{kplinfo[showkplindex].curRewardPool}} BUSD{{$t('esports_kpl11en')}}</span></p>
           </div>
           <div class="award flex">
             <p class="award-left" style="font-size:20px;">

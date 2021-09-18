@@ -208,7 +208,8 @@ export default defineComponent({
       closeNet,
       confirmbtn,
       exchangemask,
-      loading
+      loading,
+      isEn
     }
   }
 });

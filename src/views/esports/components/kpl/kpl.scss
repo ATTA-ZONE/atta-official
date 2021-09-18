@@ -82,6 +82,9 @@
         border-radius: 5px;
         font-size: 32px;
         line-height: 70px;
+        &.kpl-btn-en{
+          font-size:20px;
+        }
       }
     }
   }
@@ -113,6 +116,7 @@
       padding-left: 35px;
       padding-top: 26px;
       p{
+        width:380px;
         margin-top: 30px;
         margin-bottom: 16px;
         font-size: 18px;
@@ -122,6 +126,12 @@
       h5{
         font-size: 32px;
         line-height: 100%;
+        width: 490px;
+        &.kpl-welcome-en{
+          font-size: 22px;
+          line-height: 25px;
+          text-align: center;
+        }
       }
     }
   }
@@ -132,6 +142,8 @@
       font-size: 38px;
       line-height: 130%;
       color: #fff;
+      width: 880px;
+      margin-left: -86px;
     }
     >img,>p{
       margin-top: 30px;
@@ -186,6 +198,14 @@
           font-size: 32px;
           font-weight: 600;
           line-height: 55px;
+          &.award-right-en{
+            padding-top: 55px;
+            span{
+              font-size:36px;
+              line-height: 36px;
+              border-bottom: 2px solid #fff;
+            }
+          }
           span{
             border-bottom: 4px solid #fff;
             font-size: 40px;
