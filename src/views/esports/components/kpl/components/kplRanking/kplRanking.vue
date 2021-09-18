@@ -88,7 +88,7 @@
               </p>
             </div>
             <div :class="(data.rankingtypeshow == 3 || data.rankingtypeshow == 4) ?'btnbox flex centerbtn':'btnbox flex'">
-              <button @click="confirmbtn" v-if="data.btn1show == 1" class="btn1">{{$t('esports_kpl56')}}</button>
+              <button @click="closeNet" v-if="data.btn1show == 1" class="btn1">{{$t('esports_kpl56')}}</button>
               <button @click="collectvotingticketsbtn(1)" v-if="data.btn1show == 2" class="btn2">{{$t('esports_kpl59')}}</button><!-- ATTA面具 -->
               <button @click="closeNet" v-if="data.btn2show == 1" class="btn2">{{$t('esports_kpl55')}}</button> <!-- 知道了 -->
               <button @click="collectvotingticketsbtn(2)" v-if="data.btn2show == 6" class="btn2">{{$t('esports_kpl61')}}</button><!-- Loot 入場券 -->
