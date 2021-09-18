@@ -8,106 +8,64 @@
     }
     .bannerbox{
         width: 100%;
-        height: 900px;
-        background-image: url('/imgs/Charity_img1.png');
+        height: 810px;
+        background-image: url('/imgs/headportrait_imgs1.png');
         background-size: 100% auto;
         position: relative;
         .logobox{
-            padding: 20px;    
-        }
-        p{
-            font-family: Open Sans;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 64px;
-            line-height: 87px;
-            text-align: center;
-            letter-spacing: 0.02em;
-            text-transform: uppercase;
-            color: #151515;
-        }
-        .framebox{
             position: absolute;
-            bottom: -100px;
+            bottom: 77px;
             left: 0;
             right: 0;
             margin: auto;
-            width: 47.5%;
-            border: 20px solid #D6D6D6;
-            border-radius: 10px;
-            background: #C4C4C4;
-            box-sizing: border-box;
-            p{
-                font-weight: 600;
-                font-size: 48px;
-                line-height: 65px;
-                color: #151515;
-                opacity: 0.6;
-            }
-            .contentbox{
-                padding: 20px;
-                justify-content: space-between;
-                img{
-                    width: 50%;
-                }
-                .rightbox{
-                    width: 40%;
-                    p{
-                        text-align: left;
-                        font-weight: normal;
-                        font-size: 16px;
-                        line-height: 110%;
-                        margin-bottom: 12px;
-                    }
-                    .addsubtract{
-                        width: 200px;
-                        margin: 20px 0;
-                        padding: 10px;
-                        background-color: #555;
-                        box-sizing: border-box;
-                        justify-content: space-between;
-                        align-items: center;
-                        img{
-                            width: 36px;
-                        }
-                    }
-                    button{
-                        border: none;
-                        background: transparent;
-                        padding: 15px;
-                        background-color: #555;
-                        border-radius: 10px;
-                    }
-                }
+            width: 640px;
+            justify-content: space-between;
+            button{
+                background: transparent;
+                background-image: url('/imgs/headportrait_imgs3.png');   
+                border: none;
+                height: 70px;
+                width: 240px;
+                background-size: 100% 100%;
+                font-weight: 500;
+                font-size: 32px;
+                line-height: 45px;
+                color: #fff;
             }
         }
+        
+        
     }
     .contentbox1{
-        padding: 0 10%;
+        padding: 0 13.2%;
         padding-bottom: 50px;
         box-sizing: border-box;
+        justify-content: space-between;
+        margin-top: 122px;
         .leftbox{
-            margin-top: 100px;
-            p{
-                font-style: normal;
+            width: 52.26%;
+            .titlewords{
+                font-weight: 600;
+                font-size: 38px;
+                line-height: 130%;
+                color: #A8DEEE;
+            }
+            .tipswords{
+                font-weight: 600;
+                font-size: 22px;
+                line-height: 31px;
+                color: rgba(255, 255, 255, 0.8);
+                margin-top: 8px;
+                margin-bottom: 40px;
+            }
+            .content{
                 font-weight: normal;
                 font-size: 18px;
-                line-height: 200%;
-            }
-            .word2{
                 line-height: 150%;
-                margin-top: 120px;
-                width: 450px;
-                margin-left: 20px;
-                letter-spacing: 0.02em;
-                text-transform: uppercase;
-                // text-indent:2em;
-                text-align: justify
             }
         }
         img{
-            width: 40%;
-            margin-top: 200px;
+            width: 37.73%;
         }
     }
     .contentbox2,.contentbox3,.contentbox4{

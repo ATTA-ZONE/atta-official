@@ -2,36 +2,29 @@
     <header-cell />
     <div class="headportraitbox">
         <div class="bannerbox">
-            <div class="logobox">
-                <img src="/imgs/arrow1.png" alt="">
-                <img src="/imgs/arrow1.png" alt="">
+            <div class="logobox flex">
+                <button>{{$t('faces_1')}}</button>
+                <button>{{$t('faces_2')}}</button>
             </div>
-            <p class="centerword">{{$t('faces_1')}}</p>
-            <div class="framebox">
-                <p>{{$t('faces_2')}}</p>
-                <div class="contentbox flex">
-                    <img src="/imgs/arrow1.png" alt="">
-                    <div class="rightbox">
-                        <p>{{$t('faces_3')}} + 10/500</p>
-                        <p>{{$t('faces_4')}}</p>
-                        <div class="addsubtract flex">
-                            <img src="/imgs/arrow1.png" alt="" @click="addnum">
-                            <span>{{num}}</span>
-                            <img src="/imgs/arrow1.png" alt="" @click="subtractnum">
-                        </div>
-                        <button>{{$t('faces_5')}}</button>
-                    </div>
-                </div>
+        </div>
+        <div class="contentbox1 flex">
+            <img src="/imgs/headportrait_imgs2.png" alt="">
+            <div class="leftbox">
+                <p class="titlewords">{{$t('faces_3')}}</p>
+                <p class="tipswords">{{$t('faces_4')}}</p>
+                <p class="content" v-html="$t('faces_5')"></p>
             </div>
         </div>
         <div class="contentbox1 flex">
             <div class="leftbox">
-                <p>{{$t('faces_6')}}</p>
-                <p v-html="$t('faces_7')"></p>
-                <p class="word2" v-html="$t('faces_8')"></p>
+                <p class="titlewords">{{$t('faces_6')}}</p>
+                <p class="tipswords">{{$t('faces_7')}}</p>
+                <p class="content" v-html="$t('faces_8')"></p>
             </div>
-            <img src="/imgs/arrow1.png" alt="">
+            <img src="/imgs/headportrait_imgs4.png" alt="">
         </div>
+
+
         <div class="contentbox2 flex">
             <img src="/imgs/arrow1.png" alt="">
             <div class="wordsbox">
