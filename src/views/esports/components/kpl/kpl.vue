@@ -278,14 +278,24 @@
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
       </div>
       <div class="cooperate-list flex">
-        <div class="cooperate flex">
+        <div class="cooperate flex" style="margin-right: 55px;">
           <div class="cooperate-logo">
-            <img src="/kpl/test.png" alt="">
+            <img src="/kpl/kpl_img3.png" alt="">
           </div>
           <div class="cooperate-info">
             <p class="cooperate-title">{{$t('esports_kpl49')}}</p>
             <i></i>
             <p class="cooperate-text">{{$t('esports_kpl50')}}</p>
+          </div>
+        </div>
+        <div class="cooperate flex">
+          <div class="cooperate-logo">
+            <img src="/kpl/kpl_img4.png" alt="">
+          </div>
+          <div class="cooperate-info">
+            <p class="cooperate-title">{{$t('esports_kpl49')}}</p>
+            <i></i>
+            <p class="cooperate-text">{{$t('esports_kpl50_jia')}}</p>
           </div>
         </div>
       </div>
