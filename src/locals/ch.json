@@ -516,6 +516,11 @@
   "esports_kpl90" : " 張投票券",
   "esports_kpl91" : "領取成功",
   "esports_kpl92" : "您的投票余額已更新。<br/>請在ATTA無限製電子競技大賽投票頁面查看。",
+  "esports_kpl93" : "ATTA x LOOT 普通入場券",
+  "esports_kpl94" : "ATTA x LOOT 稀有入場券",
+  "esports_kpl95" : "ATTA x LOOT 傳說入場券",
+  "esports_kpl96" : "您當前錢包持有的未兌換Loot入場券有",
+  "esports_kpl97" : "（每張Loot入場券只可兌換一次）",
 
   "faces_1" : "NFT头像",
   "faces_2" : "NFT头像兑换",

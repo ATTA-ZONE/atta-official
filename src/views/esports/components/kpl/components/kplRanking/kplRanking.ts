@@ -134,14 +134,15 @@ export default defineComponent({
             data.value.type = type;
             
           }else{
-            data.value.titletips = 'esports_kpl53';
-            data.value.content = 'esports_kpl78';
+            data.value.titletips = 'esports_kpl96';
             data.value.rankingtypeshow = 2;
             data.value.btn1show = '1';//999 不展示此按钮
             data.value.btn2show = '2';
-            data.value.tips = 'esports_kpl79';
+            data.value.tips = 'esports_kpl97';
             data.value.list2 = res.data;
             data.value.type = type;
+            data.value.unclaimed = res.data.unclaimed;//个
+            data.value.ticketAmount = res.data.ticketAmount;//张
           }
         }else if (res.code == 1001) {
            alert(res.message);
