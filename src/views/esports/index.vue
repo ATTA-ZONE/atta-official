@@ -22,11 +22,11 @@ export default defineComponent({
     const tabs = [
       {
         name: '无限制电竞大会',
-        link:'/esports/kpl'
+        link:'/esports/infinity'
       },
       {
         name: 'LPL季后赛',
-        link:'/esports/lpl'
+        link:'/esports/lol'
       }
     ]
     const selectedTab = ref(0)
@@ -36,10 +36,10 @@ export default defineComponent({
 
     onMounted(()=>{
       const url = window.location.pathname
-      if (url.indexOf('kpl')>-1) {
+      if (url.indexOf('infinity')>-1) {
         selectedTab.value = 0
       }
-      if (url.indexOf('lpl')>-1) {
+      if (url.indexOf('lol')>-1) {
         selectedTab.value = 1
       }
     })
