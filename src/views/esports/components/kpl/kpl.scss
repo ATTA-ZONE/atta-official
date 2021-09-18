@@ -39,6 +39,16 @@
       }
     }
   }
+  // 兼容英文版
+  &.kpl-en{
+    .kpl-nft .nft-list .nft-content div .nft-from{
+      font-size:18px;
+      overflow:hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      -o-text-overflow:ellipsis;
+    }
+  }
 }
 .banner-container {
   width:100%;
@@ -200,9 +210,18 @@
           line-height: 55px;
           &.award-right-en{
             padding-top: 55px;
+            line-height: 45px;
             span{
               font-size:36px;
               line-height: 36px;
+              border-bottom: 2px solid #fff;
+            }
+          }
+          &.award-right-en-en{
+            padding-top: 25px;
+            line-height: 45px;
+            span{
+              font-size:36px;
               border-bottom: 2px solid #fff;
             }
           }
@@ -237,6 +256,12 @@
       line-height: 45px;
       color:#fff;
     }
+    &.rank-header-en{
+      button{
+        font-size:18px;
+        width: 170px;
+      }
+    }
   }
   .rank-list{
     margin-top: 60px;
@@ -257,6 +282,13 @@
         margin-top: 47px;
       }
     }
+    &.rank-list-en{
+      p{
+        font-size:18px;
+        line-height: 23px;
+        padding:0 10px;
+      }
+    }
   }
   .ranking-more{
     margin-top: 50px;
@@ -270,6 +302,9 @@
     color: #000;
     border:0;
     background-color: #fff;
+    &.ranking-more-en{
+      width: 300px;
+    }
   }
 }
 .kpl-rules{
@@ -312,6 +347,15 @@
     justify-content: space-between;
     align-items:center;
     padding:0 76px;
+  }
+  &.kpl-rules-en{
+    p{
+      text-align: left;
+    }
+    button{
+      font-size: 18px;
+      width: 180px;
+    }
   }
 }
 .kpl-mask{
@@ -356,6 +400,13 @@
   .banner-02{
     background: url('/kpl/mask02.png') center no-repeat;
     background-size: cover;
+  }
+  &.kpl-mask-en{
+    .mask-header{
+      button{
+        width: 200px;
+      }
+    }
   }
 }
 .kpl-schedule{
@@ -547,6 +598,18 @@ div.kpl-notice-header{
       }
     }
   }
+  &.kpl-notice-en{
+    .notice-btn{
+      .notice-right{
+        button{
+          width: 210px;
+        }
+        .btn-right{
+          width: 270px;
+        }
+      }
+    }
+  }
 }
 .kpl-award{
   width: 1100px;
@@ -572,7 +635,7 @@ div.kpl-notice-header{
       p{
         font-weight: 500;
         font-size: 24px;
-        line-height: 100%;
+        line-height: 27px;
         color:#fff;
       }
     }
@@ -645,6 +708,16 @@ div.kpl-notice-header{
         position:absolute;
         right: 19px;
         top: 68px;
+      }
+    }
+  }
+  &.kpl-nft-en{
+    div{
+      p{
+        font-weight:100 !important;
+      }
+      p.nft-win{
+        font-size: 20px;
       }
     }
   }
@@ -729,6 +802,7 @@ div.kpl-notice-header{
         }
       }
       .cooperate-info{
+        width: 215px;
         padding-left: 30px;
         padding-top: 32px;
         i{
@@ -747,6 +821,23 @@ div.kpl-notice-header{
           font-weight: 900;
           font-size: 18px;
           padding-top: 20px;
+        }
+      }
+    }
+  }
+  &.kpl-cooperate-en{
+    .cooperate-list{
+      .cooperate {
+        .cooperate-info{
+          padding-top: 22px;
+          .cooperate-title{
+            font-weight: 100;
+            font-size: 22px;
+          }
+          .cooperate-text{
+            font-weight: 100;
+            font-size: 14px;
+          }
         }
       }
     }
@@ -1388,6 +1479,86 @@ div.kpl-notice-header{
             font-size: 14px;
             padding-top: 15px;
           }
+        }
+      }
+    }
+    // 英文版兼容
+    &.kpl-en{
+      div.kpl-notice-header p{
+        text-align: center;
+      }
+      .kpl-notice .notice-btn .notice-right button{
+        width: 130px;
+        font-size:12px;
+      }
+      .kpl-notice .notice-btn .notice-left p{
+        font-size: 16px;
+      }
+      .kpl-countdown{
+        .countdown-name{
+          font-size:14px;
+        }
+        .countdown-date{
+          font-size:18px;
+        }
+      }
+      .banner-container .banner-info .kpl-btn{
+        padding:0 30px;
+        span{
+          font-size: 12px;
+          width: 150px;
+        }
+      }
+      .kpl-prize-pool .kpl-vip .vip-text{
+        p,h5{
+        width: 220px;
+        }
+      }
+      .kpl-prize-pool .prize-pool > h5{
+        margin-left: 0;
+        width: 100%;
+      }
+      .kpl-prize-pool .prize-pool .award-list .award .award-right.award-right-en{
+        padding-top: 30px;
+      }
+      .prize-pool .award-list .award .award-right span{
+        font-size:14px;
+      }
+      .kpl-prize-pool .prize-pool .award-list .award .award-right.award-right-en-en{
+        line-height: 20px;
+      }
+      .kpl-ranking .rank-header{
+        display: block;
+        button{
+          width: 130px;
+          margin-top: 20px;
+        }
+      }
+      .kpl-ranking .rank-list .ranking p{
+        font-size: 12px;
+        line-height: 14px;
+      }
+      .kpl-ranking .ranking-more{
+        width: 180px;
+        font-size: 14px;
+      }
+      .kpl-rules button{
+        width: 150px;
+      }
+      .kpl-mask .mask-header button{
+        width: 120px;
+      }
+      .kpl-cooperate .kpl-welcome p{
+        text-align:center;
+      }
+      .kpl-cooperate.kpl-cooperate-en .cooperate-list .cooperate .cooperate-info{
+        padding-top: 10px;
+        .cooperate-title{
+          font-size: 12px;
+        }
+        .cooperate-text{
+          font-size: 12px;
+          padding-top: 5px;
         }
       }
     }

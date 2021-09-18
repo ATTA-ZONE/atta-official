@@ -1,6 +1,6 @@
 <template>
 <!-- banner部分 -->
-  <div class="kpl" v-loading="loading">
+  <div class="kpl" :class="isEn?'kpl-en':''" v-loading="loading">
     <div class="banner-container">
       <div class="banner-info">
         <img src="/kpl/titleCh.png" />
@@ -211,7 +211,7 @@
       <div class="nft-list flex" v-if="kplinfo[showkplindex]">
         <div class="nft-content flex" v-for="(item,index) in kplinfo[showkplindex].voteReward" :key="item">
           <div>
-            <p class="nft-from">{{item.title}}</p>
+            <p class="nft-from">{{$t('esports_kpl98')}}{{item.title}}{{$t('esports_kpl99')}}</p>
             <p class="nft-award">{{item.content}}</p>
             <p class="nft-win">{{item.type ? $t('esports_kpl66') : $t('esports_kpl65')+(index + 1)}}</p>
           </div>

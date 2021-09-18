@@ -2,100 +2,77 @@
     <header-cell />
     <div class="headportraitbox">
         <div class="bannerbox">
-            <div class="logobox">
-                <img src="/imgs/arrow1.png" alt="">
-                <img src="/imgs/arrow1.png" alt="">
+            <div class="logobox flex">
+                <button>{{$t('faces_1')}}</button>
+                <button>{{$t('faces_2')}}</button>
             </div>
-            <p class="centerword">{{$t('faces_1')}}</p>
-            <div class="framebox">
-                <p>{{$t('faces_2')}}</p>
-                <div class="contentbox flex">
-                    <img src="/imgs/arrow1.png" alt="">
-                    <div class="rightbox">
-                        <p>{{$t('faces_3')}} + 10/500</p>
-                        <p>{{$t('faces_4')}}</p>
-                        <div class="addsubtract flex">
-                            <img src="/imgs/arrow1.png" alt="" @click="addnum">
-                            <span>{{num}}</span>
-                            <img src="/imgs/arrow1.png" alt="" @click="subtractnum">
-                        </div>
-                        <button>{{$t('faces_5')}}</button>
-                    </div>
-                </div>
+        </div>
+        <div class="contentbox1 flex">
+            <img src="/imgs/headportrait_imgs2.png" alt="">
+            <div class="leftbox">
+                <p class="titlewords">{{$t('faces_3')}}</p>
+                <p class="tipswords">{{$t('faces_4')}}</p>
+                <p class="content" v-html="$t('faces_5')"></p>
             </div>
         </div>
         <div class="contentbox1 flex">
             <div class="leftbox">
-                <p>{{$t('faces_6')}}</p>
-                <p v-html="$t('faces_7')"></p>
-                <p class="word2" v-html="$t('faces_8')"></p>
+                <p class="titlewords">{{$t('faces_6')}}</p>
+                <p class="tipswords">{{$t('faces_7')}}</p>
+                <p class="content" v-html="$t('faces_8')"></p>
             </div>
-            <img src="/imgs/arrow1.png" alt="">
+            <img src="/imgs/headportrait_imgs4.png" alt="">
         </div>
-        <div class="contentbox2 flex">
-            <img src="/imgs/arrow1.png" alt="">
-            <div class="wordsbox">
-                <h1>{{$t('faces_9')}}</h1>
-                <h3>{{$t('faces_10')}}</h3>
-                <p v-html="$t('faces_11')"></p>
-                <button>{{$t('faces_12')}}</button>
+        <div class="contentbox1 flex">
+            <div class="leftbox">
+                <p class="titlewords">{{$t('faces_9')}}</p>
+                <p class="tipswords">{{$t('faces_10')}}</p>
+                <p class="content" v-html="$t('faces_11')"></p>
             </div>
-        </div>
-        <div class="contentbox3 flex">
-            <div class="wordsbox">
-                <h1>{{$t('faces_13')}}</h1>
-                <h3>{{$t('faces_14')}}</h3>
-                <p v-html="$t('faces_15')"></p>
-            </div>
-            <img src="/imgs/arrow1.png" alt="">
-        </div>
-        <div class="contentbox4 flex">
-            <img src="/imgs/arrow1.png" alt="">
-            <div class="wordsbox">
-                <h1>{{$t('faces_16')}}</h1>
-                <h3>{{$t('faces_17')}}</h3>
-                <p v-html="$t('faces_18')"></p>
-                <button>{{$t('faces_19')}}</button>
-            </div>
+            <img src="/imgs/headportrait_imgs5.png" alt="">
         </div>
         <div class="contentbox5">
-            <h1>{{$t('faces_20')}}</h1>
-            <p>{{$t('faces_21')}}</p>
-            <img src="/imgs/Charity_img1.png" alt="">
+            <h1>{{$t('faces_12')}}</h1>
+            <p v-html="$t('faces_13')"></p>
+            <img src="/imgs/headportrait_imgs6.png" alt="">
         </div>
         <div class="contentbox6">
-            <h1>{{$t('faces_22')}}</h1>
-            <div class="flex imgbox">
-                <div class="leftbox">
+            <h1>{{$t('faces_14')}}</h1>
+            <div class="imgbox">
+                <div class="leftbox flex">
                     <div>
-                        <span>{{$t('faces_23')}}</span>
-                        <img src="/imgs/arrow1.png" alt="">
+                        <img src="/imgs/headportrait_imgs7.png" alt="">
+                        <p class="title">{{$t('faces_15')}}</p>
+                        <p class="content">{{$t('faces_16')}}</p>
                     </div>
                     <div>
-                        <span>{{$t('faces_23')}}</span>
-                        <img src="/imgs/arrow1.png" alt="">
-                    </div>
-                    <div>
-                        <span>{{$t('faces_23')}}</span>
-                        <img src="/imgs/arrow1.png" alt="">
+                        <img src="/imgs/headportrait_imgs8.png" alt="">
+                        <p class="title">{{$t('faces_17')}}</p>
+                        <p class="content">{{$t('faces_18')}}</p>
                     </div>
                 </div>
-                <img class="centerbox" src="/imgs/arrow1.png" alt="">
-                <div class="rightbox">
+                <div class="rightbox flex">
                     <div>
-                        <img src="/imgs/arrow1.png" alt="">
-                        <span>{{$t('faces_24')}}</span>
+                        <img src="/imgs/headportrait_imgs9.png" alt="">
+                        <p class="title">{{$t('faces_19')}}</p>
+                        <p class="content">{{$t('faces_20')}}</p>
                     </div>
                     <div>
-                        <img src="/imgs/arrow1.png" alt="">
-                        <span>{{$t('faces_25')}}</span>
-                    </div>
-                    <div>
-                        <img src="/imgs/arrow1.png" alt="">
-                        <span>{{$t('faces_26')}}</span>
+                        <img src="/imgs/headportrait_imgs10.png" alt="">
+                        <p class="title">{{$t('faces_21')}}</p>
+                        <p class="content">{{$t('faces_22')}}</p>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="contentbox1 contentbox6_jian flex">
+            <img src="/imgs/headportrait_imgs11.png" alt="">
+            <div class="leftbox">
+                <p class="titlewords">{{$t('faces_23')}}</p>
+                <p class="content" v-html="$t('faces_24')"></p>
+            </div>
+            <button class="btn">{{$t('faces_25')}}</button>
+            <button class="btn">{{$t('faces_26')}}</button>
         </div>
         <div class="contentbox7">
             <h1>Q&A</h1>

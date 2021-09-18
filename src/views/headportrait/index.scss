@@ -8,240 +8,132 @@
     }
     .bannerbox{
         width: 100%;
-        height: 900px;
-        background-image: url('/imgs/Charity_img1.png');
+        height: 810px;
+        background-image: url('/imgs/headportrait_imgs1.png');
         background-size: 100% auto;
         position: relative;
         .logobox{
-            padding: 20px;    
-        }
-        p{
-            font-family: Open Sans;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 64px;
-            line-height: 87px;
-            text-align: center;
-            letter-spacing: 0.02em;
-            text-transform: uppercase;
-            color: #151515;
-        }
-        .framebox{
             position: absolute;
-            bottom: -100px;
+            bottom: 77px;
             left: 0;
             right: 0;
             margin: auto;
-            width: 47.5%;
-            border: 20px solid #D6D6D6;
-            border-radius: 10px;
-            background: #C4C4C4;
-            box-sizing: border-box;
-            p{
-                font-weight: 600;
-                font-size: 48px;
-                line-height: 65px;
-                color: #151515;
-                opacity: 0.6;
-            }
-            .contentbox{
-                padding: 20px;
-                justify-content: space-between;
-                img{
-                    width: 50%;
-                }
-                .rightbox{
-                    width: 40%;
-                    p{
-                        text-align: left;
-                        font-weight: normal;
-                        font-size: 16px;
-                        line-height: 110%;
-                        margin-bottom: 12px;
-                    }
-                    .addsubtract{
-                        width: 200px;
-                        margin: 20px 0;
-                        padding: 10px;
-                        background-color: #555;
-                        box-sizing: border-box;
-                        justify-content: space-between;
-                        align-items: center;
-                        img{
-                            width: 36px;
-                        }
-                    }
-                    button{
-                        border: none;
-                        background: transparent;
-                        padding: 15px;
-                        background-color: #555;
-                        border-radius: 10px;
-                    }
-                }
+            width: 640px;
+            justify-content: space-between;
+            button{
+                background: transparent;
+                background-image: url('/imgs/headportrait_imgs3.png');   
+                border: none;
+                height: 70px;
+                width: 240px;
+                background-size: 100% 100%;
+                font-weight: 500;
+                font-size: 32px;
+                line-height: 45px;
+                color: #fff;
             }
         }
+        
+        
     }
     .contentbox1{
-        padding: 0 10%;
+        padding: 0 13.2%;
         padding-bottom: 50px;
         box-sizing: border-box;
+        justify-content: space-between;
+        margin-top: 122px;
         .leftbox{
-            margin-top: 100px;
-            p{
-                font-style: normal;
+            width: 52.26%;
+            .titlewords{
+                font-weight: 600;
+                font-size: 38px;
+                line-height: 130%;
+                color: #A8DEEE;
+            }
+            .tipswords{
+                font-weight: 600;
+                font-size: 22px;
+                line-height: 31px;
+                color: rgba(255, 255, 255, 0.8);
+                margin-top: 8px;
+                margin-bottom: 40px;
+            }
+            .content{
                 font-weight: normal;
                 font-size: 18px;
-                line-height: 200%;
-            }
-            .word2{
-                line-height: 150%;
-                margin-top: 120px;
-                width: 450px;
-                margin-left: 20px;
-                letter-spacing: 0.02em;
-                text-transform: uppercase;
-                // text-indent:2em;
-                text-align: justify
-            }
-        }
-        img{
-            width: 40%;
-            margin-top: 200px;
-        }
-    }
-    .contentbox2,.contentbox3,.contentbox4{
-        img{
-            width: 50%;
-        }
-        .wordsbox{
-            width: 50%;
-            background: #E1E1E1;
-            padding: 68px 88px;
-            box-sizing: border-box;
-            h1,h3{
-                font-style: normal;
-                font-weight: 600;
-                letter-spacing: 0.1em;
-                text-transform: uppercase;
-                color: #151515;
-                opacity: 0.6;
-            }
-            h1{
-                font-size: 48px;
-                line-height: 65px;
-            }
-            h3{
-                font-size: 22px;
-                line-height: 30px;
-                margin-top: 16px;
-                margin-bottom: 33px;
-            }
-            p{
-                font-size: 18px;
                 line-height: 150%;
             }
-            button{
-                background: #c4c4c4;
-                border: none;
-                font-size: 28px;
-                color: #fff;
-                padding: 9px 13px;
-                margin-top: 40px;
-                cursor: pointer;
-            }
-        }
-    }
-    .contentbox3,.contentbox4{
-        padding: 100px 10%;
-        justify-content: space-between;
-        .wordsbox{
-            background: transparent;
-            h1,h3,p{
-                color: rgba(255, 255, 255, 0.6);
-            }
         }
         img{
-            width: 43%;
+            width: 37.73%;
         }
     }
     .contentbox5{
         text-align: center;
         h1{
-            opacity: 0.6;
             font-weight: 600;
-            font-size: 48px;
-            line-height: 65px;
+            font-size: 38px;
+            line-height: 130%;
+            color: #A8DEEE;
         }
         p{
             opacity: 0.6;
-            width: 40%;
             font-weight: normal;
-            font-size: 16px;
-            line-height: 110%;
-            margin: 24px auto 59px;
+            font-size: 18px;
+            line-height: 150%;
+            margin: 16px auto 40px;
         }
         img{
             width: 100%;
         }
     }
     .contentbox6{
-        padding: 200px 10%;
+        padding: 165px 16%;
         box-sizing: border-box;
         text-align: center;
         h1{
             font-weight: 600;
             font-size: 48px;
-            line-height: 65px;
-            opacity: 0.6;
+            line-height: 67px;
         }
         .imgbox{
-            margin-top: 63px;
-            justify-content: space-between;
+            margin-top: 80px;
             .leftbox,.rightbox{
+                justify-content: space-between;
                 div{
-                    margin-bottom: 50px;
-                    margin-left: 65px;
-                    margin-right: 65px;
-                    text-align: left;
+                    width: 34.69%;
+                    margin-bottom: 80px;
+                    text-align: center;
                     img{
                         vertical-align: middle;
                         width: 103px;
                         margin-right: 28px;
                         margin-left: 28px;
                     }
-                    span{
+                    .title{
                         font-weight: 600;
+                        font-size: 22px;
+                        line-height: 31px;
+                        margin: 20px 0;
+                    }
+                    .content{
+                        font-weight: normal;
                         font-size: 18px;
-                        line-height: 30px;
-                        opacity: 0.6;
+                        line-height: 150%;
                     }
                 }
-                div:nth-child(2){
-                    margin-left: 25px;
-                    margin-right: 25px;
-                    img{
-                        margin-right: 24px;
-                        margin-left: 24px;
-                    }
-                }
-                div:nth-child(3){
-                    margin-left: 65px;
-                    margin-right: 65px;
-                    img{
-                        margin-right: 47px;
-                        margin-left: 47px;
-                    }
-                }
+                
             }
-            .rightbox{
-                div{
-                    text-align: right;
-                }
-            }
-            .centerbox{
-                width: 27.15%;
-            }
+            
+        }
+    }
+    .contentbox6_jian{
+        .content{
+            margin-top: 50px;
+        }
+        .btn{
+            border-radius: 3px;
+            border: 2px solid #a9deee;
         }
     }
     .contentbox7{
