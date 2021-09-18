@@ -117,7 +117,7 @@
             </div>
           </div>
           <div class="team-ranking">
-            <div class="ranking-user flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length && kplinfo[showkplindex].attaMatchOptions[0].betRecord.lenth">
+            <div class="ranking-user flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length && kplinfo[showkplindex].attaMatchOptions[0].betRecord.length">
               <img v-for="item in kplinfo[showkplindex].attaMatchOptions[0].betRecord" :src="formatVideoUrl(item.imgUrl)" :key="item" alt="">
               <p>{{kplinfo[showkplindex].attaMatchOptions[0].betRecord.length}}</p>
             </div>
@@ -135,7 +135,7 @@
             </div>
           </div>
           <div class="team-ranking">
-            <div class="ranking-user flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length && kplinfo[showkplindex].attaMatchOptions[1].betRecord.lenth">
+            <div class="ranking-user flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length && kplinfo[showkplindex].attaMatchOptions[1].betRecord.length">
               <img v-for="item in kplinfo[showkplindex].attaMatchOptions[1].betRecord" :src="formatVideoUrl(item.imgUrl)" :key="item" alt="">
               <p>{{kplinfo[showkplindex].attaMatchOptions[1].betRecord.length}}</p>
             </div>
@@ -185,15 +185,29 @@
       <h5>{{$t('esports_kpl35')}}</h5>
       <div class="voting-ranking flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length">
         <div class="voting-ranking-list">
-          <div v-if="kplinfo[showkplindex].attaMatchOptions[0].betTop3.length" class="ranking-bumber flex" v-for="item in kplinfo[showkplindex].attaMatchOptions[0].betTop3" :key="item">
+          <div class="ranking-bumber flex" v-for="item in kplinfo[showkplindex].attaMatchOptions[0].betTop3" :key="item">
             <img :src="'/kpl/No'+item.pm+'.png'" alt="">
             <img :src="item.imgUrl ? formatVideoUrl(item.imgUrl) :'/kpl/header.png'" alt="">
             <div>
               <p>{{item.tickets}}{{$t('esports_kpl32')}}</p>
             </div>
           </div>
-          <div v-else class="ranking-bumber flex" v-for="(item,index) in 3" :key="index">
-            <img :src="'/kpl/No'+(index + 1)+'.png'" alt="">
+          <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[0].betTop3.length < 1">
+            <img :src="'/kpl/No1.png'" alt="">
+            <img src="/kpl/header.png" alt="">
+            <div>
+              <p>{{$t('esports_kpl32_jia')}}</p>
+            </div>
+          </div>
+          <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[0].betTop3.length < 2">
+            <img :src="'/kpl/No2.png'" alt="">
+            <img src="/kpl/header.png" alt="">
+            <div>
+              <p>{{$t('esports_kpl32_jia')}}</p>
+            </div>
+          </div>
+          <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[0].betTop3.length < 3">
+            <img :src="'/kpl/No3.png'" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
               <p>{{$t('esports_kpl32_jia')}}</p>
@@ -201,15 +215,29 @@
           </div>
         </div>
         <div class="voting-ranking-list">
-          <div v-if="kplinfo[showkplindex].attaMatchOptions[1].betTop3.length" class="ranking-bumber flex" v-for="item in kplinfo[showkplindex].attaMatchOptions[1].betTop3" :key="item">
+          <div class="ranking-bumber flex" v-for="item in kplinfo[showkplindex].attaMatchOptions[1].betTop3" :key="item">
             <img :src="'/kpl/No'+item.pm+'.png'" alt="">
             <img :src="item.imgUrl ? formatVideoUrl(item.imgUrl) :'/kpl/header.png'" alt="">
             <div>
               <p>{{item.tickets}}{{$t('esports_kpl32')}}</p>
             </div>
           </div>
-          <div v-else class="ranking-bumber flex" v-for="(item,index) in 3" :key="index">
-            <img :src="'/kpl/No'+(index + 1)+'.png'" alt="">
+          <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[1].betTop3.length < 1">
+            <img :src="'/kpl/No1.png'" alt="">
+            <img src="/kpl/header.png" alt="">
+            <div>
+              <p>{{$t('esports_kpl32_jia')}}</p>
+            </div>
+          </div>
+          <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[1].betTop3.length < 2">
+            <img :src="'/kpl/No2.png'" alt="">
+            <img src="/kpl/header.png" alt="">
+            <div>
+              <p>{{$t('esports_kpl32_jia')}}</p>
+            </div>
+          </div>
+          <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[1].betTop3.length < 3">
+            <img :src="'/kpl/No3.png'" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
               <p>{{$t('esports_kpl32_jia')}}</p>
