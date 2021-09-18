@@ -1,6 +1,6 @@
 <template>
   <div class="ranking-dialog">
-    <div class="dialog-content flex">
+    <div class="dialog-content flex" v-loading="loading">
       <img class="close" src="/match/close.png" alt="" @click="closeNet">
       <div>
         <div class="dialog-header margin-auto" :class="tipNone?'imgs-none':''" v-if="data.titletips">
@@ -62,7 +62,7 @@
               <p class="type-exchange">{{$t('esports_kpl83')}} {{data.list.amount}} {{$t('esports_kpl84')}}</p>
             </div>
             <div v-if="data.list2" class="tipsrankingbox-content margin-auto">
-              <p class="type-number flex">
+              <p class="type-number flex type-block">
                 <span v-if="data.type == 1">{{data.unclaimed}}{{$t('esports_kpl80')}}</span>
                 <span v-if="data.type == 2">{{$t('esports_kpl93')}}{{data.unclaimed[0]}}{{$t('esports_kpl80')}}</span>
                 <span v-if="data.type == 2">{{$t('esports_kpl94')}}{{data.unclaimed[1]}}{{$t('esports_kpl80')}}</span>
@@ -70,7 +70,7 @@
                 <span>{{$t('esports_kpl89')}}{{data.ticketAmount}}{{$t('esports_kpl90')}}</span>
               </p>
             </div>
-            <div :class="data.rankingtypeshow == 2 ?'btnbox flex centerbtn':'btnbox flex'">
+            <div class="btnbox flex" :class="{'centerbtn':data.rankingtypeshow == 2,'btnbox-en':isEn}">
               <button @click="closeNet" v-if="data.btn1show == 1" class="btn1">{{$t('esports_kpl56')}}</button>
               <button @click="nowreceive" v-if="data.btn2show == 2" class="btn2">{{$t('esports_kpl57')}}</button><!-- 現在領取 -->
               <button @click="exchangenowbtn" v-if="data.btn2show == 3 && data.list && data.list.amount > 0" class="btn2">{{$t('esports_kpl58')}}</button><!-- 現在兌換 -->
@@ -87,7 +87,7 @@
                 <img src="/kpl/subtraction.png" alt="" @click="jiantpnum()">
               </p>
             </div>
-            <div :class="(data.rankingtypeshow == 3 || data.rankingtypeshow == 4) ?'btnbox flex centerbtn':'btnbox flex'">
+            <div class="btnbox flex" :class="{'centerbtn':(data.rankingtypeshow == 3 || data.rankingtypeshow == 4),'btn-box':(data.btn1show == 2 || data.btn2show == 6),'btnbox-en':isEn}">
               <button @click="closeNet" v-if="data.btn1show == 1" class="btn1">{{$t('esports_kpl56')}}</button>
               <button @click="collectvotingticketsbtn(1)" v-if="data.btn1show == 2" class="btn2">{{$t('esports_kpl59')}}</button><!-- ATTA面具 -->
               <button @click="closeNet" v-if="data.btn2show == 1" class="btn2">{{$t('esports_kpl55')}}</button> <!-- 知道了 -->

@@ -49,6 +49,7 @@
     }
   }
   .tipsrankingbox{
+    margin-top: 40px;
     .contentwords{
       font-style: normal;
       font-weight: 600;
@@ -58,16 +59,22 @@
       margin: 15px auto;
     }
     .tipsrankingbox-content{
-      width: 594px;
+      width: 770px;
     }
     .type-number{
       margin-top: 55px;
-      width: 594px;
+      width: 770px;
       font-size:38px;
       justify-content: space-between;
       text-align:center;
       span{
         display: block;
+      }
+      &.type-block{
+        display: block;
+        span{
+          display: block;
+        }
       }
     }
     .type-exchange{
@@ -115,7 +122,7 @@
     .btnbox{
       text-align: center;
       max-width: 535px;
-      margin: 0 auto;
+      margin: 80px auto 0;
       button{
         border: none;
         background: transparent;
@@ -137,6 +144,22 @@
         width: 240px;
         height:70px;
         cursor: pointer;
+      }
+      &.btn-box{
+        display: block;
+        button{
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+          margin-bottom: 80px;
+        }
+      }
+      &.btnbox-en{
+        button{
+          width: 270px;
+          font-weight: 100;
+          font-size: 24px;
+        }
       }
     }
     .centerbtn{
@@ -174,19 +197,18 @@
     .dialog-header{
       padding-top: 35px;
       width: 1100px;
-      justify-content: space-between;
-      align-items:center;
       text-align:center;
       img{
         width: 133px;
         height:32px;
       }
       p{
-        display: inline-block;
+        display: inline-flex;
         font-weight: 600;
         font-size: 38px;
         line-height: 130%;
         margin:0 15px;
+        width: 700px;
       }
     }
   }

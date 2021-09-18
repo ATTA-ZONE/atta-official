@@ -46,7 +46,7 @@ export default defineComponent({
     const submitbtn = () => {
       data.value.titletips = 'esports_kpl75';
       data.value.content = `您選擇了${data.value.tpnum}個投票券，請確認`;
-      if(isEn){
+      if(isEn.value){
         data.value.content = `You’ve selected ${data.value.tpnum} voting voucher(s)，please confirm`;
       }
       data.value.rankingtypeshow = 4;
@@ -119,14 +119,17 @@ export default defineComponent({
         }
       });
     }
+    const loading = ref(false);
     // 点击领取atta面具或者Loot 入場券
     const collectvotingticketsbtn = (type) => {
+      loading.value = true;
       axios
       .post(window.base_url + "/attaExchange/getUnclaimedInfo", {
         "address": data.value.address,
         "type": type,//1   2
       })
       .then((res: any) => {
+        loading.value = false;
         if (res.code == 0) {
           if (type == 1) {
             data.value.titletips = 'esports_kpl87';
@@ -154,6 +157,8 @@ export default defineComponent({
         }else if (res.code == 1001) {
            alert(res.message);
         }
+      }).catch(err=>{
+        loading.value = false;
       });
     }
     const nowreceive = () => {
@@ -188,7 +193,9 @@ export default defineComponent({
       collectvotingticketsbtn,
       nowreceive,
       titletipsRef,
-      tipNone
+      tipNone,
+      isEn,
+      loading
       }
   }
 });
