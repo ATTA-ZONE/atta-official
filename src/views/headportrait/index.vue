@@ -70,13 +70,13 @@
             <div class="leftbox">
                 <p class="titlewords">{{$t('faces_23')}}</p>
                 <p class="content" v-html="$t('faces_24')"></p>
+                <button class="btn">{{$t('faces_25')}}</button>
+                <button class="btn">{{$t('faces_26')}}</button>
             </div>
-            <button class="btn">{{$t('faces_25')}}</button>
-            <button class="btn">{{$t('faces_26')}}</button>
         </div>
         <div class="contentbox7">
             <h1>Q&A</h1>
-            <p class="wordsbox" v-html="$t('faces_29')"></p>
+            <p class="wordsbox" v-html="$t('faces_27')"></p>
         </div>
     </div>
   <footer-cell />

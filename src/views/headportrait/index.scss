@@ -128,34 +128,41 @@
         }
     }
     .contentbox6_jian{
+        margin-bottom: 50px;
         .content{
             margin-top: 50px;
         }
         .btn{
             border-radius: 3px;
             border: 2px solid #a9deee;
+            background: transparent;
+            width: 118px;
+            height: 45px;
+            font-size: 24px;
+            color: #fff;
+            margin-right: 30px;
+            margin-top: 100px;
         }
     }
     .contentbox7{
         text-align: center;
-        padding-bottom: 30px;
+        padding-bottom: 100px;
         h1{
             font-weight: 600;
             font-size: 48px;
-            line-height: 65px;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 82px;
+            line-height: 67px;
+            color: #A8DEEE;
+            margin-bottom: 80px;
         }
         .wordsbox{
             width: 60%;
             margin: 0 auto;
-            background: #C4C4C4;
             text-align: left;
-            padding: 57px 80px;
+            padding: 0 80px;
             font-weight: normal;
-            font-size: 22px;
+            font-size: 24px;
             line-height: 150%;
-            color: #151515;
+            color: #fff;
             box-sizing: border-box;
         }
     }
