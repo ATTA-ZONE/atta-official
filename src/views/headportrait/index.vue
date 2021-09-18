@@ -23,6 +23,14 @@
             </div>
             <img src="/imgs/headportrait_imgs4.png" alt="">
         </div>
+        <div class="contentbox1 flex">
+            <div class="leftbox">
+                <p class="titlewords">{{$t('faces_9')}}</p>
+                <p class="tipswords">{{$t('faces_10')}}</p>
+                <p class="content" v-html="$t('faces_11')"></p>
+            </div>
+            <img src="/imgs/headportrait_imgs5.png" alt="">
+        </div>
 
 
         <div class="contentbox2 flex">
