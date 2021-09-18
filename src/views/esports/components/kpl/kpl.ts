@@ -111,7 +111,7 @@ export default defineComponent({
         }else{
           let data = {titletips : 'esports_kpl68',content : '<span class="framethreejumppage">戳→  <a style="color: #a9deee;">bazhuayu.io</a>   立刻購買</span>',rankingtypeshow : 3,btn2show : '1'};
           if(isEn.value){
-            data = {titletips : 'esports_kpl68',content : '<span class="framethreejumppage">Visit  <a style="color: #a9deee;">bazhuayu.io</a>   to purchase</span>',rankingtypeshow : 3,btn2show : '1'};
+            data = {titletips : 'esports_kpl68',content : '<span class="framethreejumppage">Visit  <a style="color: #a9deee;" href="www.bazhuayu.io" target="_blank">bazhuayu.io</a>   to purchase</span>',rankingtypeshow : 3,btn2show : '1'};
           }
           kplRankingshow.value = true;
           contents.value = data;
