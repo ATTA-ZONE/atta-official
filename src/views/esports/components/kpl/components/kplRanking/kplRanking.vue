@@ -16,7 +16,8 @@
                     <img :src="'/kpl/No'+item.pm+'.png'" alt="">
                     <img :src="item.imgUrl ? item.imgUrl :'/kpl/header.png'" alt="">
                     <div>
-                      <p>{{item.tickets}}{{$t('esports_kpl32')}}</p>
+                      <p v-if="item.ticketsno" class="111">{{$t('esports_kpl32_jia')}}</p>
+                      <p v-else>{{item.tickets}}{{$t('esports_kpl32')}}</p>
                     </div>
                 </div>
               </div>
@@ -27,7 +28,8 @@
                     <img :src="'/kpl/No'+item.pm+'.png'" alt="">
                     <img :src="item.imgUrl ? item.imgUrl :'/kpl/header.png'" alt="">
                     <div>
-                      <p>{{item.tickets}}{{$t('esports_kpl32')}}</p>
+                      <p v-if="item.ticketsno" class="111">{{$t('esports_kpl32_jia')}}</p>
+                      <p v-else>{{item.tickets}}{{$t('esports_kpl32')}}</p>
                     </div>
                 </div>
               </div>

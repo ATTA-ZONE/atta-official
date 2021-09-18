@@ -74,6 +74,15 @@ export default defineComponent({
         if (res.code == 0) {
           let data = {list : [],rankingtypeshow : 1,titletips : 'esports_kpl51'};
           kplRankingshow.value = true;
+          if (res.data.length < 10) {
+            for (let i = 0; i < 10; i++) {
+              if (!res.data[i]) {
+                res.data.push({pm : i+1 ,ticketsno : true});
+              }
+            }
+          }
+          console.log(res.data);
+          
           data.list = res.data;
           contents.value = data;
         }
@@ -121,9 +130,9 @@ export default defineComponent({
           contents.value = data;
           
         }else{
-          let data = {titletips : 'esports_kpl68',content : '<span class="framethreejumppage">戳→  <a href="https://www.bazhuayu.io/mobile/tc/specialTool.html" target="_blank" style="color: #a9deee;">bazhuayu.io</a>   立刻購買</span>',rankingtypeshow : 3,btn2show : '1'};
+          let data = {titletips : 'esports_kpl68',content : '<span class="framethreejumppage">戳→  <a href="https://www.bazhuayu.io/mobile/tc/specialitem.html" target="_blank" style="color: #a9deee;">bazhuayu.io</a>   立刻購買</span>',rankingtypeshow : 3,btn2show : '1'};
           if(isEn.value){
-            data = {titletips : 'esports_kpl68',content : '<span class="framethreejumppage">Visit  <a style="color: #a9deee;" href="https://www.bazhuayu.io/mobile/tc/specialTool.html" target="_blank">bazhuayu.io</a>   to purchase</span>',rankingtypeshow : 3,btn2show : '1'};
+            data = {titletips : 'esports_kpl68',content : '<span class="framethreejumppage">Visit  <a style="color: #a9deee;" href="https://www.bazhuayu.io/mobile/tc/specialitem.html" target="_blank">bazhuayu.io</a>   to purchase</span>',rankingtypeshow : 3,btn2show : '1'};
           }
           kplRankingshow.value = true;
           contents.value = data;
@@ -199,11 +208,14 @@ export default defineComponent({
         });
     };
     const toPay = ()=>{
-      window.open("https://www.bazhuayu.io/mobile/tc/specialTool.html")
+      window.open("https://www.bazhuayu.io/mobile/tc/specialitem.html")
     }
     const jumppage1 = () => {
       router.push('/headset');
     }
+    const formatVideoUrl = (item) => {
+      return window.base_url + item;
+    };
     return{
       kplinfo,
       kpllist,
@@ -226,7 +238,8 @@ export default defineComponent({
       loading,
       isEn,
       toPay,
-      jumppage1
+      jumppage1,
+      formatVideoUrl
     }
   }
 });
