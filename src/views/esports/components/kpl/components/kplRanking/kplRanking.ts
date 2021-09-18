@@ -182,6 +182,9 @@ export default defineComponent({
           
       });
     }
+    const formatVideoUrl2 = (item) => {
+      return window.base_url + item;
+    };
     return{
       title1 : 'esports_kpl51', 
       title2 : 'esports_kpl53', 
@@ -195,6 +198,7 @@ export default defineComponent({
       dycallinterface,
       collectvotingticketsbtn,
       nowreceive,
+      formatVideoUrl2,
       titletipsRef,
       tipNone,
       isEn,

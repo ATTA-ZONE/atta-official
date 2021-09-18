@@ -14,7 +14,7 @@
               <div v-for="(item,index) in data.list" :key="item">
                 <div class="ranking-bumber flex" v-if="index < 5">
                     <img :src="'/kpl/No'+item.pm+'.png'" alt="">
-                    <img :src="item.imgUrl ? item.imgUrl :'/kpl/header.png'" alt="">
+                    <img :src="item.imgUrl ? formatVideoUrl2(item.imgUrl) :'/kpl/header.png'" alt="">
                     <div>
                       <p v-if="item.ticketsno" class="111">{{$t('esports_kpl32_jia')}}</p>
                       <p v-else>{{item.tickets}}{{$t('esports_kpl32')}}</p>
@@ -26,7 +26,7 @@
               <div v-for="(item,index) in data.list" :key="item">
                 <div class="ranking-bumber flex" v-if="index > 4">
                     <img :src="'/kpl/No'+item.pm+'.png'" alt="">
-                    <img :src="item.imgUrl ? item.imgUrl :'/kpl/header.png'" alt="">
+                    <img :src="item.imgUrl ? formatVideoUrl2(item.imgUrl) :'/kpl/header.png'" alt="">
                     <div>
                       <p v-if="item.ticketsno" class="111">{{$t('esports_kpl32_jia')}}</p>
                       <p v-else>{{item.tickets}}{{$t('esports_kpl32')}}</p>
@@ -39,7 +39,7 @@
             <div v-for="(item,index) in data.list" :key="item">
                 <div class="ranking-bumber flex">
                     <img :src="'/kpl/No'+item.pm+'.png'" alt="">
-                    <img :src="item.imgUrl ? item.imgUrl :'/kpl/header.png'" alt="">
+                    <img :src="item.imgUrl ? formatVideoUrl2(item.imgUrl) :'/kpl/header.png'" alt="">
                     <div>
                       <p>{{item.tickets}}{{$t('esports_kpl32')}}</p>
                     </div>
