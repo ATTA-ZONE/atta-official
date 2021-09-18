@@ -61,7 +61,7 @@
           <img :src="item.imgUrl ? item.imgUrl :'/kpl/headerBanner.png'" alt="">
         </div>
       </div>
-      <button class="ranking-more" :class="isEn?'ranking-more-en':''">{{$t('esports_kpl15_jia2')}}</button>
+      <button @click="jumppage1()" class="ranking-more" :class="isEn?'ranking-more-en':''">{{$t('esports_kpl15_jia2')}}</button>
     </div>
     <!-- 规则 -->
     <div class="kpl-rules margin-auto" :class="isEn?'kpl-rules-en':''">

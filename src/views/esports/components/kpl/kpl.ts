@@ -3,6 +3,7 @@ import { defineComponent,ref ,onMounted,computed} from "vue";
 import { useI18n } from "vue-i18n";
 import axios from "../../../../api";
 import kplRanking from "./components/kplRanking/kplRanking.vue";
+import { useRouter } from "vue-router";
 export default defineComponent({
   components: {kplRanking},
   name: "kpl",
@@ -30,6 +31,7 @@ export default defineComponent({
     const address = ref(''); //0 进行中 1 已结束 2 未开始
     const kplRankingshow = ref(false); //0 进行中 1 已结束 2 未开始
     const contents = ref({}); //0 进行中 1 已结束 2 未开始
+    const router = useRouter();
     // nft奖励部分的数据
     
     const isEn = computed(() => {
@@ -199,6 +201,9 @@ export default defineComponent({
     const toPay = ()=>{
       window.open("https://www.bazhuayu.io/mobile/tc/specialTool.html")
     }
+    const jumppage1 = () => {
+      router.push('/headset');
+    }
     return{
       kplinfo,
       kpllist,
@@ -220,7 +225,8 @@ export default defineComponent({
       exchangemask,
       loading,
       isEn,
-      toPay
+      toPay,
+      jumppage1
     }
   }
 });
