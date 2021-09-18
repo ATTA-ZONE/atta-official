@@ -3,8 +3,8 @@
     <div class="headportraitbox">
         <div class="bannerbox">
             <div class="logobox flex">
-                <a href="/esports/infinity#kplRules" target="_blank"><button>{{$t('faces_1')}}</button></a>
-                <a href="https://www.bazhuayu.io/mobile/tc/specialTool.html" target="_blank"><button>{{$t('faces_2')}}</button></a>
+                <a href="/esports/infinity#kplRules" target="_blank">{{$t('faces_2')}}</a>
+                <a href="https://www.bazhuayu.io/mobile/tc/specialTool.html" target="_blank">{{$t('faces_1')}}</a>
             </div>
         </div>
         <div class="contentbox1 flex">
@@ -87,8 +87,8 @@
             <div class="leftbox leftbox-pc">
                 <p class="titlewords">{{$t('faces_23')}}</p>
                 <p class="content" v-html="$t('faces_24')"></p>
-                <a href="/esports/infinity#kplRules" target="_blank"><button class="btn">{{$t('faces_26')}}</button></a>
-                <a href="https://www.bazhuayu.io/mobile/tc/specialTool.html" target="_blank"><button class="btn">{{$t('faces_25')}}</button></a>
+                <a href="/esports/infinity#kplRules" class="btn" target="_blank">{{$t('faces_26')}}</a>
+                <a href="https://www.bazhuayu.io/mobile/tc/specialTool.html" target="_blank" class="btn">{{$t('faces_25')}}</a>
             </div>
         </div>
         <div class="contentbox7">
