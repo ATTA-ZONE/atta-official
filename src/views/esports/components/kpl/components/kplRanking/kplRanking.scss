@@ -55,7 +55,28 @@
       font-size: 38px;
       line-height: 183.5%;
       text-align: center;
-      margin: 55px auto;
+      margin: 15px auto;
+    }
+    .tipsrankingbox-content{
+      width: 594px;
+    }
+    .type-number{
+      margin-top: 55px;
+      width: 594px;
+      font-size:38px;
+      justify-content: space-between;
+      text-align:center;
+      span{
+        display: block;
+      }
+    }
+    .type-exchange{
+      margin-top: 55px;
+      margin-bottom: 55px;
+      margin-left: -60px;
+      width: 720px;
+      font-size:38px;
+      line-height: 70px;
     }
     .tptkjiajian{
       justify-content: center;
@@ -265,6 +286,25 @@
         .contentwords{
           font-size:16px;
         }
+        .tipsrankingbox-content{
+          width: 270px;
+          .type-number{
+            width: 270px;
+            font-size: 16px;
+            line-height: 30px;
+          }
+          .type-exchange{
+            font-size: 16px;
+            margin-left: 0;
+            width: 270px;
+            padding:0 50px;
+            line-height: 30px;
+            text-align:center;
+            margin-top: 0;
+          }
+        }
+        .type-number{
+        }
         .btnbox{
           flex-wrap: wrap;
           justify-content: center;
@@ -274,6 +314,9 @@
             font-size: 18px;
             padding:0;
             margin-bottom: 16px;
+          }
+          .btn1{
+            border: 2px solid #ddd;
           }
         }
       }

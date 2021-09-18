@@ -49,8 +49,8 @@
         <div v-if="data.rankingtypeshow == 2" class="tipsrankingbox">
             <p class="contentwords" v-if="data.content" v-html="$t(data.content)"></p>
             <p class="smolltips" v-if="data.tips">{{$t(data.tips)}}</p>
-            <div v-if="data.list">
-              <p>
+            <div v-if="data.list" class="tipsrankingbox-content margin-auto">
+              <p class="type-number flex">
                 <span>SR</span>
                 <span>{{data.list.lplNft.SR.length}}{{$t('esports_kpl80')}}</span>
                 <span>R</span>
@@ -58,8 +58,8 @@
                 <span>N</span>
                 <span>{{data.list.lplNft.N.length}}{{$t('esports_kpl80')}}</span>
               </p>
-              <p>{{$t('esports_kpl81')}}{{data.list.points}}{{$t('esports_kpl82')}}</p>
-              <p>{{$t('esports_kpl83')}} {{data.list.amount}} {{$t('esports_kpl84')}}</p>
+              <p class="type-number">{{$t('esports_kpl81')}}{{data.list.points}}{{$t('esports_kpl82')}}</p>
+              <p class="type-exchange">{{$t('esports_kpl83')}} {{data.list.amount}} {{$t('esports_kpl84')}}</p>
             </div>
             <div class="btnbox flex">
               <button @click="confirmbtn" v-if="data.btn1show == 1" class="btn1">{{$t('esports_kpl56')}}</button>
