@@ -1,6 +1,6 @@
 <template>
   <div class="mynftbox" v-loading="loading">
-    <div class="bootomtips">{{$t("bootomtips")}}</div>
+    <div class="bootomtips">{{ $t("bootomtips") }}</div>
     <ul v-if="assetsList?.records && assetsList.records.length > 0">
       <li
         v-for="(item, idx) in assetsList.records"
@@ -209,10 +209,16 @@
       </div>
     </div> -->
     <div class="bzy-e-more" v-if="assetsList.total > 9">
-			<div class="fenyebox flex">
-				<span v-for="(item,index) in assetsList.pages" :key="index" @click="getMoreList(item)" :class="item == current ? 'hightliang' : ''">{{item}}</span>
-			</div>
-		</div>
+      <div class="fenyebox flex">
+        <span
+          v-for="(item, index) in assetsList.pages"
+          :key="index"
+          @click="getMoreList(item)"
+          :class="item == current ? 'hightliang' : ''"
+          >{{ item }}</span
+        >
+      </div>
+    </div>
 
     <!-- modify -->
     <div
@@ -279,28 +285,31 @@ export default defineComponent({
     const current = ref(1);
     const pageSize = ref(9);
     const showMoreInfo = ref(-1);
-    const selectedNftName = ref('');
+    const selectedNftName = ref("");
     const selectedNft = ref();
-    const walletId = ref('');
+    const walletId = ref("");
     const tokenarr: any = ref([]);
     const showTransferModel = ref(false);
     const isErc1155 = ref(false);
-    const modelTitle = ref('');
-    const modelTips = ref('');
-    const transferToAddress = ref('');
+    const modelTitle = ref("");
+    const modelTips = ref("");
+    const transferToAddress = ref("");
     const modifyBtnActive: any = ref({});
     const chainId = ref(0);
     const walletBalance = ref(0);
-    const targetChainId = ref('');
+    const targetChainId = ref("");
     const web3 = ref();
     const loading = ref<boolean>(false);
+    const chainType = ref("BSC");
 
     const isEn = computed(() => {
       return locale.value.trim() == "en";
     });
-    
+
     const blockText = computed(() => {
-      return chainId.value == 1 || chainId.value == 4 ? t('ethchain') : t('blockchain')
+      return chainId.value == 1 || chainId.value == 4
+        ? t("ethchain")
+        : t("blockchain");
     });
 
     const getAssetsList = (arr) => {
@@ -311,7 +320,7 @@ export default defineComponent({
           pageSize: pageSize.value,
           tokenIds: arr,
           lang: bool,
-          chainType: window.chainType,
+          chainType: chainType.value,
         })
         .then((res: any) => {
           if (res.code == 0) {
@@ -320,14 +329,96 @@ export default defineComponent({
           }
         });
     };
+    const getEthList = () => {
+      let targetChainId = 1;
+      var scansite_base_url = "";
+      if (window.location.href.indexOf("atta.zone") == -1) {
+        targetChainId = 4;
+        scansite_base_url = "https://api-rinkeby.etherscan.io";
+      } else {
+        targetChainId = 1;
+        scansite_base_url = "https://api-eth.etherscan.io";
+      }
+      const auctionAddress2 =
+        chainSetting["contractSetting"]["eth_NFT"][targetChainId].address;
+      const requestUrl =
+        scansite_base_url +
+        "/api?module=account&action=tokennfttx&contractaddress=" +
+        auctionAddress2 +
+        "&address=" +
+        walletId.value +
+        "&sort=desc&apikey=B6E489JHYYK4T1AHTGPI3HHRCSD2VX18X4";
 
-    const geteveryqkl = () => {
+      axios.get(requestUrl).then((res2: any) => {
+        let nftData = res2.result;
+        if (!nftData || nftData.length < 1 || !Array.isArray(nftData)) {
+          loading.value = false;
+          return false;
+        }
+        let obj = {};
+        let arr: any = [];
+        for (let i = 0; i < nftData.length; i++) {
+          const token: any = nftData[i].tokenID;
+          const nft: any = nftData[i];
+          if (!obj[token]) {
+            obj[token] = true;
+            let jsonData = {
+              tokenID: token,
+              listdata: [nft],
+              tojia: 0,
+              fromjian: 0,
+            } as any;
+            arr.push(jsonData);
+          } else {
+            arr.forEach((item: any) => {
+              if (item.tokenID == nftData[i].tokenID) {
+                item.listdata.push(nftData[i]);
+              }
+            });
+          }
+        }
+        arr.forEach((item: any) => {
+          item.listdata.forEach((json) => {
+            if (json.to.toUpperCase() == walletId.value.toUpperCase()) {
+              item.tojia += 1;
+            }
+            if (json.from.toUpperCase() == walletId.value.toUpperCase()) {
+              item.fromjian -= 1;
+            }
+          });
+          item.jsnum = item.tojia + item.fromjian;
+          if (item.jsnum == 1) {
+            tokenarr.value.push(item.tokenID);
+          }
+        });
+
+        getAssetsList(tokenarr.value);
+      });
+    };
+
+    const getBusdList = () => {
       let auctionAddress =
         chainSetting["contractSetting"]["atta_ERC721"][targetChainId.value]
           .address;
-      let auctionAddress2 = chainSetting["contractSetting"]['blindbox_ERC721'][targetChainId.value].address;
-      let requestUrl = window.scansite_base_url + "/api?module=account&action=tokennfttx&contractaddress=" +auctionAddress +"&address=" +walletId.value +"&sort=desc&apikey=" + window.apikey;
-      let requestUrl2 = window.scansite_base_url + "/api?module=account&action=tokennfttx&contractaddress=" +auctionAddress2 +"&address=" +walletId.value +"&sort=desc&apikey=" + window.apikey;
+      let auctionAddress2 =
+        chainSetting["contractSetting"]["blindbox_ERC721"][targetChainId.value]
+          .address;
+      let requestUrl =
+        window.scansite_base_url +
+        "/api?module=account&action=tokennfttx&contractaddress=" +
+        auctionAddress +
+        "&address=" +
+        walletId.value +
+        "&sort=desc&apikey=" +
+        window.apikey;
+      let requestUrl2 =
+        window.scansite_base_url +
+        "/api?module=account&action=tokennfttx&contractaddress=" +
+        auctionAddress2 +
+        "&address=" +
+        walletId.value +
+        "&sort=desc&apikey=" +
+        window.apikey;
 
       axios.get(requestUrl).then((res: any) => {
         axios.get(requestUrl2).then((res2: any) => {
@@ -379,16 +470,30 @@ export default defineComponent({
       });
     };
 
+    const getNftLists = () => {
+      window.CHAIN.WALLET.chainId().then((res) => {
+        if (res) {
+          if (res == 1 || res == 4) {
+            chainType.value = "ETH";
+            getEthList();
+          } else {
+            chainType.value = "BSC";
+            getBusdList();
+          }
+        }
+      });
+    };
+
     const getAccount = async () => {
       chainId.value = await window.CHAIN.WALLET.chainId();
       const accounts = await window.CHAIN.WALLET.enable();
       loading.value = true;
-      
+
       if (accounts[0]) {
         walletId.value = accounts[0];
         transferToAddress.value = accounts[0];
         initAccount();
-        geteveryqkl();
+        getNftLists();
       } else {
         getAssetsList([]);
       }
@@ -404,16 +509,16 @@ export default defineComponent({
       }
       switch (chainId.value) {
         case 1:
-          targetChainId.value = '1';
+          targetChainId.value = "1";
           break;
         case 4:
-          targetChainId.value = '4';
+          targetChainId.value = "4";
           break;
         case 56:
-          targetChainId.value = '56';
+          targetChainId.value = "56";
           break;
         case 97:
-          targetChainId.value = '97';
+          targetChainId.value = "97";
           break;
       }
       if (chainId.value > 4) {
@@ -446,10 +551,10 @@ export default defineComponent({
     });
 
     const getMoreList = (num) => {
-			let dom = document.body;
+      let dom = document.body;
       current.value = num;
       getAssetsList(tokenarr.value);
-			dom.scrollIntoView(true);
+      dom.scrollIntoView(true);
     };
 
     const formatVideoUrl = (item) => {
@@ -478,11 +583,9 @@ export default defineComponent({
     const getIntroduce = (item, content, str) => {
       var s = t(str);
       if (content === "desc") {
-        return item.introduce == ""
-          ? s
-          : item.introduce.replace(/;\|;/g, "<br/>");
+        return item.introduce ? item.introduce.replace(/;\|;/g, "<br/>") : s;
       } else {
-        return item.content == "" ? s : item.content.replace(/;\|;/g, "<br/>");
+        return item.content ? item.content.replace(/;\|;/g, "<br/>") : s;
       }
     };
 
@@ -503,9 +606,9 @@ export default defineComponent({
       if (chainId.value != Number(targetChainId.value)) {
         window.CHAIN.WALLET.switchRPCSettings(targetChainId.value);
       }
-      const ERC721Address: any = obj.contract; 
+      const ERC721Address: any = obj.contract;
 
-        // chainSetting["contractSetting"]["atta_ERC721"][chainId.value].address; // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
+      // chainSetting["contractSetting"]["atta_ERC721"][chainId.value].address; // 监听 网络切换 会 让 用户 处于 正确的网络，这里 只负责 配置 当前网络下正确的 合约地址
       var ERC721ABI = chainSetting["contractSetting"]["atta_ERC721"]["abi"];
       var ERC721ContractInstance = new web3.value.eth.Contract(
         ERC721ABI,
@@ -630,7 +733,7 @@ export default defineComponent({
       showTransferModel,
       downloadFile,
       loading,
-      blockText
+      blockText,
     };
   },
 });
