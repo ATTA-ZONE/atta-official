@@ -200,9 +200,18 @@
           line-height: 55px;
           &.award-right-en{
             padding-top: 55px;
+            line-height: 45px;
             span{
               font-size:36px;
               line-height: 36px;
+              border-bottom: 2px solid #fff;
+            }
+          }
+          &.award-right-en-en{
+            padding-top: 25px;
+            line-height: 45px;
+            span{
+              font-size:36px;
               border-bottom: 2px solid #fff;
             }
           }
@@ -237,6 +246,12 @@
       line-height: 45px;
       color:#fff;
     }
+    &.rank-header-en{
+      button{
+        font-size:18px;
+        width: 170px;
+      }
+    }
   }
   .rank-list{
     margin-top: 60px;
@@ -257,6 +272,13 @@
         margin-top: 47px;
       }
     }
+    &.rank-list-en{
+      p{
+        font-size:18px;
+        line-height: 23px;
+        padding:0 10px;
+      }
+    }
   }
   .ranking-more{
     margin-top: 50px;
@@ -270,6 +292,9 @@
     color: #000;
     border:0;
     background-color: #fff;
+    &.ranking-more-en{
+      width: 300px;
+    }
   }
 }
 .kpl-rules{
@@ -312,6 +337,15 @@
     justify-content: space-between;
     align-items:center;
     padding:0 76px;
+  }
+  &.kpl-rules-en{
+    p{
+      text-align: left;
+    }
+    button{
+      font-size: 18px;
+      width: 180px;
+    }
   }
 }
 .kpl-mask{
@@ -356,6 +390,13 @@
   .banner-02{
     background: url('/kpl/mask02.png') center no-repeat;
     background-size: cover;
+  }
+  &.kpl-mask-en{
+    .mask-header{
+      button{
+        width: 200px;
+      }
+    }
   }
 }
 .kpl-schedule{
@@ -547,6 +588,18 @@ div.kpl-notice-header{
       }
     }
   }
+  &.kpl-notice-en{
+    .notice-btn{
+      .notice-right{
+        button{
+          width: 210px;
+        }
+        .btn-right{
+          width: 270px;
+        }
+      }
+    }
+  }
 }
 .kpl-award{
   width: 1100px;
@@ -572,7 +625,7 @@ div.kpl-notice-header{
       p{
         font-weight: 500;
         font-size: 24px;
-        line-height: 100%;
+        line-height: 27px;
         color:#fff;
       }
     }
@@ -645,6 +698,16 @@ div.kpl-notice-header{
         position:absolute;
         right: 19px;
         top: 68px;
+      }
+    }
+  }
+  &.kpl-nft-en{
+    div{
+      p{
+        font-weight:100 !important;
+      }
+      p.nft-win{
+        font-size: 20px;
       }
     }
   }
@@ -729,6 +792,7 @@ div.kpl-notice-header{
         }
       }
       .cooperate-info{
+        width: 215px;
         padding-left: 30px;
         padding-top: 32px;
         i{
@@ -747,6 +811,23 @@ div.kpl-notice-header{
           font-weight: 900;
           font-size: 18px;
           padding-top: 20px;
+        }
+      }
+    }
+  }
+  &.kpl-cooperate-en{
+    .cooperate-list{
+      .cooperate {
+        .cooperate-info{
+          padding-top: 22px;
+          .cooperate-title{
+            font-weight: 100;
+            font-size: 22px;
+          }
+          .cooperate-text{
+            font-weight: 100;
+            font-size: 14px;
+          }
         }
       }
     }
