@@ -64,9 +64,9 @@
             <div v-if="data.list2" class="tipsrankingbox-content margin-auto">
               <p class="type-number flex type-block">
                 <span v-if="data.type == 1">{{data.unclaimed}}{{$t('esports_kpl80')}}</span>
-                <span v-if="data.type == 2">{{$t('esports_kpl93')}}{{data.unclaimed[0]}}{{$t('esports_kpl80')}}</span>
-                <span v-if="data.type == 2">{{$t('esports_kpl94')}}{{data.unclaimed[1]}}{{$t('esports_kpl80')}}</span>
-                <span v-if="data.type == 2">{{$t('esports_kpl95')}}{{data.unclaimed[2]}}{{$t('esports_kpl80')}}</span>
+                <span v-if="data.type == 2 && data.unclaimed[0] > 0">{{$t('esports_kpl93')}}{{data.unclaimed[0]}}{{$t('esports_kpl80')}}</span>
+                <span v-if="data.type == 2 && data.unclaimed[1] > 0">{{$t('esports_kpl94')}}{{data.unclaimed[1]}}{{$t('esports_kpl80')}}</span>
+                <span v-if="data.type == 2 && data.unclaimed[2] > 0">{{$t('esports_kpl95')}}{{data.unclaimed[2]}}{{$t('esports_kpl80')}}</span>
                 <span>{{$t('esports_kpl89')}}{{data.ticketAmount}}{{$t('esports_kpl90')}}</span>
               </p>
             </div>
