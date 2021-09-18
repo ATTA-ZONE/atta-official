@@ -94,7 +94,7 @@
               <button @click="collectvotingticketsbtn(1)" v-if="data.btn1show == 2" class="btn2">{{$t('esports_kpl59')}}</button><!-- ATTA面具 -->
               <button @click="closeNet" v-if="data.btn2show == 1" class="btn2">{{$t('esports_kpl55')}}</button> <!-- 知道了 -->
               <button @click="collectvotingticketsbtn(2)" v-if="data.btn2show == 6" class="btn2">{{$t('esports_kpl61')}}</button><!-- Loot 入場券 -->
-              <button @click="confirmbtn" v-if="data.btn2show == 7" class="btn2">{{$t('esports_kpl62')}}</button><!-- 前往投票 -->
+              <button @click="closeNet" v-if="data.btn2show == 7" class="btn2">{{$t('esports_kpl62')}}</button><!-- 前往投票 -->
               <button @click="submitbtn" v-if="data.btn2show == 8" class="btn2">{{$t('esports_kpl71')}}</button> <!-- 提交 -->
               <button @click="confirmbtn" v-if="data.btn2show == 9" class="btn2">{{$t('esports_kpl77')}}</button> <!-- 确认 -->
             </div>
