@@ -62,7 +62,7 @@
               <p>{{$t('esports_kpl83')}} {{data.list.amount}} {{$t('esports_kpl84')}}</p>
             </div>
             <div class="btnbox flex">
-              <button @click="confirmbtn" v-if="data.btn1show == 1" class="btn1">{{$t('esports_kpl56')}}</button>
+              <button @click="closeNet" v-if="data.btn1show == 1" class="btn1">{{$t('esports_kpl56')}}</button>
               <!-- <button @click="confirmbtn" v-if="data.btn2show == 1" class="btn2">{{$t('esports_kpl55')}}</button> -->
               <!-- <button @click="confirmbtn" v-if="data.btn2show == 2" class="btn2">{{$t('esports_kpl57')}}</button> -->
               <button @click="exchangenowbtn" v-if="data.btn2show == 3 && data.list.amount > 0" class="btn2">{{$t('esports_kpl58')}}</button><!-- 現在兌換 -->
