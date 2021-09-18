@@ -19,26 +19,21 @@
             left: 0;
             right: 0;
             margin: auto;
-            justify-content: space-between;
-            width: 680px;
+            justify-content: center;
             a{
-                width: 240px;
-            }
-            button{
                 cursor: pointer !important;
                 background: transparent;
                 background-image: url('/imgs/headportrait_imgs3.png');   
                 border: none;
-                width: 240px;
                 height: 70px;
                 padding: 0 15px;
+                line-height: 70px;
                 background-size: 100% 100%;
                 font-weight: 500;
                 font-size: 32px;
-                line-height: 45px;
                 color: #fff;
             }
-            button:nth-child(1){
+            a:nth-child(1){
                 margin-right: 200px;
             }
         }   
@@ -70,6 +65,7 @@
                 font-size: 18px;
                 line-height: 150%;
                 text-align: justify;
+                margin-bottom: 50px;
             }
             &.leftbox-media{
                 display: none;
@@ -188,18 +184,14 @@
             height: 211px;
             background-repeat: repeat;
             .logobox{
-                padding:0 65px;
+                padding:0 15px;
                 justify-content:space-between;
                 bottom:16px;
                 width: 100%;
                 a{
-                    width: 100px; 
-                }
-                button{ 
                     margin: 0 !important;
-                    width: 100px;
                     height:30px;
-                    font-size: 14px;
+                    font-size: 12px;
                     line-height: 30px;
                 }
             }
@@ -294,11 +286,11 @@
             img{
                 margin-top: 30px;
             }
-            button{
+            a{
                 margin-left: auto !important;
                 margin-right: auto !important;
-                width: 153px;
                 height:43px;
+                line-height: 43px;
                 display: block;
                 font-size: 16px !important;
                 margin-top: 16px !important;
