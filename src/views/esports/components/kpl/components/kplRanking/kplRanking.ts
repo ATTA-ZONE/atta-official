@@ -60,7 +60,6 @@ export default defineComponent({
       chainId.value = await window.CHAIN.WALLET.chainId();
       let arr = data.value.list.lplNft.SR.concat(data.value.list.lplNft.R,data.value.list.lplNft.N);
       let arr2 = [];
-      debugger
       arr.forEach(item => {
         if (chainId.value == 97) {
           arr2.push('0xc591be7A2f0999E0de9Edab0e07bddD4E1ee954f');
