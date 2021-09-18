@@ -43,27 +43,28 @@
             <p class="award-left" style="font-size:20px;">
               <img src="/kpl/BATTLEREWARD.png" alt="">
             </p>
-            <p class="award-right" v-if="kplinfo[showkplindex]">{{$t('esports_kpl12')}} <span>{{kplinfo[showkplindex].curRewardPool}}U</span> {{$t('esports_kpl13')}} <span>NFT</span></p>
+            <p class="award-right" v-if="kplinfo[showkplindex] && !isEn">{{$t('esports_kpl12')}} <span>{{kplinfo[showkplindex].curRewardPool}}U</span> {{$t('esports_kpl13')}} <span>NFT</span></p>
+            <p class="award-right award-right-en-en" v-if="kplinfo[showkplindex] && isEn"><span>{{$t('esports_kpl13')}}</span></p>
           </div>
         </div>
       </div>
     </div>
     <!-- 排行 -->
     <div class="kpl-ranking margin-auto">
-      <div class="rank-header flex">
+      <div class="rank-header flex" :class="isEn?'rank-header-en':''">
         <p>{{$t('esports_kpl14')}}</p>
         <button @click="getkplph()">{{$t('esports_kpl15')}}</button>
       </div>
-      <div class="rank-list flex">
+      <div class="rank-list flex" :class="isEn?'rank-list-en':''">
         <div class="ranking" v-for="(item,index) in kpllist" :key="index">
           <p>{{$t('esports_kpl15_jia')}}NO.{{item.pm}}</p>
           <img :src="item.imgUrl ? item.imgUrl :'/kpl/headerBanner.png'" alt="">
         </div>
       </div>
-      <button class="ranking-more">{{$t('esports_kpl15_jia2')}}</button>
+      <button class="ranking-more" :class="isEn?'ranking-more-en':''">{{$t('esports_kpl15_jia2')}}</button>
     </div>
     <!-- 规则 -->
-    <div class="kpl-rules margin-auto">
+    <div class="kpl-rules margin-auto" :class="isEn?'kpl-rules-en':''">
       <h5 v-html="$t('esports_kpl16')"></h5>
       <img class="bgi01" src="/kpl/bgi01.png" alt="">
       <p v-html="$t('esports_kpl17')"></p>
@@ -75,7 +76,7 @@
       </div>
     </div>
     <!-- 面具 -->
-    <div class="kpl-mask">
+    <div class="kpl-mask" :class="isEn?'kpl-mask-en':''">
       <div class="mask-header margin-auto">
         <p>{{$t('esports_kpl17_jia1')}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
@@ -103,7 +104,7 @@
         <img :class="showkplindex != kplinfo.length - 1 ? 'up-next' : 'up-next hideimg'" src="/kpl/next.png" alt="" @click="nextclick(showkplindex)">
       </div>
     </div>
-    <div class="kpl-notice kpl-notice-bgi  margin-auto">
+    <div class="kpl-notice kpl-notice-bgi  margin-auto" :class="isEn?'kpl-notice-en':''">
       <div class="notice-team margin-auto flex">
         <div class="team">
           <div class="team-top flex">
@@ -144,11 +145,11 @@
       </div>
     </div>
     <!-- 倒计时 -->
-    <div class="kpl-countdown margin-auto flex" v-if="kplbsstatus == 2">
+    <div class="kpl-countdown margin-auto flex" :class="isEn?'kpl-countdown-en':''" v-if="kplbsstatus == 2">
       <p class="countdown-name">{{$t('esports_kpl67')}}</p>
       <p class="countdown-date hanson">156h:56m:23s</p>
     </div>
-    <div class="kpl-notice margin-auto">
+    <div class="kpl-notice margin-auto" :class="isEn?'kpl-notice-en':''">
       <div class="notice-btn margin-auto flex">
         <div class="notice-left flex">
           <img :class="showkplindex != 0 ? 'up-next' : 'up-next hideimg'" src="/kpl/up.png" alt="" @click="beforeclick(showkplindex)">
@@ -204,7 +205,7 @@
       </div>
     </div>
     <!-- NFT奖励 -->
-    <div class="kpl-nft kpl-title margin-auto">
+    <div class="kpl-nft kpl-title margin-auto" :class="isEn?'kpl-nft-en':''">
       <h5>{{$t('esports_kpl36')}}</h5>
       <p>{{$t('esports_kpl64')}}</p>
       <div class="nft-list flex" v-if="kplinfo[showkplindex]">
@@ -256,7 +257,7 @@
       </div>
     </div>
     <!-- 大会合作伙伴 -->
-    <div class="kpl-cooperate margin-auto">
+    <div class="kpl-cooperate margin-auto" :class="isEn?'kpl-cooperate-en':''">
       <div class="kpl-welcome flex">
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
         <p>{{$t('esports_kpl48')}}</p>

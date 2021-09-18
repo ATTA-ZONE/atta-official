@@ -1,6 +1,7 @@
 
-import { defineComponent,onMounted,ref } from "vue";
+import { defineComponent,onMounted,ref,computed } from "vue";
 import { chainSetting } from "@/assets/js/chainSetting";
+import { useI18n } from "vue-i18n";
 import axios from "@/api";
 export default defineComponent({
   name: "kplRanking",
@@ -8,6 +9,10 @@ export default defineComponent({
     contents : Object
   },
   setup(props, context){
+    const { locale, t } = useI18n();
+    const isEn = computed(() => {
+      return locale.value.trim() == "en";
+    });
     const titletipsRef = ref(null);
     const tipNone = ref(false);
     const chainId = ref(0);
@@ -41,6 +46,9 @@ export default defineComponent({
     const submitbtn = () => {
       data.value.titletips = 'esports_kpl75';
       data.value.content = `您選擇了${data.value.tpnum}個投票券，請確認`;
+      if(isEn){
+        data.value.content = `You’ve selected ${data.value.tpnum} voting voucher(s)，please confirm`;
+      }
       data.value.rankingtypeshow = 4;
       data.value.btn1show = '1';
       data.value.btn2show = '9';
