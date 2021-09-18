@@ -3,33 +3,47 @@
     <div class="headportraitbox">
         <div class="bannerbox">
             <div class="logobox flex">
-                <button>{{$t('faces_1')}}</button>
-                <button>{{$t('faces_2')}}</button>
+                <a href="/esports/infinity#kplRules" target="_blank"><button>{{$t('faces_1')}}</button></a>
+                <a href="https://www.bazhuayu.io/mobile/tc/specialTool.html" target="_blank"><button>{{$t('faces_2')}}</button></a>
             </div>
         </div>
         <div class="contentbox1 flex">
+            <div class="leftbox leftbox-media">
+                <p class="titlewords">{{$t('faces_3')}}</p>
+                <p class="tipswords">{{$t('faces_4')}}</p>
+            </div>
             <img src="/imgs/headportrait_imgs2.png" alt="">
-            <div class="leftbox">
+            <div class="leftbox leftbox-pc">
                 <p class="titlewords">{{$t('faces_3')}}</p>
                 <p class="tipswords">{{$t('faces_4')}}</p>
                 <p class="content" v-html="$t('faces_5')"></p>
             </div>
         </div>
         <div class="contentbox1 flex">
-            <div class="leftbox">
+            <div class="leftbox leftbox-media">
                 <p class="titlewords">{{$t('faces_6')}}</p>
                 <p class="tipswords">{{$t('faces_7')}}</p>
                 <p class="content" v-html="$t('faces_8')"></p>
             </div>
             <img src="/imgs/headportrait_imgs4.png" alt="">
+            <div class="leftbox leftbox-pc">
+                <p class="titlewords">{{$t('faces_6')}}</p>
+                <p class="tipswords">{{$t('faces_7')}}</p>
+                <p class="content" v-html="$t('faces_8')"></p>
+            </div>
         </div>
-        <div class="contentbox1 flex">
-            <div class="leftbox">
+        <div id="kplRules" class="contentbox1 flex">
+            <div class="leftbox leftbox-media">
                 <p class="titlewords">{{$t('faces_9')}}</p>
                 <p class="tipswords">{{$t('faces_10')}}</p>
                 <p class="content" v-html="$t('faces_11')"></p>
             </div>
             <img src="/imgs/headportrait_imgs5.png" alt="">
+            <div class="leftbox leftbox-pc">
+                <p class="titlewords">{{$t('faces_9')}}</p>
+                <p class="tipswords">{{$t('faces_10')}}</p>
+                <p class="content" v-html="$t('faces_11')"></p>
+            </div>
         </div>
         <div class="contentbox5">
             <h1>{{$t('faces_12')}}</h1>
@@ -66,12 +80,15 @@
             </div>
         </div>
         <div class="contentbox1 contentbox6_jian flex">
+            <div class="leftbox leftbox-media">
+                <p class="titlewords">{{$t('faces_23')}}</p>
+            </div>
             <img src="/imgs/headportrait_imgs11.png" alt="">
-            <div class="leftbox">
+            <div class="leftbox leftbox-pc">
                 <p class="titlewords">{{$t('faces_23')}}</p>
                 <p class="content" v-html="$t('faces_24')"></p>
-                <button class="btn">{{$t('faces_25')}}</button>
-                <button class="btn">{{$t('faces_26')}}</button>
+                <a href="/esports/infinity#kplRules" target="_blank"><button class="btn">{{$t('faces_26')}}</button></a>
+                <a href="https://www.bazhuayu.io/mobile/tc/specialTool.html" target="_blank"><button class="btn">{{$t('faces_25')}}</button></a>
             </div>
         </div>
         <div class="contentbox7">

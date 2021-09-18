@@ -177,6 +177,13 @@ export default defineComponent({
       }else{
         getkpllistdata();
       }
+      if(window.location.hash){
+        setTimeout(()=>{
+          if(document.getElementById("kplRules")){
+            document.getElementById("kplRules").scrollIntoView();
+          }
+        },500)
+      }
     })
     const ljwatter = () => {
       window.CHAIN.WALLET.enable().then((res) => {
