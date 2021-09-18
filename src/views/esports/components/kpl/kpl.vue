@@ -64,7 +64,7 @@
       <button @click="jumppage1()" class="ranking-more" :class="isEn?'ranking-more-en':''">{{$t('esports_kpl15_jia2')}}</button>
     </div>
     <!-- 规则 -->
-    <div class="kpl-rules margin-auto" :class="isEn?'kpl-rules-en':''">
+    <div id="kplRules" class="kpl-rules margin-auto" :class="isEn?'kpl-rules-en':''">
       <h5 v-html="$t('esports_kpl16')"></h5>
       <img class="bgi01" src="/kpl/bgi01.png" alt="">
       <p v-html="$t('esports_kpl17')"></p>
