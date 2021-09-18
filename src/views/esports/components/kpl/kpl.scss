@@ -22,6 +22,7 @@
       width:46px;
       height:46px;
       margin-right: 8px;
+      border-radius: 50%;
     }
     div{
       height: 46px;
@@ -501,6 +502,7 @@ div.kpl-notice-header{
           img{
             width: 50px;
             height:50px;
+            border-radius: 50%;
             margin-bottom: 10px;
           }
         }
@@ -708,6 +710,12 @@ div.kpl-notice-header{
         position:absolute;
         right: 19px;
         top: 68px;
+        clip-path: polygon( 0px 0, calc(100% - 25px) 0, 100% 25px,
+        100% calc(100% - 0px), calc(100% - 25px) 100%,
+        0px 100%,
+        0 calc(100% - 0px),
+        0 25px
+    );
       }
     }
   }
@@ -888,6 +896,7 @@ div.kpl-notice-header{
           img{
             width: 38px;
             height: 38px;
+            border-radius: 50%;
           }
           div{
             height: 38px;
@@ -1358,6 +1367,12 @@ div.kpl-notice-header{
             height: 90px;
             right:12px;
             top: 44px;
+            clip-path: polygon( 0px 0, calc(100% - 15px) 0, 100% 15px,
+            100% calc(100% - 0px), calc(100% - 15px) 100%,
+            0px 100%,
+            0 calc(100% - 0px),
+            0 15px
+        );
           }
           div{
             .nft-from{
@@ -1405,6 +1420,7 @@ div.kpl-notice-header{
             img{
               width: 38px;
               height: 38px;
+              border-radius: 50%;
             }
             div{
               height: 38px;
