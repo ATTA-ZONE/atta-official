@@ -52,7 +52,14 @@ export default defineComponent({
       chainId.value = await window.CHAIN.WALLET.chainId();
       let arr = data.value.list.lplNft.SR.concat(data.value.list.lplNft.R,data.value.list.lplNft.N);
       let arr2 = [];
-      arr.forEach(item => {arr2.push(data.value.address);});
+      debugger
+      arr.forEach(item => {
+        if (chainId.value == 97) {
+          arr2.push('0xc591be7A2f0999E0de9Edab0e07bddD4E1ee954f');
+        }else{
+          arr2.push('0xf576BB0862b53bd5fd55f8E3cd956119aB34a89E');
+        }
+      });
       const web3 = new window.Web3(window.CHAIN.WALLET.provider());
       chainId.value = web3.utils.hexToNumber(chainId.value);
       switch (chainId.value) {
@@ -105,6 +112,37 @@ export default defineComponent({
         }
       });
     }
+    const collectvotingticketsbtn = (type) => {
+      axios
+      .post(window.base_url + "/attaExchange/getUnclaimedInfo", {
+        "address": data.value.address,
+        "type": type,//1   2
+      })
+      .then((res: any) => {
+        if (res.code == 0) {
+          debugger
+          if (type == 1) {
+            data.value.titletips = 'esports_kpl53';
+            data.value.content = 'esports_kpl78';
+            data.value.rankingtypeshow = 2;
+            data.value.btn1show = '1';//999 不展示此按钮
+            data.value.btn2show = '3';
+            data.value.tips = 'esports_kpl79';
+            data.value.list2 = res.data;
+            
+          }else{
+            data.value.titletips = 'esports_kpl53';
+            data.value.content = 'esports_kpl78';
+            data.value.rankingtypeshow = 2;
+            data.value.btn1show = '1';//999 不展示此按钮
+            data.value.btn2show = '2';
+            data.value.tips = 'esports_kpl79';
+            data.value.list2 = res.data;
+          }
+          console.log(res.data);
+        }
+      });
+    }
     return{
       title1 : 'esports_kpl51', 
       title2 : 'esports_kpl53', 
@@ -116,6 +154,7 @@ export default defineComponent({
       submitbtn,
       exchangenowbtn,
       dycallinterface,
+      collectvotingticketsbtn,
       titletipsRef,
       tipNone
       }

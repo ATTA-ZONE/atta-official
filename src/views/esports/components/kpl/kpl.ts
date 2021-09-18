@@ -117,17 +117,11 @@ export default defineComponent({
         ljwatter();
       }
     }
+    // 领取投票券
     const collectcouponsbtn = () => {
-      axios
-      .post(window.base_url + "/attaExchange/getUnclaimedInfo", {
-        "address": address.value,
-        "type": 2,//1   2
-      })
-      .then((res: any) => {
-        if (res.code == 0) {
-          console.log(res.data);
-        }
-      });
+      let data = {titletips : 'esports_kpl86',rankingtypeshow : 3,btn1show : '2',btn2show : '6',address : address.value};
+      kplRankingshow.value = true;
+      contents.value = data;
     }
     // 点击 兌換面具
     const exchangemask = () => {
