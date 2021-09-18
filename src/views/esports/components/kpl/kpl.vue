@@ -56,7 +56,7 @@
         <button @click="getkplph()">{{$t('esports_kpl15')}}</button>
       </div>
       <div class="rank-list flex" :class="isEn?'rank-list-en':''">
-        <div class="ranking" v-for="(item,index) in kpllist" :key="index">
+        <div class="ranking" v-for="(item,index) in kplpmfour" :key="index">
           <p>{{$t('esports_kpl15_jia')}}NO.{{item.pm}}</p>
           <img :src="item.imgUrl ? item.imgUrl :'/kpl/headerBanner.png'" alt="">
         </div>
@@ -185,20 +185,34 @@
       <h5>{{$t('esports_kpl35')}}</h5>
       <div class="voting-ranking flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length">
         <div class="voting-ranking-list">
-          <div class="ranking-bumber flex" v-for="item in kplinfo[showkplindex].attaMatchOptions[0].betTop3" :key="item">
+          <div v-if="kplinfo[showkplindex].attaMatchOptions[0].betTop3.length" class="ranking-bumber flex" v-for="item in kplinfo[showkplindex].attaMatchOptions[0].betTop3" :key="item">
             <img :src="'/kpl/No'+item.pm+'.png'" alt="">
             <img :src="item.imgUrl ? item.imgUrl :'/kpl/header.png'" alt="">
             <div>
               <p>{{item.tickets}}{{$t('esports_kpl32')}}</p>
             </div>
           </div>
+          <div v-else class="ranking-bumber flex" v-for="(item,index) in 3" :key="index">
+            <img :src="'/kpl/No'+(index + 1)+'.png'" alt="">
+            <img :src="item.imgUrl ? item.imgUrl :'/kpl/header.png'" alt="">
+            <div>
+              <p>{{$t('esports_kpl32_jia')}}</p>
+            </div>
+          </div>
         </div>
         <div class="voting-ranking-list">
-          <div class="ranking-bumber flex" v-for="item in kplinfo[showkplindex].attaMatchOptions[1].betTop3" :key="item">
+          <div v-if="kplinfo[showkplindex].attaMatchOptions[1].betTop3.length" class="ranking-bumber flex" v-for="item in kplinfo[showkplindex].attaMatchOptions[1].betTop3" :key="item">
             <img :src="'/kpl/No'+item.pm+'.png'" alt="">
             <img :src="item.imgUrl ? item.imgUrl :'/kpl/header.png'" alt="">
             <div>
               <p>{{item.tickets}}{{$t('esports_kpl32')}}</p>
+            </div>
+          </div>
+          <div v-else class="ranking-bumber flex" v-for="(item,index) in 3" :key="index">
+            <img :src="'/kpl/No'+(index + 1)+'.png'" alt="">
+            <img :src="item.imgUrl ? item.imgUrl :'/kpl/header.png'" alt="">
+            <div>
+              <p>{{$t('esports_kpl32_jia')}}</p>
             </div>
           </div>
         </div>

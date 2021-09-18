@@ -9,6 +9,16 @@ export default defineComponent({
   props: {
     msg: String,
   },
+  data(){
+    return {
+      kplpmfour : [
+        {imgUrl : '/kpl/kpl_img1.png',pm : 1},
+        {imgUrl : '/kpl/kpl_img2.png',pm : 2},
+        {imgUrl : '/kpl/kpl_img2.png',pm : 3},
+        {imgUrl : '/kpl/kpl_img2.png',pm : 4},
+      ]
+    }
+  },
   setup(){
     const loading = ref(false)
     //战队头像
