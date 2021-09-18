@@ -40,16 +40,16 @@ const routes = [
     path: "/esports",
     name: "esports",
     component: Esports,
-    redirect: '/esports/kpl',
+    redirect: '/esports/infinity',
     children: [
       {
-        path: 'lpl',
-        name:'lpl',
+        path: 'lol',
+        name:'lol',
         component: lpl
       },
       {
-        path: 'kpl',
-        name: 'kpl',
+        path: 'infinity',
+        name: 'infinity',
         component: kpl,
       }
     ]

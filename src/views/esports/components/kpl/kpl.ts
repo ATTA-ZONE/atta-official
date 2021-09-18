@@ -109,9 +109,9 @@ export default defineComponent({
           contents.value = data;
           
         }else{
-          let data = {titletips : 'esports_kpl68',content : '<span class="framethreejumppage">戳→  <a style="color: #a9deee;">bazhuayu.io</a>   立刻購買</span>',rankingtypeshow : 3,btn2show : '1'};
+          let data = {titletips : 'esports_kpl68',content : '<span class="framethreejumppage">戳→  <a href="https://www.bazhuayu.io/mobile/tc/specialTool.html" target="_blank" style="color: #a9deee;">bazhuayu.io</a>   立刻購買</span>',rankingtypeshow : 3,btn2show : '1'};
           if(isEn.value){
-            data = {titletips : 'esports_kpl68',content : '<span class="framethreejumppage">Visit  <a style="color: #a9deee;">bazhuayu.io</a>   to purchase</span>',rankingtypeshow : 3,btn2show : '1'};
+            data = {titletips : 'esports_kpl68',content : '<span class="framethreejumppage">Visit  <a style="color: #a9deee;" href="https://www.bazhuayu.io/mobile/tc/specialTool.html" target="_blank">bazhuayu.io</a>   to purchase</span>',rankingtypeshow : 3,btn2show : '1'};
           }
           kplRankingshow.value = true;
           contents.value = data;
@@ -186,6 +186,9 @@ export default defineComponent({
           }
         });
     };
+    const toPay = ()=>{
+      window.open("https://www.bazhuayu.io/mobile/tc/specialTool.html")
+    }
     return{
       kplinfo,
       kpllist,
@@ -206,7 +209,8 @@ export default defineComponent({
       confirmbtn,
       exchangemask,
       loading,
-      isEn
+      isEn,
+      toPay
     }
   }
 });

@@ -160,7 +160,7 @@
         </div>
         <div class="notice-right">
           <button @click="collectcouponsbtn()">{{$t('esports_kpl27')}}</button>
-          <button class="btn-right">{{$t('esports_kpl28')}}</button>
+          <button @click="toPay" class="btn-right">{{$t('esports_kpl28')}}</button>
         </div>
       </div>
     </div>
