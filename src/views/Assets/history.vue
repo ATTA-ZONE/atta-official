@@ -217,7 +217,9 @@ export default defineComponent({
           targetChainId.value = "97";
           break;
       }
-      getNftHistory();
+      if (chainId.value == 56 || chainId.value == 97) {
+        getNftHistory();
+      }
       get1155History();
     });
 

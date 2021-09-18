@@ -152,11 +152,11 @@ export default defineComponent({
     const selectedPath = computed(()=>location.pathname)
 
     const currentText = computed(()=> {
-      const text = chainId.value == 1 ? "ETH" : "BSC"
+      const text = chainId.value == 1 || chainId.value == 4 ? "ETH" : "BSC"
       return t('Current network') + ' ' + text + ' ' + t('Mainnet')
     })
     const targetText = computed(()=> {
-      const text = chainId.value == 1 ? "BSC" : "ETH"
+      const text = chainId.value == 1 || chainId.value == 4 ? "BSC" : "ETH"
       return t('Click to switch to')+ ' ' + text + ' ' + t('Mainnet')
     })
 
