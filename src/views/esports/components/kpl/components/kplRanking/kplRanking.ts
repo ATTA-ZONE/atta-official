@@ -17,15 +17,18 @@ export default defineComponent({
     const tipNone = ref(false);
     const chainId = ref(0);
     const targetChainId = ref('');
+    const data:any = ref(props.contents);
+    const numtp = ref(data.value.tpnum);
     onMounted(()=>{
       let domText:any = titletipsRef.value;
       console.dir(domText);
+      if (data.value.tpnum) {
+        data.value.tpnum = 1;
+      }
       if(domText && domText.scrollWidth > 180){
         tipNone.value = true;
       }
     });
-    const data:any = ref(props.contents);
-    const numtp = ref(data.value.tpnum);
     console.log(data);
     const closeNet = () => {
       context.emit('closeNet')
