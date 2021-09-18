@@ -97,7 +97,6 @@
         </div>
     </div>
   <footer-cell />
-  <mediaModal :content="contents" @closeNet="closeNet" v-if="modelBol"></mediaModal>
 </template>
 
 <script lang="ts">
