@@ -510,6 +510,12 @@
   "esports_kpl84" : "張面具",
   "esports_kpl85" : "您的面具將在24小時內發送至您當前兌換所使用的錢包。<br/>隨後，你可以使用面具，領取投票券。<br/>參加ATTA無限製電子競技大賽的投票活動。",
   "esports_kpl86" : "您要使用哪種憑證領取投票券",
+  "esports_kpl87" : "您當前錢包持有的未兌換ATTA面具有",
+  "esports_kpl88" : "（每個面具可以兌換7張投票券，且只可兌換一次）",
+  "esports_kpl89" : "可兌換",
+  "esports_kpl90" : " 張投票券",
+  "esports_kpl91" : "領取成功",
+  "esports_kpl92" : "您的投票余額已更新。<br/>請在ATTA無限製電子競技大賽投票頁面查看。",
 
   "faces_1" : "NFT头像",
   "faces_2" : "NFT头像兑换",

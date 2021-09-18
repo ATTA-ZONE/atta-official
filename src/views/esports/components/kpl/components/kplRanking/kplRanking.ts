@@ -112,6 +112,7 @@ export default defineComponent({
         }
       });
     }
+    // 点击领取atta面具或者Loot 入場券
     const collectvotingticketsbtn = (type) => {
       axios
       .post(window.base_url + "/attaExchange/getUnclaimedInfo", {
@@ -120,15 +121,17 @@ export default defineComponent({
       })
       .then((res: any) => {
         if (res.code == 0) {
-          debugger
           if (type == 1) {
-            data.value.titletips = 'esports_kpl53';
-            data.value.content = 'esports_kpl78';
+            data.value.titletips = 'esports_kpl87';
+            data.value.content = null;
             data.value.rankingtypeshow = 2;
             data.value.btn1show = '1';//999 不展示此按钮
-            data.value.btn2show = '3';
-            data.value.tips = 'esports_kpl79';
+            data.value.btn2show = '2';
+            data.value.tips = 'esports_kpl88';
             data.value.list2 = res.data;
+            data.value.unclaimed = res.data.unclaimed;//个
+            data.value.ticketAmount = res.data.ticketAmount;//张
+            data.value.type = type;
             
           }else{
             data.value.titletips = 'esports_kpl53';
@@ -138,9 +141,29 @@ export default defineComponent({
             data.value.btn2show = '2';
             data.value.tips = 'esports_kpl79';
             data.value.list2 = res.data;
+            data.value.type = type;
           }
-          console.log(res.data);
+        }else if (res.code == 1001) {
+           alert(res.message);
         }
+      });
+    }
+    const nowreceive = () => {
+      axios
+      .post(window.base_url + "/attaExchange/claimTicket", {
+        "address": data.value.address,
+        "type": data.value.type,//1   2
+      })
+      .then((res: any) => {
+        if (res.code == 0) {
+          data.value.titletips = 'esports_kpl91';
+          data.value.content = 'esports_kpl92';
+          data.value.rankingtypeshow = 4;
+          data.value.btn1show = '999';//999 不展示此按钮
+          data.value.btn2show = '7';
+          data.value.tips = null;
+        }
+          
       });
     }
     return{
@@ -155,6 +178,7 @@ export default defineComponent({
       exchangenowbtn,
       dycallinterface,
       collectvotingticketsbtn,
+      nowreceive,
       titletipsRef,
       tipNone
       }
