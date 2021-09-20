@@ -119,7 +119,7 @@
           <div class="team-ranking">
             <div class="ranking-user flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length && kplinfo[showkplindex].attaMatchOptions[0].betRecord.length">
               <img v-for="item in kplinfo[showkplindex].attaMatchOptions[0].betRecord" :src="item.imgUrl ? formatVideoUrl(item.imgUrl) : '/kpl/header.png'" :key="item" alt="">
-              <p>{{kplinfo[showkplindex].attaMatchOptions[0].betRecord.length}}</p>
+              <p v-if="kplinfo[showkplindex].attaMatchOptions[0].betRecord.length > 5">{{kplinfo[showkplindex].attaMatchOptions[0].betRecord.length}}</p>
             </div>
           </div>
           <button class="margin-auto" @click="voteclick(kplinfo[showkplindex].myUnuseTicket,kplinfo[showkplindex].attaMatchOptions[0].id)">{{$t('esports_kpl24')}}</button>
@@ -137,7 +137,7 @@
           <div class="team-ranking">
             <div class="ranking-user flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length && kplinfo[showkplindex].attaMatchOptions[1].betRecord.length">
               <img v-for="item in kplinfo[showkplindex].attaMatchOptions[1].betRecord" :src="item.imgUrl ? formatVideoUrl(item.imgUrl) : '/kpl/header.png'" :key="item" alt="">
-              <p>{{kplinfo[showkplindex].attaMatchOptions[1].betRecord.length}}</p>
+              <p v-if="kplinfo[showkplindex].attaMatchOptions[1].betRecord.length > 5">{{kplinfo[showkplindex].attaMatchOptions[1].betRecord.length}}</p>
             </div>
           </div>
           <button class="margin-auto" @click="voteclick(kplinfo[showkplindex].myUnuseTicket,kplinfo[showkplindex].attaMatchOptions[1].id)">{{$t('esports_kpl24')}}</button>
