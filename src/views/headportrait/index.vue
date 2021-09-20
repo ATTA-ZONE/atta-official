@@ -25,12 +25,12 @@
                 <p class="tipswords">{{$t('faces_7')}}</p>
                 <p class="content" v-html="$t('faces_8')"></p>
             </div>
-            <img src="/imgs/headportrait_imgs4.png" alt="">
             <div class="leftbox leftbox-pc">
                 <p class="titlewords">{{$t('faces_6')}}</p>
                 <p class="tipswords">{{$t('faces_7')}}</p>
                 <p class="content" v-html="$t('faces_8')"></p>
             </div>
+            <img src="/imgs/headportrait_imgs4.png" alt="">
         </div>
         <div id="kplRules" class="contentbox1 flex">
             <div class="leftbox leftbox-media">
