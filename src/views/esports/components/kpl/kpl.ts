@@ -41,11 +41,10 @@ export default defineComponent({
       let curTime = data.curTime;
       let endTime = data.endTime;
       let startTime = data.startTime;
-      if (startTime > curTime) {
-        if (endTime > curTime) {
-          kplbsstatus.value = 1;
-          return 'esports_kpl23'
-        }
+      if (startTime < curTime && endTime > curTime) {
+        kplbsstatus.value = 1;
+        return 'esports_kpl23'
+      }else if (endTime < curTime){
         return 'esports_kpl22'
       }else{
         kplbsstatus.value = 2;
