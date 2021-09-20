@@ -712,14 +712,16 @@ div.kpl-notice-header{
           font-size: 26px;
           font-weight: 600;
         }
+        p.nft-from{
+          width: 310px;
+        }
         .nft-from,.nft-win{
           background: url('/kpl/rankingText.png') center no-repeat;
           background-size: 100% 100%;
-          // width: 225px;
+          width: 225px;
           height:50px;
           line-height: 50px;
           text-align: left;
-          max-width: 310px;
           padding: 0 15px;
           overflow: hidden;
           text-overflow:ellipsis;
