@@ -191,10 +191,15 @@
           top: 66px;
           img{
             position:absolute;
+            transform: rotate(-90deg);
+          }
+          .prizePool{
+            top: -50px;
+            left: 88px;
+          }
+          .battleRewaro{
             top: -60px;
             left: 88px;
-            height:180px;
-            transform: rotate(-90deg);
           }
         }
         .award-right{
@@ -1053,6 +1058,12 @@ div.kpl-notice-header{
             left: -35px;
             img{
               height:81px;
+            }
+            .prizePool{
+              top: -26px;
+              left: 46px;
+            }
+            .battleRewaro{
               top: -25px;
               left: 47px;
             }
