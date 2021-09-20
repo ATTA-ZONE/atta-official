@@ -249,7 +249,6 @@ export default defineComponent({
       exchangemask,
       loading,
       isEn,
-      pkstatus,
       toPay,
       jumppage1,
       formatVideoUrl
