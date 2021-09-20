@@ -34,14 +34,12 @@
         </div>
         <div id="kplRules" class="contentbox1 flex">
             <div class="leftbox leftbox-media">
-                <p class="titlewords">{{$t('faces_9')}}</p>
-                <p class="tipswords">{{$t('faces_10')}}</p>
+                <p class="titlewords" style="margin-bottom:20px;">{{$t('faces_9')}}</p>
                 <p class="content" v-html="$t('faces_11')"></p>
             </div>
             <img src="/imgs/headportrait_imgs5.png" alt="">
             <div class="leftbox leftbox-pc">
-                <p class="titlewords">{{$t('faces_9')}}</p>
-                <p class="tipswords">{{$t('faces_10')}}</p>
+                <p class="titlewords" style="margin-bottom:20px;">{{$t('faces_9')}}</p>
                 <p class="content" v-html="$t('faces_11')"></p>
             </div>
         </div>
