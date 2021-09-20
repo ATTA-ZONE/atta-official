@@ -185,14 +185,17 @@
             background-repeat: repeat;
             .logobox{
                 padding:0 15px;
-                justify-content:space-between;
+                justify-content:center;
                 bottom:16px;
                 width: 100%;
                 a{
-                    margin: 0 !important;
+                    margin: 0;
                     height:30px;
                     font-size: 12px;
                     line-height: 30px;
+                }
+                a:nth-child(1){
+                    margin-right: 30px;
                 }
             }
         }
