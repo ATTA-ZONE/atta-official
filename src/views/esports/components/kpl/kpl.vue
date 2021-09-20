@@ -43,7 +43,7 @@
             <p class="award-left" style="font-size:20px;">
               <img src="/kpl/BATTLEREWARD.png" alt="">
             </p>
-            <p class="award-right" v-if="kplinfo[showkplindex] && !isEn">{{$t('esports_kpl12')}} <span>{{kplinfo[showkplindex].curRewardPool}}U</span> {{$t('esports_kpl13')}} <span>NFT</span></p>
+            <p class="award-right award-right-en-ch" v-if="kplinfo[showkplindex] && !isEn">{{$t('esports_kpl12')}} <span>{{kplinfo[showkplindex].totalRewardPool}}U</span> {{$t('esports_kpl13')}} <span>NFT</span>+<span>{{$t('esports_kpl13_jia')}}</span></p>
             <p class="award-right award-right-en-en" v-if="kplinfo[showkplindex] && isEn"><span>{{$t('esports_kpl13')}}</span></p>
           </div>
         </div>
@@ -80,7 +80,7 @@
       <div class="mask-header margin-auto">
         <p>{{$t('esports_kpl17_jia1')}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <button>{{$t('esports_kpl17_jia2')}}</button>
+        <button @click="jumppage1()">{{$t('esports_kpl17_jia2')}}</button>
       </div>
       <div class="kpl-banner banner-01"></div>
       <div class="kpl-banner banner-02"></div>
@@ -97,11 +97,11 @@
     <!-- 预告 -->
     <div class="kpl-notice kpl-notice-header margin-auto">
       <div class="notice-header flex">
-        <img :class="showkplindex != 0 ? 'up-next' : 'up-next hideimg'" src="/kpl/up.png" alt="" @click="beforeclick(showkplindex)">
+        <p :class="showkplindex != 0 ? 'up-next up-up' : 'up-next up-up hideimg'" @click="beforeclick(showkplindex)">{{$t('esports_kpl100')}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
         <p v-if="kplinfo[showkplindex]">{{$t(computekpltimeshowword(kplinfo[showkplindex]))}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <img :class="showkplindex != kplinfo.length - 1 ? 'up-next' : 'up-next hideimg'" src="/kpl/next.png" alt="" @click="nextclick(showkplindex)">
+        <p :class="showkplindex != kplinfo.length - 1 ? 'up-next ' : 'up-next hideimg'" @click="nextclick(showkplindex)">{{$t('esports_kpl101')}}</p>
       </div>
     </div>
     <div class="kpl-notice kpl-notice-bgi  margin-auto" :class="isEn?'kpl-notice-en':''">
@@ -118,7 +118,7 @@
           </div>
           <div class="team-ranking">
             <div class="ranking-user flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length && kplinfo[showkplindex].attaMatchOptions[0].betRecord.length">
-              <img v-for="item in kplinfo[showkplindex].attaMatchOptions[0].betRecord" :src="formatVideoUrl(item.imgUrl)" :key="item" alt="">
+              <img v-for="item in kplinfo[showkplindex].attaMatchOptions[0].betRecord" :src="item.imgUrl ? formatVideoUrl(item.imgUrl) : '/kpl/header.png'" :key="item" alt="">
               <p>{{kplinfo[showkplindex].attaMatchOptions[0].betRecord.length}}</p>
             </div>
           </div>
@@ -136,7 +136,7 @@
           </div>
           <div class="team-ranking">
             <div class="ranking-user flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length && kplinfo[showkplindex].attaMatchOptions[1].betRecord.length">
-              <img v-for="item in kplinfo[showkplindex].attaMatchOptions[1].betRecord" :src="formatVideoUrl(item.imgUrl)" :key="item" alt="">
+              <img v-for="item in kplinfo[showkplindex].attaMatchOptions[1].betRecord" :src="item.imgUrl ? formatVideoUrl(item.imgUrl) : '/kpl/header.png'" :key="item" alt="">
               <p>{{kplinfo[showkplindex].attaMatchOptions[1].betRecord.length}}</p>
             </div>
           </div>
@@ -152,11 +152,13 @@
     <div class="kpl-notice margin-auto" :class="isEn?'kpl-notice-en':''">
       <div class="notice-btn margin-auto flex">
         <div class="notice-left flex">
-          <img :class="showkplindex != 0 ? 'up-next' : 'up-next hideimg'" src="/kpl/up.png" alt="" @click="beforeclick(showkplindex)">
+          <p :class="showkplindex != 0 ? 'up-next up-up' : 'up-next up-up hideimg'" @click="beforeclick(showkplindex)">{{$t('esports_kpl100')}}</p>
+          <!-- <img :class="showkplindex != 0 ? 'up-next' : 'up-next hideimg'" src="/kpl/up.png" alt="" @click="beforeclick(showkplindex)"> -->
 
           <p v-if="kplinfo[showkplindex]">{{$t('esports_kpl25')}}{{kplinfo[showkplindex].myUnuseTicket}}{{$t('esports_kpl26')}}</p>
           
-          <img :class="showkplindex != kplinfo.length - 1 ? 'up-next' : 'up-next hideimg'" src="/kpl/next.png" alt="" @click="nextclick(showkplindex)">
+          <!-- <img :class="showkplindex != kplinfo.length - 1 ? 'up-next' : 'up-next hideimg'" src="/kpl/next.png" alt="" @click="nextclick(showkplindex)"> -->
+          <p :class="showkplindex != kplinfo.length - 1 ? 'up-next ' : 'up-next hideimg'" @click="nextclick(showkplindex)">{{$t('esports_kpl101')}}</p>
         </div>
         <div class="notice-right">
           <button @click="collectcouponsbtn()">{{$t('esports_kpl27')}}</button>

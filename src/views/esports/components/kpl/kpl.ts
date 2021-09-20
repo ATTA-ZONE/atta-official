@@ -13,10 +13,10 @@ export default defineComponent({
   data(){
     return {
       kplpmfour : [
-        {imgUrl : '/kpl/kpl_img1.png',pm : 1},
-        {imgUrl : '/kpl/kpl_img2.png',pm : 2},
-        {imgUrl : '/kpl/kpl_img2.png',pm : 3},
-        {imgUrl : '/kpl/kpl_img2.png',pm : 4},
+        {imgUrl : '/kpl/kpl_img1_top.png',pm : 1},
+        {imgUrl : '/kpl/kpl_img2_top.png',pm : 2},
+        {imgUrl : '/kpl/kpl_img3_top.png',pm : 3},
+        {imgUrl : '/kpl/kpl_img4_top.jpg',pm : 4},
       ]
     }
   },
@@ -117,17 +117,22 @@ export default defineComponent({
     const voteclick = (tpnum,timeid) =>{
       if (address.value) {
         if (tpnum > 0) {
-          let data = {
-            titletips : 'esports_kpl69',
-            tips : 'esports_kpl70',
-            content : `<span>${tpnum}个</span>`,
-            rankingtypeshow : 4,
-            btn2show : '8',
-            tpnum : tpnum,
-            timeid : timeid
-          };
-          kplRankingshow.value = true;
-          contents.value = data;
+          let obj = JSON.parse(JSON.stringify(kplinfo.value[showkplindex.value]))
+          if (obj.curTime > obj.voteStartTime && obj.curTime < obj.voteEndTime) {
+            let data = {
+              titletips : 'esports_kpl69',
+              tips : 'esports_kpl70',
+              content : `<span>${tpnum}个</span>`,
+              rankingtypeshow : 4,
+              btn2show : '8',
+              tpnum : tpnum,
+              timeid : timeid
+            };
+            kplRankingshow.value = true;
+            contents.value = data;
+          }else{
+            alert('當前投票暫未開始');
+          }
           
         }else{
           let data = {titletips : 'esports_kpl68',content : '<span class="framethreejumppage">戳→  <a href="https://www.bazhuayu.io/mobile/tc/specialitem.html" target="_blank" style="color: #a9deee;">bazhuayu.io</a>   立刻購買</span>',rankingtypeshow : 3,btn2show : '1'};
@@ -160,7 +165,7 @@ export default defineComponent({
             content : 'esports_kpl78',
             btn1show : '1',
             btn2show : '3',
-            tips : 'esports_kpl79',
+            // tips : 'esports_kpl79',
             address : address.value
           };
           data.list = res.data;
@@ -244,6 +249,7 @@ export default defineComponent({
       exchangemask,
       loading,
       isEn,
+      pkstatus,
       toPay,
       jumppage1,
       formatVideoUrl

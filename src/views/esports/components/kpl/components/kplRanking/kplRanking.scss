@@ -141,9 +141,10 @@
       }
       .btn2{
         background: linear-gradient(140.34deg, #DC78FF 19.63%, #0044EA 103.57%);
-        width: 240px;
+        min-width: 240px;
         height:70px;
         cursor: pointer;
+        padding: 0 15px;
       }
       &.btn-box{
         display: block;
@@ -156,7 +157,7 @@
       }
       &.btnbox-en{
         button{
-          width: 270px;
+          // width: 270px;
           font-weight: 100;
           font-size: 24px;
         }
@@ -332,10 +333,10 @@
           flex-wrap: wrap;
           justify-content: center;
           button{
-            width: 200px;
+            min-width: 200px;
             height:40px;
             font-size: 18px;
-            padding:0;
+            padding:0 10px;
             margin-bottom: 16px;
           }
           .btn1{
