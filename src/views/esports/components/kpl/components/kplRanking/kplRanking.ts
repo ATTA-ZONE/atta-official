@@ -48,7 +48,7 @@ export default defineComponent({
     }
     const submitbtn = () => {
       data.value.titletips = 'esports_kpl75';
-      data.value.content = `您選擇了${data.value.tpnum}個投票券，請確認`;
+      data.value.content = `您選擇了${data.value.tpnum}張投票券，請確認`;
       if(isEn.value){
         data.value.content = `You’ve selected ${data.value.tpnum} voting voucher(s)，please confirm`;
       }
