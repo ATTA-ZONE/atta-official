@@ -889,9 +889,20 @@ div.kpl-notice-header{
     line-height: 56px;
   }
 }
+.hidepc{
+    width: 37px;
+    display:none;
+}
 
 
 @media only screen and (max-width: 992px){
+  .up-next{
+    width: 37px;
+    display:none;
+  }
+  .hidepc{
+    display: block;
+  }
   .kpl{
     margin-top: 0;
     .schedule-title{
@@ -1216,7 +1227,7 @@ div.kpl-notice-header{
       }
       .up-next{
         width: 37px;
-        display:none;
+        display:none !important;
       }
       p{
         font-weight: 600;

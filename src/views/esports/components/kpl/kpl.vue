@@ -152,13 +152,11 @@
     <div class="kpl-notice margin-auto" :class="isEn?'kpl-notice-en':''">
       <div class="notice-btn margin-auto flex">
         <div class="notice-left flex">
-          <p :class="showkplindex != 0 ? 'up-next up-up' : 'up-next up-up hideimg'" @click="beforeclick(showkplindex)">{{$t('esports_kpl102')}}</p>
-          <!-- <img :class="showkplindex != 0 ? 'up-next' : 'up-next hideimg'" src="/kpl/up.png" alt="" @click="beforeclick(showkplindex)"> -->
+          <p :class="showkplindex != 0 ? 'up-next up-up hidepc' : 'up-next up-up hidepc hideimg'" @click="beforeclick(showkplindex)">{{$t('esports_kpl102')}}</p>
 
           <p v-if="kplinfo[showkplindex]">{{$t('esports_kpl25')}}{{kplinfo[showkplindex].myUnuseTicket}}{{$t('esports_kpl26')}}</p>
           
-          <!-- <img :class="showkplindex != kplinfo.length - 1 ? 'up-next' : 'up-next hideimg'" src="/kpl/next.png" alt="" @click="nextclick(showkplindex)"> -->
-          <p :class="showkplindex != kplinfo.length - 1 ? 'up-next ' : 'up-next hideimg'" @click="nextclick(showkplindex)">{{$t('esports_kpl103')}}</p>
+          <p :class="showkplindex != kplinfo.length - 1 ? 'up-next hidepc' : 'up-next hidepc hideimg'" @click="nextclick(showkplindex)">{{$t('esports_kpl103')}}</p>
         </div>
         <div class="notice-right">
           <button @click="collectcouponsbtn()">{{$t('esports_kpl27')}}</button>
