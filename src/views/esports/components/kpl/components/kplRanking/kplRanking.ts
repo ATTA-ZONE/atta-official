@@ -178,6 +178,8 @@ export default defineComponent({
           data.value.btn1show = '999';//999 不展示此按钮
           data.value.btn2show = '7';
           data.value.tips = null;
+        }else if (res.code == 1001) {
+          alert(res.message);
         }
           
       });
