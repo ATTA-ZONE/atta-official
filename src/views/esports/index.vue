@@ -3,7 +3,7 @@
   <div class="router-view">
     <div class="tabs-wrap">
       <router-link class="assets-tab" v-for="(item, idx) in tabs" :key="idx" @click="toggleTab(idx)" :to="{path: item.link}">
-        <span :class="{'active-text':selectedTab == idx}">{{$t(item.name)}}</span>
+        <span class="niunito" :class="{'active-text':selectedTab == idx}">{{$t(item.name)}}</span>
         <div v-if="selectedTab == idx" class="active-tab"></div>
       </router-link>
     </div>
@@ -21,11 +21,11 @@ export default defineComponent({
   setup(){
     const tabs = [
       {
-        name: '无限制电竞大会',
+        name: 'esports_kpl100',
         link:'/esports/infinity'
       },
       {
-        name: 'LPL季后赛',
+        name: 'esports_kpl101',
         link:'/esports/lol'
       }
     ]
@@ -54,12 +54,12 @@ export default defineComponent({
 <style lang='scss' scoped>
 @media only screen and (max-width: 992px) {
   div.tabs-wrap {
-    width: 181px;
+    width: 100%;
     font-size: 12px;
     height:25px;
     top: 30px;
     left: 50%;
-    margin-left: -90px;
+    margin-left: -50%;
     z-index: 1;
     a{
       height:25px;
@@ -77,12 +77,12 @@ export default defineComponent({
   position: absolute;
   top: 110px;
   left: 350px;
-  width: 280px;
   height:34px;
   background: rgba(255, 255, 255, 0.1);
 }
 .tabs-wrap a{
   text-decoration:none;
+  padding: 0 15px;
 }
 .assets-tab {
   color: #fff;
