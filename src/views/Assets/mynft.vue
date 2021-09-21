@@ -337,7 +337,7 @@ export default defineComponent({
         scansite_base_url = "https://api-rinkeby.etherscan.io";
       } else {
         targetChainId = 1;
-        scansite_base_url = "https://api-eth.etherscan.io";
+        scansite_base_url = "https://api-cn.etherscan.com";
       }
       const auctionAddress2 =
         chainSetting["contractSetting"]["eth_NFT"][targetChainId].address;
