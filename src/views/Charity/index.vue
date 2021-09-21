@@ -65,7 +65,7 @@ export default defineComponent({
                   titleen : '01 Binance NFT for Good: ATTA X Miserable Faith X Smile Angel Foundation - May Love Be Without Worries Special Edition',
                   contenten : 'May Love Be Without Worries was played by Miserable Faith and originally donated to Smile Angel Foundation. This special NFT version is produced by ATTA with only ONE version in the universe. Part of the auction will be donated to the Smile Angel Foundation to support children born with clefts and their families.',
                   titlech : '01 Binance NFT for Good:<br/> 痛仰 - 願愛無憂特別版數字專輯',
-                  contentch : '《願愛⽆憂》由痛仰樂團演唱，是痛仰樂團贈送給北京嫣然天使⼉童公益基⾦會的歌曲。該⾸作品的NFT版本由北京嫣然天使⼉童公益基⾦會聯合官⽅合作夥伴ATTA精⼼製作呈現，全球限量1份。本次拍賣部分所得將捐贈北京嫣然天使⼉童公益基⾦會，助⼒慈善。',
+                  contentch : '《願愛⽆憂》由痛仰樂團演唱，是痛仰樂團贈送給北京嫣然天使⼉童公益基⾦會的歌曲。該⾸作品的NFT版本由北京嫣然天使⼉童公益基⾦會聯合官⽅合作夥伴ATTA精⼼制作呈現，全球限量1份。本次拍賣部分所得將捐贈北京嫣然天使⼉童公益基⾦會，助⼒慈善。',
                   url:'/Charity_img2.mp4',
                   url2:'/imgs/Charity_img3.png',
                   titleen2 : 'Miserable Faith',

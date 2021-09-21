@@ -127,7 +127,6 @@ export default defineComponent({
       loading.value = true;
       axios
       .post(window.base_url + "/attaExchange/getUnclaimedInfo", {
-        // "address": '0x42f8fb9cBe661384cE3fDBd5bB5CFd2cecc149CD',
         "address": data.value.address,
         "type": type,//1   2
       })
