@@ -70,7 +70,7 @@
       <h5 v-html="$t('esports_kpl16')"></h5>
       <img class="bgi01" src="/kpl/bgi01.png" alt="">
       <p v-html="$t('esports_kpl17')"></p>
-      <button @click="exchangemask()">{{$t('esports_kpl16_jia1')}}</button>
+      <button disabled @click="exchangemask()">{{$t('esports_kpl16_jia1')}}</button>
       <div class="rules-img flex">
         <img src="/kpl/rules01.png" alt="">
         <img src="/kpl/rules02.png" alt="">
@@ -126,7 +126,7 @@
               <p v-if="kplinfo[showkplindex].attaMatchOptions[0].betRecord.length > 5">{{kplinfo[showkplindex].attaMatchOptions[0].betRecord.length}}</p>
             </div>
           </div>
-          <button class="margin-auto" @click="voteclick(kplinfo[showkplindex].myUnuseTicket,kplinfo[showkplindex].attaMatchOptions[0].id)">{{$t('esports_kpl24')}}</button>
+          <button disabled class="margin-auto" @click="voteclick(kplinfo[showkplindex].myUnuseTicket,kplinfo[showkplindex].attaMatchOptions[0].id)">{{$t('esports_kpl24')}}</button>
         </div>
         <div class="team">
           <div class="team-top flex">
@@ -144,7 +144,7 @@
               <p v-if="kplinfo[showkplindex].attaMatchOptions[1].betRecord.length > 5">{{kplinfo[showkplindex].attaMatchOptions[1].betRecord.length}}</p>
             </div>
           </div>
-          <button class="margin-auto" @click="voteclick(kplinfo[showkplindex].myUnuseTicket,kplinfo[showkplindex].attaMatchOptions[1].id)">{{$t('esports_kpl24')}}</button>
+          <button disabled class="margin-auto" @click="voteclick(kplinfo[showkplindex].myUnuseTicket,kplinfo[showkplindex].attaMatchOptions[1].id)">{{$t('esports_kpl24')}}</button>
         </div>
       </div>
     </div>
@@ -165,7 +165,7 @@
           <p :class="showkplindex != kplinfo.length - 1 ? 'up-next hidepc' : 'up-next hidepc hideimg'" @click="nextclick(showkplindex)">{{$t('esports_kpl103')}}</p>
         </div>
         <div class="notice-right">
-          <button @click="collectcouponsbtn()">{{$t('esports_kpl27')}}</button>
+          <button disabled @click="collectcouponsbtn()">{{$t('esports_kpl27')}}</button>
           <button @click="toPay" class="btn-right">{{$t('esports_kpl28')}}</button>
         </div>
       </div>
