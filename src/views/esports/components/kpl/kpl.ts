@@ -15,7 +15,7 @@ export default defineComponent({
       kplpmfour : [
         {imgUrl : '/kpl/kpl_img1_top.png',pm : 1},
         {imgUrl : '/kpl/kpl_img2_top.png',pm : 2},
-        {imgUrl : '/kpl/kpl_img3_top.png',pm : 3},
+        {imgUrl : '/kpl/kpl_img3_top.jpg',pm : 3},
         {imgUrl : '/kpl/kpl_img4_top.jpg',pm : 4},
       ]
     }
@@ -206,10 +206,6 @@ export default defineComponent({
     const timeDown = (startTime:number,endTime:number)=>{
       allTime.value = (endTime - startTime)*1;
       let leftTime = endTime - startTime;
-      console.log( 'allTime'+allTime.value);
-      console.log( 'leftTime'+leftTime);
-      
-      
       if(leftTime <= 0) return;
       hours.value = parseInt(((leftTime / (60 * 60)))+'');
       minutes.value = parseInt(((leftTime / 60) % 60)+'');
