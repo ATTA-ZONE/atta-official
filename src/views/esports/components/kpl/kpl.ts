@@ -80,8 +80,6 @@ export default defineComponent({
               }
             }
           }
-          console.log(res.data);
-          
           data.list = res.data;
           contents.value = data;
         }
@@ -92,7 +90,6 @@ export default defineComponent({
       getkpllistdata();
     }
     const confirmbtn = (res:any) => {
-      console.log(res.value.rankingtypeshow);
       if (res.value.rankingtypeshow == 4) {
         let obj = JSON.parse(JSON.stringify(kplinfo.value[showkplindex.value]))
         axios
@@ -170,6 +167,8 @@ export default defineComponent({
           data.list = res.data;
           kplRankingshow.value = true;
           contents.value = data;
+        }else{
+          alert(res.message);
         }
       }).catch(err=>{
         loading.value = false;
@@ -205,7 +204,6 @@ export default defineComponent({
         .post(window.base_url + "/v2/match/list_lol?address="+address.value+'&lang='+bool)
         .then((res: any) => {
           if (res.code == 0) {
-            console.log(res);
             let matchId = res.data.matchId;
             res.data.matchRes.forEach((item,index) => {
               if (item.id == matchId) {

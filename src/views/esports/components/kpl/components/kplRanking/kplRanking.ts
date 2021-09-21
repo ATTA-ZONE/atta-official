@@ -29,7 +29,6 @@ export default defineComponent({
         tipNone.value = true;
       }
     });
-    console.log(data);
     const closeNet = () => {
       context.emit('closeNet')
     }
