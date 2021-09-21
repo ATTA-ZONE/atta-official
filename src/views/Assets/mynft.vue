@@ -1,6 +1,6 @@
 <template>
   <div class="mynftbox" v-loading="loading">
-    <div class="bootomtips">{{ $t("bootomtips") }}</div>
+    <div v-if="chainId == 56 || chainId == 94" class="bootomtips">{{ $t("bootomtips") }}</div>
     <ul v-if="assetsList?.records && assetsList.records.length > 0">
       <li
         v-for="(item, idx) in assetsList.records"
@@ -62,7 +62,7 @@
           </div>
         </div>
         <div class="tablistbox" v-if="item.mintList && item.mintList.length">
-          <p class="titlebox flex between">
+          <p class="titlebox flex between" v-if="chainId == 56 || chainId == 94">
             <span>{{ $t("currentlyholds") }}({{ item.mintList.length }}):</span>
             <img
               src="/imgs/arrow.png"
@@ -473,6 +473,7 @@ export default defineComponent({
     const getNftLists = () => {
       window.CHAIN.WALLET.chainId().then((res) => {
         if (res) {
+          chainId .value = res
           if (res == 1 || res == 4) {
             chainType.value = "ETH";
             getEthList();
@@ -709,6 +710,7 @@ export default defineComponent({
 
     return {
       isEn,
+      chainId,
       modifyBtnActive,
       modelTitle,
       modelTips,
