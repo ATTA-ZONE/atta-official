@@ -522,6 +522,7 @@ div.kpl-notice-header{
       .team-top{
         justify-content: space-between;
         height:343px;
+        align-items: center;
         .team-header{
           flex-direction: column;
           justify-content: end;
@@ -542,8 +543,8 @@ div.kpl-notice-header{
           img{
             // max-width: 307px;
             // max-height: 90px;
-            width: 100%;
-            height: 100%;
+            width: 70%;
+            height: 45%;
           }
         }
         .team-a{
@@ -1285,11 +1286,14 @@ div.kpl-notice-header{
             height:91px;
             position: relative;
             img{
-              width: 100%;
-              height: 100%;
+              width: 70%;
+              height: 45%;
               position: absolute;
               top: 0;
               left: 0;
+              right: 0;
+              bottom: 0;
+              margin: auto;
             }
           }
           .team-ranking{
