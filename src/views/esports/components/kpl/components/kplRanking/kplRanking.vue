@@ -82,6 +82,7 @@
             <p class="smolltips" v-if="data.tips">{{$t(data.tips)}}</p>
             <p class="contentwords" v-if="data.content" v-html="$t(data.content)"></p>
             <div v-if="data.tpnum" class="tptkjiajian flex">
+              <img src="/kpl/toupiaoquan.jpg" style="width: 320px;margin-right: 70px;" />
               <span>{{$t('esports_kpl72')}}</span>
               <p class="flex">
                 <img src="/kpl/subtraction.png" alt="" @click="jiantpnum()">
