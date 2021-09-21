@@ -84,8 +84,10 @@
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
         <button @click="jumppage1()">{{$t('esports_kpl17_jia2')}}</button>
       </div>
-      <div class="kpl-banner banner-01"></div>
-      <div class="kpl-banner banner-02"></div>
+      <!-- <div class="kpl-banner banner-01"></div> -->
+      <img class="kpl-banner banner-01" src="/kpl/mask01.png" alt="">
+      <img class="kpl-banner banner-02" src="/kpl/mask02.png" alt="">
+      <!-- <div class="kpl-banner banner-02"></div> -->
     </div>
     <!-- 赛程 -->
     <div class="kpl-schedule margin-auto">
