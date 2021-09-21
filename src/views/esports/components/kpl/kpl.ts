@@ -150,6 +150,7 @@ export default defineComponent({
     }
     // 点击 兌換面具
     const exchangemask = () => {
+      // let requestUrl = window.base_url + '/attaExchange/queryExchangeInfo?address=0x87d0086b833eD0B0F52db3CD296aD89B77ef7c3B';
       let requestUrl = window.base_url + '/attaExchange/queryExchangeInfo?address=' + address.value;
       loading.value = true;
       axios.get(requestUrl).then((res: any) => {

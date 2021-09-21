@@ -737,6 +737,10 @@ div.kpl-notice-header{
           margin-top: 16px;
           margin-bottom: 61px;
           line-height: 100%;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          max-width: 320px;
         }
       }
       img{
@@ -1454,6 +1458,7 @@ div.kpl-notice-header{
               font-size: 16px;
               margin-top: 10px;
               margin-bottom: 40px;
+              max-width: 200px;
             }
             .nft-win{
               width: 147px;
