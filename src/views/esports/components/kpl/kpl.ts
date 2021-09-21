@@ -1,5 +1,5 @@
 
-import { defineComponent,ref ,onMounted,computed} from "vue";
+import { defineComponent,ref ,onMounted,computed,onBeforeUnmount} from "vue";
 import { useI18n } from "vue-i18n";
 import axios from "../../../../api";
 import kplRanking from "./components/kplRanking/kplRanking.vue";
@@ -32,6 +32,11 @@ export default defineComponent({
     const kplRankingshow = ref(false); //0 进行中 1 已结束 2 未开始
     const contents = ref({}); //0 进行中 1 已结束 2 未开始
     const router = useRouter();
+    const hours = ref(0);
+    const minutes = ref(0);
+    const seconds = ref(0);
+    const allTime = ref(0);
+    const timeStart = ref();//计时器
     // nft奖励部分的数据
     
     const isEn = computed(() => {
@@ -187,7 +192,64 @@ export default defineComponent({
           }
         },500)
       }
+      window.clearInterval(timeStart.value);
+      timeStart.value = window.setInterval(()=>{
+        if (kplinfo.value[showkplindex.value]) {
+          let obj = JSON.parse(JSON.stringify(kplinfo.value[showkplindex.value]));
+          timeDown(obj.voteStartTime,obj.voteEndTime);
+        }
+      },800);
     })
+    onBeforeUnmount(()=>{
+      window.clearInterval(timeStart.value);//关闭计时器
+    })
+    const timeDown = (startTime:number,endTime:number)=>{
+      allTime.value = (endTime - startTime)*1;
+      let leftTime = endTime - startTime;
+      console.log( 'allTime'+allTime.value);
+      console.log( 'leftTime'+leftTime);
+      
+      
+      if(leftTime <= 0) return;
+      hours.value = parseInt(((leftTime / (60 * 60)))+'');
+      minutes.value = parseInt(((leftTime / 60) % 60)+'');
+      seconds.value = parseInt((leftTime % 60)+'');
+      setTime()
+    };
+    // 倒计时函数
+    const setTime = ()=>{
+      // timeStart.value = window.setInterval( ()=> {
+        if (hours.value !== 0 && minutes.value === 0 && seconds.value === 0) {
+            hours.value -= 1;
+            minutes.value = 59;
+            seconds.value = 59;
+        } else if (hours.value === 0 && minutes.value !== 0 && seconds.value === 0) {
+            minutes.value -= 1;
+            seconds.value = 59;
+        } else if (hours.value === 0 && minutes.value === 0 && seconds.value === 0) {
+            seconds.value = 0
+            window.clearInterval(timeStart.value);//关闭计时器
+        } else if (hours.value !== 0 && minutes.value !== 0 && seconds.value === 0) {
+            minutes.value -= 1;
+            seconds.value = 59;
+        } else {
+            seconds.value -= 1;
+        }
+      // }, 1000)
+    };
+    // 防止数值小于10时，出现一位数
+    const num = (n)=>{
+      return n < 10 ? '0' + n : n
+    };
+    const second = computed(() => {
+      return num(seconds.value)
+    });
+    const minute = computed(() => {
+      return num(minutes.value)
+    });
+    const hour = computed(() => {
+      return num(hours.value)
+    });
     const ljwatter = () => {
       window.CHAIN.WALLET.enable().then((res) => {
         if (res.length) {
@@ -248,9 +310,16 @@ export default defineComponent({
       exchangemask,
       loading,
       isEn,
+      hours,
+      minutes,
+      seconds,
+      second,
+      minute,
+      hour,
       toPay,
       jumppage1,
-      formatVideoUrl
+      formatVideoUrl,
+      timeDown
     }
   }
 });
