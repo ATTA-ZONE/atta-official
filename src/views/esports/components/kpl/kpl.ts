@@ -199,10 +199,12 @@ export default defineComponent({
       });
     }
     const getkpllistdata = () => {
+      loading.value = true;
       const bool = isEn.value ? "en" : "tc";
       axios
-        .post(window.base_url + "/v2/match/list_lol?address="+address.value+'&lang='+bool)
-        .then((res: any) => {
+      .post(window.base_url + "/v2/match/list_lol?address="+address.value+'&lang='+bool)
+      .then((res: any) => {
+          loading.value = false;
           if (res.code == 0) {
             let matchId = res.data.matchId;
             res.data.matchRes.forEach((item,index) => {
