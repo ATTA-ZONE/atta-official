@@ -602,7 +602,6 @@ export default defineComponent({
 
     const zyajax = (newaddress, obj) => {
       // loading.value = true;
-      // console.log(newaddress, loading.value);
       chainId.value = web3.value.utils.hexToNumber(chainId.value);
       if (chainId.value != Number(targetChainId.value)) {
         window.CHAIN.WALLET.switchRPCSettings(targetChainId.value);

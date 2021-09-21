@@ -549,9 +549,7 @@ export default defineComponent({
     // item:父级 index:第几个父级 info:子集  num:第几个子集
     const openModal = (e,info)=>{
         let item = JSON.parse(JSON.stringify(info))
-        console.log(item);
       if(!item.type) return;
-      console.log(7777777777);
       let data = {
         url:item.url,//大图
         mediaType:'image',
@@ -559,7 +557,6 @@ export default defineComponent({
         content:item.content?item.content:'',//详情文案
         type:'video'
       }
-      console.log(data);
       contents.value = data;
       modelBol.value = true;
     }

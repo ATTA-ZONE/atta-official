@@ -1,8 +1,8 @@
 
 import { defineComponent,onMounted,ref,computed } from "vue";
-import { chainSetting } from "@/assets/js/chainSetting";
+import { chainSetting } from "../../../../../../assets/js/chainSetting";
 import { useI18n } from "vue-i18n";
-import axios from "@/api";
+import axios from "../../../../../../api";
 export default defineComponent({
   name: "kplRanking",
   props: {
