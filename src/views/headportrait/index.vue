@@ -7,7 +7,7 @@
                 <a href="/esports/infinity#kplRules" target="_blank">{{$t('faces_1')}}</a>
             </div>
         </div>
-        <div class="contentbox1 flex">
+        <div class="contentbox1 flex" id="contentbox1">
             <div class="leftbox leftbox-media">
                 <p class="titlewords">{{$t('faces_3')}}</p>
                 <p class="tipswords">{{$t('faces_4')}}</p>
@@ -98,10 +98,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed, onMounted } from "vue";
+import { defineComponent, ref, computed, onMounted ,nextTick} from "vue";
 import { useI18n } from "vue-i18n";
 import headerCell from "@/components/header/index.vue";
 import footerCell from "@/components/footer/index.vue";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   components: { headerCell,footerCell},
@@ -111,6 +112,7 @@ export default defineComponent({
   setup() {
     const { locale } = useI18n();
     const num = ref(1);
+    const router = useRouter();
     
     const isEn = computed(() => {
       return locale.value.trim() == "en";
@@ -125,6 +127,14 @@ export default defineComponent({
             num.value = num.value - 1;
         }
     });
+    nextTick (()=>{
+        router.beforeEach((to,from,next)=>{
+            if (from.href == "/esports/infinity") {
+                document.body.scrollIntoView();
+            }
+            next();
+        })
+    })
     
     return {
         addnum,
