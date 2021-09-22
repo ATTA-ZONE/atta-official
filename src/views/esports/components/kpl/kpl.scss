@@ -473,11 +473,12 @@ div.kpl-notice-header{
   font-size: 0;
   padding-bottom: 36px;
   .notice-header{
-    width: 1120px;
+    width: 950px;
     justify-content: space-between;
     align-items:center;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
     p.hideimg{
       opacity: 0 !important;
       cursor: auto;
@@ -488,7 +489,7 @@ div.kpl-notice-header{
       height: 44px;
       line-height: 44px;
       padding: 0 15px;
-      min-width: 66px;
+      min-width: 140px;
       background-size: 100% 100%;
       font-size: 18px;
       text-align: center;
