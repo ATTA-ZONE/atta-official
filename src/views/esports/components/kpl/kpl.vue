@@ -39,14 +39,14 @@
             <p class="award-left">
               <img class="prizePool" src="/kpl/prizePool.png" alt="">
             </p>
-            <p class="award-right" :class="isEn?'award-right-en':''" v-if="kplinfo[showkplindex]">{{$t('esports_kpl11')}} <span>{{kplinfo[showkplindex].curRewardPool}} BUSD{{$t('esports_kpl11en')}}</span></p>
+            <p class="award-right" :class="isEn?'award-right-en':''">{{$t('esports_kpl11')}} <span>3000 BUSD{{$t('esports_kpl11en')}}</span></p>
           </div>
           <div class="award flex">
             <p class="award-left">
               <img class="battleRewaro" src="/kpl/BATTLEREWARD.png" alt="">
             </p>
-            <p class="award-right award-right-en-ch" v-if="kplinfo[showkplindex] && !isEn">{{$t('esports_kpl12')}} <span>{{kplinfo[showkplindex].totalRewardPool}}U</span> {{$t('esports_kpl13')}} <span>NFT</span>+<span>{{$t('esports_kpl13_jia')}}</span></p>
-            <p class="award-right award-right-en-en" v-if="kplinfo[showkplindex] && isEn"><span>{{$t('esports_kpl13')}}</span></p>
+            <p class="award-right award-right-en-ch" v-if="!isEn">{{$t('esports_kpl12')}} <span>100,000U</span> {{$t('esports_kpl13')}} <span>NFT</span>+<span>{{$t('esports_kpl13_jia')}}</span></p>
+            <p class="award-right award-right-en-en" v-if="isEn"><span>{{$t('esports_kpl13')}}</span></p>
           </div>
         </div>
       </div>
