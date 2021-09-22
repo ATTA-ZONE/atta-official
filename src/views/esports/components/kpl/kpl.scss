@@ -473,7 +473,7 @@ div.kpl-notice-header{
   font-size: 0;
   padding-bottom: 36px;
   .notice-header{
-    width: 968px;
+    width: 1120px;
     justify-content: space-between;
     align-items:center;
     margin-left: auto;
@@ -498,7 +498,7 @@ div.kpl-notice-header{
     }
     p{
       font-weight: 600;
-      font-size: 38px;
+      font-size: 32px;
       line-height: 130%;
     }
   }
@@ -1256,6 +1256,7 @@ div.kpl-notice-header{
       p{
         font-weight: 600;
         font-size: 20px;
+        text-align: center;
       }
     }
     div.kpl-notice-bgi{

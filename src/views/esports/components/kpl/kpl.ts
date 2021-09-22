@@ -59,6 +59,19 @@ export default defineComponent({
         return 'esports_kpl22_jia'
       }
     };
+    const formatDate = (now) => { 
+      now = new Date(now * 1000)
+      var year=now.getFullYear(); 
+      var month=now.getMonth()+1; 
+      var date=now.getDate(); 
+      var hour=now.getHours(); 
+      var minute=now.getMinutes(); 
+      month = month < 10 ? '0'+ month : month;
+      date = date < 10 ? '0'+ date : date;
+      hour = hour < 10 ? '0'+ hour : hour;
+      minute = minute < 10 ? '0'+ minute : minute;
+      return year+"/"+month+"/"+date+" "+hour+":"+minute; 
+    } 
     const scrollviewbtn = () => {
       let homePage:any = document.querySelector(".kpl-notice-header");
       homePage.scrollIntoView(true);
@@ -323,6 +336,7 @@ export default defineComponent({
       closeNet,
       confirmbtn,
       exchangemask,
+      formatDate,
       loading,
       isEn,
       hours,

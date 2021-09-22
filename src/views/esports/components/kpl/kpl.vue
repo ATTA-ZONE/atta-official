@@ -103,7 +103,7 @@
       <div class="notice-header flex">
         <p :class="showkplindex != 0 ? 'up-next up-up' : 'up-next up-up hideimg'" @click="beforeclick(showkplindex)">{{$t('esports_kpl102')}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <p v-if="kplinfo[showkplindex]">{{$t(computekpltimeshowword(kplinfo[showkplindex]))}}</p>
+        <p v-if="kplinfo[showkplindex]">{{$t(computekpltimeshowword(kplinfo[showkplindex]))}} <span v-if="computekpltimeshowword(kplinfo[showkplindex]) == 'esports_kpl22_jia'">{{formatDate(kplinfo[showkplindex].startTime)}}</span></p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
         <p :class="showkplindex != kplinfo.length - 1 ? 'up-next ' : 'up-next hideimg'" @click="nextclick(showkplindex)">{{$t('esports_kpl103')}}</p>
       </div>
