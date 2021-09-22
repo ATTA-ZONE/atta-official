@@ -7,7 +7,7 @@
         <div class="kpl-time">{{$t('esports_kpl1')}}</div>
         <div class="kpl-team" v-if="kplinfo[showkplindex]">{{kplinfo[showkplindex].teamA + ' VS ' + kplinfo[showkplindex].teamB}}</div>
         <div class="kpl-btn flex"> 
-          <span @click="scrollviewbtn()" :class="isEn?'kpl-btn-en':''">{{$t('esports_kpl3')}}</span>
+          <span @click="scrollviewbtn" :class="isEn?'kpl-btn-en':''">{{$t('esports_kpl3')}}</span>
           <span :class="isEn?'kpl-btn-en':''">{{$t('esports_kpl4')}}</span>
         </div>
       </div>
@@ -55,7 +55,7 @@
     <div class="kpl-ranking margin-auto">
       <div class="rank-header flex" :class="isEn?'rank-header-en':''">
         <p>{{$t('esports_kpl14')}}</p>
-        <button @click="getkplph()">{{$t('esports_kpl15')}}</button>
+        <button @click="getkplph">{{$t('esports_kpl15')}}</button>
       </div>
       <div class="rank-list flex" :class="isEn?'rank-list-en':''">
         <div class="ranking" v-for="(item,index) in kplpmfour" :key="index">
@@ -63,14 +63,14 @@
           <img :src="item.imgUrl" alt="">
         </div>
       </div>
-      <button @click="jumppage1()" class="ranking-more" :class="isEn?'ranking-more-en':''">{{$t('esports_kpl15_jia2')}}</button>
+      <button @click="jumppage1" class="ranking-more" :class="isEn?'ranking-more-en':''">{{$t('esports_kpl15_jia2')}}</button>
     </div>
     <!-- 规则 -->
     <div id="kplRules" class="kpl-rules margin-auto" :class="isEn?'kpl-rules-en':''">
       <h5 v-html="$t('esports_kpl16')"></h5>
       <img class="bgi01" src="/kpl/bgi01.png" alt="">
       <p v-html="$t('esports_kpl17')"></p>
-      <button disabled @click="exchangemask()">{{$t('esports_kpl16_jia1')}}</button>
+      <button @click="exchangemask">{{$t('esports_kpl16_jia1')}}</button>
       <div class="rules-img flex">
         <img src="/kpl/rules01.png" alt="">
         <img src="/kpl/rules02.png" alt="">
@@ -82,7 +82,7 @@
       <div class="mask-header margin-auto">
         <p>{{$t('esports_kpl17_jia1')}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <button @click="jumppage1()">{{$t('esports_kpl17_jia2')}}</button>
+        <button @click="jumppage1">{{$t('esports_kpl17_jia2')}}</button>
       </div>
       <!-- <div class="kpl-banner banner-01"></div> -->
       <img class="kpl-banner banner-01" src="/kpl/mask01.png" alt="">
@@ -126,7 +126,7 @@
               <p v-if="kplinfo[showkplindex].attaMatchOptions[0].betRecord.length > 5">{{kplinfo[showkplindex].attaMatchOptions[0].betRecord.length}}</p>
             </div>
           </div>
-          <button disabled class="margin-auto" @click="voteclick(kplinfo[showkplindex].myUnuseTicket,kplinfo[showkplindex].attaMatchOptions[0].id)">{{$t('esports_kpl24')}}</button>
+          <button class="margin-auto" @click="voteclick(kplinfo[showkplindex].myUnuseTicket,kplinfo[showkplindex].attaMatchOptions[0].id)">{{$t('esports_kpl24')}}</button>
         </div>
         <div class="team">
           <div class="team-top flex">
@@ -144,7 +144,7 @@
               <p v-if="kplinfo[showkplindex].attaMatchOptions[1].betRecord.length > 5">{{kplinfo[showkplindex].attaMatchOptions[1].betRecord.length}}</p>
             </div>
           </div>
-          <button disabled class="margin-auto" @click="voteclick(kplinfo[showkplindex].myUnuseTicket,kplinfo[showkplindex].attaMatchOptions[1].id)">{{$t('esports_kpl24')}}</button>
+          <button class="margin-auto" @click="voteclick(kplinfo[showkplindex].myUnuseTicket,kplinfo[showkplindex].attaMatchOptions[1].id)">{{$t('esports_kpl24')}}</button>
         </div>
       </div>
     </div>
@@ -165,7 +165,7 @@
           <p :class="showkplindex != kplinfo.length - 1 ? 'up-next hidepc' : 'up-next hidepc hideimg'" @click="nextclick(showkplindex)">{{$t('esports_kpl103')}}</p>
         </div>
         <div class="notice-right">
-          <button disabled @click="collectcouponsbtn()">{{$t('esports_kpl27')}}</button>
+          <button @click="collectcouponsbtn">{{$t('esports_kpl27')}}</button>
           <button @click="toPay" class="btn-right">{{$t('esports_kpl28')}}</button>
         </div>
       </div>
