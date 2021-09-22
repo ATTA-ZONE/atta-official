@@ -102,7 +102,7 @@ import { defineComponent, ref, computed, onMounted ,nextTick} from "vue";
 import { useI18n } from "vue-i18n";
 import headerCell from "@/components/header/index.vue";
 import footerCell from "@/components/footer/index.vue";
-import { useRouter } from "vue-router";
+import { useRouter ,useRoute} from "vue-router";
 
 export default defineComponent({
   components: { headerCell,footerCell},
@@ -112,12 +112,18 @@ export default defineComponent({
   setup() {
     const { locale } = useI18n();
     const num = ref(1);
-    const router = useRouter();
+    const route:any = useRoute();
+    const isbool = ref(false);
     
     const isEn = computed(() => {
       return locale.value.trim() == "en";
     });
     onMounted(() => {
+        if (window.location.href.indexOf('?scrollview=true') > -1 && !isbool.value) {
+            document.getElementById('contentbox1').scrollIntoView();
+            isbool.value = true;
+        }
+        
     });
     const addnum = () => {
         num.value = num.value + 1;
@@ -127,14 +133,14 @@ export default defineComponent({
             num.value = num.value - 1;
         }
     });
-    nextTick (()=>{
-        router.beforeEach((to,from,next)=>{
-            if (from.href == "/esports/infinity") {
-                document.body.scrollIntoView();
-            }
-            next();
-        })
-    })
+    // nextTick (()=>{
+    //     router.beforeEach((to,from,next)=>{
+    //         if (from.href == "/esports/infinity") {
+    //             document.body.scrollIntoView();
+    //         }
+    //         next();
+    //     })
+    // })
     
     return {
         addnum,

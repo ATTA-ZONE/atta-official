@@ -299,7 +299,7 @@ export default defineComponent({
       window.open("https://www.bazhuayu.io/mobile/tc/specialitem.html")
     }
     const jumppage1 = () => {
-      router.push('/headset');
+      window.open('http://localhost:3000/headset?scrollview=true');
     }
     const formatVideoUrl = (item) => {
       return window.base_url + item;
