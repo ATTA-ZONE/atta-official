@@ -267,7 +267,7 @@ export default defineComponent({
     });
     const ljwatter = () => {
       window.CHAIN.WALLET.enable().then((res) => {
-        if (res.length) {
+        if (res && res.length) {
           address.value = res[0];
           getkpllistdata();
         }else{
