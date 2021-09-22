@@ -12,7 +12,7 @@
                 <p class="titlewords">{{$t('faces_3')}}</p>
                 <p class="tipswords">{{$t('faces_4')}}</p>
             </div>
-            <img src="/imgs/headportrait_imgs2.png" alt="">
+            <img src="/imgs/headportrait_imgs2.jpg" alt="">
             <div class="leftbox leftbox-pc">
                 <p class="titlewords">{{$t('faces_3')}}</p>
                 <p class="tipswords">{{$t('faces_4')}}</p>
