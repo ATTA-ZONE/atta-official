@@ -876,6 +876,20 @@ div.kpl-notice-header{
       }
     }
   }
+  .imgsbox{
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 84px;
+    margin-bottom: 100px;
+    img{
+      margin-bottom: 35px;
+    }
+  }
+  .sustainbox{
+    margin-top: 84px;
+    margin-bottom: 84px;
+    justify-content: center;
+  }
   &.kpl-cooperate-en{
     .cooperate-list{
       .cooperate {
@@ -926,6 +940,7 @@ div.kpl-notice-header{
     display: block;
   }
   .kpl{
+    overflow: hidden;
     margin-top: 0;
     .schedule-title{
       font-size: 20px !important;
@@ -1548,6 +1563,33 @@ div.kpl-notice-header{
         margin-top: 25px;
         margin-bottom: 12px;
         flex-direction: column;
+      }
+      .imgsbox{
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 25px 0;
+        img{
+          margin-bottom: 10px;
+          width: 32%;
+        }
+      }
+      .imgsbox2{
+        img{
+          width: 47%;
+        }
+        img:nth-child(11){
+          display: none;
+        }
+        img:nth-child(12){
+          display: none;
+        }
+      }
+      .sustainbox{
+        margin: 25px 0;
+        justify-content: center;
+        img{
+          width: 15%;
+        }
       }
       .cooperate{
         width: 327px;

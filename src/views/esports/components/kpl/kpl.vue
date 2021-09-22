@@ -334,6 +334,50 @@
         </div>
       </div>
     </div>
+    <!-- 戰隊陣容 -->
+    <div class="kpl-cooperate margin-auto" :class="isEn?'kpl-cooperate-en':''">
+      <div class="kpl-welcome flex">
+        <img class="bgi01" src="/kpl/bgi01.png" alt="">
+        <p>{{$t('esports_kpl105')}}</p>
+        <img class="bgi01" src="/kpl/bgi01.png" alt="">
+      </div>
+      <div class="imgsbox flex">
+        <img v-for="item in kplteamlistimgs" :src="item" :key="item" alt="">
+      </div>
+    </div>
+    <!-- 特邀嘉賓 -->
+    <div class="kpl-cooperate margin-auto" :class="isEn?'kpl-cooperate-en':''">
+      <div class="kpl-welcome flex">
+        <img class="bgi01" src="/kpl/bgi01.png" alt="">
+        <p>{{$t('esports_kpl106')}}</p>
+        <img class="bgi01" src="/kpl/bgi01.png" alt="">
+      </div>
+      <div class="imgsbox imgsbox2 flex">
+          <img v-for="(item,index) in kplteamlistimgs2" :style="index ==  11 || index == 10 ? 'opacity: 0;':'opacity: 1;'" :src="item" :key="item" alt="">
+      </div>
+    </div>
+    <!-- 媒體支持 -->
+    <div class="kpl-cooperate margin-auto" :class="isEn?'kpl-cooperate-en':''">
+      <div class="kpl-welcome flex">
+        <img class="bgi01" src="/kpl/bgi01.png" alt="">
+        <p>{{$t('esports_kpl107')}}</p>
+        <img class="bgi01" src="/kpl/bgi01.png" alt="">
+      </div>
+      <div class="sustainbox flex">
+        <img v-for="item in kplteamlistimgs3" :key="item" :src="item" alt="">
+      </div>
+    </div>
+    <!-- 更多社區支持 -->
+    <div class="kpl-cooperate margin-auto" :class="isEn?'kpl-cooperate-en':''">
+      <div class="kpl-welcome flex">
+        <img class="bgi01" src="/kpl/bgi01.png" alt="">
+        <p>{{$t('esports_kpl108')}}</p>
+        <img class="bgi01" src="/kpl/bgi01.png" alt="">
+      </div>
+      <div class="sustainbox flex">
+        <img v-for="item in kplteamlistimgs4" :key="item" :src="item" alt="">
+      </div>
+    </div>
     <kplRanking :contents="contents" @closeNet="closeNet" @confirmbtn="confirmbtn" v-if="kplRankingshow"></kplRanking>
   </div>
 </template>

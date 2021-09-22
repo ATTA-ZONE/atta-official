@@ -12,16 +12,6 @@ export default defineComponent({
   props: {
     msg: String,
   },
-  data(){
-    return {
-      kplpmfour : [
-        {imgUrl : '/kpl/kpl_img1_top.png',pm : 1},
-        {imgUrl : '/kpl/kpl_img2_top.png',pm : 2},
-        {imgUrl : '/kpl/kpl_img3_top.jpg',pm : 3},
-        {imgUrl : '/kpl/kpl_img4_top.jpg',pm : 4},
-      ]
-    }
-  },
   setup(){
     const loading = ref(false)
     //战队头像
@@ -40,6 +30,59 @@ export default defineComponent({
     const allTime = ref(0);
     const endTimevariable = ref(0);
     const timeStart = ref();//计时器
+    const kplpmfour:any = ref([
+      {imgUrl : '/kpl/kpl_img1_top.png',pm : 1},
+      {imgUrl : '/kpl/kpl_img2_top.png',pm : 2},
+      {imgUrl : '/kpl/kpl_img3_top.jpg',pm : 3},
+      {imgUrl : '/kpl/kpl_img4_top.jpg',pm : 4},
+    ]);
+    const kplteamlistimgs:any = ref([
+      '/kpl/teams_img1.png',
+      '/kpl/teams_img2.png',
+      '/kpl/teams_img3.png',
+      '/kpl/teams_img4.png',
+      '/kpl/teams_img5.png',
+      '/kpl/teams_img6.png',
+      '/kpl/teams_img7.png',
+      '/kpl/teams_img8.png',
+      '/kpl/teams_img9.png',
+      '/kpl/teams_img10.png',
+      '/kpl/teams_img11.png',
+      '/kpl/teams_img12.png',
+      '/kpl/teams_img13.png',
+      '/kpl/teams_img14.png',
+      '/kpl/teams_img15.png',
+      '/kpl/teams_img16.png',
+    ]);
+    const kplteamlistimgs2:any = ref([
+      '/kpl/teams_img17.png',
+      '/kpl/teams_img18.png',
+      '/kpl/teams_img19.png',
+      '/kpl/teams_img20.png',
+      '/kpl/teams_img21.png',
+      '/kpl/teams_img22.png',
+      '/kpl/teams_img23.png',
+      '/kpl/teams_img24.png',
+      '/kpl/teams_img25.png',
+      '/kpl/teams_img26.png',
+      '/kpl/teams_img25.png',
+      '/kpl/teams_img26.png',
+    ]);
+    const kplteamlistimgs3:any = ref([
+      '/kpl/teams_img27.png',
+      '/kpl/teams_img28.png',
+      '/kpl/teams_img29.png',
+      '/kpl/teams_img30.png',
+      '/kpl/teams_img31.png',
+      '/kpl/teams_img32.png',
+      '/kpl/teams_img33.png',
+    ]);
+    const kplteamlistimgs4:any = ref([
+      '/kpl/teams_img34.png',
+      '/kpl/teams_img35.png',
+      '/kpl/teams_img36.png',
+      '/kpl/teams_img37.png'
+    ]);
     // nft奖励部分的数据
     
     const isEn = computed(() => {
@@ -354,7 +397,12 @@ export default defineComponent({
       toPay,
       jumppage1,
       formatVideoUrl,
-      timeDown
+      timeDown,
+      kplpmfour,
+      kplteamlistimgs,
+      kplteamlistimgs2,
+      kplteamlistimgs3,
+      kplteamlistimgs4
     }
   }
 });
