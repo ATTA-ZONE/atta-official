@@ -22,7 +22,6 @@
       width:46px;
       height:46px;
       margin-right: 8px;
-      border-radius: 50%;
     }
     div{
       height: 46px;
@@ -474,7 +473,7 @@ div.kpl-notice-header{
   font-size: 0;
   padding-bottom: 36px;
   .notice-header{
-    width: 968px;
+    width: 1120px;
     justify-content: space-between;
     align-items:center;
     margin-left: auto;
@@ -499,7 +498,7 @@ div.kpl-notice-header{
     }
     p{
       font-weight: 600;
-      font-size: 38px;
+      font-size: 32px;
       line-height: 130%;
     }
   }
@@ -948,7 +947,6 @@ div.kpl-notice-header{
           img{
             width: 38px;
             height: 38px;
-            border-radius: 50%;
           }
           div{
             height: 38px;
@@ -1258,6 +1256,7 @@ div.kpl-notice-header{
       p{
         font-weight: 600;
         font-size: 20px;
+        text-align: center;
       }
     }
     div.kpl-notice-bgi{
@@ -1502,7 +1501,6 @@ div.kpl-notice-header{
             img{
               width: 38px;
               height: 38px;
-              border-radius: 50%;
             }
             div{
               height: 38px;
