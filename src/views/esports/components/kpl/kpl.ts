@@ -299,7 +299,7 @@ export default defineComponent({
       window.open("https://www.bazhuayu.io/mobile/tc/specialitem.html")
     }
     const jumppage1 = () => {
-      window.open('http://localhost:3000/headset?scrollview=true');
+      window.open('https://www.atta.zone/headset?scrollview=true')
     }
     const formatVideoUrl = (item) => {
       return window.base_url + item;
