@@ -38,6 +38,7 @@ export default defineComponent({
     const minutes = ref(0);
     const seconds = ref(0);
     const allTime = ref(0);
+    const endTimevariable = ref(0);
     const timeStart = ref();//计时器
     // nft奖励部分的数据
     
@@ -210,9 +211,14 @@ export default defineComponent({
       timeStart.value = window.setInterval(()=>{
         if (kplinfo.value[showkplindex.value]) {
           let obj = JSON.parse(JSON.stringify(kplinfo.value[showkplindex.value]));
-          timeDown(obj.voteStartTime,obj.voteEndTime);
+          if (endTimevariable.value < obj.curTime && endTimevariable.value != 0) {
+            timeDown(endTimevariable.value,obj.voteEndTime);
+          }else{
+            endTimevariable.value = obj.curTime;
+            timeDown(endTimevariable.value,obj.voteEndTime);
+          }
         }
-      },800);
+      },1000);
     })
     onBeforeUnmount(()=>{
       window.clearInterval(timeStart.value);//关闭计时器
@@ -224,6 +230,7 @@ export default defineComponent({
       hours.value = parseInt(((leftTime / (60 * 60)))+'');
       minutes.value = parseInt(((leftTime / 60) % 60)+'');
       seconds.value = parseInt((leftTime % 60)+'');
+      endTimevariable.value = endTimevariable.value - 1;
       setTime()
     };
     // 倒计时函数
