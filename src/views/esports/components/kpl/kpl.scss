@@ -486,13 +486,15 @@ div.kpl-notice-header{
     .up-next{
       cursor: pointer;
       background-image: url('/kpl/next2.png');
-      height: 44px;
-      line-height: 44px;
+      height: 50px;
+      line-height: 100%;
       padding: 0 15px;
-      min-width: 140px;
+      min-width: 66px;
       background-size: 100% 100%;
       font-size: 18px;
       text-align: center;
+      display: flex;
+      align-items: center;
     }
     .up-up{
       background-image: url('/kpl/up2.png');
