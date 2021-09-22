@@ -197,12 +197,10 @@ export default defineComponent({
       timeStart.value = window.setInterval(()=>{
         if (kplinfo.value[showkplindex.value]) {
           let obj = JSON.parse(JSON.stringify(kplinfo.value[showkplindex.value]));
-          if (endTimevariable.value < obj.curTime && endTimevariable.value != 0) {
+            if (endTimevariable.value == 0) {
+              endTimevariable.value = obj.curTime;
+            }
             timeDown(endTimevariable.value,obj.voteEndTime);
-          }else{
-            endTimevariable.value = obj.curTime;
-            timeDown(endTimevariable.value,obj.voteEndTime);
-          }
         }
       },1000);
     })
@@ -216,7 +214,7 @@ export default defineComponent({
       hours.value = parseInt(((leftTime / (60 * 60)))+'');
       minutes.value = parseInt(((leftTime / 60) % 60)+'');
       seconds.value = parseInt((leftTime % 60)+'');
-      endTimevariable.value = endTimevariable.value - 1;
+      endTimevariable.value = endTimevariable.value + 1;
       setTime()
     };
     // 倒计时函数
