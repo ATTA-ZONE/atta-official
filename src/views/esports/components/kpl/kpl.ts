@@ -156,7 +156,10 @@ export default defineComponent({
             kplRankingshow.value = true;
             contents.value = data;
           }else{
-            alert('當前投票暫未開始');
+            ElMessage.warning({
+              message: t('esports_kpl104'),
+              type: 'warning'
+            });
           }
           
         }else{
@@ -201,7 +204,10 @@ export default defineComponent({
           kplRankingshow.value = true;
           contents.value = data;
         }else{
-          alert(res.message);
+          ElMessage.warning({
+            message: res.message,
+            type: 'warning'
+          });
         }
       }).catch(err=>{
         loading.value = false;

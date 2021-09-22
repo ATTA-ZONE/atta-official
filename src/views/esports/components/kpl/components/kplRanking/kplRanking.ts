@@ -3,6 +3,7 @@ import { defineComponent,onMounted,ref,computed } from "vue";
 import { chainSetting } from "../../../../../../assets/js/chainSetting";
 import { useI18n } from "vue-i18n";
 import axios from "../../../../../../api";
+import { ElMessage } from 'element-plus'
 export default defineComponent({
   name: "kplRanking",
   props: {
@@ -157,7 +158,10 @@ export default defineComponent({
             data.value.ticketAmount = res.data.ticketAmount;//张
           }
         }else if (res.code == 1001) {
-           alert(res.message);
+          ElMessage.warning({
+            message: res.message,
+            type: 'warning'
+          });
         }
       }).catch(err=>{
         loading.value = false;
@@ -178,7 +182,10 @@ export default defineComponent({
           data.value.btn2show = '7';
           data.value.tips = null;
         }else if (res.code == 1001) {
-          alert(res.message);
+          ElMessage.warning({
+            message: res.message,
+            type: 'warning'
+          });
         }
           
       });
