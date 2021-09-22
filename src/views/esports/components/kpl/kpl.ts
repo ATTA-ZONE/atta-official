@@ -4,6 +4,8 @@ import { useI18n } from "vue-i18n";
 import axios from "../../../../api";
 import kplRanking from "./components/kplRanking/kplRanking.vue";
 import { useRouter } from "vue-router";
+import { ElMessage } from 'element-plus'
+
 export default defineComponent({
   components: {kplRanking},
   name: "kpl",
@@ -36,6 +38,7 @@ export default defineComponent({
     const minutes = ref(0);
     const seconds = ref(0);
     const allTime = ref(0);
+    const endTimevariable = ref(0);
     const timeStart = ref();//计时器
     // nft奖励部分的数据
     
@@ -57,7 +60,7 @@ export default defineComponent({
       }
     };
     const scrollviewbtn = () => {
-      let homePage = document.querySelector(".kpl-notice-header");
+      let homePage:any = document.querySelector(".kpl-notice-header");
       homePage.scrollIntoView(true);
     }
     const beforeclick = (index) => {
@@ -67,6 +70,12 @@ export default defineComponent({
     const nextclick = (index) => {
       if (index == kplinfo.value.length - 1) {return;}
       showkplindex.value = index + 1;
+    }
+    const open2 = () => {
+      ElMessage.warning({
+        message: t('notBegin'),
+        type: 'warning'
+      });
     }
     // 点击 查看排行
     const getkplph = () =>{
@@ -116,6 +125,8 @@ export default defineComponent({
     }
     // 点击 投票
     const voteclick = (tpnum,timeid) =>{
+      open2()
+      return false
       if (address.value) {
         if (tpnum > 0) {
           let obj = JSON.parse(JSON.stringify(kplinfo.value[showkplindex.value]))
@@ -149,12 +160,16 @@ export default defineComponent({
     }
     // 领取投票券
     const collectcouponsbtn = () => {
+      open2();
+      return false;
       let data = {titletips : 'esports_kpl86',rankingtypeshow : 3,btn1show : '2',btn2show : '6',address : address.value};
       kplRankingshow.value = true;
       contents.value = data;
     }
     // 点击 兌換面具
     const exchangemask = () => {
+      open2()
+      return false
       let requestUrl = window.base_url + '/attaExchange/queryExchangeInfo?address=' + address.value;
       loading.value = true;
       axios.get(requestUrl).then((res: any) => {
@@ -196,9 +211,12 @@ export default defineComponent({
       timeStart.value = window.setInterval(()=>{
         if (kplinfo.value[showkplindex.value]) {
           let obj = JSON.parse(JSON.stringify(kplinfo.value[showkplindex.value]));
-          timeDown(obj.voteStartTime,obj.voteEndTime);
+            if (endTimevariable.value == 0) {
+              endTimevariable.value = obj.curTime;
+            }
+            timeDown(endTimevariable.value,obj.voteEndTime);
         }
-      },800);
+      },1000);
     })
     onBeforeUnmount(()=>{
       window.clearInterval(timeStart.value);//关闭计时器
@@ -210,6 +228,7 @@ export default defineComponent({
       hours.value = parseInt(((leftTime / (60 * 60)))+'');
       minutes.value = parseInt(((leftTime / 60) % 60)+'');
       seconds.value = parseInt((leftTime % 60)+'');
+      endTimevariable.value = endTimevariable.value + 1;
       setTime()
     };
     // 倒计时函数
