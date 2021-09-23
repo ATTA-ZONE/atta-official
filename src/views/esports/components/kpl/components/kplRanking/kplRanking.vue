@@ -100,6 +100,23 @@
               <button @click="confirmbtn" v-if="data.btn2show == 9" class="btn2">{{$t('esports_kpl77')}}</button> <!-- 确认 -->
             </div>
         </div>
+        <div v-if="data.rankingtypeshow == 5">
+            <div class="morelistdatabox">
+              <div v-for="item in morelistdata" :key="item" class="moreevery flex">
+                <div class="leftbox">
+                  <p class="pmtitle">{{$t(item.pmtitle)}}</p>
+                  <p class="rewardscontent">{{$t(item.rewardscontent)}}</p>
+                  <p class="price">{{$t(item.price)}}</p>
+                </div>
+                <div class="rightbox flex">
+                  <div v-for="i in item.imgs" :key="i" class="imgevery">
+                    <img :src="i.url" alt="">
+                    <p>{{$t(i.title)}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
       </div>
     </div>
   </div>

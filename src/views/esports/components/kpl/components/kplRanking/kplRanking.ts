@@ -20,6 +20,78 @@ export default defineComponent({
     const targetChainId = ref('');
     const data:any = ref(props.contents);
     const numtp = ref(data.value.tpnum);
+    const morelistdata = ref([
+      {
+        pmtitle : 'esports_kpl111',
+        rewardscontent : 'esports_kpl116',
+        price : 'esports_kpl121',
+        imgs : [
+          {title : 'esports_kpl126',url : '/kpl/more_img1.png'},
+          {title : 'esports_kpl127',url : '/kpl/more_img2.png'},
+          {title : 'esports_kpl128',url : '/kpl/more_img3.png'}
+        ]
+      },
+      {
+        pmtitle : 'esports_kpl112',
+        rewardscontent : 'esports_kpl117',
+        price : 'esports_kpl122',
+        imgs : [
+          {title : 'esports_kpl129',url : '/kpl/more_img4.png'}
+        ]
+      },
+      {
+        pmtitle : 'esports_kpl113',
+        rewardscontent : 'esports_kpl118',
+        price : 'esports_kpl123',
+        imgs : [
+          {title : 'esports_kpl130',url : '/kpl/more_img5.png'},
+          {title : 'esports_kpl131',url : '/kpl/more_img6.png'},
+          {title : 'esports_kpl131',url : '/kpl/more_img7.png'},
+          {title : 'esports_kpl131',url : '/kpl/more_img8.png'},
+          {title : 'esports_kpl131',url : '/kpl/more_img9.png'},
+          {title : 'esports_kpl131',url : '/kpl/more_img10.png'}
+        ]
+      },
+      {
+        pmtitle : 'esports_kpl113',
+        rewardscontent : 'esports_kpl118',
+        price : 'esports_kpl123',
+        imgs : [
+          {title : 'esports_kpl132',url : '/kpl/more_img11.png'},
+          {title : 'esports_kpl131',url : '/kpl/more_img12.png'},
+          {title : 'esports_kpl131',url : '/kpl/more_img13.png'},
+          {title : 'esports_kpl131',url : '/kpl/more_img14.png'},
+          {title : 'esports_kpl131',url : '/kpl/more_img15.png'},
+          {title : 'esports_kpl131',url : '/kpl/more_img16.png'}
+        ]
+      },
+      {
+        pmtitle : 'esports_kpl114',
+        rewardscontent : 'esports_kpl119',
+        price : 'esports_kpl124',
+        imgs : [
+          {title : 'esports_kpl133',url : '/kpl/more_img17.png'},
+          {title : 'esports_kpl133',url : '/kpl/more_img18.png'},
+          {title : 'esports_kpl133',url : '/kpl/more_img19.png'},
+          {title : 'esports_kpl133',url : '/kpl/more_img20.png'},
+          {title : 'esports_kpl133',url : '/kpl/more_img21.png'},
+          {title : 'esports_kpl134',url : '/kpl/more_img22.png'}
+        ]
+      },
+      {
+        pmtitle : 'esports_kpl115',
+        rewardscontent : 'esports_kpl120',
+        price : 'esports_kpl125',
+        imgs : [
+          {title : 'esports_kpl134',url : '/kpl/more_img23.png'},
+          {title : 'esports_kpl134',url : '/kpl/more_img24.png'},
+          {title : 'esports_kpl134',url : '/kpl/more_img25.png'},
+          {title : 'esports_kpl134',url : '/kpl/more_img26.png'},
+          {title : 'esports_kpl134',url : '/kpl/more_img27.png'},
+          {title : 'esports_kpl134',url : '/kpl/more_img28.png'}
+        ]
+      },
+    ])
     onMounted(()=>{
       let domText:any = titletipsRef.value;
       console.dir(domText);
@@ -210,7 +282,8 @@ export default defineComponent({
       titletipsRef,
       tipNone,
       isEn,
-      loading
+      loading,
+      morelistdata
       }
   }
 });

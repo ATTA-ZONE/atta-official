@@ -63,7 +63,7 @@
           <img :src="item.imgUrl" alt="">
         </div>
       </div>
-      <button @click="jumppage1" class="ranking-more" :class="isEn?'ranking-more-en':''">{{$t('esports_kpl15_jia2')}}</button>
+      <button @click="morerewards" class="ranking-more" :class="isEn?'ranking-more-en':''">{{$t('esports_kpl15_jia2')}}</button>
     </div>
     <!-- 规则 -->
     <div id="kplRules" class="kpl-rules margin-auto" :class="isEn?'kpl-rules-en':''">

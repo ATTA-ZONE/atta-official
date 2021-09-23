@@ -221,47 +221,51 @@ export default defineComponent({
     const collectcouponsbtn = () => {
       open2();
       return false;
-      let data = {titletips : 'esports_kpl86',rankingtypeshow : 3,btn1show : '2',btn2show : '6',address : address.value};
-      kplRankingshow.value = true;
-      contents.value = data;
+      if (address.value){
+        let data = {titletips : 'esports_kpl86',rankingtypeshow : 3,btn1show : '2',btn2show : '6',address : address.value};
+        kplRankingshow.value = true;
+        contents.value = data;
+      }else{
+        ljwatter();
+      }
     }
     // 点击 兌換面具
     const exchangemask = () => {
       open2()
       return false
-      let requestUrl = window.base_url + '/attaExchange/queryExchangeInfo?address=' + address.value;
-      loading.value = true;
-      axios.get(requestUrl).then((res: any) => {
-        loading.value = false;
-        if (res.code == 0) {
-          let data = {
-            list:[],
-            rankingtypeshow : 2,
-            content : 'esports_kpl78',
-            btn1show : '1',
-            btn2show : '3',
-            // tips : 'esports_kpl79',
-            address : address.value
-          };
-          data.list = res.data;
-          kplRankingshow.value = true;
-          contents.value = data;
-        }else{
-          ElMessage.warning({
-            message: res.message,
-            type: 'warning'
-          });
-        }
-      }).catch(err=>{
-        loading.value = false;
-      });
+      if (address.value){
+        let requestUrl = window.base_url + '/attaExchange/queryExchangeInfo?address=' + address.value;
+        loading.value = true;
+        axios.get(requestUrl).then((res: any) => {
+          loading.value = false;
+          if (res.code == 0) {
+            let data = {
+              list:[],
+              rankingtypeshow : 2,
+              content : 'esports_kpl78',
+              btn1show : '1',
+              btn2show : '3',
+              // tips : 'esports_kpl79',
+              address : address.value
+            };
+            data.list = res.data;
+            kplRankingshow.value = true;
+            contents.value = data;
+          }else{
+            ElMessage.warning({
+              message: res.message,
+              type: 'warning'
+            });
+          }
+        }).catch(err=>{
+          loading.value = false;
+        });
+      }else{
+        ljwatter();
+      }
     }
     onMounted(()=>{
-      if (window.CHAIN.WALLET) {
-        ljwatter();
-      }else{
-        getkpllistdata();
-      }
+      getkpllistdata();
       if(window.location.hash){
         setTimeout(()=>{
           if(document.getElementById("kplRules")){
@@ -328,14 +332,18 @@ export default defineComponent({
       return num(hours.value)
     });
     const ljwatter = () => {
-      window.CHAIN.WALLET.enable().then((res) => {
-        if (res && res.length) {
-          address.value = res[0];
-          getkpllistdata();
-        }else{
-          getkpllistdata();
-        }
-      });
+      if (window.CHAIN.WALLET) {
+        window.CHAIN.WALLET.enable().then((res) => {
+          if (res && res.length) {
+            address.value = res[0];
+            getkpllistdata();
+          }else{
+            ElMessage.error(t('esports_kpl109'));
+          }
+        });
+      }else{
+        ElMessage.error(t('esports_kpl109'));
+      }
     }
     const getkpllistdata = () => {
       loading.value = true;
@@ -366,6 +374,15 @@ export default defineComponent({
     const formatVideoUrl = (item) => {
       return window.base_url + item;
     };
+    const morerewards = () => {
+      let data = {
+        titletips : 'esports_kpl110',
+        rankingtypeshow : 5,
+        btn1show : '999'
+      };
+      kplRankingshow.value = true;
+      contents.value = data;
+    }
     return{
       kplinfo,
       kpllist,
@@ -398,6 +415,7 @@ export default defineComponent({
       jumppage1,
       formatVideoUrl,
       timeDown,
+      morerewards,
       kplpmfour,
       kplteamlistimgs,
       kplteamlistimgs2,
