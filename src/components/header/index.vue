@@ -4,7 +4,7 @@
       <div class="mask-wrap">
         <router-link to="/">{{ $t("home") }}</router-link>
         <router-link to="/esports">{{ $t("matchName") }}</router-link>
-        <router-link to="/headportrait">{{ $t("headportrait") }}</router-link>
+        <router-link to="/headset">{{ $t("headportrait") }}</router-link>
         <router-link to="/charity">{{ $t("ATTA Charity") }}</router-link>
         <router-link to="/libraries">{{ $t("NFTlibrary") }}</router-link>
         <router-link to="/assets">{{ $t("Asset Management") }}</router-link>
