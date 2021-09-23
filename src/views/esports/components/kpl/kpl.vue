@@ -96,14 +96,19 @@
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
         <p class="schedule-time">{{$t('esports_kpl19')}}</p>
       </div>
-      <div class="schedule-expect">{{$t('esports_kpl21')}}</div>
+      <div class="schedule-expect">
+        <p class="schedule-expect-time">09-25</p>
+        <img class="schedule-expect-img" src="/kpl/sport1.png" />
+        <p  class="schedule-expect-time">09-26</p>
+        <img  class="schedule-expect-img" src="/kpl/sport2.png" />
+      </div>
     </div>
     <!-- 预告 -->
     <div class="kpl-notice kpl-notice-header margin-auto">
       <div class="notice-header flex">
         <p :class="showkplindex != 0 ? 'up-next up-up' : 'up-next up-up hideimg'" @click="beforeclick(showkplindex)">{{$t('esports_kpl102')}}</p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
-        <p v-if="kplinfo[showkplindex]">{{$t(computekpltimeshowword(kplinfo[showkplindex]))}} <span v-if="computekpltimeshowword(kplinfo[showkplindex]) == 'esports_kpl22_jia'">{{formatDate(kplinfo[showkplindex].startTime)}}</span></p>
+        <p v-if="kplinfo[showkplindex]">{{$t(computekpltimeshowword(kplinfo[showkplindex]))}} <span v-if="computekpltimeshowword(kplinfo[showkplindex]) == 'esports_kpl22_jia'">{{isEn?'@':''}} {{formatDate(kplinfo[showkplindex].startTime)}}</span></p>
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
         <p :class="showkplindex != kplinfo.length - 1 ? 'up-next ' : 'up-next hideimg'" @click="nextclick(showkplindex)">{{$t('esports_kpl103')}}</p>
       </div>
