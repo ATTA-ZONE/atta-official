@@ -448,11 +448,18 @@
     margin-left: auto;
     margin-right: auto;
     width: 1005px;
-    height:625px;
     background: url('/kpl/expect.png') center no-repeat;
-    background-size: cover;
-    font-size: 48px;
-    line-height: 625px;
+    background-size: 100% 100%;
+    font-size: 38px;
+    padding:60px 0;
+    box-sizing: border-box;
+    &-time {
+      margin-bottom: 20px;
+    }
+    &-img {
+      width:80%;
+      margin-bottom: 70px;
+    }
   }
 }
 div.kpl-notice-bgi{
@@ -1251,10 +1258,17 @@ div.kpl-notice-header{
       .schedule-expect{
         margin-top: 40px;
         width: 328px;
-        height:204px;
-        line-height: 204px;
-        font-size: 20px;
-        background-size: 100%;
+        font-size: 16px;
+        box-sizing: border-box;
+        padding: 20px 0;
+        &-time {
+          margin: 0;
+        }
+        &-img {
+          width:80%;
+          margin: 10px 0 20px;
+          height: auto;
+        }
       }
     }
     div.kpl-notice-header{

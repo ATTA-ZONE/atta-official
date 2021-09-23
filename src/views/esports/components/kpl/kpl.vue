@@ -96,7 +96,12 @@
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
         <p class="schedule-time">{{$t('esports_kpl19')}}</p>
       </div>
-      <div class="schedule-expect">{{$t('esports_kpl21')}}</div>
+      <div class="schedule-expect">
+        <p class="schedule-expect-time">09-25</p>
+        <img class="schedule-expect-img" src="/kpl/sport1.png" />
+        <p  class="schedule-expect-time">09-26</p>
+        <img  class="schedule-expect-img" src="/kpl/sport2.png" />
+      </div>
     </div>
     <!-- 预告 -->
     <div class="kpl-notice kpl-notice-header margin-auto">
