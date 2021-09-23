@@ -480,7 +480,7 @@ div.kpl-notice-header{
   font-size: 0;
   padding-bottom: 36px;
   .notice-header{
-    width: 950px;
+    width: 1130px;
     justify-content: space-between;
     align-items:center;
     margin-left: auto;
@@ -494,14 +494,12 @@ div.kpl-notice-header{
       cursor: pointer;
       background-image: url('/kpl/next2.png');
       height: 50px;
-      line-height: 100%;
+      line-height: 40px;
       padding: 0 15px;
       min-width: 66px;
       background-size: 100% 100%;
       font-size: 18px;
       text-align: center;
-      display: flex;
-      align-items: center;
     }
     .up-up{
       background-image: url('/kpl/up2.png');
