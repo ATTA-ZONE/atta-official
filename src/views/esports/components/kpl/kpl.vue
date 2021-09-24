@@ -177,7 +177,8 @@
     </div>
     <!-- 奖池 -->
     <div class="kpl-award kpl-title margin-auto">
-      <h5 v-if="kplinfo[showkplindex]">{{$t('esports_kpl29')}} {{kplinfo[showkplindex].curRewardPool}} BUSD</h5>
+      <h5 v-if="isEn && kplinfo[showkplindex]" style="text-align:center;">{{$t('esports_kpl29')}}<br/> {{kplinfo[showkplindex].curRewardPool}} BUSD</h5>
+      <h5 v-if="!isEn && kplinfo[showkplindex]" style="text-align:center;">{{$t('esports_kpl29')}}{{kplinfo[showkplindex].curRewardPool}} BUSD</h5>
       <div class="kpl-award-team flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length">
         <div class="award-team">
           <h5>{{kplinfo[showkplindex].teamA}}</h5>

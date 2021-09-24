@@ -90,7 +90,7 @@
             </div>
         </div>
         <div class="contentbox7">
-            <h1>Q&A</h1>
+            <h1>FAQ</h1>
             <p class="wordsbox" v-html="$t('faces_27')"></p>
         </div>
     </div>
