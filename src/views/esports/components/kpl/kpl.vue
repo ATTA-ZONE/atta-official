@@ -179,7 +179,8 @@
     </div>
     <!-- 奖池 -->
     <div class="kpl-award kpl-title margin-auto">
-      <h5 v-if="kplinfo[showkplindex]">{{$t('esports_kpl29')}} {{kplinfo[showkplindex].curRewardPool}} BUSD</h5>
+      <h5 v-if="isEn && kplinfo[showkplindex]" style="text-align:center;">{{$t('esports_kpl29')}}<br/> {{kplinfo[showkplindex].curRewardPool}} BUSD</h5>
+      <h5 v-if="!isEn && kplinfo[showkplindex]" style="text-align:center;">{{$t('esports_kpl29')}}{{kplinfo[showkplindex].curRewardPool}} BUSD</h5>
       <div class="kpl-award-team flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length">
         <div class="award-team">
           <h5>{{kplinfo[showkplindex].teamA}}</h5>
@@ -200,28 +201,28 @@
         <div class="voting-ranking-list">
           <img class="winimg" src="/kpl/winimg.png" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].result == 1" alt="">
           <div class="ranking-bumber flex" v-for="item in kplinfo[showkplindex].attaMatchOptions[0].betTop3" :key="item">
-            <img :src="'/kpl/No'+item.pm+'.png'" alt="">
+            <img src="/kpl/attaLOGO.png" alt="">
             <img :src="item.imgUrl ? formatVideoUrl(item.imgUrl) :'/kpl/header.png'" alt="">
             <div>
               <p>{{item.tickets}}{{$t('esports_kpl32')}}</p>
             </div>
           </div>
           <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[0].betTop3.length < 1">
-            <img :src="'/kpl/No1.png'" alt="">
+            <img :src="'/kpl/attaLOGO.png'" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
               <p>{{$t('esports_kpl32_jia')}}</p>
             </div>
           </div>
           <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[0].betTop3.length < 2">
-            <img :src="'/kpl/No2.png'" alt="">
+            <img :src="'/kpl/attaLOGO.png'" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
               <p>{{$t('esports_kpl32_jia')}}</p>
             </div>
           </div>
           <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[0].betTop3.length < 3">
-            <img :src="'/kpl/No3.png'" alt="">
+            <img :src="'/kpl/attaLOGO.png'" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
               <p>{{$t('esports_kpl32_jia')}}</p>
@@ -231,28 +232,28 @@
         <div class="voting-ranking-list">
           <img class="winimg" src="/kpl/winimg.png" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].result == 2" alt="">
           <div class="ranking-bumber flex" v-for="item in kplinfo[showkplindex].attaMatchOptions[1].betTop3" :key="item">
-            <img :src="'/kpl/No'+item.pm+'.png'" alt="">
+            <img src="/kpl/attaLOGO.png" alt="">
             <img :src="item.imgUrl ? formatVideoUrl(item.imgUrl) :'/kpl/header.png'" alt="">
             <div>
               <p>{{item.tickets}}{{$t('esports_kpl32')}}</p>
             </div>
           </div>
           <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[1].betTop3.length < 1">
-            <img :src="'/kpl/No1.png'" alt="">
+            <img :src="'/kpl/attaLOGO.png'" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
               <p>{{$t('esports_kpl32_jia')}}</p>
             </div>
           </div>
           <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[1].betTop3.length < 2">
-            <img :src="'/kpl/No2.png'" alt="">
+            <img :src="'/kpl/attaLOGO.png'" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
               <p>{{$t('esports_kpl32_jia')}}</p>
             </div>
           </div>
           <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[1].betTop3.length < 3">
-            <img :src="'/kpl/No3.png'" alt="">
+            <img :src="'/kpl/attaLOGO.png'" alt="">
             <img src="/kpl/header.png" alt="">
             <div>
               <p>{{$t('esports_kpl32_jia')}}</p>
