@@ -197,7 +197,7 @@ export default defineComponent({
             contents.value = data;
           }else if (obj.curTime > obj.voteEndTime) {
             ElMessage.warning({
-              message: t('esports_kpl135'),
+              message: t('voteOver'),
               type: 'warning'
             });
           }else{
