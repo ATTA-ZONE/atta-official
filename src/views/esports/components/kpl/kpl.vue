@@ -279,7 +279,9 @@
         <div class="voting">
           <p class="voting-name">{{$t('esports_kpl43')}}({{kplinfo[showkplindex].teamA}})</p>
           <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[0].myVoteTicket">
-            <img src="/kpl/No1.png" alt="">
+            <span class="pmbgimgbox" :style="kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket.pm > 99 ? 'min-width : 60px' : ''">
+              <span class="pmbgimg">{{kplinfo[showkplindex].attaMatchOptions[0].myVoteTicket.pm}}</span>
+            </span>
             <img :src="kplinfo[showkplindex].attaMatchOptions[0].myVoteTicket.imgUrl ? formatVideoUrl(kplinfo[showkplindex].attaMatchOptions[0].myVoteTicket.imgUrl) :'/kpl/header.png'" alt="">
             <div>
               <p>{{kplinfo[showkplindex].attaMatchOptions[0].myVoteTicket.tickets}}{{$t('esports_kpl32')}}</p>
@@ -291,7 +293,9 @@
         <div class="voting" >
           <p class="voting-name">{{$t('esports_kpl43')}}({{kplinfo[showkplindex].teamB}})</p>
           <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket">
-            <img src="/kpl/No1.png" alt="">
+            <span class="pmbgimgbox" :style="kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket.pm > 99 ? 'min-width : 60px' : ''">
+              <span class="pmbgimg">{{kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket.pm}}</span>
+            </span>
             <img :src="kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket.imgUrl ? formatVideoUrl(kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket.imgUrl) :'/kpl/header.png'" alt="">
             <div>
               <p>{{kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket.tickets}}{{$t('esports_kpl32')}}</p>
