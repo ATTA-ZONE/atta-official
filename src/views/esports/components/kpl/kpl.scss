@@ -544,6 +544,12 @@ div.kpl-notice-header{
     .team{
       width: 544px;
       font-size: 0;
+      position: relative;
+      .winimg{
+        position: absolute;
+        top: 0;
+        left: 65px;
+      }
       .team-top{
         justify-content: space-between;
         height:343px;
@@ -619,6 +625,11 @@ div.kpl-notice-header{
         display: block;
         cursor: pointer;
         margin-top: 40px;
+      }
+    }
+    .team:nth-child(2){
+      .winimg{
+        left: -70px;
       }
     }
   }
@@ -711,6 +722,12 @@ div.kpl-notice-header{
       padding-top: 45px;
       padding-left: 18px;
       padding-right: 20px;
+      position: relative;
+      .winimg{
+        position: absolute;
+        top: -45px;
+        left: -85px;
+      }
     }
   }
 }
@@ -810,10 +827,16 @@ div.kpl-notice-header{
       padding-left: 66px;
       padding-top: 42px;
       padding-right: 45px;
+      position: relative;
       >p{
         font-size: 18px;
         line-height: 100%;
         color: #fff;
+      }
+      .winimg{
+        position: absolute;
+        top: -55px;
+        left: -70px;
       }
       .voting-name{
         margin-bottom: 21px;
@@ -1320,6 +1343,12 @@ div.kpl-notice-header{
         width: 100%;
         .team{
           width: 143px;
+          .winimg{
+            width: 50%;
+            position: absolute;
+            top: -20px;
+            left: -5px;
+          }
           .team-top{
             height:91px;
             img{
@@ -1371,6 +1400,11 @@ div.kpl-notice-header{
             font-size: 12px;
             padding:0;
             margin-top: 14px !important;
+          }
+        }
+        .team:nth-child(2){
+          .winimg{
+            left: -20px;
           }
         }
       }
@@ -1471,6 +1505,11 @@ div.kpl-notice-header{
         .voting-ranking-list{
           width: 327px;
           height:212px;
+          .winimg{
+            width: 35%;
+            top: -20px;
+            left: -25px;
+          }
         }
       }
     }
@@ -1542,6 +1581,11 @@ div.kpl-notice-header{
           padding-top: 25px;
           padding-left: 14px;
           padding-right: 14px;
+          .winimg{
+            width: 35%;
+            top: -30px;
+            left: -25px;
+          }
           .voting-name{
             font-size: 18px;
             margin-bottom: 14px;
