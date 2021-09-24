@@ -1552,21 +1552,10 @@ div.kpl-notice-header{
               height: 38px;
             }
             .pmbgimgbox{
-              width: auto;
               min-width: 38px;
-              background-image: url('/kpl/Nobg.png');
-              text-align: center;
               line-height: 38px;
-              margin-right: 8px;
-              padding: 0 5px;
-              box-sizing: border-box;
-              background-size: 100% 100%;
               .pmbgimg{
-                font-weight: 800;
                 font-size: 20px;
-                background-image:-webkit-linear-gradient(top,#DC78FF,#0044EA);
-                -webkit-background-clip:text;
-                -webkit-text-fill-color:transparent;
               }
             }
             div{
