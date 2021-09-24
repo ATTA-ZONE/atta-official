@@ -5,7 +5,7 @@ import axios from "../../../../api";
 import kplRanking from "./components/kplRanking/kplRanking.vue";
 import { useRouter } from "vue-router";
 import { ElMessage } from 'element-plus'
-import { getCookie } from "../../../../utils";
+import { getCookie, setCookie } from "../../../../utils";
 
 export default defineComponent({
   components: {kplRanking},
@@ -331,14 +331,11 @@ export default defineComponent({
     });
     const ljwatter = () => {
       if (window.CHAIN.WALLET) {
-        window.CHAIN.WALLET.enable().then((res) => {
-          if (res && res.length) {
-            address.value = res[0];
-            getkpllistdata();
-          }else{
-            ElMessage.error(t('esports_kpl109'));
-          }
-        });
+        window.CHAIN.WALLET.connect("MetaMask").then(res=>{
+          address.value = res[0]
+          getkpllistdata();
+          setCookie('currentAddress', res[0])
+        })
       }else{
         ElMessage.error(t('esports_kpl109'));
       }
