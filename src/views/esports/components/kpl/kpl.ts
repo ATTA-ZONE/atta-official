@@ -182,8 +182,6 @@ export default defineComponent({
     }
     // 点击 投票
     const voteclick = (tpnum,timeid) =>{
-      open2()
-      return false
       if (address.value) {
         if (tpnum > 0) {
           let obj = JSON.parse(JSON.stringify(kplinfo.value[showkplindex.value]))
@@ -220,8 +218,6 @@ export default defineComponent({
     }
     // 领取投票券
     const collectcouponsbtn = () => {
-      open2();
-      return false;
       if (address.value){
         let data = {titletips : 'esports_kpl86',rankingtypeshow : 3,btn1show : '2',btn2show : '6',address : address.value};
         kplRankingshow.value = true;
@@ -232,8 +228,6 @@ export default defineComponent({
     }
     // 点击 兌換面具
     const exchangemask = () => {
-      open2()
-      return false
       if (address.value){
         let requestUrl = window.base_url + '/attaExchange/queryExchangeInfo?address=' + address.value;
         loading.value = true;
