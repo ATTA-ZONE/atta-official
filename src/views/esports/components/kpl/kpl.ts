@@ -197,6 +197,11 @@ export default defineComponent({
             };
             kplRankingshow.value = true;
             contents.value = data;
+          }else if (obj.curTime > obj.voteEndTime) {
+            ElMessage.warning({
+              message: t('esports_kpl135'),
+              type: 'warning'
+            });
           }else{
             ElMessage.warning({
               message: t('esports_kpl104'),
