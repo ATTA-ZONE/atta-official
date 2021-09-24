@@ -363,7 +363,7 @@
         <img class="bgi01" src="/kpl/bgi01.png" alt="">
       </div>
       <div class="imgsbox imgsbox2 flex">
-          <img v-for="(item,index) in kplteamlistimgs2" :style="index ==  11 || index == 10 ? 'opacity: 0;':'opacity: 1;'" :src="item" :key="item" alt="">
+          <img v-for="(item,index) in kplteamlistimgs2" :style="index ==  11 || index == 10 ? 'opacity: 0;':'opacity: 1;'" :src="item" :key="item" />
       </div>
     </div>
     <!-- 媒體支持 -->
