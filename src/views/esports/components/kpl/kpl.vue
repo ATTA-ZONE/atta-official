@@ -158,9 +158,10 @@
     <!-- 倒计时 -->
     <div class="kpl-countdown margin-auto flex" :class="isEn?'kpl-countdown-en':''" v-if="kplbsstatus == 2">
       <p class="countdown-name">{{$t('esports_kpl67')}}</p>
-      <p class="countdown-date hanson" v-if="kplinfo[showkplindex].curTime < kplinfo[showkplindex].voteStartTime">TBD</p>
-      <p class="countdown-date hanson" v-if="kplinfo[showkplindex].curTime > kplinfo[showkplindex].voteStartTime && kplinfo[showkplindex].curTime < kplinfo[showkplindex].voteEndTime">{{hour}}h:{{minute}}m:{{second}}s</p>
-      <p class="countdown-date hanson" v-if="kplinfo[showkplindex].curTime > kplinfo[showkplindex].voteStartTime && kplinfo[showkplindex].curTime > kplinfo[showkplindex].voteEndTime">{{$t('voteOver')}}</p>
+      <p class="countdown-date hanson" v-if="!kplinfo[showkplindex].voteStartTime && !kplinfo[showkplindex].voteEndTime">TBD</p>
+      <p class="countdown-date hanson" v-if="kplinfo[showkplindex].curTime < kplinfo[showkplindex].voteStartTime ">{{hour}}h:{{minute}}m:{{second}}s</p>
+      <p class="countdown-date hanson" v-if="kplinfo[showkplindex].curTime > kplinfo[showkplindex].voteStartTime && kplinfo[showkplindex].curTime < kplinfo[showkplindex].voteEndTime">{{$t('voteOver2')}}</p>
+      <p class="countdown-date hanson" v-if="kplinfo[showkplindex].curTime > kplinfo[showkplindex].voteEndTime">{{$t('voteOver')}}</p>
     </div>
     <div class="kpl-notice margin-auto" :class="isEn?'kpl-notice-en':''">
       <div class="notice-btn margin-auto flex">

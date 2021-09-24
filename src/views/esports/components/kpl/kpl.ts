@@ -280,7 +280,7 @@ export default defineComponent({
             if (endTimevariable.value == 0) {
               endTimevariable.value = obj.curTime;
             }
-            timeDown(endTimevariable.value,obj.voteEndTime);
+            timeDown(endTimevariable.value,obj.voteStartTime);
         }
       },1000);
     })
