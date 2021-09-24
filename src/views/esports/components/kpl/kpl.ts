@@ -5,6 +5,7 @@ import axios from "../../../../api";
 import kplRanking from "./components/kplRanking/kplRanking.vue";
 import { useRouter } from "vue-router";
 import { ElMessage } from 'element-plus'
+import { getCookie } from "../../../../utils";
 
 export default defineComponent({
   components: {kplRanking},
@@ -20,7 +21,7 @@ export default defineComponent({
     const kpllist = ref([]);
     const showkplindex = ref(0);
     const kplbsstatus = ref(0); //0 进行中 1 已结束 2 未开始
-    const address = ref(''); //0 进行中 1 已结束 2 未开始
+    const address = ref(getCookie('currentAddress') ? getCookie('currentAddress') : ''); //0 进行中 1 已结束 2 未开始
     const kplRankingshow = ref(false); //0 进行中 1 已结束 2 未开始
     const contents = ref({}); //0 进行中 1 已结束 2 未开始
     const router = useRouter();
