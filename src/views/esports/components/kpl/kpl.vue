@@ -116,6 +116,7 @@
     <div class="kpl-notice kpl-notice-bgi  margin-auto" :class="isEn?'kpl-notice-en':''">
       <div class="notice-team margin-auto flex">
         <div class="team">
+          <img class="winimg" src="/kpl/winimg.png" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].result == 1" alt="">
           <div class="team-top flex">
             <div class="team-header flex" v-if="kplinfo[showkplindex]">  
               <img v-for="item in kplinfo[showkplindex].teamAMemberUrl" :src="formatVideoUrl(item)" :key="item ? formatVideoUrl(item) : '/kpl/header.png'" alt="">
@@ -134,6 +135,7 @@
           <button class="margin-auto" @click="voteclick(kplinfo[showkplindex].myUnuseTicket,kplinfo[showkplindex].attaMatchOptions[0].id)">{{$t('esports_kpl24')}}</button>
         </div>
         <div class="team">
+          <img class="winimg" src="/kpl/winimg.png" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].result == 2" alt="">
           <div class="team-top flex">
             <div class="team-name team-b">
               <!-- 放置战队logo -->
@@ -196,6 +198,7 @@
       <h5>{{$t('esports_kpl35')}}</h5>
       <div class="voting-ranking flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length">
         <div class="voting-ranking-list">
+          <img class="winimg" src="/kpl/winimg.png" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].result == 1" alt="">
           <div class="ranking-bumber flex" v-for="item in kplinfo[showkplindex].attaMatchOptions[0].betTop3" :key="item">
             <img :src="'/kpl/No'+item.pm+'.png'" alt="">
             <img :src="item.imgUrl ? formatVideoUrl(item.imgUrl) :'/kpl/header.png'" alt="">
@@ -226,6 +229,7 @@
           </div>
         </div>
         <div class="voting-ranking-list">
+          <img class="winimg" src="/kpl/winimg.png" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].result == 2" alt="">
           <div class="ranking-bumber flex" v-for="item in kplinfo[showkplindex].attaMatchOptions[1].betTop3" :key="item">
             <img :src="'/kpl/No'+item.pm+'.png'" alt="">
             <img :src="item.imgUrl ? formatVideoUrl(item.imgUrl) :'/kpl/header.png'" alt="">
@@ -277,6 +281,7 @@
       <h5>{{$t('esports_kpl43')}}</h5>
       <div class="my-voting flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length">
         <div class="voting">
+          <img class="winimg" src="/kpl/winimg.png" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].result == 1" alt="">
           <p class="voting-name">{{$t('esports_kpl43')}}({{kplinfo[showkplindex].teamA}})</p>
           <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[0].myVoteTicket">
             <span class="pmbgimgbox" :style="kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket.pm > 99 ? 'min-width : 60px' : ''">
@@ -291,6 +296,7 @@
           <p class="voting-remark">{{$t('esports_kpl45')}}</p>
         </div>
         <div class="voting" >
+          <img class="winimg" src="/kpl/winimg.png" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].result == 2" alt="">
           <p class="voting-name">{{$t('esports_kpl43')}}({{kplinfo[showkplindex].teamB}})</p>
           <div class="ranking-bumber flex" v-if="kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket">
             <span class="pmbgimgbox" :style="kplinfo[showkplindex].attaMatchOptions[1].myVoteTicket.pm > 99 ? 'min-width : 60px' : ''">
