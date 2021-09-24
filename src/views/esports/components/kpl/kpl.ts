@@ -21,7 +21,7 @@ export default defineComponent({
     const kpllist = ref([]);
     const showkplindex = ref(0);
     const kplbsstatus = ref(0); //0 进行中 1 已结束 2 未开始
-    const address = ref(getCookie('currentAddress') ? getCookie('currentAddress') : ''); //0 进行中 1 已结束 2 未开始
+    const address = ref(getCookie('currentAddress') == 'false' ? '' : getCookie('currentAddress') ); //0 进行中 1 已结束 2 未开始
     const kplRankingshow = ref(false); //0 进行中 1 已结束 2 未开始
     const contents = ref({}); //0 进行中 1 已结束 2 未开始
     const router = useRouter();
@@ -137,9 +137,7 @@ export default defineComponent({
     // 点击 查看排行
     const getkplph = () =>{
       axios
-      .post(window.base_url + "/v2/match/bet_sort", {
-        pageSize : 10,
-      })
+      .post(window.base_url + "/v2/match/bet_sort?pageSize=10")
       .then((res: any) => {
         if (res.code == 0) {
           let data = {list : [],rankingtypeshow : 1,titletips : 'esports_kpl51'};
