@@ -23,7 +23,7 @@
           <div class="claim-title" v-if="props.accountAddress">
             {{ $t(claimBtn) }}
           </div>
-          <span class="submit-btn" @click="getNftBsc">{{ $t(submitBtn) }}</span>
+          <button class="submit-btn" disabled @click="getNftBsc">{{ $t('endActvity') }}</button>
         </div>
       </div>
     </div>
