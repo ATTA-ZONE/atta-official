@@ -66,9 +66,8 @@ export default defineComponent({
       '/kpl/teams_img24.png',
       '/kpl/teams_img25.png',
       '/kpl/teams_img26.png',
-      '/kpl/teams_img25.png',
-      '/kpl/teams_img26.png',
       '/kpl/playgon.png',
+      '/kpl/teams_img25.png',
     ]);
     const kplteamlistimgs3:any = ref([
       '/kpl/teams_img27.png',
