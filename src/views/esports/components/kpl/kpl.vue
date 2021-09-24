@@ -183,11 +183,13 @@
       <h5 v-if="!isEn && kplinfo[showkplindex]" style="text-align:center;">{{$t('esports_kpl29')}}{{kplinfo[showkplindex].curRewardPool}} BUSD</h5>
       <div class="kpl-award-team flex" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].attaMatchOptions.length">
         <div class="award-team">
+          <img class="winimg" src="/kpl/winimg.png" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].result == 1" alt="">
           <h5>{{kplinfo[showkplindex].teamA}}</h5>
           <p>{{$t('esports_kpl31')}}{{kplinfo[showkplindex].attaMatchOptions[0].totalTickets}}{{$t('esports_kpl32')}}</p>
           <p>{{$t('esports_kpl33')}}{{kplinfo[showkplindex].attaMatchOptions[0].rewardForSingle}} BUSD</p>
         </div>
         <div class="award-team">
+          <img class="winimg" src="/kpl/winimg.png" v-if="kplinfo[showkplindex] && kplinfo[showkplindex].result == 2" alt="">
           <h5>{{kplinfo[showkplindex].teamB}}</h5>
           <p>{{$t('esports_kpl31')}}{{kplinfo[showkplindex].attaMatchOptions[1].totalTickets}}{{$t('esports_kpl32')}}</p>
           <p>{{$t('esports_kpl33')}}{{kplinfo[showkplindex].attaMatchOptions[1].rewardForSingle}} BUSD</p>

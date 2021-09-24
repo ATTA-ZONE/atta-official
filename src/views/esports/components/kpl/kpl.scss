@@ -692,6 +692,12 @@ div.kpl-notice-header{
       width: 465px;
       height:316px;
       padding-left: 80px;
+      position: relative;
+      .winimg{
+        position: absolute;
+        top: -47px;
+        left: -65px;
+      }
       h5{
         margin-top: 40px;
         font-weight: 500;
@@ -1480,6 +1486,12 @@ div.kpl-notice-header{
           height:223px;
           margin-bottom: 30px;
           padding-left: 0;
+          .winimg{
+            width: 35%;
+            position: absolute;
+            top: -20px;
+            left: -25px;
+          }
           h5{
             margin-left: 0;
             margin-top: 30px;
