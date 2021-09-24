@@ -8,7 +8,7 @@
         <div class="kpl-team" v-if="kplinfo[showkplindex]">{{kplinfo[showkplindex].teamA + ' VS ' + kplinfo[showkplindex].teamB}}</div>
         <div class="kpl-btn flex"> 
           <span @click="scrollviewbtn" :class="isEn?'kpl-btn-en':''">{{$t('esports_kpl3')}}</span>
-          <span :class="isEn?'kpl-btn-en':''">{{$t('esports_kpl4')}}</span>
+          <a href="https://live.bilibili.com/23397839" target="_blank" :class="isEn?'kpl-btn-en':''">{{$t('esports_kpl4')}}</a>
         </div>
       </div>
     </div>
