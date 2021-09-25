@@ -11,11 +11,13 @@
         <div class="wallet-container">
           <div class="wallet-status">
             <div @click="getAddress" style="font-size:16px">
+              <img class="connect-status-img" :src="walletStatus" />
               {{
                 accountAddress ? $t("Wallet connected") : $t("Connect Wallet")
               }}
             </div>
-            <div class="wallet-status-address">{{ accountAddress }}</div>
+            <div class="wallet-status-address"><span class="address-start">{{accountAddress}}</span>
+                <span class="address-end">{{accountAddress.slice(-4)}}</span></div>
             <div v-if="accountAddress">
               {{ $t("Current network") }} {{ chainId == 1 || chainId == 4? "ETH" : "BSC" }}
               <span
@@ -25,7 +27,6 @@
               >
             </div>
           </div>
-          <img class="connect-status-img" :src="walletStatus" />
         </div>
         <div @click="emitShowModal" class="top-btn">
           {{ $t("Claim Your NFT") }}
