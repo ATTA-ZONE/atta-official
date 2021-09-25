@@ -17,37 +17,26 @@
           </p>
         </div>
       </div>
-      <div class="atta-game">
-        <div class="game-title">
-          <h5 class="game-pc">
-            {{ $t("home_match_words1") }}{{ $t("home_match_words1_bz") }}
-          </h5>
-          <h5 class="game-mb">
-            <font style="color: #a9deee; line-height: 36px">{{
-              $t("home_match_words1")
-            }}</font
-            ><br />{{ $t("home_match_words1_bz") }}
-          </h5>
-          <p>{{ $t("home_match_words2") }}</p>
+      <div class="home-page-four flex">
+        <img class="blur-guang" src="/imgs/blur.png" />
+        <div class="image-left">
+          <img src="/imgs/nftheroimg.png" />
         </div>
-        <div class="game-list flex">
-          <div>
-            <img src="/imgs/game1.png" alt="" />
-            <p>{{ $t("home_match_words3") }}</p>
+        <div class="txt-right">
+          <div class="txt-middle">
+            <span :class="isEn ? 'hanson' : ''">
+              <font style="color: #a8deee">{{ $t("InfinityHeadsetGenesis") }} -</font>
+              <br />
+              {{ $t("maskseries") }}
+            </span>
+            <p :class="['fz-fm-pf', isEn ? 'niunito' : '']">
+              {{ $t("maskseriesinfo") }}
+            </p>
+            <a href="https://www.bazhuayu.io/" target="_blank">{{ $t("toBuyMask") }}</a>
           </div>
-          <div>
-            <img src="/imgs/game2.png" alt="" />
-            <p>{{ $t("home_match_words4") }}</p>
-          </div>
-          <div>
-            <img src="/imgs/game3.png" alt="" />
-            <p>{{ $t("home_match_words5") }}</p>
-          </div>
-        </div>
-        <div @click="showHeadModal" class="receive-btn">
-          {{ $t("Claim Your NFT") }}
         </div>
       </div>
+      
       <div class="home-page-three" id="Upcoming">
         <div class="onehanglogo">
           <img class="logo3" src="/imgs/bsc.png" />
@@ -114,23 +103,35 @@
           <img class="logo6" src="/imgs/my-nft.png" />
         </div>
       </div>
-      <div class="home-page-four flex">
-        <img class="blur-guang" src="/imgs/blur.png" />
-        <div class="image-left">
-          <img src="/imgs/nftheroimg.png" />
+      <div class="atta-game">
+        <div class="game-title">
+          <h5 class="game-pc">
+            {{ $t("home_match_words1") }}{{ $t("home_match_words1_bz") }}
+          </h5>
+          <h5 class="game-mb">
+            <font style="color: #a9deee; line-height: 36px">{{
+              $t("home_match_words1")
+            }}</font
+            ><br />{{ $t("home_match_words1_bz") }}
+          </h5>
+          <p>{{ $t("home_match_words2") }}</p>
         </div>
-        <div class="txt-right">
-          <div class="txt-middle">
-            <span :class="isEn ? 'hanson' : ''">
-              <font style="color: #a8deee">{{ $t("InfinityHeadsetGenesis") }} -</font>
-              <br />
-              {{ $t("maskseries") }}
-            </span>
-            <p :class="['fz-fm-pf', isEn ? 'niunito' : '']">
-              {{ $t("maskseriesinfo") }}
-            </p>
-            <a>{{ $t("esports_kpl21") }}</a>
+        <div class="game-list flex">
+          <div>
+            <img src="/imgs/game1.png" alt="" />
+            <p>{{ $t("home_match_words3") }}</p>
           </div>
+          <div>
+            <img src="/imgs/game2.png" alt="" />
+            <p>{{ $t("home_match_words4") }}</p>
+          </div>
+          <div>
+            <img src="/imgs/game3.png" alt="" />
+            <p>{{ $t("home_match_words5") }}</p>
+          </div>
+        </div>
+        <div @click="showHeadModal" class="receive-btn">
+          {{ $t("Claim Your NFT") }}
         </div>
       </div>
       <home-five />
