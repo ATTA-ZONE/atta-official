@@ -558,6 +558,7 @@ width: 193px;
     position: relative;
     z-index: 10;
     padding-bottom: 35px;
+    margin-bottom: 60px;
     .game-title{
       .game-mb{
         display: none;
@@ -627,6 +628,7 @@ width: 193px;
   .home-page{
     div.atta-game{
       padding-top: 27px;
+      margin-bottom: 0 !important;
       .game-title{
         .game-mb{
           display: block;
