@@ -117,33 +117,19 @@
       <div class="home-page-four flex">
         <img class="blur-guang" src="/imgs/blur.png" />
         <div class="image-left">
-          <div>
-            <img
-              :class="{ 'image-bottom': transitionImage }"
-              src="/imgs/swiper03.png"
-            />
-            <img
-              :class="{ 'image-middle': transitionImage }"
-              src="/imgs/swiper02.png"
-            />
-            <img
-              :class="{ 'image-top': transitionImage }"
-              src="/imgs/swiper01.png"
-            />
-          </div>
-          <img src="/imgs/binance.png" />
+          <img src="/imgs/nftheroimg.png" />
         </div>
         <div class="txt-right">
           <div class="txt-middle">
             <span :class="isEn ? 'hanson' : ''">
-              <font style="color: #a8deee">{{ $t("Upcoming") }} -</font>
+              <font style="color: #a8deee">{{ $t("InfinityHeadsetGenesis") }} -</font>
               <br />
-              {{ $t("O2 Music NFT") }}
+              {{ $t("maskseries") }}
             </span>
             <p :class="['fz-fm-pf', isEn ? 'niunito' : '']">
-              {{ $t("musicInfo") }}
+              {{ $t("maskseriesinfo") }}
             </p>
-            <a @click="jumppage()">{{ $t("Coming soon") }}</a>
+            <a>{{ $t("esports_kpl21") }}</a>
           </div>
         </div>
       </div>
