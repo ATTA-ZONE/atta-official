@@ -4,8 +4,8 @@
     <img @click="closeNet" class="close-btn" src="/imgs/close.png">
     <div class="modal-content" v-if="!data.mediaType">
       <div class="modal-left">
-        <video v-if="!data.mediaType" autoplay loop muted controls :src="data.url" height="100%"></video>
-        <img v-else :src="data.url" alt="">
+        <video v-if="!data.type" autoplay loop muted controls :src="data.url" height="100%"></video>
+        <img v-else :src="data.url" />
       </div>
       <div class="modal-right" v-if="data.content">
         <div class="modal-right-title">{{$t(data.title)}}</div>
@@ -62,7 +62,7 @@ export default defineComponent({
       return locale.value.trim() == "en";
     });
     const data:any = props.content
-
+    console.log(data);
     const closeNet = () => {
       context.emit('closeNet')
     }
