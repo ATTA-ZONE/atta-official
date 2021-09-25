@@ -46,7 +46,7 @@
                 </div>
               </div>
           </div>
-          <p class="timeword">{{$t('esports_kpl52')}}</p>
+          <p class="timeword" style="opacity: 0;">{{$t('esports_kpl52')}}</p>
         </div>
         <div v-if="data.rankingtypeshow == 2" class="tipsrankingbox">
             <p class="contentwords" v-if="data.content" v-html="$t(data.content)"></p>
