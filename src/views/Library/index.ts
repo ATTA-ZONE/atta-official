@@ -9,6 +9,30 @@ export default defineComponent({
       return {
         libraryList:[
           {
+            img01:'/library/library_mask1.png',//左边大图 面具
+            title:'library_mask_1',//标题
+            text01:'library_mask_2',//右侧内容第一段
+            remark:'',//右侧备注
+            logo:'',//右侧logo
+            detailName:'br',
+            imgsList:[
+              {
+                url:'/library/library_mask2.png',
+                mp4Url:'/library/library_mask2.png',
+                text:'library_mask_3',
+                content:'library_mask_5',
+                type: 'img'
+              },
+              {
+                url:'/library/library_mask3.png',
+                mp4Url:'/library/library_mask3.png',
+                text:'library_mask_4',
+                content:'library_mask_6',
+                type:'img'
+              }
+            ]
+          },
+          {
             img01:'/library/libraryTitle/library01.png',//左边大图
             title:'library_copywriting_2',//标题
             text01:'library_copywriting_8',//右侧内容第一段
@@ -434,7 +458,7 @@ export default defineComponent({
         url:info.mp4Url,//大图
         title:info.text,//标题
         content:info.content?info.content:'',//详情文案
-        type:'video',
+        type:info.type,
         APtotal:info.noAPlist?info.noAPlist[0]:'',//总版数
         APminted:info.noAPlist?info.noAPlist[1]:'',//已经铸造数量
         APBSC:info.noAPlist?info.noAPlist[2]:'',
