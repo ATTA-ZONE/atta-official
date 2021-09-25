@@ -546,6 +546,12 @@ div.kpl-notice-header{
       width: 544px;
       font-size: 0;
       position: relative;
+      
+      &:nth-child(2){
+        .ranking-user{
+          padding-left:60px !important;
+        }
+      }
       .winimg{
         position: absolute;
         top: 0;
@@ -1350,6 +1356,12 @@ div.kpl-notice-header{
         width: 100%;
         .team{
           width: 143px;
+      
+          &:nth-child(2){
+            .ranking-user{
+              padding-left:15px !important;
+            }
+          }
           .winimg{
             width: 50%;
             position: absolute;
@@ -1387,6 +1399,7 @@ div.kpl-notice-header{
               img{
                 width: 17px;
                 height:17px;
+                margin-right: 5px;
               }
               p{
                 min-width:17px;
