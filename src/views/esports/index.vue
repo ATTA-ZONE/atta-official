@@ -64,8 +64,9 @@ export default defineComponent({
     a{
       height:25px;
       span{
-        font-size: 14px;
-        line-height: 25px;
+        font-size: 12px;
+        text-align: center;
+        line-height: 16px;
       }
     }
   }
