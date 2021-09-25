@@ -180,8 +180,6 @@ export default defineComponent({
     }
     // 点击 投票
     const voteclick = (tpnum,timeid) =>{
-      open2();
-      return false;
       if (address.value) {
         if (tpnum > 0) {
           let obj = JSON.parse(JSON.stringify(kplinfo.value[showkplindex.value]))
