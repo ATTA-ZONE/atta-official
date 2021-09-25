@@ -6,6 +6,9 @@
 // }
 
 @media screen and (max-width: 992px) {
+  .top-btn {
+    padding: 10px 40px;
+  }
   .wallet-container {
     display: flex !important;
   }
@@ -224,23 +227,13 @@
       width: 37px;
     }
 
-    .wallet-status-address {
-      width: 180px;
-    }
-
     .connect-status-img {
       width: 10px;
       height: 10px;
-      margin: 0 0 0 13px;
     }
 
     .top-btn {
       margin: 8% 0;
     }
-  }
-}
-@media only screen and (max-width: 992px){
-  .top-btn {
-    padding: 10px 40px;
   }
 }
