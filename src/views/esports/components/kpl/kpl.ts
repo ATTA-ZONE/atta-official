@@ -128,6 +128,12 @@ export default defineComponent({
       if (index == kplinfo.value.length - 1) {return;}
       showkplindex.value = index + 1;
     }
+    const open1 = () => {
+      ElMessage.warning({
+        message: t('notBegin2'),
+        type: 'warning'
+      });
+    }
     const open2 = () => {
       ElMessage.warning({
         message: t('notBegin'),
@@ -231,6 +237,8 @@ export default defineComponent({
     }
     // 点击 兌換面具
     const exchangemask = () => {
+      open1();
+      return false;
       if (address.value){
         let requestUrl = window.base_url + '/attaExchange/queryExchangeInfo?address=' + address.value;
         loading.value = true;

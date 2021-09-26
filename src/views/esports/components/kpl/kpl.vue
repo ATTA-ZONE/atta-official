@@ -70,7 +70,7 @@
       <h5 v-html="$t('esports_kpl16')"></h5>
       <img class="bgi01" src="/kpl/bgi01.png" alt="">
       <p v-html="$t('esports_kpl17')"></p>
-      <button @click="exchangemask">{{$t('esports_kpl16_jia1')}}</button>
+      <button @click="exchangemask" style="background: #f1f1f1;color: #000;">{{$t('esports_kpl16_jia1')}}</button>
       <div class="rules-img flex">
         <img src="/kpl/rules01.png" alt="">
         <img src="/kpl/rules02.png" alt="">
