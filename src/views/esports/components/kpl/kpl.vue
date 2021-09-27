@@ -97,10 +97,12 @@
         <p class="schedule-time">{{$t('esports_kpl19')}}</p>
       </div>
       <div class="schedule-expect">
-        <p class="schedule-expect-time">09-25</p>
+        <!-- <p class="schedule-expect-time">09-25</p>
         <img class="schedule-expect-img" src="/kpl/sport1.png" />
         <p  class="schedule-expect-time">09-26</p>
-        <img  class="schedule-expect-img" src="/kpl/sport2.png" />
+        <img  class="schedule-expect-img" src="/kpl/sport2.png" /> -->
+        <p  class="schedule-expect-time">09-27</p>
+        <img  class="schedule-expect-img" src="/kpl/sport3.png" />
       </div>
     </div>
     <!-- 预告 -->
