@@ -23,13 +23,13 @@ export default defineComponent({
                 content:'library_mask_5',
                 type: 'img'
               },
-              {
-                url:'/library/library_mask3.png',
-                mp4Url:'/library/library_mask3.png',
-                text:'library_mask_4',
-                content:'library_mask_6',
-                type:'img'
-              }
+              // {
+              //   url:'/library/library_mask3.png',
+              //   mp4Url:'/library/library_mask3.png',
+              //   text:'library_mask_4',
+              //   content:'library_mask_6',
+              //   type:'img'
+              // }
             ]
           },
           {
