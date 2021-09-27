@@ -83,12 +83,12 @@ export default defineComponent({
         rewardscontent : 'esports_kpl120',
         price : 'esports_kpl125',
         imgs : [
-          {title : 'esports_kpl134',url : '/kpl/more_img23.png'},
-          {title : 'esports_kpl134',url : '/kpl/more_img24.png'},
-          {title : 'esports_kpl134',url : '/kpl/more_img25.png'},
-          {title : 'esports_kpl134',url : '/kpl/more_img26.png'},
-          {title : 'esports_kpl134',url : '/kpl/more_img27.png'},
-          {title : 'esports_kpl134',url : '/kpl/more_img28.png'}
+          {title : 'esports_kpl134_new1',url : '/kpl/more_img23.png'},
+          {title : 'esports_kpl134_new1',url : '/kpl/more_img24.png'},
+          {title : 'esports_kpl134_new1',url : '/kpl/more_img25.png'},
+          {title : 'esports_kpl134_new2',url : '/kpl/more_img26.png'},
+          {title : 'esports_kpl134_new1',url : '/kpl/more_img27.png'},
+          {title : 'esports_kpl134_new3',url : '/kpl/more_img28.png'}
         ]
       },
     ])
