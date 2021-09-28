@@ -101,8 +101,8 @@
         <img class="schedule-expect-img" src="/kpl/sport1.png" />
         <p  class="schedule-expect-time">09-26</p>
         <img  class="schedule-expect-img" src="/kpl/sport2.png" /> -->
-        <p  class="schedule-expect-time">09-27</p>
-        <img  class="schedule-expect-img" src="/kpl/sport3.png" />
+        <p  class="schedule-expect-time">09-28</p>
+        <img  class="schedule-expect-img" src="/kpl/sport4.png" />
       </div>
     </div>
     <!-- 预告 -->
