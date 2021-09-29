@@ -466,8 +466,8 @@
     margin-top: 94px;
     margin-left: auto;
     margin-right: auto;
-    width: 1005px;
-    background: url('/kpl/expect.png') center no-repeat;
+    width: 1050px;
+    // background: url('/kpl/expect.png') center no-repeat;
     background-size: 100% 100%;
     font-size: 38px;
     padding:60px 0;
@@ -476,7 +476,7 @@
       margin-bottom: 20px;
     }
     &-img {
-      width:80%;
+      width:100%;
       margin-bottom: 70px;
     }
   }
@@ -1006,7 +1006,7 @@ div.kpl-notice-header{
       font-size: 20px !important;
     }
     .margin-auto{
-      padding: 0 27px;
+      // padding: 0 27px;
       margin-top: 40px !important;
     }
     .kpl-title{
@@ -1310,7 +1310,7 @@ div.kpl-notice-header{
       }
       .schedule-expect{
         margin-top: 40px;
-        width: 328px;
+        width: 100%;
         font-size: 16px;
         box-sizing: border-box;
         padding: 20px 0;
@@ -1318,7 +1318,7 @@ div.kpl-notice-header{
           margin: 0;
         }
         &-img {
-          width:80%;
+          width:100%;
           margin: 10px 0 20px;
           height: auto;
         }
