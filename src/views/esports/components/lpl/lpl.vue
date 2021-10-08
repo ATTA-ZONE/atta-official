@@ -1,4 +1,5 @@
 <template>
+  <div class="match-banner"></div>
   <div class="match-container" v-loading="loading">
     <!-- <img class="top-banner" src="/match/starkBanner.png" /> -->
     <!-- <div v-if="false" class="match-header flex">
