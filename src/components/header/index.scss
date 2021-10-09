@@ -8,6 +8,7 @@
 @media screen and (max-width: 992px) {
   .top-btn {
     padding: 10px 40px;
+    width: max-content;
   }
   .wallet-container {
     display: flex !important;
@@ -112,11 +113,11 @@
 
 .top-btn {
   display: inline-block;
-  padding: 10px 50px;
+  padding: 0 50px;
   cursor: pointer;
   font-size: 14px;
   margin: 0 20px;
-  color: rgba(168, 222, 238, 1);
+  color: rgba(168, 222, 238, 1) !important;
   border: 1px solid rgba(168, 222, 238, 1);
 }
 

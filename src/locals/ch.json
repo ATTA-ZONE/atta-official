@@ -1,4 +1,5 @@
 {
+  "daoVote": "治理投票",
   "Upcoming": "熱門作品",
   "Current network": "當前主網：",
   "switch network": "切換網絡",
@@ -521,7 +522,7 @@
   "esports_kpl98" : "由",
   "esports_kpl99" : "提供的",
   "esports_kpl100" : "無限制電競大會",
-  "esports_kpl101" : "LPL夏季季後賽",
+  "esports_kpl101" : "LOL社區友誼賽",
   "esports_kpl102" : "上一場",
   "esports_kpl103" : "下一場",
   "esports_kpl104" : "當前投票暫未開始",
