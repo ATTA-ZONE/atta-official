@@ -28,9 +28,9 @@
             </div>
           </div>
         </div>
-        <div @click="emitShowModal" class="top-btn">
-          {{ $t("Claim Your NFT") }}
-        </div>
+        <a href="https://snapshot.org/#/attadao.eth" target="_blank" class="top-btn">
+          {{ $t("daoVote") }}
+        </a>
         <p class="switchlanguagebox">
           <span @click="switchLang('en')">EN</span>
           <span style="margin: 0 16px">|</span>
@@ -68,9 +68,9 @@
         src="/imgs/menu.png"
       />
       <div :class="['header-links flex', isEn ? 'hanson' : '']" v-if="!isMobile">
-        <span @click="emitShowModal" class="top-btn">{{
-          $t("Claim Your NFT")
-        }}</span>
+        <a href="https://snapshot.org/#/attadao.eth" target="_blank" class="top-btn">{{
+          $t("daoVote")
+        }}</a>
         <div class="wallet-container">
           <div class="wallet-pos"></div>
           <div class="wallet-status">
