@@ -61,7 +61,7 @@
           </div>
           <img style="width: 218px" src="/imgs/ld_web.png" />
           <img src="/imgs/pageTwoRightBtm.png" class="start" />
-          <img style="width: 134px" src="/imgs/zon_web.png" />
+          <img style="width: 150px" src="/imgs/zon_web.png" />
           <img style="width: 186px" src="/imgs/youbi_web.png" />
         </div>
         <div class="twohanglogo">
@@ -95,7 +95,7 @@
         <div class="threehanglogo">
           <img style="width: 90px" src="/imgs/ld.png" />
           <img style="width: 90px" src="/imgs/youbi.png" />
-          <img style="width: 90px" src="/imgs/zon.png" />
+          <img style="width: 70px" src="/imgs/zon.png" />
         </div>
         <div class="threehanglogo">
           <img style="width: 90px" src="/imgs/shima.png" />

@@ -28,9 +28,9 @@
             </div>
           </div>
         </div>
-        <a href="https://snapshot.org/#/ihgdao.eth" target="_blank" class="top-btn">
+        <!-- <a href="https://snapshot.org/#/ihgdao.eth" target="_blank" class="top-btn">
           {{ $t("daoVote") }}
-        </a>
+        </a> -->
         <p class="switchlanguagebox">
           <span @click="switchLang('en')">EN</span>
           <span style="margin: 0 16px">|</span>
@@ -68,9 +68,9 @@
         src="/imgs/menu.png"
       />
       <div :class="['header-links flex', isEn ? 'hanson' : '']" v-if="!isMobile">
-        <a href="https://snapshot.org/#/ihgdao.eth" target="_blank" class="top-btn">{{
+        <!-- <a href="https://snapshot.org/#/ihgdao.eth" target="_blank" class="top-btn">{{
           $t("daoVote")
-        }}</a>
+        }}</a> -->
         <div class="wallet-container">
           <div class="wallet-pos"></div>
           <div class="wallet-status">
